@@ -5,6 +5,7 @@ export default function Index() {
   return (
     <div style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.4" }}>
       <h1>Dummy Remix App for testing things out</h1>
+      <p>Checking for updates in deployment</p>
       <DemoDs/>
       <ul>
         <li>
