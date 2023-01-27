@@ -1,12 +1,14 @@
 {
   "private": true,
   "name": "ageorgedev",
+  "version": "0.0.0",
   "description": "",
   "license": "",
   "scripts": {
     "build": "remix build",
     "dev": "remix dev",
-    "start": "cross-env NODE_ENV=production netlify dev"
+    "start": "cross-env NODE_ENV=production netlify dev",
+    "should-ignore-build": "cd ../../; ! nx affected:apps --base=$CACHED_COMMIT_REF --head=$COMMIT_REF | grep -qce \"\\- ageorgedev\\b\""
   },
   "sideEffects": false
 }

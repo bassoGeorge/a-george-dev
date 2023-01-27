@@ -1,6 +1,7 @@
 [build]
   command = "remix build"
   publish = "public"
+  ignore = "yarn run should-ignore-build"
 
 [dev]
   command = "remix watch"
