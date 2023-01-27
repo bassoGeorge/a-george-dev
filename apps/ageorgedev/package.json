@@ -1,0 +1,12 @@
+{
+  "private": true,
+  "name": "ageorgedev",
+  "description": "",
+  "license": "",
+  "scripts": {
+    "build": "remix build",
+    "dev": "remix dev",
+    "start": "echo \"Pending to implement this\""
+  },
+  "sideEffects": false
+}
