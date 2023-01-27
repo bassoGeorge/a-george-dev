@@ -42,3 +42,5 @@ Thumbs.db
 apps/**/build
 apps/**/.cache
   
+# Local Netlify folder
+.netlify

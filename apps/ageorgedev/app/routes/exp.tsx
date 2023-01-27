@@ -9,8 +9,16 @@ export function loader(args: LoaderArgs) {
         type: 'Witcher'
       },
       {
-        name: 'Zoltan Chevay',
+        name: 'Zoltan Chivay',
         type: 'Dwarf'
+      },
+      {
+        name: 'Vesemir',
+        type: 'Witcher'
+      },
+      {
+        name: 'Triss Merigold',
+        type: 'Sorceress'
       }
     ]
   })

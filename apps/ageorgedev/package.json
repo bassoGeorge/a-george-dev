@@ -6,7 +6,7 @@
   "scripts": {
     "build": "remix build",
     "dev": "remix dev",
-    "start": "echo \"Pending to implement this\""
+    "start": "cross-env NODE_ENV=production netlify dev"
   },
   "sideEffects": false
 }
