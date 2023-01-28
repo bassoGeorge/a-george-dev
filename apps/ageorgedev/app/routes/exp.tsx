@@ -1,38 +1,26 @@
-import {json, LoaderArgs} from "@remix-run/node";
-import {useLoaderData} from "@remix-run/react";
+import { json, LoaderArgs } from '@remix-run/node';
+import { useLoaderData } from '@remix-run/react';
+import { getAllCharactersFromDb } from '../models/characters.server';
 
-export function loader(args: LoaderArgs) {
+export async function loader(args: LoaderArgs) {
   return json({
-    data: [
-      {
-        name: 'Geralt of Rivia',
-        type: 'Witcher'
-      },
-      {
-        name: 'Zoltan Chivay',
-        type: 'Dwarf'
-      },
-      {
-        name: 'Vesemir',
-        type: 'Witcher'
-      },
-      {
-        name: 'Triss Merigold',
-        type: 'Sorceress'
-      }
-    ]
-  })
+    data: await getAllCharactersFromDb(),
+  });
 }
 
 export default function Exp() {
-  const { data } = useLoaderData<typeof loader>()
+  const { data } = useLoaderData<typeof loader>();
 
-  return <>
-    <h3>Experimental page with loader info</h3>
-    <ul>
-    { data.map(character => (
-        <li key={character.name}>{character.name} - {character.type}</li>
-    ))}
-    </ul>
-  </>
+  return (
+    <>
+      <h3>Experimental page with loader info</h3>
+      <ul>
+        {data.map((character) => (
+          <li key={character.name}>
+            {character.name} - {character.type}
+          </li>
+        ))}
+      </ul>
+    </>
+  );
 }
