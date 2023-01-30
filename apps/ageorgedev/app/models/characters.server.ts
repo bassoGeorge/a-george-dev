@@ -1,19 +1,23 @@
-import { ListTablesCommand, ScanCommand } from "@aws-sdk/client-dynamodb";
-import { ddbClient } from "./dynamoDbClient";
+import { GetItemCommand, ListTablesCommand } from '@aws-sdk/client-dynamodb';
+import { ddbClient } from './dynamoDbClient.server';
 
-type Character = { name: string, type: string }
+type Character = { name: string; type: string };
 
-export async function getAllCharactersFromDb() {
-  console.log(">>>>>>> trying out : ");
-  const data = await ddbClient.send(new ScanCommand({
-    TableName: 'Characters',
-    ProjectionExpression: '#n, #t',
-    ExpressionAttributeNames: {'#n': 'name', '#t': 'type'}
-  }));
-  return data.Items?.map(item => ({
-    name: item.name.S,
-    type: item.type.S
-  })) ?? [];
+export async function getAllCharactersFromDb(): Promise<Character[]> {
+  const data = await ddbClient.send(
+    new GetItemCommand({
+      TableName: 'Experiment',
+      Key: {
+        pk: { S: '001' },
+      },
+    })
+  );
+  return (
+    data.Item?.Characters.L?.map((char) => ({
+      name: char?.M?.Name.S ?? '',
+      type: char?.M?.Type.S ?? '',
+    })) ?? []
+  );
 }
 
 export async function listAllTablesFromDb() {
