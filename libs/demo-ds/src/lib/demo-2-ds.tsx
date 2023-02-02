@@ -1,4 +1,4 @@
-export function Demo2Ds(props: {}) {
+export function Demo2Ds() {
   return (
     <div>
       <div>Unformatted</div>
