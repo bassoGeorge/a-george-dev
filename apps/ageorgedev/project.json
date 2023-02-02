@@ -3,5 +3,14 @@
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "apps/ageorgedev",
   "projectType": "application",
-  "tags": []
+  "tags": [],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/ageorgedev/**/*.{ts,tsx,js,jsx}"]
+      }
+    }
+  }
 }

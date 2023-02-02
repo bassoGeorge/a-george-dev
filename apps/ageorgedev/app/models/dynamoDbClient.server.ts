@@ -1,4 +1,5 @@
-import { DynamoDBClient, DynamoDBClientConfig } from '@aws-sdk/client-dynamodb';
+import type { DynamoDBClientConfig } from '@aws-sdk/client-dynamodb';
+import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
 
 let params: DynamoDBClientConfig =
   process.env.NODE_ENV !== 'production' &&
