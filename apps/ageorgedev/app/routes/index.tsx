@@ -1,18 +1,16 @@
-import {Link} from "@remix-run/react";
-import { DemoDs } from "@ageorgedev/demo-ds";
+import { Link } from '@remix-run/react';
+import { DemoDs } from '@ageorgedev/demo-ds';
 
 export default function Index() {
   return (
-    <div style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.4" }}>
+    <div style={{ fontFamily: 'system-ui, sans-serif', lineHeight: '1.4' }}>
       <h1>Dummy Remix App for testing things out</h1>
       <p>Checking for updates in deployment</p>
       <p>Another set of checks for deployment</p>
-      <DemoDs/>
+      <DemoDs />
       <ul>
         <li>
-          <Link to={'/exp'}>
-            Testing Link
-          </Link>
+          <Link to={'/exp'}>Testing Link</Link>
         </li>
         <li>
           <a
