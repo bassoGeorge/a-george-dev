@@ -11,6 +11,14 @@
       "options": {
         "lintFilePatterns": ["apps/ageorgedev/**/*.{ts,tsx,js,jsx}"]
       }
+    },
+    "test": {
+      "executor": "@nrwl/vite:test",
+      "outputs": ["coverage/apps/ageorgedev"],
+      "options": {
+        "passWithNoTests": true,
+        "reportsDirectory": "../../coverage/apps/ageorgedev"
+      }
     }
   }
 }
