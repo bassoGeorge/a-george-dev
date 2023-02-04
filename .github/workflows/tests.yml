@@ -13,6 +13,7 @@ jobs:
         with:
           fetch-depth: 0
       - name: ⎔ Fetch the main for diff
+        if: ${{ github.base_ref }}
         run: git branch --track ${{ github.base_ref }} origin/${{ github.base_ref }}
       - name: ⎔ Derive appropriate SHAs for base and head for `nx affected` commands
         id: setSHAs
@@ -29,6 +30,7 @@ jobs:
         with:
           fetch-depth: 0
       - name: ⎔ Fetch the main for diff
+        if: ${{ github.base_ref }}
         run: git branch --track ${{ github.base_ref }} origin/${{ github.base_ref }}
       - name: ⎔ Use Node.js
         uses: actions/setup-node@v3
