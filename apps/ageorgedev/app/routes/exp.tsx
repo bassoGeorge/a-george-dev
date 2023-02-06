@@ -6,6 +6,7 @@ import { getAllCharactersFromDb } from '../models/characters.server';
 export async function loader(args: LoaderArgs) {
   return json({
     data: await getAllCharactersFromDb(),
+    dummy: 'Just dummy updates v2',
   });
 }
 

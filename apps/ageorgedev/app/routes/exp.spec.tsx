@@ -16,6 +16,14 @@ vi.mock('../models/characters.server', () => ({
 describe('Exp route loader', () => {
   it('works as expected', async () => {
     const result = await loader({} as LoaderArgs).then((res) => res.json());
-    expect(result).toEqual({ data: [{ name: 'Test', type: 'Test Char' }] });
+    expect(result).toEqual({
+      data: [
+        {
+          name: 'Test',
+          type: 'Test Char',
+        },
+      ],
+      dummy: 'Just dummy updates v2',
+    });
   });
 });
