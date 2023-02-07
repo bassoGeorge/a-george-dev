@@ -1,0 +1,25 @@
+name: Post Deploy
+on:
+  workflow_call:
+    inputs:
+      deploy-url:
+        required: true
+        type: string
+
+jobs:
+  E2E:
+    runs-on: ubuntu-latest
+    steps:
+      - name: ⬇️ Check out repository code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: ⎔ Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+          cache: 'yarn'
+      - name: 📥 Install dependencies
+        run: yarn install --frozen-lockfile
+      - name: ⚡ Run cypress against deployed application
+        run: yarn nx e2e ageorgedev-e2e --baseUrl=${{ inputs.deploy-url }}
