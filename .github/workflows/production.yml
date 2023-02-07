@@ -28,20 +28,14 @@ jobs:
         id: deployInfo
         working-directory: apps/ageorgedev
         run: |
-          echo "PREVIEW_URL=$(cat deploy-output.txt | grep -Eo '(http|https)://[a-zA-Z0-9./?=_-]*(--)[a-zA-Z0-9./?=_-]*')" >> $GITHUB_OUTPUT
-          echo "PROD_URL=$(cat deploy-output.txt | grep -Eo '(http|https)://[a-zA-Z0-9./?=_-]*' | grep -Eov 'netlify.com' | grep -Eov '(--)')" >> $GITHUB_OUTPUT
           echo "LOGS_URL=$(cat deploy-output.txt | grep -Eo '(http|https)://app.netlify.com/[a-zA-Z0-9./?=_-]*')" >> $GITHUB_OUTPUT
       - name: Deploy Info Check
         run: |
-          echo "Preview URL: ${{ steps.deployInfo.outputs.PREVIEW_URL }}"
-          echo "Prod URL: ${{ steps.deployInfo.outputs.PROD_URL }}"
           echo "Logs URL: ${{ steps.deployInfo.outputs.LOGS_URL }}"
     outputs:
-      PREVIEW_URL: ${{ steps.deployInfo.outputs.PREVIEW_URL }}
-      PROD_URL: ${{ steps.deployInfo.outputs.PROD_URL }}
       LOGS_URL: ${{ steps.deployInfo.outputs.LOGS_URL }}
   Post-Deploy:
     needs: [Deploy]
     uses: ./.github/workflows/post-deploy.yml
     with:
-      deploy-url: ${{ needs.Deploy.outputs.PROD_URL }}
+      deploy-url: ${{ vars.AGEORGEDEV_SITE_URL }}
