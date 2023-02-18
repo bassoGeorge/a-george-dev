@@ -10,7 +10,11 @@ module.exports = {
     ),
   ],
   theme: {
-    extend: {},
+    fontFamily: {
+      sans: ['Alegreya Sans', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+      sc: ['Alegreya Sans SC', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+      serif: ['Alegreya', 'ui-serif', 'serif'],
+    },
   },
   plugins: [],
 };
