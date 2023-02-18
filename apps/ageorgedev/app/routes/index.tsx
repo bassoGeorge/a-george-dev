@@ -4,9 +4,10 @@ import { DemoDs } from '@ageorgedev/demo-ds';
 export default function Index() {
   return (
     <div style={{ fontFamily: 'system-ui, sans-serif', lineHeight: '1.4' }}>
-      <h1>Dummy Remix App for testing things out</h1>
-      <p>Checking for updates in deployment</p>
-      <p>Another set of checks for deployment</p>
+      <h1 className={'text-lg'}>Dummy Remix App for testing things out</h1>
+      <p className={'text-green-600 font-bold'}>
+        If tailwind is in play, this text should be green in color
+      </p>
       <DemoDs />
       <ul>
         <li>

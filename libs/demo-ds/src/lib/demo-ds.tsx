@@ -3,10 +3,11 @@ export interface DemoDsProps {}
 
 export function DemoDs(props: DemoDsProps) {
   return (
-    <div>
-      <h1>Welcome to DemoDs!</h1>
-      <p>This is a design system component</p>
-      <p>This component has now been updated</p>
+    <div className={'p-5 mt-10'}>
+      <h1 className={'text-md'}>Welcome to DemoDs!</h1>
+      <p className={'text-blue-500'}>
+        This is a design system component with tailwind styles. Should be blue
+      </p>
     </div>
   );
 }
