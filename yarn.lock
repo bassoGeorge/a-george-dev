@@ -3250,7 +3250,14 @@
   resolved "https://registry.yarnpkg.com/@polka/url/-/url-1.0.0-next.21.tgz#5de5a2385a35309427f6011992b544514d559aa1"
   integrity sha512-a5Sab1C4/icpTZVzZc5Ghpz88yQtGOyNqYXcZgOssB2uuAr+wF/MvN6bgtW32q7HHrvBki+BsZ0OuNv6EV3K9g==
 
-"@remix-run/dev@~1.13.0":
+"@remix-run/css-bundle@^1.13.0":
+  version "1.13.0"
+  resolved "https://registry.yarnpkg.com/@remix-run/css-bundle/-/css-bundle-1.13.0.tgz#b2f946c31d1ac656e7ee2bf15d32c49222d26618"
+  integrity sha512-N3hceZUCgkwaJsvEdgnnfSMyaUxpvGBhNFd1etnIb9rjTd6yqSB9CgMXWya8I5ftrv7h2RCFA2aiFTZNCv/nuQ==
+  dependencies:
+    "@remix-run/dev" "1.13.0"
+
+"@remix-run/dev@1.13.0", "@remix-run/dev@~1.13.0":
   version "1.13.0"
   resolved "https://registry.yarnpkg.com/@remix-run/dev/-/dev-1.13.0.tgz#6fa065c4ebadfdffe077b0229740bcedf71255c4"
   integrity sha512-hPqUjM9RRcz3inBOWqP3GKhggVz0a0ikWaRZpdKrhpQNCNiF6Hunbx876mJERj2YrmIzJ05eoeQmmdF6xcr4qg==
