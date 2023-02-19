@@ -6,7 +6,7 @@ module.exports = {
     process.env.NETLIFY || process.env.NETLIFY_LOCAL
       ? './server.js'
       : undefined,
-  ignoredRouteFiles: ['**/.*', '**/*.@(spec|test).+(ts|tsx|js|jsx)'],
+  ignoredRouteFiles: ['**/.*', '**/*.@(spec|test|css).+(ts|tsx|js|jsx)'],
   serverBuildPath: '.netlify/functions-internal/server.js',
   // appDirectory: "app",
   // assetsBuildDirectory: "public/build",
@@ -14,5 +14,6 @@ module.exports = {
 
   future: {
     unstable_tailwind: true,
+    unstable_vanillaExtract: true,
   },
 };
