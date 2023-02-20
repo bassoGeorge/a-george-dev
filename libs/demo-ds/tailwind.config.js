@@ -4,10 +4,12 @@ const { join } = require('path');
 
 module.exports = {
   content: [
-    join(__dirname, './app/**/*.{ts,tsx,js,jsx}'), // just for consistency for now
+    // For some reason, storybook+tailwind needs a fully qualified glob pattern while the apps don't.
+    join(__dirname, './src/**/*.{ts,tsx,js,jsx}'),
     ...createGlobPatternsForDependencies(
       join(__dirname, 'src/**/*.{ts,tsx,js,jsx}')
     ),
+    // ...createGlobPatternsForDependencies(__dirname)
   ],
   theme: {
     fontFamily: {
