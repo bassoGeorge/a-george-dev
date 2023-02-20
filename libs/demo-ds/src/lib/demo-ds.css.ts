@@ -1,5 +1,5 @@
 import { style } from '@vanilla-extract/css';
 
-export const anotherTry = style({
-  fontWeight: 'bold',
+export const greenText = style({
+  color: 'green',
 });
