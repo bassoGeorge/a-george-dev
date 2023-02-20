@@ -6,9 +6,7 @@ export interface DemoDsProps {}
 export function DemoDs(props: DemoDsProps) {
   return (
     <div className={'p-5 mt-10'}>
-      <h1 className={'text-md'} id="random-ass">
-        Welcome to DemoDs!
-      </h1>
+      <h1 className={'text-3xl'}>Welcome to DemoDs!</h1>
       <ul>
         <li className="text-blue-500">
           If this statement is blue, then tailwind is applied correctly
