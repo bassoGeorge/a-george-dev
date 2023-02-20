@@ -3250,7 +3250,14 @@
   resolved "https://registry.yarnpkg.com/@polka/url/-/url-1.0.0-next.21.tgz#5de5a2385a35309427f6011992b544514d559aa1"
   integrity sha512-a5Sab1C4/icpTZVzZc5Ghpz88yQtGOyNqYXcZgOssB2uuAr+wF/MvN6bgtW32q7HHrvBki+BsZ0OuNv6EV3K9g==
 
-"@remix-run/dev@~1.13.0":
+"@remix-run/css-bundle@^1.13.0":
+  version "1.13.0"
+  resolved "https://registry.yarnpkg.com/@remix-run/css-bundle/-/css-bundle-1.13.0.tgz#b2f946c31d1ac656e7ee2bf15d32c49222d26618"
+  integrity sha512-N3hceZUCgkwaJsvEdgnnfSMyaUxpvGBhNFd1etnIb9rjTd6yqSB9CgMXWya8I5ftrv7h2RCFA2aiFTZNCv/nuQ==
+  dependencies:
+    "@remix-run/dev" "1.13.0"
+
+"@remix-run/dev@1.13.0", "@remix-run/dev@~1.13.0":
   version "1.13.0"
   resolved "https://registry.yarnpkg.com/@remix-run/dev/-/dev-1.13.0.tgz#6fa065c4ebadfdffe077b0229740bcedf71255c4"
   integrity sha512-hPqUjM9RRcz3inBOWqP3GKhggVz0a0ikWaRZpdKrhpQNCNiF6Hunbx876mJERj2YrmIzJ05eoeQmmdF6xcr4qg==
@@ -4185,7 +4192,7 @@
   dependencies:
     "@babel/core" "^7.20.7"
 
-"@vanilla-extract/css@^1.9.4":
+"@vanilla-extract/css@^1.9.4", "@vanilla-extract/css@^1.9.5":
   version "1.9.5"
   resolved "https://registry.yarnpkg.com/@vanilla-extract/css/-/css-1.9.5.tgz#c5361c04045e6f01502564c2fb6b82177b97f6bc"
   integrity sha512-aVSv6q24zelKRtWx/l9yshU3gD1uCDMZ2ZGcIiYnAcPfyLryrG/1X5DxtyiPKcyI/hZWoteHofsN//2q9MvzOA==
@@ -4223,6 +4230,16 @@
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/@vanilla-extract/private/-/private-1.0.3.tgz#7ec72bc2ff6fe51f9d650f962e8d1989b073690f"
   integrity sha512-17kVyLq3ePTKOkveHxXuIJZtGYs+cSoev7BlP+Lf4916qfDhk/HBjvlYDe8egrea7LNPHKwSZJK/bzZC+Q6AwQ==
+
+"@vanilla-extract/vite-plugin@^3.8.0":
+  version "3.8.0"
+  resolved "https://registry.yarnpkg.com/@vanilla-extract/vite-plugin/-/vite-plugin-3.8.0.tgz#4dd17cd8269f4d1658d3c6ce679729ff882bbf06"
+  integrity sha512-HBCecR4eTbweo7wQPq9g/HBvxUi6Cua8O4Xk6t1by4W/imgEsHbRCCa9SowzZwg8lub7uJHBAdzWWpqY+LdH0w==
+  dependencies:
+    "@vanilla-extract/integration" "^6.0.2"
+    outdent "^0.8.0"
+    postcss "^8.3.6"
+    postcss-load-config "^3.1.0"
 
 "@vercel/nft@^0.22.0":
   version "0.22.6"
@@ -12852,7 +12869,7 @@ postcss-js@^4.0.0:
   dependencies:
     camelcase-css "^2.0.1"
 
-postcss-load-config@^3.1.4:
+postcss-load-config@^3.1.0, postcss-load-config@^3.1.4:
   version "3.1.4"
   resolved "https://registry.yarnpkg.com/postcss-load-config/-/postcss-load-config-3.1.4.tgz#1ab2571faf84bb078877e1d07905eabe9ebda855"
   integrity sha512-6DiM4E7v4coTE4uzA8U//WhtPwyhiim3eyjEMFCnUpzbrkK9wJHgKDT2mR+HbtSrd/NubVaYTOpSpjUl8NQeRg==
@@ -12939,7 +12956,7 @@ postcss-values-parser@^6.0.2:
     is-url-superb "^4.0.0"
     quote-unquote "^1.0.0"
 
-postcss@^8.0.9, postcss@^8.4.12, postcss@^8.4.19, postcss@^8.4.20:
+postcss@^8.0.9, postcss@^8.3.6, postcss@^8.4.12, postcss@^8.4.19, postcss@^8.4.20:
   version "8.4.21"
   resolved "https://registry.yarnpkg.com/postcss/-/postcss-8.4.21.tgz#c639b719a57efc3187b13a1d765675485f4134f4"
   integrity sha512-tP7u/Sn/dVxK2NnruI4H9BG+x+Wxz6oeZ1cJ8P6G/PZY0IKk4k/63TDsQf2kQq3+qoJeLm2kIBUNlZe3zgb4Zg==
