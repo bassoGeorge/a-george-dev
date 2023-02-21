@@ -3,7 +3,7 @@ import DemoDs from './demo-ds';
 
 export default {
   component: DemoDs,
-} as Meta<typeof DemoDs>;
+} satisfies Meta<typeof DemoDs>;
 
 type Story = StoryObj<typeof DemoDs>;
 
