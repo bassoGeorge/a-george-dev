@@ -35,13 +35,15 @@ export const subTextSection = style(
       content: '',
       position: 'absolute',
       background: '#FFF1D8',
-      top: 0,
+      top: -5,
       left: 0,
       bottom: 0,
       right: 0,
       zIndex: -1,
       transform: `skew(${nDeg}, ${deg})`,
       transformOrigin: 'top left',
+      boxShadow: '-4px 4px rgb(0 0 0 / .1)',
+      borderLeft: '4px solid hsl(189 67% 6% / .4)',
     },
   })
 );
@@ -57,10 +59,12 @@ export const conSection = style({
     top: 0,
     left: 0,
     bottom: 0,
-    right: 0,
+    right: -5,
     zIndex: -1,
     transform: `skew(0deg, ${deg})`,
     transformOrigin: 'top right',
+    boxShadow: '-4px -8px rgb(0 0 0 / .25)',
+    borderTop: '4px solid #051619',
   },
 });
 
