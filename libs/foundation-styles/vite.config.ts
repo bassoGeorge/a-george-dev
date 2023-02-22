@@ -4,6 +4,7 @@ import { defineConfig } from 'vite';
 import viteTsConfigPaths from 'vite-tsconfig-paths';
 import dts from 'vite-plugin-dts';
 import { join } from 'path';
+import { vanillaExtractPlugin } from '@vanilla-extract/vite-plugin';
 
 export default defineConfig({
   cacheDir: '../../node_modules/.vite/foundation-styles',
@@ -18,6 +19,8 @@ export default defineConfig({
     viteTsConfigPaths({
       root: '../../',
     }),
+
+    vanillaExtractPlugin(),
   ],
 
   // Uncomment this if you are using workers.

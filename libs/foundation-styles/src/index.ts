@@ -1,1 +1,1 @@
-export * from './lib/foundation-styles';
+import './lib/core-colors.css.ts';
