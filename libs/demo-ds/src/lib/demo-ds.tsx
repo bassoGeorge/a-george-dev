@@ -12,7 +12,8 @@ export function DemoDs(props: DemoDsProps) {
           If this statement is blue, then tailwind is applied correctly
         </li>
         <li className={greenText}>
-          If this statement is green, then VanillaExtract is working well
+          If this statement is in secondary accent pink, then VanillaExtract is
+          working well along with global styles
         </li>
       </ul>
     </div>
