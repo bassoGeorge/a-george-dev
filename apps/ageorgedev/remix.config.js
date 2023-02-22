@@ -19,5 +19,6 @@ module.exports = {
     unstable_tailwind: true,
     unstable_postcss: true,
     unstable_vanillaExtract: true,
+    v2_routeConvention: true,
   },
 };
