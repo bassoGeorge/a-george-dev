@@ -1,2 +1,2 @@
 import './tailwind-imports.css';
-import '../../foundation-styles/src';
+import '../../foundation-styles/src/globals';

@@ -1,1 +1,1 @@
-import './lib/core-colors.css.ts';
+export * from './lib/core-colors';

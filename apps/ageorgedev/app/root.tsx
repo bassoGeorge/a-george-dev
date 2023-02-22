@@ -9,7 +9,7 @@ import {
 } from '@remix-run/react';
 import { cssBundleHref } from '@remix-run/css-bundle';
 import globalAppStylesheetHref from './styles.css';
-import '@ageorgedev/foundation-styles';
+import '@ageorgedev/foundation-styles/globals';
 
 export const meta: MetaFunction = () => ({
   charset: 'utf-8',

@@ -16,7 +16,10 @@
     "baseUrl": ".",
     "paths": {
       "@ageorgedev/demo-ds": ["libs/demo-ds/src/index.ts"],
-      "@ageorgedev/foundation-styles": ["libs/foundation-styles/src/index.ts"]
+      "@ageorgedev/foundation-styles": ["libs/foundation-styles/src/index.ts"],
+      "@ageorgedev/foundation-styles/globals": [
+        "libs/foundation-styles/src/globals.ts"
+      ]
     }
   },
   "exclude": ["node_modules", "tmp"]
