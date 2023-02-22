@@ -10,7 +10,7 @@ export const container = style([
       [nDeg]: `calc(${deg} * -1)`,
     },
     gridTemplateColumns: '1fr',
-    gridTemplateRows: '2fr 1fr max-content',
+    gridTemplateRows: '3fr 2fr max-content',
   },
   onTablet({
     gridTemplateColumns: '4fr 3fr',
@@ -66,6 +66,14 @@ export const conSection = style({
     boxShadow: '-4px -8px rgb(0 0 0 / .25)',
     borderTop: '4px solid #051619',
   },
+});
+
+export const name = style({
+  textShadow: '4px 8px rgb(0 0 0 / .25)',
+});
+
+export const arch = style({
+  color: 'hsl(189 67% 6% / .8)',
 });
 
 function onTablet(styles: object) {
