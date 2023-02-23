@@ -31,40 +31,7 @@ export const nameSection = style({
 
 const bg = createVar();
 
-export const subTextSection = style([
-  {
-    vars: {
-      [bg]: 'var(--ag-color-parchment-500)',
-    },
-    background: bg,
-  },
-  onTablet({
-    vars: {
-      [bg]: 'var(--ag-color-parchment-400)',
-    },
-    zIndex: 1,
-    ':before': {
-      content: '',
-      position: 'absolute',
-      background: bg,
-      top: -5,
-      left: 0,
-      bottom: 0,
-      right: 0,
-      zIndex: -1,
-      transform: `skew(${nDeg}, ${deg})`,
-      transformOrigin: 'top left',
-      boxShadow: '-4px 4px rgb(0 0 0 / .1)',
-      borderLeft: '4px solid var(--ag-color-d-neutral-200)',
-    },
-  }),
-]);
-
-export const conSection = style({
-  vars: {
-    [bg]: 'var(--ag-color-parchment-300)',
-  },
-  zIndex: 2,
+const paper = style({
   background: bg,
   ':before': {
     content: '',
@@ -73,14 +40,53 @@ export const conSection = style({
     top: 0,
     left: 0,
     bottom: 0,
-    right: -5,
+    right: 0,
     zIndex: -1,
-    transform: `skew(0deg, ${deg})`,
-    transformOrigin: 'top right',
-    boxShadow: '-4px -8px rgb(0 0 0 / .25)',
-    borderTop: '4px solid var(--ag-color-d-neutral-500)',
   },
 });
+
+export const subTextSection = style([
+  paper,
+  {
+    vars: {
+      [bg]: 'var(--ag-color-parchment-500)',
+    },
+    zIndex: 1,
+    ':before': {
+      content: 'unset',
+      top: -5,
+      transform: `skew(${nDeg}, ${deg})`,
+      transformOrigin: 'top left',
+      boxShadow: '-4px 4px rgb(0 0 0 / .1)',
+      borderLeft: '4px solid var(--ag-color-d-neutral-200)',
+    },
+  },
+  onTablet({
+    vars: {
+      [bg]: 'var(--ag-color-parchment-400)',
+    },
+    ':before': {
+      content: '',
+    },
+  }),
+]);
+
+export const conSection = style([
+  paper,
+  {
+    vars: {
+      [bg]: 'var(--ag-color-parchment-300)',
+    },
+    zIndex: 2,
+    ':before': {
+      right: -5,
+      transform: `skew(0deg, ${deg})`,
+      transformOrigin: 'top right',
+      boxShadow: '-4px -8px rgb(0 0 0 / .25)',
+      borderTop: '4px solid var(--ag-color-d-neutral-500)',
+    },
+  },
+]);
 
 export const name = style({
   textShadow: '4px 8px rgb(0 0 0 / .25)',

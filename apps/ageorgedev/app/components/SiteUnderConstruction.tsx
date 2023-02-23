@@ -14,7 +14,7 @@ export function SiteUnderConstruction() {
       className={`${container} grid w-screen h-screen place-items-stretch relative overflow-hidden `}
     >
       <section
-        className={`${nameSection} p-6 sm:max-md:pb-4 flex flex-col justify-end md:justify-center`}
+        className={`${nameSection} p-4 md:pb-6 md:px-7 flex flex-col justify-end md:justify-center`}
       >
         <h1
           className={`${name} font-serif text-center font-bold text-7xl md:text-8xl lg:text-[130px]`}
