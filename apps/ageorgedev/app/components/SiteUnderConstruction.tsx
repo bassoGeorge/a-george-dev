@@ -5,6 +5,7 @@ import {
   subTextSection,
   name,
   arch,
+  webDev,
 } from './SiteUnderConstruction.css';
 
 export function SiteUnderConstruction() {
@@ -13,7 +14,7 @@ export function SiteUnderConstruction() {
       className={`${container} grid w-screen h-screen place-items-stretch relative overflow-hidden `}
     >
       <section
-        className={`${nameSection} p-10 sm:max-md:pb-4 flex flex-col justify-end md:justify-center bg-[#FFEBC5]`}
+        className={`${nameSection} p-6 sm:max-md:pb-4 flex flex-col justify-end md:justify-center`}
       >
         <h1
           className={`${name} font-serif text-center font-bold text-7xl md:text-8xl lg:text-[130px]`}
@@ -22,10 +23,10 @@ export function SiteUnderConstruction() {
         </h1>
       </section>
       <section
-        className={`${subTextSection} md:p-10 md:pb-40 bg-[#FFEBC5] md:bg-none flex flex-col justify-start md:justify-end relative`}
+        className={`${subTextSection} md:p-6 md:pb-10 flex flex-col justify-start md:justify-end relative`}
       >
         <div className="text-center md:text-right">
-          <h3 className={`text-3xl md:text-6xl font-bold text-[#C87E88]`}>
+          <h3 className={`${webDev} text-3xl md:text-6xl font-bold`}>
             Web Developer
           </h3>
           <p className={`${arch} text-xl md:text-3xl`}>
@@ -34,7 +35,7 @@ export function SiteUnderConstruction() {
         </div>
       </section>
       <section
-        className={`${conSection} p-8 md:col-span-2 flex justify-center relative text-3xl text-[#051619]`}
+        className={`${conSection} p-8 md:col-span-2 flex justify-center relative text-3xl`}
       >
         <p>🚧 Site under construction 🚧</p>
       </section>

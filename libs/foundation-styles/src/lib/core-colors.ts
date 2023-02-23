@@ -42,3 +42,5 @@ export const CoreColors = {
     500: 'hsl(45 100% 99%)',
   },
 };
+
+const x = 'hsl(189,67%,6%)';

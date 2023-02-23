@@ -11,6 +11,7 @@ export const container = style([
     },
     gridTemplateColumns: '1fr',
     gridTemplateRows: '3fr 2fr max-content',
+    color: 'var(--ag-color-d-neutral-500)',
   },
   onTablet({
     gridTemplateColumns: '4fr 3fr',
@@ -24,17 +25,28 @@ export const container = style([
   }),
 ]);
 
-export const nameSection = style({});
+export const nameSection = style({
+  background: 'var(--ag-color-parchment-500)',
+});
 
-export const subTextSection = style(
+const bg = createVar();
+
+export const subTextSection = style([
+  {
+    vars: {
+      [bg]: 'var(--ag-color-parchment-500)',
+    },
+    background: bg,
+  },
   onTablet({
+    vars: {
+      [bg]: 'var(--ag-color-parchment-400)',
+    },
     zIndex: 1,
-    // background: 'black',
-    background: '#FFF1D8',
     ':before': {
       content: '',
       position: 'absolute',
-      background: '#FFF1D8',
+      background: bg,
       top: -5,
       left: 0,
       bottom: 0,
@@ -43,19 +55,21 @@ export const subTextSection = style(
       transform: `skew(${nDeg}, ${deg})`,
       transformOrigin: 'top left',
       boxShadow: '-4px 4px rgb(0 0 0 / .1)',
-      borderLeft: '4px solid hsl(189 67% 6% / .4)',
+      borderLeft: '4px solid var(--ag-color-d-neutral-200)',
     },
-  })
-);
+  }),
+]);
 
 export const conSection = style({
+  vars: {
+    [bg]: 'var(--ag-color-parchment-300)',
+  },
   zIndex: 2,
-  // background: 'black',
-  background: '#FFF7E8',
+  background: bg,
   ':before': {
     content: '',
     position: 'absolute',
-    background: '#FFF7E8',
+    background: bg,
     top: 0,
     left: 0,
     bottom: 0,
@@ -64,7 +78,7 @@ export const conSection = style({
     transform: `skew(0deg, ${deg})`,
     transformOrigin: 'top right',
     boxShadow: '-4px -8px rgb(0 0 0 / .25)',
-    borderTop: '4px solid #051619',
+    borderTop: '4px solid var(--ag-color-d-neutral-500)',
   },
 });
 
@@ -73,7 +87,11 @@ export const name = style({
 });
 
 export const arch = style({
-  color: 'hsl(189 67% 6% / .8)',
+  color: 'var(--ag-color-d-neutral-300)',
+});
+
+export const webDev = style({
+  color: 'var(--ag-color-s-accent-400)',
 });
 
 function onTablet(styles: object) {
