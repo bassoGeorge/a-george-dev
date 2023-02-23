@@ -1,1 +1,1 @@
-import './lib/core-colors.css.ts';
+import './stylesheets/core-colors.css.ts';

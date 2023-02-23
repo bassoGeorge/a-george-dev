@@ -1,7 +1,7 @@
 import { globalStyle } from '@vanilla-extract/css';
 import { chain, compose, fromPairs, map, toPairs } from 'ramda';
-import { CoreColors } from './core-colors';
-import { createCssVarName } from './utils';
+import { CoreColors } from '../lib/core-colors';
+import { createCssVarName } from '../lib/utils';
 
 const CORE_COLOR_PREFIX = 'color';
 
