@@ -1,4 +1,5 @@
 import { createVar, style } from '@vanilla-extract/css';
+import { onDesktop, onTablet } from '@ageorgedev/foundation-styles';
 
 const deg = createVar('skewDeg');
 const nDeg = createVar('negativeSkewDeg');
@@ -99,19 +100,3 @@ export const arch = style({
 export const webDev = style({
   color: 'var(--ag-color-s-accent-400)',
 });
-
-function onTablet(styles: object) {
-  return {
-    '@media': {
-      'screen and (min-width: 768px)': styles,
-    },
-  };
-}
-
-function onDesktop(styles: object) {
-  return {
-    '@media': {
-      'screen and (min-width: 1024px)': styles,
-    },
-  };
-}
