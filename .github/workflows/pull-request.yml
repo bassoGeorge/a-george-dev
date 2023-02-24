@@ -27,7 +27,7 @@ jobs:
         working-directory: apps/ageorgedev
         run: |
           set -o pipefail
-          yarn netlify deploy --context deploy-preview --alias deploy-preview 2>&1 | tee deploy-output.txt
+          yarn netlify deploy --build --context deploy-preview --alias deploy-preview 2>&1 | tee deploy-output.txt
           set +o pipefail
       - name: Extract deployment information
         id: deployInfo
