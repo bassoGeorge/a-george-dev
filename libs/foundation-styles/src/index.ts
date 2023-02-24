@@ -1,2 +1,2 @@
-export * from './lib/core-colors';
-export { media } from './lib/responsive';
+export { CoreColors } from './lib/core-colors';
+export { Media } from './lib/responsive';

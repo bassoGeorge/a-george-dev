@@ -36,7 +36,7 @@ const veQuery =
     },
   });
 
-export const media = {
+export const Media = {
   tablet: veQuery('tablet'),
   tabletLandscape: veQuery('tabletLandscape'),
   desktop: veQuery('desktop'),

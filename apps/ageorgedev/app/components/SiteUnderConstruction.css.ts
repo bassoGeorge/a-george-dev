@@ -1,5 +1,5 @@
 import { createVar, style } from '@vanilla-extract/css';
-import { media } from '@ageorgedev/foundation-styles';
+import { CoreColors, Media } from '@ageorgedev/foundation-styles';
 
 const deg = createVar('skewDeg');
 const nDeg = createVar('negativeSkewDeg');
@@ -12,13 +12,13 @@ export const container = style([
     },
     gridTemplateColumns: '1fr',
     gridTemplateRows: '3fr 2fr max-content',
-    color: 'var(--ag-color-d-neutral-500)',
+    color: CoreColors.dNeutral500,
   },
-  media.tablet({
+  Media.tablet({
     gridTemplateColumns: '4fr 3fr',
     gridTemplateRows: '1fr max-content',
   }),
-  media.desktop({
+  Media.desktop({
     vars: {
       [deg]: '2deg',
     },
@@ -27,7 +27,7 @@ export const container = style([
 ]);
 
 export const nameSection = style({
-  background: 'var(--ag-color-parchment-500)',
+  background: CoreColors.parchment500,
 });
 
 const bg = createVar();
@@ -50,7 +50,7 @@ export const subTextSection = style([
   paper,
   {
     vars: {
-      [bg]: 'var(--ag-color-parchment-500)',
+      [bg]: CoreColors.parchment500,
     },
     zIndex: 1,
     ':before': {
@@ -59,12 +59,12 @@ export const subTextSection = style([
       transform: `skew(${nDeg}, ${deg})`,
       transformOrigin: 'top left',
       boxShadow: '-4px 4px rgb(0 0 0 / .1)',
-      borderLeft: '4px solid var(--ag-color-d-neutral-200)',
+      borderLeft: `4px solid ${CoreColors.dNeutral200}`,
     },
   },
-  media.tablet({
+  Media.tablet({
     vars: {
-      [bg]: 'var(--ag-color-parchment-400)',
+      [bg]: CoreColors.parchment400,
     },
     ':before': {
       content: '',
@@ -76,7 +76,7 @@ export const conSection = style([
   paper,
   {
     vars: {
-      [bg]: 'var(--ag-color-parchment-300)',
+      [bg]: CoreColors.parchment300,
     },
     zIndex: 2,
     ':before': {
@@ -84,7 +84,7 @@ export const conSection = style([
       transform: `skew(0deg, ${deg})`,
       transformOrigin: 'top right',
       boxShadow: '-4px -8px rgb(0 0 0 / .25)',
-      borderTop: '4px solid var(--ag-color-d-neutral-500)',
+      borderTop: `4px solid ${CoreColors.dNeutral500}`,
     },
   },
 ]);
@@ -94,9 +94,9 @@ export const name = style({
 });
 
 export const arch = style({
-  color: 'var(--ag-color-d-neutral-300)',
+  color: CoreColors.dNeutral300,
 });
 
 export const webDev = style({
-  color: 'var(--ag-color-s-accent-400)',
+  color: CoreColors.sAccent400,
 });
