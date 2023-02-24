@@ -23,7 +23,10 @@ jobs:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ vars.AGEORGEDEV_SITE_ID }}
         working-directory: apps/ageorgedev
-        run: yarn netlify deploy --build --prod 2>&1 | tee deploy-output.txt
+        run: |
+          set -o pipefail
+          yarn netlify deploy --build --prod 2>&1 | tee deploy-output.txt
+          set +o pipefail
       - name: Extract deployment information
         id: deployInfo
         working-directory: apps/ageorgedev
