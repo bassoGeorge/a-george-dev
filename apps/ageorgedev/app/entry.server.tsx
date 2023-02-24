@@ -9,6 +9,11 @@ export default function handleRequest(
   remixContext: EntryContext
 ) {
   const markup = renderToString(
+    // For some reason TS throwing type error on EntryContext being different between remix-run/node and remix-run/react.
+    // Not my problem
+
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     <RemixServer context={remixContext} url={request.url} />
   );
 

@@ -3,6 +3,7 @@ const { createGlobPatternsForDependencies } = require('@nrwl/react/tailwind');
 const { join } = require('path');
 
 module.exports = {
+  presets: [require('../../dist/libs/foundation-styles/tailwind')],
   content: [
     join(__dirname, './app/**/*.{ts,tsx,js,jsx}'), // just for consistency for now
     ...createGlobPatternsForDependencies(
