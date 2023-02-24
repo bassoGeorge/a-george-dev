@@ -18,9 +18,7 @@ jobs:
           cache: 'yarn'
       - name: 📥 Install dependencies
         run: yarn install --frozen-lockfile
-      - name: 🏗️ Build
-        run: yarn run nx build ageorgedev
-      - name: 🚀 Deploy
+      - name: 🏗️ Build and 🚀 Deploy
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ vars.AGEORGEDEV_SITE_ID }}
@@ -29,13 +27,13 @@ jobs:
           set -o pipefail
           yarn netlify deploy --build --context deploy-preview --alias deploy-preview 2>&1 | tee deploy-output.txt
           set +o pipefail
-      - name: Extract deployment information
+      - name: ⎔ Extract deployment information
         id: deployInfo
         working-directory: apps/ageorgedev
         run: |
           echo "PREVIEW_URL=$(cat deploy-output.txt | grep -Eo '(http|https)://[a-zA-Z0-9./?=_-]*(--)[a-zA-Z0-9./?=_-]*')" >> $GITHUB_OUTPUT
           echo "LOGS_URL=$(cat deploy-output.txt | grep -Eo '(http|https)://app.netlify.com/[a-zA-Z0-9./?=_-]*')" >> $GITHUB_OUTPUT
-      - name: Deploy Info Check
+      - name: ⎔ Deploy Info Check
         run: |
           echo "Preview URL: ${{ steps.deployInfo.outputs.PREVIEW_URL }}"
           echo "Logs URL: ${{ steps.deployInfo.outputs.LOGS_URL }}"
