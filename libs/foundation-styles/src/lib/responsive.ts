@@ -36,9 +36,11 @@ const veQuery =
     },
   });
 
-export const onTablet = veQuery('tablet');
-export const onTabletLandscape = veQuery('tabletLandscape');
-export const onDesktop = veQuery('desktop');
-export const onLargeDesktop = veQuery('largeDesktop');
-export const onPhoneOnly = veQuery('phoneOnly');
-export const onPhoneLandscapeOnly = veQuery('phoneLandscapeOnly');
+export const media = {
+  tablet: veQuery('tablet'),
+  tabletLandscape: veQuery('tabletLandscape'),
+  desktop: veQuery('desktop'),
+  largeDesktop: veQuery('largeDesktop'),
+  phoneOnly: veQuery('phoneOnly'),
+  phoneLandscapeOnly: veQuery('phoneLandscapeOnly'),
+};

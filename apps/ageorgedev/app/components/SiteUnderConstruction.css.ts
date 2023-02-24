@@ -1,5 +1,5 @@
 import { createVar, style } from '@vanilla-extract/css';
-import { onDesktop, onTablet } from '@ageorgedev/foundation-styles';
+import { media } from '@ageorgedev/foundation-styles';
 
 const deg = createVar('skewDeg');
 const nDeg = createVar('negativeSkewDeg');
@@ -14,11 +14,11 @@ export const container = style([
     gridTemplateRows: '3fr 2fr max-content',
     color: 'var(--ag-color-d-neutral-500)',
   },
-  onTablet({
+  media.tablet({
     gridTemplateColumns: '4fr 3fr',
     gridTemplateRows: '1fr max-content',
   }),
-  onDesktop({
+  media.desktop({
     vars: {
       [deg]: '2deg',
     },
@@ -62,7 +62,7 @@ export const subTextSection = style([
       borderLeft: '4px solid var(--ag-color-d-neutral-200)',
     },
   },
-  onTablet({
+  media.tablet({
     vars: {
       [bg]: 'var(--ag-color-parchment-400)',
     },

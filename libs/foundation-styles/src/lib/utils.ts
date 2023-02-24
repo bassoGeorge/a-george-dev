@@ -1,14 +1,5 @@
 import { FOUNDATION_VAR_PREFIX } from './constants';
-import {
-  compose,
-  concat,
-  fromPairs,
-  join,
-  map,
-  mapObjIndexed,
-  prepend,
-  toPairs,
-} from 'ramda';
+import { compose, fromPairs, join, map, prepend, toPairs } from 'ramda';
 import { paramCase } from 'param-case';
 
 export const createCssVarName: (parts: string[]) => string = compose(
