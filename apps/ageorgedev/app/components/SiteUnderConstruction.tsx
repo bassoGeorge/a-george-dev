@@ -23,7 +23,7 @@ export function SiteUnderConstruction() {
         </h1>
       </section>
       <section
-        className={`${subTextSection} tablet:p-6 tablet:pb-10 flex flex-col justify-start tablet:justify-end relative`}
+        className={`${subTextSection} phone-landscape-only:pb-3 tablet:p-6 tablet:pb-10 flex flex-col justify-start tablet:justify-end relative`}
       >
         <div className="text-center tablet:text-right">
           <h3 className={`${webDev} text-3xl tablet:text-6xl font-bold`}>
@@ -35,7 +35,7 @@ export function SiteUnderConstruction() {
         </div>
       </section>
       <section
-        className={`${conSection} p-8 tablet:col-span-2 flex justify-center relative text-3xl`}
+        className={`${conSection} p-4 tablet:col-span-2 flex justify-center relative text-3xl`}
       >
         <p>🚧 Site under construction 🚧</p>
       </section>

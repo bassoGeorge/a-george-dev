@@ -1,9 +1,9 @@
 export * from './lib/core-colors';
 export {
-  onMinWidth,
   onPhoneOnly,
   onTablet,
   onTabletLandscape,
   onDesktop,
   onLargeDesktop,
+  onPhoneLandscapeOnly,
 } from './lib/responsive';

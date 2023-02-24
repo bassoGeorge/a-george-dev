@@ -1,15 +1,11 @@
 import { Spacing } from './lib/spacing';
-import { minBreakpoints } from './lib/responsive';
+import { Screens } from './lib/responsive';
+import { cssCaseKeys } from './lib/utils';
+import { mapObjIndexed } from 'ramda';
 
 export default {
   theme: {
     spacing: Spacing,
-    screens: {
-      'phone-only': { max: `${minBreakpoints.tablet - 1}px` },
-      tablet: `${minBreakpoints.tablet}px`,
-      'tablet-landscape': `${minBreakpoints.tabletLandscape}px`,
-      desktop: `${minBreakpoints.desktop}px`,
-      'large-desktop': `${minBreakpoints.largeDesktop}px`,
-    },
+    screens: mapObjIndexed((query) => ({ raw: query }), cssCaseKeys(Screens)),
   },
 };
