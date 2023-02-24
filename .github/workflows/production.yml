@@ -18,14 +18,16 @@ jobs:
           cache: 'yarn'
       - name: 📥 Install dependencies
         run: yarn install --frozen-lockfile
-      - name: 🚀 Build & deploy
+      - name: 🏗️ Build
+        run: yarn run nx build ageorgedev
+      - name: 🚀 Deploy
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ vars.AGEORGEDEV_SITE_ID }}
         working-directory: apps/ageorgedev
         run: |
           set -o pipefail
-          yarn netlify deploy --build --prod 2>&1 | tee deploy-output.txt
+          yarn netlify deploy --prod 2>&1 | tee deploy-output.txt
           set +o pipefail
       - name: Extract deployment information
         id: deployInfo
