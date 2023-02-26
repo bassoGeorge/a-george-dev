@@ -1,5 +1,9 @@
 import { createVar, style } from '@vanilla-extract/css';
-import { CoreColors, Media } from '@ageorgedev/foundation-styles';
+import {
+  ContextualColors,
+  CoreColors,
+  Media,
+} from '@ageorgedev/foundation-styles';
 
 const deg = createVar('skewDeg');
 const nDeg = createVar('negativeSkewDeg');
@@ -12,7 +16,7 @@ export const container = style([
     },
     gridTemplateColumns: '1fr',
     gridTemplateRows: '3fr 2fr max-content',
-    color: CoreColors.dNeutral500,
+    color: ContextualColors.neutral['500'],
   },
   Media.tablet({
     gridTemplateColumns: '4fr 3fr',
@@ -27,7 +31,7 @@ export const container = style([
 ]);
 
 export const nameSection = style({
-  background: CoreColors.parchment500,
+  background: ContextualColors.page[0],
 });
 
 const bg = createVar();
@@ -50,7 +54,7 @@ export const subTextSection = style([
   paper,
   {
     vars: {
-      [bg]: CoreColors.parchment500,
+      [bg]: ContextualColors.page[0],
     },
     zIndex: 1,
     ':before': {
@@ -64,7 +68,7 @@ export const subTextSection = style([
   },
   Media.tablet({
     vars: {
-      [bg]: CoreColors.parchment400,
+      [bg]: ContextualColors.page[1],
     },
     ':before': {
       content: '',
@@ -76,7 +80,7 @@ export const conSection = style([
   paper,
   {
     vars: {
-      [bg]: CoreColors.parchment300,
+      [bg]: ContextualColors.page[2],
     },
     zIndex: 2,
     ':before': {
@@ -94,7 +98,7 @@ export const name = style({
 });
 
 export const arch = style({
-  color: CoreColors.dNeutral300,
+  color: ContextualColors.neutral['300'],
 });
 
 export const webDev = style({
