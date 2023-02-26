@@ -1,5 +1,5 @@
 import { chain, compose, fromPairs, map, toPairs } from 'ramda';
-import { createCssVarName } from './utils';
+import { fullCssVarName } from './utils';
 
 const timber = 'timber' as const;
 const parchment = 'parchment' as const;
@@ -60,7 +60,7 @@ export const midTransform: (colors: {
     return compose(
       map(([grade, color]: [string, string]) => ({
         value: color,
-        cssName: createCssVarName(['color', colorName, grade]),
+        cssName: fullCssVarName(['color', colorName, grade]),
         name: colorName + grade,
       })),
       toPairs

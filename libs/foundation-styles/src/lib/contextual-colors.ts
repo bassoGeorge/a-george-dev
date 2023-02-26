@@ -1,9 +1,8 @@
 import { createGlobalThemeContract } from '@vanilla-extract/css';
-import { drop } from 'ramda';
-import { createCssVarName } from './utils';
+import { cssVarName } from './utils';
 
 const vName = (baseName: string) => (grade: string | number) =>
-  drop(2, createCssVarName(['cc', baseName, grade + '']));
+  cssVarName(['cc', baseName, grade + '']);
 
 const pageName = vName('page');
 const neutralName = vName('neutral');
