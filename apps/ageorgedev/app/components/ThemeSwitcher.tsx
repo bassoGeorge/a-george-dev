@@ -1,5 +1,4 @@
-import { themeSwitcher } from './ThemeSwitcher.css';
-import { useCallback, useMemo } from 'react';
+import { useCallback } from 'react';
 
 export function ThemeSwitcher() {
   const switchTheme = useCallback(() => {
@@ -7,7 +6,7 @@ export function ThemeSwitcher() {
   }, []);
 
   return (
-    <button className={`${themeSwitcher} p-3`} onClick={switchTheme}>
+    <button className={`text-cc-neutral-300 p-3`} onClick={switchTheme}>
       Switch Theme
     </button>
   );
