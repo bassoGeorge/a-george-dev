@@ -10,6 +10,7 @@
     "@nrwl/cypress": "15.7.2",
     "@nrwl/eslint-plugin-nx": "15.7.2",
     "@nrwl/linter": "15.7.2",
+    "@nrwl/nx-cloud": "^15.1.1",
     "@nrwl/react": "15.7.2",
     "@nrwl/storybook": "15.7.2",
     "@nrwl/vite": "15.7.2",
