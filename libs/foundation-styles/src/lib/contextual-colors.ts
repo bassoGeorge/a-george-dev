@@ -1,8 +1,9 @@
 import { createGlobalThemeContract } from '@vanilla-extract/css';
 import { cssVarName } from './utils';
+import { FOUNDATION_CONTEXTUAL_COLOR_PREFIX } from './constants';
 
 const vName = (baseName: string) => (grade: string | number) =>
-  cssVarName(['cc', baseName, grade + '']);
+  cssVarName([FOUNDATION_CONTEXTUAL_COLOR_PREFIX, baseName, grade + '']);
 
 const pageName = vName('page');
 const neutralName = vName('neutral');

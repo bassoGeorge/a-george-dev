@@ -1,8 +1,8 @@
 import { createVar, style } from '@vanilla-extract/css';
 import {
   ContextualColors,
-  CoreColors,
   Media,
+  RawColors,
 } from '@ageorgedev/foundation-styles';
 
 const deg = createVar('skewDeg');
@@ -63,7 +63,7 @@ export const subTextSection = style([
       transform: `skew(${nDeg}, ${deg})`,
       transformOrigin: 'top left',
       boxShadow: '-4px 4px rgb(0 0 0 / .1)',
-      borderLeft: `4px solid ${CoreColors.dNeutral200}`,
+      borderLeft: `4px solid ${RawColors.dNeutral['200']}`,
     },
   },
   Media.tablet({
@@ -88,7 +88,7 @@ export const conSection = style([
       transform: `skew(0deg, ${deg}) scaleY(1.2)`,
       transformOrigin: 'top right',
       boxShadow: '-4px -8px rgb(0 0 0 / .25)',
-      borderTop: `4px solid ${CoreColors.dNeutral500}`,
+      borderTop: `4px solid ${RawColors.dNeutral['500']}`,
     },
   },
 ]);
@@ -102,5 +102,5 @@ export const arch = style({
 });
 
 export const webDev = style({
-  color: CoreColors.sAccent400,
+  color: RawColors.sAccent['400'],
 });

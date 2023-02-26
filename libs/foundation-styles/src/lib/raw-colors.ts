@@ -1,5 +1,14 @@
-import { chain, compose, fromPairs, map, toPairs } from 'ramda';
+import {
+  chain,
+  compose,
+  fromPairs,
+  map,
+  mapObjIndexed,
+  toPairs,
+  values,
+} from 'ramda';
 import { fullCssVarName } from './utils';
+import { FOUNDATION_RAW_COLOR_PREFIX } from './constants';
 
 const timber = 'timber' as const;
 const parchment = 'parchment' as const;
@@ -53,42 +62,48 @@ const CORE_COLORS = {
   },
 };
 
-export const midTransform: (colors: {
-  [k in string]: Record<string, string>;
-}) => Array<{ value: string; cssName: string; name: string }> = compose(
-  chain(([colorName, obj]: [string, Record<string, string>]) => {
-    return compose(
-      map(([grade, color]: [string, string]) => ({
-        value: color,
-        cssName: fullCssVarName(['color', colorName, grade]),
-        name: colorName + grade,
-      })),
-      toPairs
-    )(obj);
-  }),
-  toPairs
-);
-
-const middleTransformedValue = midTransform(CORE_COLORS);
-
-/** Used by Stylesheet */
-export const ColorPropertiesMap = fromPairs(
-  map(({ value, cssName }) => [cssName, value], middleTransformedValue)
-);
-
-/** Used by vanilla extract */
-export const CoreColors = fromPairs(
-  map(({ name, cssName }) => [name, `var(${cssName})`], middleTransformedValue)
-) as CoreColors;
-
 /** Adjusting the types for CoreColors for intellisense */
 type C = typeof CORE_COLORS;
-type CKtype =
-  | `${typeof timber}${keyof C[typeof timber]}`
-  | `${typeof parchment}${keyof C[typeof parchment]}`
-  | `${typeof pAccent}${keyof C[typeof pAccent]}`
-  | `${typeof sAccent}${keyof C[typeof sAccent]}`
-  | `${typeof dNeutral}${keyof C[typeof dNeutral]}`
-  | `${typeof lNeutral}${keyof C[typeof lNeutral]}`;
 
-type CoreColors = { [k in CKtype]: string };
+type NameValue = {
+  name: string;
+  value: string;
+};
+
+type C2 = {
+  [k in keyof C]: {
+    [k2 in keyof C[k]]: NameValue;
+  };
+};
+
+export const midTransform: (colors: C) => C2 = compose(
+  mapObjIndexed((set, setName) =>
+    mapObjIndexed(
+      (value, grade) => ({
+        name: fullCssVarName([FOUNDATION_RAW_COLOR_PREFIX, setName, grade]),
+        value,
+      }),
+      set
+    )
+  )
+) as (colors: C) => C2;
+
+export const midTransformedColors = midTransform(CORE_COLORS);
+
+/** Used by Stylesheet */
+export const ColorPropertiesMap = compose(
+  fromPairs,
+  chain((set: C2[keyof C2]): (readonly [string, string])[] => {
+    return compose(
+      map(({ name, value }: NameValue) => [name, value] as const),
+      values
+    )(set);
+  }),
+  values
+)(midTransformedColors);
+
+/** Used by vanilla extract */
+export const RawColors = mapObjIndexed(
+  mapObjIndexed(({ name }) => `var(${name})`),
+  midTransformedColors
+) as C;
