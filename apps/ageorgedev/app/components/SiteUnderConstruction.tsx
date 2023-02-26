@@ -7,6 +7,7 @@ import {
   arch,
   webDev,
 } from './SiteUnderConstruction.css';
+import { ThemeSwitcher } from './ThemeSwitcher';
 
 export function SiteUnderConstruction() {
   return (
@@ -25,6 +26,9 @@ export function SiteUnderConstruction() {
       <section
         className={`${subTextSection} phone-landscape-only:pb-3 tablet:p-6 tablet:pb-10 flex flex-col justify-start tablet:justify-end relative`}
       >
+        <div className={'absolute top-3 right-3'}>
+          <ThemeSwitcher />
+        </div>
         <div className="text-center tablet:text-right">
           <h3 className={`${webDev} text-3xl tablet:text-6xl font-bold`}>
             Web Developer
