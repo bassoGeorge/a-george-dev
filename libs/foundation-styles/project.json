@@ -8,12 +8,12 @@
       "executor": "nx:run-commands",
       "outputs": ["{projectRoot}/generated-src"],
       "inputs": [
-        "{projectRoot}/src/tailwind.ts",
-        "{projectRoot}/scripts/generate-tailwind-preset.ts"
+        "{projectRoot}/src/lib/tailwind-theme.ts",
+        "{projectRoot}/scripts/generate-tailwind-theme.ts"
       ],
       "options": {
         "cwd": "libs/foundation-styles",
-        "commands": ["ts-node scripts/generate-tailwind-preset.ts"]
+        "commands": ["ts-node scripts/generate-tailwind-theme.ts"]
       }
     },
     "build": {

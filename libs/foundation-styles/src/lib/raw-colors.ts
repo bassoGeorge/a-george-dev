@@ -1,5 +1,5 @@
 import { mapObjIndexed, pick } from 'ramda';
-import { cssVarName, getTailwindPropertyMap } from './utils';
+import { cssVarName } from './utils';
 import { FOUNDATION_RAW_COLOR_PREFIX } from './constants';
 import { createGlobalThemeContract } from '@vanilla-extract/css';
 
@@ -64,7 +64,7 @@ const rawColorsVariableNames = mapObjIndexed(
 
 /** Used by vanilla extract */
 export const RawColors = createGlobalThemeContract(rawColorsVariableNames);
-
-export const RawColorsForTailwind = getTailwindPropertyMap(
-  pick(['pAccent', 'sAccent'] satisfies (keyof RC)[], RawColors)
+export const AccessibleRawColors = pick(
+  ['pAccent', 'sAccent'] satisfies (keyof RC)[],
+  RawColors
 );

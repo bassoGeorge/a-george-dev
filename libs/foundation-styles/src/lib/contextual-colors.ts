@@ -24,6 +24,3 @@ export const ContextualColors = createGlobalThemeContract({
     500: neutralName(500),
   },
 });
-
-export const ContextualColorsForTailwind =
-  getTailwindPropertyMap(ContextualColors);
