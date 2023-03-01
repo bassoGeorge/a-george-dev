@@ -1,6 +1,6 @@
 import { createGlobalTheme } from '@vanilla-extract/css';
-import { ContextualColors } from '../lib/contextual-colors';
-import { RawColors } from '../lib/raw-colors';
+import { ContextualColors } from '../lib/tokens/contextual-colors';
+import { RawColors } from '../lib/tokens/raw-colors';
 
 createGlobalTheme(':root', ContextualColors, {
   page: {

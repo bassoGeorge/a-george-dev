@@ -1,6 +1,6 @@
 import { createGlobalThemeContract } from '@vanilla-extract/css';
-import { cssVarName, getTailwindPropertyMap } from './utils';
-import { FOUNDATION_CONTEXTUAL_COLOR_PREFIX } from './constants';
+import { cssVarName, getTailwindPropertyMap } from '../utils';
+import { FOUNDATION_CONTEXTUAL_COLOR_PREFIX } from '../constants';
 
 const vName = (baseName: string) => (grade: string | number) =>
   cssVarName([FOUNDATION_CONTEXTUAL_COLOR_PREFIX, baseName, grade + '']);

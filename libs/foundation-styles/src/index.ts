@@ -1,3 +1,3 @@
-export { RawColors } from './lib/raw-colors';
-export { Media } from './lib/responsive';
-export { ContextualColors } from './lib/contextual-colors';
+export { RawColors } from './lib/tokens/raw-colors';
+export { Media } from './lib/tokens/responsive';
+export { ContextualColors } from './lib/tokens/contextual-colors';

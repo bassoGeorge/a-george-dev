@@ -1,6 +1,6 @@
 import { mapObjIndexed, pick } from 'ramda';
-import { cssVarName } from './utils';
-import { FOUNDATION_RAW_COLOR_PREFIX } from './constants';
+import { cssVarName } from '../utils';
+import { FOUNDATION_RAW_COLOR_PREFIX } from '../constants';
 import { createGlobalThemeContract } from '@vanilla-extract/css';
 
 export const RAW_COLORS = {

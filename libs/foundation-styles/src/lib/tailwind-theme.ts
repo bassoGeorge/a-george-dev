@@ -1,9 +1,9 @@
-import { AccessibleRawColors } from './raw-colors';
-import { Spacing } from './spacing';
+import { AccessibleRawColors } from './tokens/raw-colors';
+import { Spacing } from './tokens/spacing';
 import { mapObjIndexed } from 'ramda';
-import { Screens } from './responsive';
+import { Screens } from './tokens/responsive';
 import { cssCaseKeys, getTailwindPropertyMap } from './utils';
-import { ContextualColors } from './contextual-colors';
+import { ContextualColors } from './tokens/contextual-colors';
 import type { Config } from 'tailwindcss';
 
 export const TailwindTheme = {
