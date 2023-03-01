@@ -4,6 +4,18 @@
   "sourceRoot": "libs/foundation-styles/src",
   "projectType": "library",
   "targets": {
+    "pre-build": {
+      "executor": "nx:run-commands",
+      "outputs": ["{projectRoot}/generated-src"],
+      "inputs": [
+        "{projectRoot}/src/tailwind.ts",
+        "{projectRoot}/scripts/generate-tailwind-preset.ts"
+      ],
+      "options": {
+        "cwd": "libs/foundation-styles",
+        "commands": ["ts-node scripts/generate-tailwind-preset.ts"]
+      }
+    },
     "build": {
       "executor": "@nrwl/vite:build",
       "outputs": ["{options.outputPath}"],

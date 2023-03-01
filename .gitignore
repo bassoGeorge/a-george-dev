@@ -41,6 +41,9 @@ Thumbs.db
 # Remix files
 apps/**/build
 apps/**/.cache
-  
+
 # Local Netlify folder
 .netlify
+
+apps/**/generated-src
+libs/**/generated-src
