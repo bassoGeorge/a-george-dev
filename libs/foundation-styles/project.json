@@ -21,7 +21,7 @@
       "outputs": ["{options.outputPath}"],
       "defaultConfiguration": "production",
       "options": {
-        "outputPath": "dist/libs/foundation-styles"
+        "outputPath": "libs/foundation-styles/dist"
       },
       "configurations": {
         "development": {

@@ -20,6 +20,5 @@
         "reportsDirectory": "../../coverage/apps/ageorgedev"
       }
     }
-  },
-  "implicitDependencies": ["foundation-styles"]
+  }
 }
