@@ -1,5 +1,9 @@
 import { createVar, style } from '@vanilla-extract/css';
-import { CoreColors, Media } from '@ageorgedev/foundation-styles';
+import {
+  ContextualColors,
+  Media,
+  RawColors,
+} from '@ageorgedev/foundation-styles';
 
 const deg = createVar('skewDeg');
 const nDeg = createVar('negativeSkewDeg');
@@ -12,7 +16,7 @@ export const container = style([
     },
     gridTemplateColumns: '1fr',
     gridTemplateRows: '3fr 2fr max-content',
-    color: CoreColors.dNeutral500,
+    color: ContextualColors.neutral['500'],
   },
   Media.tablet({
     gridTemplateColumns: '4fr 3fr',
@@ -27,7 +31,7 @@ export const container = style([
 ]);
 
 export const nameSection = style({
-  background: CoreColors.parchment500,
+  background: ContextualColors.page[0],
 });
 
 const bg = createVar();
@@ -50,7 +54,7 @@ export const subTextSection = style([
   paper,
   {
     vars: {
-      [bg]: CoreColors.parchment500,
+      [bg]: ContextualColors.page[0],
     },
     zIndex: 1,
     ':before': {
@@ -59,12 +63,12 @@ export const subTextSection = style([
       transform: `skew(${nDeg}, ${deg})`,
       transformOrigin: 'top left',
       boxShadow: '-4px 4px rgb(0 0 0 / .1)',
-      borderLeft: `4px solid ${CoreColors.dNeutral200}`,
+      borderLeft: `4px solid ${RawColors.dNeutral['200']}`,
     },
   },
   Media.tablet({
     vars: {
-      [bg]: CoreColors.parchment400,
+      [bg]: ContextualColors.page[1],
     },
     ':before': {
       content: '',
@@ -76,15 +80,15 @@ export const conSection = style([
   paper,
   {
     vars: {
-      [bg]: CoreColors.parchment300,
+      [bg]: ContextualColors.page[2],
     },
     zIndex: 2,
     ':before': {
       right: -5,
-      transform: `skew(0deg, ${deg})`,
+      transform: `skew(0deg, ${deg}) scaleY(1.2)`,
       transformOrigin: 'top right',
       boxShadow: '-4px -8px rgb(0 0 0 / .25)',
-      borderTop: `4px solid ${CoreColors.dNeutral500}`,
+      borderTop: `4px solid ${RawColors.dNeutral['500']}`,
     },
   },
 ]);
@@ -94,9 +98,9 @@ export const name = style({
 });
 
 export const arch = style({
-  color: CoreColors.dNeutral300,
+  color: ContextualColors.neutral['300'],
 });
 
 export const webDev = style({
-  color: CoreColors.sAccent400,
+  color: RawColors.sAccent['400'],
 });

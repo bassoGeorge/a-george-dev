@@ -1,0 +1,16 @@
+{
+  "name": "@ageorgedev/foundation-styles",
+  "version": "0.0.1",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    },
+    "./tailwind": {
+      "import": "./dist/tailwind.mjs",
+      "require": "./dist/tailwind.js"
+    }
+  }
+}

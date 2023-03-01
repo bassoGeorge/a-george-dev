@@ -1,1 +1,2 @@
-import './stylesheets/core-colors.css.ts';
+import './stylesheets/raw-colors.css';
+import './stylesheets/themes.css';

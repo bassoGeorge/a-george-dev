@@ -1,11 +1,6 @@
-import { Spacing } from './lib/spacing';
-import { Screens } from './lib/responsive';
-import { cssCaseKeys } from './lib/utils';
-import { mapObjIndexed } from 'ramda';
+import type { Config } from 'tailwindcss';
+import theme from '../generated-src/tailwind-theme.json';
 
 export default {
-  theme: {
-    spacing: Spacing,
-    screens: mapObjIndexed((query) => ({ raw: query }), cssCaseKeys(Screens)),
-  },
-};
+  theme,
+} satisfies Partial<Config>;
