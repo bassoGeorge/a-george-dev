@@ -3,16 +3,19 @@ on:
   pull_request:
     branches: [main]
 jobs:
-  #  Run-Tests:
-  #    uses: ./.github/workflows/tests.yml
-  Deploy:
-    #    needs: [Run-Tests]
+  Run_Tests:
+    uses: ./.github/workflows/tests.yml
+  Deploy_Preview:
+    needs: [Run_Tests]
     uses: ./.github/workflows/deploy.yml
     with:
-      production: ${{ false }}
-  Post-Deploy:
-    if: ${{ false }}
-    needs: [Deploy]
+      production: false
+      note: ${{ format('Pull request {0} - {1}', github.event.pull_request.number, github.event.pull_request.title) }}
+      NETLIFY_SITE_ID: ${{ vars.AGEORGEDEV_SITE_ID }}
+    secrets:
+      NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+  Post_Deploy:
+    needs: [Deploy_Preview]
     uses: ./.github/workflows/post-deploy.yml
     with:
-      deploy-url: ${{ needs.Deploy.outputs.PREVIEW_URL }}
+      deploy-url: ${{ needs.Deploy_Preview.outputs.preview-url }}

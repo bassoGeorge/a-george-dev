@@ -1,10 +1,19 @@
-name: Deploy
+name: Netlify Deployment
 on:
   workflow_call:
     inputs:
       production:
         required: true
         type: boolean
+      note:
+        required: true
+        type: string
+      NETLIFY_SITE_ID:
+        required: true
+        type: string
+    secrets:
+      NETLIFY_AUTH_TOKEN:
+        required: true
     outputs:
       preview-url:
         description: 'Preview Url deployed to if any'
@@ -29,11 +38,11 @@ jobs:
       - name: 🏗️ Build and 🚀 Deploy
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-          NETLIFY_SITE_ID: ${{ vars.AGEORGEDEV_SITE_ID }}
+          NETLIFY_SITE_ID: ${{ inputs.NETLIFY_SITE_ID }}
         working-directory: apps/ageorgedev
         run: |
           set -o pipefail
-          yarn netlify deploy --build ${{ fromJSON({"true": "--prod", "false": "--alias preview"})[inputs.production] }} 2>&1 | tee deploy-output.txt
+          yarn netlify deploy --build ${{ fromJSON('{"true": "--prod", "false": "--context deploy-preview --alias preview"}')[inputs.production] }} --message "${{ inputs.note }}" 2>&1 | tee deploy-output.txt
           set +o pipefail
       - name: ⎔ Extract deployment information
         id: deployInfo
