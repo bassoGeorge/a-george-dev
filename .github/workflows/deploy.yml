@@ -42,7 +42,7 @@ jobs:
         working-directory: apps/ageorgedev
         run: |
           set -o pipefail
-          yarn netlify deploy --build ${{ fromJSON('{"true": "--prod", "false": "--context deploy-preview --alias preview"}')[inputs.production] }} --message "${{ inputs.note }}" 2>&1 | tee deploy-output.txt
+          yarn netlify deploy --build ${{ fromJSON('{"true": "--prod --context production", "false": "--context deploy-preview --alias preview"}')[inputs.production] }} --message "${{ inputs.note }}" 2>&1 | tee deploy-output.txt
           set +o pipefail
       - name: ⎔ Extract deployment information
         id: deployInfo
