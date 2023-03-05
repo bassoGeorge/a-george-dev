@@ -3,42 +3,28 @@ on:
   push:
     branches: [main]
 jobs:
-  Run-Tests:
+  Run_Tests:
     uses: ./.github/workflows/tests.yml
-  Deploy:
-    needs: [Run-Tests]
-    runs-on: ubuntu-latest
-    steps:
-      - name: ⬇️ Check out repository code
-        uses: actions/checkout@v3
-      - name: ⎔ Use Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '16.x'
-          cache: 'yarn'
-      - name: 📥 Install dependencies
-        run: yarn install --frozen-lockfile
-      - name: 🏗️ Build and 🚀 Deploy
-        env:
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-          NETLIFY_SITE_ID: ${{ vars.AGEORGEDEV_SITE_ID }}
-        working-directory: apps/ageorgedev
-        run: |
-          set -o pipefail
-          yarn netlify deploy --build --prod 2>&1 | tee deploy-output.txt
-          set +o pipefail
-      - name: ⎔ Extract deployment information
-        id: deployInfo
-        working-directory: apps/ageorgedev
-        run: |
-          echo "LOGS_URL=$(cat deploy-output.txt | grep -Eo '(http|https)://app.netlify.com/[a-zA-Z0-9./?=_-]*')" >> $GITHUB_OUTPUT
-      - name: ⎔ Deploy Info Check
-        run: |
-          echo "Logs URL: ${{ steps.deployInfo.outputs.LOGS_URL }}"
-    outputs:
-      LOGS_URL: ${{ steps.deployInfo.outputs.LOGS_URL }}
-  Post-Deploy:
-    needs: [Deploy]
+  Deploy_Preview:
+    needs: [Run_Tests]
+    uses: ./.github/workflows/deploy.yml
+    with:
+      production: false
+      note: ${{ format('Production Preview {0}', github.sha) }}
+      NETLIFY_SITE_ID: ${{ vars.AGEORGEDEV_SITE_ID }}
+    secrets:
+      NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+  Post_Deploy:
+    needs: [Deploy_Preview]
     uses: ./.github/workflows/post-deploy.yml
     with:
-      deploy-url: ${{ vars.AGEORGEDEV_SITE_URL }}
+      deploy-url: ${{ needs.Deploy_Preview.outputs.preview-url }}
+  Deploy:
+    needs: [Post_Deploy]
+    uses: ./.github/workflows/deploy.yml
+    with:
+      production: true
+      note: ${{ format('Production {0}', github.sha) }}
+      NETLIFY_SITE_ID: ${{ vars.AGEORGEDEV_SITE_ID }}
+    secrets:
+      NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
