@@ -3,7 +3,21 @@ on:
   push:
     branches: [main]
 jobs:
+  Push_Info:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🔍 Gathering information about this push
+        uses: octokit/request-action@v2.x
+        id: comm_check
+        with:
+          route: GET /repos/${{ github.repository }}/commits/${{ github.sha }}/pulls
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    outputs:
+      is_hotfix: ${{ fromJSON(steps.comm_check.outputs.data)[0] == null }}
   Run_Tests:
+    needs: [Push_Info]
+    if: ${{ needs.Push_Info.outputs.is_hotfix == 'true' }}
     uses: ./.github/workflows/tests.yml
   Deploy_Preview:
     needs: [Run_Tests]
@@ -19,8 +33,9 @@ jobs:
     uses: ./.github/workflows/post-deploy.yml
     with:
       deploy-url: ${{ needs.Deploy_Preview.outputs.preview-url }}
-  Deploy:
-    needs: [Post_Deploy]
+  Production_Deploy:
+    needs: [Push_Info, Post_Deploy]
+    if: ${{ !cancelled() && always() && (needs.Push_Info.outputs.is_hotfix == 'false' || needs.Post_Deploy.result == 'success') }}
     uses: ./.github/workflows/deploy.yml
     with:
       production: true
