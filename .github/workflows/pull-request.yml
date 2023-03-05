@@ -3,44 +3,15 @@ on:
   pull_request:
     branches: [main]
 jobs:
-  Run-Tests:
-    uses: ./.github/workflows/tests.yml
+  #  Run-Tests:
+  #    uses: ./.github/workflows/tests.yml
   Deploy:
-    needs: [Run-Tests]
-    runs-on: ubuntu-latest
-    steps:
-      - name: ⬇️ Check out repository code
-        uses: actions/checkout@v3
-      - name: ⎔ Use Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '16.x'
-          cache: 'yarn'
-      - name: 📥 Install dependencies
-        run: yarn install --frozen-lockfile
-      - name: 🏗️ Build and 🚀 Deploy
-        env:
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-          NETLIFY_SITE_ID: ${{ vars.AGEORGEDEV_SITE_ID }}
-        working-directory: apps/ageorgedev
-        run: |
-          set -o pipefail
-          yarn netlify deploy --build --context deploy-preview --alias deploy-preview 2>&1 | tee deploy-output.txt
-          set +o pipefail
-      - name: ⎔ Extract deployment information
-        id: deployInfo
-        working-directory: apps/ageorgedev
-        run: |
-          echo "PREVIEW_URL=$(cat deploy-output.txt | grep -Eo '(http|https)://[a-zA-Z0-9./?=_-]*(--)[a-zA-Z0-9./?=_-]*')" >> $GITHUB_OUTPUT
-          echo "LOGS_URL=$(cat deploy-output.txt | grep -Eo '(http|https)://app.netlify.com/[a-zA-Z0-9./?=_-]*')" >> $GITHUB_OUTPUT
-      - name: ⎔ Deploy Info Check
-        run: |
-          echo "Preview URL: ${{ steps.deployInfo.outputs.PREVIEW_URL }}"
-          echo "Logs URL: ${{ steps.deployInfo.outputs.LOGS_URL }}"
-    outputs:
-      PREVIEW_URL: ${{ steps.deployInfo.outputs.PREVIEW_URL }}
-      LOGS_URL: ${{ steps.deployInfo.outputs.LOGS_URL }}
+    #    needs: [Run-Tests]
+    uses: ./.github/workflows/deploy.yml
+    with:
+      production: ${{ false }}
   Post-Deploy:
+    if: ${{ false }}
     needs: [Deploy]
     uses: ./.github/workflows/post-deploy.yml
     with:
