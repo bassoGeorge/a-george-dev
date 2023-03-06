@@ -16,13 +16,16 @@ jobs:
   Info:
     runs-on: ubuntu-latest
     steps:
-      - name: 🔍 Gathering information about this commit
+      - name: 🔍 Check whether this commit is part of any PR
         uses: octokit/request-action@v2.x
         id: comm_check
         with:
           route: GET /repos/${{ github.repository }}/commits/${{ github.sha }}/pulls
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: 🔍 Is it a hotfix then?
+        id: is_hotfix
+        run: echo "is_hotfix=${{ fromJSON(steps.comm_check.outputs.data)[0] == null }}" >> "$GITHUB_OUTPUT"
       - name: ⬇️ Check out repository code
         uses: actions/checkout@v3
         with:
@@ -31,6 +34,6 @@ jobs:
         id: setSHAs
         uses: nrwl/nx-set-shas@v3
     outputs:
-      is_hotfix: ${{ fromJSON(steps.comm_check.outputs.data)[0] == null }}
+      is_hotfix: ${{ steps.is_hotfix.outputs.is_hotfix }}
       affected_base: ${{ steps.setSHAs.outputs.base }}
       affected_head: ${{ steps.setSHAs.outputs.head }}

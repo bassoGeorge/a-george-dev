@@ -5,9 +5,6 @@ on:
 jobs:
   Info:
     uses: ./.github/workflows/info.yml
-    with:
-      secrets:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   Run_Tests:
     needs: [Info]
     if: ${{ needs.Info.outputs.is_hotfix == 'true' }}
