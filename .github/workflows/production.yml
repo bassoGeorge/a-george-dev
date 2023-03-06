@@ -3,22 +3,18 @@ on:
   push:
     branches: [main]
 jobs:
-  Push_Info:
-    runs-on: ubuntu-latest
-    steps:
-      - name: 🔍 Gathering information about this push
-        uses: octokit/request-action@v2.x
-        id: comm_check
-        with:
-          route: GET /repos/${{ github.repository }}/commits/${{ github.sha }}/pulls
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    outputs:
-      is_hotfix: ${{ fromJSON(steps.comm_check.outputs.data)[0] == null }}
+  Info:
+    uses: ./.github/workflows/info.yml
+    with:
+      secrets:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   Run_Tests:
-    needs: [Push_Info]
-    if: ${{ needs.Push_Info.outputs.is_hotfix == 'true' }}
+    needs: [Info]
+    if: ${{ needs.Info.outputs.is_hotfix == 'true' }}
     uses: ./.github/workflows/tests.yml
+    with:
+      affected_base: ${{ needs.Info.outputs.affected_base }}
+      affected_head: ${{ needs.Info.outputs.affected_head }}
   Site_Preview:
     needs: [Run_Tests]
     uses: ./.github/workflows/site-preview.yml

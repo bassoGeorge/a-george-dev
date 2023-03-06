@@ -3,8 +3,17 @@ on:
   pull_request:
     branches: [main]
 jobs:
+  Info:
+    uses: ./.github/workflows/info.yml
+    with:
+      secrets:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   Run_Tests:
+    needs: [Info]
     uses: ./.github/workflows/tests.yml
+    with:
+      affected_base: ${{ needs.Info.outputs.affected_base }}
+      affected_head: ${{ needs.Info.outputs.affected_head }}
   Site_Preview:
     needs: [Run_Tests]
     uses: ./.github/workflows/site-preview.yml
