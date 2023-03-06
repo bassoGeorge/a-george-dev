@@ -22,8 +22,8 @@ jobs:
     secrets:
       NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
   Production_Deploy:
-    needs: [Push_Info, Site_Preview, Info]
-    if: ${{ !cancelled() && always() && contains(needs.Info.outputs.affected_projects, 'ageorgedev') && (needs.Push_Info.outputs.is_hotfix == 'false' || needs.Site_Preview.result == 'success') }}
+    needs: [Info, Site_Preview]
+    if: ${{ !cancelled() && always() && contains(needs.Info.outputs.affected_projects, 'ageorgedev') && (needs.Info.outputs.is_hotfix == 'false' || needs.Site_Preview.result == 'success') }}
     uses: ./.github/workflows/deploy.yml
     with:
       production: true
