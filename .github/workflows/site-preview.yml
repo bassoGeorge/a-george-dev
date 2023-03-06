@@ -13,7 +13,6 @@ on:
         required: true
 jobs:
   Deploy_Preview:
-    needs: [Run_Tests]
     uses: ./.github/workflows/deploy.yml
     with:
       production: false
