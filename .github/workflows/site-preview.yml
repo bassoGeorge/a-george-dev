@@ -1,0 +1,28 @@
+name: Site Preview
+on:
+  workflow_call:
+    inputs:
+      title:
+        required: true
+        type: string
+      NETLIFY_SITE_ID:
+        required: true
+        type: string
+    secrets:
+      NETLIFY_AUTH_TOKEN:
+        required: true
+jobs:
+  Deploy_Preview:
+    needs: [Run_Tests]
+    uses: ./.github/workflows/deploy.yml
+    with:
+      production: false
+      note: ${{ inputs.title }}
+      NETLIFY_SITE_ID: ${{ inputs.NETLIFY_SITE_ID }}
+    secrets:
+      NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+  Post_Deploy:
+    needs: [Deploy_Preview]
+    uses: ./.github/workflows/post-deploy.yml
+    with:
+      deploy-url: ${{ needs.Deploy_Preview.outputs.preview-url }}

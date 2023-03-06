@@ -19,23 +19,17 @@ jobs:
     needs: [Push_Info]
     if: ${{ needs.Push_Info.outputs.is_hotfix == 'true' }}
     uses: ./.github/workflows/tests.yml
-  Deploy_Preview:
+  Site_Preview:
     needs: [Run_Tests]
-    uses: ./.github/workflows/deploy.yml
+    uses: ./.github/workflows/site-preview.yml
     with:
-      production: false
-      note: ${{ format('Production Preview {0}', github.sha) }}
+      title: ${{ format('Production Preview {0}', github.sha) }}
       NETLIFY_SITE_ID: ${{ vars.AGEORGEDEV_SITE_ID }}
     secrets:
       NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-  Post_Deploy:
-    needs: [Deploy_Preview]
-    uses: ./.github/workflows/post-deploy.yml
-    with:
-      deploy-url: ${{ needs.Deploy_Preview.outputs.preview-url }}
   Production_Deploy:
-    needs: [Push_Info, Post_Deploy]
-    if: ${{ !cancelled() && always() && (needs.Push_Info.outputs.is_hotfix == 'false' || needs.Post_Deploy.result == 'success') }}
+    needs: [Push_Info, Site_Preview]
+    if: ${{ !cancelled() && always() && (needs.Push_Info.outputs.is_hotfix == 'false' || needs.Site_Preview.result == 'success') }}
     uses: ./.github/workflows/deploy.yml
     with:
       production: true
