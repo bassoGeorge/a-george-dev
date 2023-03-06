@@ -1,0 +1,39 @@
+name: Site Preview
+on:
+  workflow_call:
+    inputs:
+      title:
+        required: true
+        type: string
+      NETLIFY_SITE_ID:
+        required: true
+        type: string
+    secrets:
+      NETLIFY_AUTH_TOKEN:
+        required: true
+jobs:
+  Deploy_Preview:
+    uses: ./.github/workflows/deploy.yml
+    with:
+      production: false
+      note: ${{ inputs.title }}
+      NETLIFY_SITE_ID: ${{ inputs.NETLIFY_SITE_ID }}
+    secrets:
+      NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+  E2E:
+    needs: [Deploy_Preview]
+    runs-on: ubuntu-latest
+    steps:
+      - name: ⬇️ Check out repository code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: ⎔ Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+          cache: 'yarn'
+      - name: 📥 Install dependencies
+        run: yarn install --frozen-lockfile
+      - name: ⚡ Run cypress against deployed application
+        run: yarn nx e2e ageorgedev-e2e --baseUrl=${{ needs.Deploy_Preview.outputs.preview-url }}

@@ -1,0 +1,57 @@
+name: Info
+on:
+  workflow_call:
+    outputs:
+      is_hotfix:
+        description: 'Whether the current commit is unique to this branch or has been a part of PR. For Main push'
+        value: ${{ jobs.Info.outputs.is_hotfix }}
+      affected_base:
+        description: 'Base sha for nx:affected'
+        value: ${{ jobs.Info.outputs.affected_base }}
+      affected_head:
+        description: 'Head sha for nx:affected'
+        value: ${{ jobs.Info.outputs.affected_head }}
+      affected_projects:
+        description: 'Comma space separated list of affected projects as a single string'
+        value: ${{ jobs.Info.outputs.affected_projects }}
+
+jobs:
+  Info:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🔍 Check whether this commit is part of any PR
+        uses: octokit/request-action@v2.x
+        id: comm_check
+        with:
+          route: GET /repos/${{ github.repository }}/commits/${{ github.sha }}/pulls
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: 🔍 Is it a hotfix then?
+        id: is_hotfix
+        run: echo "is_hotfix=${{ fromJSON(steps.comm_check.outputs.data)[0] == null }}" >> "$GITHUB_OUTPUT"
+      - name: ⬇️ Check out repository code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: 🔧 Derive appropriate SHAs for base and head for `nx affected` commands
+        id: setSHAs
+        uses: nrwl/nx-set-shas@v3
+      - name: ⎔ Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+          cache: 'yarn'
+      - name: 📥 Install dependencies
+        run: yarn install --frozen-lockfile
+      - name: List affected projects
+        id: affected_projects
+        run: echo "affected_projects=$(yarn --silent nx print-affected --select=projects)" >> "$GITHUB_OUTPUT"
+      - name: Debug
+        run: |
+          echo "Is hotfix: ${{ steps.is_hotfix.outputs.is_hotfix }}"
+          echo "affected projects: ${{ steps.affected_projects.outputs.affected_projects }}"
+    outputs:
+      is_hotfix: ${{ steps.is_hotfix.outputs.is_hotfix }}
+      affected_base: ${{ steps.setSHAs.outputs.base }}
+      affected_head: ${{ steps.setSHAs.outputs.head }}
+      affected_projects: ${{ steps.affected_projects.outputs.affected_projects }}

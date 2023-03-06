@@ -1,35 +1,21 @@
 name: 🧪 Tests
 on:
   workflow_call:
-
+    inputs:
+      affected_base:
+        required: true
+        type: string
+      affected_head:
+        required: true
+        type: string
 jobs:
-  Prepare:
-    runs-on: ubuntu-latest
-    steps:
-      - name: ⬇️ Check out repository code
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-      - name: ⎔ Fetch the main for diff
-        if: ${{ github.base_ref }}
-        run: git branch --track ${{ github.base_ref }} origin/${{ github.base_ref }}
-      - name: ⎔ Derive appropriate SHAs for base and head for `nx affected` commands
-        id: setSHAs
-        uses: nrwl/nx-set-shas@v3
-    outputs:
-      base_ref: ${{ steps.setSHAs.outputs.base }}
-      head_ref: ${{ steps.setSHAs.outputs.head }}
   Test:
-    needs: [Prepare]
     runs-on: ubuntu-latest
     steps:
       - name: ⬇️ Check out repository code
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
-      - name: ⎔ Fetch the main for diff
-        if: ${{ github.base_ref }}
-        run: git branch --track ${{ github.base_ref }} origin/${{ github.base_ref }}
       - name: ⎔ Use Node.js
         uses: actions/setup-node@v3
         with:
@@ -38,4 +24,4 @@ jobs:
       - name: 📥 Install dependencies
         run: yarn install --frozen-lockfile
       - name: ⚡ Run Unit Tests for affected apps
-        run: yarn nx affected:test --base=${{ needs.Prepare.outputs.base_ref }} --head=${{ needs.Prepare.outputs.head_ref }}
+        run: yarn nx affected:test --base=${{ inputs.affected_base }} --head=${{ inputs.affected_head }}

@@ -4,7 +4,8 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "preinstall": "git config core.hooksPath .git-hooks"
+    "preinstall": "git config core.hooksPath .git-hooks",
+    "affected-projects": "nx print-affected --select=projects"
   },
   "devDependencies": {
     "@nrwl/cypress": "15.7.2",
