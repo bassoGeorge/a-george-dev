@@ -45,9 +45,11 @@ jobs:
         run: yarn install --frozen-lockfile
       - name: List affected projects
         id: affected_projects
+        run: echo "affected_projects=$(yarn --silent nx print-affected --select=projects)" >> "$GITHUB_OUTPUT"
+      - name: Debug
         run: |
-          echo "affected_projects=$(yarn --silent nx print-affected --select=projects)" >> "$GITHUB_OUTPUT"
-          echo "$GITHUB_OUTPUT"
+          echo "Is hotfix: ${{ steps.is_hotfix.outputs.is_hotfix }}"
+          echo "affected projects: ${{ steps.affected_projects.outputs.affected_projects }}"
     outputs:
       is_hotfix: ${{ steps.is_hotfix.outputs.is_hotfix }}
       affected_base: ${{ steps.setSHAs.outputs.base }}
