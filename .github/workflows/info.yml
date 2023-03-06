@@ -1,9 +1,6 @@
 name: Info
 on:
   workflow_call:
-    secrets:
-      GITHUB_TOKEN:
-        required: true
     outputs:
       is_hotfix:
         description: 'Whether the current commit is unique to this branch or has been a part of PR. For Main push'
