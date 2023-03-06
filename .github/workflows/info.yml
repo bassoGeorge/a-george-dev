@@ -38,7 +38,7 @@ jobs:
         uses: nrwl/nx-set-shas@v3
       - name: List affected projects
         id: affected_projects
-        run: echo "affected_projects=$(nx print-affected --select=projects)" >> "$GITHUB_OUTPUT"
+        run: echo "affected_projects=$(yarn --silent nx print-affected --select=projects)" >> "$GITHUB_OUTPUT"
     outputs:
       is_hotfix: ${{ steps.is_hotfix.outputs.is_hotfix }}
       affected_base: ${{ steps.setSHAs.outputs.base }}
