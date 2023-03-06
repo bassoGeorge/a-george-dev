@@ -15,6 +15,7 @@ export function DemoDs(props: DemoDsProps) {
           If this statement is in secondary accent pink, then VanillaExtract is
           working well along with global styles
         </li>
+        <li>Some changes for affected</li>
       </ul>
     </div>
   );

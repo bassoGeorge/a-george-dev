@@ -11,6 +11,9 @@ on:
       affected_head:
         description: 'Head sha for nx:affected'
         value: ${{ jobs.Info.outputs.affected_head }}
+      affected_projects:
+        description: 'Comma space separated list of affected projects as a single string'
+        value: ${{ jobs.Info.outputs.affected_projects }}
 
 jobs:
   Info:
@@ -33,7 +36,11 @@ jobs:
       - name: 🔧 Derive appropriate SHAs for base and head for `nx affected` commands
         id: setSHAs
         uses: nrwl/nx-set-shas@v3
+      - name: List affected projects
+        id: affected_projects
+        run: echo "affected_projects=$(nx print-affected --select=projects)" >> "$GITHUB_OUTPUT"
     outputs:
       is_hotfix: ${{ steps.is_hotfix.outputs.is_hotfix }}
       affected_base: ${{ steps.setSHAs.outputs.base }}
       affected_head: ${{ steps.setSHAs.outputs.head }}
+      affected_projects: ${{ steps.affected_projects.outputs.affected_projects }}
