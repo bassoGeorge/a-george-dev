@@ -14,7 +14,7 @@ jobs:
       affected_head: ${{ needs.Info.outputs.affected_head }}
   Site_Preview:
     needs: [Run_Tests, Info]
-    if: ${{ contains(needs.Info.outputs.affected_projects, 'ageorgedev') }}
+    if: ${{ needs.Info.outputs.should_preview_site == 'true' }}
     uses: ./.github/workflows/site-preview.yml
     with:
       title: ${{ format('Production Preview {0}', github.sha) }}
@@ -23,7 +23,7 @@ jobs:
       NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
   Production_Deploy:
     needs: [Info, Site_Preview]
-    if: ${{ !cancelled() && always() && contains(needs.Info.outputs.affected_projects, 'ageorgedev') && (needs.Info.outputs.is_hotfix == 'false' || needs.Site_Preview.result == 'success') }}
+    if: ${{ !cancelled() && always() && needs.Info.outputs.should_deploy_site == 'true' && (needs.Info.outputs.is_hotfix == 'false' || needs.Site_Preview.result == 'success') }}
     uses: ./.github/workflows/deploy.yml
     with:
       production: true
