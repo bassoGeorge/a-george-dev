@@ -14,6 +14,14 @@ on:
       affected_projects:
         description: 'Comma space separated list of affected projects as a single string'
         value: ${{ jobs.Info.outputs.affected_projects }}
+      should_preview_site:
+        description: 'Whether to run the site preview workflow'
+        # preview should be build if array contains either ageorgedev or ageorgedev-e2e, so using simple substring search
+        value: ${{ contains(jobs.Info.outputs.affected_projects, 'ageorgedev') }}
+      should_deploy_site:
+        description: 'Whether to deploy the site'
+        # site should be deployed only if 'ageorgedev' is in the arry, so using array contains
+        value: ${{ contains(fromJSON(jobs.Info.outputs.affected_projects), 'ageorgedev') }}
 
 jobs:
   Info:
@@ -45,7 +53,7 @@ jobs:
         run: yarn install --frozen-lockfile
       - name: List affected projects
         id: affected_projects
-        run: echo "affected_projects=$(yarn --silent nx print-affected --select=projects)" >> "$GITHUB_OUTPUT"
+        run: echo "affected_projects=$(yarn --silent nx print-affected | jq -c '.projects')" >> "$GITHUB_OUTPUT"
       - name: Debug
         run: |
           echo "Is hotfix: ${{ steps.is_hotfix.outputs.is_hotfix }}"
