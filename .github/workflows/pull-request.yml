@@ -21,6 +21,7 @@ jobs:
     secrets:
       NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
   Production_Deploy:
+    needs: [Info]
     if: ${{ needs.Info.outputs.should_deploy_site == 'true' }}
     runs-on: ubuntu-latest
     steps:
