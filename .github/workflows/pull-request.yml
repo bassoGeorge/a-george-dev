@@ -20,10 +20,3 @@ jobs:
       NETLIFY_SITE_ID: ${{ vars.AGEORGEDEV_SITE_ID }}
     secrets:
       NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-  Production_Deploy:
-    needs: [Info]
-    if: ${{ needs.Info.outputs.should_deploy_site == 'true' }}
-    runs-on: ubuntu-latest
-    steps:
-      - name: ⬇️ Debug
-        run: echo "DEBUGGING. Should run if we need to deploy"
