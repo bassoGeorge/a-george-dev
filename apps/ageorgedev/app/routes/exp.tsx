@@ -3,7 +3,6 @@ export default function Exp() {
     <>
       <h3 className="text-4xl mb-3">Running Experiments</h3>
       <p>Here is a change that will affect the site</p>
-      <p>Just another change to affect</p>
     </>
   );
 }
