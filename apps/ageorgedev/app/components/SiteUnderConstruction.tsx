@@ -18,7 +18,7 @@ export function SiteUnderConstruction() {
         className={`${nameSection} p-4 tablet:pb-6 tablet:px-7 flex flex-col justify-end tablet:justify-center`}
       >
         <h1
-          className={`${name} font-serif text-center font-bold text-7xl tablet:text-8xl desktop:text-[130px]`}
+          className={`${name} font-heading text-center font-bold text-7xl tablet:text-8xl desktop:text-[130px]`}
         >
           Anish George
         </h1>
@@ -30,10 +30,10 @@ export function SiteUnderConstruction() {
           <ThemeSwitcher />
         </div>
         <div className="text-center tablet:text-right">
-          <h3 className={`${webDev} text-3xl tablet:text-6xl font-bold`}>
+          <h3 className={`${webDev} type-heading-2 tablet:text-6xl font-bold`}>
             Web Developer
           </h3>
-          <p className={`${arch} text-xl tablet:text-3xl`}>
+          <p className={`${arch} text-xl tablet:text-3xl really`}>
             Architecting web experiences since 2016
           </p>
         </div>

@@ -3,6 +3,8 @@ import {
   chain,
   compose,
   concat,
+  divide,
+  flip,
   fromPairs,
   join,
   map,
@@ -46,3 +48,5 @@ export const getTailwindPropertyMap = (
     values
   )(styles);
 };
+
+export const toRem = compose((n) => `${n}rem`, flip(divide)(16));

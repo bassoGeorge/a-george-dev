@@ -5,6 +5,7 @@ import { Screens } from './tokens/responsive';
 import { cssCaseKeys, getTailwindPropertyMap } from './utils';
 import { ContextualColors } from './tokens/contextual-colors';
 import type { Config } from 'tailwindcss';
+import { FontFamily } from './tokens/typography';
 
 export const TailwindTheme = {
   spacing: Spacing,
@@ -17,8 +18,9 @@ export const TailwindTheme = {
     ...getTailwindPropertyMap(ContextualColors),
   },
   fontFamily: {
-    sans: ['Alegreya Sans', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-    sc: ['Alegreya Sans SC', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-    serif: ['Alegreya', 'ui-serif', 'serif'],
+    sans: FontFamily.body,
+    body: FontFamily.body,
+    interface: FontFamily.interface,
+    heading: FontFamily.heading,
   },
 } satisfies Config['theme'];

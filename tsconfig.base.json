@@ -19,7 +19,8 @@
       "@ageorgedev/foundation-styles": ["libs/foundation-styles/src/index.ts"],
       "@ageorgedev/foundation-styles/globals": [
         "libs/foundation-styles/src/globals.ts"
-      ]
+      ],
+      "@ageorgedev/toolbelt": ["libs/toolbelt/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

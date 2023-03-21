@@ -1,4 +1,9 @@
-import { cssVarName, fullCssVarName, getTailwindPropertyMap } from './utils';
+import {
+  cssVarName,
+  fullCssVarName,
+  getTailwindPropertyMap,
+  toRem,
+} from './utils';
 import { describe, expect } from 'vitest';
 
 describe('Foundation Utils', () => {
@@ -35,6 +40,14 @@ describe('Foundation Utils', () => {
         'cc-test-color-200': 'var(--ag-cc-test-color-200)',
         'some-other-stuff': 'var(--ag-some-other-stuff)',
       });
+    });
+  });
+
+  describe('toRem', () => {
+    it('works', () => {
+      expect(toRem(16)).toEqual('1rem');
+      expect(toRem(12)).toEqual('0.75rem');
+      expect(toRem(48)).toEqual('3rem');
     });
   });
 });
