@@ -30,7 +30,7 @@ export function SiteUnderConstruction() {
           <ThemeSwitcher />
         </div>
         <div className="text-center tablet:text-right">
-          <h3 className={`${webDev} type-heading-2 tablet:text-6xl font-bold`}>
+          <h3 className={`${webDev} type-heading-2 font-bold`}>
             Web Developer
           </h3>
           <p className={`${arch} text-xl tablet:text-3xl really`}>
@@ -39,7 +39,7 @@ export function SiteUnderConstruction() {
         </div>
       </section>
       <section
-        className={`${conSection} p-4 tablet:col-span-2 flex justify-center relative text-3xl`}
+        className={`${conSection} p-4 tablet:col-span-2 flex justify-center relative type-interface-2xl`}
       >
         <p>🚧 Site under construction 🚧</p>
       </section>

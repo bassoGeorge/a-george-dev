@@ -4,31 +4,37 @@ import {
   compose,
   concat,
   divide,
+  filter,
   flip,
   fromPairs,
   join,
   map,
   prepend,
-  toPairs,
   values,
 } from 'ramda';
 import { paramCase } from 'param-case';
 
-export const cssVarName: (parts: string[]) => string = compose(
+// So param case does strip out some extraneous characters, we don't want
+// that behaviour
+export const cssCase = (input: string) =>
+  paramCase(input, {
+    stripRegexp: /(?!)/, // This regex matches absolutely nothing
+  });
+
+export const joinCssClassParts = compose(
   join('-'),
-  prepend(FOUNDATION_VAR_PREFIX),
-  map(paramCase)
+  map(cssCase),
+  filter(Boolean)
+);
+
+export const cssVarName: (parts: string[]) => string = compose(
+  joinCssClassParts,
+  prepend(FOUNDATION_VAR_PREFIX)
 );
 
 export const fullCssVarName: (parts: string[]) => string = compose(
   concat('--'),
   cssVarName
-);
-
-export const cssCaseKeys = compose(
-  fromPairs,
-  map(([k, v]) => [paramCase(k), v] as const),
-  toPairs
 );
 
 export const extractTailwindVarKey = (varKey: string): string =>
@@ -49,4 +55,6 @@ export const getTailwindPropertyMap = (
   )(styles);
 };
 
+// Given a pixel value, this function gets the rem value of that based on 16
+// as default browser font size
 export const toRem = compose((n) => `${n}rem`, flip(divide)(16));

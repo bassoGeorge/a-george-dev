@@ -1,6 +1,6 @@
 import { compose, curryN, fromPairs, map, toPairs } from 'ramda';
 
-type KeyT = string | number;
+type KeyT = string;
 
 function _mapKeys<S>(
   mapper: (key: KeyT) => string,

@@ -2,16 +2,17 @@ import { AccessibleRawColors } from './tokens/raw-colors';
 import { Spacing } from './tokens/spacing';
 import { mapObjIndexed } from 'ramda';
 import { Screens } from './tokens/responsive';
-import { cssCaseKeys, getTailwindPropertyMap } from './utils';
+import { cssCase, getTailwindPropertyMap } from './utils';
 import { ContextualColors } from './tokens/contextual-colors';
 import type { Config } from 'tailwindcss';
 import { FontFamily } from './tokens/typography';
+import { mapKeys } from '@ageorgedev/toolbelt';
 
 export const TailwindTheme = {
   spacing: Spacing,
   screens: mapObjIndexed(
     (query: string) => ({ raw: query }),
-    cssCaseKeys(Screens) as Record<string, string>
+    mapKeys(cssCase, Screens)
   ),
   colors: {
     ...getTailwindPropertyMap(AccessibleRawColors),

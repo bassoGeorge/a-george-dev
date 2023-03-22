@@ -1,7 +1,9 @@
 import {
+  cssCase,
   cssVarName,
   fullCssVarName,
   getTailwindPropertyMap,
+  joinCssClassParts,
   toRem,
 } from './utils';
 import { describe, expect } from 'vitest';
@@ -48,6 +50,19 @@ describe('Foundation Utils', () => {
       expect(toRem(16)).toEqual('1rem');
       expect(toRem(12)).toEqual('0.75rem');
       expect(toRem(48)).toEqual('3rem');
+    });
+  });
+
+  describe('joinCssClassParts', () => {
+    it('cssCase does param case without loosing characters', () => {
+      expect(cssCase('.another')).toEqual('.another');
+    });
+
+    it('works', () => {
+      expect(joinCssClassParts(['a', 'somethingElse', ''])).toEqual(
+        'a-something-else'
+      );
+      expect(joinCssClassParts(['.a', 'b'])).toEqual('.a-b');
     });
   });
 });

@@ -6,7 +6,10 @@ export function ThemeSwitcher() {
   }, []);
 
   return (
-    <button className={`text-cc-neutral-300 p-3`} onClick={switchTheme}>
+    <button
+      className={`type-interface text-cc-neutral-300 p-3`}
+      onClick={switchTheme}
+    >
       Switch Theme
     </button>
   );
