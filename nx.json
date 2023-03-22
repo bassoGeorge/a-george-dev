@@ -24,6 +24,10 @@
       "dependsOn": ["^build", "pre-build"],
       "inputs": ["production", "^production"]
     },
+    "pre-build": {
+      "dependsOn": ["^build"],
+      "inputs": ["production", "^production"]
+    },
     "dev": {
       "dependsOn": ["^build"]
     },

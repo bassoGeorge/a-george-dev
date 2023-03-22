@@ -3,46 +3,87 @@ import {
   chain,
   compose,
   concat,
+  divide,
+  filter,
+  flip,
   fromPairs,
   join,
   map,
   prepend,
-  toPairs,
   values,
+  __,
 } from 'ramda';
 import { paramCase } from 'param-case';
 
-export const cssVarName: (parts: string[]) => string = compose(
+/**
+ * Converts a string into param-case / kebab-case
+ * Used for generating css class names
+ * The paramCase function strips out some extraneous characters, we don't want
+ * to do that for our utils, thus we have this wrapper
+ */
+export const cssCase = (input: string) =>
+  paramCase(input, {
+    stripRegexp: /(?!)/, // This regex matches absolutely nothing
+  });
+
+/**
+ * Joins a list of strings into a kebab-cased string used for class names
+ * example: ['type', 'headingXl', '', '4'] => 'type-heading-xl-4'
+ */
+export const joinCssClassParts: (parts: string[]) => string = compose(
   join('-'),
-  prepend(FOUNDATION_VAR_PREFIX),
-  map(paramCase)
+  map(cssCase),
+  filter(Boolean)
 );
 
-export const fullCssVarName: (parts: string[]) => string = compose(
-  concat('--'),
-  cssVarName
+/**
+ * Joins a list of strings and creates a css variable name with the foundation prefix
+ * example: ['type', 'headingXl', '', '4'] => 'ag-type-heading-xl-4'
+ */
+export const cssVarName: (parts: string[]) => string = compose(
+  joinCssClassParts,
+  prepend(FOUNDATION_VAR_PREFIX)
 );
 
-export const cssCaseKeys = compose(
+/**
+ * Gets the core variable name from a var() statement with foundation prefix
+ * example: 'var(--ag-cc-something)' => 'cc-something'
+ */
+const extractTailwindVarKey = (() => {
+  const pattern = new RegExp(`^var\\(--${FOUNDATION_VAR_PREFIX}-(.*)\\)`);
+  return (varKey: string) => varKey.match(pattern)?.[1] ?? '';
+})();
+
+/**
+ * Maps from a VE theme object to a tailwind color map
+ *
+ * For a object {
+ *  item: {
+ *    variantA: 'var(--ag-<name>)'
+ *  },
+ *  item2: {
+ *    variantB: 'var(--ag-<name2>)'
+ *  }
+ * }
+ *
+ * returns {
+ *   <name>: 'var(--ag-<name>)'
+ *   <name2>: 'var(--ag-<name2>)'
+ * }
+ */
+export const getTailwindPropertyMap = compose(
   fromPairs,
-  map(([k, v]) => [paramCase(k), v] as const),
-  toPairs
+  chain((set: Record<string, string>): (readonly [string, string])[] => {
+    return compose(
+      map((value: string) => [extractTailwindVarKey(value), value] as const),
+      values
+    )(set);
+  }),
+  values
 );
 
-export const extractTailwindVarKey = (varKey: string): string =>
-  varKey.match(/^var\(--ag-(.*)\)/)?.[1] ?? '';
-
-export const getTailwindPropertyMap = (
-  styles: Record<string, Record<string, string>>
-): Record<string, string> => {
-  return compose(
-    fromPairs,
-    chain((set: Record<string, string>): (readonly [string, string])[] => {
-      return compose(
-        map((value: string) => [extractTailwindVarKey(value), value] as const),
-        values
-      )(set);
-    }),
-    values
-  )(styles);
-};
+/**
+ * Given a pixel value, this function gets the rem value of that based on 16
+ * as default browser font size
+ */
+export const toRem = compose((n) => `${n}rem`, divide(__, 16));
