@@ -7,7 +7,7 @@ export function ThemeSwitcher() {
 
   return (
     <button
-      className={`type-interface text-cc-neutral-300 p-3`}
+      className={`font-interface text-cc-neutral-300 p-3 leading-none`}
       onClick={switchTheme}
     >
       Switch Theme

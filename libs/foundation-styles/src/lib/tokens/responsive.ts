@@ -61,6 +61,8 @@ export const Media = {
  * { '@media <rule>': <styles> }
  *
  * For that we transform the functions and return a new Media object for tailwind
+ *
+ * This is currently not being used, but we will keep it around for later
  */
 
 const getInlineMediaQueryObject: (style: StyleRule) => CSSRuleObject = compose(

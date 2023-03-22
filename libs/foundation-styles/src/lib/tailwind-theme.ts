@@ -5,7 +5,12 @@ import { Screens } from './tokens/responsive';
 import { cssCase, getTailwindPropertyMap } from './utils';
 import { ContextualColors } from './tokens/contextual-colors';
 import type { Config } from 'tailwindcss';
-import { FontFamily } from './tokens/typography';
+import {
+  FontFamily,
+  FontSize,
+  LetterSpacing,
+  LineHeight,
+} from './tokens/typography';
 import { mapKeys } from '@ageorgedev/toolbelt';
 
 export const TailwindTheme = {
@@ -24,4 +29,7 @@ export const TailwindTheme = {
     interface: FontFamily.interface,
     heading: FontFamily.heading,
   },
+  fontSize: FontSize,
+  letterSpacing: LetterSpacing,
+  lineHeight: LineHeight,
 } satisfies Config['theme'];
