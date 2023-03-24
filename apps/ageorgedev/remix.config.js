@@ -20,5 +20,6 @@ module.exports = {
     unstable_postcss: true,
     unstable_vanillaExtract: true,
     v2_routeConvention: true,
+    v2_errorBoundary: true,
   },
 };
