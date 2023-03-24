@@ -14,6 +14,7 @@ module.exports = {
   // appDirectory: "app",
   // assetsBuildDirectory: "public/build",
   // publicPath: "/build/",
+  serverDependenciesToBundle: ['@phosphor-icons/react'],
 
   future: {
     unstable_tailwind: true,

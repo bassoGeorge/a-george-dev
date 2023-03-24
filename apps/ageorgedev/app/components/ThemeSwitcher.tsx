@@ -1,4 +1,5 @@
 import { useCallback } from 'react';
+import { Sun } from '@phosphor-icons/react';
 
 export function ThemeSwitcher() {
   const switchTheme = useCallback(() => {
@@ -11,6 +12,7 @@ export function ThemeSwitcher() {
       onClick={switchTheme}
     >
       Switch Theme
+      <Sun weight="duotone" />
     </button>
   );
 }
