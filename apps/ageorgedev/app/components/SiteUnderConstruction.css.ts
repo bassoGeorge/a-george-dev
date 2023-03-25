@@ -85,7 +85,7 @@ export const conSection = style([
     zIndex: 2,
     ':before': {
       right: -5,
-      transform: `skew(0deg, ${deg}) scaleY(1.2)`,
+      transform: `skew(0deg, ${deg}) scaleY(2)`,
       transformOrigin: 'top right',
       boxShadow: '-4px -8px rgb(0 0 0 / .25)',
       borderTop: `4px solid ${RawColors.dNeutral['500']}`,
