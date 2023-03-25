@@ -24,3 +24,10 @@ nx g @nrwl/react:lib <name>
 1. Select No CSS and the vite bundler
 2. Update .eslintrc to pick up <root>/.estlintrc.ts.json
 3. Add vanillaExtractPlugin() to the vite-config
+4. Add the tailwind config and postcss config to the library
+
+#### Adding storybook
+
+```shell
+nx g @nrwl/storybook:configuration <name>
+```
