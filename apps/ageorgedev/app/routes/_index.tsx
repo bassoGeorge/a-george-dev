@@ -1,5 +1,10 @@
 import { SiteUnderConstruction } from '../components/SiteUnderConstruction';
+import { ThemeProvider } from '@ageorgedev/molecules';
 
 export default function Index() {
-  return <SiteUnderConstruction />;
+  return (
+    <ThemeProvider>
+      <SiteUnderConstruction />;
+    </ThemeProvider>
+  );
 }

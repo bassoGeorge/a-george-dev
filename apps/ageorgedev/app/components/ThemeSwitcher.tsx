@@ -1,18 +1,20 @@
 import { useCallback } from 'react';
-import { Sun } from '@phosphor-icons/react';
+import { Moon, Sun } from '@phosphor-icons/react';
+import { useTheme } from '@ageorgedev/molecules';
 
 export function ThemeSwitcher() {
+  const { theme, setTheme } = useTheme();
+
   const switchTheme = useCallback(() => {
-    document.documentElement.classList.toggle('dark');
-  }, []);
+    setTheme(theme === 'dark' ? 'light' : 'dark');
+  }, [theme, setTheme]);
 
   return (
     <button
       className={`font-interface text-cc-neutral-300 p-3 leading-none`}
       onClick={switchTheme}
     >
-      Switch Theme
-      <Sun weight="duotone" />
+      {theme === 'dark' ? <Sun weight="duotone" /> : <Moon weight="duotone" />}
     </button>
   );
 }
