@@ -14,11 +14,13 @@ module.exports = {
   // appDirectory: "app",
   // assetsBuildDirectory: "public/build",
   // publicPath: "/build/",
+  serverDependenciesToBundle: ['@phosphor-icons/react'],
 
   future: {
     unstable_tailwind: true,
     unstable_postcss: true,
     unstable_vanillaExtract: true,
     v2_routeConvention: true,
+    v2_errorBoundary: true,
   },
 };
