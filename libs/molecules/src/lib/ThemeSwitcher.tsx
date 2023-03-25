@@ -1,6 +1,6 @@
 import { useCallback } from 'react';
 import { Moon, Sun } from '@phosphor-icons/react';
-import { useTheme } from '@ageorgedev/molecules';
+import { useTheme } from './Theme';
 
 export function ThemeSwitcher() {
   const { theme, setTheme } = useTheme();
@@ -12,7 +12,7 @@ export function ThemeSwitcher() {
 
   return (
     <button
-      className={`font-interface text-2xl text-cc-neutral-300 hover:text-rc-s-accent-400 p-3 leading-none transition-colors`}
+      className={`leading-none text-2xl text-cc-neutral-300 hover:text-rc-s-accent-400 p-3 transition-colors`}
       title={`Switch to ${nextTheme} theme`}
       onClick={switchTheme}
     >

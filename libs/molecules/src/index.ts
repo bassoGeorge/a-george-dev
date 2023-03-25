@@ -1,2 +1,2 @@
-export * from './lib/molecules';
 export * from './lib/Theme';
+export * from './lib/ThemeSwitcher';

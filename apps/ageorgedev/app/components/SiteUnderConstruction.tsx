@@ -7,7 +7,7 @@ import {
   arch,
   webDev,
 } from './SiteUnderConstruction.css';
-import { ThemeSwitcher } from './ThemeSwitcher';
+import { ThemeSwitcher } from '@ageorgedev/molecules';
 
 export function SiteUnderConstruction() {
   return (
