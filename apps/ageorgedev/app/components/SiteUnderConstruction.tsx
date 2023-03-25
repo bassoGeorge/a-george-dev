@@ -9,6 +9,7 @@ import {
 } from './SiteUnderConstruction.css';
 import { ThemeSwitcher } from '@ageorgedev/molecules';
 import { NameLogo } from '@ageorgedev/atoms';
+import { Barricade } from '@phosphor-icons/react';
 
 export function SiteUnderConstruction() {
   return (
@@ -20,7 +21,7 @@ export function SiteUnderConstruction() {
       </div>
 
       <section
-        className={`${nameSection} p-4 tablet:pb-6 tablet:px-7 flex flex-col items-center justify-end tablet:justify-center`}
+        className={`${nameSection} p-4 tablet:pb-6 tablet:px-7 flex justify-center items-end tablet:items-center`}
       >
         <NameLogo className={`text-[23vw] tablet:text-[11vw]`} />
       </section>
@@ -41,9 +42,11 @@ export function SiteUnderConstruction() {
         </div>
       </section>
       <section
-        className={`${conSection} p-4 tablet:col-span-2 flex justify-center relative font-interface text-lg tablet:text-2xl`}
+        className={`${conSection} p-4 tablet:col-span-2 flex justify-center gap-3 relative font-interface text-lg tablet:text-2xl`}
       >
-        <p>🚧 Site under construction 🚧</p>
+        <Barricade weight="duotone" className="text-rc-p-accent-400" />
+        <p>Site under construction</p>
+        <Barricade weight="duotone" className="text-rc-p-accent-400" />
       </section>
     </main>
   );
