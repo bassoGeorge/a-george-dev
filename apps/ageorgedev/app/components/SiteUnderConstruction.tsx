@@ -8,6 +8,7 @@ import {
   webDev,
 } from './SiteUnderConstruction.css';
 import { ThemeSwitcher } from '@ageorgedev/molecules';
+import { NameLogo } from '@ageorgedev/atoms';
 
 export function SiteUnderConstruction() {
   return (
@@ -19,13 +20,9 @@ export function SiteUnderConstruction() {
       </div>
 
       <section
-        className={`${nameSection} p-4 tablet:pb-6 tablet:px-7 flex flex-col justify-end tablet:justify-center`}
+        className={`${nameSection} p-4 tablet:pb-6 tablet:px-7 flex flex-col items-center justify-end tablet:justify-center`}
       >
-        <h1
-          className={`${name} font-heading text-center font-bold text-4xl tablet:text-6xl desktop:text-[130px]`}
-        >
-          Anish George
-        </h1>
+        <NameLogo className={`text-[23vw] tablet:text-[11vw]`} />
       </section>
       <section
         className={`${subTextSection} phone-landscape-only:pb-3 tablet:p-6 tablet:pb-10 flex flex-col justify-start tablet:justify-end relative`}

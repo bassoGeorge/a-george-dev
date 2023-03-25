@@ -1,1 +1,1 @@
-export * from './lib/atoms';
+export * from './lib/NameLogo/NameLogo';
