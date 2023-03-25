@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@ageorgedev/atoms": ["libs/atoms/src/index.ts"],
       "@ageorgedev/demo-ds": ["libs/demo-ds/src/index.ts"],
       "@ageorgedev/foundation-styles": ["libs/foundation-styles/src/index.ts"],
       "@ageorgedev/foundation-styles/globals": [
