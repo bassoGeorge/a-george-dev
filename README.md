@@ -19,6 +19,15 @@ nx g @nrwl/js:lib --buildable=true --bundler=vite <name>
 nx g @nrwl/react:lib <name>
 ```
 
-with no css and vite bundler.
+##### Additional steps
 
-after this, update the .eslintrc to pick up the ts eslint
+1. Select No CSS and the vite bundler
+2. Update .eslintrc to pick up <root>/.estlintrc.ts.json
+3. Add vanillaExtractPlugin() to the vite-config
+4. Add the tailwind config and postcss config to the library
+
+#### Adding storybook
+
+```shell
+nx g @nrwl/storybook:configuration <name>
+```

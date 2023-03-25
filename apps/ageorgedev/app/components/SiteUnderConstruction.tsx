@@ -8,6 +8,8 @@ import {
   webDev,
 } from './SiteUnderConstruction.css';
 import { ThemeSwitcher } from '@ageorgedev/molecules';
+import { NameLogo } from '@ageorgedev/atoms';
+import { Barricade } from '@phosphor-icons/react';
 
 export function SiteUnderConstruction() {
   return (
@@ -19,13 +21,9 @@ export function SiteUnderConstruction() {
       </div>
 
       <section
-        className={`${nameSection} p-4 tablet:pb-6 tablet:px-7 flex flex-col justify-end tablet:justify-center`}
+        className={`${nameSection} p-4 tablet:pb-6 tablet:px-7 flex justify-center items-end tablet:items-center`}
       >
-        <h1
-          className={`${name} font-heading text-center font-bold text-4xl tablet:text-6xl desktop:text-[130px]`}
-        >
-          Anish George
-        </h1>
+        <NameLogo className={`text-[23vw] tablet:text-[11vw]`} />
       </section>
       <section
         className={`${subTextSection} phone-landscape-only:pb-3 tablet:p-6 tablet:pb-10 flex flex-col justify-start tablet:justify-end relative`}
@@ -44,9 +42,11 @@ export function SiteUnderConstruction() {
         </div>
       </section>
       <section
-        className={`${conSection} p-4 tablet:col-span-2 flex justify-center relative font-interface text-lg tablet:text-2xl`}
+        className={`${conSection} p-4 tablet:col-span-2 flex justify-center gap-3 relative font-interface text-lg tablet:text-2xl`}
       >
-        <p>🚧 Site under construction 🚧</p>
+        <Barricade weight="duotone" className="text-rc-p-accent-400" />
+        <p>Site under construction</p>
+        <Barricade weight="duotone" className="text-rc-p-accent-400" />
       </section>
     </main>
   );

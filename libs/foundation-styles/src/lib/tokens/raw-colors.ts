@@ -65,6 +65,6 @@ const rawColorsVariableNames = mapObjIndexed(
 /** Used by vanilla extract */
 export const RawColors = createGlobalThemeContract(rawColorsVariableNames);
 export const AccessibleRawColors = pick(
-  ['pAccent', 'sAccent'] satisfies (keyof RC)[],
+  ['timber', 'parchment', 'pAccent', 'sAccent'] satisfies (keyof RC)[],
   RawColors
 );
