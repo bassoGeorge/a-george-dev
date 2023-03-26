@@ -17,6 +17,12 @@ export const container = style([
     gridTemplateColumns: '1fr',
     gridTemplateRows: '3fr 2fr max-content',
     color: ContextualColors.neutral['500'],
+    height: '100vh',
+    '@supports': {
+      '(height: 100dvh)': {
+        height: '100dvh',
+      },
+    },
   },
   Media.tablet({
     gridTemplateColumns: '4fr 3fr',
