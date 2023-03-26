@@ -1,2 +1,1 @@
-import './tailwind-imports.css';
-import '../../foundation-styles/src/globals';
+import '../../../.storybook/preview';
