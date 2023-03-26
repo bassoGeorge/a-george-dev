@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import NameLogo from './NameLogo';
+import { NameLogo } from './NameLogo';
 
 export default {
   component: NameLogo,
