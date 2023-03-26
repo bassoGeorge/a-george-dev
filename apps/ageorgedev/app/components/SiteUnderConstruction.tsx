@@ -3,12 +3,9 @@ import {
   container,
   nameSection,
   subTextSection,
-  name,
-  arch,
-  webDev,
 } from './SiteUnderConstruction.css';
 import { ThemeSwitcher } from '@ageorgedev/molecules';
-import { NameLogo } from '@ageorgedev/atoms';
+import { Heading3, Heading4, InterfaceXl, NameLogo } from '@ageorgedev/atoms';
 import { Barricade } from '@phosphor-icons/react';
 
 export function SiteUnderConstruction() {
@@ -29,20 +26,16 @@ export function SiteUnderConstruction() {
         className={`${subTextSection} phone-landscape-only:pb-3 tablet:p-6 tablet:pb-10 flex flex-col justify-start tablet:justify-end relative`}
       >
         <div className="text-center phone-only:px-4 tablet:text-right">
-          <h3
-            className={`${webDev} font-heading text-2xl tablet:text-3xl desktop:text-4xl font-bold`}
-          >
+          <Heading3 className="font-bold text-rc-s-accent-400">
             Web Developer
-          </h3>
-          <p
-            className={`${arch} text-xl tablet:text-2xl desktop:text-3xl really`}
-          >
+          </Heading3>
+          <Heading4 as="p" className="text-cc-neutral-300">
             Architecting web experiences since 2016
-          </p>
+          </Heading4>
         </div>
       </section>
       <section
-        className={`${conSection} p-4 tablet:col-span-2 flex justify-center gap-3 relative font-interface text-lg tablet:text-2xl`}
+        className={`${conSection} ${InterfaceXl.classes} p-4 tablet:col-span-2 flex justify-center gap-3 relative tablet:text-2xl`}
       >
         <Barricade weight="duotone" className="text-rc-p-accent-400" />
         <p>Site under construction</p>

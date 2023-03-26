@@ -96,11 +96,3 @@ export const conSection = style([
 export const name = style({
   textShadow: '4px 8px rgb(0 0 0 / .25)',
 });
-
-export const arch = style({
-  color: ContextualColors.neutral['300'],
-});
-
-export const webDev = style({
-  color: RawColors.sAccent['400'],
-});
