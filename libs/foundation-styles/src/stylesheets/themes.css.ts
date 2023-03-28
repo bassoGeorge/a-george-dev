@@ -1,4 +1,4 @@
-import { createGlobalTheme } from '@vanilla-extract/css';
+import { createGlobalTheme, globalStyle } from '@vanilla-extract/css';
 import { ContextualColors } from '../lib/tokens/contextual-colors';
 import { RawColors } from '../lib/tokens/raw-colors';
 
@@ -34,4 +34,9 @@ createGlobalTheme(':root.dark', ContextualColors, {
     400: RawColors.lNeutral['400'],
     500: RawColors.lNeutral['500'],
   },
+});
+
+globalStyle('body', {
+  background: ContextualColors.page[0],
+  color: ContextualColors.neutral['500'],
 });
