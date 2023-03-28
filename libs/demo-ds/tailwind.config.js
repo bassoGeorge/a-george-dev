@@ -2,14 +2,13 @@
 const { createGlobPatternsForDependencies } = require('@nrwl/react/tailwind');
 const { join } = require('path');
 
+const fileGlob = '**/!(*.stories|*.spec)*.{ts,tsx,js,jsx}';
+
 module.exports = {
   presets: [require('@ageorgedev/foundation-styles/tailwind')],
   content: [
-    // For some reason, storybook+tailwind needs a fully qualified glob pattern while the apps don't.
-    join(__dirname, './src/**/*.{ts,tsx,js,jsx}'),
-    ...createGlobPatternsForDependencies(
-      join(__dirname, 'src/**/*.{ts,tsx,js,jsx}')
-    ),
+    join(__dirname, './src/', fileGlob),
+    ...createGlobPatternsForDependencies(__dirname, fileGlob),
   ],
   plugins: [],
 };
