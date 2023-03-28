@@ -27,7 +27,7 @@ export function SocialLink({ type, full }: SocialLinkProps) {
       target="_blank"
       rel="noreferrer"
     >
-      <Icon weight="duotone" />
+      <Icon weight="duotone" className="text-rc-p-accent-400" />
       {full && <BodySm as="span">{displayLink}</BodySm>}
     </a>
   );

@@ -11,13 +11,12 @@ import { GithubLogo } from '@phosphor-icons/react';
 import { SocialLink } from './SocialLink';
 
 export default function Resume() {
+  const socialLinksBlockClasses = 'flex flex-col gap-2';
   return (
     <main className={page}>
-      <header
-        className={`${header} flex items-start justify-between px-5 pt-4`}
-      >
+      <header className={header}>
         <NameLogo className="text-5xl self-end -mb-3" />
-        <div className="flex flex-col gap-2 mt-3">
+        <div className={`${socialLinksBlockClasses} mt-3`}>
           <SocialLink type="email" full={true} />
           <SocialLink type="phone" full={true} />
         </div>
@@ -25,9 +24,19 @@ export default function Resume() {
       <aside className={aside}>
         <div>
           <Heading5 as={'h2'} className="font-bold text-rc-s-accent-400">
-            Web Developer
+            Web Architect
           </Heading5>
-          <Body>Architecting web experiences since 2016</Body>
+          <Body className="mt-3">
+            Developing web experiences for over 7 years across various tech
+            stacks. Leading web technologists
+          </Body>
+        </div>
+        <div>
+          <p>Lorem</p>
+        </div>
+        <div className={`${socialLinksBlockClasses} -mr-6`}>
+          <SocialLink type="github" full={true} />
+          <SocialLink type="linkedin" full={true} />
         </div>
       </aside>
       <article className={article}>

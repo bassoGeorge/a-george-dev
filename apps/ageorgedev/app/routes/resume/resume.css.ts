@@ -25,7 +25,7 @@ export const page = style([
   'grid',
   {
     height: '100dvh',
-    gridTemplateColumns: '2fr 6fr',
+    gridTemplateColumns: 'minmax(0, 2fr) minmax(0, 6fr)',
     gridTemplateRows: 'max-content 1fr',
     gridTemplateAreas: `
     'header header'
@@ -40,6 +40,7 @@ const debugStyles =
   'after:absolute after:inset-0 after:border after:border-rc-s-accent-400';
 
 export const header = style([
+  'flex items-start justify-between px-5 pt-4',
   {
     vars: {
       [bg]: ContextualColors.page[0],
@@ -65,8 +66,7 @@ export const header = style([
 ]);
 
 export const aside = style([
-  loremStyles,
-  'pt-9',
+  'pt-9 pb-5 pl-5 pr-2 grid gap-7',
   {
     vars: {
       [bg]: ContextualColors.page[1],
@@ -80,6 +80,8 @@ export const aside = style([
   paper,
   {
     gridArea: 'aside',
+    gridTemplateColumns: 'minmax(0, 1fr)',
+    gridTemplateRows: 'max-content minmax(0, 1fr) min-content',
   },
 ]);
 
