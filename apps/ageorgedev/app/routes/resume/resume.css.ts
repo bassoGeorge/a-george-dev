@@ -1,8 +1,8 @@
 import { createVar, globalStyle, style } from '@vanilla-extract/css';
 import { ContextualColors, RawColors } from '@ageorgedev/foundation-styles';
 
-globalStyle('body', {
-  background: 'red',
+globalStyle('html', {
+  fontSize: '12px',
 });
 
 const bg = createVar();
@@ -36,8 +36,10 @@ export const page = style([
   },
 ]);
 
+const debugStyles =
+  'after:absolute after:inset-0 after:border after:border-rc-s-accent-400';
+
 export const header = style([
-  loremStyles,
   {
     vars: {
       [bg]: ContextualColors.page[0],
@@ -49,10 +51,10 @@ export const header = style([
       transform: `${rotation} scale(1.1, 1.5)`,
     },
   },
+  // debugStyles,
   paper,
   {
     gridArea: 'header',
-    height: 130,
   },
   {
     ':before': {
@@ -64,7 +66,7 @@ export const header = style([
 
 export const aside = style([
   loremStyles,
-  'pt-10',
+  'pt-9',
   {
     vars: {
       [bg]: ContextualColors.page[1],

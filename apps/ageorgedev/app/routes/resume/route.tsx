@@ -1,45 +1,34 @@
-import { BodyMd } from '@ageorgedev/atoms';
+import {
+  Body,
+  BodyMd,
+  Heading2,
+  Heading4,
+  Heading5,
+  NameLogo,
+} from '@ageorgedev/atoms';
 import { article, aside, header, page } from './resume.css';
 import { GithubLogo } from '@phosphor-icons/react';
+import { SocialLink } from './SocialLink';
 
 export default function Resume() {
   return (
     <main className={page}>
-      <header className={header}>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut,
-          tempore!
-        </p>
-        <p>
-          Consequuntur id nihil non pariatur voluptatum. Atque iste minus
-          obcaecati!
-        </p>
-        <p className="text-rc-p-accent-300">
-          Ab commodi dicta dolores, minus nihil officia perspiciatis quam
-          soluta.
-        </p>
+      <header
+        className={`${header} flex items-start justify-between px-5 pt-4`}
+      >
+        <NameLogo className="text-5xl self-end -mb-3" />
+        <div className="flex flex-col gap-2 mt-3">
+          <SocialLink type="email" full={true} />
+          <SocialLink type="phone" full={true} />
+        </div>
       </header>
       <aside className={aside}>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni nam
-          quas suscipit ullam!
-        </p>
-        <p>
-          Aliquam blanditiis cupiditate iste molestiae nesciunt nihil, omnis
-          quisquam sed tenetur voluptatem! Omnis.
-        </p>
-        <p>
-          Aut autem enim eveniet excepturi illo, libero quae, quidem quis, sunt
-          tempora totam!
-        </p>
-        <p>
-          At autem cum eius harum ipsum nihil reiciendis sequi sunt? Dolorum,
-          magni, velit.
-        </p>
-        <p>
-          Dignissimos facilis in neque tempora! Animi dicta explicabo fugiat,
-          laboriosam maiores ratione unde.
-        </p>
+        <div>
+          <Heading5 as={'h2'} className="font-bold text-rc-s-accent-400">
+            Web Developer
+          </Heading5>
+          <Body>Architecting web experiences since 2016</Body>
+        </div>
       </aside>
       <article className={article}>
         <p>

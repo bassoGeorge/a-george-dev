@@ -11,6 +11,7 @@ const headingClasses = mapObjIndexed(withFont(headingFont), {
   h2: 'text-3xl tablet:text-4xl desktop:text-5xl',
   h3: 'text-2xl tablet:text-3xl desktop:text-4xl',
   h4: 'text-xl tablet:text-2xl desktop:text-3xl',
+  h5: 'text-lg tablet:text-xl desktop:text-2xl',
 });
 
 const bodyClasses = mapObjIndexed(withFont(bodyFont), {
