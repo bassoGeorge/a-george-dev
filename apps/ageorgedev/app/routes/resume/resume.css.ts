@@ -1,5 +1,5 @@
 import { createVar, globalStyle, style } from '@vanilla-extract/css';
-import { ContextualColors } from '@ageorgedev/foundation-styles';
+import { ContextualColors, RawColors } from '@ageorgedev/foundation-styles';
 
 globalStyle('body', {
   background: 'red',
@@ -54,6 +54,12 @@ export const header = style([
     gridArea: 'header',
     height: 130,
   },
+  {
+    ':before': {
+      boxShadow: '-4px 6px rgb(0 0 0 / .1)',
+      border: `2px solid ${RawColors.dNeutral['300']}`,
+    },
+  },
 ]);
 
 export const aside = style([
@@ -84,11 +90,17 @@ export const article = style([
     zIndex: 3,
     ':before': {
       transformOrigin: 'top left',
-      transform: `${rotation} scale(1, 1.5)`,
+      transform: `${rotation} scale(1.5, 1.5)`,
     },
   },
   paper,
   {
     gridArea: 'article',
+  },
+  {
+    ':before': {
+      boxShadow: '-8px 4px rgb(0 0 0 / .25)',
+      border: `4px solid ${RawColors.dNeutral['500']}`,
+    },
   },
 ]);
