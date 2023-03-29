@@ -6,12 +6,13 @@ import {
   BodyXl,
   BodyXs,
   Heading2,
+  Heading3,
   Heading4,
   Heading5,
   Heading6,
   NameLogo,
 } from '@ageorgedev/atoms';
-import { article, aside, eduGrid, header, page } from './resume.css';
+import { article, aside, eduGrid, expGrid, header, page } from './resume.css';
 import { GithubLogo } from '@phosphor-icons/react';
 import { SocialLink } from './SocialLink';
 
@@ -81,35 +82,33 @@ export default function Resume() {
         </section>
       </aside>
       <article className={article}>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, dolore?
-        </p>
-        <p>A ad cupiditate enim est explicabo nisi odio omnis vitae.</p>
-        <p>
-          Alias consequatur doloribus eaque, ex iure neque possimus quasi
-          veritatis?
-        </p>
-        <p className="bg-cc-page-0">
-          Dicta distinctio eum itaque maxime molestias nisi nobis nostrum,
-          voluptatem.
-        </p>
-        <p className="flex gap-3 justify-start items-center">
-          <a
-            href="https://github.com/bassoGeorge"
-            target="_blank"
-            className={BodyMd.classes}
-            rel="noreferrer"
-          >
-            <GithubLogo weight="duotone"></GithubLogo>
-          </a>
-          <a
-            href="https://github.com/bassoGeorge"
-            target="_blank"
-            rel="noreferrer"
-          >
-            https://github.com/bassoGeorge
-          </a>
-        </p>
+        <section className={expGrid}>
+          <BodyMd>2018 - 2023</BodyMd>
+          <Heading3>Current company</Heading3>
+          <div>
+            <p>Mobility</p>
+          </div>
+          <div>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias
+              aliquid amet commodi eum ipsum necessitatibus numquam perspiciatis
+              provident rem sint. Blanditiis consequuntur corporis culpa cum
+              dolorem, esse fugit modi nesciunt!
+            </p>
+            <p>
+              A accusamus aperiam assumenda autem beatae blanditiis dolorem
+              dolorum earum error, est facilis fugit impedit iste itaque labore
+              magni maiores non, officiis pariatur praesentium provident quae
+              quas quidem ullam vitae?
+            </p>
+            <p>
+              Ab aliquid animi, aperiam consectetur eligendi exercitationem
+              fugit ipsam ipsum, itaque iure maiores molestias officiis optio
+              placeat ratione repellendus tenetur ut. Blanditiis ducimus eius
+              maiores obcaecati ratione sed sequi, veritatis.
+            </p>
+          </div>
+        </section>
       </article>
     </main>
   );

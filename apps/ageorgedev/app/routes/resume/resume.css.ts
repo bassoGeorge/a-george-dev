@@ -19,8 +19,6 @@ const paper = style([
   },
 ]);
 
-const loremStyles = 'p-6 flex flex-col gap-3';
-
 export const page = style([
   'grid',
   {
@@ -61,8 +59,11 @@ export const header = style([
   },
 ]);
 
+const mainSectionVerticalPadding = 'pt-9 pb-5';
+
 export const aside = style([
-  'pt-9 pb-5 pl-5 pr-2 grid gap-7',
+  mainSectionVerticalPadding,
+  'pl-5 pr-2 grid gap-7',
   {
     vars: {
       [bg]: ContextualColors.page[1],
@@ -82,7 +83,8 @@ export const aside = style([
 ]);
 
 export const article = style([
-  loremStyles,
+  mainSectionVerticalPadding,
+  'pr-5 pl-8',
   {
     vars: {
       [bg]: ContextualColors.page[4],
@@ -109,5 +111,12 @@ export const eduGrid = style([
   'grid gap-x-2 gap-y-3',
   {
     gridTemplateColumns: 'max-content minmax(0, 1fr)',
+  },
+]);
+
+export const expGrid = style([
+  'grid gap-x-3 gap-y-2',
+  {
+    gridTemplateColumns: 'minmax(0, 1fr) minmax(0, 4fr)',
   },
 ]);
