@@ -25,7 +25,7 @@ export const page = style([
   'grid',
   {
     height: '100dvh',
-    gridTemplateColumns: 'minmax(0, 2fr) minmax(0, 6fr)',
+    gridTemplateColumns: 'minmax(0, 3fr) minmax(0, 8fr)',
     gridTemplateRows: 'max-content 1fr',
     gridTemplateAreas: `
     'header header'
@@ -35,9 +35,6 @@ export const page = style([
     printColorAdjust: 'exact',
   },
 ]);
-
-const debugStyles =
-  'after:absolute after:inset-0 after:border after:border-rc-s-accent-400';
 
 export const header = style([
   'flex items-start justify-between px-5 pt-4',
@@ -52,7 +49,6 @@ export const header = style([
       transform: `${rotation} scale(1.1, 1.5)`,
     },
   },
-  // debugStyles,
   paper,
   {
     gridArea: 'header',
@@ -81,7 +77,7 @@ export const aside = style([
   {
     gridArea: 'aside',
     gridTemplateColumns: 'minmax(0, 1fr)',
-    gridTemplateRows: 'max-content minmax(0, 1fr) min-content',
+    gridTemplateRows: 'max-content max-content minmax(0, 1fr)',
   },
 ]);
 
@@ -106,5 +102,12 @@ export const article = style([
       boxShadow: '-8px 4px rgb(0 0 0 / .25)',
       border: `4px solid ${RawColors.dNeutral['500']}`,
     },
+  },
+]);
+
+export const eduGrid = style([
+  'grid gap-x-2 gap-y-3',
+  {
+    gridTemplateColumns: 'max-content minmax(0, 1fr)',
   },
 ]);

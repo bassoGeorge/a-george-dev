@@ -5,6 +5,7 @@ export const Heading2 = TextBuilder('h2');
 export const Heading3 = TextBuilder('h3');
 export const Heading4 = TextBuilder('h4');
 export const Heading5 = TextBuilder('h5');
+export const Heading6 = TextBuilder('h6');
 
 export const BodyXl = TextBuilder('body-xl');
 export const BodyLg = TextBuilder('body-lg');

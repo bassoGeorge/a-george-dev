@@ -1,14 +1,37 @@
 import {
   Body,
+  BodyLg,
   BodyMd,
+  BodySm,
+  BodyXl,
+  BodyXs,
   Heading2,
   Heading4,
   Heading5,
+  Heading6,
   NameLogo,
 } from '@ageorgedev/atoms';
-import { article, aside, header, page } from './resume.css';
+import { article, aside, eduGrid, header, page } from './resume.css';
 import { GithubLogo } from '@phosphor-icons/react';
 import { SocialLink } from './SocialLink';
+
+const education: { period: string; institute: string; programme: string }[] = [
+  {
+    period: '2012-2015',
+    programme: 'Bachelors in Computer Application',
+    institute: 'Maharaja Surajmal Institute | New Delhi',
+  },
+  {
+    period: '2011-2012',
+    programme: 'Senior Secondary (Science)',
+    institute: 'Fr. Agnel School | New Delhi',
+  },
+  {
+    period: '2009-2010',
+    programme: 'Higher Secondary',
+    institute: 'Fr. Agnel School | New Delhi',
+  },
+];
 
 export default function Resume() {
   const socialLinksBlockClasses = 'flex flex-col gap-2';
@@ -22,22 +45,40 @@ export default function Resume() {
         </div>
       </header>
       <aside className={aside}>
-        <div>
-          <Heading5 as={'h2'} className="font-bold text-rc-s-accent-400">
+        <section>
+          <Heading5 as={'h2'} className="font-bold text-rc-s-accent-400 mb-2">
             Web Architect
           </Heading5>
-          <Body className="mt-3">
+          <Body>
             Developing web experiences for over 7 years across various tech
             stacks. Leading web technologists
           </Body>
-        </div>
-        <div>
-          <p>Lorem</p>
-        </div>
-        <div className={`${socialLinksBlockClasses} -mr-6`}>
+        </section>
+        <section className={`${socialLinksBlockClasses} -mr-6`}>
           <SocialLink type="github" full={true} />
           <SocialLink type="linkedin" full={true} />
-        </div>
+        </section>
+        <section>
+          <Heading6 as={'h3'}>Skills</Heading6>
+        </section>
+        <section className="-mr-8">
+          <Heading6 as={'h3'} className="mb-2">
+            Education
+          </Heading6>
+          <div className={eduGrid}>
+            {education.map((edu) => (
+              <>
+                <BodyXs>{edu.period}</BodyXs>
+                <div>
+                  <BodySm className="font-interface">{edu.programme}</BodySm>
+                  <BodyXs className="text-cc-neutral-300">
+                    {edu.institute}
+                  </BodyXs>
+                </div>
+              </>
+            ))}
+          </div>
+        </section>
       </aside>
       <article className={article}>
         <p>
