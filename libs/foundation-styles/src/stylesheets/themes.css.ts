@@ -35,8 +35,3 @@ createGlobalTheme(':root.dark', ContextualColors, {
     500: RawColors.lNeutral['500'],
   },
 });
-
-globalStyle('body', {
-  background: ContextualColors.page[0],
-  color: ContextualColors.neutral['500'],
-});

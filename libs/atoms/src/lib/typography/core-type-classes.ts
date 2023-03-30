@@ -19,7 +19,7 @@ const bodyClasses = mapObjIndexed(withFont(bodyFont), {
   'body-xl': 'text-xl',
   'body-lg': 'text-lg',
   'body-md': 'text-md',
-  body: '',
+  body: 'text-base',
   'body-sm': 'text-sm',
   'body-xs': 'text-xs',
 });
@@ -30,6 +30,7 @@ const interfaceClasses = mapObjIndexed(withFont(interfaceFont), {
   'interface-lg': 'text-lg',
   'interface-md': 'text-md',
   interface: '',
+  'interface-sm': 'text-sm',
 });
 
 export const TYPOGRAPHY_CLASSES = {

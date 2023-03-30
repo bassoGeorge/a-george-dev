@@ -84,7 +84,7 @@ export const aside = style([
 
 export const article = style([
   mainSectionVerticalPadding,
-  'pr-5 pl-8',
+  'pr-6 pl-8',
   {
     vars: {
       [bg]: ContextualColors.page[4],
@@ -115,8 +115,8 @@ export const eduGrid = style([
 ]);
 
 export const expGrid = style([
-  'grid gap-x-3 gap-y-2',
+  'grid gap-x-4 gap-y-2 items-baseline',
   {
-    gridTemplateColumns: 'minmax(0, 1fr) minmax(0, 4fr)',
+    gridTemplateColumns: 'minmax(0, 1fr) minmax(0, 3fr)',
   },
 ]);

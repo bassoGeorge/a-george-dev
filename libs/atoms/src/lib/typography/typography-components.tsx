@@ -19,3 +19,4 @@ export const InterfaceXl = TextBuilder('interface-xl');
 export const InterfaceLg = TextBuilder('interface-lg');
 export const InterfaceMd = TextBuilder('interface-md');
 export const Interface = TextBuilder('interface');
+export const InterfaceSm = TextBuilder('interface-sm');

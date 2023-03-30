@@ -10,6 +10,8 @@ import {
   Heading4,
   Heading5,
   Heading6,
+  Interface,
+  InterfaceSm,
   NameLogo,
 } from '@ageorgedev/atoms';
 import { article, aside, eduGrid, expGrid, header, page } from './resume.css';
@@ -82,31 +84,87 @@ export default function Resume() {
         </section>
       </aside>
       <article className={article}>
-        <section className={expGrid}>
-          <BodyMd>2018 - 2023</BodyMd>
-          <Heading3>Current company</Heading3>
-          <div>
-            <p>Mobility</p>
+        <section className={`${expGrid} -ml-3`}>
+          <BodyLg className="justify-self-end font-bold text-rc-p-accent-500">
+            2018 - 2023
+          </BodyLg>
+          <Heading3 className="font-medium">Thoughtworks</Heading3>
+          <div className="justify-self-end self-start text-right">
+            <p className="font-interface text-md leading-[1.2rem] text-cc-neutral-400">
+              Lead UI Developer
+            </p>
+            <p className="text-xs leading-[1.2rem] text-cc-neutral-300 -mt-1 pb-1">
+              2021
+            </p>
+            <p className="font-interface text-xs leading-[1.2rem] text-cc-neutral-400">
+              Senior UI Developer
+            </p>
+            <p className="text-xs leading-[1.2rem] text-cc-neutral-300 -mt-1 pb-1">
+              2019
+            </p>
+            <p className="font-interface text-xs leading-[1.2rem] text-cc-neutral-400">
+              UI Developer
+            </p>
+            <p className="text-xs leading-[1.2rem] text-cc-neutral-300 -mt-1 pb-1">
+              2018
+            </p>
           </div>
-          <div>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias
-              aliquid amet commodi eum ipsum necessitatibus numquam perspiciatis
-              provident rem sint. Blanditiis consequuntur corporis culpa cum
-              dolorem, esse fugit modi nesciunt!
-            </p>
-            <p>
-              A accusamus aperiam assumenda autem beatae blanditiis dolorem
-              dolorum earum error, est facilis fugit impedit iste itaque labore
-              magni maiores non, officiis pariatur praesentium provident quae
-              quas quidem ullam vitae?
-            </p>
-            <p>
-              Ab aliquid animi, aperiam consectetur eligendi exercitationem
-              fugit ipsam ipsum, itaque iure maiores molestias officiis optio
-              placeat ratione repellendus tenetur ut. Blanditiis ducimus eius
-              maiores obcaecati ratione sed sequi, veritatis.
-            </p>
+          <div className="flex flex-col gap-2">
+            <Body>
+              Currently working for a client in the Hospitality sector. I
+              architected a brand new Design System and helped them set-up an Nx
+              MonoRepo for all future applications and libraries. The Design
+              System is built with developer productivity in mind. It is based
+              off Atomic design principles with a lot of Angular components
+              (preferred tech stack of the client) which have proven to boost
+              the speed of delivery. A design philosophy change in the middle of
+              a release rush was implemented smoothly due to the scalable
+              architecture of this system.
+            </Body>
+            <Body>
+              Was brought in to rescue a struggling Thoughtworks internal
+              project. I revamped and polished the UI in a very short timeframe
+              (~1 week) before showcase.
+            </Body>
+            <Body>
+              Ran discovery and inception workshops for a couple of accounts.
+            </Body>
+            <Body>
+              Worked on multiple projects for a large business consultancy firm.
+              Took ownership of the frontend stream of work.
+            </Body>
+
+            <Heading5 className="font-light mt-3">
+              Community initiatives
+            </Heading5>
+            <Body>
+              Helped run Unfold UI, an external facing UI conference from
+              Thoughtworks. Also ran a VueJS workshop in the same
+            </Body>
+            <Body>
+              Helped design and run a crash course called CSS Level Zero
+              Bootcamp, targeting non UI devs to learn CSS so that they can
+              contribute better to frontend.
+            </Body>
+            <Body>
+              Helped design and run the recurring Frontend Architect Programme
+              which targets UI Developers who need to take on a more architect
+              role. I'm a regular trainer in this programme which is currently
+              on its 7th batch.
+            </Body>
+            <Body>
+              Part of a team which curated learning resources for UI developers.
+              I was fully responsible for curating resources around HTML/CSS and
+              Angular resources.
+            </Body>
+            <Body>
+              Have contributed to Thoughtworks Tech Radar on multiple volumes.
+            </Body>
+            <Body>
+              Heavily involved in the recruitment initiatives. I take interviews
+              regularly and have helped the global recruitment team revamp the
+              UI Developer recruitment process.
+            </Body>
           </div>
         </section>
       </article>
