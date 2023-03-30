@@ -36,6 +36,10 @@ const education: { period: string; institute: string; programme: string }[] = [
   },
 ];
 
+function Imp({ children }: React.PropsWithChildren) {
+  return <span className="text-rc-s-accent-400 italic">{children}</span>;
+}
+
 export default function Resume() {
   const socialLinksBlockClasses = 'flex flex-col gap-2';
   return (
@@ -109,25 +113,29 @@ export default function Resume() {
               2018
             </p>
           </div>
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col gap-3">
             <Body>
-              Currently working for a client in the Hospitality sector. I
-              architected a brand new Design System and helped them set-up an Nx
-              MonoRepo for all future applications and libraries. The Design
-              System is built with developer productivity in mind. It is based
-              off Atomic design principles with a lot of Angular components
-              (preferred tech stack of the client) which have proven to boost
-              the speed of delivery. A design philosophy change in the middle of
-              a release rush was implemented smoothly due to the scalable
-              architecture of this system.
+              Currently working for a client in the Hospitality sector.{' '}
+              <Imp>I architected a brand new Design System</Imp> and helped them{' '}
+              <Imp>set-up an Nx MonoRepo</Imp> for all future applications and
+              libraries. The Design System is built with developer productivity
+              in mind. It is based off Atomic design principles with a lot of
+              Angular components (preferred tech stack of the client) which have
+              proven to boost the speed of delivery. A design philosophy change
+              in the middle of a release rush was implemented smoothly due to
+              the scalable architecture of this system.
             </Body>
             <Body>
               Was brought in to rescue a struggling Thoughtworks internal
-              project. I revamped and polished the UI in a very short timeframe
+              project.{' '}
+              <Imp>
+                I revamped and polished the UI in a very short timeframe
+              </Imp>{' '}
               (~1 week) before showcase.
             </Body>
             <Body>
-              Ran discovery and inception workshops for a couple of accounts.
+              Ran <Imp>discovery and inception</Imp> workshops for a couple of
+              accounts.
             </Body>
             <Body>
               Worked on multiple projects for a large business consultancy firm.
@@ -138,32 +146,35 @@ export default function Resume() {
               Community initiatives
             </Heading5>
             <Body>
-              Helped run Unfold UI, an external facing UI conference from
-              Thoughtworks. Also ran a VueJS workshop in the same
+              Helped run <Imp>Unfold UI</Imp>, an external facing UI conference
+              from Thoughtworks. Also ran a VueJS workshop in the same
             </Body>
             <Body>
-              Helped design and run a crash course called CSS Level Zero
-              Bootcamp, targeting non UI devs to learn CSS so that they can
-              contribute better to frontend.
+              Helped design and run a crash course called{' '}
+              <Imp>CSS Level Zero Bootcamp</Imp>, targeting non UI devs to learn
+              CSS so that they can contribute better to frontend.
             </Body>
             <Body>
-              Helped design and run the recurring Frontend Architect Programme
-              which targets UI Developers who need to take on a more architect
-              role. I'm a regular trainer in this programme which is currently
-              on its 7th batch.
+              Helped design and run the recurring{' '}
+              <Imp>Frontend Architect Programme</Imp> which targets UI
+              Developers who need to take on a more architect role. I'm a
+              regular trainer in this programme which is currently on its 7th
+              batch.
             </Body>
             <Body>
-              Part of a team which curated learning resources for UI developers.
-              I was fully responsible for curating resources around HTML/CSS and
-              Angular resources.
+              Part of a team which curated{' '}
+              <Imp>learning resources for UI developers</Imp> at the
+              organisation level. I was fully responsible for curating resources
+              around HTML/CSS and Angular resources.
             </Body>
             <Body>
-              Have contributed to Thoughtworks Tech Radar on multiple volumes.
+              Have contributed to <Imp>Thoughtworks Tech Radar</Imp> on multiple
+              volumes.
             </Body>
             <Body>
               Heavily involved in the recruitment initiatives. I take interviews
-              regularly and have helped the global recruitment team revamp the
-              UI Developer recruitment process.
+              regularly and have helped the global recruitment team{' '}
+              <Imp>revamp the UI Developer recruitment process</Imp>.
             </Body>
           </div>
         </section>
