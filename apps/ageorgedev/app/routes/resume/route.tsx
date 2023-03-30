@@ -15,7 +15,7 @@ import {
   NameLogo,
 } from '@ageorgedev/atoms';
 import { article, aside, eduGrid, expGrid, header, page } from './resume.css';
-import { GithubLogo } from '@phosphor-icons/react';
+import { ArrowSquareOut, GithubLogo } from '@phosphor-icons/react';
 import { SocialLink } from './SocialLink';
 
 const education: { period: string; institute: string; programme: string }[] = [
@@ -67,6 +67,27 @@ export default function Resume() {
         </section>
         <section>
           <Heading6 as={'h3'}>Skills</Heading6>
+        </section>
+        <section>
+          <Heading6 as={'h3'} className="mb-2">
+            Talks
+          </Heading6>
+          <a
+            href="https://confengine.com/conferences/functional-conf-2019/proposal/10768/demystifying-function-sub-typing"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <BodySm className="font-interface">
+              Demystifying Function Sub-typing
+              <ArrowSquareOut
+                weight="duotone"
+                className="inline ml-2 text-rc-p-accent-400"
+              />
+            </BodySm>
+            <BodyXs className="text-cc-neutral-300">
+              Functional Conf Bangalore | 2019
+            </BodyXs>
+          </a>
         </section>
         <section className="-mr-8">
           <Heading6 as={'h3'} className="mb-2">

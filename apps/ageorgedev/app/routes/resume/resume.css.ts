@@ -78,13 +78,14 @@ export const aside = style([
   {
     gridArea: 'aside',
     gridTemplateColumns: 'minmax(0, 1fr)',
-    gridTemplateRows: 'max-content max-content minmax(0, 1fr)',
+    gridTemplateRows:
+      'max-content max-content minmax(0, 1fr) max-content max-content',
   },
 ]);
 
 export const article = style([
   mainSectionVerticalPadding,
-  'pr-6 pl-6 flex flex-col justify-between',
+  'pr-8 pl-6 flex flex-col justify-between',
   {
     vars: {
       [bg]: ContextualColors.page[4],
