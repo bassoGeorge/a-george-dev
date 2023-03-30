@@ -54,12 +54,13 @@ export default function Resume() {
       </header>
       <aside className={aside}>
         <section>
-          <Heading5 as={'h2'} className="font-bold text-rc-s-accent-400 mb-2">
+          <Heading4 as={'h2'} className="font-bold text-rc-s-accent-400 mb-2">
             Web Architect
-          </Heading5>
+          </Heading4>
           <Body>
-            Developing web experiences for over 7 years across various tech
-            stacks. Leading web technologists
+            Developing web experiences for 7+ years across various tech stacks
+            with an obsession for code quality. I have a proven track record of
+            delivering high quality training in tech areas.
           </Body>
         </section>
         <section className={`${socialLinksBlockClasses} -mr-6`}>
@@ -70,7 +71,7 @@ export default function Resume() {
           <Heading6 as={'h3'} className="mb-2">
             Skills
           </Heading6>
-          <div className="flex gap-2 flex-wrap">
+          <div className="flex gap-3 flex-wrap -mr-2">
             {AllSkills.map((props, index) => (
               <Skill key={index} {...props} />
             ))}
@@ -188,7 +189,7 @@ export default function Resume() {
               <Imp>Frontend Architect Programme</Imp> which targets UI
               Developers who need to take on a more architect role. I'm a
               regular trainer in this programme which is currently on its 7th
-              batch.
+              batch with a 100% satisfaction record.
             </Body>
             <Body>
               Part of a team which curated{' '}

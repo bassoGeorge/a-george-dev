@@ -1,6 +1,7 @@
 import { highSkill } from './Skill.css';
+import { map } from 'ramda';
 
-type SkillType = 'tool' | 'technique';
+type SkillType = 'tool' | 'technique' | 'human';
 type SkillLevel = 3 | 4 | 5;
 
 type SkillProps = {
@@ -10,15 +11,12 @@ type SkillProps = {
 };
 
 export function Skill(props: SkillProps) {
-  const colorStyles =
-    props.type === 'tool' ? 'bg-rc-p-accent-200' : 'bg-rc-s-accent-200';
-
-  const levelSet =
-    props.type === 'tool' ? levelClassesForTool : levelClassesForTech;
-  const newClasses = levelSet[props.level];
+  const styleClasses = levelClasses[props.type][props.level];
 
   return (
-    <div className={`${newClasses} inline-block px-3 py-1 font-interface`}>
+    <div
+      className={`${styleClasses} inline-block px-3 py-1 font-interface text-sm`}
+    >
       {props.name}
     </div>
   );
@@ -32,39 +30,79 @@ const bSkill =
     type,
   });
 
-const tool = bSkill('tool');
-const tech = bSkill('technique');
+type SkillClassMap = Record<SkillLevel, string>;
+
+const levelClassesForTool: SkillClassMap = {
+  3: 'bg-rc-p-accent-200',
+  4: 'bg-rc-p-accent-400 text-cc-neutral-inverse-500',
+  5: highSkill + ' bg-rc-p-accent-500 text-cc-neutral-inverse-500',
+};
+
+const levelClassesForTech: SkillClassMap = {
+  3: 'bg-rc-s-accent-300',
+  4: 'bg-rc-s-accent-400 text-cc-neutral-inverse-500',
+  5: highSkill + ' bg-rc-s-accent-500 text-cc-neutral-inverse-500',
+};
+
+const levelClassesForHuman: SkillClassMap = {
+  3: 'bg-rc-timber-100 text-cc-neutral-inverse-500 opacity-50',
+  4: 'bg-rc-timber-200 text-cc-neutral-inverse-500 opacity-60',
+  5: highSkill + ' bg-rc-timber-300 text-cc-neutral-inverse-500 opacity-70',
+};
+
+const levelClasses: Record<SkillType, SkillClassMap> = {
+  tool: levelClassesForTool,
+  technique: levelClassesForTech,
+  human: levelClassesForHuman,
+};
+
+const skillMapper =
+  (type: SkillType) =>
+  ([name, level]: [string, SkillLevel]) => ({
+    name,
+    level,
+    type,
+  });
+
+const toolSkills: SkillProps[] = map(skillMapper('tool'), [
+  ['React', 5],
+  ['Angular', 5],
+  ['HTML / CSS', 5],
+  ['React Native', 3],
+  ['Testing Library', 4],
+  ['Remix', 4],
+  ['NextJS', 3],
+  ['RxJS', 4],
+  ['Redux', 4],
+  ['AgGrid', 3],
+]);
+
+const techSkills: SkillProps[] = map(skillMapper('technique'), [
+  ['Performance', 4],
+  ['Frontend serving strategies', 5],
+  ['Atomic design', 5],
+  ['Utility-first CSS', 5],
+  ['Monorepo', 5],
+  ['Micro frontends', 3],
+  ['CSS-in-JS', 4],
+  ['Multi-platform apps', 3],
+  ['CI/CD', 4],
+  ['Functional programming', 5],
+  ['CSS animations', 5],
+  ['Bundlers', 3],
+  ['Accessibility', 4],
+]);
+
+const humanSkills: SkillProps[] = map(skillMapper('human'), [
+  ['Mentoring', 5],
+  ['Team leadership', 4],
+  ['Training skills', 5],
+  ['Estimations', 5],
+  ['Prioritisation', 4],
+]);
 
 export const AllSkills: SkillProps[] = [
-  tool('React'),
-  tool('Angular'),
-  tool('React Native', 3),
-  tool('Nx', 4),
-  tool('Storybook', 4),
-  tool('Jest'),
-  tool('Vitest', 4),
-  tool('Testing Library'),
-  tech('Component Design'),
-  tech('Mono Repo', 4),
-  tech('Design Systems', 4),
-  tech('Micro Frontends', 3),
-  tech('CI/CD', 3),
+  ...toolSkills,
+  ...techSkills,
+  ...humanSkills,
 ];
-
-const levelClasses: Record<SkillLevel, string> = {
-  3: 'opacity-60',
-  4: 'opacity-80',
-  5: highSkill,
-};
-
-const levelClassesForTool: Record<SkillLevel, string> = {
-  3: 'bg-rc-p-accent-200',
-  4: 'bg-rc-p-accent-300 text-cc-neutral-inverse-500',
-  5: highSkill + ' bg-rc-p-accent-400 text-cc-neutral-inverse-500',
-};
-
-const levelClassesForTech: Record<SkillLevel, string> = {
-  3: 'bg-rc-s-accent-200',
-  4: 'bg-rc-s-accent-300',
-  5: highSkill + ' bg-rc-s-accent-400 text-cc-neutral-inverse-500',
-};
