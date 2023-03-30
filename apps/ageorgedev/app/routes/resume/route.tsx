@@ -17,6 +17,7 @@ import {
 import { article, aside, eduGrid, expGrid, header, page } from './resume.css';
 import { ArrowSquareOut, GithubLogo } from '@phosphor-icons/react';
 import { SocialLink } from './SocialLink';
+import { AllSkills, Skill } from './Skill';
 
 const education: { period: string; institute: string; programme: string }[] = [
   {
@@ -66,7 +67,14 @@ export default function Resume() {
           <SocialLink type="linkedin" full={true} />
         </section>
         <section>
-          <Heading6 as={'h3'}>Skills</Heading6>
+          <Heading6 as={'h3'} className="mb-2">
+            Skills
+          </Heading6>
+          <div className="flex gap-2 flex-wrap">
+            {AllSkills.map((props, index) => (
+              <Skill key={index} {...props} />
+            ))}
+          </div>
         </section>
         <section>
           <Heading6 as={'h3'} className="mb-2">

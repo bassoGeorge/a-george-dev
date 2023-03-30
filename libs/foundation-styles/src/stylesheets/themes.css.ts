@@ -17,6 +17,13 @@ createGlobalTheme(':root', ContextualColors, {
     400: RawColors.dNeutral['400'],
     500: RawColors.dNeutral['500'],
   },
+  neutralInverse: {
+    100: RawColors.lNeutral['100'],
+    200: RawColors.lNeutral['200'],
+    300: RawColors.lNeutral['300'],
+    400: RawColors.lNeutral['400'],
+    500: RawColors.lNeutral['500'],
+  },
 });
 
 createGlobalTheme(':root.dark', ContextualColors, {
@@ -33,5 +40,12 @@ createGlobalTheme(':root.dark', ContextualColors, {
     300: RawColors.lNeutral['300'],
     400: RawColors.lNeutral['400'],
     500: RawColors.lNeutral['500'],
+  },
+  neutralInverse: {
+    100: RawColors.dNeutral['100'],
+    200: RawColors.dNeutral['200'],
+    300: RawColors.dNeutral['300'],
+    400: RawColors.dNeutral['400'],
+    500: RawColors.dNeutral['500'],
   },
 });
