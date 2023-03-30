@@ -88,7 +88,7 @@ export default function Resume() {
         </section>
       </aside>
       <article className={article}>
-        <section className={`${expGrid} -ml-3`}>
+        <section className={expGrid}>
           <BodyLg className="justify-self-end font-bold text-rc-p-accent-500">
             2018 - 2023
           </BodyLg>
@@ -175,6 +175,58 @@ export default function Resume() {
               Heavily involved in the recruitment initiatives. I take interviews
               regularly and have helped the global recruitment team{' '}
               <Imp>revamp the UI Developer recruitment process</Imp>.
+            </Body>
+          </div>
+        </section>
+
+        <section className={expGrid}>
+          <BodyLg className="justify-self-end font-bold text-rc-p-accent-500">
+            2016 - 2018
+          </BodyLg>
+          <Heading3 className="font-medium">Ignite Solutions</Heading3>
+          <div className="justify-self-end self-start text-right">
+            <p className="font-interface text-md leading-[1.2rem] text-cc-neutral-400">
+              Full Stack
+              <br />
+              Developer
+            </p>
+          </div>
+          <div className="flex flex-col gap-3">
+            <Body>
+              Worked with multiple clients across various tech stacks including
+              Angular frontend and Python based backends.
+            </Body>
+            <Body>
+              Navigated through <Imp>legacy code</Imp> written in a mixture of
+              CakePHP and Angular 1.x and was able to add new features, refactor
+              and find vulnerabilities.
+            </Body>
+            <Body>
+              Lead the <Imp>internationalisation</Imp> work on an existing
+              project. This included setting up the architecture and managing
+              the flow of work.
+            </Body>
+            <Body>
+              Worked on building MS Office add-ins and Skype bot integrations.
+            </Body>
+          </div>
+        </section>
+        <section className={expGrid}>
+          <BodyLg className="justify-self-end font-bold text-rc-p-accent-500">
+            mid 2015
+          </BodyLg>
+          <Heading3 className="font-medium">JLabs</Heading3>
+          <div className="justify-self-end self-start text-right">
+            <p className="font-interface text-md leading-[1.2rem] text-cc-neutral-400">
+              Developer
+            </p>
+          </div>
+          <div className="flex flex-col gap-3">
+            <Body>
+              Worked at JLabs, a (nearly) garage startup in Delhi, straight out
+              of college. Got the opportunity to work on{' '}
+              <Imp>hybrid mobile apps</Imp> using Ionic framework and Django
+              backend.
             </Body>
           </div>
         </section>

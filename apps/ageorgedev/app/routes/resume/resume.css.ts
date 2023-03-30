@@ -84,7 +84,7 @@ export const aside = style([
 
 export const article = style([
   mainSectionVerticalPadding,
-  'pr-6 pl-8',
+  'pr-6 pl-6 flex flex-col justify-between',
   {
     vars: {
       [bg]: ContextualColors.page[4],
