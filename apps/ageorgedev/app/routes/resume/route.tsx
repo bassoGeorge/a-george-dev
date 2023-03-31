@@ -74,6 +74,7 @@ export default function Resume() {
           </Body>
         </section>
         <section className={`${socialLinksBlockClasses} -mr-6 -mt-2`}>
+          <SocialLink type="location" full={true} />
           <SocialLink type="github" full={true} />
           <SocialLink type="linkedin" full={true} />
         </section>
@@ -182,8 +183,8 @@ export default function Resume() {
               scalable architecture of this system.
             </Body>
             <Body>
-              At the same client, I led a team of developers in creating a brand
-              new application. We{' '}
+              At the same client, I led a team of developers in creating a new
+              business intelligence application. We{' '}
               <Imp>
                 completed the project a month ahead of their estimated timeline
               </Imp>
@@ -194,13 +195,13 @@ export default function Resume() {
               to speed.
             </Body>
             <Body>
-              I was brought in to rescue a struggling internal project at
+              Was brought in to rescue a struggling internal project at
               Thoughtworks, where I{' '}
               <Imp>revamped and polished the UI in just one week</Imp> before
               the showcase.
             </Body>
             <Body>
-              I led discovery and inception workshops for several accounts, and
+              Led discovery and inception workshops for several accounts, and
               took ownership of the frontend stream of work on multiple projects
               for a large business consultancy firm.
             </Body>
@@ -209,7 +210,7 @@ export default function Resume() {
               Community initiatives
             </Heading5>
             <Body>
-              I helped organise <Imp>Unfold UI</Imp>, an external-facing event
+              Helped organise <Imp>Unfold UI</Imp>, an external-facing event
               showcasing UI best practices, and also conducted a VueJS workshop
               during the event.
             </Body>
@@ -228,8 +229,8 @@ export default function Resume() {
             <Body>
               Part of a team which curated{' '}
               <Imp>learning resources for UI developers</Imp> across the
-              organisation. I was fully responsible for curating resources
-              around HTML/CSS and Angular resources.
+              organisation. I was responsible for curating resources for
+              HTML/CSS and Angular.
             </Body>
             <Body>
               Contributed to multiple volumes of the{' '}

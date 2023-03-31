@@ -76,7 +76,7 @@ export const toolSkills: SkillProps[] = map(skillMapper('tool'), [
   ['Redux', 4],
   ['AgGrid', 3],
   ['Node', 4],
-  ['Kotlin', 3],
+  ['Ramda', 4],
 ]);
 
 export const techSkills: SkillProps[] = map(skillMapper('technique'), [

@@ -4,12 +4,19 @@ import {
   GithubLogo,
   Globe,
   LinkedinLogo,
+  MapPin,
   Phone,
 } from '@phosphor-icons/react';
 import React from 'react';
 import { BodySm } from '@ageorgedev/atoms';
 
-type SocialLinkType = 'github' | 'linkedin' | 'email' | 'web' | 'phone';
+type SocialLinkType =
+  | 'github'
+  | 'linkedin'
+  | 'email'
+  | 'web'
+  | 'phone'
+  | 'location';
 
 type SocialLinkProps = {
   type: SocialLinkType;
@@ -42,11 +49,13 @@ const LINKS: Record<SocialLinkType, string> = {
   email: `mailto:${email}`,
   web: 'https://ageorge.dev',
   phone: `tel:${phone}`,
+  location: 'https://goo.gl/maps/Q7mUm5VQ5ZuLGV4v7',
 };
 
 const DISPLAY_LINKS: Partial<Record<SocialLinkType, string>> = {
   email,
   phone,
+  location: 'Bengaluru, India',
 };
 
 const ICONS: Record<SocialLinkType, Icon> = {
@@ -55,4 +64,5 @@ const ICONS: Record<SocialLinkType, Icon> = {
   email: Envelope,
   web: Globe,
   phone: Phone,
+  location: MapPin,
 };
