@@ -18,7 +18,6 @@ export const logoFont = style([
     },
     letterSpacing: '.03em',
     lineHeight: '.76em',
-    textShadow: `.03em .06em ${shadowColor}`,
   },
   Theme.dark({
     vars: {
@@ -26,6 +25,14 @@ export const logoFont = style([
     },
   }),
 ]);
+
+export const bottomRightShadow = style({
+  textShadow: `.03em .06em ${shadowColor}`,
+});
+
+export const bottomLeftShadow = style({
+  textShadow: `-.03em .06em ${shadowColor}`,
+});
 
 export const firstName = style([
   'text-rc-timber-400 dark:text-rc-parchment-500',

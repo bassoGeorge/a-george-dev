@@ -46,7 +46,10 @@ export default function Resume() {
   return (
     <main className={page}>
       <header className={header}>
-        <NameLogo className="text-5xl self-end -mb-3" />
+        <NameLogo
+          shadowDirection="left"
+          className="text-[4rem] self-end -mb-4"
+        />
         <div className={`${socialLinksBlockClasses} mt-3`}>
           <SocialLink type="email" full={true} />
           <SocialLink type="phone" full={true} />
@@ -116,10 +119,16 @@ export default function Resume() {
             ))}
           </div>
         </section>
+        <section className="-mr-6">
+          <BodySm className="text-rc-p-accent-400 italic">
+            This resume is designed and built using HTML/CSS
+            <br /> by yours truly
+          </BodySm>
+        </section>
       </aside>
       <article className={article}>
         <section className={expGrid}>
-          <BodyLg className="justify-self-end font-bold text-rc-p-accent-500">
+          <BodyLg className="justify-self-end font-bold text-rc-p-accent-500 tracking-wider">
             2018 - 2023
           </BodyLg>
           <Heading3 className="font-medium">Thoughtworks</Heading3>
@@ -208,9 +217,8 @@ export default function Resume() {
             </Body>
           </div>
         </section>
-
         <section className={expGrid}>
-          <BodyLg className="justify-self-end font-bold text-rc-p-accent-500">
+          <BodyLg className="justify-self-end font-bold text-rc-p-accent-500 tracking-wider">
             2016 - 2018
           </BodyLg>
           <Heading3 className="font-medium">Ignite Solutions</Heading3>
@@ -242,7 +250,7 @@ export default function Resume() {
           </div>
         </section>
         <section className={expGrid}>
-          <BodyLg className="justify-self-end font-bold text-rc-p-accent-500">
+          <BodyLg className="justify-self-end font-bold text-rc-p-accent-500 tracking-wider">
             mid 2015
           </BodyLg>
           <Heading3 className="font-medium">JLabs</Heading3>

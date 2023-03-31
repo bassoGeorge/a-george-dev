@@ -35,7 +35,7 @@ export const page = style([
 ]);
 
 export const header = style([
-  'flex items-start justify-between px-5 pt-4',
+  'flex items-start justify-between px-5 pt-6',
   {
     vars: {
       [bg]: ContextualColors.page[0],
@@ -63,7 +63,7 @@ const mainSectionVerticalPadding = 'pt-9 pb-5';
 
 export const aside = style([
   mainSectionVerticalPadding,
-  'pl-5 pr-2 grid gap-7',
+  'pl-5 pr-2 grid content-between',
   {
     vars: {
       [bg]: ContextualColors.page[1],
@@ -78,14 +78,12 @@ export const aside = style([
   {
     gridArea: 'aside',
     gridTemplateColumns: 'minmax(0, 1fr)',
-    gridTemplateRows:
-      'max-content max-content minmax(0, 1fr) max-content max-content',
   },
 ]);
 
 export const article = style([
   mainSectionVerticalPadding,
-  'pr-8 pl-6 flex flex-col justify-between',
+  'pr-8 pl-6 flex flex-col gap-7',
   {
     vars: {
       [bg]: ContextualColors.page[4],

@@ -33,21 +33,21 @@ const bSkill =
 type SkillClassMap = Record<SkillLevel, string>;
 
 const levelClassesForTool: SkillClassMap = {
-  3: 'bg-rc-p-accent-200',
-  4: 'bg-rc-p-accent-400 text-cc-neutral-inverse-500',
-  5: highSkill + ' bg-rc-p-accent-500 text-cc-neutral-inverse-500',
+  3: 'bg-rc-p-accent-200 opacity-80',
+  4: 'bg-rc-p-accent-300 text-cc-neutral-inverse-500',
+  5: highSkill + ' bg-rc-p-accent-400 text-cc-neutral-inverse-500',
 };
 
 const levelClassesForTech: SkillClassMap = {
-  3: 'bg-rc-s-accent-300',
-  4: 'bg-rc-s-accent-400 text-cc-neutral-inverse-500',
-  5: highSkill + ' bg-rc-s-accent-500 text-cc-neutral-inverse-500',
+  3: 'bg-rc-s-accent-200 opacity-80',
+  4: 'bg-rc-s-accent-300',
+  5: highSkill + ' bg-rc-s-accent-400 text-cc-neutral-inverse-500',
 };
 
 const levelClassesForHuman: SkillClassMap = {
-  3: 'bg-rc-timber-100 text-cc-neutral-inverse-500 opacity-50',
-  4: 'bg-rc-timber-200 text-cc-neutral-inverse-500 opacity-60',
-  5: highSkill + ' bg-rc-timber-300 text-cc-neutral-inverse-500 opacity-70',
+  3: 'bg-rc-timber-100 text-cc-neutral-inverse-500 opacity-30',
+  4: 'bg-rc-timber-200 text-cc-neutral-inverse-500 opacity-50',
+  5: highSkill + ' bg-rc-timber-300 text-cc-neutral-inverse-500 opacity-60',
 };
 
 const levelClasses: Record<SkillType, SkillClassMap> = {
