@@ -35,7 +35,7 @@ export const page = style([
 ]);
 
 export const header = style([
-  'flex items-start justify-between px-5 pt-6',
+  'flex items-start justify-between px-5 pt-6 relative',
   {
     vars: {
       [bg]: ContextualColors.page[0],

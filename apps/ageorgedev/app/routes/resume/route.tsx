@@ -50,6 +50,9 @@ export default function Resume() {
           shadowDirection="left"
           className="text-[4rem] self-end -mb-4"
         />
+        <BodySm className="italic text-cc-neutral-300 mb-2 absolute top-[9.5rem] left-[13.75rem]">
+          (He/Him)
+        </BodySm>
         <div className={`${socialLinksBlockClasses} mt-3`}>
           <SocialLink type="email" full={true} />
           <SocialLink type="phone" full={true} />
@@ -59,12 +62,11 @@ export default function Resume() {
         <section className="mr-1">
           <Heading4
             as={'h2'}
-            className="font-bold text-rc-s-accent-400 mb-2 flex items-baseline justify-between"
+            className="italic font-medium text-rc-s-accent-400"
           >
-            <span>Web Architect</span>{' '}
-            <small className="text-sm italic font-normal">(He/Him)</small>
+            Frontend Architect
           </Heading4>
-          <Body>
+          <Body className="mt-2">
             Developing web experiences for over 7 years across various tech
             stacks with a deep commitment for code quality and
             <br /> a track record of providing effective training in a range of
