@@ -32,15 +32,15 @@ const bSkill =
 
 type SkillClassMap = Record<SkillLevel, string>;
 
-const levelClassesForTool: SkillClassMap = {
+const primaryAccentColorClasses: SkillClassMap = {
   3: 'bg-rc-p-accent-200 opacity-80',
   4: 'bg-rc-p-accent-300 text-cc-neutral-inverse-500',
   5: highSkill + ' bg-rc-p-accent-400 text-cc-neutral-inverse-500',
 };
 
-const levelClassesForTech: SkillClassMap = {
+const secondaryAccentColorClasses: SkillClassMap = {
   3: 'bg-rc-s-accent-200 opacity-80',
-  4: 'bg-rc-s-accent-300',
+  4: 'bg-rc-s-accent-300 text-cc-neutral-400',
   5: highSkill + ' bg-rc-s-accent-400 text-cc-neutral-inverse-500',
 };
 
@@ -51,9 +51,9 @@ const levelClassesForHuman: SkillClassMap = {
 };
 
 const levelClasses: Record<SkillType, SkillClassMap> = {
-  tool: levelClassesForTool,
-  technique: levelClassesForTech,
-  human: levelClassesForHuman,
+  tool: primaryAccentColorClasses,
+  technique: secondaryAccentColorClasses,
+  human: primaryAccentColorClasses,
 };
 
 const skillMapper =
@@ -64,7 +64,7 @@ const skillMapper =
     type,
   });
 
-const toolSkills: SkillProps[] = map(skillMapper('tool'), [
+export const toolSkills: SkillProps[] = map(skillMapper('tool'), [
   ['React', 5],
   ['Angular', 5],
   ['HTML / CSS', 5],
@@ -77,28 +77,31 @@ const toolSkills: SkillProps[] = map(skillMapper('tool'), [
   ['AgGrid', 3],
 ]);
 
-const techSkills: SkillProps[] = map(skillMapper('technique'), [
+export const techSkills: SkillProps[] = map(skillMapper('technique'), [
   ['Performance', 4],
+  ['Micro frontends', 3],
   ['Frontend serving strategies', 5],
   ['Atomic design', 5],
   ['Utility-first CSS', 5],
   ['Monorepo', 5],
-  ['Micro frontends', 3],
   ['CSS-in-JS', 4],
-  ['Multi-platform apps', 3],
   ['CI/CD', 4],
-  ['Functional programming', 5],
-  ['CSS animations', 5],
   ['Bundlers', 3],
+  ['Multi-platform apps', 3],
+  ['Functional programming', 5],
   ['Accessibility', 4],
+  ['CSS animations', 5],
 ]);
 
-const humanSkills: SkillProps[] = map(skillMapper('human'), [
-  ['Mentoring', 5],
-  ['Team leadership', 4],
-  ['Training skills', 5],
-  ['Estimations', 5],
+export const humanSkills: SkillProps[] = map(skillMapper('human'), [
+  ['Mentoring', 4],
+  ['Estimation', 4],
+  ['Architectural decision making', 5],
+  ['Business value articulation', 3],
   ['Prioritisation', 4],
+  ['Leadership', 3],
+  ['Stakeholder management', 5],
+  ['Training', 5],
 ]);
 
 export const AllSkills: SkillProps[] = [

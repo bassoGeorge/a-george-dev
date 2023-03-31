@@ -17,7 +17,7 @@ import {
 import { article, aside, eduGrid, expGrid, header, page } from './resume.css';
 import { ArrowSquareOut, GithubLogo } from '@phosphor-icons/react';
 import { SocialLink } from './SocialLink';
-import { AllSkills, Skill } from './Skill';
+import { AllSkills, humanSkills, Skill, techSkills, toolSkills } from './Skill';
 
 const education: { period: string; institute: string; programme: string }[] = [
   {
@@ -61,9 +61,10 @@ export default function Resume() {
             Web Architect
           </Heading4>
           <Body>
-            Developing web experiences for 7+ years across various tech stacks
-            with an obsession for code quality. I have a proven track record of
-            delivering high quality training in tech areas.
+            Developing web experiences for over 7 years across various tech
+            stacks with a deep commitment for code quality. <br />I have a track
+            record of providing effective training in a range of technical
+            areas.
           </Body>
         </section>
         <section className={`${socialLinksBlockClasses} -mr-6`}>
@@ -75,7 +76,17 @@ export default function Resume() {
             Skills
           </Heading6>
           <div className="flex gap-3 flex-wrap -mr-2">
-            {AllSkills.map((props, index) => (
+            {toolSkills.map((props, index) => (
+              <Skill key={index} {...props} />
+            ))}
+          </div>
+          <div className="flex gap-3 flex-wrap -mr-4 mt-3">
+            {techSkills.map((props, index) => (
+              <Skill key={index} {...props} />
+            ))}
+          </div>
+          <div className="flex gap-3 flex-wrap -mr-7 mt-3">
+            {humanSkills.map((props, index) => (
               <Skill key={index} {...props} />
             ))}
           </div>
@@ -154,66 +165,75 @@ export default function Resume() {
           </div>
           <div className="flex flex-col gap-3">
             <Body>
-              Currently working for a client in the Hospitality sector.{' '}
-              <Imp>I architected a brand new Design System</Imp> and helped them{' '}
-              <Imp>set-up an Nx MonoRepo</Imp> for all future applications and
-              libraries. The Design System is built with developer productivity
-              in mind. It is based off Atomic design principles with a lot of
-              Angular components (preferred tech stack of the client) which have
-              proven to boost the speed of delivery. A design philosophy change
-              in the middle of a release rush was implemented smoothly due to
-              the scalable architecture of this system.
+              I am currently working with a client in the Hospitality sector,
+              where I architected a brand new <Imp>Design System</Imp> and
+              helped set up an <Imp>Nx MonoRepo</Imp> for all future
+              applications and libraries. The Design System prioritizes
+              developer productivity and is based on{' '}
+              <Imp>Atomic design principles</Imp>. This approach has proven to
+              accelerate delivery speed. During a release rush, we implemented a
+              design philosophy change smoothly and quickly, thanks to the
+              scalable architecture of this system.
             </Body>
             <Body>
-              Was brought in to rescue a struggling Thoughtworks internal
-              project.{' '}
+              At the same client, I led a team of developers in creating a brand
+              new application. We{' '}
               <Imp>
-                I revamped and polished the UI in a very short timeframe
-              </Imp>{' '}
-              (~1 week) before showcase.
+                completed the project a month ahead of their estimated timeline
+              </Imp>
+              , and the quality of our code and testing exceeded their
+              expectations. Our work was so exceptional that they asked me to
+              help train their developers. For this, I ran a few training
+              sessions and created some learning resources to get their team up
+              to speed.
             </Body>
             <Body>
-              Ran <Imp>discovery and inception</Imp> workshops for a couple of
-              accounts.
+              I was brought in to rescue a struggling internal project at
+              Thoughtworks, where I{' '}
+              <Imp>revamped and polished the UI in just one week</Imp> before
+              the showcase.
             </Body>
             <Body>
-              Worked on multiple projects for a large business consultancy firm.
-              Took ownership of the frontend stream of work.
+              I led discovery and inception workshops for several accounts, and
+              took ownership of the frontend stream of work on multiple projects
+              for a large business consultancy firm.
             </Body>
 
             <Heading5 className="font-light mt-3">
               Community initiatives
             </Heading5>
             <Body>
-              Helped run <Imp>Unfold UI</Imp>, an external facing UI conference
-              from Thoughtworks. Also ran a VueJS workshop in the same
+              I helped organise <Imp>Unfold UI</Imp>, an external-facing event
+              showcasing UI best practices, and also conducted a VueJS workshop
+              during the event.
             </Body>
             <Body>
-              Helped design and run a crash course called{' '}
-              <Imp>CSS Level Zero Bootcamp</Imp>, targeting non UI devs to learn
-              CSS so that they can contribute better to frontend.
+              Designed and conducted the <Imp>CSS Level Zero Bootcamp</Imp>, a
+              crash course aimed at non-UI developers to learn CSS and
+              contribute better to frontend development.
             </Body>
             <Body>
-              Helped design and run the recurring{' '}
-              <Imp>Frontend Architect Programme</Imp> which targets UI
-              Developers who need to take on a more architect role. I'm a
-              regular trainer in this programme which is currently on its 7th
-              batch with a 100% satisfaction record.
+              Helped design and execute the recurring{' '}
+              <Imp>Frontend Architect Programme</Imp>, aimed at UI Developers
+              seeking to take on a more architect role. As a regular trainer, I
+              have participated in all seven batches of the programme which has
+              a 100% satisfaction record.
             </Body>
             <Body>
               Part of a team which curated{' '}
-              <Imp>learning resources for UI developers</Imp> at the
-              organisation level. I was fully responsible for curating resources
+              <Imp>learning resources for UI developers</Imp> across the
+              organisation. I was fully responsible for curating resources
               around HTML/CSS and Angular resources.
             </Body>
             <Body>
-              Have contributed to <Imp>Thoughtworks Tech Radar</Imp> on multiple
-              volumes.
+              Contributed to multiple volumes of the{' '}
+              <Imp>Thoughtworks Tech Radar</Imp>.
             </Body>
             <Body>
-              Heavily involved in the recruitment initiatives. I take interviews
-              regularly and have helped the global recruitment team{' '}
-              <Imp>revamp the UI Developer recruitment process</Imp>.
+              Heavily involved in recruitment initiatives, regularly taking
+              interviews and contributing to the{' '}
+              <Imp>revamping of the UI Developer recruitment process</Imp> for
+              the global recruitment team.
             </Body>
           </div>
         </section>
@@ -231,22 +251,20 @@ export default function Resume() {
           </div>
           <div className="flex flex-col gap-3">
             <Body>
-              Worked with multiple clients across various tech stacks including
-              Angular frontend and Python based backends.
+              Worked with multiple clients across various tech stacks, including
+              Angular frontend and Python-based backends.
             </Body>
             <Body>
               Navigated through <Imp>legacy code</Imp> written in a mixture of
-              CakePHP and Angular 1.x and was able to add new features, refactor
-              and find vulnerabilities.
+              CakePHP and Angular 1.x, adding new features, refactoring, and
+              finding vulnerabilities.
             </Body>
             <Body>
-              Lead the <Imp>internationalisation</Imp> work on an existing
-              project. This included setting up the architecture and managing
-              the flow of work.
+              Led the <Imp>internationalization</Imp> efforts for an existing
+              project, including setting up the architecture and managing the
+              flow of work.
             </Body>
-            <Body>
-              Worked on building MS Office add-ins and Skype bot integrations.
-            </Body>
+            <Body>Built MS Office add-ins and Skype bot integrations.</Body>
           </div>
         </section>
         <section className={expGrid}>
@@ -261,10 +279,10 @@ export default function Resume() {
           </div>
           <div className="flex flex-col gap-3">
             <Body>
-              Worked at JLabs, a (nearly) garage startup in Delhi, straight out
-              of college. Got the opportunity to work on{' '}
-              <Imp>hybrid mobile apps</Imp> using Ionic framework and Django
-              backend.
+              At the beginning of my career, I worked at JLabs, a startup in
+              Delhi. This was a great opportunity for me to gain experience
+              working with <Imp>hybrid mobile apps</Imp> using the Ionic
+              framework, as well as developing Django backend systems.
             </Body>
           </div>
         </section>
