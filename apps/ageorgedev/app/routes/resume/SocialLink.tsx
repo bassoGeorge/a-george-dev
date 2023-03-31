@@ -33,17 +33,20 @@ export function SocialLink({ type, full }: SocialLinkProps) {
   );
 }
 
+const email = 'anishgeorgehb@gmail.com';
+const phone = '+91-999999';
+
 const LINKS: Record<SocialLinkType, string> = {
   github: 'https://github.com/bassoGeorge',
   linkedin: 'https://linkedin.com/in/anishbassogeorge',
-  email: 'mailto:anishgeorgehb@gmail.com',
+  email: `mailto:${email}`,
   web: 'https://ageorge.dev',
-  phone: 'tel:+91-999999',
+  phone: `tel:${phone}`,
 };
 
 const DISPLAY_LINKS: Partial<Record<SocialLinkType, string>> = {
-  email: 'anishgeorgehb@gmail.com',
-  phone: '+91-999999',
+  email,
+  phone,
 };
 
 const ICONS: Record<SocialLinkType, Icon> = {

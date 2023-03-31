@@ -56,18 +56,22 @@ export default function Resume() {
         </div>
       </header>
       <aside className={aside}>
-        <section>
-          <Heading4 as={'h2'} className="font-bold text-rc-s-accent-400 mb-2">
-            Web Architect
+        <section className="mr-1">
+          <Heading4
+            as={'h2'}
+            className="font-bold text-rc-s-accent-400 mb-2 flex items-baseline justify-between"
+          >
+            <span>Web Architect</span>{' '}
+            <small className="text-sm italic font-normal">(He/Him)</small>
           </Heading4>
           <Body>
             Developing web experiences for over 7 years across various tech
-            stacks with a deep commitment for code quality. <br />I have a track
-            record of providing effective training in a range of technical
-            areas.
+            stacks with a deep commitment for code quality and
+            <br /> a track record of providing effective training in a range of
+            technical areas.
           </Body>
         </section>
-        <section className={`${socialLinksBlockClasses} -mr-6`}>
+        <section className={`${socialLinksBlockClasses} -mr-6 -mt-2`}>
           <SocialLink type="github" full={true} />
           <SocialLink type="linkedin" full={true} />
         </section>
@@ -75,17 +79,17 @@ export default function Resume() {
           <Heading6 as={'h3'} className="mb-2">
             Skills
           </Heading6>
-          <div className="flex gap-3 flex-wrap -mr-2">
+          <div className="flex gap-2 flex-wrap -mr-2">
             {toolSkills.map((props, index) => (
               <Skill key={index} {...props} />
             ))}
           </div>
-          <div className="flex gap-3 flex-wrap -mr-4 mt-3">
+          <div className="flex gap-2 flex-wrap -mr-4 mt-2">
             {techSkills.map((props, index) => (
               <Skill key={index} {...props} />
             ))}
           </div>
-          <div className="flex gap-3 flex-wrap -mr-7 mt-3">
+          <div className="flex gap-2 flex-wrap -mr-7 mt-2">
             {humanSkills.map((props, index) => (
               <Skill key={index} {...props} />
             ))}
@@ -104,7 +108,7 @@ export default function Resume() {
               Demystifying Function Sub-typing
               <ArrowSquareOut
                 weight="duotone"
-                className="inline ml-2 text-rc-p-accent-400"
+                className="inline ml-2 text-rc-p-accent-400 relative -top-px"
               />
             </BodySm>
             <BodyXs className="text-cc-neutral-300">
@@ -131,9 +135,9 @@ export default function Resume() {
           </div>
         </section>
         <section className="-mr-6">
-          <BodySm className="text-rc-p-accent-400 italic">
-            This resume is designed and built using HTML/CSS
-            <br /> by yours truly
+          <BodySm className="text-cc-neutral-500 italic font-thin">
+            I built this resume using HTML / CSS and it follows my new design
+            language.
           </BodySm>
         </section>
       </aside>
@@ -199,7 +203,7 @@ export default function Resume() {
               for a large business consultancy firm.
             </Body>
 
-            <Heading5 className="font-light mt-3">
+            <Heading5 className="font-light mt-4">
               Community initiatives
             </Heading5>
             <Body>
