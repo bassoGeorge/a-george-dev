@@ -19,7 +19,7 @@ export const LineHeight = {
   snug: '1.15',
   normal: '1.2',
   relaxed: '1.25',
-  loose: '1.50',
+  loose: '1.6',
 } satisfies ThemeConfig['lineHeight'];
 
 export const LetterSpacing = {

@@ -3,3 +3,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  body {
+    @apply text-base text-cc-neutral-500 bg-cc-page-0;
+  }
+}
