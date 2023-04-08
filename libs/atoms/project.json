@@ -3,7 +3,7 @@
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/atoms/src",
   "projectType": "library",
-  "tags": [],
+  "tags": ["scope:ds", "type:ui", "ui-type:atom"],
   "targets": {
     "lint": {
       "executor": "@nrwl/linter:eslint",

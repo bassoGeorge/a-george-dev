@@ -46,12 +46,30 @@ export const RAW_COLORS = {
     400: 'hsl(45 100% 99% / 0.8)',
     500: 'hsl(45 100% 99%)',
   },
+  shadow: {
+    1: 'rgb(0 0 0 / .1)',
+    2: 'rgb(0 0 0 / .25)',
+    3: 'rgb(0 0 0 / .6)',
+    4: 'rgb(0 0 0 / .8)',
+  },
 };
 
 type RC = typeof RAW_COLORS;
 
-// map the RAW_COLORS structure to variable names which can be used by
-// theme contract builder
+//
+//
+/**
+ * map the RAW_COLORS structure to variable names which can be used by
+ * theme contract builder
+ * {
+ *   timber: {
+ *     '100': 'ag-rc-timber-100',
+ *     '200': 'ag-rc-timber-200',
+ *     ...
+ *   },
+ *   ...
+ * }
+ */
 const rawColorsVariableNames = mapObjIndexed(
   (set, setName) =>
     mapObjIndexed(
@@ -62,8 +80,24 @@ const rawColorsVariableNames = mapObjIndexed(
   RAW_COLORS
 ) as RC;
 
-/** Used by vanilla extract */
+/**
+ * RC structure against var() declarations
+ * {
+ *   timber: {
+ *     '100': 'var(--ag-rc-timber-100)',
+ *     '200': 'var(--ag-rc-timber-200)',
+ *     ...
+ *   },
+ *   ...
+ * }
+ */
 export const RawColors = createGlobalThemeContract(rawColorsVariableNames);
+
+/**
+ * To be used by Tailwind. We don't want to provide the neutrals, they will be only available
+ * as contextual colors.
+ * timber and parchment would be available as both contextual colors, and raw colors. TBD
+ */
 export const AccessibleRawColors = pick(
   ['timber', 'parchment', 'pAccent', 'sAccent'] satisfies (keyof RC)[],
   RawColors
