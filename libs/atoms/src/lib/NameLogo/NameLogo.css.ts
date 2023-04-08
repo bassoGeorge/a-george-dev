@@ -1,5 +1,6 @@
 import { createVar, style } from '@vanilla-extract/css';
-import { Theme } from '@ageorgedev/foundation-styles';
+import { RawColors, Theme } from '@ageorgedev/foundation-styles';
+import { RAW_COLORS } from '@ageorgedev/foundation-styles/dist/lib/tokens/raw-colors';
 
 export const logoWrapper = style([
   'inline-block font-heading font-bold',
@@ -14,14 +15,14 @@ const shadowColor = createVar();
 export const logoFont = style([
   {
     vars: {
-      [shadowColor]: 'rgb(0 0 0 / .25)',
+      [shadowColor]: RawColors.shadow[2],
     },
     letterSpacing: '.03em',
     lineHeight: '.76em',
   },
   Theme.dark({
     vars: {
-      [shadowColor]: 'rgb(0 0 0 / .8)',
+      [shadowColor]: RawColors.shadow[4],
     },
   }),
 ]);

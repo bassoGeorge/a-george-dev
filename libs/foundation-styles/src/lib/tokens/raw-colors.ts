@@ -46,6 +46,12 @@ export const RAW_COLORS = {
     400: 'hsl(45 100% 99% / 0.8)',
     500: 'hsl(45 100% 99%)',
   },
+  shadow: {
+    1: 'rgb(0 0 0 / .1)',
+    2: 'rgb(0 0 0 / .25)',
+    3: 'rgb(0 0 0 / .6)',
+    4: 'rgb(0 0 0 / .8)',
+  },
 };
 
 type RC = typeof RAW_COLORS;
