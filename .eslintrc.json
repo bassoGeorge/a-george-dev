@@ -15,6 +15,38 @@
               {
                 "sourceTag": "*",
                 "onlyDependOnLibsWithTags": ["*"]
+              },
+              {
+                "sourceTag": "scope:global",
+                "onlyDependOnLibsWithTags": ["scope:global"]
+              },
+              {
+                "sourceTag": "scope:site",
+                "onlyDependOnLibsWithTags": [
+                  "scope:global",
+                  "scope:site",
+                  "scope:ds"
+                ]
+              },
+              {
+                "sourceTag": "scope:ds",
+                "onlyDependOnLibsWithTags": ["scope:global", "scope:ds"]
+              },
+              {
+                "sourceTag": "type:util",
+                "onlyDependOnLibsWithTags": ["type:util"]
+              },
+              {
+                "sourceTag": "type:ui",
+                "onlyDependOnLibsWithTags": ["type:ui", "type:util"]
+              },
+              {
+                "sourceTag": "ui-type:atom",
+                "notDependOnLibsWithTags": ["ui-type:molecule"]
+              },
+              {
+                "sourceTag": "ui-type:molecule",
+                "onlyDependOnLibsWithTags": ["ui-type:atom", "ui-type:molecule"]
               }
             ]
           }
