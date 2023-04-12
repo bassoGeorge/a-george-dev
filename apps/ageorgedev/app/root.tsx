@@ -35,6 +35,10 @@ export const links: LinksFunction = () => [
 
   /** Application global styles. Contains the tailwind stuff */
   { rel: 'stylesheet', href: globalAppStylesheetHref },
+
+  { rel: 'icon', href: '/favicon.svg', type: 'image/svg+xml' },
+  { rel: 'apple-touch-icon', href: '/apple-touch-icon.png' },
+  { rel: 'manifest', href: '/site.webmanifest' },
 ];
 
 export default function App() {
