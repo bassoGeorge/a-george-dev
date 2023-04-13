@@ -47,3 +47,7 @@ apps/**/.cache
 
 apps/**/generated-src
 libs/**/generated-src
+
+# environment files
+*.env
+*/**/*.env

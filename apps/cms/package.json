@@ -1,0 +1,20 @@
+{
+  "private": true,
+  "name": "cms",
+  "version": "0.0.0",
+  "description": "",
+  "license": "",
+  "sideEffects": false,
+  "scripts": {
+    "build": "keystone build",
+    "dev": "keystone dev",
+    "postinstall": "keystone postinstall",
+    "generate": "keystone prisma migrate dev",
+    "start": "keystone start --with-migrations",
+    "deploy": "keystone build && keystone prisma migrate deploy"
+  },
+  "dependencies": {
+    "@keystone-6/auth": "^7.0.0",
+    "@keystone-6/core": "^5.1.0"
+  }
+}
