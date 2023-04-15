@@ -8,7 +8,8 @@
     "build": "remix build",
     "dev": "remix dev",
     "start": "cross-env NODE_ENV=production netlify dev",
-    "should-ignore-build": "cd ../../; ! nx affected:apps --base=$CACHED_COMMIT_REF --head=$COMMIT_REF | grep -qce \"\\- ageorgedev\\b\""
+    "should-ignore-build": "cd ../../; ! nx affected:apps --base=$CACHED_COMMIT_REF --head=$COMMIT_REF | grep -qce \"\\- ageorgedev\\b\"",
+    "prisma-generate": "prisma generate --schema ../cms/schema.prisma"
   },
   "sideEffects": false,
   "devDependencies": {
