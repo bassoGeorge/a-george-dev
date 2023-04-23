@@ -11,7 +11,7 @@ export default config({
     extendPrismaSchema: (schema) => {
       return schema.replace(
         '"prisma-client-js"',
-        `"prisma-client-js"\nbinaryTargets = ["native"]`
+        `"prisma-client-js"\nbinaryTargets = ["native", "rhel-openssl-1.0.x"]`
       );
     },
   },
