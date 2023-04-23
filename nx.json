@@ -41,7 +41,6 @@
       "inputs": ["default", "^production"]
     },
     "e2e": {
-      "dependsOn": ["seed"],
       "inputs": ["default", "^production"]
     },
     "build-storybook": {
