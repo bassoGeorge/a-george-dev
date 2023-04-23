@@ -8,6 +8,12 @@ export default config({
     additionalPrismaDatasourceProperties: {
       relationMode: 'prisma',
     },
+    extendPrismaSchema: (schema) => {
+      return schema.replace(
+        '"prisma-client-js"',
+        `"prisma-client-js"\nbinaryTargets = ["native"]`
+      );
+    },
   },
   server: {
     port: 3001,

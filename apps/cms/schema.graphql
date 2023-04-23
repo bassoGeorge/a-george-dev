@@ -210,6 +210,51 @@ input UserRelateToOneForCreateInput {
   connect: UserWhereUniqueInput
 }
 
+type TestingLog {
+  id: ID!
+  title: String
+  value: String
+  date: DateTime
+}
+
+input TestingLogWhereUniqueInput {
+  id: ID
+}
+
+input TestingLogWhereInput {
+  AND: [TestingLogWhereInput!]
+  OR: [TestingLogWhereInput!]
+  NOT: [TestingLogWhereInput!]
+  id: IDFilter
+  title: StringFilter
+  value: StringFilter
+  date: DateTimeNullableFilter
+}
+
+input TestingLogOrderByInput {
+  id: OrderDirection
+  title: OrderDirection
+  value: OrderDirection
+  date: OrderDirection
+}
+
+input TestingLogUpdateInput {
+  title: String
+  value: String
+  date: DateTime
+}
+
+input TestingLogUpdateArgs {
+  where: TestingLogWhereUniqueInput!
+  data: TestingLogUpdateInput!
+}
+
+input TestingLogCreateInput {
+  title: String
+  value: String
+  date: DateTime
+}
+
 """
 The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).
 """
@@ -228,6 +273,12 @@ type Mutation {
   updatePosts(data: [PostUpdateArgs!]!): [Post]
   deletePost(where: PostWhereUniqueInput!): Post
   deletePosts(where: [PostWhereUniqueInput!]!): [Post]
+  createTestingLog(data: TestingLogCreateInput!): TestingLog
+  createTestingLogs(data: [TestingLogCreateInput!]!): [TestingLog]
+  updateTestingLog(where: TestingLogWhereUniqueInput!, data: TestingLogUpdateInput!): TestingLog
+  updateTestingLogs(data: [TestingLogUpdateArgs!]!): [TestingLog]
+  deleteTestingLog(where: TestingLogWhereUniqueInput!): TestingLog
+  deleteTestingLogs(where: [TestingLogWhereUniqueInput!]!): [TestingLog]
 }
 
 type Query {
@@ -237,6 +288,9 @@ type Query {
   posts(where: PostWhereInput! = {}, orderBy: [PostOrderByInput!]! = [], take: Int, skip: Int! = 0, cursor: PostWhereUniqueInput): [Post!]
   post(where: PostWhereUniqueInput!): Post
   postsCount(where: PostWhereInput! = {}): Int
+  testingLogs(where: TestingLogWhereInput! = {}, orderBy: [TestingLogOrderByInput!]! = [], take: Int, skip: Int! = 0, cursor: TestingLogWhereUniqueInput): [TestingLog!]
+  testingLog(where: TestingLogWhereUniqueInput!): TestingLog
+  testingLogsCount(where: TestingLogWhereInput! = {}): Int
   keystone: KeystoneMeta!
 }
 

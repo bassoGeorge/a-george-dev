@@ -9,7 +9,8 @@ datasource mysql {
 }
 
 generator client {
-  provider = "prisma-client-js"
+  provider      = "prisma-client-js"
+  binaryTargets = ["native"]
 }
 
 model User {
@@ -28,4 +29,11 @@ model Post {
   status      String?   @default("draft")
 
   @@index([authorId])
+}
+
+model TestingLog {
+  id    String    @id @default(cuid())
+  title String    @default("")
+  value String    @default("")
+  date  DateTime?
 }

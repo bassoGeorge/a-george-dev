@@ -11,7 +11,8 @@
     "postinstall": "keystone postinstall",
     "generate": "keystone prisma migrate dev",
     "start": "keystone start --with-migrations",
-    "deploy": "keystone build && keystone prisma migrate deploy"
+    "deploy": "keystone build && keystone prisma migrate deploy",
+    "pscale-dev": "yarn run dev"
   },
   "dependencies": {
     "@keystone-6/auth": "^7.0.0",

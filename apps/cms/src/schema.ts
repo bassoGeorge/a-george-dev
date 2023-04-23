@@ -39,4 +39,12 @@ export const ALL_LISTS: KeystoneConfig['lists'] = {
       }),
     },
   }),
+  TestingLog: list({
+    access: allowAll,
+    fields: {
+      title: text(),
+      value: text(),
+      date: timestamp(),
+    },
+  }),
 };
