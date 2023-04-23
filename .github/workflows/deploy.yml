@@ -35,8 +35,6 @@ jobs:
           cache: 'yarn'
       - name: 📥 Install dependencies
         run: yarn install --frozen-lockfile
-      - name: ⎔ Build Prisma client
-        run: yarn nx prisma-generate ageorgedev
       - name: 🏗️ Build and 🚀 Deploy
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}

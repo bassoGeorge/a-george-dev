@@ -5,7 +5,9 @@
   "private": true,
   "scripts": {
     "preinstall": "git config core.hooksPath .git-hooks",
-    "affected-projects": "nx print-affected --select=projects"
+    "postinstall": "yarn run prepare-prisma-client",
+    "affected-projects": "nx print-affected --select=projects",
+    "prepare-prisma-client": "prisma generate --schema ./apps/cms/schema.prisma"
   },
   "devDependencies": {
     "@nrwl/cypress": "15.7.2",
