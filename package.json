@@ -5,9 +5,10 @@
   "private": true,
   "scripts": {
     "preinstall": "git config core.hooksPath .git-hooks",
-    "postinstall": "yarn run prepare-prisma-client",
+    "postinstall": "yarn run prisma:generate",
     "affected-projects": "nx print-affected --select=projects",
-    "prepare-prisma-client": "prisma generate --schema ./apps/cms/schema.prisma"
+    "prisma:generate": "prisma generate --schema ./apps/cms/schema.prisma && yarn run prisma:inline",
+    "prisma:inline": "cp -r ./node_modules/.prisma/client/* ./node_modules/@prisma/client"
   },
   "devDependencies": {
     "@nrwl/cypress": "15.7.2",
