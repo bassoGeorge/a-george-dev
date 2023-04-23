@@ -29,3 +29,10 @@ model Post {
 
   @@index([authorId])
 }
+
+model TestingLog {
+  id    String    @id @default(cuid())
+  title String    @default("")
+  value String    @default("")
+  date  DateTime?
+}
