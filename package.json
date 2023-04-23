@@ -5,7 +5,10 @@
   "private": true,
   "scripts": {
     "preinstall": "git config core.hooksPath .git-hooks",
-    "affected-projects": "nx print-affected --select=projects"
+    "postinstall": "yarn run prisma:generate",
+    "affected-projects": "nx print-affected --select=projects",
+    "prisma:generate": "prisma generate --schema ./apps/cms/schema.prisma && yarn run prisma:inline",
+    "prisma:inline": "cp -r ./node_modules/.prisma/client/* ./node_modules/@prisma/client"
   },
   "devDependencies": {
     "@nrwl/cypress": "15.7.2",
@@ -54,6 +57,7 @@
     "react-test-renderer": "18.2.0",
     "sass": "^1.55.0",
     "tailwindcss": "^3.2.7",
+    "ts-node": "^10.9.0",
     "typescript": "~5.0.4",
     "vite": "^4.0.1",
     "vite-plugin-dts": "~1.7.1",

@@ -23,7 +23,5 @@ jobs:
           cache: 'yarn'
       - name: 📥 Install dependencies
         run: yarn install --frozen-lockfile
-      - name: ⎔ Build Prisma client
-        run: yarn nx prisma-generate ageorgedev
       - name: ⚡ Run Unit Tests for affected apps
         run: yarn nx affected:test --base=${{ inputs.affected_base }} --head=${{ inputs.affected_head }}
