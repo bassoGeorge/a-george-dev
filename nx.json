@@ -38,7 +38,7 @@
       "inputs": ["default", "{workspaceRoot}/.eslintrc.json"]
     },
     "test": {
-      "inputs": ["default", "^production"]
+      "inputs": ["default", "^production", "{workspaceRoot}/jest.preset.js"]
     },
     "e2e": {
       "inputs": ["default", "^production"]
@@ -61,8 +61,7 @@
       "!{projectRoot}/tsconfig.spec.json",
       "!{projectRoot}/.storybook/**/*",
       "!{projectRoot}/**/*.stories.@(js|jsx|ts|tsx|mdx)",
-      "!{projectRoot}/.storybook/**/*",
-      "!{projectRoot}/**/*.stories.@(js|jsx|ts|tsx|mdx)"
+      "!{projectRoot}/jest.config.[jt]s"
     ],
     "sharedGlobals": []
   },
