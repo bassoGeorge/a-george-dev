@@ -11,7 +11,7 @@ import { Barricade } from '@phosphor-icons/react';
 export function SiteUnderConstruction() {
   return (
     <main
-      className={`${container} grid w-screen place-items-stretch relative overflow-hidden relative`}
+      className={`${container} grid w-screen place-items-stretch overflow-hidden relative`}
     >
       <div className={'absolute top-3 right-3 z-10'}>
         <ThemeSwitcher />

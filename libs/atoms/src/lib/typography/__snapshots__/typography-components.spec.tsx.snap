@@ -1,0 +1,118 @@
+// Vitest Snapshot v1
+
+exports[`Typography > should add add correct styling for body types 1`] = `
+<body>
+  <div>
+    <div>
+      <p
+        class="font-body text-xl"
+      >
+        Body Xl
+      </p>
+      <p
+        class="font-body text-lg"
+      >
+        Body Lg
+      </p>
+      <p
+        class="font-body text-md"
+      >
+        Body Md
+      </p>
+      <p
+        class="font-body text-base"
+      >
+        Body
+      </p>
+      <p
+        class="font-body text-sm"
+      >
+        Body Sm
+      </p>
+      <p
+        class="font-body text-xs"
+      >
+        Body Xs
+      </p>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`Typography > should add add correct styling for heading types 1`] = `
+<body>
+  <div>
+    <div>
+      <h1
+        class="font-heading text-4xl tablet:text-5xl desktop:text-6xl"
+      >
+        Heading 1
+      </h1>
+      <h2
+        class="font-heading text-3xl tablet:text-4xl desktop:text-5xl"
+      >
+        Heading 2
+      </h2>
+      <h3
+        class="font-heading text-2xl tablet:text-3xl desktop:text-4xl"
+      >
+        Heading 3
+      </h3>
+      <h4
+        class="font-heading text-xl tablet:text-2xl desktop:text-3xl"
+      >
+        Heading 4
+      </h4>
+      <span
+        class="font-heading text-lg tablet:text-xl desktop:text-2xl"
+      >
+        Heading 5
+      </span>
+      <span
+        class="font-heading text-md tablet:text-lg desktop:text-xl"
+      >
+        Heading 6
+      </span>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`Typography > should add add correct styling for interface types 1`] = `
+<body>
+  <div>
+    <div>
+      <span
+        class="font-interface leading-none text-2xl"
+      >
+        Interface 2Xl
+      </span>
+      <span
+        class="font-interface leading-none text-xl"
+      >
+        Interface Xl
+      </span>
+      <span
+        class="font-interface leading-none text-lg"
+      >
+        Interface Lg
+      </span>
+      <span
+        class="font-interface leading-none text-md"
+      >
+        Interface Md
+      </span>
+      <span
+        class="font-interface leading-none"
+      >
+        Interface
+      </span>
+      <span
+        class="font-interface leading-none text-sm"
+      >
+        Interface Sm
+      </span>
+    </div>
+  </div>
+</body>
+`;
