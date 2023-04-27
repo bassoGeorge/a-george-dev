@@ -1,0 +1,32 @@
+name: Create Planetscale branch
+on:
+  workflow_call:
+    inputs:
+      BRANCH_NAME:
+        required: true
+        type: string
+    secrets:
+      ORG_NAME:
+        required: true
+        type: string
+      DB_NAME:
+        required: true
+        type: string
+      PLANETSCALE_SERVICE_TOKEN_ID:
+        required: true
+        type: string
+      PLANETSCALE_SERVICE_TOKEN:
+        required: true
+        type: string
+
+jobs:
+  Create:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install planetscale cli
+        run: sudo apt-get install -y pscale
+      - name: Test connection
+        run: pscale branch list $DB_NAME --org $ORG_NAME
+      - name: Test other stuff
+        run: |
+          echo "branch name: $BRANCH_NAME"

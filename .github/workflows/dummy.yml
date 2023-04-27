@@ -1,0 +1,13 @@
+name: Dummy workflow
+on:
+  push:
+    branches: [feature/*]
+jobs:
+  Pscale:
+    uses: ./.github/workflows/ps-create-branch.yml
+    with:
+      BRANCH_NAME: ${{ github.event.ref }}
+      DB_NAME: ${{ secrets.DB_NAME }}
+      ORG_NAME: ${{ secrets.ORG_NAME }}
+      PLANETSCALE_SERVICE_TOKEN_ID: ${{ secrets.PLANETSCALE_SERVICE_TOKEN_ID }}
+      PLANETSCALE_SERVICE_TOKEN: ${{ secrets.PLANETSCALE_SERVICE_TOKEN }}
