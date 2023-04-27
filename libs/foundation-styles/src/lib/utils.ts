@@ -1,19 +1,17 @@
-import { FOUNDATION_VAR_PREFIX } from './constants';
+import { paramCase } from 'param-case';
 import {
+  __,
   chain,
   compose,
-  concat,
   divide,
   filter,
-  flip,
   fromPairs,
   join,
   map,
   prepend,
   values,
-  __,
 } from 'ramda';
-import { paramCase } from 'param-case';
+import { FOUNDATION_VAR_PREFIX } from './constants';
 
 /**
  * Converts a string into param-case / kebab-case
