@@ -6,8 +6,16 @@ jobs:
   Pscale:
     uses: ./.github/workflows/ps-create-branch.yml
     with:
-      BRANCH_NAME: ${{ github.event.ref }}
+      BRANCH_NAME: test-br
+      actions: 'create,deploy-request'
+    secrets:
       DB_NAME: ${{ secrets.DB_NAME }}
       ORG_NAME: ${{ secrets.ORG_NAME }}
       PLANETSCALE_SERVICE_TOKEN_ID: ${{ secrets.PLANETSCALE_SERVICE_TOKEN_ID }}
       PLANETSCALE_SERVICE_TOKEN: ${{ secrets.PLANETSCALE_SERVICE_TOKEN }}
+  Result:
+    runs-on: ubuntu-latest
+    needs: [Pscale]
+    steps:
+      - name: Print branch URL
+        run: echo "${{ needs.Pscale.outputs.BRANCH_URL }}"
