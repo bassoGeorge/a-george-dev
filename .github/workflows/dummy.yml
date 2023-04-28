@@ -13,3 +13,19 @@ jobs:
       ORG_NAME: ${{ secrets.ORG_NAME }}
       PLANETSCALE_SERVICE_TOKEN_ID: ${{ secrets.PLANETSCALE_SERVICE_TOKEN_ID }}
       PLANETSCALE_SERVICE_TOKEN: ${{ secrets.PLANETSCALE_SERVICE_TOKEN }}
+  Check:
+    needs: [Pscale]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Just checking
+        run: echo ${{ needs.Pscale.outputs.DB_BRANCH_CONNECTION_STRING }}
+  Site_Preview:
+    needs: [Pscale]
+    if: ${{ false }}
+    uses: ./.github/workflows/site-preview.yml
+    with:
+      title: Testing New Workflow
+      NETLIFY_SITE_ID: ${{ vars.AGEORGEDEV_SITE_ID }}
+    secrets:
+      NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+      DB_BRANCH_CONNECTION_STRING: ${{ needs.Pscale.outputs.DB_BRANCH_CONNECTION_STRING }}

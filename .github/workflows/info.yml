@@ -22,6 +22,9 @@ on:
         description: 'Whether to deploy the site'
         # site should be deployed only if 'ageorgedev' is in the arry, so using array contains
         value: ${{ contains(fromJSON(jobs.Info.outputs.affected_projects), 'ageorgedev') }}
+      should_deploy_schema:
+        description: 'Whether to deploy the schema'
+        value: ${{ contains(fromJSON(jobs.Info.outputs.affected_projects), 'cms') }}
 
 jobs:
   Info:

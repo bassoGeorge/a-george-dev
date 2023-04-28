@@ -20,10 +20,10 @@ on:
     outputs:
       DB_BRANCH_URL:
         description: 'URL of the db branch'
-        value: ${{ jobs.Pscale.outputs.BRANCH_URL }}
-      DB_BRNACH_CONNECTION_STRING:
+        value: ${{ jobs.Pscale.outputs.DB_BRANCH_URL }}
+      DB_BRANCH_CONNECTION_STRING:
         description: 'Connection string for the db_branch'
-        value: ${{ jobs.Pscale.outputs.BRANCH_CONNECTION_STRING }}
+        value: ${{ jobs.Pscale.outputs.DB_BRANCH_CONNECTION_STRING }}
 
 jobs:
   Pscale:
@@ -54,8 +54,8 @@ jobs:
         run: |
           cd scripts/pscale
           bash create-branch.sh $BRANCH_NAME
-      - name: Result
-        run: echo ${{ steps.createBranch.outputs.TEST_RESULT }}
+      - name: Branch string
+        run: echo ${{ steps.createBranch.outputs.DB_BRANCH_CONNECTION_STRING }}
     outputs:
       DB_BRANCH_URL: ${{ steps.createBranch.outputs.DB_BRANCH_URL }}
-      DB_BRNACH_CONNECTION_STRING: ${{ steps.createBranch.outputs.DB_BRNACH_CONNECTION_STRING }}
+      DB_BRANCH_CONNECTION_STRING: ${{ steps.createBranch.outputs.DB_BRANCH_CONNECTION_STRING }}

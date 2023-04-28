@@ -14,6 +14,8 @@ on:
     secrets:
       NETLIFY_AUTH_TOKEN:
         required: true
+      DB_BRANCH_CONNECTION_STRING:
+        required: false
     outputs:
       preview-url:
         description: 'Preview Url deployed to if any'
@@ -25,6 +27,9 @@ on:
 jobs:
   Deploy:
     runs-on: ubuntu-latest
+    env:
+      NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+      NETLIFY_SITE_ID: ${{ inputs.NETLIFY_SITE_ID }}
     steps:
       - name: ⬇️ Check out repository code
         uses: actions/checkout@v3
@@ -35,14 +40,16 @@ jobs:
           cache: 'yarn'
       - name: 📥 Install dependencies
         run: yarn install --frozen-lockfile
+      - name: Set netlify env variable for database url
+        if: ${{ !inputs.production }}
+        working-directory: apps/ageorgedev
+        run: |
+          yarn netlify env:set DATABASE_URL "${{ secrets.DB_BRANCH_CONNECTION_STRING }}" --context branch-deploy
       - name: 🏗️ Build and 🚀 Deploy
-        env:
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-          NETLIFY_SITE_ID: ${{ inputs.NETLIFY_SITE_ID }}
         working-directory: apps/ageorgedev
         run: |
           set -o pipefail
-          yarn netlify deploy --build ${{ fromJSON('{"true": "--prod --context production", "false": "--context deploy-preview --alias preview"}')[inputs.production] }} --message "${{ inputs.note }}" 2>&1 | tee deploy-output.txt
+          yarn netlify deploy --build ${{ fromJSON('{"true": "--prod --context production", "false": "--context branch-deploy --alias preview"}')[inputs.production] }} --message "${{ inputs.note }}" 2>&1 | tee deploy-output.txt
           set +o pipefail
       - name: ⎔ Extract deployment information
         id: deployInfo
