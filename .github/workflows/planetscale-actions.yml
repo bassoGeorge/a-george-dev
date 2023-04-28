@@ -1,4 +1,4 @@
-name: Create Planetscale branch
+name: Manage Planetscale branches
 on:
   workflow_call:
     inputs:
@@ -18,9 +18,12 @@ on:
       PLANETSCALE_SERVICE_TOKEN:
         required: true
     outputs:
-      BRANCH_URL:
-        description: 'URL of the branch'
-        value: ${{ jobs.Create.outputs.BRANCH_URL }}
+      DB_BRANCH_URL:
+        description: 'URL of the db branch'
+        value: ${{ jobs.Pscale.outputs.BRANCH_URL }}
+      DB_BRNACH_CONNECTION_STRING:
+        description: 'Connection string for the db_branch'
+        value: ${{ jobs.Pscale.outputs.BRANCH_CONNECTION_STRING }}
 
 jobs:
   Pscale:
@@ -45,26 +48,14 @@ jobs:
         run: pscale branch list $DB_NAME --org $ORG_NAME
       - name: ⬇️ Check out repository code
         uses: actions/checkout@v3
-      - name: Test other stuff
-        run: |
-          echo "branch name: $BRANCH_NAME"
-      - name: Input checks, should I create branch
-        if: contains(inputs.actions, 'create')
-        run: |
-          echo "Yes, creating branch"
-      - name: Input checks, should I delete branch
-        if: contains(inputs.actions, 'delete')
-        run: |
-          echo "Yes, deleting branch"
-      - name: Input checks, should I create deploy request
-        if: contains(inputs.actions, 'deploy-request')
-        run: |
-          echo "Yes, creatin deploy request"
       - name: Create branch
         id: createBranch
         if: contains(inputs.actions, 'create')
         run: |
           cd scripts/pscale
-          sh create-branch.sh $BRANCH_NAME
+          bash create-branch.sh $BRANCH_NAME
+      - name: Result
+        run: echo ${{ steps.createBranch.outputs.TEST_RESULT }}
     outputs:
-      BRANCH_URL: ${{ steps.createBranch.outputs.BRANCH_URL }}
+      DB_BRANCH_URL: ${{ steps.createBranch.outputs.DB_BRANCH_URL }}
+      DB_BRNACH_CONNECTION_STRING: ${{ steps.createBranch.outputs.DB_BRNACH_CONNECTION_STRING }}

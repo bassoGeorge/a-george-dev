@@ -4,7 +4,7 @@ on:
     branches: [feature/*]
 jobs:
   Pscale:
-    uses: ./.github/workflows/ps-create-branch.yml
+    uses: ./.github/workflows/planetscale-actions.yml
     with:
       BRANCH_NAME: test-br
       actions: 'create,deploy-request'
@@ -13,9 +13,3 @@ jobs:
       ORG_NAME: ${{ secrets.ORG_NAME }}
       PLANETSCALE_SERVICE_TOKEN_ID: ${{ secrets.PLANETSCALE_SERVICE_TOKEN_ID }}
       PLANETSCALE_SERVICE_TOKEN: ${{ secrets.PLANETSCALE_SERVICE_TOKEN }}
-  Result:
-    runs-on: ubuntu-latest
-    needs: [Pscale]
-    steps:
-      - name: Print branch URL
-        run: echo "${{ needs.Pscale.outputs.BRANCH_URL }}"

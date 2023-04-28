@@ -1,4 +1,4 @@
-#!bin/sh
+#!/bin/bash
 
 createDbBranch() {
     local DB_NAME=$1
@@ -22,9 +22,20 @@ createDbBranch() {
     local branch_url="https://app.planetscale.com/${ORG_NAME}/${DB_NAME}/${BRANCH_NAME}"
     echo "Branch $BRANCH_NAME is ready at $branch_url"
 
-    # if CI variable ist set, then set output variables
-    if [ -n "$GITHUB_OUTPUT" ]; then
-        echo "BRANCH_URL=$branch_url" >> $GITHUB_OUTPUT
+
+    local passwordName="$BRANCH_NAME-ci-pass"
+    local passwordSet=$(pscale password create "$DB_NAME" "$BRANCH_NAME" "$passwordName" --org "$ORG_NAME" -f json)
+    local username=$(jq -r '.username' <<< "$passwordSet")
+    local password=$(jq -r '.plain_text' <<< "$passwordSet")
+    local accessHostUrl=$(jq -r '.access_host_url' <<< "$passwordSet")
+
+    local dbConnectionString="mysql://$username:$password@$accessHostUrl/$DB_NAME?sslaccept=strict"
+
+    # if we are inside github actions, set branch url and connection string to output
+    if [ -n "$CI" ]; then
+        echo "Setting environment variables for branch url and connection string..."
+        echo "DB_BRANCH_URL=$branch_url" >> $GITHUB_OUTPUT
+        echo "DB_BRANCH_CONNECTION_STRING=$dbConnectionString" >> $GITHUB_OUTPUT
     fi
 }
 
