@@ -3,7 +3,22 @@ on:
   push:
     branches: [feature/*]
 jobs:
+  NewStuff:
+    runs-on: ubuntu-latest
+    steps:
+      - name: ⬇️ Check out repository code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Run locale action
+        uses: ./.github/actions/pscale/action.yml
+        env:
+          CLI_VERSION: helloThisIsCliVersion
+        with:
+          BRANCH_NAME: dummy
+          actions: create
   Pscale:
+    if: ${{ false }}
     uses: ./.github/workflows/planetscale-actions.yml
     with:
       BRANCH_NAME: test-br

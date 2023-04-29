@@ -1,0 +1,23 @@
+name: 'Planetscale'
+description: 'Create a branch in a Planetscale database'
+inputs:
+  BRANCH_NAME:
+    required: true
+    description: 'Name of the branch to create'
+  actions:
+    required: true
+    description: 'Actions to perform'
+    default: 'create'
+outputs:
+  DB_BRANCH_URL:
+    description: 'URL of the db branch'
+    value: ${{ jobs.Pscale.outputs.DB_BRANCH_URL }}
+  DB_BRANCH_CONNECTION_STRING:
+    description: 'Connection string for the db_branch'
+    value: ${{ jobs.Pscale.outputs.DB_BRANCH_CONNECTION_STRING }}
+runs:
+  using: 'composite'
+  steps:
+    - name: Check stats
+      run: echo $CLI_VERSION
+      shell: bash
