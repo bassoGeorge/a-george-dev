@@ -11,12 +11,20 @@ jobs:
         with:
           fetch-depth: 0
       - name: Run locale action
-        uses: ./.github/actions/pscale/action.yml
+        id: pscaleAction
+        uses: ./.github/actions/pscale
         env:
-          CLI_VERSION: helloThisIsCliVersion
+          DB_NAME: ${{ secrets.DB_NAME }}
+          ORG_NAME: ${{ secrets.ORG_NAME }}
+          PLANETSCALE_SERVICE_TOKEN: ${{ secrets.PLANETSCALE_SERVICE_TOKEN }}
+          PLANETSCALE_SERVICE_TOKEN_ID: ${{ secrets.PLANETSCALE_SERVICE_TOKEN_ID }}
         with:
           BRANCH_NAME: dummy
           actions: create
+      - name: Check with pscale output as env variable
+        env:
+          DB_BRANCH_CONNECTION_STRING: ${{ steps.pscaleAction.outputs.DB_BRANCH_CONNECTION_STRING }}
+        run: echo $DB_BRANCH_CONNECTION_STRING
   Pscale:
     if: ${{ false }}
     uses: ./.github/workflows/planetscale-actions.yml

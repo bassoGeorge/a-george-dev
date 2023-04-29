@@ -8,16 +8,42 @@ inputs:
     required: true
     description: 'Actions to perform'
     default: 'create'
+  cli_version:
+    required: false
+    description: 'CLI version of pscale to install'
+    default: 0.139.0
+
 outputs:
   DB_BRANCH_URL:
     description: 'URL of the db branch'
-    value: ${{ jobs.Pscale.outputs.DB_BRANCH_URL }}
+    value: dummy branch
   DB_BRANCH_CONNECTION_STRING:
     description: 'Connection string for the db_branch'
-    value: ${{ jobs.Pscale.outputs.DB_BRANCH_CONNECTION_STRING }}
+    value: ${{ steps.createBranch.outputs.DB_BRANCH_CONNECTION_STRING }}
+
 runs:
   using: 'composite'
   steps:
-    - name: Check stats
-      run: echo $CLI_VERSION
+    - name: Install Planetscale CLI
       shell: bash
+      env:
+        CLI_VERSION: ${{ inputs.cli_version }}
+      run: |
+        mkdir -p ~/pscale-install
+        wget -P ~/pscale-install https://github.com/planetscale/cli/releases/download/v${CLI_VERSION}/pscale_${CLI_VERSION}_linux_amd64.deb
+        sudo dpkg -i ~/pscale-install/pscale_${CLI_VERSION}_linux_amd64.deb
+        sudo apt-get install -f
+        pscale version
+        rm -rf ~/pscale-install
+    - name: Test connection
+      run: pscale branch list $DB_NAME --org $ORG_NAME
+      shell: bash
+    - name: Create branch
+      id: createBranch
+      shell: bash
+      if: contains(inputs.actions, 'create')
+      env:
+        BRANCH_NAME: ${{ inputs.BRANCH_NAME }}
+      run: |
+        cd scripts/pscale
+        bash create-branch.sh $BRANCH_NAME
