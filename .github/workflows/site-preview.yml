@@ -11,28 +11,33 @@ on:
     secrets:
       NETLIFY_AUTH_TOKEN:
         required: true
-      DB_BRANCH_CONNECTION_STRING:
+      DB_NAME:
         required: true
+      ORG_NAME:
+        required: true
+      PLANETSCALE_SERVICE_TOKEN_ID:
+        required: true
+      PLANETSCALE_SERVICE_TOKEN:
+        required: true
+
 jobs:
-  Deploy_Preview:
-    uses: ./.github/workflows/deploy.yml
-    with:
-      production: false
-      note: ${{ inputs.title }}
-      NETLIFY_SITE_ID: ${{ inputs.NETLIFY_SITE_ID }}
-    secrets:
-      NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-      DB_BRANCH_CONNECTION_STRING: ${{ secrets.DB_BRANCH_CONNECTION_STRING }}
-  E2E:
-    needs: [Deploy_Preview]
+  SitePreview:
     runs-on: ubuntu-latest
-    env:
-      DATABASE_URL: ${{ secrets.DB_BRANCH_CONNECTION_STRING }}
     steps:
       - name: ⬇️ Check out repository code
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
+      - name: 🌏 Create Planetscale branch
+        id: pscaleAction
+        uses: ./.github/actions/pscale
+        with:
+          db_branch_name: preview
+          actions: create
+          DB_NAME: ${{ secrets.DB_NAME }}
+          ORG_NAME: ${{ secrets.ORG_NAME }}
+          PLANETSCALE_SERVICE_TOKEN: ${{ secrets.PLANETSCALE_SERVICE_TOKEN }}
+          PLANETSCALE_SERVICE_TOKEN_ID: ${{ secrets.PLANETSCALE_SERVICE_TOKEN_ID }}
       - name: ⎔ Use Node.js
         uses: actions/setup-node@v3
         with:
@@ -40,7 +45,18 @@ jobs:
           cache: 'yarn'
       - name: 📥 Install dependencies
         run: yarn install --frozen-lockfile
-      - name: ⚡ Seed database
-        run: yarn nx seed ageorgedev-e2e
-      - name: ⚡ Run cypress against deployed application
-        run: yarn nx e2e ageorgedev-e2e --baseUrl=${{ needs.Deploy_Preview.outputs.preview-url }}
+      - name: 🚀 Deploy preview site
+        uses: ./.github/actions/deploy-site
+        id: deploy
+        with:
+          production: false
+          note: ${{ inputs.title }}
+          NETLIFY_SITE_ID: ${{ inputs.NETLIFY_SITE_ID }}
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          DB_BRANCH_CONNECTION_STRING: ${{ steps.pscaleAction.outputs.DB_BRANCH_CONNECTION_STRING }}
+      - name: 🧪 Run e2e
+        uses: ./.github/actions/run-e2e
+        with:
+          site_url: ${{ steps.deploy.outputs.preview_url }}
+          run_seed: true
+          DATABASE_URL: ${{ steps.pscaleAction.outputs.DB_BRANCH_CONNECTION_STRING }}

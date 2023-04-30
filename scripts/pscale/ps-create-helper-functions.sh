@@ -20,7 +20,7 @@ createDbBranch() {
     fi
 
     local branch_url="https://app.planetscale.com/${ORG_NAME}/${DB_NAME}/${BRANCH_NAME}"
-    echo "Branch $BRANCH_NAME is ready at $branch_url"
+    echo "Branch $BRANCH_NAME is ready"
 
 
     local passwordName="$BRANCH_NAME-ci-pass"
