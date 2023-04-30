@@ -1,17 +1,13 @@
 name: 'Planetscale'
 description: 'Create a branch in a Planetscale database'
 inputs:
-  BRANCH_NAME:
+  db_branch_name:
     required: true
-    description: 'Name of the branch to create'
+    description: Name of the branch
   actions:
     required: true
-    description: 'Actions to perform'
+    description: Actions to perform. Comma separated list of actions. Valid actions - create, delete, deploy-request
     default: 'create'
-  cli_version:
-    required: false
-    description: 'CLI version of pscale to install'
-    default: 0.139.0
   DB_NAME:
     required: true
     description: Database name
@@ -26,9 +22,9 @@ inputs:
     description: Service token id
 
 outputs:
-  DB_BRANCH_URL:
+  db_branch_url:
     description: 'URL of the db branch'
-    value: dummy branch
+    value: ${{ steps.createBranch.outputs.DB_BRANCH_URL }}
   DB_BRANCH_CONNECTION_STRING:
     description: 'Connection string for the db_branch'
     value: ${{ steps.createBranch.outputs.DB_BRANCH_CONNECTION_STRING }}
@@ -39,7 +35,7 @@ runs:
     - name: Install Planetscale CLI
       shell: bash
       env:
-        CLI_VERSION: ${{ inputs.cli_version }}
+        CLI_VERSION: 0.139.0
       run: |
         mkdir -p ~/pscale-install
         wget -P ~/pscale-install https://github.com/planetscale/cli/releases/download/v${CLI_VERSION}/pscale_${CLI_VERSION}_linux_amd64.deb
@@ -64,7 +60,7 @@ runs:
         ORG_NAME: ${{ inputs.ORG_NAME }}
         PLANETSCALE_SERVICE_TOKEN: ${{ inputs.PLANETSCALE_SERVICE_TOKEN }}
         PLANETSCALE_SERVICE_TOKEN_ID: ${{ inputs.PLANETSCALE_SERVICE_TOKEN_ID }}
-        BRANCH_NAME: ${{ inputs.BRANCH_NAME }}
+        DB_BRANCH_NAME: ${{ inputs.db_branch_name }}
       run: |
         cd scripts/pscale
-        bash create-branch.sh $BRANCH_NAME
+        bash create-branch.sh $DB_BRANCH_NAME

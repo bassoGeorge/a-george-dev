@@ -1,0 +1,29 @@
+name: Run e2e
+description: Run cypress e2e tests against site url
+inputs:
+  run_seed:
+    required: false
+    description: 'Whether to run the database seed script'
+    default: 'true'
+  DATABASE_URL:
+    required: false
+    description: 'Database connection string/url'
+  site_url:
+    required: true
+    description: 'Site url to run e2e tests against'
+
+runs:
+  using: 'composite'
+  steps:
+    - name: ⚡ Seed database
+      if: ${{ inputs.run_seed == 'true' }}
+      shell: bash
+      env:
+        DATABASE_URL: ${{ inputs.DATABASE_URL }}
+      run: yarn nx seed ageorgedev-e2e
+    - name: ⚡ Run cypress against deployed application
+      shell: bash
+      env:
+        DATABASE_URL: ${{ inputs.DATABASE_URL }}
+        SITE_URL: ${{ inputs.site_url }}
+      run: yarn nx e2e ageorgedev-e2e --baseUrl=$SITE_URL
