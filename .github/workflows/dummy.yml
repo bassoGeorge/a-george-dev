@@ -14,12 +14,12 @@ jobs:
         id: pscaleAction
         uses: ./.github/actions/pscale
         with:
+          db_branch_name: dummy
+          actions: create
           DB_NAME: ${{ secrets.DB_NAME }}
           ORG_NAME: ${{ secrets.ORG_NAME }}
           PLANETSCALE_SERVICE_TOKEN: ${{ secrets.PLANETSCALE_SERVICE_TOKEN }}
           PLANETSCALE_SERVICE_TOKEN_ID: ${{ secrets.PLANETSCALE_SERVICE_TOKEN_ID }}
-          BRANCH_NAME: dummy
-          actions: create
       - name: Check with pscale output as env variable
         env:
           DB_BRANCH_CONNECTION_STRING: ${{ steps.pscaleAction.outputs.DB_BRANCH_CONNECTION_STRING }}

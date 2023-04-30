@@ -1,16 +1,16 @@
 name: Run e2e
 description: Run cypress e2e tests against site url
 inputs:
+  site_url:
+    required: true
+    description: 'Site url to run e2e tests against'
   run_seed:
     required: false
     description: 'Whether to run the database seed script'
     default: 'true'
   DATABASE_URL:
     required: false
-    description: 'Database connection string/url'
-  site_url:
-    required: true
-    description: 'Site url to run e2e tests against'
+    description: 'Database connection string/url, required if seed is true'
 
 runs:
   using: 'composite'
