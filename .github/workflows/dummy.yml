@@ -32,7 +32,7 @@ jobs:
       - name: 📥 Install dependencies
         run: yarn install --frozen-lockfile
       - name: Deploy preview site
-        uses: ./.github/workflows/deploy-site
+        uses: ./.github/actions/deploy-site
         id: deploy
         with:
           production: false
