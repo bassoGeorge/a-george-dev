@@ -21,13 +21,31 @@ jobs:
       NETLIFY_SITE_ID: ${{ vars.AGEORGEDEV_SITE_ID }}
     secrets:
       NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+      DB_NAME: ${{ secrets.DB_NAME }}
+      ORG_NAME: ${{ secrets.ORG_NAME }}
+      PLANETSCALE_SERVICE_TOKEN_ID: ${{ secrets.PLANETSCALE_SERVICE_TOKEN_ID }}
+      PLANETSCALE_SERVICE_TOKEN: ${{ secrets.PLANETSCALE_SERVICE_TOKEN }}
   Production_Deploy:
     needs: [Info, Site_Preview]
     if: ${{ !cancelled() && always() && needs.Info.outputs.should_deploy_site == 'true' && (needs.Info.outputs.is_hotfix == 'false' || needs.Site_Preview.result == 'success') }}
-    uses: ./.github/workflows/deploy.yml
-    with:
-      production: true
-      note: ${{ format('Production {0}', github.sha) }}
-      NETLIFY_SITE_ID: ${{ vars.AGEORGEDEV_SITE_ID }}
-    secrets:
-      NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: ⬇️ Check out repository code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: ⎔ Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+          cache: 'yarn'
+      - name: 📥 Install dependencies
+        run: yarn install --frozen-lockfile
+      - name: 🚀 Deploy production site
+        uses: ./.github/actions/deploy-site
+        id: deploy
+        with:
+          production: true
+          note: ${{ format('Production {0}', github.sha) }}
+          NETLIFY_SITE_ID: ${{ vars.AGEORGEDEV_SITE_ID }}
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
