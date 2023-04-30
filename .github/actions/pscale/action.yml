@@ -12,6 +12,18 @@ inputs:
     required: false
     description: 'CLI version of pscale to install'
     default: 0.139.0
+  DB_NAME:
+    required: true
+    description: Database name
+  ORG_NAME:
+    required: true
+    description: Organisation
+  PLANETSCALE_SERVICE_TOKEN:
+    required: true
+    description: Service token
+  PLANETSCALE_SERVICE_TOKEN_ID:
+    required: true
+    description: Service token id
 
 outputs:
   DB_BRANCH_URL:
@@ -36,6 +48,11 @@ runs:
         pscale version
         rm -rf ~/pscale-install
     - name: Test connection
+      env:
+        DB_NAME: ${{ inputs.DB_NAME }}
+        ORG_NAME: ${{ inputs.ORG_NAME }}
+        PLANETSCALE_SERVICE_TOKEN: ${{ inputs.PLANETSCALE_SERVICE_TOKEN }}
+        PLANETSCALE_SERVICE_TOKEN_ID: ${{ inputs.PLANETSCALE_SERVICE_TOKEN_ID }}
       run: pscale branch list $DB_NAME --org $ORG_NAME
       shell: bash
     - name: Create branch
@@ -43,6 +60,10 @@ runs:
       shell: bash
       if: contains(inputs.actions, 'create')
       env:
+        DB_NAME: ${{ inputs.DB_NAME }}
+        ORG_NAME: ${{ inputs.ORG_NAME }}
+        PLANETSCALE_SERVICE_TOKEN: ${{ inputs.PLANETSCALE_SERVICE_TOKEN }}
+        PLANETSCALE_SERVICE_TOKEN_ID: ${{ inputs.PLANETSCALE_SERVICE_TOKEN_ID }}
         BRANCH_NAME: ${{ inputs.BRANCH_NAME }}
       run: |
         cd scripts/pscale

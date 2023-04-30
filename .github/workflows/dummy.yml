@@ -13,12 +13,11 @@ jobs:
       - name: Run locale action
         id: pscaleAction
         uses: ./.github/actions/pscale
-        env:
+        with:
           DB_NAME: ${{ secrets.DB_NAME }}
           ORG_NAME: ${{ secrets.ORG_NAME }}
           PLANETSCALE_SERVICE_TOKEN: ${{ secrets.PLANETSCALE_SERVICE_TOKEN }}
           PLANETSCALE_SERVICE_TOKEN_ID: ${{ secrets.PLANETSCALE_SERVICE_TOKEN_ID }}
-        with:
           BRANCH_NAME: dummy
           actions: create
       - name: Check with pscale output as env variable
