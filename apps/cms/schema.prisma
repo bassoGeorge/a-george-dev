@@ -37,3 +37,9 @@ model TestingLog {
   value String    @default("")
   date  DateTime?
 }
+
+model Heartbeat {
+  id       String    @id @default(cuid())
+  date     DateTime?
+  referrer String    @default("")
+}
