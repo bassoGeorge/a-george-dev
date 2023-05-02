@@ -7,8 +7,6 @@ on:
 jobs:
   CreateHeartbeat:
     runs-on: ubuntu-latest
-    env:
-      DATABASE_URL: ${{ secrets.DB_ADMIN_URL }}
     steps:
       - name: ⬇️ Check out repository code
         uses: actions/checkout@v3
@@ -20,4 +18,6 @@ jobs:
       - name: 📥 Install dependencies
         run: yarn install --frozen-lockfile
       - name: 💗 Beat
+        env:
+          DATABASE_URL: ${{ secrets.DB_ADMIN_URL }}
         run: yarn nx run cms:record-heartbeat github-actions

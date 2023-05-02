@@ -1,14 +1,11 @@
 import { config } from '@keystone-6/core';
 import { ALL_LISTS } from './src/schema';
 
-if (!process.env.DATABASE_URL) {
-  throw new Error('The DATABASE_URL environment variable must be set');
-}
-
 export default config({
   db: {
     provider: 'mysql',
-    url: process.env.DATABASE_URL,
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+    url: process.env.DATABASE_URL!,
     additionalPrismaDatasourceProperties: {
       relationMode: 'prisma',
     },
