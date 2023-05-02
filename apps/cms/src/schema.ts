@@ -47,4 +47,11 @@ export const ALL_LISTS: KeystoneConfig['lists'] = {
       date: timestamp(),
     },
   }),
+  Heartbeat: list({
+    access: allowAll,
+    fields: {
+      date: timestamp(),
+      referrer: text(),
+    },
+  }),
 };

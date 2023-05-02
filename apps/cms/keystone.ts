@@ -4,7 +4,8 @@ import { ALL_LISTS } from './src/schema';
 export default config({
   db: {
     provider: 'mysql',
-    url: process.env.CMS_DB_CONNECTION_STRING,
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+    url: process.env.DATABASE_URL!,
     additionalPrismaDatasourceProperties: {
       relationMode: 'prisma',
     },

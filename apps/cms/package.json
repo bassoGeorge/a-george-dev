@@ -12,7 +12,8 @@
     "generate": "keystone prisma migrate dev",
     "start": "keystone start",
     "deploy": "keystone build && keystone prisma migrate deploy",
-    "pscale-dev": "yarn run dev"
+    "pscale-dev": "yarn run dev",
+    "record-heartbeat": "ts-node src/scripts/heartbeat.ts"
   },
   "dependencies": {
     "@keystone-6/auth": "^7.0.0",
