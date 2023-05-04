@@ -76,12 +76,14 @@ waitForDeployRequestToCompleteProcessing() {
 # pending_cutover
 # complete | complete_cancel (possible with closed)
 
+# Creates a deploy request to Planetscale and sets auto-apply to disable making it a gated deployment
 createDeployRequest() {
   local ORG_NAME=$1
   local DB_NAME=$2
   local BRANCH_NAME=$3
 
   local dr_create_output
+  local dr_number
 
   dr_create_output=$(pscale deploy-request create "$DB_NAME" "$BRANCH_NAME" --org "$ORG_NAME" -f json)
 
@@ -91,5 +93,26 @@ createDeployRequest() {
     # The stderr from previous command anyway gets shown on screen
   fi
 
-  jq -r ".number" <<<"$dr_create_output"
+
+  dr_number=$(jq -r ".number" <<<"$dr_create_output")
+
+  # check return code, if not 0 then error
+  if [ $? -ne 0 ]; then
+    return 1
+    # The stderr from previous command anyway gets shown on screen
+  fi
+
+  pscale deploy-request edit "$DB_NAME" $dr_number --auto-apply disable --org "$ORG_NAME" >/dev/null
+
+  echo $dr_number
+}
+
+# Approves a deploy request and adds a comment
+triggerDeployRequest() {
+  local ORG_NAME=$1
+  local DB_NAME=$2
+  local drNumber=$3
+
+  pscale deploy-request review "$DB_NAME" $drNumber --approve --comment "Auto approved by Github workflow" --org "$ORG_NAME" >/dev/null
+  pscale deploy-request deploy "$DB_NAME" $drNumber --org "$ORG_NAME"
 }
