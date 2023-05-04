@@ -36,7 +36,7 @@ waitForDeployRequestToCompleteProcessing() {
     local drState=$(jq -r ".deployment.state" <<<"$raw_output")
 
     # test whether drState is pending, if so, increase wait timeout exponentially
-    if [ "$drState" = "pending" ] || [ "$drState" = "submitting" ] || [ "$drState" = "in_progress" ] || [ "$drState" = "in_progress_cutover" ]; then
+    if [ "$drState" = "queued" ] || [ "$drState" = "pending" ] || [ "$drState" = "submitting" ] || [ "$drState" = "in_progress" ] || [ "$drState" = "in_progress_cutover" ] || [ "$drState" = "in_progress_cancel" ]; then
       # increase wait variable exponentially but only if it is less than max_timeout
       if [ $((wait * 2)) -le $max_timeout ]; then
         wait=$((wait * 2))
@@ -63,13 +63,13 @@ waitForDeployRequestToCompleteProcessing() {
 # There is a status of the overall DR. OPEN | CLOSED
 
 # For auto-approve flow
-# [create] -> pending -> ready -> [deploy] -> submitting -> in_progress -> in_progress_cutover -> complete (closed)
-# [create] -> pending -> no_changes -> [close] -> no_changes (closed)
-# [create] -> pending -> ready -> [close] -> ready (closed)
+# [create] -> queued -> pending -> ready -> [deploy] -> submitting -> in_progress -> in_progress_cutover -> complete (closed)
+# [create] -> queued -> pending -> no_changes -> [close] -> no_changes (closed)
+# [create] -> queued -> pending -> ready -> [close] -> ready (closed)
 
 # For gated, we have options
-# [create] -> pending -> ready -> [edit] -> ready -> [deploy] -> submitting -> in_progress -> pending_cutover -> [cancel] -> complete_cancel (closed)
-# [create] -> pending -> ready -> [edit] -> ready -> [deploy] -> submitting -> in_progress -> pending_cutover -> [apply] -> in_progress_cutover -> complete (closed)
+# [create] -> queued -> pending -> ready -> [edit] -> ready -> [deploy] -> submitting -> in_progress -> pending_cutover -> [cancel] -> complete_cancel (closed)
+# [create] -> queued -> pending -> ready -> [edit] -> ready -> [deploy] -> submitting -> in_progress -> pending_cutover -> [apply] -> in_progress_cutover -> complete (closed)
 
 # Stable states:
 # ready | no_changes         (possible with closed)
@@ -108,7 +108,7 @@ createDeployRequest() {
 }
 
 # Approves a deploy request and adds a comment
-triggerDeployRequest() {
+deployTheDeployRequest() {
   local ORG_NAME=$1
   local DB_NAME=$2
   local drNumber=$3
