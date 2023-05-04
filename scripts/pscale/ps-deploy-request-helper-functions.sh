@@ -52,9 +52,9 @@ waitForDeployRequestToCompleteProcessing() {
 
       sleep $wait
     else
-        # jq "{ requestState: .state, approved, state: .deployment.state, deployable: .deployment.deployable }" <<<"$raw_output"
-        echo $raw_output
-        return 0
+      # jq "{ requestState: .state, approved, state: .deployment.state, deployable: .deployment.deployable }" <<<"$raw_output"
+      echo $raw_output
+      return 0
     fi
   done
 }
@@ -75,3 +75,21 @@ waitForDeployRequestToCompleteProcessing() {
 # ready | no_changes         (possible with closed)
 # pending_cutover
 # complete | complete_cancel (possible with closed)
+
+createDeployRequest() {
+  local ORG_NAME=$1
+  local DB_NAME=$2
+  local BRANCH_NAME=$3
+
+  local dr_create_output
+
+  dr_create_output=$(pscale deploy-request create "$DB_NAME" "$BRANCH_NAME" --org "$ORG_NAME" -f json)
+
+  # check return code, if not 0 then error
+  if [ $? -ne 0 ]; then
+    return 1
+    # The stderr from previous command anyway gets shown on screen
+  fi
+
+  jq -r ".number" <<<"$dr_create_output"
+}
