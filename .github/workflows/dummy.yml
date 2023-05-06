@@ -1,24 +1,32 @@
 name: Dummy workflow
-on: workflow_dispatch
+on:
+  workflow_dispatch:
+  push:
+    branches: [feature/*]
+
+env:
+  DB_BRANCH_NAME: dummy
 
 jobs:
   DummyWorkflow:
     runs-on: ubuntu-latest
+    env:
+      DB_NAME: ${{ secrets.DB_NAME }}
+      ORG_NAME: ${{ secrets.ORG_NAME }}
+      PLANETSCALE_SERVICE_TOKEN: ${{ secrets.PLANETSCALE_SERVICE_TOKEN }}
+      PLANETSCALE_SERVICE_TOKEN_ID: ${{ secrets.PLANETSCALE_SERVICE_TOKEN_ID }}
     steps:
       - name: ⬇️ Check out repository code
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
-      - name: Create Planetscale branch
-        id: pscaleAction
+      - name: Install pscale CLI
         uses: ./.github/actions/pscale
-        with:
-          db_branch_name: dummy
-          actions: create
-          DB_NAME: ${{ secrets.DB_NAME }}
-          ORG_NAME: ${{ secrets.ORG_NAME }}
-          PLANETSCALE_SERVICE_TOKEN: ${{ secrets.PLANETSCALE_SERVICE_TOKEN }}
-          PLANETSCALE_SERVICE_TOKEN_ID: ${{ secrets.PLANETSCALE_SERVICE_TOKEN_ID }}
+      - name: Create Planetscale branch
+        id: pscaleBranch
+        run: |
+          cd scripts/pscale
+          bash create-branch.sh $DB_BRANCH_NAME
       - name: ⎔ Use Node.js
         uses: actions/setup-node@v3
         with:
@@ -26,6 +34,10 @@ jobs:
           cache: 'yarn'
       - name: 📥 Install dependencies
         run: yarn install --frozen-lockfile
+      - name: Push schema changes
+        env:
+          DATABASE_URL: ${{ steps.pscaleBranch.outputs.DB_BRANCH_CONNECTION_STRING }}
+        run: yarn nx run cms:push-schema
       - name: Deploy preview site
         uses: ./.github/actions/deploy-site
         id: deploy
@@ -34,10 +46,22 @@ jobs:
           note: ${{ inputs.title }}
           NETLIFY_SITE_ID: ${{ vars.AGEORGEDEV_SITE_ID }}
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-          DB_BRANCH_CONNECTION_STRING: ${{ steps.pscaleAction.outputs.DB_BRANCH_CONNECTION_STRING }}
+          DB_BRANCH_CONNECTION_STRING: ${{ steps.pscaleBranch.outputs.DB_BRANCH_CONNECTION_STRING }}
       - name: Run e2e
         uses: ./.github/actions/run-e2e
         with:
           site_url: ${{ steps.deploy.outputs.preview_url }}
           run_seed: true
-          DATABASE_URL: ${{ steps.pscaleAction.outputs.DB_BRANCH_CONNECTION_STRING }}
+          DATABASE_URL: ${{ steps.pscaleBranch.outputs.DB_BRANCH_CONNECTION_STRING }}
+      - name: Create DeployRequest for Planetscale
+        id: deployRequest
+        run: |
+          cd scripts/pscale
+          bash create-deploy-request.sh $DB_BRANCH_NAME
+      - name: Complete DeployRequest for Planetscale
+        if: steps.deployRequest.outputs.continue_dr == 'true'
+        env:
+          DR_NUMBER: ${{ steps.deployRequest.outputs.DR_NUMBER }}
+        run: |
+          cd scripts/pscale
+          echo "Got request to complete the deploy request for $DR_NUMBER"
