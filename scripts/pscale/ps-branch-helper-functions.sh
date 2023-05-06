@@ -5,7 +5,7 @@ forceDeleteDbBranch() {
   local DB_NAME=$2
   local BRANCH_NAME=$3
 
-  pscale branch delete "$DB_NAME" "$BRANCH_NAME" --force --org "$ORG_NAME"
+  pscale branch delete "$DB_NAME" "$BRANCH_NAME" --force --org "$ORG_NAME" >/dev/null 2>&1
 }
 
 createDbBranch() {
