@@ -1,8 +1,17 @@
 #!/bin/bash
+# Deploy the given deploy request
 
-ORG_NAME=lands-between
-DB_NAME=ageorgedev
+if [ -z $DB_NAME ] || [ -z $ORG_NAME ]; then
+  echo "DB_NAME and ORG_NAME environment variables need to be set"
+  exit 1
+fi
+
 DR_NUMBER=$1
+
+if [ -z $DR_NUMBER ]; then
+  echo "Deploy request number not provided"
+  exit 1
+fi
 
 . ./ps-deploy-request-helper-functions.sh
 deployTheDeployRequest $ORG_NAME $DB_NAME $DR_NUMBER

@@ -1,8 +1,17 @@
 #!/bin/bash
+# Create a deploy request on planetscale for the given branch
 
-ORG_NAME=lands-between
-DB_NAME=ageorgedev
+if [ -z $DB_NAME ] || [ -z $ORG_NAME ]; then
+  echo "DB_NAME and ORG_NAME environment variables need to be set"
+  exit 1
+fi
+
 BRANCH_NAME=$1
+
+if [ -z $BRANCH_NAME ]; then
+  echo "Branch name not provided"
+  exit 1
+fi
 
 . ./ps-deploy-request-helper-functions.sh
 

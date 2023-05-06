@@ -1,8 +1,16 @@
 #!/bin/bash
 
-ORG_NAME=lands-between
-DB_NAME=ageorgedev
-BRANCH_NAME=$1
+if [ -z $DB_NAME ] || [ -z $ORG_NAME ]; then
+  echo "DB_NAME and ORG_NAME environment variables need to be set"
+  exit 1
+fi
+
+BRANCH_NAME="$1"
+
+if [ -z $BRANCH_NAME ]; then
+  echo "Branch name not provided"
+  exit 1
+fi
 
 number_of_diffs=$(pscale branch diff "$DB_NAME" "$BRANCH_NAME" --org "$ORG_NAME" -f json | jq "length")
 

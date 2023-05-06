@@ -1,7 +1,10 @@
 #!/bin/bash
 
-ORG_NAME=lands-between
-DB_NAME=ageorgedev
+if [ -z $DB_NAME ] || [ -z $ORG_NAME ]; then
+  echo "DB_NAME and ORG_NAME environment variables need to be set"
+  exit 1
+fi
+
 OPERATION=$1
 DR_NUMBER=$2
 
@@ -13,6 +16,11 @@ elif [ "$OPERATION" = "cancel" ]; then
   COMPLETION_STATE="complete_cancel"
 else
   echo "Unknown operation: $OPERATION"
+  exit 1
+fi
+
+if [ -z $DR_NUMBER ]; then
+  echo "Deploy request number not provided"
   exit 1
 fi
 
