@@ -11,20 +11,103 @@ jobs:
     needs: [Info]
     uses: ./.github/workflows/setup-db.yml
     with:
-      DB_BRANCH_NAME: ${{ vars.DB_BRANCH_NAME_ALT }}
+      DB_BRANCH_NAME: ${{ vars.DB_BRANCH_NAME }}
       should_deploy_schema: ${{ needs.Info.outputs.should_deploy_schema == 'true' }}
     secrets:
       PLANETSCALE_SERVICE_TOKEN_ID: ${{ secrets.PLANETSCALE_SERVICE_TOKEN_ID }}
       PLANETSCALE_SERVICE_TOKEN: ${{ secrets.PLANETSCALE_SERVICE_TOKEN }}
       DB_NAME: ${{ secrets.DB_NAME }}
       ORG_NAME: ${{ secrets.ORG_NAME }}
-  Checks:
-    needs: [Setup_DB]
+  Run_Tests:
+    needs: [Info]
+    if: ${{ needs.Info.outputs.is_hotfix == 'true' }}
+    uses: ./.github/workflows/tests.yml
+    with:
+      affected_base: ${{ needs.Info.outputs.affected_base }}
+      affected_head: ${{ needs.Info.outputs.affected_head }}
+  Site_Preview:
+    needs: [Run_Tests, Info, Setup_DB]
+    if: needs.Info.outputs.should_preview_site == 'true' || needs.Info.outputs.should_deploy_schema == 'true'
+    uses: ./.github/workflows/site-preview.yml
+    with:
+      title: ${{ format('Production Preview {0}', github.sha) }}
+      NETLIFY_SITE_ID: ${{ vars.AGEORGEDEV_SITE_ID }}
+      DB_BRANCH_NAME: ${{ vars.DB_BRANCH_NAME }}
+    secrets:
+      NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+      PLANETSCALE_SERVICE_TOKEN_ID: ${{ secrets.PLANETSCALE_SERVICE_TOKEN_ID }}
+      PLANETSCALE_SERVICE_TOKEN: ${{ secrets.PLANETSCALE_SERVICE_TOKEN }}
+      DB_NAME: ${{ secrets.DB_NAME }}
+      ORG_NAME: ${{ secrets.ORG_NAME }}
+  Create_Deploy_Request:
+    needs: [Info, Setup_DB, Site_Preview]
+    if: ${{ !cancelled() && always() && needs.Info.outputs.should_deploy_site == 'true' && (needs.Info.outputs.is_hotfix == 'false' || needs.Site_Preview.result == 'success') }}
+    runs-on: ubuntu-latest
+    env:
+      PLANETSCALE_SERVICE_TOKEN_ID: ${{ secrets.PLANETSCALE_SERVICE_TOKEN_ID }}
+      PLANETSCALE_SERVICE_TOKEN: ${{ secrets.PLANETSCALE_SERVICE_TOKEN }}
+      DB_NAME: ${{ secrets.DB_NAME }}
+      ORG_NAME: ${{ secrets.ORG_NAME }}
+      DB_BRANCH_NAME: ${{ vars.DB_BRANCH_NAME }}
+    outputs:
+      DR_NUMBER: ${{ steps.createDr.outputs.DR_NUMBER }}
+      continue_dr: ${{ steps.createDr.outputs.continue_dr }}
+    steps:
+      - name: ⬇️ Check out repository code
+        uses: actions/checkout@v3
+      - name: Install Planetscale CLI
+        uses: ./.github/actions/pscale
+      - name: Create Deploy Request
+        id: createDr
+        run: |
+          cd scripts/pscale
+          bash sh create-deploy-request.sh $DB_BRANCH_NAME
+  Production_Deploy:
+    needs: [Info, Site_Preview, Create_Deploy_Request]
+    if: ${{ !cancelled() && always() && needs.Info.outputs.should_deploy_site == 'true' && (needs.Info.outputs.is_hotfix == 'false' || needs.Site_Preview.result == 'success') && (needs.Create_Deploy_Request.result == 'success') }}
     runs-on: ubuntu-latest
     steps:
-      - name: Yes, need to create DR
-        if: needs.Setup_DB.outputs.should_create_dr == 'true'
-        run: echo "Create DR"
-      - name: No, don't need to create DR
-        if: needs.Setup_DB.outputs.should_create_dr == 'false'
-        run: echo "Don't create DR"
+      - name: ⬇️ Check out repository code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: ⎔ Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+          cache: 'yarn'
+      - name: 📥 Install dependencies
+        run: yarn install --frozen-lockfile
+      - name: 🚀 Deploy production site
+        uses: ./.github/actions/deploy-site
+        id: deploy
+        with:
+          production: true
+          note: ${{ format('Production {0}', github.sha) }}
+          NETLIFY_SITE_ID: ${{ vars.AGEORGEDEV_SITE_ID }}
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+  Complete_DR:
+    needs: [Production_Deploy, Create_Deploy_Request]
+    if: ${{ !cancelled() && always() needs.Create_Deploy_Request.outputs.continue_dr == 'true' }}
+    runs-on: ubuntu-latest
+    env:
+      DR_NUMBER: ${{ needs.Create_Deploy_Request.outputs.DR_NUMBER }}
+      PLANETSCALE_SERVICE_TOKEN_ID: ${{ secrets.PLANETSCALE_SERVICE_TOKEN_ID }}
+      PLANETSCALE_SERVICE_TOKEN: ${{ secrets.PLANETSCALE_SERVICE_TOKEN }}
+      DB_NAME: ${{ secrets.DB_NAME }}
+      ORG_NAME: ${{ secrets.ORG_NAME }}
+    steps:
+      - name: ⬇️ Check out repository code
+        uses: actions/checkout@v3
+      - name: Install Planetscale CLI
+        uses: ./.github/actions/pscale
+      - name: Complete Deploy Request
+        if: needs.Production_Deploy.result == 'success'
+        run: |
+          cd scripts/pscale
+          bash sh complete-deploy-request.sh apply $DR_NUMBER
+      - name: Cancel Deploy Request
+        if: needs.Production_Deploy.result != 'success'
+        run: |
+          cd scripts/pscale
+          bash sh complete-deploy-request.sh cancel $DR_NUMBER
