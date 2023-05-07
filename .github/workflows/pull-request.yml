@@ -17,8 +17,13 @@ jobs:
       affected_head: ${{ needs.Info.outputs.affected_head }}
   Site_Preview:
     needs: [Run_Tests, Info]
-    if: needs.Info.outputs.should_preview_site == 'true' || needs.Info.outputs.should_deploy_schema == 'true'
     runs-on: ubuntu-latest
+    if: needs.Info.outputs.should_preview_site == 'true' || needs.Info.outputs.should_deploy_schema == 'true'
+    env:
+      DB_NAME: ${{ secrets.DB_NAME }}
+      ORG_NAME: ${{ secrets.ORG_NAME }}
+      PLANETSCALE_SERVICE_TOKEN: ${{ secrets.PLANETSCALE_SERVICE_TOKEN }}
+      PLANETSCALE_SERVICE_TOKEN_ID: ${{ secrets.PLANETSCALE_SERVICE_TOKEN_ID }}
     steps:
       - name: ⬇️ Check out repository code
         uses: actions/checkout@v3
