@@ -61,7 +61,7 @@ jobs:
         id: createDr
         run: |
           cd scripts/pscale
-          bash sh create-deploy-request.sh $DB_BRANCH_NAME
+          bash create-deploy-request.sh $DB_BRANCH_NAME
   Production_Deploy:
     needs: [Info, Site_Preview, Create_Deploy_Request]
     if: ${{ !cancelled() && always() && needs.Info.outputs.should_deploy_site == 'true' && (needs.Info.outputs.is_hotfix == 'false' || needs.Site_Preview.result == 'success') && (needs.Create_Deploy_Request.result == 'success' || needs.Create_Deploy_Request.result == 'skipped') }}
@@ -69,8 +69,6 @@ jobs:
     steps:
       - name: ⬇️ Check out repository code
         uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
       - name: ⎔ Use Node.js
         uses: actions/setup-node@v3
         with:
@@ -105,7 +103,7 @@ jobs:
         if: needs.Production_Deploy.result == 'success'
         run: |
           cd scripts/pscale
-          bash sh complete-deploy-request.sh apply $DR_NUMBER
+          bash complete-deploy-request.sh apply $DR_NUMBER
       - name: Cancel Deploy Request
         if: needs.Production_Deploy.result != 'success'
         run: |
