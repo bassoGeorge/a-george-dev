@@ -38,6 +38,13 @@ jobs:
         run: |
           cd scripts/pscale
           bash create-branch-connection-string.sh $DB_BRANCH_NAME admin
+      - name: ⎔ Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+          cache: 'yarn'
+      - name: 📥 Install dependencies
+        run: yarn install --frozen-lockfile
       - name: Deploy schema
         if: needs.Info.outputs.should_deploy_schema == 'true'
         env:
