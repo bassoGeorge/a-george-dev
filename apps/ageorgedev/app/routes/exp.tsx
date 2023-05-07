@@ -13,7 +13,10 @@ export default function Exp() {
   return (
     <>
       <h3 className="text-4xl mb-3">Running Experiments</h3>
-      <p>Here is a change that will affect the site</p>
+      <p>
+        Here is a change that will affect the site. V2 for checking the new
+        production flow with Deploy Requests. No DR required this time
+      </p>
       {posts.map((post) => (
         <div key={post.id} className="mt-3">
           <h3>{post.title}</h3>
