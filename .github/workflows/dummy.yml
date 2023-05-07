@@ -21,6 +21,7 @@ jobs:
       PLANETSCALE_SERVICE_TOKEN_ID: ${{ secrets.PLANETSCALE_SERVICE_TOKEN_ID }}
       DB_NAME: ${{ secrets.DB_NAME }}
       ORG_NAME: ${{ secrets.ORG_NAME }}
+      DB_BRANCH_NAME: ${{ vars.DB_BRANCH_NAME_ALT }}
     steps:
       - name: ⬇️ Check out repository code
         uses: actions/checkout@v3
@@ -49,7 +50,7 @@ jobs:
     with:
       title: ${{ format('Pull request {0} - {1}', github.event.pull_request.number, github.event.pull_request.title) }}
       NETLIFY_SITE_ID: ${{ vars.AGEORGEDEV_SITE_ID }}
-      DB_BRANCH_NAME: ${{ vars.DB_BRANCH_NAME }}
+      DB_BRANCH_NAME: ${{ vars.DB_BRANCH_NAME_ALT }}
     secrets:
       NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
       PLANETSCALE_SERVICE_TOKEN: ${{ secrets.PLANETSCALE_SERVICE_TOKEN }}
