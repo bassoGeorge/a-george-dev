@@ -2,6 +2,10 @@ name: PR workflow
 on:
   pull_request:
     branches: [main]
+
+env:
+  DB_BRANCH_NAME: github-workflow
+
 jobs:
   Info:
     uses: ./.github/workflows/info.yml
@@ -13,14 +17,46 @@ jobs:
       affected_head: ${{ needs.Info.outputs.affected_head }}
   Site_Preview:
     needs: [Run_Tests, Info]
-    if: ${{ needs.Info.outputs.should_preview_site == 'true' }}
-    uses: ./.github/workflows/site-preview.yml
-    with:
-      title: ${{ format('Pull request {0} - {1}', github.event.pull_request.number, github.event.pull_request.title) }}
-      NETLIFY_SITE_ID: ${{ vars.AGEORGEDEV_SITE_ID }}
-    secrets:
-      NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-      DB_NAME: ${{ secrets.DB_NAME }}
-      ORG_NAME: ${{ secrets.ORG_NAME }}
-      PLANETSCALE_SERVICE_TOKEN_ID: ${{ secrets.PLANETSCALE_SERVICE_TOKEN_ID }}
-      PLANETSCALE_SERVICE_TOKEN: ${{ secrets.PLANETSCALE_SERVICE_TOKEN }}
+    if: needs.Info.outputs.should_preview_site == 'true' || needs.Info.outputs.should_deploy_schema == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - name: ⬇️ Check out repository code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Install pscale CLI
+        uses: ./.github/actions/pscale
+      - name: Create Planetscale branch
+        id: pscaleBranch
+        run: |
+          cd scripts/pscale
+          bash create-branch.sh $DB_BRANCH_NAME
+      - name: ⎔ Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+          cache: 'yarn'
+      - name: 📥 Install dependencies
+        run: yarn install --frozen-lockfile
+      - name: Push schema changes
+        if: needs.Info.outputs.should_deploy_schema == 'true'
+        env:
+          DATABASE_URL: ${{ steps.pscaleBranch.outputs.DB_BRANCH_CONNECTION_STRING }}
+        run: yarn nx run cms:push-schema
+      - name: Deploy preview site
+        uses: ./.github/actions/deploy-site
+        if: needs.Info.outputs.should_preview_site == 'true'
+        id: deploy
+        with:
+          production: false
+          note: ${{ format('Pull request {0} - {1}', github.event.pull_request.number, github.event.pull_request.title) }}
+          NETLIFY_SITE_ID: ${{ vars.AGEORGEDEV_SITE_ID }}
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          DB_BRANCH_CONNECTION_STRING: ${{ steps.pscaleBranch.outputs.DB_BRANCH_CONNECTION_STRING }}
+      - name: Run e2e
+        if: needs.Info.outputs.should_preview_site == 'true'
+        uses: ./.github/actions/run-e2e
+        with:
+          site_url: ${{ steps.deploy.outputs.preview_url }}
+          run_seed: true
+          DATABASE_URL: ${{ steps.pscaleBranch.outputs.DB_BRANCH_CONNECTION_STRING }}
