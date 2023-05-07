@@ -19,7 +19,9 @@ if [ "$ROLE" != "reader" ] && [ "$ROLE" != "writer" ] && [ "$ROLE" != "readwrite
   exit 1
 fi
 
-passwordName="$BRANCH_NAME-$ROLE-ci-pass"
+lowercase_branch_name=$(tr '[:upper:]' '[:lower:]' <<<"$BRANCH_NAME")
+
+passwordName="$lowercase_branch_name-$ROLE-ci-pass"
 
 echo "Attempting to create new password named $passwordName for branch $BRANCH_NAME with role $ROLE..."
 
