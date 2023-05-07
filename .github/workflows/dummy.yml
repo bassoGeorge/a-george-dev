@@ -4,9 +4,6 @@ on:
   push:
     branches: [feature/*]
 
-env:
-  DB_BRANCH_NAME: dummy
-
 jobs:
   Info:
     uses: ./.github/workflows/info.yml
@@ -52,7 +49,7 @@ jobs:
     with:
       title: ${{ format('Pull request {0} - {1}', github.event.pull_request.number, github.event.pull_request.title) }}
       NETLIFY_SITE_ID: ${{ vars.AGEORGEDEV_SITE_ID }}
-      DB_BRANCH_NAME: ${{ env.DB_BRANCH_NAME }}
+      DB_BRANCH_NAME: ${{ vars.DB_BRANCH_NAME }}
     secrets:
       NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
       PLANETSCALE_SERVICE_TOKEN: ${{ secrets.PLANETSCALE_SERVICE_TOKEN }}
