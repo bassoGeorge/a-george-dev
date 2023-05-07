@@ -17,11 +17,11 @@ number_of_diffs=$(pscale branch diff "$DB_NAME" "$BRANCH_NAME" --org "$ORG_NAME"
 if [ "$number_of_diffs" -eq 0 ]; then
   echo "Branch $BRANCH_NAME has no diffs against parent, no need to create deploy request";
   if [ -n "$CI" ]; then
-    echo "create_dr=false" >>$GITHUB_OUTPUT
+    echo "should_create_dr=false" >>$GITHUB_OUTPUT
   fi
 else
   echo "Branch $BRANCH_NAME has diffs against parent, should create deploy request";
   if [ -n "$CI" ]; then
-    echo "create_dr=true" >>$GITHUB_OUTPUT
+    echo "should_create_dr=true" >>$GITHUB_OUTPUT
   fi
 fi

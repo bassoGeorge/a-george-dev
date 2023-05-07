@@ -17,6 +17,10 @@ on:
         required: true
       ORG_NAME:
         required: true
+    outputs:
+      should_create_dr:
+        description: Whether or not to create a deploy request on planetscale
+        value: ${{ jobs.Setup_DB.outputs.should_create_dr || false }}
 
 jobs:
   Setup_DB:
@@ -27,6 +31,8 @@ jobs:
       DB_NAME: ${{ secrets.DB_NAME }}
       ORG_NAME: ${{ secrets.ORG_NAME }}
       DB_BRANCH_NAME: ${{ inputs.DB_BRANCH_NAME }}
+    outputs:
+      should_create_dr: ${{ steps.branchDiff.outputs.should_create_dr }}
     steps:
       - name: ⬇️ Check out repository code
         uses: actions/checkout@v3
@@ -57,3 +63,9 @@ jobs:
         env:
           DATABASE_URL: ${{ steps.pscaleDbUrl.outputs.DB_BRANCH_CONNECTION_STRING }}
         run: yarn nx run cms:push-schema
+      - name: Check diff against main
+        id: branchDiff
+        if: inputs.should_deploy_schema
+        run: |
+          cd scripts/pscale
+          bash does-branch-have-diff.sh $DB_BRANCH_NAME

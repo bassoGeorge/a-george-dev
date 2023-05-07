@@ -7,14 +7,8 @@ on:
 jobs:
   Info:
     uses: ./.github/workflows/info.yml
-  Run_Tests:
-    needs: [Info]
-    uses: ./.github/workflows/tests.yml
-    with:
-      affected_base: ${{ needs.Info.outputs.affected_base }}
-      affected_head: ${{ needs.Info.outputs.affected_head }}
   Setup_DB:
-    needs: [Run_Tests, Info]
+    needs: [Info]
     uses: ./.github/workflows/setup-db.yml
     with:
       DB_BRANCH_NAME: ${{ vars.DB_BRANCH_NAME_ALT }}
@@ -24,17 +18,13 @@ jobs:
       PLANETSCALE_SERVICE_TOKEN: ${{ secrets.PLANETSCALE_SERVICE_TOKEN }}
       DB_NAME: ${{ secrets.DB_NAME }}
       ORG_NAME: ${{ secrets.ORG_NAME }}
-  Site_Preview:
-    needs: [Run_Tests, Info, Setup_DB]
-    if: needs.Info.outputs.should_preview_site == 'true' || needs.Info.outputs.should_deploy_schema == 'true'
-    uses: ./.github/workflows/site-preview.yml
-    with:
-      title: ${{ format('Pull request {0} - {1}', github.event.pull_request.number, github.event.pull_request.title) }}
-      NETLIFY_SITE_ID: ${{ vars.AGEORGEDEV_SITE_ID }}
-      DB_BRANCH_NAME: ${{ vars.DB_BRANCH_NAME_ALT }}
-    secrets:
-      NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-      PLANETSCALE_SERVICE_TOKEN: ${{ secrets.PLANETSCALE_SERVICE_TOKEN }}
-      PLANETSCALE_SERVICE_TOKEN_ID: ${{ secrets.PLANETSCALE_SERVICE_TOKEN_ID }}
-      DB_NAME: ${{ secrets.DB_NAME }}
-      ORG_NAME: ${{ secrets.ORG_NAME }}
+  Checks:
+    needs: [Setup_DB]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Yes, need to create DR
+        if: needs.Setup_DB.outputs.should_create_dr == 'true'
+        run: echo "Create DR"
+      - name: No, don't need to create DR
+        if: needs.Setup_DB.outputs.should_create_dr == 'false'
+        run: echo "Don't create DR"

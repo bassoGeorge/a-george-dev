@@ -5,6 +5,17 @@ on:
 jobs:
   Info:
     uses: ./.github/workflows/info.yml
+  Setup_DB:
+    needs: [Info]
+    uses: ./.github/workflows/setup-db.yml
+    with:
+      DB_BRANCH_NAME: ${{ vars.DB_BRANCH_NAME }}
+      should_deploy_schema: ${{ needs.Info.outputs.should_deploy_schema == 'true' }}
+    secrets:
+      PLANETSCALE_SERVICE_TOKEN_ID: ${{ secrets.PLANETSCALE_SERVICE_TOKEN_ID }}
+      PLANETSCALE_SERVICE_TOKEN: ${{ secrets.PLANETSCALE_SERVICE_TOKEN }}
+      DB_NAME: ${{ secrets.DB_NAME }}
+      ORG_NAME: ${{ secrets.ORG_NAME }}
   Run_Tests:
     needs: [Info]
     if: ${{ needs.Info.outputs.is_hotfix == 'true' }}
@@ -13,18 +24,39 @@ jobs:
       affected_base: ${{ needs.Info.outputs.affected_base }}
       affected_head: ${{ needs.Info.outputs.affected_head }}
   Site_Preview:
-    needs: [Run_Tests, Info]
-    if: ${{ needs.Info.outputs.should_preview_site == 'true' }}
+    needs: [Run_Tests, Info, Setup_DB]
+    if: needs.Info.outputs.should_preview_site == 'true' || needs.Info.outputs.should_deploy_schema == 'true'
     uses: ./.github/workflows/site-preview.yml
     with:
       title: ${{ format('Production Preview {0}', github.sha) }}
       NETLIFY_SITE_ID: ${{ vars.AGEORGEDEV_SITE_ID }}
+      DB_BRANCH_NAME: ${{ vars.DB_BRANCH_NAME }}
     secrets:
       NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-      DB_NAME: ${{ secrets.DB_NAME }}
-      ORG_NAME: ${{ secrets.ORG_NAME }}
       PLANETSCALE_SERVICE_TOKEN_ID: ${{ secrets.PLANETSCALE_SERVICE_TOKEN_ID }}
       PLANETSCALE_SERVICE_TOKEN: ${{ secrets.PLANETSCALE_SERVICE_TOKEN }}
+      DB_NAME: ${{ secrets.DB_NAME }}
+      ORG_NAME: ${{ secrets.ORG_NAME }}
+  Create_Deploy_Request:
+    needs: [Info, Setup_DB, Site_Preview]
+    if: ${{ !cancelled() && always() && needs.Info.outputs.should_deploy_site == 'true' && (needs.Info.outputs.is_hotfix == 'false' || needs.Site_Preview.result == 'success') }}
+    runs-on: ubuntu-latest
+    env:
+      PLANETSCALE_SERVICE_TOKEN_ID: ${{ secrets.PLANETSCALE_SERVICE_TOKEN_ID }}
+      PLANETSCALE_SERVICE_TOKEN: ${{ secrets.PLANETSCALE_SERVICE_TOKEN }}
+      DB_NAME: ${{ secrets.DB_NAME }}
+      ORG_NAME: ${{ secrets.ORG_NAME }}
+      DB_BRANCH_NAME: ${{ vars.DB_BRANCH_NAME }}
+    steps:
+      - name: ⬇️ Check out repository code
+        uses: actions/checkout@v3
+      - name: Install Planetscale CLI
+        uses: ./.github/actions/pscale
+      - name: Create Deploy Request
+        run: |
+          cd scripts/pscale
+          bash sh create-deploy-request.sh $DB_BRANCH_NAME
+
   Production_Deploy:
     needs: [Info, Site_Preview]
     if: ${{ !cancelled() && always() && needs.Info.outputs.should_deploy_site == 'true' && (needs.Info.outputs.is_hotfix == 'false' || needs.Site_Preview.result == 'success') }}
