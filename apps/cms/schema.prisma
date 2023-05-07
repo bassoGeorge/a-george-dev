@@ -37,6 +37,7 @@ model TestingLog {
   value String    @default("")
   date  DateTime?
   colpa String    @default("")
+  colpb String    @default("")
 }
 
 model Heartbeat {
