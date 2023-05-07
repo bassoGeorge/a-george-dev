@@ -108,4 +108,4 @@ jobs:
         if: needs.Production_Deploy.result != 'success'
         run: |
           cd scripts/pscale
-          bash sh complete-deploy-request.sh cancel $DR_NUMBER
+          bash complete-deploy-request.sh cancel $DR_NUMBER
