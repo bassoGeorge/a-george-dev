@@ -16,53 +16,46 @@ jobs:
     with:
       affected_base: ${{ needs.Info.outputs.affected_base }}
       affected_head: ${{ needs.Info.outputs.affected_head }}
-  Site_Preview:
+  Setup_DB:
     needs: [Run_Tests, Info]
     runs-on: ubuntu-latest
-    if: needs.Info.outputs.should_preview_site == 'true' || needs.Info.outputs.should_deploy_schema == 'true'
     env:
-      DB_NAME: ${{ secrets.DB_NAME }}
-      ORG_NAME: ${{ secrets.ORG_NAME }}
       PLANETSCALE_SERVICE_TOKEN: ${{ secrets.PLANETSCALE_SERVICE_TOKEN }}
       PLANETSCALE_SERVICE_TOKEN_ID: ${{ secrets.PLANETSCALE_SERVICE_TOKEN_ID }}
+      DB_NAME: ${{ secrets.DB_NAME }}
+      ORG_NAME: ${{ secrets.ORG_NAME }}
     steps:
       - name: ⬇️ Check out repository code
         uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-      - name: Install pscale CLI
+      - name: Install Planetscale CLI
         uses: ./.github/actions/pscale
       - name: Create Planetscale branch
         id: pscaleBranch
         run: |
           cd scripts/pscale
           bash create-branch.sh $DB_BRANCH_NAME
-      - name: ⎔ Use Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '16.x'
-          cache: 'yarn'
-      - name: 📥 Install dependencies
-        run: yarn install --frozen-lockfile
-      - name: Push schema changes
+      - name: Create database url
+        id: pscaleDbUrl
+        if: needs.Info.outputs.should_deploy_schema == 'true'
+        run: |
+          cd scripts/pscale
+          bash create-branch-connection-string.sh $DB_BRANCH_NAME admin
+      - name: Deploy schema
         if: needs.Info.outputs.should_deploy_schema == 'true'
         env:
-          DATABASE_URL: ${{ steps.pscaleBranch.outputs.DB_BRANCH_CONNECTION_STRING }}
+          DATABASE_URL: ${{ steps.pscaleDbUrl.outputs.DB_BRANCH_CONNECTION_STRING }}
         run: yarn nx run cms:push-schema
-      - name: Deploy preview site
-        uses: ./.github/actions/deploy-site
-        if: needs.Info.outputs.should_preview_site == 'true'
-        id: deploy
-        with:
-          production: false
-          note: ${{ format('Pull request {0} - {1}', github.event.pull_request.number, github.event.pull_request.title) }}
-          NETLIFY_SITE_ID: ${{ vars.AGEORGEDEV_SITE_ID }}
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-          DB_BRANCH_CONNECTION_STRING: ${{ steps.pscaleBranch.outputs.DB_BRANCH_CONNECTION_STRING }}
-      - name: Run e2e
-        if: needs.Info.outputs.should_preview_site == 'true'
-        uses: ./.github/actions/run-e2e
-        with:
-          site_url: ${{ steps.deploy.outputs.preview_url }}
-          run_seed: true
-          DATABASE_URL: ${{ steps.pscaleBranch.outputs.DB_BRANCH_CONNECTION_STRING }}
+  Site_Preview:
+    needs: [Run_Tests, Info, Setup_DB]
+    if: needs.Info.outputs.should_preview_site == 'true' || needs.Info.outputs.should_deploy_schema == 'true'
+    uses: ./.github/workflows/site-preview.yml
+    with:
+      title: ${{ format('Pull request {0} - {1}', github.event.pull_request.number, github.event.pull_request.title) }}
+      NETLIFY_SITE_ID: ${{ vars.AGEORGEDEV_SITE_ID }}
+      DB_BRANCH_NAME: ${{ env.DB_BRANCH_NAME }}
+    secrets:
+      NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+      PLANETSCALE_SERVICE_TOKEN: ${{ secrets.PLANETSCALE_SERVICE_TOKEN }}
+      PLANETSCALE_SERVICE_TOKEN_ID: ${{ secrets.PLANETSCALE_SERVICE_TOKEN_ID }}
+      DB_NAME: ${{ secrets.DB_NAME }}
+      ORG_NAME: ${{ secrets.ORG_NAME }}
