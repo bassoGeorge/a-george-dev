@@ -15,7 +15,7 @@ jobs:
       affected_head: ${{ needs.Info.outputs.affected_head }}
   Setup_DB:
     needs: [Run_Tests, Info]
-    uses: ./.github/actions/setup-db.yml
+    uses: ./.github/workflows/setup-db.yml
     with:
       DB_BRANCH_NAME: ${{ vars.DB_BRANCH_NAME_ALT }}
       should_deploy_schema: ${{ needs.Info.outputs.should_deploy_schema == 'true' }}
