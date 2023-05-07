@@ -15,7 +15,7 @@ export default function Exp() {
       <h3 className="text-4xl mb-3">Running Experiments</h3>
       <p>
         Here is a change that will affect the site. V2 for checking the new
-        production flow with Deploy Requests. No DR required this time
+        production flow with Deploy Requests. No DR required this time. v3 now
       </p>
       {posts.map((post) => (
         <div key={post.id} className="mt-3">
