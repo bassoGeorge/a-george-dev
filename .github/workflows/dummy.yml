@@ -88,7 +88,7 @@ jobs:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
   Complete_DR:
     needs: [Production_Deploy, Create_Deploy_Request]
-    if: ${{ !cancelled() && always() needs.Create_Deploy_Request.outputs.continue_dr == 'true' }}
+    if: ${{ !cancelled() && always() && needs.Create_Deploy_Request.outputs.continue_dr == 'true' }}
     runs-on: ubuntu-latest
     env:
       DR_NUMBER: ${{ needs.Create_Deploy_Request.outputs.DR_NUMBER }}
