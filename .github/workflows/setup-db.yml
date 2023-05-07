@@ -1,0 +1,59 @@
+name: Setup DB
+on:
+  workflow_call:
+    inputs:
+      DB_BRANCH_NAME:
+        required: true
+        type: string
+      should_deploy_schema:
+        required: true
+        type: boolean
+    secrets:
+      PLANETSCALE_SERVICE_TOKEN_ID:
+        required: true
+      PLANETSCALE_SERVICE_TOKEN:
+        required: true
+      DB_NAME:
+        required: true
+      ORG_NAME:
+        required: true
+
+jobs:
+  Setup_DB:
+    runs-on: ubuntu-latest
+    env:
+      PLANETSCALE_SERVICE_TOKEN: ${{ secrets.PLANETSCALE_SERVICE_TOKEN }}
+      PLANETSCALE_SERVICE_TOKEN_ID: ${{ secrets.PLANETSCALE_SERVICE_TOKEN_ID }}
+      DB_NAME: ${{ secrets.DB_NAME }}
+      ORG_NAME: ${{ secrets.ORG_NAME }}
+      DB_BRANCH_NAME: ${{ inputs.DB_BRANCH_NAME }}
+    steps:
+      - name: ⬇️ Check out repository code
+        uses: actions/checkout@v3
+      - name: Install Planetscale CLI
+        uses: ./.github/actions/pscale
+      - name: Create Planetscale branch
+        id: pscaleBranch
+        run: |
+          cd scripts/pscale
+          bash create-branch.sh $DB_BRANCH_NAME
+      - name: Create database url
+        id: pscaleDbUrl
+        if: inputs.should_deploy_schema
+        run: |
+          cd scripts/pscale
+          bash create-branch-connection-string.sh $DB_BRANCH_NAME admin
+      - name: ⎔ Use Node.js
+        uses: actions/setup-node@v3
+        if: inputs.should_deploy_schema
+        with:
+          node-version: '16.x'
+          cache: 'yarn'
+      - name: 📥 Install dependencies
+        if: inputs.should_deploy_schema
+        run: yarn install --frozen-lockfile
+      - name: Deploy schema
+        if: inputs.should_deploy_schema
+        env:
+          DATABASE_URL: ${{ steps.pscaleDbUrl.outputs.DB_BRANCH_CONNECTION_STRING }}
+        run: yarn nx run cms:push-schema
