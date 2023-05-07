@@ -64,9 +64,11 @@ jobs:
           bash create-deploy-request.sh $DB_BRANCH_NAME
       - name: Deploy the DR in gated mode
         if: ${{ steps.createDr.outputs.continue_dr == 'true' }}
+        env:
+          DR_NUMBER: ${{ steps.createDr.outputs.DR_NUMBER }}
         run: |
           cd scripts/pscale
-          bash deploy-deploy-request.sh $DB_BRANCH_NAME
+          bash deploy-deploy-request.sh $DR_NUMBER
   Production_Deploy:
     needs: [Info, Site_Preview, Create_Deploy_Request]
     if: ${{ !cancelled() && always() && needs.Info.outputs.should_deploy_site == 'true' && (needs.Info.outputs.is_hotfix == 'false' || needs.Site_Preview.result == 'success') && (needs.Create_Deploy_Request.result == 'success' || needs.Create_Deploy_Request.result == 'skipped') }}
