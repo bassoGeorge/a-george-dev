@@ -107,7 +107,7 @@ jobs:
       - name: Install Planetscale CLI
         uses: ./.github/actions/pscale
       - name: Complete Deploy Request
-        if: needs.Production_Deploy.result == 'success' || need.Production_Deploy.result == 'skipped'
+        if: needs.Production_Deploy.result == 'success' || needs.Production_Deploy.result == 'skipped'
         run: |
           cd scripts/pscale
           bash complete-deploy-request.sh apply $DR_NUMBER
