@@ -8,6 +8,9 @@ on:
       NETLIFY_SITE_ID:
         required: true
         type: string
+      DB_BRANCH_NAME:
+        required: true
+        type: string
     secrets:
       NETLIFY_AUTH_TOKEN:
         required: true
@@ -23,28 +26,26 @@ on:
 jobs:
   SitePreview:
     runs-on: ubuntu-latest
+    env:
+      DB_NAME: ${{ secrets.DB_NAME }}
+      ORG_NAME: ${{ secrets.ORG_NAME }}
+      PLANETSCALE_SERVICE_TOKEN: ${{ secrets.PLANETSCALE_SERVICE_TOKEN }}
+      PLANETSCALE_SERVICE_TOKEN_ID: ${{ secrets.PLANETSCALE_SERVICE_TOKEN_ID }}
+      DB_BRANCH_NAME: ${{ inputs.DB_BRANCH_NAME }}
     steps:
       - name: ⬇️ Check out repository code
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
-      - name: 🌏 Create Planetscale branch
-        id: pscaleAction
+      - name: 🌏 Install pscale CLI
         uses: ./.github/actions/pscale
-        with:
-          db_branch_name: preview
-          actions: create
-          DB_NAME: ${{ secrets.DB_NAME }}
-          ORG_NAME: ${{ secrets.ORG_NAME }}
-          PLANETSCALE_SERVICE_TOKEN: ${{ secrets.PLANETSCALE_SERVICE_TOKEN }}
-          PLANETSCALE_SERVICE_TOKEN_ID: ${{ secrets.PLANETSCALE_SERVICE_TOKEN_ID }}
-      - name: ⎔ Use Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '16.x'
-          cache: 'yarn'
-      - name: 📥 Install dependencies
-        run: yarn install --frozen-lockfile
+      - name: 🌏 Create database url
+        id: pscaleAction
+        run: |
+          cd scripts/pscale
+          bash create-branch-connection-string.sh $DB_BRANCH_NAME readwriter
+      - name: 📦 Install dependencies
+        uses: ./.github/actions/install-dependencies
       - name: 🚀 Deploy preview site
         uses: ./.github/actions/deploy-site
         id: deploy

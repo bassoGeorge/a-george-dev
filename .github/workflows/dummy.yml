@@ -1,43 +1,12 @@
 name: Dummy workflow
-on: workflow_dispatch
+on:
+  workflow_dispatch:
 
 jobs:
-  DummyWorkflow:
+  Check:
     runs-on: ubuntu-latest
     steps:
       - name: ⬇️ Check out repository code
         uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-      - name: Create Planetscale branch
-        id: pscaleAction
-        uses: ./.github/actions/pscale
-        with:
-          db_branch_name: dummy
-          actions: create
-          DB_NAME: ${{ secrets.DB_NAME }}
-          ORG_NAME: ${{ secrets.ORG_NAME }}
-          PLANETSCALE_SERVICE_TOKEN: ${{ secrets.PLANETSCALE_SERVICE_TOKEN }}
-          PLANETSCALE_SERVICE_TOKEN_ID: ${{ secrets.PLANETSCALE_SERVICE_TOKEN_ID }}
-      - name: ⎔ Use Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '16.x'
-          cache: 'yarn'
-      - name: 📥 Install dependencies
-        run: yarn install --frozen-lockfile
-      - name: Deploy preview site
-        uses: ./.github/actions/deploy-site
-        id: deploy
-        with:
-          production: false
-          note: ${{ inputs.title }}
-          NETLIFY_SITE_ID: ${{ vars.AGEORGEDEV_SITE_ID }}
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-          DB_BRANCH_CONNECTION_STRING: ${{ steps.pscaleAction.outputs.DB_BRANCH_CONNECTION_STRING }}
-      - name: Run e2e
-        uses: ./.github/actions/run-e2e
-        with:
-          site_url: ${{ steps.deploy.outputs.preview_url }}
-          run_seed: true
-          DATABASE_URL: ${{ steps.pscaleAction.outputs.DB_BRANCH_CONNECTION_STRING }}
+      - name: Information
+        run: echo "This is a dummy workflow used to test out stuff"

@@ -47,17 +47,12 @@ jobs:
       - name: 🔧 Derive appropriate SHAs for base and head for `nx affected` commands
         id: setSHAs
         uses: nrwl/nx-set-shas@v3
-      - name: ⎔ Use Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '16.x'
-          cache: 'yarn'
-      - name: 📥 Install dependencies
-        run: yarn install --frozen-lockfile
-      - name: List affected projects
+      - name: 📦 Install dependencies
+        uses: ./.github/actions/install-dependencies
+      - name: 🔧 List affected projects
         id: affected_projects
         run: echo "affected_projects=$(yarn --silent nx print-affected | jq -c '.projects')" >> "$GITHUB_OUTPUT"
-      - name: Debug
+      - name: 🔍 Debug
         run: |
           echo "Is hotfix: ${{ steps.is_hotfix.outputs.is_hotfix }}"
           echo "affected projects: ${{ steps.affected_projects.outputs.affected_projects }}"

@@ -215,6 +215,8 @@ type TestingLog {
   title: String
   value: String
   date: DateTime
+  colpa: String
+  colpb: String
 }
 
 input TestingLogWhereUniqueInput {
@@ -229,6 +231,8 @@ input TestingLogWhereInput {
   title: StringFilter
   value: StringFilter
   date: DateTimeNullableFilter
+  colpa: StringFilter
+  colpb: StringFilter
 }
 
 input TestingLogOrderByInput {
@@ -236,12 +240,16 @@ input TestingLogOrderByInput {
   title: OrderDirection
   value: OrderDirection
   date: OrderDirection
+  colpa: OrderDirection
+  colpb: OrderDirection
 }
 
 input TestingLogUpdateInput {
   title: String
   value: String
   date: DateTime
+  colpa: String
+  colpb: String
 }
 
 input TestingLogUpdateArgs {
@@ -253,6 +261,8 @@ input TestingLogCreateInput {
   title: String
   value: String
   date: DateTime
+  colpa: String
+  colpb: String
 }
 
 type Heartbeat {

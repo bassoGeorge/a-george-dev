@@ -45,6 +45,8 @@ export const ALL_LISTS: KeystoneConfig['lists'] = {
       title: text(),
       value: text(),
       date: timestamp(),
+      colpa: text(),
+      colpb: text(),
     },
   }),
   Heartbeat: list({
