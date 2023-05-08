@@ -1,8 +1,6 @@
 name: Dummy workflow
 on:
   workflow_dispatch:
-  push:
-    branches: [feature/*]
 
 jobs:
   Check:
@@ -10,7 +8,5 @@ jobs:
     steps:
       - name: ⬇️ Check out repository code
         uses: actions/checkout@v3
-      - name: Install dependencies
-        uses: ./.github/actions/install-dependencies
-      - name: Run a random command
-        run: yarn nx affected:apps
+      - name: Information
+        run: echo "This is a dummy workflow used to test out stuff"

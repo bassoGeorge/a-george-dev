@@ -30,29 +30,23 @@ jobs:
     steps:
       - name: ⬇️ Check out repository code
         uses: actions/checkout@v3
-      - name: Install Planetscale CLI
+      - name: 🌏 Install Planetscale CLI
         uses: ./.github/actions/pscale
-      - name: Create Planetscale branch
+      - name: 🌏 Create Planetscale branch
         id: pscaleBranch
         run: |
           cd scripts/pscale
           bash create-branch.sh $DB_BRANCH_NAME
-      - name: Create database url
+      - name: 🌏 Create database url
         id: pscaleDbUrl
         if: inputs.should_deploy_schema
         run: |
           cd scripts/pscale
           bash create-branch-connection-string.sh $DB_BRANCH_NAME admin
-      - name: ⎔ Use Node.js
-        uses: actions/setup-node@v3
+      - name: 📦 Install dependencies
         if: inputs.should_deploy_schema
-        with:
-          node-version: '16.x'
-          cache: 'yarn'
-      - name: 📥 Install dependencies
-        if: inputs.should_deploy_schema
-        run: yarn install --frozen-lockfile
-      - name: Deploy schema
+        uses: ./.github/actions/install-dependencies
+      - name: 💿 Deploy schema
         if: inputs.should_deploy_schema
         env:
           DATABASE_URL: ${{ steps.pscaleDbUrl.outputs.DB_BRANCH_CONNECTION_STRING }}

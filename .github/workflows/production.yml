@@ -53,14 +53,14 @@ jobs:
     steps:
       - name: ⬇️ Check out repository code
         uses: actions/checkout@v3
-      - name: Install Planetscale CLI
+      - name: 🌏 Install Planetscale CLI
         uses: ./.github/actions/pscale
-      - name: Create Deploy Request
+      - name: 🌏 Create Deploy Request
         id: createDr
         run: |
           cd scripts/pscale
           bash create-deploy-request.sh $DB_BRANCH_NAME
-      - name: Deploy the DR in gated mode
+      - name: 🌏 Deploy the request in gated mode
         if: ${{ steps.createDr.outputs.continue_dr == 'true' }}
         env:
           DR_NUMBER: ${{ steps.createDr.outputs.DR_NUMBER }}
@@ -74,13 +74,8 @@ jobs:
     steps:
       - name: ⬇️ Check out repository code
         uses: actions/checkout@v3
-      - name: ⎔ Use Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '16.x'
-          cache: 'yarn'
-      - name: 📥 Install dependencies
-        run: yarn install --frozen-lockfile
+      - name: 📦 Install dependencies
+        uses: ./.github/actions/install-dependencies
       - name: 🚀 Deploy production site
         uses: ./.github/actions/deploy-site
         id: deploy
@@ -102,14 +97,14 @@ jobs:
     steps:
       - name: ⬇️ Check out repository code
         uses: actions/checkout@v3
-      - name: Install Planetscale CLI
+      - name: 🌏 Install Planetscale CLI
         uses: ./.github/actions/pscale
-      - name: Complete Deploy Request
+      - name: 🌏 ✅ Complete Deploy Request
         if: needs.Production_Deploy.result == 'success' || needs.Production_Deploy.result == 'skipped'
         run: |
           cd scripts/pscale
           bash complete-deploy-request.sh apply $DR_NUMBER
-      - name: Cancel Deploy Request
+      - name: 🌏 ⛔️ Cancel Deploy Request
         if: needs.Production_Deploy.result == 'failure' || needs.Production_Deploy.result == 'cancelled'
         run: |
           cd scripts/pscale
