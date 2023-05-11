@@ -11,13 +11,13 @@ The one mono-repo for all my website and connected applications
 #### Make a ts lib
 
 ```shell
-nx g @nrwl/js:lib --buildable=true --bundler=vite <name>
+nx g @nx/js:lib --buildable=true --bundler=vite <name>
 ```
 
 #### Make a React lib
 
 ```shell
-nx g @nrwl/react:lib <name>
+nx g @nx/react:lib <name>
 ```
 
 ##### Additional steps
@@ -30,5 +30,5 @@ nx g @nrwl/react:lib <name>
 #### Adding storybook
 
 ```shell
-nx g @nrwl/storybook:configuration <name>
+nx g @nx/storybook:configuration <name>
 ```
