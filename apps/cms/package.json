@@ -14,7 +14,7 @@
     "deploy": "keystone build && keystone prisma migrate deploy",
     "pscale-dev": "yarn run dev",
     "push-schema": "keystone prisma db push",
-    "job:heartbeat": "ts-node src/jobs/heartbeat.ts"
+    "job:heartbeat": "ts-node src/jobs/heartbeat/run.ts"
   },
   "dependencies": {
     "@keystone-6/auth": "^7.0.0",
