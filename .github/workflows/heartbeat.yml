@@ -20,4 +20,4 @@ jobs:
       - name: 💗 Beat
         env:
           DATABASE_URL: ${{ secrets.DB_ADMIN_URL }}
-        run: yarn nx run cms:record-heartbeat github-actions
+        run: yarn nx run cms:job:heartbeat github-actions
