@@ -8,12 +8,15 @@ export function getAllPosts() {
         title: true,
         status: true,
         id: true,
-        author: {
-          select: {
-            name: true,
-          },
-        },
       },
     }
   );
+}
+
+export function getPostByTitle(title: string) {
+  return prisma.post.findFirst({
+    where: {
+      title,
+    },
+  });
 }

@@ -13,22 +13,18 @@ generator client {
   binaryTargets = ["native", "rhel-openssl-1.0.x"]
 }
 
-model User {
-  id    String @id @default(cuid())
-  name  String @default("")
-  email String @unique @default("")
-  posts Post[] @relation("Post_author")
-}
-
 model Post {
   id          String    @id @default(cuid())
   title       String    @default("")
-  author      User?     @relation("Post_author", fields: [authorId], references: [id])
-  authorId    String?   @map("author")
   publishedAt DateTime?
   status      String?   @default("draft")
+  content     Json      @default("[{\"type\":\"paragraph\",\"children\":[{\"text\":\"\"}]}]")
+}
 
-  @@index([authorId])
+model Heartbeat {
+  id       String    @id @default(cuid())
+  date     DateTime?
+  referrer String    @default("")
 }
 
 model TestingLog {
@@ -38,10 +34,4 @@ model TestingLog {
   date  DateTime?
   colpa String    @default("")
   colpb String    @default("")
-}
-
-model Heartbeat {
-  id       String    @id @default(cuid())
-  date     DateTime?
-  referrer String    @default("")
 }
