@@ -16,10 +16,10 @@ module.exports = {
   // publicPath: "/build/",
   serverDependenciesToBundle: ['@phosphor-icons/react'],
 
+  tailwind: true,
+  postcss: true,
+
   future: {
-    unstable_tailwind: true,
-    unstable_postcss: true,
-    unstable_vanillaExtract: true,
     v2_routeConvention: true,
     v2_errorBoundary: true,
   },

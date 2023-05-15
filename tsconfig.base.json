@@ -21,6 +21,7 @@
         "libs/foundation-styles/src/globals.ts"
       ],
       "@ageorgedev/molecules": ["libs/molecules/src/index.ts"],
+      "@ageorgedev/talk-tailwind": ["libs/talk-tailwind/src/index.ts"],
       "@ageorgedev/toolbelt": ["libs/toolbelt/src/index.ts"],
       "@ageorgedev/workspace-extensions": [
         "libs/workspace-extensions/src/index.ts"
