@@ -8,7 +8,7 @@ import {
   ScrollRestoration,
 } from '@remix-run/react';
 import { cssBundleHref } from '@remix-run/css-bundle';
-import globalAppStylesheetHref from './styles.css';
+import globalAppStylesheetHref from './tailwind.css';
 import '@ageorgedev/foundation-styles/globals';
 
 export const meta: MetaFunction = () => ({
