@@ -1,3 +1,6 @@
+const createGlobPatterns =
+  require('@nx/react/tailwind').createGlobPatternsForDependencies;
+
 /**
  * @type {import('@remix-run/dev').AppConfig}
  */
@@ -16,11 +19,17 @@ module.exports = {
   // publicPath: "/build/",
   serverDependenciesToBundle: ['@phosphor-icons/react'],
 
+  watchPaths: createGlobPatterns(
+    __dirname,
+    '**/!(*.stories|*.spec)*.{ts,tsx,js,jsx}'
+  ),
+
   tailwind: true,
   postcss: true,
 
   future: {
     v2_routeConvention: true,
     v2_errorBoundary: true,
+    unstable_dev: true,
   },
 };

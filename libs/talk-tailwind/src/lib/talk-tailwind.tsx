@@ -1,4 +1,4 @@
-import { Body, Heading3 } from '@ageorgedev/atoms';
+import { Body, BodyMd, Heading3 } from '@ageorgedev/atoms';
 import useRevealJs from './hooks/useRevealJs';
 
 export function TalkTailwind() {
@@ -9,8 +9,10 @@ export function TalkTailwind() {
       <div className="reveal w-full h-screen">
         <div className="slides">
           <section>
-            <Heading3>Welcome to The Tailwid Talk</Heading3>
-            <Body>Hopefully this picks up the styles</Body>
+            <Heading3 className="border border-rc-p-accent-200">
+              Welcome to The Tailwid Talk
+            </Heading3>
+            <Body>Just a testing slide for now</Body>
           </section>
           <section>Slide 2</section>
         </div>
