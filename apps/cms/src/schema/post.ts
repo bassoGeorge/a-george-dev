@@ -7,7 +7,9 @@ export const postSchema: ListSchemaConfig = {
   Post: list({
     access: allowAll,
     fields: {
-      title: text(),
+      title: text({
+        isIndexed: 'unique',
+      }),
       publishedAt: timestamp(),
       status: select({
         options: [

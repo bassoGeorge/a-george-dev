@@ -50,4 +50,4 @@ jobs:
         if: inputs.should_deploy_schema
         env:
           DATABASE_URL: ${{ steps.pscaleDbUrl.outputs.DB_BRANCH_CONNECTION_STRING }}
-        run: yarn nx run cms:push-schema
+        run: yarn nx run cms:push-schema --accept-data-loss
