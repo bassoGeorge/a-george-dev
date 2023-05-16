@@ -1,6 +1,6 @@
 import { Outlet } from '@remix-run/react';
 import { ClientOnly } from 'remix-utils';
-import 'reveal.js/dist/reveal.css';
+import '@ageorgedev/reveal-framework/globals';
 
 /**
  * All my talks will use reveal.js. For this, we need to use a client-only section

@@ -1,5 +1,5 @@
 {
-  "name": "@ageorgedev/talk-tailwind",
+  "name": "@ageorgedev/reveal-framework",
   "version": "0.0.1",
   "main": "./index.js",
   "types": "./index.d.ts",
@@ -8,5 +8,11 @@
       "import": "./index.mjs",
       "require": "./index.js"
     }
+  },
+  "dependencies": {
+    "reveal.js": "^4.5.0"
+  },
+  "devDependencies": {
+    "@types/reveal.js": "^4.4.2"
   }
 }
