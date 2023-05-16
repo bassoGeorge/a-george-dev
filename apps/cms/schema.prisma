@@ -15,7 +15,7 @@ generator client {
 
 model Post {
   id          String    @id @default(cuid())
-  title       String    @default("")
+  title       String    @unique @default("")
   publishedAt DateTime?
   status      String?   @default("draft")
   content     Json      @default("[{\"type\":\"paragraph\",\"children\":[{\"text\":\"\"}]}]")

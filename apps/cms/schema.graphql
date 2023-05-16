@@ -17,6 +17,7 @@ type Post_content_Document {
 
 input PostWhereUniqueInput {
   id: ID
+  title: String
 }
 
 input PostWhereInput {
