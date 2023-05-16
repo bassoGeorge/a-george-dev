@@ -18,7 +18,7 @@ model Post {
   title       String    @unique @default("")
   publishedAt DateTime?
   status      String?   @default("draft")
-  content     Json      @default("[{\"type\":\"paragraph\",\"children\":[{\"text\":\"\"}]}]")
+  content     Json?
 }
 
 model Heartbeat {
