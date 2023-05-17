@@ -1,4 +1,4 @@
-import { ContextualColors } from '@ageorgedev/foundation-styles';
+import { ContextualColors, RawColors } from '@ageorgedev/foundation-styles';
 import { globalStyle as gs } from '@vanilla-extract/css';
 
 gs('.reveal', {
@@ -7,4 +7,12 @@ gs('.reveal', {
 
 gs('body.reveal-viewport', {
   color: ContextualColors.neutral[500],
+});
+
+gs('.reveal code', {
+  textAlign: 'left',
+});
+
+gs('.reveal .controls-arrow', {
+  color: RawColors.pAccent[400],
 });
