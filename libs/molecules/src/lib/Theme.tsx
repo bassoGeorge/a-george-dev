@@ -26,34 +26,29 @@ export function useTheme() {
 export function ThemeProvider({ children }: React.PropsWithChildren) {
   const [theme, setTheme] = useState<Theme>('light');
 
-  const onMutation = useCallback<MutationCallback>(
-    (mutations) => {
-      mutations.forEach((mutation) => {
-        switch (mutation.type) {
-          case 'attributes': {
-            if (mutation.attributeName !== 'class') {
-              return;
-            }
-            const isGoingToBeDark =
-              (mutation.target as HTMLHtmlElement)
-                .getAttribute(mutation.attributeName)
-                ?.split(' ')
-                ?.includes('dark') ?? false;
-
-            if (isGoingToBeDark && theme !== 'dark') {
-              setTheme('dark');
-            } else if (!isGoingToBeDark && theme !== 'light') {
-              setTheme('light');
-            }
-            break;
-          }
-          default:
+  const onMutation = useCallback<MutationCallback>((mutations) => {
+    mutations.forEach((mutation) => {
+      switch (mutation.type) {
+        case 'attributes': {
+          if (mutation.attributeName !== 'class') {
             return;
+          }
+
+          const nextTheme: Theme = (mutation.target as HTMLHtmlElement)
+            .getAttribute(mutation.attributeName)
+            ?.split(' ')
+            ?.includes('dark')
+            ? 'dark'
+            : 'light';
+
+          setTheme(nextTheme);
+          break;
         }
-      });
-    },
-    [theme, setTheme]
-  );
+        default:
+          return;
+      }
+    });
+  }, []);
 
   useEffect(() => {
     const obs = new MutationObserver(onMutation);

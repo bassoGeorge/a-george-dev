@@ -11,6 +11,7 @@ export const FontFamily = {
   heading: 'Alegreya, ui-serif, serif',
   interface: '"Alegreya Sans SC", ui-sans-serif, system-ui, sans-serif',
   body: '"Alegreya Sans", ui-sans-serif, system-ui, sans-serif',
+  code: '"Source Code Pro", ui-monospace, monospace',
 };
 
 export const LineHeight = {

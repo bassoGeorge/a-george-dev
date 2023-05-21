@@ -28,6 +28,7 @@ export const TailwindTheme = {
     body: FontFamily.body,
     interface: FontFamily.interface,
     heading: FontFamily.heading,
+    code: FontFamily.code,
   },
   fontSize: FontSize,
   letterSpacing: LetterSpacing,

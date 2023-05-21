@@ -6,4 +6,8 @@
   body {
     @apply text-base text-cc-neutral-500 bg-cc-page-0;
   }
+
+  pre code {
+    @apply font-code;
+  }
 }

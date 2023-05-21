@@ -10,6 +10,7 @@ import {
 import { cssBundleHref } from '@remix-run/css-bundle';
 import globalAppStylesheetHref from './tailwind.css';
 import '@ageorgedev/foundation-styles/globals';
+import { ThemeProvider } from '@ageorgedev/molecules';
 
 export const meta: MetaFunction = () => ({
   charset: 'utf-8',
@@ -27,7 +28,7 @@ export const links: LinksFunction = () => [
   },
   {
     rel: 'stylesheet',
-    href: 'https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:wght@500;800&family=Alegreya+Sans:ital,wght@0,100;0,400;0,700;1,100;1,400;1,700&family=Alegreya:ital,wght@0,400;0,500;0,700;1,400;1,500&display=swap',
+    href: 'https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:wght@500;800&family=Alegreya+Sans:ital,wght@0,100;0,400;0,700;1,100;1,400;1,700&family=Alegreya:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Source+Code+Pro&display=swap',
   },
 
   /** Anything bundled with vanilla extract. Also contains the foundation-styles */
@@ -49,7 +50,10 @@ export default function App() {
         <Links />
       </head>
       <body>
-        <Outlet />
+        <ThemeProvider>
+          <Outlet />
+        </ThemeProvider>
+
         <ScrollRestoration />
         <Scripts />
         <LiveReload />
