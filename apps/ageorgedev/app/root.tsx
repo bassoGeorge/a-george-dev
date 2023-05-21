@@ -10,6 +10,7 @@ import {
 import { cssBundleHref } from '@remix-run/css-bundle';
 import globalAppStylesheetHref from './tailwind.css';
 import '@ageorgedev/foundation-styles/globals';
+import { ThemeProvider } from '@ageorgedev/molecules';
 
 export const meta: MetaFunction = () => ({
   charset: 'utf-8',
@@ -49,7 +50,10 @@ export default function App() {
         <Links />
       </head>
       <body>
-        <Outlet />
+        <ThemeProvider>
+          <Outlet />
+        </ThemeProvider>
+
         <ScrollRestoration />
         <Scripts />
         <LiveReload />

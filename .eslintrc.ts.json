@@ -12,7 +12,8 @@
           {
             "allow": ["arrowFunctions"]
           }
-        ]
+        ],
+        "@typescript-eslint/ban-ts-comment": "off"
       }
     },
     {

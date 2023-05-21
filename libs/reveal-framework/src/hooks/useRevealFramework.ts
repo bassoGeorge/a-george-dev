@@ -1,13 +1,17 @@
-import { useEffect } from 'react';
+import { RefObject, useEffect } from 'react';
 
-export function useRevealFramework() {
+export function useRevealFramework(ref: RefObject<HTMLElement>) {
   useEffect(() => {
     (async () => {
+      if (!ref.current) return;
+
       const Reveal = (await import('reveal.js')).default;
-      const deck = new Reveal();
-      deck.initialize({
+      const deck = new Reveal(ref.current, {
+        embedded: true,
+        keyboardCondition: 'focused',
         controlsTutorial: false,
       });
+      deck.initialize();
     })();
   }, []);
 }

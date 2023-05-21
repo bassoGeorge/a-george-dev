@@ -17,7 +17,10 @@ module.exports = {
   // appDirectory: "app",
   // assetsBuildDirectory: "public/build",
   // publicPath: "/build/",
-  serverDependenciesToBundle: ['@phosphor-icons/react'],
+  serverDependenciesToBundle: [
+    '@phosphor-icons/react',
+    /^react-syntax-highlighter.*$/,
+  ],
 
   watchPaths: createGlobPatterns(
     __dirname,

@@ -1,6 +1,7 @@
 import { Body, Heading1 } from '@ageorgedev/atoms';
 import { CodeBlock } from '@ageorgedev/molecules';
 import { useRevealFramework } from '@ageorgedev/reveal-framework';
+import { useRef } from 'react';
 
 const codePiece = `
 /**
@@ -13,33 +14,38 @@ export const cssCase = (input: string) =>
   paramCase(input, {
     stripRegexp: /(?!)/, // This regex matches absolutely nothing
   });
+`;
 
-/**
- * Joins a list of strings into a kebab-cased string used for class names
- * example: ['type', 'headingXl', '', '4'] => 'type-heading-xl-4'
- */
-export const joinCssClassParts: (parts: string[]) => string = compose(
-  join('-'),
-  map(cssCase),
-  filter(Boolean)
+const secondCodePiece = `
+export const getTailwindPropertyMap = compose(
+  fromPairs,
+  chain((set: Record<string, string>): (readonly [string, string])[] => {
+    return compose(
+      map((value: string) => [extractTailwindVarKey(value), value] as const),
+      values
+    )(set);
+  }),
+  values
 );
-
 `;
 
 export function TalkTailwind() {
-  useRevealFramework();
+  const presentationRef = useRef(null);
+  useRevealFramework(presentationRef);
 
   return (
     <div>
-      <div className="reveal w-full h-screen">
+      <div className="reveal w-full h-screen" ref={presentationRef}>
         <div className="slides">
           <section>
             <Heading1>Welcome to The Tailwind Talk</Heading1>
             <Body>Just a testing slide for now</Body>
+            <CodeBlock text={codePiece} />
+            <hr />
+            <CodeBlock text={secondCodePiece} />
           </section>
           <section>
             <Heading1>Slide 2</Heading1>
-            <CodeBlock text={codePiece} />
           </section>
         </div>
       </div>

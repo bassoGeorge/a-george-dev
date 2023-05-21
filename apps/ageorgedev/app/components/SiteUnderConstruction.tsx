@@ -1,12 +1,12 @@
+import { Heading3, Heading4, InterfaceXl, NameLogo } from '@ageorgedev/atoms';
+import { ThemeSwitcher } from '@ageorgedev/molecules';
+import { Barricade } from '@phosphor-icons/react';
 import {
   conSection,
   container,
   nameSection,
   subTextSection,
 } from './SiteUnderConstruction.css';
-import { ThemeSwitcher } from '@ageorgedev/molecules';
-import { Heading3, Heading4, InterfaceXl, NameLogo } from '@ageorgedev/atoms';
-import { Barricade } from '@phosphor-icons/react';
 
 export function SiteUnderConstruction() {
   return (
