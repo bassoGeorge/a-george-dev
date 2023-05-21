@@ -1,9 +1,6 @@
 name: Dummy workflow
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - feature/upgrade-baseline
 
 jobs:
   Setup_DB:
