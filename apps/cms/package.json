@@ -8,10 +8,8 @@
   "scripts": {
     "build": "keystone build",
     "dev": "keystone dev",
-    "postinstall": "keystone postinstall",
-    "generate": "keystone prisma migrate dev",
-    "start": "keystone start",
-    "deploy": "keystone build && keystone prisma migrate deploy",
+    "postinstall": "keystone build --no-ui --frozen",
+    "build-schema": "keystone build --no-ui",
     "pscale-dev": "yarn run dev",
     "push-schema": "keystone prisma db push",
     "job:heartbeat": "ts-node src/jobs/heartbeat/run.ts"
