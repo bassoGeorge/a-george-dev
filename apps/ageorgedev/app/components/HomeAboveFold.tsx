@@ -6,9 +6,9 @@ import {
   container,
   nameSection,
   subTextSection,
-} from './SiteUnderConstruction.css';
+} from './HomeAboveFold.css';
 
-export function SiteUnderConstruction() {
+export function HomeAboveFold() {
   return (
     <main
       className={`${container} grid w-screen place-items-stretch overflow-hidden relative`}
