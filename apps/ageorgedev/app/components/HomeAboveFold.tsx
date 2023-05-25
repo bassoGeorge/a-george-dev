@@ -1,6 +1,6 @@
 import { Heading3, Heading4, InterfaceXl, NameLogo } from '@ageorgedev/atoms';
 import { ThemeSwitcher } from '@ageorgedev/molecules';
-import { Barricade } from '@phosphor-icons/react';
+import { NavLink } from '@remix-run/react';
 import {
   conSection,
   container,
@@ -37,9 +37,7 @@ export function HomeAboveFold() {
       <section
         className={`${conSection} ${InterfaceXl.classes} p-4 tablet:col-span-2 flex justify-center gap-3 relative tablet:text-2xl`}
       >
-        <Barricade weight="duotone" className="text-rc-p-accent-400" />
-        <p>Site under construction</p>
-        <Barricade weight="duotone" className="text-rc-p-accent-400" />
+        <NavLink to="/talks">Talks</NavLink>
       </section>
     </main>
   );
