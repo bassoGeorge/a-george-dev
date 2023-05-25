@@ -34,20 +34,18 @@ export function TalkTailwind() {
   useRevealFramework(presentationRef);
 
   return (
-    <div>
-      <div className="reveal w-full h-screen" ref={presentationRef}>
-        <div className="slides">
-          <section>
-            <Heading1>Welcome to The Tailwind Talk</Heading1>
-            <Body>Just a testing slide for now</Body>
-            <CodeBlock text={codePiece} />
-            <hr />
-            <CodeBlock text={secondCodePiece} />
-          </section>
-          <section>
-            <Heading1>Slide 2</Heading1>
-          </section>
-        </div>
+    <div className="reveal w-full h-full" ref={presentationRef}>
+      <div className="slides">
+        <section>
+          <Heading1>Welcome to The Tailwind Talk</Heading1>
+          <Body>Just a testing slide for now</Body>
+          <CodeBlock text={codePiece} />
+          <hr />
+          <CodeBlock text={secondCodePiece} />
+        </section>
+        <section>
+          <Heading1>Slide 2</Heading1>
+        </section>
       </div>
     </div>
   );

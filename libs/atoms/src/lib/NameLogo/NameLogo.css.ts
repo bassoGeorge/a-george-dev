@@ -1,6 +1,5 @@
-import { createVar, style } from '@vanilla-extract/css';
 import { RawColors, Theme } from '@ageorgedev/foundation-styles';
-import { RAW_COLORS } from '@ageorgedev/foundation-styles/dist/lib/tokens/raw-colors';
+import { createVar, style } from '@vanilla-extract/css';
 
 export const logoWrapper = style([
   'inline-block font-heading font-bold',

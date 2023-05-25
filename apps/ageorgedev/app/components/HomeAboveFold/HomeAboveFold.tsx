@@ -35,7 +35,7 @@ export function HomeAboveFold() {
         </div>
       </section>
       <section
-        className={`${conSection} ${InterfaceXl.classes} p-4 tablet:col-span-2 flex justify-center gap-3 relative tablet:text-2xl`}
+        className={`${conSection} ${InterfaceXl.classes} p-4 pb-6 tablet:col-span-2 flex justify-center gap-3 relative tablet:text-2xl`}
       >
         <NavLink to="/talks">Talks</NavLink>
       </section>
