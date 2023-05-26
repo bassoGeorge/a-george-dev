@@ -34,12 +34,18 @@ export const bottomLeftShadow = style({
   textShadow: `-.03em .06em ${shadowColor}`,
 });
 
-export const firstName = style([
+export const firstNameColor = style([
   'text-rc-timber-400 dark:text-rc-parchment-500',
 ]);
 
-export const lastName = style([
+export const lastNameColor = style([
   'text-rc-p-accent-500 dark:text-rc-p-accent-200',
+]);
+
+export const firstName = style([firstNameColor]);
+
+export const lastName = style([
+  lastNameColor,
   {
     paddingInlineStart: '.5em',
   },
