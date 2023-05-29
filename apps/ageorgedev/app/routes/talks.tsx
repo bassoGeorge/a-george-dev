@@ -10,7 +10,7 @@ import NavigationHeader from '../components/NavigationHeader/NavigationHeader';
 export default function Talks() {
   return (
     <div className="flex flex-col h-screen">
-      <NavigationHeader noLinks={true} />
+      <NavigationHeader noLinks={true} seemless={true} />
       <ClientOnly fallback={<span>loading...</span>}>
         {() => (
           <div className="grow">

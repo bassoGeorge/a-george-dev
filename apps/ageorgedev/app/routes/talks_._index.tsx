@@ -12,7 +12,11 @@ export default function TalksList() {
         <Heading1 className="font-bold text-center">Talks</Heading1>
         <div className={`${pageContainer} flex flex-col gap-3 mt-6`}>
           <Link to="./tailwind">
-            <SkewedBox skewType={0} interactive={true}>
+            <SkewedBox
+              interactive={true}
+              shape={'trapRight'}
+              className="bg-cc-page-2"
+            >
               <Heading2>Tailwind beyond Production</Heading2>
               <BodyXl className="mt-2">
                 Practical strategies for building production applications with

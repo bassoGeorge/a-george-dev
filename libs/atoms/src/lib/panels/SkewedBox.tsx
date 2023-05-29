@@ -1,35 +1,50 @@
 import {
-  boxTypeA,
-  boxTypeB,
   interactiveShadow,
+  shapes,
+  skewStrength,
   skewedBox,
   skewedBoxBorder,
   skewedBoxShadow,
 } from './panels.css';
 
+type Shape = 'trapRight' | 'trapLeft' | 'triUpperRight' | 'triUpperLeft';
+type Border = 'none' | 'all' | 'bottom';
+
 type SkewedBoxProps = {
-  skewType: 0 | 1;
+  shape?: Shape;
+  border?: Border;
   interactive?: boolean;
+  outerClassName?: string;
 };
 
 export function SkewedBox({
   children,
-  skewType,
+  shape,
+  border,
   className,
+  outerClassName,
   interactive,
   ...otherProps
 }: React.HTMLProps<HTMLDivElement> & SkewedBoxProps) {
-  const boxTypeClass = skewType === 0 ? boxTypeA : boxTypeB;
+  const skewShape = shape ? shapes[shape] : '';
+  border = border ?? 'all';
+
   return (
     <div
       {...otherProps}
-      className={`${skewedBoxShadow} ${interactive ? interactiveShadow : ''} ${
-        className ?? ''
-      }`}
+      className={`${skewStrength} ${skewShape} ${skewedBoxShadow} ${
+        interactive ? interactiveShadow : ''
+      } ${outerClassName ?? ''}`}
     >
-      <div className={`${skewedBoxBorder} ${boxTypeClass}`}>
-        <div className={`${skewedBox}`}>{children}</div>
+      <div className={`${skewedBoxBorder} ${fakeBorderClasses[border]}`}>
+        <div className={`${skewedBox} ${className ?? ''}`}>{children}</div>
       </div>
     </div>
   );
 }
+
+const fakeBorderClasses: Record<Border, string> = {
+  none: '',
+  all: 'p-1',
+  bottom: 'pb-1',
+};

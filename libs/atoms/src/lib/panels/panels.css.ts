@@ -1,5 +1,14 @@
-import { RawColors, Spacing } from '@ageorgedev/foundation-styles';
-import { style, createVar, fallbackVar } from '@vanilla-extract/css';
+import {
+  ContextualColors,
+  RawColors,
+  Spacing,
+} from '@ageorgedev/foundation-styles';
+import {
+  style,
+  createVar,
+  fallbackVar,
+  styleVariants,
+} from '@vanilla-extract/css';
 
 const d = createVar('delta');
 const tlY = createVar('tlY');
@@ -12,30 +21,39 @@ const trX = createVar('trX');
 const blX = createVar('blX');
 const brX = createVar('brX');
 
-const skewStrength = style({
+export const skewStrength = style({
   vars: {
     [d]: Spacing[2],
   },
 });
 
-export const boxTypeA = style({
-  vars: {
-    [trY]: d,
-    [brY]: d,
+export const shapes = styleVariants({
+  trapRight: {
+    vars: {
+      [trY]: d,
+      [brY]: d,
+    },
+  },
+  trapLeft: {
+    vars: {
+      [tlY]: d,
+      [blY]: d,
+    },
+  },
+  triUpperRight: {
+    vars: {
+      [brY]: d,
+    },
+  },
+  triUpperLeft: {
+    vars: {
+      [blY]: d,
+    },
   },
 });
 
-export const boxTypeB = style({
-  vars: {
-    [tlY]: d,
-    [blY]: d,
-  },
-});
-
-const skewStyle = style([
-  skewStrength,
-  {
-    clipPath: `polygon(
+const skewStyle = style({
+  clipPath: `polygon(
       ${fallbackVar(tlX, '0px')} 
       ${fallbackVar(tlY, '0px')}, 
 
@@ -48,12 +66,17 @@ const skewStyle = style([
       ${fallbackVar(blX, '0px')} 
       calc(100% - ${fallbackVar(blY, '0px')})
     )`,
+});
+
+export const skewedBoxBorder = style(['bg-cc-neutral-500', skewStyle]);
+
+export const skewedBox = style([
+  'p-6',
+  skewStyle,
+  {
+    backgroundColor: ContextualColors.page[1], // kind of acts as a default. can be overridden by passing in bg-cc-*
   },
 ]);
-
-export const skewedBoxBorder = style(['bg-cc-neutral-500 p-1', skewStyle]);
-
-export const skewedBox = style(['p-6 bg-cc-page-2', skewStyle]);
 
 export const skewedBoxShadow = style({
   filter: `drop-shadow(4px 8px 0 ${RawColors.shadow[3]})`,
@@ -63,7 +86,7 @@ export const interactiveShadow = style({
   transition: 'filter 0.15s ease-out, transform 0.15s ease-out',
   ':hover': {
     filter: `drop-shadow(6px 10px 0 ${RawColors.shadow[2]})`,
-    transform: 'translate(-2px)',
+    transform: 'translate(-2px, -4px)',
   },
   ':active': {
     filter: `drop-shadow(2px 6px 0 ${RawColors.shadow[4]})`,
