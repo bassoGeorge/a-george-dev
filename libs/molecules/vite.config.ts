@@ -5,6 +5,7 @@ import viteTsConfigPaths from 'vite-tsconfig-paths';
 import dts from 'vite-plugin-dts';
 import { join } from 'path';
 import Inspect from 'vite-plugin-inspect';
+import { removeFilesPlugin } from './vite-plugins';
 
 export default defineConfig({
   cacheDir: '../../node_modules/.vite/molecules',
@@ -23,6 +24,7 @@ export default defineConfig({
     viteTsConfigPaths({
       root: '../../',
     }),
+    removeFilesPlugin(),
   ],
 
   // Uncomment this if you are using workers.
