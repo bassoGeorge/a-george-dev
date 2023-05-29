@@ -12,7 +12,7 @@ export default function TalksList() {
         <Heading1>Talks</Heading1>
         <div className={`${pageContainer} flex flex-col gap-3 mt-3`}>
           <Link to="./tailwind">
-            <SkewedBox skewType={0}>
+            <SkewedBox skewType={0} interactive={true}>
               <Heading2>Tailwind beyond Production</Heading2>
             </SkewedBox>
           </Link>

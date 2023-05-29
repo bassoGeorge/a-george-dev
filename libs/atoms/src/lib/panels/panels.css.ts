@@ -58,3 +58,15 @@ export const skewedBox = style(['p-6 bg-cc-page-2', skewStyle]);
 export const skewedBoxShadow = style({
   filter: `drop-shadow(4px 8px 0 ${RawColors.shadow[2]})`,
 });
+
+export const interactiveShadow = style({
+  transition: 'filter 0.15s ease-out, transform 0.15s ease-out',
+  ':hover': {
+    filter: `drop-shadow(6px 10px 0 ${RawColors.shadow[4]})`,
+    transform: 'translate(-2px)',
+  },
+  ':active': {
+    filter: `drop-shadow(2px 6px 0 ${RawColors.shadow[1]})`,
+    transform: 'translate(2px)',
+  },
+});
