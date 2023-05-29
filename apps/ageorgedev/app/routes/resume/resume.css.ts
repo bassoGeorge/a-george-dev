@@ -1,8 +1,13 @@
-import { createVar, globalStyle, style } from '@vanilla-extract/css';
 import { ContextualColors, RawColors } from '@ageorgedev/foundation-styles';
+import { createVar, globalStyle, style } from '@vanilla-extract/css';
 
+// NOTE: this is affecting styles in other pages as well. Currently isolated using print media query
 globalStyle('html', {
-  fontSize: '12px',
+  '@media': {
+    print: {
+      fontSize: '12px',
+    },
+  },
 });
 
 const bg = createVar();

@@ -40,8 +40,6 @@ export function TalkTailwind() {
           <Heading1>Welcome to The Tailwind Talk</Heading1>
           <Body>Just a testing slide for now</Body>
           <CodeBlock text={codePiece} />
-          <hr />
-          <CodeBlock text={secondCodePiece} />
         </section>
         <section>
           <Heading1>Slide 2</Heading1>

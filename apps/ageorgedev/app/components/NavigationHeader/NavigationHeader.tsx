@@ -9,7 +9,7 @@ export type NavigationHeaderProps = {
 export default function NavigationHeader(props: NavigationHeaderProps) {
   const HomeLink = props.noLinks ? 'span' : NavLink;
   return (
-    <header className="flex justify-between items-center px-3 py-4 bg-cc-page-1">
+    <header className="flex justify-between items-center px-3 py-3 bg-cc-page-1">
       <div>
         <HomeLink to="/">
           <ShortNameLogo />

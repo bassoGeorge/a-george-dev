@@ -10,6 +10,8 @@ export type TextTag =
   | 'h6'
   | 'span'
   | 'p'
+  | 'em'
+  | 'b'
   | 'small';
 
 type TextProps = {
