@@ -1,4 +1,4 @@
-import { Spacing } from '@ageorgedev/foundation-styles';
+import { RawColors, Spacing } from '@ageorgedev/foundation-styles';
 import { style, createVar, fallbackVar } from '@vanilla-extract/css';
 
 const d = createVar('delta');
@@ -32,7 +32,7 @@ export const boxTypeB = style({
   },
 });
 
-export const skewedBox = style([
+const skewStyle = style([
   skewStrength,
   {
     clipPath: `polygon(
@@ -49,9 +49,12 @@ export const skewedBox = style([
       calc(100% - ${fallbackVar(blY, '0px')})
     )`,
   },
-  'p-6 bg-cc-page-3',
 ]);
 
+export const skewedBoxBorder = style(['bg-cc-neutral-500 p-1', skewStyle]);
+
+export const skewedBox = style(['p-6 bg-cc-page-2', skewStyle]);
+
 export const skewedBoxShadow = style({
-  filter: 'drop-shadow(0 0 0.75rem rgba(0, 0, 0, 0.2))',
+  filter: `drop-shadow(4px 8px 0 ${RawColors.shadow[2]})`,
 });

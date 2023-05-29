@@ -1,5 +1,3 @@
-import { Heading3 } from '@ageorgedev/atoms';
-import { ThemeSwitcher } from '@ageorgedev/molecules';
 import '@ageorgedev/reveal-framework/globals';
 import { Outlet } from '@remix-run/react';
 import { ClientOnly } from 'remix-utils';
