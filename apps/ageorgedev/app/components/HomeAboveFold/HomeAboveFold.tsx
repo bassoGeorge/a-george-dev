@@ -1,14 +1,14 @@
 import { Heading3, Heading4, InterfaceXl, NameLogo } from '@ageorgedev/atoms';
 import { ThemeSwitcher } from '@ageorgedev/molecules';
-import { Barricade } from '@phosphor-icons/react';
+import { NavLink } from '@remix-run/react';
 import {
   conSection,
   container,
   nameSection,
   subTextSection,
-} from './SiteUnderConstruction.css';
+} from './HomeAboveFold.css';
 
-export function SiteUnderConstruction() {
+export function HomeAboveFold() {
   return (
     <main
       className={`${container} grid w-screen place-items-stretch overflow-hidden relative`}
@@ -35,11 +35,9 @@ export function SiteUnderConstruction() {
         </div>
       </section>
       <section
-        className={`${conSection} ${InterfaceXl.classes} p-4 tablet:col-span-2 flex justify-center gap-3 relative tablet:text-2xl`}
+        className={`${conSection} ${InterfaceXl.classes} p-4 pb-6 tablet:col-span-2 flex justify-center gap-3 relative tablet:text-2xl`}
       >
-        <Barricade weight="duotone" className="text-rc-p-accent-400" />
-        <p>Site under construction</p>
-        <Barricade weight="duotone" className="text-rc-p-accent-400" />
+        <NavLink to="/talks">Talks</NavLink>
       </section>
     </main>
   );

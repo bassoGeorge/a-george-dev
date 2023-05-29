@@ -1,3 +1,4 @@
+import { StraightBox } from '@ageorgedev/atoms';
 import { useTheme } from './Theme';
 
 // @ts-ignore
@@ -17,14 +18,15 @@ export function CodeBlock(props: CodeBlockProps) {
   const codeTheme = theme === 'light' ? lightTheme : darkTheme;
 
   return (
-    <div className="text-left">
+    <StraightBox className="text-left">
       <SyntaxHighlighter
         language="typescript"
         style={codeTheme}
         showLineNumbers={true}
+        customStyle={{ margin: 0, borderRadius: 0 }}
       >
         {props.text}
       </SyntaxHighlighter>
-    </div>
+    </StraightBox>
   );
 }

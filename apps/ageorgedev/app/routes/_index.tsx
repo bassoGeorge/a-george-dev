@@ -1,5 +1,5 @@
-import { SiteUnderConstruction } from '../components/SiteUnderConstruction';
+import { HomeAboveFold } from '../components/HomeAboveFold/HomeAboveFold';
 
 export default function Index() {
-  return <SiteUnderConstruction />;
+  return <HomeAboveFold />;
 }
