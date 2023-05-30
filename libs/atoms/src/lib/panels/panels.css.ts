@@ -82,14 +82,13 @@ export const skewedBox = style([
 export const skewedBoxShadow = style(['drop-shadow']);
 
 export const interactiveShadow = style([
-  'hover:drop-shadow-far active:drop-shadow-near',
+  'hover:drop-shadow-far active:drop-shadow-near transition',
   {
-    transition: 'filter 0.15s ease-out, transform 0.15s ease-out',
     ':hover': {
-      transform: 'translate(-2px, -4px)',
+      transform: 'translate(-2px)',
     },
     ':active': {
-      transform: 'translate(2px)',
+      transform: 'translate(4px)',
     },
   },
 ]);
