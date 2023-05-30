@@ -1,9 +1,4 @@
-import {
-  ContextualColors,
-  DropShadows,
-  Shadows,
-  Spacing,
-} from '@ageorgedev/foundation-styles';
+import { ContextualColors, Spacing } from '@ageorgedev/foundation-styles';
 import {
   createVar,
   fallbackVar,
@@ -85,10 +80,10 @@ export const interactiveShadow = style([
   'hover:drop-shadow-far active:drop-shadow-near transition',
   {
     ':hover': {
-      transform: 'translate(-2px)',
+      transform: 'translate(-2px, -4px)',
     },
     ':active': {
-      transform: 'translate(4px)',
+      transform: 'translate(2px, 4px)',
     },
   },
 ]);
