@@ -1,14 +1,13 @@
 import {
   ContextualColors,
   DropShadows,
-  RawColors,
   Shadows,
   Spacing,
 } from '@ageorgedev/foundation-styles';
 import {
-  style,
   createVar,
   fallbackVar,
+  style,
   styleVariants,
 } from '@vanilla-extract/css';
 
@@ -80,22 +79,17 @@ export const skewedBox = style([
   },
 ]);
 
-export const skewedBoxShadow = style({
-  filter: DropShadows.DEFAULT,
-});
+export const skewedBoxShadow = style(['drop-shadow']);
 
-export const interactiveShadow = style({
-  transition: 'filter 0.15s ease-out, transform 0.15s ease-out',
-  ':hover': {
-    filter: DropShadows.far,
-    transform: 'translate(-2px, -4px)',
+export const interactiveShadow = style([
+  'hover:drop-shadow-far active:drop-shadow-near',
+  {
+    transition: 'filter 0.15s ease-out, transform 0.15s ease-out',
+    ':hover': {
+      transform: 'translate(-2px, -4px)',
+    },
+    ':active': {
+      transform: 'translate(2px)',
+    },
   },
-  ':active': {
-    filter: DropShadows.near,
-    transform: 'translate(2px)',
-  },
-});
-
-export const simpleShadow = style({
-  boxShadow: Shadows.DEFAULT,
-});
+]);
