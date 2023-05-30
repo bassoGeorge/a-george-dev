@@ -1,6 +1,8 @@
 import {
   ContextualColors,
+  DropShadows,
   RawColors,
+  Shadows,
   Spacing,
 } from '@ageorgedev/foundation-styles';
 import {
@@ -79,21 +81,21 @@ export const skewedBox = style([
 ]);
 
 export const skewedBoxShadow = style({
-  filter: `drop-shadow(4px 8px 0 ${RawColors.shadow[3]})`,
+  filter: DropShadows.DEFAULT,
 });
 
 export const interactiveShadow = style({
   transition: 'filter 0.15s ease-out, transform 0.15s ease-out',
   ':hover': {
-    filter: `drop-shadow(6px 10px 0 ${RawColors.shadow[2]})`,
+    filter: DropShadows.far,
     transform: 'translate(-2px, -4px)',
   },
   ':active': {
-    filter: `drop-shadow(2px 6px 0 ${RawColors.shadow[4]})`,
+    filter: DropShadows.near,
     transform: 'translate(2px)',
   },
 });
 
 export const simpleShadow = style({
-  boxShadow: `4px 8px 0 0 ${RawColors.shadow[3]}`,
+  boxShadow: Shadows.DEFAULT,
 });

@@ -24,6 +24,11 @@ createGlobalTheme(':root', ContextualColors, {
     400: RawColors.lNeutral['400'],
     500: RawColors.lNeutral['500'],
   },
+  shadow: {
+    far: RawColors.shadow[2],
+    DEFAULT: RawColors.shadow[3],
+    near: RawColors.shadow[4],
+  },
 });
 
 createGlobalTheme(':root.dark', ContextualColors, {
@@ -47,5 +52,10 @@ createGlobalTheme(':root.dark', ContextualColors, {
     300: RawColors.dNeutral['300'],
     400: RawColors.dNeutral['400'],
     500: RawColors.dNeutral['500'],
+  },
+  shadow: {
+    far: RawColors.shadow[3],
+    DEFAULT: RawColors.shadow[4],
+    near: RawColors.shadow[5],
   },
 });

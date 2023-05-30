@@ -51,6 +51,7 @@ export const RAW_COLORS = {
     2: 'rgb(0 0 0 / .25)',
     3: 'rgb(0 0 0 / .6)',
     4: 'rgb(0 0 0 / .8)',
+    5: 'rgb(0 0 0)',
   },
 };
 
