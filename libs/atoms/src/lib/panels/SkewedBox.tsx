@@ -17,15 +17,18 @@ export function SkewedBox({
   outerClassName,
   interactive,
   shape,
+  skewStrength,
   border,
   ...htmlProps
 }: SkewedBoxProps) {
   return (
     <div
       {...htmlProps}
-      className={`${skewedBoxShadowContainer({ shape, interactive })} ${
-        outerClassName ?? ''
-      }`}
+      className={`${skewedBoxShadowContainer({
+        shape,
+        interactive,
+        skewStrength,
+      })} ${outerClassName ?? ''}`}
     >
       <div className={skewedBoxBorderContainer({ border })}>
         <div className={`${skewedBoxContents} ${className ?? ''}`}>
