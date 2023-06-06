@@ -10,6 +10,7 @@ export function useRevealFramework(ref: RefObject<HTMLElement>) {
         embedded: true,
         keyboardCondition: 'focused',
         controlsTutorial: false,
+        disableLayout: true,
       });
       deck.initialize();
     })();
