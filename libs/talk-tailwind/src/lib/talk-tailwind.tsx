@@ -1,4 +1,4 @@
-import { Body, Heading1 } from '@ageorgedev/atoms';
+import { Body, Heading1, TwLogo } from '@ageorgedev/atoms';
 import { CodeBlock } from '@ageorgedev/molecules';
 import { useRevealFramework } from '@ageorgedev/reveal-framework';
 import { useRef } from 'react';
@@ -40,6 +40,7 @@ export function TalkTailwind() {
           <Heading1>Welcome to The Tailwind Talk</Heading1>
           <Body>Just a testing slide for now</Body>
           <CodeBlock text={codePiece} />
+          <TwLogo className="h-5" />
         </section>
         <section>
           <Heading1>Slide 2</Heading1>
