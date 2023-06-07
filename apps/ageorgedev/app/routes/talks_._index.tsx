@@ -14,7 +14,7 @@ export default function TalksList() {
           <Link to="./tailwind">
             <SkewedBox
               interactive={true}
-              shape={'trapRight'}
+              shape="trapRight"
               className="bg-cc-page-2"
             >
               <Heading2>Tailwind beyond Production</Heading2>

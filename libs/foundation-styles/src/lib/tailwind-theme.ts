@@ -12,6 +12,7 @@ import {
   LineHeight,
 } from './tokens/typography';
 import { mapKeys } from '@ageorgedev/toolbelt';
+import { Shadows } from './tokens/shadows';
 
 export const TailwindTheme = {
   spacing: Spacing,
@@ -33,4 +34,10 @@ export const TailwindTheme = {
   fontSize: FontSize,
   letterSpacing: LetterSpacing,
   lineHeight: LineHeight,
+  boxShadow: {
+    ...Shadows,
+  },
+  dropShadow: {
+    ...Shadows,
+  },
 } satisfies Config['theme'];

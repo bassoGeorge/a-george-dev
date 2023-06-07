@@ -13,3 +13,7 @@ gs('.reveal code', {
 gs('.reveal .controls-arrow', {
   color: RawColors.pAccent[400],
 });
+
+gs('.reveal .progress span', {
+  backgroundColor: RawColors.pAccent[400],
+});

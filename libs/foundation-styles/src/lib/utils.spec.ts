@@ -12,6 +12,7 @@ describe('Foundation Utils', () => {
     it('creates base css variable names correctly', () => {
       expect(cssVarName(['something', 'good'])).toEqual('ag-something-good');
       expect(cssVarName(['pascalCase'])).toEqual('ag-pascal-case');
+      expect(cssVarName(['part', ''])).toEqual('ag-part');
     });
   });
 

@@ -1,56 +1,20 @@
-import {
-  ContextualColors,
-  RawColors,
-  Spacing,
-} from '@ageorgedev/foundation-styles';
-import {
-  style,
-  createVar,
-  fallbackVar,
-  styleVariants,
-} from '@vanilla-extract/css';
+import { ContextualColors, Spacing } from '@ageorgedev/foundation-styles';
+import { createVar, fallbackVar, style } from '@vanilla-extract/css';
+import { recipe } from '@vanilla-extract/recipes';
 
 const d = createVar('delta');
-const tlY = createVar('tlY');
-const trY = createVar('trY');
-const blY = createVar('blY');
-const brY = createVar('brY');
 
 const tlX = createVar('tlX');
+const tlY = createVar('tlY');
+
 const trX = createVar('trX');
+const trY = createVar('trY');
+
 const blX = createVar('blX');
+const blY = createVar('blY');
+
 const brX = createVar('brX');
-
-export const skewStrength = style({
-  vars: {
-    [d]: Spacing[2],
-  },
-});
-
-export const shapes = styleVariants({
-  trapRight: {
-    vars: {
-      [trY]: d,
-      [brY]: d,
-    },
-  },
-  trapLeft: {
-    vars: {
-      [tlY]: d,
-      [blY]: d,
-    },
-  },
-  triUpperRight: {
-    vars: {
-      [brY]: d,
-    },
-  },
-  triUpperLeft: {
-    vars: {
-      [blY]: d,
-    },
-  },
-});
+const brY = createVar('brY');
 
 const skewStyle = style({
   clipPath: `polygon(
@@ -68,32 +32,92 @@ const skewStyle = style({
     )`,
 });
 
-export const skewedBoxBorder = style(['bg-cc-neutral-500', skewStyle]);
+export const skewedBoxShadowContainer = recipe({
+  base: 'drop-shadow',
+  variants: {
+    shape: {
+      trapRight: {
+        vars: {
+          [trY]: d,
+          [brY]: d,
+        },
+      },
+      trapLeft: {
+        vars: {
+          [tlY]: d,
+          [blY]: d,
+        },
+      },
+      triUpperRight: {
+        vars: {
+          [brY]: d,
+        },
+      },
+      triUpperLeft: {
+        vars: {
+          [blY]: d,
+        },
+      },
+    },
+    interactive: {
+      true: [
+        'hover:drop-shadow-far active:drop-shadow-near transition',
+        {
+          ':hover': {
+            transform: 'translate(-2px, -4px)',
+          },
+          ':active': {
+            transform: 'translate(2px, 4px)',
+          },
+        },
+      ],
+    },
+    skewStrength: {
+      none: {
+        vars: {
+          [d]: '0px',
+        },
+      },
+      light: {
+        vars: {
+          [d]: Spacing[1],
+        },
+      },
+      medium: {
+        vars: {
+          [d]: Spacing[2],
+        },
+      },
+      heavy: {
+        vars: {
+          [d]: Spacing[4],
+        },
+      },
+    },
+  },
+  defaultVariants: {
+    skewStrength: 'medium',
+  },
+});
 
-export const skewedBox = style([
+export const skewedBoxBorderContainer = recipe({
+  base: ['bg-cc-neutral-500', skewStyle],
+  variants: {
+    border: {
+      all: 'p-1',
+      bottom: 'pb-1',
+      none: '',
+    },
+  },
+  defaultVariants: {
+    border: 'all',
+  },
+});
+
+export const skewedBoxContents = style([
   'p-6',
   skewStyle,
   {
     backgroundColor: ContextualColors.page[1], // kind of acts as a default. can be overridden by passing in bg-cc-*
   },
 ]);
-
-export const skewedBoxShadow = style({
-  filter: `drop-shadow(4px 8px 0 ${RawColors.shadow[3]})`,
-});
-
-export const interactiveShadow = style({
-  transition: 'filter 0.15s ease-out, transform 0.15s ease-out',
-  ':hover': {
-    filter: `drop-shadow(6px 10px 0 ${RawColors.shadow[2]})`,
-    transform: 'translate(-2px, -4px)',
-  },
-  ':active': {
-    filter: `drop-shadow(2px 6px 0 ${RawColors.shadow[4]})`,
-    transform: 'translate(2px)',
-  },
-});
-
-export const simpleShadow = style({
-  boxShadow: `4px 8px 0 0 ${RawColors.shadow[3]}`,
-});

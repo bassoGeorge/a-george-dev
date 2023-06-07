@@ -1,5 +1,3 @@
-import { simpleShadow } from './panels.css';
-
 export function StraightBox({
   className,
   ...otherProps
@@ -7,7 +5,7 @@ export function StraightBox({
   return (
     <div
       {...otherProps}
-      className={`${simpleShadow} border-cc-neutral-500 border-2 mb-4 ${
+      className={`shadow border-cc-neutral-500 border-2 mb-4 ${
         className ?? ''
       }`}
     ></div>

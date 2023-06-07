@@ -8,6 +8,7 @@ const vName = (baseName: string) => (grade: string | number) =>
 const pageName = vName('page');
 const neutralName = vName('neutral');
 const neutralInverseName = vName('neutral-inverse');
+const shadowName = vName('shadow');
 
 export const ContextualColors = createGlobalThemeContract({
   page: {
@@ -30,5 +31,10 @@ export const ContextualColors = createGlobalThemeContract({
     300: neutralInverseName(300),
     400: neutralInverseName(400),
     500: neutralInverseName(500),
+  },
+  shadow: {
+    DEFAULT: shadowName(''),
+    near: shadowName('near'),
+    far: shadowName('far'),
   },
 });
