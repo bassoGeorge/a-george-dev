@@ -12,8 +12,6 @@ import * as path from 'path';
 import { LibSchema } from './schema';
 
 export default async function (tree: Tree, schema: LibSchema) {
-  console.log('Creating library with options', schema);
-
   const libGeneratorSchema = {
     name: schema.name,
     linter: Linter.EsLint,
@@ -57,7 +55,9 @@ export default async function (tree: Tree, schema: LibSchema) {
   tree.write(viteConfigPath, lines.join('\n'));
 
   // Add tailwind and postcss files
-  generateFiles(tree, path.join(__dirname, 'files'), projectConfig.root, {});
+  generateFiles(tree, path.join(__dirname, 'files'), projectConfig.root, {
+    template: '',
+  });
 
   formatFiles(tree);
 
