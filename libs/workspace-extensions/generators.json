@@ -12,6 +12,11 @@
       "factory": "./src/generators/debug/generator",
       "schema": "./src/generators/debug/schema.json",
       "description": "debug generator"
+    },
+    "lib": {
+      "factory": "./src/generators/lib/generator",
+      "schema": "./src/generators/lib/schema.json",
+      "description": "library generator"
     }
   }
 }

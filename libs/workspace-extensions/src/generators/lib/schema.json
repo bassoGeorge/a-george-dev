@@ -1,0 +1,24 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "$id": "Lib",
+  "title": "",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "",
+      "$default": {
+        "$source": "argv",
+        "index": 0
+      },
+      "x-prompt": "What name would you like to use?"
+    },
+    "react": {
+      "type": "boolean",
+      "default": false,
+      "description": "Use React?",
+      "x-prompt": "Would you like to use React with this library?"
+    }
+  },
+  "required": ["name"]
+}
