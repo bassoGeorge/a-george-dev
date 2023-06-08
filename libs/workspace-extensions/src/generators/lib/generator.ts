@@ -29,6 +29,7 @@ export default async function (tree: Tree, schema: LibSchema) {
 
   const projectConfig = readProjectConfiguration(tree, schema.name);
 
+  // Fix eslint
   updateJson(tree, `${projectConfig.root}/.eslintrc.json`, (config) => {
     config.extends.push('../../.eslintrc.ts.json');
     config.ignorePatterns = [
@@ -40,6 +41,22 @@ export default async function (tree: Tree, schema: LibSchema) {
     return config;
   });
 
+  // Add vanilla-extract plugin to vite.config.ts
+  const viteConfigPath = `${projectConfig.root}/vite.config.ts`;
+  const contents = tree.read(viteConfigPath).toString();
+  const lines = contents.split('\n');
+  lines.splice(
+    1,
+    0,
+    `import { vanillaExtractPlugin } from '@vanilla-extract/vite-plugin';`
+  );
+  const pluginIndex = lines.findIndex((line) =>
+    line.includes('viteTsConfigPaths({')
+  );
+  lines.splice(pluginIndex + 3, 0, `    vanillaExtractPlugin(),`);
+  tree.write(viteConfigPath, lines.join('\n'));
+
+  // Add tailwind and postcss files
   generateFiles(tree, path.join(__dirname, 'files'), projectConfig.root, {});
 
   formatFiles(tree);
