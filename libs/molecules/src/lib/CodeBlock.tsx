@@ -1,4 +1,4 @@
-import { StraightBox } from '@ageorgedev/atoms';
+import { Card } from '@ageorgedev/atoms';
 import { useTheme } from './Theme';
 
 // @ts-ignore
@@ -18,7 +18,7 @@ export function CodeBlock(props: CodeBlockProps) {
   const codeTheme = theme === 'light' ? lightTheme : darkTheme;
 
   return (
-    <StraightBox className="text-left">
+    <Card className="text-left">
       <SyntaxHighlighter
         language="typescript"
         style={codeTheme}
@@ -27,6 +27,6 @@ export function CodeBlock(props: CodeBlockProps) {
       >
         {props.text}
       </SyntaxHighlighter>
-    </StraightBox>
+    </Card>
   );
 }

@@ -1,4 +1,4 @@
-import { Body, BodyXl, Heading1, Heading2, SkewedBox } from '@ageorgedev/atoms';
+import { Body, BodyXl, Heading1, Heading2, TiltCard } from '@ageorgedev/atoms';
 import '@ageorgedev/reveal-framework/globals';
 import { Link } from '@remix-run/react';
 import NavigationHeader from '../components/NavigationHeader/NavigationHeader';
@@ -12,7 +12,7 @@ export default function TalksList() {
         <Heading1 className="font-bold text-center">Talks</Heading1>
         <div className={`${pageContainer} flex flex-col gap-3 mt-6`}>
           <Link to="./tailwind">
-            <SkewedBox
+            <TiltCard
               interactive={true}
               shape="trapRight"
               className="bg-cc-page-2"
@@ -26,7 +26,7 @@ export default function TalksList() {
               <Body className="text-right mt-5 text-cc-neutral-200">
                 <em>Unfold UI | Thoughtworks | 2023</em>
               </Body>
-            </SkewedBox>
+            </TiltCard>
           </Link>
         </div>
       </main>

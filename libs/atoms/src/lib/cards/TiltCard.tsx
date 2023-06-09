@@ -3,7 +3,7 @@ import {
   skewedBoxBorderContainer,
   skewedBoxContents,
   skewedBoxShadowContainer,
-} from './panels.css';
+} from './TiltCard.css';
 
 type SkewedBoxProps = {
   outerClassName?: string;
@@ -11,7 +11,7 @@ type SkewedBoxProps = {
   RecipeVariants<typeof skewedBoxBorderContainer> &
   React.HTMLProps<HTMLDivElement>;
 
-export function SkewedBox({
+export function TiltCard({
   children,
   className,
   outerClassName,
