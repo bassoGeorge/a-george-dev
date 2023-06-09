@@ -37,7 +37,12 @@ export function HomeAboveFold() {
       <section
         className={`${conSection} ${InterfaceXl.classes} p-4 pb-6 tablet:col-span-2 flex justify-center gap-3 relative tablet:text-2xl`}
       >
-        <NavLink to="/talks">Talks</NavLink>
+        <NavLink
+          to="/talks"
+          className="focus:text-rc-s-accent-500 hover:text-rc-s-accent-400 transition-colors"
+        >
+          Talks
+        </NavLink>
       </section>
     </main>
   );
