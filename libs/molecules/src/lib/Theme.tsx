@@ -7,6 +7,8 @@ import {
 } from 'react';
 
 type Theme = 'light' | 'dark';
+type ActualTheme = Theme | 'auto'; // auto basically means that we are picking up from system preference
+
 export type ThemeContext = {
   theme: Theme;
   setTheme(newTheme: Theme): void;
@@ -24,14 +26,19 @@ export function useTheme() {
 }
 
 export function ThemeProvider({ children }: React.PropsWithChildren) {
-  const [theme, setThemeValue] = useState<Theme>('light');
+  const [actualTheme, setActualTheme] = useState<ActualTheme>('auto');
+  const [inferredTheme, setInferredTheme] = useState<Theme>('light');
 
   useEffect(() => {
-    setThemeValue(getThemeFromUserPreference());
+    setActualTheme(getInitialThemeFromUserPrefOrAuto());
   }, []);
 
-  const setTheme = useCallback<ThemeContext['setTheme']>((newTheme) => {
-    setThemeValue(newTheme);
+  useEffect(() => {
+    setInferredTheme(actualTheme === 'auto' ? inferAutoTheme() : actualTheme);
+  }, [actualTheme]);
+
+  const manuallySetTheme = useCallback<ThemeContext['setTheme']>((newTheme) => {
+    setActualTheme(newTheme);
     setThemeInLS(newTheme);
   }, []);
 
@@ -44,14 +51,13 @@ export function ThemeProvider({ children }: React.PropsWithChildren) {
             return;
           }
 
-          const nextTheme: Theme = (mutation.target as HTMLHtmlElement)
-            .getAttribute(mutation.attributeName)
-            ?.split(' ')
-            ?.includes('dark')
-            ? 'dark'
-            : 'light';
+          const nextTheme: ActualTheme = getThemeFromClassString(
+            (mutation.target as HTMLHtmlElement).getAttribute(
+              mutation.attributeName
+            ) ?? ''
+          );
 
-          setTheme(nextTheme);
+          setActualTheme(nextTheme);
           break;
         }
         default:
@@ -76,33 +82,63 @@ export function ThemeProvider({ children }: React.PropsWithChildren) {
 
   // Synchronises the theme state with the classlist of the <html> element
   useEffect(() => {
-    if (
-      theme === 'light' &&
-      document.documentElement.classList.contains('dark')
-    ) {
-      document.documentElement.classList.remove('dark');
-    } else if (
-      theme === 'dark' &&
-      !document.documentElement.classList.contains('dark')
-    ) {
-      document.documentElement.classList.add('dark');
+    const classList = document.documentElement.classList;
+
+    switch (actualTheme) {
+      case 'light':
+        safeRemoveClass(classList, 'dark');
+        safeAddClass(classList, 'light');
+        break;
+      case 'dark':
+        safeRemoveClass(classList, 'light');
+        safeAddClass(classList, 'dark');
+        break;
+      case 'auto':
+        safeRemoveClass(classList, 'light');
+        safeRemoveClass(classList, 'dark');
+        break;
     }
-  }, [theme]);
+  }, [actualTheme]);
 
   return (
-    <themeContext.Provider value={{ theme, setTheme }}>
+    <themeContext.Provider
+      value={{ theme: inferredTheme, setTheme: manuallySetTheme }}
+    >
       {children}
     </themeContext.Provider>
   );
 }
 
-function getThemeFromUserPreference(): Theme {
-  return (
-    getThemeFromLS() ??
-    (window.matchMedia('(prefers-color-scheme: dark)').matches
-      ? 'dark'
-      : 'light')
-  );
+function safeRemoveClass(classList: DOMTokenList, className: string) {
+  if (classList.contains(className)) {
+    classList.remove(className);
+  }
+}
+
+function safeAddClass(classList: DOMTokenList, className: string) {
+  if (!classList.contains(className)) {
+    classList.add(className);
+  }
+}
+
+function getThemeFromClassString(classString: string): ActualTheme {
+  const classes = classString.split(' ');
+  return classes.includes('dark')
+    ? 'dark'
+    : classes.includes('light')
+    ? 'light'
+    : 'auto';
+}
+
+function inferAutoTheme(): Theme {
+  return window.matchMedia('(prefers-color-scheme: dark)').matches
+    ? 'dark'
+    : 'light';
+}
+
+/** LocalStorage stuff */
+function getInitialThemeFromUserPrefOrAuto(): ActualTheme {
+  return getThemeFromLS() ?? 'auto';
 }
 
 const LS_THEME_KEY = 'theme';
