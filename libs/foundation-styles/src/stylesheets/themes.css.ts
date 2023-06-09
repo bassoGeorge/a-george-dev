@@ -29,6 +29,10 @@ createGlobalTheme(':root', ContextualColors, {
     DEFAULT: RawColors.shadow[3],
     near: RawColors.shadow[4],
   },
+  line: {
+    DEFAULT: RawColors.line.main,
+    dark: RawColors.line.main,
+  },
 });
 
 createGlobalTheme(':root.dark', ContextualColors, {
@@ -57,5 +61,9 @@ createGlobalTheme(':root.dark', ContextualColors, {
     far: RawColors.shadow[3],
     DEFAULT: RawColors.shadow[4],
     near: RawColors.shadow[5],
+  },
+  line: {
+    DEFAULT: RawColors.line.inverse,
+    dark: RawColors.line.main,
   },
 });

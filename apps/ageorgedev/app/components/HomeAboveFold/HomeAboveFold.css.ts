@@ -3,6 +3,7 @@ import {
   ContextualColors,
   Media,
   RawColors,
+  Spacing,
 } from '@ageorgedev/foundation-styles';
 
 const deg = createVar('skewDeg');
@@ -69,7 +70,7 @@ export const subTextSection = style([
       transform: `skew(${nDeg}, ${deg})`,
       transformOrigin: 'top left',
       boxShadow: `-4px 4px ${RawColors.shadow[1]}`,
-      borderLeft: `4px solid ${RawColors.dNeutral['200']}`,
+      borderLeft: `${Spacing['medium-line']} solid ${ContextualColors.line.dark}`,
     },
   },
   Media.tablet({
@@ -94,7 +95,7 @@ export const conSection = style([
       transform: `skew(0deg, ${deg}) scaleY(2)`,
       transformOrigin: 'top right',
       boxShadow: `-4px -8px ${RawColors.shadow[2]}`,
-      borderTop: `4px solid ${RawColors.dNeutral['500']}`,
+      borderTop: `${Spacing['thick-line']} solid ${ContextualColors.line.dark}`,
     },
   },
 ]);
