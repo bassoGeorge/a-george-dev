@@ -1,23 +1,18 @@
 import {
   Body,
   BodyLg,
-  BodyMd,
   BodySm,
-  BodyXl,
   BodyXs,
-  Heading2,
   Heading3,
   Heading4,
   Heading5,
   Heading6,
-  Interface,
-  InterfaceSm,
   NameLogo,
 } from '@ageorgedev/atoms';
-import { article, aside, eduGrid, expGrid, header, page } from './resume.css';
-import { ArrowSquareOut, GithubLogo } from '@phosphor-icons/react';
+import { ArrowSquareOut } from '@phosphor-icons/react';
+import { Skill, humanSkills, techSkills, toolSkills } from './Skill';
 import { SocialLink } from './SocialLink';
-import { AllSkills, humanSkills, Skill, techSkills, toolSkills } from './Skill';
+import { article, aside, eduGrid, expGrid, header, page } from './resume.css';
 
 const education: { period: string; institute: string; programme: string }[] = [
   {
