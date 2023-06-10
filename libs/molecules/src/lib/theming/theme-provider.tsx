@@ -3,13 +3,11 @@ import {
   useCallback,
   useContext,
   useEffect,
-  useState,
+  useReducer,
 } from 'react';
+import { initialThemeState, themeReducer, Theme } from './theme-state';
 
-type Theme = 'light' | 'dark';
-type ActualTheme = Theme | 'auto'; // auto basically means that we are picking up from system preference
-
-export type ThemeContext = {
+type ThemeContext = {
   theme: Theme;
   setTheme(newTheme: Theme): void;
 };
@@ -21,22 +19,23 @@ const defaultValue: ThemeContext = {
 
 const themeContext = createContext<ThemeContext>(defaultValue);
 
+/** Hooks */
 export function useTheme() {
   return useContext(themeContext);
 }
 
+/** Provider */
 export function ThemeProvider({ children }: React.PropsWithChildren) {
-  const [userTheme, setUserTheme] = useState<Theme | null>(null);
-  const [browserTheme, setBrowserTheme] = useState<Theme>('light');
-  const [domTheme, setDomTheme] = useState<Theme | null>(null);
-
-  const [inferredTheme, setInferredTheme] = useState<Theme>('light');
+  console.log('Running provider');
+  const [{ theme }, dispatch] = useReducer(themeReducer, initialThemeState);
 
   // Listen to the browser theme change, can also be directly used on the queryList
   const mediaChangeListener = useCallback(
     (e: MediaQueryListEvent | MediaQueryList) => {
-      setDomTheme(null); // that hack again
-      setBrowserTheme(e.matches ? 'dark' : 'light');
+      dispatch({
+        type: 'setBySystem',
+        theme: e.matches ? 'dark' : 'light',
+      });
     },
     []
   );
@@ -57,18 +56,21 @@ export function ThemeProvider({ children }: React.PropsWithChildren) {
 
   /** Set the user theme from local storage if present */
   useEffect(() => {
-    setUserTheme(getThemeFromLS());
+    const existingTheme = getThemeFromLS();
+    if (existingTheme) {
+      dispatch({
+        type: 'setByUser',
+        theme: existingTheme,
+      });
+    }
   }, []);
-
-  /** Infer the final theme on the basis of user and browser theme */
-  useEffect(() => {
-    setInferredTheme(domTheme ?? userTheme ?? browserTheme);
-  }, [userTheme, browserTheme, domTheme]);
 
   /** User action to set the next theme, saves to local storage */
   const manuallySetTheme = useCallback<ThemeContext['setTheme']>((newTheme) => {
-    setDomTheme(null); // kind of a hack. We want to ignore the existing dom theme for inferrence
-    setUserTheme(newTheme);
+    dispatch({
+      type: 'setByUser',
+      theme: newTheme,
+    });
     setThemeInLS(newTheme);
   }, []);
 
@@ -89,7 +91,13 @@ export function ThemeProvider({ children }: React.PropsWithChildren) {
             ) ?? ''
           );
 
-          setDomTheme(nextTheme);
+          // Note: This will trigger a re-render, but that is fine, covers the edge case of external scripts
+          // Adding a theme check here is fine, but then the callback changes and we are re-mounting the observer
+          // on every theme change. This is the better tradeoff
+          dispatch({
+            type: 'setByDom',
+            theme: nextTheme,
+          });
 
           break;
         }
@@ -117,7 +125,7 @@ export function ThemeProvider({ children }: React.PropsWithChildren) {
   useEffect(() => {
     const classList = document.documentElement.classList;
 
-    switch (inferredTheme) {
+    switch (theme) {
       case 'light':
         safeRemoveClass(classList, 'dark');
         safeAddClass(classList, 'light');
@@ -127,17 +135,16 @@ export function ThemeProvider({ children }: React.PropsWithChildren) {
         safeAddClass(classList, 'dark');
         break;
     }
-  }, [inferredTheme]);
+  }, [theme]);
 
   return (
-    <themeContext.Provider
-      value={{ theme: inferredTheme, setTheme: manuallySetTheme }}
-    >
+    <themeContext.Provider value={{ theme, setTheme: manuallySetTheme }}>
       {children}
     </themeContext.Provider>
   );
 }
 
+/** Some helper functions */
 function safeRemoveClass(classList: DOMTokenList, className: string) {
   if (classList.contains(className)) {
     classList.remove(className);
@@ -159,17 +166,7 @@ function getThemeFromClassString(classString: string): Theme | null {
     : null;
 }
 
-function inferAutoTheme(): Theme {
-  return window.matchMedia('(prefers-color-scheme: dark)').matches
-    ? 'dark'
-    : 'light';
-}
-
 /** LocalStorage stuff */
-function getInitialThemeFromUserPrefOrAuto(): ActualTheme {
-  return getThemeFromLS() ?? 'auto';
-}
-
 const LS_THEME_KEY = 'theme';
 
 function getThemeFromLS(): Theme | null {

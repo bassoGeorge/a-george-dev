@@ -1,5 +1,5 @@
 import { Card } from '@ageorgedev/atoms';
-import { useTheme } from './Theme';
+import { useTheme } from './theming/theme-provider';
 
 // @ts-ignore
 import SyntaxHighlighter from 'react-syntax-highlighter/dist/esm/prism-async-light';
