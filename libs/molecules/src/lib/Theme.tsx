@@ -26,23 +26,55 @@ export function useTheme() {
 }
 
 export function ThemeProvider({ children }: React.PropsWithChildren) {
-  const [actualTheme, setActualTheme] = useState<ActualTheme>('auto');
+  const [userTheme, setUserTheme] = useState<Theme | null>(null);
+  const [browserTheme, setBrowserTheme] = useState<Theme>('light');
+  const [domTheme, setDomTheme] = useState<Theme | null>(null);
+
   const [inferredTheme, setInferredTheme] = useState<Theme>('light');
 
+  // Listen to the browser theme change, can also be directly used on the queryList
+  const mediaChangeListener = useCallback(
+    (e: MediaQueryListEvent | MediaQueryList) => {
+      setDomTheme(null); // that hack again
+      setBrowserTheme(e.matches ? 'dark' : 'light');
+    },
+    []
+  );
+
+  /** Listen to browser theme changes */
   useEffect(() => {
-    setActualTheme(getInitialThemeFromUserPrefOrAuto());
+    const mediaQueryList = window.matchMedia('(prefers-color-scheme: dark)');
+
+    // Initial value
+    mediaChangeListener(mediaQueryList);
+
+    // future changes
+    mediaQueryList.addEventListener('change', mediaChangeListener);
+    return () => {
+      mediaQueryList.removeEventListener('change', mediaChangeListener);
+    };
+  }, [mediaChangeListener]);
+
+  /** Set the user theme from local storage if present */
+  useEffect(() => {
+    setUserTheme(getThemeFromLS());
   }, []);
 
+  /** Infer the final theme on the basis of user and browser theme */
   useEffect(() => {
-    setInferredTheme(actualTheme === 'auto' ? inferAutoTheme() : actualTheme);
-  }, [actualTheme]);
+    setInferredTheme(domTheme ?? userTheme ?? browserTheme);
+  }, [userTheme, browserTheme, domTheme]);
 
+  /** User action to set the next theme, saves to local storage */
   const manuallySetTheme = useCallback<ThemeContext['setTheme']>((newTheme) => {
-    setActualTheme(newTheme);
+    setDomTheme(null); // kind of a hack. We want to ignore the existing dom theme for inferrence
+    setUserTheme(newTheme);
     setThemeInLS(newTheme);
   }, []);
 
   // The mutation callback to be attached to the <html> element
+  // This is for the extremely unlikely scenario where an external script / or user manually
+  // changes the class on the <html> element
   const onMutation = useCallback<MutationCallback>((mutations) => {
     mutations.forEach((mutation) => {
       switch (mutation.type) {
@@ -51,13 +83,14 @@ export function ThemeProvider({ children }: React.PropsWithChildren) {
             return;
           }
 
-          const nextTheme: ActualTheme = getThemeFromClassString(
+          const nextTheme = getThemeFromClassString(
             (mutation.target as HTMLHtmlElement).getAttribute(
               mutation.attributeName
             ) ?? ''
           );
 
-          setActualTheme(nextTheme);
+          setDomTheme(nextTheme);
+
           break;
         }
         default:
@@ -84,7 +117,7 @@ export function ThemeProvider({ children }: React.PropsWithChildren) {
   useEffect(() => {
     const classList = document.documentElement.classList;
 
-    switch (actualTheme) {
+    switch (inferredTheme) {
       case 'light':
         safeRemoveClass(classList, 'dark');
         safeAddClass(classList, 'light');
@@ -93,12 +126,8 @@ export function ThemeProvider({ children }: React.PropsWithChildren) {
         safeRemoveClass(classList, 'light');
         safeAddClass(classList, 'dark');
         break;
-      case 'auto':
-        safeRemoveClass(classList, 'light');
-        safeRemoveClass(classList, 'dark');
-        break;
     }
-  }, [actualTheme]);
+  }, [inferredTheme]);
 
   return (
     <themeContext.Provider
@@ -121,13 +150,13 @@ function safeAddClass(classList: DOMTokenList, className: string) {
   }
 }
 
-function getThemeFromClassString(classString: string): ActualTheme {
+function getThemeFromClassString(classString: string): Theme | null {
   const classes = classString.split(' ');
   return classes.includes('dark')
     ? 'dark'
     : classes.includes('light')
     ? 'light'
-    : 'auto';
+    : null;
 }
 
 function inferAutoTheme(): Theme {
