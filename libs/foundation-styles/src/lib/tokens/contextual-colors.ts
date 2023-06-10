@@ -1,6 +1,6 @@
 import { createGlobalThemeContract } from '@vanilla-extract/css';
-import { cssVarName, getTailwindPropertyMap } from '../utils';
 import { FOUNDATION_CONTEXTUAL_COLOR_PREFIX } from '../constants';
+import { cssVarName } from '../utils';
 
 const vName = (baseName: string) => (grade: string | number) =>
   cssVarName([FOUNDATION_CONTEXTUAL_COLOR_PREFIX, baseName, grade + '']);
@@ -9,6 +9,7 @@ const pageName = vName('page');
 const neutralName = vName('neutral');
 const neutralInverseName = vName('neutral-inverse');
 const shadowName = vName('shadow');
+const lineName = vName('line');
 
 export const ContextualColors = createGlobalThemeContract({
   page: {
@@ -36,5 +37,9 @@ export const ContextualColors = createGlobalThemeContract({
     DEFAULT: shadowName(''),
     near: shadowName('near'),
     far: shadowName('far'),
+  },
+  line: {
+    DEFAULT: lineName(''),
+    dark: lineName('dark'),
   },
 });

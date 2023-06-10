@@ -101,11 +101,11 @@ export const skewedBoxShadowContainer = recipe({
 });
 
 export const skewedBoxBorderContainer = recipe({
-  base: ['bg-cc-neutral-500', skewStyle],
+  base: ['bg-cc-line', skewStyle],
   variants: {
     border: {
-      all: 'p-1',
-      bottom: 'pb-1',
+      all: 'p-thick-line',
+      bottom: 'pb-thick-line',
       none: '',
     },
   },

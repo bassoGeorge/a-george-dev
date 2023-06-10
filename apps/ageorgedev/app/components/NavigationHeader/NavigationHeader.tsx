@@ -1,4 +1,4 @@
-import { ShortNameLogo, SkewedBox } from '@ageorgedev/atoms';
+import { ShortNameLogo, TiltCard } from '@ageorgedev/atoms';
 import { ThemeSwitcher } from '@ageorgedev/molecules';
 import { NavLink } from '@remix-run/react';
 
@@ -29,13 +29,13 @@ export default function NavigationHeader(props: NavigationHeaderProps) {
 
 function BoxMode({ className, children }: React.HTMLProps<HTMLDivElement>) {
   return (
-    <SkewedBox
+    <TiltCard
       shape="triUpperRight"
       border="bottom"
       className={className}
       outerClassName="mb-4"
     >
       {children}
-    </SkewedBox>
+    </TiltCard>
   );
 }

@@ -18,4 +18,7 @@ export const Spacing = {
   14: '32rem',
   15: '40rem',
   16: '48rem',
+  'thick-line': '4px',
+  'medium-line': '2px',
+  'thin-line': '1px',
 };

@@ -1,7 +1,7 @@
-import { mapObjIndexed, pick } from 'ramda';
-import { cssVarName } from '../utils';
-import { FOUNDATION_RAW_COLOR_PREFIX } from '../constants';
 import { createGlobalThemeContract } from '@vanilla-extract/css';
+import { mapObjIndexed, pick } from 'ramda';
+import { FOUNDATION_RAW_COLOR_PREFIX } from '../constants';
+import { cssVarName } from '../utils';
 
 export const RAW_COLORS = {
   timber: {
@@ -52,6 +52,10 @@ export const RAW_COLORS = {
     3: 'rgb(0 0 0 / .6)',
     4: 'rgb(0 0 0 / .8)',
     5: 'rgb(0 0 0)',
+  },
+  line: {
+    main: 'hsl(189 67% 6%)',
+    inverse: 'hsl(83 5% 46%)',
   },
 };
 

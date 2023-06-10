@@ -1,4 +1,9 @@
-export function StraightBox({
+/**
+ * A simple card with a shadow and a border.
+ * Rectangular in shape
+ */
+
+export function Card({
   className,
   ...otherProps
 }: React.HTMLProps<HTMLDivElement>) {

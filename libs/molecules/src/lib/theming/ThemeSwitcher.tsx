@@ -1,6 +1,6 @@
 import { useCallback } from 'react';
 import { Moon, Sun } from '@phosphor-icons/react';
-import { useTheme } from './Theme';
+import { useTheme } from './theme-provider';
 
 export function ThemeSwitcher() {
   const { theme, setTheme } = useTheme();

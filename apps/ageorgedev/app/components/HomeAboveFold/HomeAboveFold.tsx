@@ -7,6 +7,7 @@ import {
   nameSection,
   subTextSection,
 } from './HomeAboveFold.css';
+import { GithubLogo, LinkedinLogo } from '@phosphor-icons/react';
 
 export function HomeAboveFold() {
   return (
@@ -33,11 +34,36 @@ export function HomeAboveFold() {
             Architecting web experiences since 2016
           </Heading4>
         </div>
+        <div className="flex gap-3 justify-end mt-5">
+          <a
+            href="https://github.com/bassoGeorge"
+            target="_blank"
+            rel="noreferrer"
+            className="leading-none text-2xl text-cc-neutral-300 hover:text-rc-p-accent-300 transition-colors"
+            aria-label="Github"
+          >
+            <GithubLogo weight="duotone" />
+          </a>
+          <a
+            href="https://linkedin.com/in/anishbassogeorge"
+            target="_blank"
+            rel="noreferrer"
+            className="leading-none text-2xl text-cc-neutral-300 hover:text-rc-p-accent-300 transition-colors"
+            aria-label="Linkedin"
+          >
+            <LinkedinLogo weight="duotone" />
+          </a>
+        </div>
       </section>
       <section
         className={`${conSection} ${InterfaceXl.classes} p-4 pb-6 tablet:col-span-2 flex justify-center gap-3 relative tablet:text-2xl`}
       >
-        <NavLink to="/talks">Talks</NavLink>
+        <NavLink
+          to="/talks"
+          className="focus:text-rc-s-accent-500 hover:text-rc-s-accent-400 transition-colors"
+        >
+          Talks
+        </NavLink>
       </section>
     </main>
   );
