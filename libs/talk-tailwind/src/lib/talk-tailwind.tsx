@@ -1,7 +1,7 @@
-import { BodyLg, Heading1 } from '@ageorgedev/atoms';
-import { TwLogo } from '@ageorgedev/brand-components';
 import { useRevealFramework } from '@ageorgedev/reveal-framework';
 import { useRef } from 'react';
+import { S01Intro } from './slides/s01-intro';
+import { S02Fundamentals } from './slides/s02-fundamentals';
 
 export function TalkTailwind() {
   const presentationRef = useRef(null);
@@ -10,17 +10,8 @@ export function TalkTailwind() {
   return (
     <div className="reveal w-full h-full" ref={presentationRef}>
       <div className="slides">
-        <section>
-          <Heading1>Beyond prototyping with Tailwind CSS</Heading1>
-          <BodyLg className="mt-5">Advanced strategies for production</BodyLg>
-
-          <footer className="flex justify-center gap-2 h-5 mt-10">
-            <TwLogo />
-          </footer>
-        </section>
-        <section>
-          <Heading1>Slide 2</Heading1>
-        </section>
+        <S01Intro />
+        <S02Fundamentals />
       </div>
     </div>
   );
