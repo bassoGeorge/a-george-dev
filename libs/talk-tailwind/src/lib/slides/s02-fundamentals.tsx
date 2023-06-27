@@ -1,4 +1,5 @@
 import { BodyLg, Heading1 } from '@ageorgedev/atoms';
+import { D01TailwindFilesize } from '../diagrams/d01TailwindFilesize';
 
 export function S02Fundamentals() {
   return (
@@ -12,6 +13,7 @@ export function S02Fundamentals() {
       </section>
       <section>
         <Heading1>Tailwind only generates the minimum CSS required</Heading1>
+        <D01TailwindFilesize className="w-1/2" />
       </section>
       <section>
         <Heading1>Tradeoffs</Heading1>
