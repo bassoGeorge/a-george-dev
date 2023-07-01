@@ -11,7 +11,7 @@ import {
 
 type CodeBlockProps = {
   text: string;
-  lang?: 'typescript' | 'html' | 'css';
+  lang?: 'typescript' | 'html' | 'css' | 'jsx';
   fontSize?: 'normal' | 'small' | 'large';
 } & React.HTMLProps<HTMLDivElement>;
 
@@ -37,6 +37,7 @@ export function CodeBlock({
         style={codeTheme}
         showLineNumbers={true}
         customStyle={{ margin: 0, borderRadius: 0 }}
+        wrapLongLines={true}
       >
         {text}
       </SyntaxHighlighter>
@@ -45,7 +46,7 @@ export function CodeBlock({
 }
 
 const fontSizeMap: Record<Required<CodeBlockProps>['fontSize'], string> = {
-  normal: 'text-md',
-  large: 'text-lg',
-  small: '',
+  large: 'text-xl',
+  normal: 'text-lg',
+  small: 'text-md',
 };

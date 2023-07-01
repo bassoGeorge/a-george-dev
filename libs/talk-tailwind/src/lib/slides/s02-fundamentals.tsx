@@ -8,14 +8,6 @@ import {
 import { D01TailwindFilesize } from '../diagrams/D01TailwindFilesize';
 import { CodeBlock } from '@ageorgedev/molecules';
 
-const code1 = `<button class="btn btn-primary">
-  Cick Me!
-</button>`;
-
-const code2 = `<button class="text-white text-lg bg-primary-300 hover:bg-primary-400 rounded">
-  Click Me!
-</button>`;
-
 export function S02Fundamentals() {
   return (
     <section>
@@ -31,7 +23,7 @@ export function S02Fundamentals() {
             <>
               <Heading3>A typical CSS framework</Heading3>
               <CodeBlock
-                text={code1}
+                text={simpleButtonTraditional}
                 lang="html"
                 className="fragment mb-8"
                 data-fragment-index="1"
@@ -54,7 +46,7 @@ export function S02Fundamentals() {
             <>
               <Heading3>Tailwind CSS</Heading3>
               <CodeBlock
-                text={code2}
+                text={simpleButtonTailwind}
                 lang="html"
                 className="fragment mb-8"
                 data-fragment-index="2"
@@ -76,11 +68,51 @@ export function S02Fundamentals() {
           }
         ></ComparisonRow>
       </SlideTypeSingleHeadingWithCenterContent>
+      <SlideTypeSingleHeadingWithCenterContent
+        heading={<Heading1>Oh my, what a mess!</Heading1>}
+      >
+        <ComparisonRow
+          left={
+            <>
+              <Heading3>The assumption</Heading3>
+              <CodeBlock
+                text={fullTailwindWithoutComponents}
+                lang="jsx"
+              ></CodeBlock>
+            </>
+          }
+          right={
+            <>
+              <Heading3 className="fragment" data-fragment-index="0">
+                The Reality
+              </Heading3>
+              <CodeBlock
+                className="fragment"
+                data-fragment-index="0"
+                text={fixedTailwindWithComponents}
+                lang="jsx"
+              ></CodeBlock>
+            </>
+          }
+        ></ComparisonRow>
+      </SlideTypeSingleHeadingWithCenterContent>
+
       <SlideTypeCenter>
         <Heading1>Tailwind only generates the minimum CSS required</Heading1>
         <SlideMediaRow>
+          <div>Example of jsx</div>
+          <div>Corresponding example of css generated...</div>
+        </SlideMediaRow>
+      </SlideTypeCenter>
+      <SlideTypeCenter>
+        <Heading1>CSS file size stays to a minimum</Heading1>
+        <SlideMediaRow>
           <D01TailwindFilesize />
         </SlideMediaRow>
+        <PBody>
+          After a certain point, the css file stops growing, and is cached by
+          the user's browser!
+        </PBody>
       </SlideTypeCenter>
       <SlideTypeCenter>
         <Heading1>Tradeoffs</Heading1>
@@ -88,3 +120,61 @@ export function S02Fundamentals() {
     </section>
   );
 }
+
+// Code snippets
+
+const simpleButtonTraditional = `<button class="btn btn-primary">
+  Cick Me!
+</button>`;
+
+const simpleButtonTailwind = `<button class="text-white text-lg bg-primary-300 hover:bg-primary-400 rounded">
+  Click Me!
+</button>`;
+
+const fullTailwindWithoutComponents = `<div className="max-w-sm rounded overflow-hidden shadow-lg">
+  <img className="w-full" src="http://dummy.com/img.jpeg" alt="User Avatar" />
+  <div className="px-6 py-4">
+    <h3 className="font-bold text-xl mb-3">
+      John Doe
+    </h3>
+    <p className="text-gray-700 text-base mb-2">
+      Professional Web devloper with several years of experience
+    </p>
+    <p className="text-gray-700 text-base">
+      Loves basketball
+    </p>
+  </div>
+  <div className="px-6 py-4 flex gap-2">
+    <span className="bg-gray-200 rounded-full px-3 py-1 text-sm text-gray-700">
+      Web Developer
+    </span>
+    <span className="bg-gray-200 rounded-full px-3 py-1 text-sm text-gray-700">
+      UI/UX Designer
+    </span>
+    <span className="bg-gray-200 rounded-full px-3 py-1 text-sm text-gray-700">
+      Photographer
+    </span>
+  </div>
+</div>`;
+
+const fixedTailwindWithComponents = `<Card>
+  <img className="w-full" src="http://dummy.com/img.jpeg" alt="User Avatar" />
+  <div className="px-6 py-4">
+    <Heading2 className='mb-3'>John Doe</Heading2>
+    <Body strength="subtle" className='mb-2'>
+      Professional Web devloper with several years of experience
+    </Body>
+    <Body strength="subtle">
+      Loves basketball
+    </Body>
+  </div>
+  <div className="px-6 py-4 flex gap-2">
+    <SkillBadge>
+      Web Developer
+    </SkillBadge>
+    <SkillBadge>
+      UI/UX Designer
+    </SkillBadge>
+    <SkillBadge>Photographer</SkillBadge>
+  </div>
+</Card>`;
