@@ -1,7 +1,6 @@
 import { BodyLg, Heading1 } from '@ageorgedev/atoms';
-import { SlideMediaRow } from '../components/slide-layout-builders';
 import { D01TailwindFilesize } from '../diagrams/D01TailwindFilesize';
-import { SlideTypeCenter } from '../components/slide-types';
+import { SlideMediaRow, SlideTypeCenter } from '@ageorgedev/reveal-framework';
 
 export function S02Fundamentals() {
   return (

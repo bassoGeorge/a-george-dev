@@ -1,5 +1,5 @@
 import { BodyLg, Heading1 } from '@ageorgedev/atoms';
-import { SlideTypeCenter } from '../components/slide-types';
+import { SlideTypeCenter } from '@ageorgedev/reveal-framework';
 
 export function S01Intro() {
   return (
