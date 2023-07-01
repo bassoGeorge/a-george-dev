@@ -1,13 +1,13 @@
-import { BodyLg, Heading1 } from '@ageorgedev/atoms';
-import { D01TailwindFilesize } from '../diagrams/D01TailwindFilesize';
+import { Heading1, PBody } from '@ageorgedev/atoms';
 import { SlideMediaRow, SlideTypeCenter } from '@ageorgedev/reveal-framework';
+import { D01TailwindFilesize } from '../diagrams/D01TailwindFilesize';
 
 export function S02Fundamentals() {
   return (
     <section>
       <SlideTypeCenter>
         <Heading1>Fundamentals of Tailwind</Heading1>
-        <BodyLg>The quick version</BodyLg>
+        <PBody>The quick version</PBody>
       </SlideTypeCenter>
       <SlideTypeCenter>
         <Heading1>Utility First CSS framework</Heading1>

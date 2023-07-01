@@ -20,3 +20,9 @@ export const InterfaceLg = TextBuilder('interface-lg');
 export const InterfaceMd = TextBuilder('interface-md');
 export const Interface = TextBuilder('interface');
 export const InterfaceSm = TextBuilder('interface-sm');
+
+export const PBodyLg = TextBuilder('p-body-lg');
+export const PBodyMd = TextBuilder('p-body-md');
+export const PBody = TextBuilder('p-body');
+export const PBodySm = TextBuilder('p-body-sm');
+export const PBodyXs = TextBuilder('p-body-xs');

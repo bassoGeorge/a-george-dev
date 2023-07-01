@@ -1,4 +1,4 @@
-import { BodyLg, Heading1 } from '@ageorgedev/atoms';
+import { BodyLg, Heading1, PBody } from '@ageorgedev/atoms';
 import { SlideTypeCenter } from '@ageorgedev/reveal-framework';
 
 export function S01Intro() {
@@ -6,12 +6,12 @@ export function S01Intro() {
     <>
       <SlideTypeCenter>
         <Heading1>Beyond prototyping with Tailwind CSS</Heading1>
-        <BodyLg>Advanced strategies for production</BodyLg>
+        <PBody>Advanced strategies for production</PBody>
       </SlideTypeCenter>
       <SlideTypeCenter>
         <Heading1>Why should you care?</Heading1>
-        <BodyLg>Tailwind has been the subject of much controversy</BodyLg>
-        <BodyLg>If you want/need/have to use it, welcome to this talk!</BodyLg>
+        <PBody>Tailwind has been the subject of much controversy</PBody>
+        <PBody>If you want/need/have to use it, welcome to this talk!</PBody>
       </SlideTypeCenter>
     </>
   );
