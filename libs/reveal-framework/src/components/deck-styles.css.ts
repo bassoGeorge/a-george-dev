@@ -1,3 +1,4 @@
+import { ContextualColors } from '@ageorgedev/foundation-styles';
 import { style } from '@vanilla-extract/css';
 
 export const slideMainGap = 'gap-5';
@@ -15,3 +16,16 @@ export const slideHeaderGrid = style([
     gridTemplateRows: '.2fr .8fr',
   },
 ]);
+
+export const middleDivider = style({
+  position: 'relative',
+  ':after': {
+    content: '',
+    position: 'absolute',
+    left: 'calc(50% - 1px)',
+    top: '10%',
+    width: '2px',
+    height: '80%',
+    backgroundColor: ContextualColors.line.DEFAULT,
+  },
+});

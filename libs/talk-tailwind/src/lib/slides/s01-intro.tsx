@@ -1,4 +1,4 @@
-import { Heading1, PBody } from '@ageorgedev/atoms';
+import { Heading1, Heading3, PBody, PBodyMd } from '@ageorgedev/atoms';
 import {
   SlideTypeCenter,
   SlideTypeSingleHeadingWithCenterContent,
@@ -14,8 +14,15 @@ export function S01Intro() {
       <SlideTypeSingleHeadingWithCenterContent
         heading={<Heading1>Why should you care?</Heading1>}
       >
-        <PBody>Tailwind has been the subject of much controversy</PBody>
-        <PBody>If you want/need/have to use it, welcome to this talk!</PBody>
+        <PBodyMd className="fragment">
+          Tailwind has been the subject of much controversy and you are curious!
+        </PBodyMd>
+        <PBodyMd className="fragment">
+          You want/need/<b>have</b> to use it...
+        </PBodyMd>
+        <Heading3 className="fragment mt-10 text-rc-p-accent-500 font-bold">
+          Welcome to this talk and strap in!
+        </Heading3>
       </SlideTypeSingleHeadingWithCenterContent>
     </>
   );

@@ -1,4 +1,8 @@
-import { slideMainGap } from './deck-styles.css';
+import {
+  middleDivider,
+  slideCenterStyles,
+  slideMainGap,
+} from './deck-styles.css';
 
 export function SlideMediaRow({
   className,
@@ -20,5 +24,25 @@ export function DeckFooter(props: React.PropsWithChildren) {
     <footer className="absolute bottom-6 h-7 w-full flex justify-center items-center gap-4">
       {props.children}
     </footer>
+  );
+}
+
+export function ComparisonRow({
+  className,
+  left,
+  right,
+  ...otherProps
+}: {
+  left: React.ReactNode;
+  right: React.ReactNode;
+} & Omit<React.HTMLProps<HTMLDivElement>, 'children'>) {
+  return (
+    <div
+      className={`${middleDivider} grid grid-cols-2 gap-x-8 ${className ?? ''}`}
+      {...otherProps}
+    >
+      <div className={`flex flex-col ${slideMainGap}`}>{left}</div>
+      <div className={`flex flex-col ${slideMainGap}`}>{right}</div>
+    </div>
   );
 }
