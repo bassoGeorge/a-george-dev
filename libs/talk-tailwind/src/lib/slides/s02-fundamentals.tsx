@@ -33,11 +33,20 @@ export function S02Fundamentals() {
               <CodeBlock
                 text={code1}
                 lang="html"
-                className="fragment"
+                className="fragment mb-8"
                 data-fragment-index="1"
               />
               <PBody className="fragment" data-fragment-index="3">
-                CSS control over styles
+                Individual classes encapsulate full sets of styles
+              </PBody>
+              <PBody className="fragment" data-fragment-index="4">
+                Need both HTML and CSS to author the UI
+              </PBody>
+              <PBody className="fragment" data-fragment-index="5">
+                Clean HTML
+              </PBody>
+              <PBody className="fragment" data-fragment-index="6">
+                Styles hidden away
               </PBody>
             </>
           }
@@ -47,11 +56,21 @@ export function S02Fundamentals() {
               <CodeBlock
                 text={code2}
                 lang="html"
-                className="fragment"
+                className="fragment mb-8"
                 data-fragment-index="2"
               />
               <PBody className="fragment" data-fragment-index="3">
-                HTML is the authoring languagte
+                Classes are atomic. Each describes a specific CSS property-value
+                pair
+              </PBody>
+              <PBody className="fragment" data-fragment-index="4">
+                HTML becomes the authoring language
+              </PBody>
+              <PBody className="fragment" data-fragment-index="5">
+                HTML overloaded with styling
+              </PBody>
+              <PBody className="fragment" data-fragment-index="6">
+                Styles co-located with markup
               </PBody>
             </>
           }

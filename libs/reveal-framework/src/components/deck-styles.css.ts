@@ -23,9 +23,9 @@ export const middleDivider = style({
     content: '',
     position: 'absolute',
     left: 'calc(50% - 1px)',
-    top: '10%',
+    top: 0,
     width: '2px',
-    height: '80%',
+    height: '100%',
     backgroundColor: ContextualColors.line.DEFAULT,
   },
 });
