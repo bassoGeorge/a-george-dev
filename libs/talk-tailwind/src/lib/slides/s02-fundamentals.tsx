@@ -100,23 +100,21 @@ export function S02Fundamentals() {
       <SlideTypeCenter>
         <Heading1>Tailwind only generates the minimum CSS required</Heading1>
         <SlideMediaRow>
-          <div>Example of jsx</div>
-          <div>Corresponding example of css generated...</div>
+          <code>Example of jsx</code>
+          <code>Corresponding example of css generated...</code>
         </SlideMediaRow>
       </SlideTypeCenter>
-      <SlideTypeCenter>
-        <Heading1>CSS file size stays to a minimum</Heading1>
+      <SlideTypeSingleHeadingWithCenterContent
+        heading={<Heading1>CSS file size stays to a minimum</Heading1>}
+      >
         <SlideMediaRow>
           <D01TailwindFilesize />
         </SlideMediaRow>
-        <PBody>
+        <PBody className="mt-8">
           After a certain point, the css file stops growing, and is cached by
           the user's browser!
         </PBody>
-      </SlideTypeCenter>
-      <SlideTypeCenter>
-        <Heading1>Tradeoffs</Heading1>
-      </SlideTypeCenter>
+      </SlideTypeSingleHeadingWithCenterContent>
     </section>
   );
 }
