@@ -1,23 +1,27 @@
 import { BodyLg, Heading1 } from '@ageorgedev/atoms';
-import { D01TailwindFilesize } from '../diagrams/d01TailwindFilesize';
+import { SlideMediaRow } from '../components/slide-layout-builders';
+import { D01TailwindFilesize } from '../diagrams/D01TailwindFilesize';
+import { SlideTypeCenter } from '../components/slide-types';
 
 export function S02Fundamentals() {
   return (
     <section>
-      <section>
+      <SlideTypeCenter>
         <Heading1>Fundamentals of Tailwind</Heading1>
-        <BodyLg className="mt-5">The quick version</BodyLg>
-      </section>
-      <section>
+        <BodyLg>The quick version</BodyLg>
+      </SlideTypeCenter>
+      <SlideTypeCenter>
         <Heading1>Utility First CSS framework</Heading1>
-      </section>
-      <section>
+      </SlideTypeCenter>
+      <SlideTypeCenter>
         <Heading1>Tailwind only generates the minimum CSS required</Heading1>
-        <D01TailwindFilesize className="w-1/2" />
-      </section>
-      <section>
+        <SlideMediaRow>
+          <D01TailwindFilesize />
+        </SlideMediaRow>
+      </SlideTypeCenter>
+      <SlideTypeCenter>
         <Heading1>Tradeoffs</Heading1>
-      </section>
+      </SlideTypeCenter>
     </section>
   );
 }
