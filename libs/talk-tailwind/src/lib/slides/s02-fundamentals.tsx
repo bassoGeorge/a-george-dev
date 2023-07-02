@@ -21,7 +21,7 @@ export function S02Fundamentals() {
   return (
     <section>
       <SlideTypeCenter>
-        <Heading1>Fundamentals of Tailwind</Heading1>
+        <Heading1 className="font-bold">Fundamentals of Tailwind</Heading1>
         <PBody>The quick version</PBody>
       </SlideTypeCenter>
 

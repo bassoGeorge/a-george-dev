@@ -12,7 +12,8 @@ export type TextTag =
   | 'p'
   | 'em'
   | 'b'
-  | 'small';
+  | 'small'
+  | 'li';
 
 type TextProps = {
   variant: TypographyVariant;
