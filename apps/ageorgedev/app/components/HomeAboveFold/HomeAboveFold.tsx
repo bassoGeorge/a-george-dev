@@ -27,10 +27,10 @@ export function HomeAboveFold() {
         className={`${subTextSection} phone-landscape-only:pb-3 tablet:p-6 tablet:pb-10 flex flex-col justify-start tablet:justify-end relative`}
       >
         <div className="text-center phone-only:px-4 tablet:text-right">
-          <Heading3 className="font-bold text-rc-s-accent-400">
+          <Heading3 className="font-bold text-cc-alt-accent-subtle">
             Web Developer
           </Heading3>
-          <Heading4 as="p" className="text-cc-neutral-300">
+          <Heading4 as="p" className="text-cc-neutral-subtlest">
             Architecting web experiences since 2016
           </Heading4>
         </div>
@@ -39,7 +39,7 @@ export function HomeAboveFold() {
             href="https://github.com/bassoGeorge"
             target="_blank"
             rel="noreferrer"
-            className="leading-none text-2xl text-cc-neutral-300 hover:text-rc-p-accent-300 transition-colors"
+            className="leading-none text-2xl text-cc-neutral-subtlest hover:text-cc-accent-subtle transition-colors"
             aria-label="Github"
           >
             <GithubLogo weight="duotone" />
@@ -48,7 +48,7 @@ export function HomeAboveFold() {
             href="https://linkedin.com/in/anishbassogeorge"
             target="_blank"
             rel="noreferrer"
-            className="leading-none text-2xl text-cc-neutral-300 hover:text-rc-p-accent-300 transition-colors"
+            className="leading-none text-2xl text-cc-neutral-subtlest hover:text-cc-accent-subtle transition-colors"
             aria-label="Linkedin"
           >
             <LinkedinLogo weight="duotone" />
@@ -60,7 +60,7 @@ export function HomeAboveFold() {
       >
         <NavLink
           to="/talks"
-          className="focus:text-rc-s-accent-500 hover:text-rc-s-accent-400 transition-colors"
+          className="focus:text-cc-alt-accent hover:text-cc-alt-accent transition-colors"
         >
           Talks
         </NavLink>

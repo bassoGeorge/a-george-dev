@@ -10,9 +10,7 @@ export function S01Intro() {
       <SlideTypeCenter>
         <Heading1>
           Beyond prototyping with{' '}
-          <span className="font-bold text-rc-p-accent-500 dark:text-rc-p-accent-300">
-            Tailwind CSS
-          </span>
+          <span className="font-bold text-cc-accent">Tailwind CSS</span>
         </Heading1>
         <PBodyMd className="italic">Advanced strategies for production</PBodyMd>
       </SlideTypeCenter>
@@ -25,7 +23,7 @@ export function S01Intro() {
           <PBodyMd className="fragment">
             You want/need/<b>have</b> to use it...
           </PBodyMd>
-          <Heading3 className="fragment mt-10 text-rc-p-accent-500 font-bold">
+          <Heading3 className="fragment mt-10 text-cc-accent font-bold">
             Welcome to this talk and strap in!
           </Heading3>
         </SlideTypeRegular>

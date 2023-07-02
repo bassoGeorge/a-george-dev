@@ -143,7 +143,7 @@ export function S02Fundamentals() {
           <a
             href="https://tailwindcss.com"
             target="_blank"
-            className="text-rc-s-accent-500 dark:text-rc-s-accent-400"
+            className="text-cc-alt-accent"
             rel="noreferrer"
           >
             https://tailwindcss.com
