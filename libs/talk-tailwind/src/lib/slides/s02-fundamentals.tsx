@@ -1,12 +1,20 @@
-import { Heading1, Heading2, Heading3, PBody } from '@ageorgedev/atoms';
+import {
+  Heading1,
+  Heading2,
+  Heading3,
+  PBody,
+  PBodyMd,
+  TiltCard,
+} from '@ageorgedev/atoms';
+import { CodeBlock } from '@ageorgedev/molecules';
 import {
   ComparisonRow,
   SlideMediaRow,
   SlideTypeCenter,
-  SlideTypeSingleHeadingWithCenterContent,
+  SlideTypeRegular,
 } from '@ageorgedev/reveal-framework';
+import { Lightning } from '@phosphor-icons/react';
 import { D01TailwindFilesize } from '../diagrams/D01TailwindFilesize';
-import { CodeBlock } from '@ageorgedev/molecules';
 
 export function S02Fundamentals() {
   return (
@@ -15,7 +23,8 @@ export function S02Fundamentals() {
         <Heading1>Fundamentals of Tailwind</Heading1>
         <PBody>The quick version</PBody>
       </SlideTypeCenter>
-      <SlideTypeSingleHeadingWithCenterContent
+
+      <SlideTypeRegular
         heading={<Heading1>Utility First CSS principles</Heading1>}
       >
         <ComparisonRow
@@ -67,54 +76,93 @@ export function S02Fundamentals() {
             </>
           }
         ></ComparisonRow>
-      </SlideTypeSingleHeadingWithCenterContent>
-      <SlideTypeSingleHeadingWithCenterContent
-        heading={<Heading1>Oh my, what a mess!</Heading1>}
-      >
-        <ComparisonRow
-          left={
-            <>
-              <Heading3>The assumption</Heading3>
-              <CodeBlock
-                text={fullTailwindWithoutComponents}
-                lang="jsx"
-              ></CodeBlock>
-            </>
-          }
-          right={
-            <>
-              <Heading3 className="fragment" data-fragment-index="0">
-                The Reality
-              </Heading3>
-              <CodeBlock
-                className="fragment"
-                data-fragment-index="0"
-                text={fixedTailwindWithComponents}
-                lang="jsx"
-              ></CodeBlock>
-            </>
-          }
-        ></ComparisonRow>
-      </SlideTypeSingleHeadingWithCenterContent>
+      </SlideTypeRegular>
 
-      <SlideTypeCenter>
-        <Heading1>Tailwind only generates the minimum CSS required</Heading1>
-        <SlideMediaRow>
-          <code>Example of jsx</code>
-          <code>Corresponding example of css generated...</code>
-        </SlideMediaRow>
-      </SlideTypeCenter>
-      <SlideTypeSingleHeadingWithCenterContent
+      <SlideTypeRegular heading={<Heading1>What a mess!</Heading1>}>
+        <CodeBlock text={fullTailwindWithoutComponents} lang="jsx"></CodeBlock>
+      </SlideTypeRegular>
+
+      <SlideTypeRegular
+        heading={<Heading2>You are supposed to build components!</Heading2>}
+      >
+        <CodeBlock text={fixedTailwindWithComponents} lang="jsx"></CodeBlock>
+      </SlideTypeRegular>
+
+      {/* TODO: Angular side note for using Directives */}
+
+      <SlideTypeRegular
+        heading={<Heading1>Finite values through configuration</Heading1>}
+      >
+        <div className="flex gap-8 items-start">
+          <CodeBlock text={tailwindConfigFile} lang="javascript"></CodeBlock>
+          <div className="flex flex-col gap-8 items-start">
+            <CodeBlock text={configDerivedHtml} lang="html"></CodeBlock>
+            <div className="fragment">
+              <TiltCard
+                shape="triUpperRight"
+                className="bg-rc-p-accent-100 flex gap-2"
+              >
+                <Lightning
+                  weight="duotone"
+                  className="text-3xl text-rc-p-accent-500"
+                />
+                <div className="text-left">
+                  <PBodyMd>
+                    These are the foundations of a design system.
+                  </PBodyMd>
+                  <PBody className="mt-3">
+                    <b>Talk to your designer</b> to fill this config!
+                  </PBody>
+                </div>
+              </TiltCard>
+            </div>
+          </div>
+        </div>
+      </SlideTypeRegular>
+
+      <SlideTypeRegular
+        heading={
+          <Heading1>Tailwind only generates the minimum CSS required</Heading1>
+        }
+      >
+        <div className="flex flex-col gap-8 items-center">
+          <div className="flex gap-8 items-start">
+            <CodeBlock text={exampleHtml} lang="html"></CodeBlock>
+            <CodeBlock text={sourceStyleFile} lang="css"></CodeBlock>
+          </div>
+          <CodeBlock
+            text={computedStyleFile}
+            lang="css"
+            className="fragment"
+          ></CodeBlock>
+        </div>
+      </SlideTypeRegular>
+      <SlideTypeRegular
         heading={<Heading1>CSS file size stays to a minimum</Heading1>}
       >
         <SlideMediaRow>
           <D01TailwindFilesize />
         </SlideMediaRow>
         <PBody className="mt-8">
-          After a certain point, the css file stops growing, and is cached by
-          the user's browser!
+          The built css file gets the same hash if no new classes are used. This
+          means it gets cached by the user's browser!
         </PBody>
-      </SlideTypeSingleHeadingWithCenterContent>
+      </SlideTypeRegular>
+      <SlideTypeCenter>
+        <Heading3>And that was the short version!</Heading3>
+        <PBody>
+          Visit{' '}
+          <a
+            href="https://tailwindcss.com"
+            target="_blank"
+            className="text-rc-s-accent-500"
+            rel="noreferrer"
+          >
+            https://tailwindcss.com
+          </a>{' '}
+          to learn more.
+        </PBody>
+      </SlideTypeCenter>
     </section>
   );
 }
@@ -125,7 +173,7 @@ const simpleButtonTraditional = `<button class="btn btn-primary">
   Cick Me!
 </button>`;
 
-const simpleButtonTailwind = `<button class="text-white text-lg bg-primary-300 hover:bg-primary-400 rounded">
+const simpleButtonTailwind = `<button class="text-white text-lg bg-blue-300 hover:bg-blue-700 rounded">
   Click Me!
 </button>`;
 
@@ -136,7 +184,7 @@ const fullTailwindWithoutComponents = `<div className="max-w-sm rounded overflow
       John Doe
     </h3>
     <p className="text-gray-700 text-base mb-2">
-      Professional Web devloper with several years of experience
+      Professional Web developer with several years of experience
     </p>
     <p className="text-gray-700 text-base">
       Loves basketball
@@ -160,7 +208,7 @@ const fixedTailwindWithComponents = `<Card>
   <div className="px-6 py-4">
     <Heading2 className='mb-3'>John Doe</Heading2>
     <Body strength="subtle" className='mb-2'>
-      Professional Web devloper with several years of experience
+      Professional Web developer with several years of experience
     </Body>
     <Body strength="subtle">
       Loves basketball
@@ -176,3 +224,58 @@ const fixedTailwindWithComponents = `<Card>
     <SkillBadge>Photographer</SkillBadge>
   </div>
 </Card>`;
+
+const tailwindConfigFile = `// tailwind.config.js
+
+export default {
+  // ...
+  theme: {
+    colors: {
+      transparent: "transparent",
+      white: "#ffffff",
+      purple: "#3f3cbb",
+      midnight: "#121063",
+      "bubble-gum": "#ff77e9",
+    },
+    spacing: {
+      1: "8px",
+      2: "12px",
+      3: "16px",
+      large: '32px',
+      massive: "70px",
+    },
+  },
+}`;
+
+const configDerivedHtml = `<!-- view.html -->
+
+<h1 class="mb-large text-purple">Hello world!</h1>
+<button class="p-3">Click Me!</button>
+
+<!-- p-10 and bg-blue are not valid classes, ignored -->
+<button class="p-10 bg-blue">Another button</button>`;
+
+const exampleHtml = `<!-- view.html -->
+
+<h1 class="mb-large text-purple">Hello world!</h1>
+<button class="p-3">Click Me!</button>`;
+
+const sourceStyleFile = `/* styles.css */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;`;
+
+const computedStyleFile = `/* dist/styles.css */
+
+/* ... reset and other styles */
+.mb-large {
+  margin-bottom: 32px;
+}
+.p-3 {
+  padding: 16px;
+}
+.text-purple {
+  --tw-text-opacity: 1;
+  color: rgb(63 60 187 / var(--tw-text-opacity));
+}`;

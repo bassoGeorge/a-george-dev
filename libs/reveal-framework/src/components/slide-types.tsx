@@ -20,7 +20,7 @@ export function SlideTypeCenter(props: React.PropsWithChildren) {
   );
 }
 
-export function SlideTypeSingleHeadingWithCenterContent(
+export function SlideTypeRegular(
   props: React.PropsWithChildren<{ heading: React.ReactNode }>
 ) {
   return (

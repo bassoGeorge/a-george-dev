@@ -11,7 +11,7 @@ import {
 
 type CodeBlockProps = {
   text: string;
-  lang?: 'typescript' | 'html' | 'css' | 'jsx';
+  lang?: 'typescript' | 'html' | 'css' | 'jsx' | 'javascript';
   fontSize?: 'normal' | 'small' | 'large';
 } & React.HTMLProps<HTMLDivElement>;
 
@@ -46,7 +46,7 @@ export function CodeBlock({
 }
 
 const fontSizeMap: Record<Required<CodeBlockProps>['fontSize'], string> = {
-  large: 'text-xl',
-  normal: 'text-lg',
-  small: 'text-md',
+  large: 'text-2xl',
+  normal: 'text-xl',
+  small: 'text-lg',
 };
