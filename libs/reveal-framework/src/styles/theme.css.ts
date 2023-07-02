@@ -3,7 +3,7 @@ import { globalStyle as gs } from '@vanilla-extract/css';
 
 gs('.reveal', {
   backgroundColor: ContextualColors.page[1],
-  color: ContextualColors.neutral[500],
+  color: ContextualColors.neutral.DEFAULT,
 });
 
 gs('.reveal code', {
