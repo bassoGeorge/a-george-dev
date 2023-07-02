@@ -36,7 +36,7 @@ const lightStyle = {
     },
     altAccent: {
       DEFAULT: RawColors.sAccent[500],
-      subtle: RawColors.pAccent[300],
+      subtle: RawColors.sAccent[400],
     },
   }),
 };
@@ -75,7 +75,7 @@ const darkStyle = {
     },
     altAccent: {
       DEFAULT: RawColors.sAccent[300],
-      subtle: RawColors.pAccent[400],
+      subtle: RawColors.sAccent[400],
     },
   }),
 };

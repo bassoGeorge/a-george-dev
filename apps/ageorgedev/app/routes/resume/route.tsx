@@ -33,7 +33,7 @@ const education: { period: string; institute: string; programme: string }[] = [
 ];
 
 function Imp({ children }: React.PropsWithChildren) {
-  return <span className="text-rc-s-accent-400 italic">{children}</span>;
+  return <span className="text-cc-alt-accent italic">{children}</span>;
 }
 
 export default function Resume() {
@@ -45,7 +45,7 @@ export default function Resume() {
           shadowDirection="left"
           className="text-[4rem] self-end -mb-4"
         />
-        <BodySm className="italic text-cc-neutral-300 mb-2 absolute top-[9.5rem] left-[13.75rem]">
+        <BodySm className="italic text-cc-neutral-subtlest mb-2 absolute top-[9.5rem] left-[13.75rem]">
           (He/Him)
         </BodySm>
         <div className={`${socialLinksBlockClasses} mt-3`}>
@@ -109,7 +109,7 @@ export default function Resume() {
                 className="inline ml-2 text-rc-p-accent-400 relative -top-px"
               />
             </BodySm>
-            <BodyXs className="text-cc-neutral-300">
+            <BodyXs className="text-cc-neutral-subtlest">
               Functional Conf Bangalore | 2019
             </BodyXs>
           </a>
@@ -124,7 +124,7 @@ export default function Resume() {
                 <BodyXs>{edu.period}</BodyXs>
                 <div>
                   <BodySm className="font-interface">{edu.programme}</BodySm>
-                  <BodyXs className="text-cc-neutral-300">
+                  <BodyXs className="text-cc-neutral-subtlest">
                     {edu.institute}
                   </BodyXs>
                 </div>
@@ -133,7 +133,7 @@ export default function Resume() {
           </div>
         </section>
         <section className="-mr-6">
-          <BodySm className="text-cc-neutral-500 italic font-thin">
+          <BodySm className="text-cc-neutral italic font-thin">
             I built this resume using HTML / CSS and it follows my new design
             language.
           </BodySm>
@@ -146,22 +146,22 @@ export default function Resume() {
           </BodyLg>
           <Heading3 className="font-medium">Thoughtworks</Heading3>
           <div className="justify-self-end self-start text-right">
-            <p className="font-interface text-md leading-[1.2rem] text-cc-neutral-400">
+            <p className="font-interface text-md leading-[1.2rem] text-cc-neutral-subtle">
               Lead UI Developer
             </p>
-            <p className="text-xs leading-[1.2rem] text-cc-neutral-300 -mt-1 pb-1">
+            <p className="text-xs leading-[1.2rem] text-cc-neutral-subtlest -mt-1 pb-1">
               2021
             </p>
-            <p className="font-interface text-xs leading-[1.2rem] text-cc-neutral-400">
+            <p className="font-interface text-xs leading-[1.2rem] text-cc-neutral-subtle">
               Senior UI Developer
             </p>
-            <p className="text-xs leading-[1.2rem] text-cc-neutral-300 -mt-1 pb-1">
+            <p className="text-xs leading-[1.2rem] text-cc-neutral-subtlest -mt-1 pb-1">
               2019
             </p>
-            <p className="font-interface text-xs leading-[1.2rem] text-cc-neutral-400">
+            <p className="font-interface text-xs leading-[1.2rem] text-cc-neutral-subtle">
               UI Developer
             </p>
-            <p className="text-xs leading-[1.2rem] text-cc-neutral-300 -mt-1 pb-1">
+            <p className="text-xs leading-[1.2rem] text-cc-neutral-subtlest -mt-1 pb-1">
               2018
             </p>
           </div>
@@ -245,7 +245,7 @@ export default function Resume() {
           </BodyLg>
           <Heading3 className="font-medium">Ignite Solutions</Heading3>
           <div className="justify-self-end self-start text-right">
-            <p className="font-interface text-md leading-[1.2rem] text-cc-neutral-400">
+            <p className="font-interface text-md leading-[1.2rem] text-cc-neutral-subtle">
               Full Stack
               <br />
               Developer
@@ -275,7 +275,7 @@ export default function Resume() {
           </BodyLg>
           <Heading3 className="font-medium">JLabs</Heading3>
           <div className="justify-self-end self-start text-right">
-            <p className="font-interface text-md leading-[1.2rem] text-cc-neutral-400">
+            <p className="font-interface text-md leading-[1.2rem] text-cc-neutral-subtle">
               Developer
             </p>
           </div>

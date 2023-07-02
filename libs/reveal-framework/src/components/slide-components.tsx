@@ -15,7 +15,7 @@ export function ImportantNote(props: ImportantNoteProps) {
       >
         <Lightning
           weight="duotone"
-          className="text-3xl text-rc-p-accent-500 dark:text-rc-p-accent-100"
+          className="text-3xl text-cc-accent dark:text-cc-neutral"
         />
         <div className="text-left">{props.children}</div>
       </TiltCard>

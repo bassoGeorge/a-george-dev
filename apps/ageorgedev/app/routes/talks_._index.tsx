@@ -23,7 +23,7 @@ export default function TalksList() {
                 Tailwind CSS. Managing scale, complexity and copy-paste-ability.
               </BodyXl>
 
-              <Body className="text-right mt-5 text-cc-neutral-200">
+              <Body className="text-right mt-5 text-cc-neutral-subtlest">
                 <em>Unfold UI | Thoughtworks | 2023</em>
               </Body>
             </TiltCard>

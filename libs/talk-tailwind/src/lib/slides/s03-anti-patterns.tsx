@@ -47,9 +47,7 @@ export function S03AntiPatterns() {
           The <em>@apply</em> directive is not a convenience construct. It has
           repurcussions
         </PBody>
-        <PBody className="font-bold text-rc-p-accent-500 dark:text-rc-p-accent-300">
-          Use sparingly
-        </PBody>
+        <PBody className="font-bold text-cc-accent">Use sparingly</PBody>
         <ol>
           <PBody as="li" className="fragment">
             When writing complicated styles for psuedo selectors in one-off
@@ -68,7 +66,7 @@ export function S03AntiPatterns() {
           <CodeBlock text={oneOffHtml} lang="html"></CodeBlock>
           <ArrowRight
             weight="duotone"
-            className="text-2xl text-rc-p-accent-500 dark:text-rc-p-accent-300 self-center"
+            className="text-2xl text-cc-accent self-center"
           />
           <CodeBlock text={oneOffComputedCss} lang="css"></CodeBlock>
         </div>
