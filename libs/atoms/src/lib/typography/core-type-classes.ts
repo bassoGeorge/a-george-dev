@@ -24,6 +24,14 @@ const bodyClasses = mapObjIndexed(withFont(bodyFont), {
   'body-xs': 'text-xs',
 });
 
+const presentationBodyClasses = mapObjIndexed(withFont(bodyFont), {
+  'p-body-lg': 'text-4xl',
+  'p-body-md': 'text-3xl',
+  'p-body': 'text-2xl',
+  'p-body-sm': 'text-xl',
+  'p-body-xs': 'text-lg',
+});
+
 const interfaceClasses = mapObjIndexed(withFont(interfaceFont), {
   'interface-2xl': 'text-2xl',
   'interface-xl': 'text-xl',
@@ -37,6 +45,7 @@ export const TYPOGRAPHY_CLASSES = {
   ...headingClasses,
   ...bodyClasses,
   ...interfaceClasses,
+  ...presentationBodyClasses,
 };
 
 export type TypographyVariant = keyof typeof TYPOGRAPHY_CLASSES;

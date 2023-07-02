@@ -17,3 +17,7 @@ gs('.reveal .controls-arrow', {
 gs('.reveal .progress span', {
   backgroundColor: RawColors.pAccent[400],
 });
+
+gs('.reveal.overview > footer', {
+  display: 'none',
+});

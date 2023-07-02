@@ -12,7 +12,8 @@ export type TextTag =
   | 'p'
   | 'em'
   | 'b'
-  | 'small';
+  | 'small'
+  | 'li';
 
 type TextProps = {
   variant: TypographyVariant;
@@ -59,7 +60,7 @@ function getDefaultTag(variant: TypographyVariant): TextTag {
     return initial;
   }
 
-  if (isBodyVariant(variant)) {
+  if (isBodyVariant(variant) || isPBodyVariant(variant)) {
     return 'p';
   }
 
@@ -71,6 +72,7 @@ function getDefaultTag(variant: TypographyVariant): TextTag {
 }
 
 const isBodyVariant = test(/^body.*$/);
+const isPBodyVariant = test(/^p-body.*$/);
 const isInterfaceVariant = test(/^interface.*$/);
 
 const defaultTag: Partial<Record<TypographyVariant, TextTag>> = {

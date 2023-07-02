@@ -11,22 +11,42 @@ import {
 
 type CodeBlockProps = {
   text: string;
-};
+  lang?: 'typescript' | 'html' | 'css' | 'jsx' | 'javascript';
+  fontSize?: 'normal' | 'small' | 'large';
+} & React.HTMLProps<HTMLDivElement>;
 
-export function CodeBlock(props: CodeBlockProps) {
+export function CodeBlock({
+  lang,
+  text,
+  fontSize,
+  className,
+  ...otherProps
+}: CodeBlockProps) {
   const { theme } = useTheme();
   const codeTheme = theme === 'light' ? lightTheme : darkTheme;
 
   return (
-    <Card className="text-left">
+    <Card
+      className={`text-left ${className ?? ''} ${
+        fontSizeMap[fontSize ?? 'normal']
+      }`}
+      {...otherProps}
+    >
       <SyntaxHighlighter
-        language="typescript"
+        language={lang ?? 'typescript'}
         style={codeTheme}
         showLineNumbers={true}
         customStyle={{ margin: 0, borderRadius: 0 }}
+        wrapLongLines={true}
       >
-        {props.text}
+        {text}
       </SyntaxHighlighter>
     </Card>
   );
 }
+
+const fontSizeMap: Record<Required<CodeBlockProps>['fontSize'], string> = {
+  large: 'text-2xl',
+  normal: 'text-lg large-desktop:text-xl',
+  small: 'text-lg',
+};

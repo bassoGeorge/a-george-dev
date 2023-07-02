@@ -26,7 +26,6 @@ export function useTheme() {
 
 /** Provider */
 export function ThemeProvider({ children }: React.PropsWithChildren) {
-  console.log('Running provider');
   const [{ theme }, dispatch] = useReducer(themeReducer, initialThemeState);
 
   // Listen to the browser theme change, can also be directly used on the queryList

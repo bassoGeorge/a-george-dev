@@ -1,6 +1,7 @@
-import { RefObject, useEffect } from 'react';
+import { RefObject, useEffect, useRef } from 'react';
 
 export function useRevealFramework(ref: RefObject<HTMLElement>) {
+  const revealInstance = useRef<Reveal.Api>();
   useEffect(() => {
     (async () => {
       if (!ref.current) return;
@@ -12,7 +13,14 @@ export function useRevealFramework(ref: RefObject<HTMLElement>) {
         controlsTutorial: false,
         disableLayout: true,
       });
-      deck.initialize();
+
+      deck.initialize().then((evt) => {
+        // Hack for dev
+        deck.slide(3, 3);
+        revealInstance.current = deck;
+      });
     })();
   }, []);
+
+  return [revealInstance] as const;
 }
