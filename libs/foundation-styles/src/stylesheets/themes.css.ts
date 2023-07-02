@@ -5,25 +5,21 @@ import { RawColors } from '../lib/tokens/raw-colors';
 const lightStyle = {
   vars: assignVars(ContextualColors, {
     page: {
-      0: RawColors.parchment['500'],
-      1: RawColors.parchment['400'],
-      2: RawColors.parchment['300'],
-      3: RawColors.parchment['200'],
-      4: RawColors.parchment['100'],
+      0: RawColors.parchment[500],
+      1: RawColors.parchment[400],
+      2: RawColors.parchment[300],
+      3: RawColors.parchment[200],
+      4: RawColors.parchment[100],
     },
     neutral: {
-      100: RawColors.dNeutral['100'],
-      200: RawColors.dNeutral['200'],
-      300: RawColors.dNeutral['300'],
-      400: RawColors.dNeutral['400'],
-      500: RawColors.dNeutral['500'],
+      DEFAULT: RawColors.dNeutral[500],
+      subtle: RawColors.dNeutral[300],
+      subtlest: RawColors.dNeutral[200],
     },
     neutralInverse: {
-      100: RawColors.lNeutral['100'],
-      200: RawColors.lNeutral['200'],
-      300: RawColors.lNeutral['300'],
-      400: RawColors.lNeutral['400'],
-      500: RawColors.lNeutral['500'],
+      DEFAULT: RawColors.lNeutral[500],
+      subtle: RawColors.lNeutral[300],
+      subtlest: RawColors.lNeutral[200],
     },
     shadow: {
       far: RawColors.shadow[2],
@@ -33,6 +29,14 @@ const lightStyle = {
     line: {
       DEFAULT: RawColors.line.main,
       dark: RawColors.line.main,
+    },
+    accent: {
+      DEFAULT: RawColors.pAccent[500],
+      subtle: RawColors.pAccent[300],
+    },
+    altAccent: {
+      DEFAULT: RawColors.sAccent[500],
+      subtle: RawColors.pAccent[300],
     },
   }),
 };
@@ -47,18 +51,14 @@ const darkStyle = {
       4: RawColors.timber['100'],
     },
     neutral: {
-      100: RawColors.lNeutral['100'],
-      200: RawColors.lNeutral['200'],
-      300: RawColors.lNeutral['300'],
-      400: RawColors.lNeutral['400'],
-      500: RawColors.lNeutral['500'],
+      DEFAULT: RawColors.lNeutral[500],
+      subtle: RawColors.lNeutral[300],
+      subtlest: RawColors.lNeutral[200],
     },
     neutralInverse: {
-      100: RawColors.dNeutral['100'],
-      200: RawColors.dNeutral['200'],
-      300: RawColors.dNeutral['300'],
-      400: RawColors.dNeutral['400'],
-      500: RawColors.dNeutral['500'],
+      DEFAULT: RawColors.dNeutral[500],
+      subtle: RawColors.dNeutral[300],
+      subtlest: RawColors.dNeutral[200],
     },
     shadow: {
       far: RawColors.shadow[3],
@@ -68,6 +68,14 @@ const darkStyle = {
     line: {
       DEFAULT: RawColors.line.inverse,
       dark: RawColors.line.main,
+    },
+    accent: {
+      DEFAULT: RawColors.pAccent[300],
+      subtle: RawColors.pAccent[400],
+    },
+    altAccent: {
+      DEFAULT: RawColors.sAccent[300],
+      subtle: RawColors.pAccent[400],
     },
   }),
 };

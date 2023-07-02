@@ -10,6 +10,8 @@ const neutralName = vName('neutral');
 const neutralInverseName = vName('neutral-inverse');
 const shadowName = vName('shadow');
 const lineName = vName('line');
+const accentName = vName('accent');
+const altAccentName = vName('alt-accent');
 
 export const ContextualColors = createGlobalThemeContract({
   page: {
@@ -20,18 +22,14 @@ export const ContextualColors = createGlobalThemeContract({
     4: pageName(4),
   },
   neutral: {
-    100: neutralName(100),
-    200: neutralName(200),
-    300: neutralName(300),
-    400: neutralName(400),
-    500: neutralName(500),
+    DEFAULT: neutralName(''),
+    subtle: neutralName('subtle'),
+    subtlest: neutralName('subtlest'),
   },
   neutralInverse: {
-    100: neutralInverseName(100),
-    200: neutralInverseName(200),
-    300: neutralInverseName(300),
-    400: neutralInverseName(400),
-    500: neutralInverseName(500),
+    DEFAULT: neutralInverseName(''),
+    subtle: neutralInverseName('subtle'),
+    subtlest: neutralInverseName('subtlest'),
   },
   shadow: {
     DEFAULT: shadowName(''),
@@ -41,5 +39,13 @@ export const ContextualColors = createGlobalThemeContract({
   line: {
     DEFAULT: lineName(''),
     dark: lineName('dark'),
+  },
+  accent: {
+    DEFAULT: accentName(''),
+    subtle: accentName('subtle'),
+  },
+  altAccent: {
+    DEFAULT: altAccentName(''),
+    subtle: altAccentName('subtle'),
   },
 });
