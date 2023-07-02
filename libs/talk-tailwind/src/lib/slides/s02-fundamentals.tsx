@@ -9,6 +9,7 @@ import {
 import { CodeBlock } from '@ageorgedev/molecules';
 import {
   ComparisonRow,
+  ImportantNote,
   SlideMediaRow,
   SlideTypeCenter,
   SlideTypeRegular,
@@ -97,25 +98,14 @@ export function S02Fundamentals() {
           <CodeBlock text={tailwindConfigFile} lang="javascript"></CodeBlock>
           <div className="flex flex-col gap-7 items-start">
             <CodeBlock text={configDerivedHtml} lang="html"></CodeBlock>
-            <div className="fragment">
-              <TiltCard
-                shape="triUpperRight"
-                className="bg-rc-p-accent-100 flex gap-2"
-              >
-                <Lightning
-                  weight="duotone"
-                  className="text-3xl text-rc-p-accent-500"
-                />
-                <div className="text-left dark:text-cc-neutral-inverse-500">
-                  <PBodyMd>
-                    These are the foundations of a design system.
-                  </PBodyMd>
-                  <PBody className="mt-3">
-                    <b>Talk to your designer</b> to fill this config!
-                  </PBody>
-                </div>
-              </TiltCard>
-            </div>
+            <ImportantNote className="fragment" shape="triUpperRight">
+              <PBodyMd>
+                These are foundations of a <em>design system</em>
+              </PBodyMd>
+              <PBody className="mt-3">
+                <b>Talk to your designer</b> to fill this config!
+              </PBody>
+            </ImportantNote>
           </div>
         </div>
       </SlideTypeRegular>

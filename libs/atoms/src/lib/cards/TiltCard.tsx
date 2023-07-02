@@ -5,7 +5,7 @@ import {
   skewedBoxShadowContainer,
 } from './TiltCard.css';
 
-type SkewedBoxProps = {
+export type TiltCardProps = {
   outerClassName?: string;
 } & RecipeVariants<typeof skewedBoxShadowContainer> &
   RecipeVariants<typeof skewedBoxBorderContainer> &
@@ -20,7 +20,7 @@ export function TiltCard({
   skewStrength,
   border,
   ...htmlProps
-}: SkewedBoxProps) {
+}: TiltCardProps) {
   return (
     <div
       {...htmlProps}
