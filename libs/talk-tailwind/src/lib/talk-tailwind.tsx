@@ -5,6 +5,7 @@ import { useRef } from 'react';
 import { S01Intro } from './slides/s01-intro';
 import { S02Fundamentals } from './slides/s02-fundamentals';
 import { S03AntiPatterns } from './slides/s03-anti-patterns';
+import { S04LeanConfig } from './slides/s04-lean-config';
 
 export function TalkTailwind() {
   const presentationRef = useRef(null);
@@ -16,6 +17,7 @@ export function TalkTailwind() {
         <S01Intro />
         <S02Fundamentals />
         <S03AntiPatterns />
+        <S04LeanConfig />
       </div>
       <DeckFooter>
         <TwLogo className="h-full" />
