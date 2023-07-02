@@ -106,7 +106,7 @@ export function S02Fundamentals() {
                   weight="duotone"
                   className="text-3xl text-rc-p-accent-500"
                 />
-                <div className="text-left">
+                <div className="text-left dark:text-cc-neutral-inverse-500">
                   <PBodyMd>
                     These are the foundations of a design system.
                   </PBodyMd>
@@ -149,13 +149,13 @@ export function S02Fundamentals() {
         </PBody>
       </SlideTypeRegular>
       <SlideTypeCenter>
-        <Heading3>And that was the short version!</Heading3>
+        <Heading3>And that was the quick version!</Heading3>
         <PBody>
           Visit{' '}
           <a
             href="https://tailwindcss.com"
             target="_blank"
-            className="text-rc-s-accent-500"
+            className="text-rc-s-accent-500 dark:text-rc-s-accent-400"
             rel="noreferrer"
           >
             https://tailwindcss.com

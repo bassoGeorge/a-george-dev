@@ -8,8 +8,13 @@ export function S01Intro() {
   return (
     <>
       <SlideTypeCenter>
-        <Heading1>Beyond prototyping with Tailwind CSS</Heading1>
-        <PBody>Advanced strategies for production</PBody>
+        <Heading1>
+          Beyond prototyping with{' '}
+          <span className="font-bold text-rc-p-accent-500 dark:text-rc-p-accent-300">
+            Tailwind CSS
+          </span>
+        </Heading1>
+        <PBodyMd className="italic">Advanced strategies for production</PBodyMd>
       </SlideTypeCenter>
       <SlideTypeRegular heading={<Heading1>Why should you care?</Heading1>}>
         <PBodyMd className="fragment">
