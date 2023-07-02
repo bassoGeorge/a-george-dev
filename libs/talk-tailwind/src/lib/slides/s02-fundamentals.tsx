@@ -34,7 +34,7 @@ export function S02Fundamentals() {
               <CodeBlock
                 text={simpleButtonTraditional}
                 lang="html"
-                className="fragment mb-8"
+                className="fragment mb-7"
                 data-fragment-index="1"
               />
               <PBody className="fragment" data-fragment-index="3">
@@ -57,7 +57,7 @@ export function S02Fundamentals() {
               <CodeBlock
                 text={simpleButtonTailwind}
                 lang="html"
-                className="fragment mb-8"
+                className="fragment mb-7"
                 data-fragment-index="2"
               />
               <PBody className="fragment" data-fragment-index="3">
@@ -93,9 +93,9 @@ export function S02Fundamentals() {
       <SlideTypeRegular
         heading={<Heading1>Finite values through configuration</Heading1>}
       >
-        <div className="flex gap-8 items-start">
+        <div className="flex gap-7 items-start">
           <CodeBlock text={tailwindConfigFile} lang="javascript"></CodeBlock>
-          <div className="flex flex-col gap-8 items-start">
+          <div className="flex flex-col gap-7 items-start">
             <CodeBlock text={configDerivedHtml} lang="html"></CodeBlock>
             <div className="fragment">
               <TiltCard
@@ -125,8 +125,8 @@ export function S02Fundamentals() {
           <Heading1>Tailwind only generates the minimum CSS required</Heading1>
         }
       >
-        <div className="flex flex-col gap-8 items-center">
-          <div className="flex gap-8 items-start">
+        <div className="flex flex-col gap-7 items-center">
+          <div className="flex gap-7 items-start">
             <CodeBlock text={exampleHtml} lang="html"></CodeBlock>
             <CodeBlock text={sourceStyleFile} lang="css"></CodeBlock>
           </div>
@@ -143,7 +143,7 @@ export function S02Fundamentals() {
         <SlideMediaRow>
           <D01TailwindFilesize />
         </SlideMediaRow>
-        <PBody className="mt-8">
+        <PBody className="mt-7">
           The built css file gets the same hash if no new classes are used. This
           means it gets cached by the user's browser!
         </PBody>
@@ -171,9 +171,11 @@ export function S02Fundamentals() {
 
 const simpleButtonTraditional = `<button class="btn btn-primary">
   Cick Me!
-</button>`;
+</button>
+`;
 
-const simpleButtonTailwind = `<button class="text-white text-lg bg-blue-300 hover:bg-blue-700 rounded">
+const simpleButtonTailwind = `<button class="text-white text-lg bg-blue hover:bg-grey
+    rounded px-2 py-3">
   Click Me!
 </button>`;
 
@@ -196,9 +198,6 @@ const fullTailwindWithoutComponents = `<div className="max-w-sm rounded overflow
     </span>
     <span className="bg-gray-200 rounded-full px-3 py-1 text-sm text-gray-700">
       UI/UX Designer
-    </span>
-    <span className="bg-gray-200 rounded-full px-3 py-1 text-sm text-gray-700">
-      Photographer
     </span>
   </div>
 </div>`;

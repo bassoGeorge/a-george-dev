@@ -11,7 +11,7 @@ export const slideContentReset = 'h-full';
 export const slideCenterStyles = `flex flex-col justify-center items-center`;
 
 export const slideHeaderGrid = style([
-  'grid place-items-center gap-7',
+  'grid place-items-center gap-6 large-desktop:gap-7',
   {
     gridTemplateRows: '.2fr .8fr',
   },

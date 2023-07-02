@@ -7,7 +7,7 @@ export function SlideMediaRow({
 }: React.HTMLProps<HTMLDivElement>) {
   return (
     <div
-      className={`w-full flex justify-center h-15 ${slideMainGap} ${
+      className={`w-full flex justify-center h-[50vh] ${slideMainGap} ${
         className ?? ''
       }`}
       {...otherProps}
@@ -19,7 +19,7 @@ export function SlideMediaRow({
 
 export function DeckFooter(props: React.PropsWithChildren) {
   return (
-    <footer className="absolute bottom-6 h-7 w-full flex justify-center items-center gap-4">
+    <footer className="absolute bottom-6 h-6 large-desktop:h-7 w-full flex justify-center items-center gap-4">
       {props.children}
     </footer>
   );

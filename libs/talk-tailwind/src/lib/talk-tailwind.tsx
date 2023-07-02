@@ -18,7 +18,9 @@ export function TalkTailwind() {
       <DeckFooter>
         <TwLogo className="h-full" />
         <BodyXl className="text-cc-neutral-300">|</BodyXl>
-        <BodyXl className="mt-2 italic text-cc-neutral-300">Unfold UI</BodyXl>
+        <BodyXl className="italic text-cc-neutral-300 large-desktop:mt-2">
+          Unfold UI
+        </BodyXl>
       </DeckFooter>
     </div>
   );
