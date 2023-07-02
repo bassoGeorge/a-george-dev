@@ -4,6 +4,7 @@ import {
   SlideTypeCenter,
   SlideTypeRegular,
 } from '@ageorgedev/reveal-framework';
+import { ArrowRight } from '@phosphor-icons/react';
 
 export function S03AntiPatterns() {
   return (
@@ -61,6 +62,28 @@ export function S03AntiPatterns() {
         </ol>
       </SlideTypeRegular>
       {/** TODO: Side note for angular devs, use @HostBinding */}
+
+      <SlideTypeRegular heading={<Heading1>Arbitrary value notation</Heading1>}>
+        <div className="flex gap-6 items-start">
+          <CodeBlock text={oneOffHtml} lang="html"></CodeBlock>
+          <ArrowRight
+            weight="duotone"
+            className="text-2xl text-rc-p-accent-500 dark:text-rc-p-accent-300 self-center"
+          />
+          <CodeBlock text={oneOffComputedCss} lang="css"></CodeBlock>
+        </div>
+
+        <PBody className="italic mt-7 fragment" data-fragment-index="0">
+          But...
+        </PBody>
+        <CodeBlock
+          className="fragment"
+          data-fragment-index="0"
+          text={oneOffBadHtml}
+          lang="html"
+          fontSize="large"
+        ></CodeBlock>
+      </SlideTypeRegular>
     </section>
   );
 }
@@ -102,3 +125,16 @@ const applyAntiPatternSourceComputedStyles = `/* dist/style.css */
 const applyAntiPatternHtml = `<!-- view.html -->
 
 <button class="my-btn">Click Me!</button>`;
+
+const oneOffHtml = `<div>
+  <i class="fa-solid fa-magnifying-glass mt-[3px]"></i>
+  <span>Search</span>
+</div>`;
+
+const oneOffComputedCss = `.mt-\\[3px\\] {
+  margin-top: 3px;
+}`;
+
+const oneOffBadHtml = `<div class="shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)]">
+  Oh my god, my eyes!!
+</div>`;
