@@ -4,6 +4,7 @@ import { DeckFooter, useRevealFramework } from '@ageorgedev/reveal-framework';
 import { useRef } from 'react';
 import { S01Intro } from './slides/s01-intro';
 import { S02Fundamentals } from './slides/s02-fundamentals';
+import { S03AntiPatterns } from './slides/s03-anti-patterns';
 
 export function TalkTailwind() {
   const presentationRef = useRef(null);
@@ -14,6 +15,7 @@ export function TalkTailwind() {
       <div className="slides">
         <S01Intro />
         <S02Fundamentals />
+        <S03AntiPatterns />
       </div>
       <DeckFooter>
         <TwLogo className="h-full" />

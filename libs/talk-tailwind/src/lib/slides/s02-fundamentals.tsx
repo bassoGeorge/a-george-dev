@@ -4,7 +4,6 @@ import {
   Heading3,
   PBody,
   PBodyMd,
-  TiltCard,
 } from '@ageorgedev/atoms';
 import { CodeBlock } from '@ageorgedev/molecules';
 import {
@@ -14,7 +13,6 @@ import {
   SlideTypeCenter,
   SlideTypeRegular,
 } from '@ageorgedev/reveal-framework';
-import { Lightning } from '@phosphor-icons/react';
 import { D01TailwindFilesize } from '../diagrams/D01TailwindFilesize';
 
 export function S02Fundamentals() {
