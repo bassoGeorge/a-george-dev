@@ -16,7 +16,7 @@ export function useRevealFramework(ref: RefObject<HTMLElement>) {
 
       deck.initialize().then((evt) => {
         // Hack for dev
-        deck.slide(6, 1);
+        deck.slide(6, 5);
         revealInstance.current = deck;
       });
     })();

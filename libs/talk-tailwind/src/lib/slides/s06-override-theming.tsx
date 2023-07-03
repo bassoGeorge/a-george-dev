@@ -5,14 +5,15 @@ import {
   PBody,
   PBodyLg,
   PBodySm,
-  PBodyXs,
 } from '@ageorgedev/atoms';
 import { CodeBlock } from '@ageorgedev/molecules';
 import {
   ComparisonRow,
+  ImportantNote,
   SlideTypeCenter,
   SlideTypeRegular,
 } from '@ageorgedev/reveal-framework';
+import { Warning } from '@phosphor-icons/react';
 
 export function S06OverrideTheming() {
   return (
@@ -100,6 +101,91 @@ export function S06OverrideTheming() {
           ))}
         </div>
       </SlideTypeRegular>
+      <SlideTypeRegular
+        heading={
+          <Heading2>
+            <em>Bonus 2</em>: About the modern color syntax
+          </Heading2>
+        }
+      >
+        <CodeBlock
+          lang="css"
+          text={modernHslSyntax}
+          fontSize="large"
+        ></CodeBlock>
+      </SlideTypeRegular>
+      <SlideTypeRegular
+        heading={<Heading2>How to make Tailwind more flexible?</Heading2>}
+      >
+        <div className="flex items-start gap-7">
+          <CodeBlock
+            className="fragment"
+            lang="css"
+            text={colorVarsRoot}
+          ></CodeBlock>
+          <CodeBlock
+            className="fragment"
+            lang="javascript"
+            text={colorVarsUsage}
+          ></CodeBlock>
+        </div>
+      </SlideTypeRegular>
+      <SlideTypeRegular
+        heading={<Heading2>Using fallbacks for more flexibility</Heading2>}
+      >
+        <CodeBlock
+          lang="javascript"
+          text={colorVarsWithDefaults}
+          fontSize="large"
+        ></CodeBlock>
+      </SlideTypeRegular>
+      <SlideTypeRegular
+        heading={<Heading2>About color opacity modifiers</Heading2>}
+      >
+        <CodeBlock
+          lang="html"
+          text={tailwindColorOpacityModifiers}
+          fontSize="large"
+        ></CodeBlock>
+        <PBody className="text-cc-alt-accent">
+          This fails with our vars setup!
+        </PBody>
+        <PBody className="font-bold">
+          <Warning className="text-cc-alt-accent inline-block" /> It is
+          debatable whether color opacity
+          <br /> is a good practice from a design perspective{' '}
+        </PBody>
+      </SlideTypeRegular>
+
+      <SlideTypeRegular
+        heading={<Heading2>We can make use of color channels!</Heading2>}
+      >
+        <div className="flex items-end gap-7">
+          <CodeBlock
+            lang="css"
+            text={colorVarsRootChannels}
+            fontSize="large"
+            className="basis-3/5"
+          ></CodeBlock>
+          <ImportantNote
+            className="fragment basis-2/5"
+            shape="trapLeft"
+            data-fragment-index="1"
+          >
+            <PBody>
+              You actually might want to avoid customisable opacities
+            </PBody>
+            <PBody className="font-bold">Talk to your designer</PBody>
+          </ImportantNote>
+        </div>
+        <CodeBlock
+          className="fragment"
+          lang="css"
+          fontSize="large"
+          data-fragment-index="0"
+          text={colorVarsWithDefaultsChannels}
+        ></CodeBlock>
+      </SlideTypeRegular>
     </section>
   );
 }
@@ -145,3 +231,57 @@ const dark = '#598958';`;
 const colorProblemHsl = `const light = 'hsl(321 12% 48%)';
 const base = 'hsl(321 12% 29%)';
 const dark = 'hsl(119 22% 44%)';`;
+
+const colorVarsRoot = `/* styles.css */
+@layer base {
+  :root {
+    --color-primary-light: hsl(321 12% 48%);
+    --color-primary-base: hsl(321 12% 29%);
+    --color-primary-dark: hsl(119 22% 44%);
+  }
+}`;
+
+const colorVarsUsage = `/* tailwind.config.js */
+
+export default {
+  theme: {
+    colors: {
+      primary: {
+        DEFAULT: "var(--color-primary-base)",
+        light: "var(--color-primary-light)",
+        dark: "var(--color-primary-dark)",
+      },
+      secondary: {
+        DEFAULT: "var(--color-secondary-base)",
+        light: "var(--color-secondary-light)",
+        dark: "var(--color-secondary-dark)",
+      }
+    }
+  },
+};`;
+
+const colorVarsWithDefaults = `primary: {
+  DEFAULT: "var(--color-primary-base, hsl(321 12% 29%))",
+  light: "var(--color-primary-light, hsl(321 12% 48%))",
+  dark: "var(--color-primary-dark, hsl(119 22% 44%))",
+}`;
+
+const tailwindColorOpacityModifiers = `<div class='bg-primary-dark/30 text-neutral/60'>...</div>`;
+
+const colorVarsRootChannels = `:root {
+  --color-primary-base: 207 49% 65%;
+}`;
+
+const colorVarsWithDefaultsChannels = `primary: {
+  DEFAULT: "hsl( var(--color-primary-base, 321 12% 29%) / <alpha-value>)",
+  light: "hsl( var(--color-primary-light, 321 12% 48%) / <alpha-value>)",
+  dark: "hsl( var(--color-primary-dark, 119 22% 44%) / <alpha-value>)",
+}`;
+
+const modernHslSyntax = `.selector {
+  /* hsl(<hue> <saturation> <lightness>) */
+  color: hsl(205 30% 90%)
+
+  /* hsl(<hue> <saturation> <lightness> / <alpha-value>) */
+  background: hsl(205 30% 90% / .4)
+}`;
