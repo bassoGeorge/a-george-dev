@@ -147,11 +147,11 @@ export function S06OverrideTheming() {
           text={tailwindColorOpacityModifiers}
           fontSize="large"
         ></CodeBlock>
-        <PBody className="text-cc-alt-accent">
+        <PBodyLg className="text-cc-alt-accent">
           This fails with our vars setup!
-        </PBody>
-        <PBody className="font-bold">
-          <Warning className="text-cc-alt-accent inline-block" /> It is
+        </PBodyLg>
+        <PBody className="font-bold mt-7">
+          <Warning className="text-cc-alt-accent block mx-auto" /> It is
           debatable whether color opacity
           <br /> is a good practice from a design perspective{' '}
         </PBody>
