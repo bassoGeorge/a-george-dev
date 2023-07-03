@@ -5,6 +5,7 @@ import {
   Interface2Xl,
   InterfaceXl,
   PBody,
+  PBodyLg,
   PBodyXs,
 } from '@ageorgedev/atoms';
 import { CodeBlock } from '@ageorgedev/molecules';
@@ -12,6 +13,7 @@ import {
   SlideTypeCenter,
   SlideTypeRegular,
 } from '@ageorgedev/reveal-framework';
+import { Warning } from '@phosphor-icons/react';
 
 export function S07DarkAndLight() {
   return (
@@ -138,6 +140,39 @@ export function S07DarkAndLight() {
           </div>
         </div>
       </SlideTypeRegular>
+      <SlideTypeRegular heading={<Heading2>All together now...</Heading2>}>
+        <div className="flex items-start gap-7">
+          <CodeBlock lang="css" text={rawColorsRoot} />
+          <div className="flex flex-col gap-7 items-start">
+            <CodeBlock lang="css" text={contextualColorsRootLight} />
+            <CodeBlock lang="css" text={contextualColorsRootDark} />
+          </div>
+        </div>
+      </SlideTypeRegular>
+      <SlideTypeRegular
+        heading={<Heading2>and a straightforward Tailwind config</Heading2>}
+      >
+        <div className="flex items-start gap-7">
+          <CodeBlock lang="css" text={contextualColorsTailwindConfig} />
+          <CodeBlock lang="html" text={contextualColorsUsage} />
+        </div>
+      </SlideTypeRegular>
+      <SlideTypeRegular
+        heading={
+          <Heading2>
+            <span className="underline">The biggest problem</span> with Tailwind
+          </Heading2>
+        }
+      >
+        <PBodyLg className="text-cc-alt-accent italic">
+          <Warning className="inline-block -mt-2" /> It allows all combinations!
+        </PBodyLg>
+        <CodeBlock
+          fontSize="large"
+          lang="html"
+          text={contextualColorsProblem}
+        />
+      </SlideTypeRegular>
     </section>
   );
 }
@@ -164,3 +199,50 @@ const darkModeHtml = `<html class="dark">
 const darkModeBasicUsage = `<button class="bg-primary-100 dark:bg-primary-800 dark:text-white">
   Click me
 </button>`;
+
+const rawColorsRoot = `:root {
+  --ag-rc-parchment-500: hsl(39 100% 89%);
+  --ag-rc-timber-300: hsl(189, 31%, 13%);
+
+  --ag-rc-p-accent-300: hsl(83 27% 53%);
+  --ag-rc-p-accent-500: hsl(83 49% 30%);
+
+  --ag-rc-d-neutral-500: hsl(189 67% 6%);
+  --ag-rc-l-neutral-500: hsl(45 100% 99%);
+}`;
+
+const contextualColorsRootLight = `:root {
+  --ag-cc-page-far: var(--ag-rc-parchment-500);
+  --ag-cc-accent: var(--ag-rc-p-accent-500);
+  --ag-cc-neutral: var(--ag-rc-d-neutral-500);
+  --ag-cc-neutral-inverse: var(--ag-rc-l-neutral-500);
+}`;
+
+const contextualColorsRootDark = `:root.dark {
+  --ag-cc-page-far: var(--ag-rc-timber-300);
+  --ag-cc-accent: var(--ag-rc-p-accent-300);
+  --ag-cc-neutral: var(--ag-rc-l-neutral-500);
+  --ag-cc-neutral-inverse: var(--ag-rc-d-neutral-500);
+}`;
+
+const contextualColorsTailwindConfig = `/* tailwind.config.js */
+
+export default {
+  theme: {
+    colors: {
+      'cc-page-far': 'var(--ag-cc-page-far)',
+      'cc-accent': 'var(--ag-cc-accent)',
+      'cc-neutral': 'var(--ag-cc-neutral)',
+      //... others
+    }
+  }
+}`;
+
+const contextualColorsUsage = `<section class="bg-cc-page-far text-cc-neutral">
+  <button class="bg-cc-accent">Click me</button>
+</section>`;
+
+const contextualColorsProblem = `<button class="text-cc-page-far">Click me</button>
+<div class="bg-cc-neutral">
+  <!-- other stuff -->
+</div>`;
