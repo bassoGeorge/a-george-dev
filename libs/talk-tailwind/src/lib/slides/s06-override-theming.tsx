@@ -23,7 +23,7 @@ export function S06OverrideTheming() {
           strategy #3
         </Heading3>
         <Heading1 as="h2" className="font-bold">
-          Colors: Theming using overrides
+          Theming using overrides
         </Heading1>
       </SlideTypeCenter>
       <SlideTypeRegular

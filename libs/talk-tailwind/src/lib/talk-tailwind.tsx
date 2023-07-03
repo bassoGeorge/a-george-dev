@@ -9,6 +9,7 @@ import { S04LeanConfig } from './slides/s04-lean-config';
 import { S05ClassManagement } from './slides/s05-class-mgt';
 import { S06OverrideTheming } from './slides/s06-override-theming';
 import { IconContext } from '@phosphor-icons/react';
+import { S07DarkAndLight } from './slides/s07-dark-and-light';
 
 export function TalkTailwind() {
   const presentationRef = useRef(null);
@@ -24,6 +25,7 @@ export function TalkTailwind() {
           <S04LeanConfig />
           <S05ClassManagement />
           <S06OverrideTheming />
+          <S07DarkAndLight />
         </div>
         <DeckFooter>
           <TwLogo className="h-full" />
