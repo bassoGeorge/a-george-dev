@@ -7,6 +7,7 @@ import { S02Fundamentals } from './slides/s02-fundamentals';
 import { S03AntiPatterns } from './slides/s03-anti-patterns';
 import { S04LeanConfig } from './slides/s04-lean-config';
 import { S05ClassManagement } from './slides/s05-class-mgt';
+import { S06OverrideTheming } from './slides/s06-override-theming';
 
 export function TalkTailwind() {
   const presentationRef = useRef(null);
@@ -20,6 +21,7 @@ export function TalkTailwind() {
         <S03AntiPatterns />
         <S04LeanConfig />
         <S05ClassManagement />
+        <S06OverrideTheming />
       </div>
       <DeckFooter>
         <TwLogo className="h-full" />
