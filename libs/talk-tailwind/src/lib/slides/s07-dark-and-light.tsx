@@ -1,4 +1,12 @@
-import { Heading1, Heading2, Heading3, PBody } from '@ageorgedev/atoms';
+import {
+  Heading1,
+  Heading2,
+  Heading3,
+  Interface2Xl,
+  InterfaceXl,
+  PBody,
+  PBodyXs,
+} from '@ageorgedev/atoms';
 import { CodeBlock } from '@ageorgedev/molecules';
 import {
   SlideTypeCenter,
@@ -37,7 +45,108 @@ export function S07DarkAndLight() {
           text={darkModeBasicUsage}
         ></CodeBlock>
       </SlideTypeRegular>
+      <SlideTypeRegular heading={<Heading2>We can do better</Heading2>}>
+        <div className="flex items-start gap-7">
+          <div>
+            <Interface2Xl as="p" className="mb-7">
+              Raw Colors
+            </Interface2Xl>
+            <div className="grid grid-cols-3 gap-6 items-center justify-end">
+              <PBodyXs>Parchment</PBodyXs>
+              <Swatch className="bg-rc-parchment-200" />
+              <Swatch className="bg-rc-parchment-500" />
+
+              <PBodyXs>Timber</PBodyXs>
+              <Swatch className="bg-rc-timber-100" />
+              <Swatch className="bg-rc-timber-300" />
+
+              <PBodyXs>Accent</PBodyXs>
+              <Swatch className="bg-rc-p-accent-300" />
+              <Swatch className="bg-rc-p-accent-500" />
+
+              <PBodyXs>Neutral</PBodyXs>
+              <Swatch className="bg-cc-neutral dark:bg-cc-neutral-inverse" />
+              <Swatch className="dark:bg-cc-neutral bg-cc-neutral-inverse" />
+            </div>
+          </div>
+          <div
+            className="w-px self-stretch bg-cc-line fragment"
+            data-fragment-index="0"
+          ></div>
+          <div className="fragment" data-fragment-index="0">
+            <Interface2Xl as="p" className="mb-7">
+              Contextual Colors
+            </Interface2Xl>
+
+            <InterfaceXl as="p" className="mb-5 text-left">
+              Light Mode
+            </InterfaceXl>
+
+            <div className="flex gap-6">
+              <div>
+                <Swatch className="bg-rc-parchment-500" />
+                <PBodyXs className="mt-2">Page far</PBodyXs>
+              </div>
+              <div>
+                <Swatch className="bg-rc-parchment-200" />
+                <PBodyXs className="mt-2">Page near</PBodyXs>
+              </div>
+              <div>
+                <Swatch className="bg-rc-p-accent-500" />
+                <PBodyXs className="mt-2">Accent</PBodyXs>
+              </div>
+              <div>
+                <Swatch className="bg-cc-neutral dark:bg-cc-neutral-inverse" />
+                <PBodyXs className="mt-2">Neutral text</PBodyXs>
+              </div>
+              <div>
+                <Swatch className="dark:bg-cc-neutral bg-cc-neutral-inverse" />
+                <PBodyXs className="mt-2">Inverse text</PBodyXs>
+              </div>
+            </div>
+
+            <InterfaceXl
+              as="p"
+              className="mb-5 mt-7 text-left fragment"
+              data-fragment-index="1"
+            >
+              Dark Mode
+            </InterfaceXl>
+
+            <div className="flex gap-6 fragment" data-fragment-index="1">
+              <div>
+                <Swatch className="bg-rc-timber-300" />
+                <PBodyXs className="mt-2">Page far</PBodyXs>
+              </div>
+              <div>
+                <Swatch className="bg-rc-timber-100" />
+                <PBodyXs className="mt-2">Page near</PBodyXs>
+              </div>
+              <div>
+                <Swatch className="bg-rc-p-accent-300" />
+                <PBodyXs className="mt-2">Accent</PBodyXs>
+              </div>
+              <div>
+                <Swatch className="dark:bg-cc-neutral bg-cc-neutral-inverse" />
+                <PBodyXs className="mt-2">Neutral text</PBodyXs>
+              </div>
+              <div>
+                <Swatch className="bg-cc-neutral dark:bg-cc-neutral-inverse" />
+                <PBodyXs className="mt-2">Inverse text</PBodyXs>
+              </div>
+            </div>
+          </div>
+        </div>
+      </SlideTypeRegular>
     </section>
+  );
+}
+
+function Swatch({ className }: { className?: string }) {
+  return (
+    <div
+      className={`${className} w-10 h-9 rounded border border-cc-line`}
+    ></div>
   );
 }
 
