@@ -4,6 +4,7 @@ import {
   Heading3,
   PBody,
   PBodyLg,
+  PBodyMd,
   PBodySm,
 } from '@ageorgedev/atoms';
 import { CodeBlock } from '@ageorgedev/molecules';
@@ -147,14 +148,16 @@ export function S06OverrideTheming() {
           text={tailwindColorOpacityModifiers}
           fontSize="large"
         ></CodeBlock>
-        <PBodyLg className="text-cc-alt-accent">
+        <PBodyMd className="text-cc-danger mb-7">
           This fails with our vars setup!
-        </PBodyLg>
-        <PBody className="font-bold mt-7">
-          <Warning className="text-cc-alt-accent block mx-auto" /> It is
-          debatable whether color opacity
-          <br /> is a good practice from a design perspective{' '}
-        </PBody>
+        </PBodyMd>
+        <ImportantNote type="danger" shape="triUpperRight">
+          <PBody>
+            It is debatable whether color opacity is a good practice from a
+            design perspective
+          </PBody>
+          <PBody className="font-bold mt-3">Talk to your designer!</PBody>
+        </ImportantNote>
       </SlideTypeRegular>
 
       <SlideTypeRegular
@@ -173,9 +176,9 @@ export function S06OverrideTheming() {
             data-fragment-index="1"
           >
             <PBody>
-              You actually might want to avoid customisable opacities
+              You actually might want to hardcode opacities into colors instead
             </PBody>
-            <PBody className="font-bold">Talk to your designer</PBody>
+            <PBody className="font-bold mt-3">Talk to your designer!</PBody>
           </ImportantNote>
         </div>
         <CodeBlock

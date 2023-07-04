@@ -4,7 +4,6 @@ import {
   Heading3,
   Interface2Xl,
   InterfaceXl,
-  PBody,
   PBodyLg,
   PBodyXs,
 } from '@ageorgedev/atoms';
@@ -140,14 +139,6 @@ export function S07DarkAndLight() {
           </div>
         </div>
       </SlideTypeRegular>
-      <SlideTypeCenter>
-        <Heading2>Experiment</Heading2>
-        <div className="w-12 h-12 rounded border border-line grid place-items-center bg-cc-danger-subtle">
-          <PBody className="text-cc-danger">Content</PBody>
-        </div>
-
-        <PBody className="text-cc-danger">Plain old danger text</PBody>
-      </SlideTypeCenter>
       <SlideTypeRegular heading={<Heading2>All together now...</Heading2>}>
         <div className="flex items-start gap-7">
           <CodeBlock lang="css" text={rawColorsRoot} />
@@ -172,7 +163,7 @@ export function S07DarkAndLight() {
           </Heading2>
         }
       >
-        <PBodyLg className="text-cc-alt-accent italic">
+        <PBodyLg className="text-cc-danger italic">
           <Warning className="inline-block -mt-2" /> It allows all combinations!
         </PBodyLg>
         <CodeBlock
@@ -181,6 +172,14 @@ export function S07DarkAndLight() {
           text={contextualColorsProblem}
         />
       </SlideTypeRegular>
+      <SlideTypeCenter>
+        <Heading3 as="h1" className="italic">
+          a final word on colors
+        </Heading3>
+        <Heading2>
+          If it gets any more complicated, don't use Tailwind's color system
+        </Heading2>
+      </SlideTypeCenter>
     </section>
   );
 }
