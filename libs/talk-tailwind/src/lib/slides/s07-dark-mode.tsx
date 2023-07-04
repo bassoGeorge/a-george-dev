@@ -14,7 +14,7 @@ import {
 } from '@ageorgedev/reveal-framework';
 import { Warning } from '@phosphor-icons/react';
 
-export function S07DarkAndLight() {
+export function S07DarkMode() {
   return (
     <section>
       <SlideTypeCenter>
