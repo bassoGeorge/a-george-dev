@@ -38,6 +38,10 @@ const lightStyle = {
       DEFAULT: RawColors.sAccent[500],
       subtle: RawColors.sAccent[400],
     },
+    danger: {
+      DEFAULT: RawColors.red[400],
+      subtle: RawColors.red[100],
+    },
   }),
 };
 
@@ -76,6 +80,10 @@ const darkStyle = {
     altAccent: {
       DEFAULT: RawColors.sAccent[300],
       subtle: RawColors.sAccent[400],
+    },
+    danger: {
+      DEFAULT: RawColors.red[100],
+      subtle: RawColors.red[500],
     },
   }),
 };

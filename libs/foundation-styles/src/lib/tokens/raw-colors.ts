@@ -57,6 +57,12 @@ export const RAW_COLORS = {
     main: 'hsl(189 67% 6%)',
     inverse: 'hsl(83 5% 46%)',
   },
+  red: {
+    100: 'hsl(360, 82%, 89%)',
+    200: 'hsl(360, 77%, 78%)',
+    400: 'hsl(360, 67%, 44%)',
+    500: 'hsl(360, 92%, 20%)',
+  },
 };
 
 type RC = typeof RAW_COLORS;

@@ -12,6 +12,7 @@ const shadowName = vName('shadow');
 const lineName = vName('line');
 const accentName = vName('accent');
 const altAccentName = vName('alt-accent');
+const dangerName = vName('danger');
 
 export const ContextualColors = createGlobalThemeContract({
   page: {
@@ -47,5 +48,9 @@ export const ContextualColors = createGlobalThemeContract({
   altAccent: {
     DEFAULT: altAccentName(''),
     subtle: altAccentName('subtle'),
+  },
+  danger: {
+    DEFAULT: dangerName(''),
+    subtle: dangerName('subtle'),
   },
 });
