@@ -3,7 +3,6 @@ import {
   Heading2,
   Heading3,
   PBody,
-  PBodyLg,
   PBodyMd,
   PBodySm,
 } from '@ageorgedev/atoms';
@@ -14,7 +13,6 @@ import {
   SlideTypeCenter,
   SlideTypeRegular,
 } from '@ageorgedev/reveal-framework';
-import { Warning } from '@phosphor-icons/react';
 
 export function S06OverrideTheming() {
   return (
@@ -36,7 +34,9 @@ export function S06OverrideTheming() {
           }
           right={
             <div className="flex flex-col justify-center h-full gap-2">
-              <PBodyLg className="text-cc-alt-accent">Inflexible</PBodyLg>
+              <Heading3 className="text-cc-danger font-bold">
+                Inflexible
+              </Heading3>
               <PBody>You can't change colors at run-time.</PBody>
             </div>
           }

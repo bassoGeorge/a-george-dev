@@ -1,12 +1,13 @@
 import {
   Heading1,
   Heading2,
-  PBody,
   Heading3,
+  PBody,
   PBodyMd,
 } from '@ageorgedev/atoms';
 import { CodeBlock } from '@ageorgedev/molecules';
 import {
+  ComparisonRow,
   ImportantNote,
   SlideMediaRow,
   SlideTypeCenter,
@@ -100,6 +101,51 @@ export function S09CssInJs() {
           </PBody>
         </ImportantNote>
       </SlideTypeRegular>
+      <SlideTypeCenter>
+        <Heading3 as="h1" className="italic">
+          bonus
+        </Heading3>
+        <Heading2>
+          A CSS-in-JS library that works well with Tailwind CSS...
+        </Heading2>
+        <Heading1
+          className="fragment font-bold mt-4 text-cc-accent"
+          data-fragment-index="0"
+        >
+          Vanilla Extract
+        </Heading1>
+        <PBodyMd className="fragment" data-fragment-index="0">
+          <a
+            href="https://vanilla-extract.style"
+            target="_blank"
+            className="text-cc-alt-accent"
+            rel="noreferrer"
+          >
+            https://vanilla-extract.style
+          </a>
+        </PBodyMd>
+      </SlideTypeCenter>
+      <SlideTypeRegular
+        heading={
+          <Heading2>Zero-runtime CSS-in-JS solution with Typescript</Heading2>
+        }
+      >
+        <ComparisonRow
+          left={<CodeBlock lang="typescript" text={vanillaExtractExample} />}
+          right={
+            <>
+              <PBody>You can colocate tailwind classes without penalty</PBody>
+              <PBody>Beautiful APIs, especially around CSS variables</PBody>
+              <PBody>Zero-runtime, creates full stylesheet during build</PBody>
+              <CodeBlock
+                className="mt-7"
+                lang="tsx"
+                text={vanillaExtractUsage}
+              />
+            </>
+          }
+        ></ComparisonRow>
+      </SlideTypeRegular>
     </section>
   );
 }
@@ -171,3 +217,33 @@ module.exports = {
   },
   // ...
 };`;
+
+const vanillaExtractExample = `/* styles.css.ts */
+import { Spacing } from './tokens';
+import { style } from '@vanilla-extract/css';
+
+export const button = style({
+  backgroundColor: 'red',
+  color: 'white',
+  padding: Spacing[2],
+});
+// => 'button_1w2j3r'
+
+export const myCustomGrid = style([
+  'grid place-items-center gap-6',
+  {
+    gridTemplateRows: '2fr 8fr',
+  },
+]);
+// => 'myCustomGrid_1w2j3r grid place-items-center gap-6'`;
+
+const vanillaExtractUsage = `/* Button.tsx */
+import * as styles from './styles.css';
+
+export function MyComponent() {
+  return (
+    <div className={styles.myCustomGrid}>
+      <button className={styles.button}>Click me</button>
+    </div>
+  );
+}`;

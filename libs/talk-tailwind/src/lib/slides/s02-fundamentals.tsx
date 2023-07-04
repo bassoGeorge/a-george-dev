@@ -216,6 +216,7 @@ const tailwindConfigFile = `// tailwind.config.js
 
 export default {
   // ...
+  content: ["./src/**/*.{html,js,jsx,ts,tsx}"]
   theme: {
     colors: {
       transparent: "transparent",

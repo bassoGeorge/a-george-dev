@@ -12,6 +12,7 @@ import { IconContext } from '@phosphor-icons/react';
 import { S07DarkMode } from './slides/s07-dark-mode';
 import { S09CssInJs } from './slides/s09-css-in-js';
 import { S08Plugins } from './slides/s08-plugins';
+import { S10Outro } from './slides/s10-outro';
 
 export function TalkTailwind() {
   const presentationRef = useRef(null);
@@ -30,6 +31,7 @@ export function TalkTailwind() {
           <S07DarkMode />
           <S08Plugins />
           <S09CssInJs />
+          <S10Outro />
         </div>
         <DeckFooter>
           <TwLogo className="h-full" />
