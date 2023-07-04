@@ -10,7 +10,8 @@ import { S05ClassManagement } from './slides/s05-class-mgt';
 import { S06OverrideTheming } from './slides/s06-override-theming';
 import { IconContext } from '@phosphor-icons/react';
 import { S07DarkMode } from './slides/s07-dark-mode';
-import { S08CssInJs } from './slides/s08-css-in-js';
+import { S09CssInJs } from './slides/s09-css-in-js';
+import { S08Plugins } from './slides/s08-plugins';
 
 export function TalkTailwind() {
   const presentationRef = useRef(null);
@@ -27,7 +28,8 @@ export function TalkTailwind() {
           <S05ClassManagement />
           <S06OverrideTheming />
           <S07DarkMode />
-          <S08CssInJs />
+          <S08Plugins />
+          <S09CssInJs />
         </div>
         <DeckFooter>
           <TwLogo className="h-full" />

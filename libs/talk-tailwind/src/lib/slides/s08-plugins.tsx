@@ -1,7 +1,7 @@
-import { Heading1, Heading2, PBody, Heading3 } from '@ageorgedev/atoms';
+import { Heading1, Heading2, Heading3, PBody } from '@ageorgedev/atoms';
 import { SlideTypeCenter } from '@ageorgedev/reveal-framework';
 
-export function S08CssInJs() {
+export function S08Plugins() {
   return (
     <section>
       <SlideTypeCenter>
@@ -9,7 +9,7 @@ export function S08CssInJs() {
           strategy #5
         </Heading3>
         <Heading1 as="h2" className="font-bold">
-          CSS-in-JS shenanigans
+          Plugins
         </Heading1>
       </SlideTypeCenter>
     </section>
