@@ -40,7 +40,8 @@ const lightStyle = {
     },
     danger: {
       DEFAULT: RawColors.red[400],
-      subtle: RawColors.red[100],
+      bg: RawColors.red[100],
+      fg: RawColors.red[400],
     },
   }),
 };
@@ -82,8 +83,9 @@ const darkStyle = {
       subtle: RawColors.sAccent[400],
     },
     danger: {
-      DEFAULT: RawColors.red[100],
-      subtle: RawColors.red[500],
+      DEFAULT: RawColors.red[200],
+      bg: RawColors.red[500],
+      fg: RawColors.lNeutral[500],
     },
   }),
 };

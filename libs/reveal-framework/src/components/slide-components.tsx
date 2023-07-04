@@ -32,7 +32,7 @@ const NoteConfigs: Record<
     Icon: Lightning,
   },
   danger: {
-    mainClasses: 'bg-cc-danger-subtle text-cc-danger',
+    mainClasses: 'bg-cc-danger-bg text-cc-danger-fg',
     iconClasses: '',
     Icon: Warning,
   },

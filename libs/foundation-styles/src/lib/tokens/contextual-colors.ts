@@ -51,6 +51,7 @@ export const ContextualColors = createGlobalThemeContract({
   },
   danger: {
     DEFAULT: dangerName(''),
-    subtle: dangerName('subtle'),
+    bg: dangerName('bg'),
+    fg: dangerName('fg'),
   },
 });
