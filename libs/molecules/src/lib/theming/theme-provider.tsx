@@ -106,19 +106,20 @@ export function ThemeProvider({ children }: React.PropsWithChildren) {
     });
   }, []);
 
+  /** NOTE: some weird race condition is happening, so disabling the dom check for mutation */
   // Attaching the mutation callback, this is typically a one time operation
-  useEffect(() => {
-    const obs = new MutationObserver(onMutation);
-    obs.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ['class'],
-      childList: false,
-      characterData: false,
-    });
-    return () => {
-      obs.disconnect();
-    };
-  }, [onMutation]);
+  // useEffect(() => {
+  //   const obs = new MutationObserver(onMutation);
+  //   obs.observe(document.documentElement, {
+  //     attributes: true,
+  //     attributeFilter: ['class'],
+  //     childList: false,
+  //     characterData: false,
+  //   });
+  //   return () => {
+  //     obs.disconnect();
+  //   };
+  // }, [onMutation]);
 
   // Synchronises the theme state with the classlist of the <html> element
   useEffect(() => {
