@@ -37,7 +37,6 @@ export function CodeBlock({
         style={codeTheme}
         showLineNumbers={true}
         customStyle={{ margin: 0, borderRadius: 0 }}
-        wrapLongLines={true}
       >
         {text}
       </SyntaxHighlighter>

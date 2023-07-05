@@ -39,8 +39,9 @@ export function S05ClassManagement() {
               </PBody>
               <PBody>
                 Works passably well in <em>Angular</em>. Bit more awkward
-                getting the strings onto the templates since they need to be
-                part of the component class.
+                getting the strings onto
+                <br /> the templates since they need to be part of the component
+                class.
               </PBody>
             </>
           }
