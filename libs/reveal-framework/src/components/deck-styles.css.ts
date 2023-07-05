@@ -1,4 +1,4 @@
-import { ContextualColors } from '@ageorgedev/foundation-styles';
+import { ContextualColors, Spacing } from '@ageorgedev/foundation-styles';
 import { style } from '@vanilla-extract/css';
 
 export const slideMainGap = 'gap-5';
@@ -13,7 +13,7 @@ export const slideCenterStyles = `flex flex-col justify-center items-center`;
 export const slideHeaderGrid = style([
   'grid place-items-center gap-6 large-desktop:gap-7',
   {
-    gridTemplateRows: '.2fr .8fr',
+    gridTemplateRows: `minmax(10%, ${Spacing[10]}) minmax(0, 1fr)`,
   },
 ]);
 

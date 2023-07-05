@@ -11,7 +11,7 @@ import {
 
 type CodeBlockProps = {
   text: string;
-  lang?: 'typescript' | 'html' | 'css' | 'jsx' | 'javascript';
+  lang?: 'typescript' | 'html' | 'css' | 'jsx' | 'tsx' | 'javascript';
   fontSize?: 'normal' | 'small' | 'large';
 } & React.HTMLProps<HTMLDivElement>;
 

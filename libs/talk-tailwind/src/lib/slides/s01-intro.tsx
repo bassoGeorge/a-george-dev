@@ -1,8 +1,5 @@
 import { Heading1, Heading3, PBody, PBodyMd } from '@ageorgedev/atoms';
-import {
-  SlideTypeCenter,
-  SlideTypeRegular,
-} from '@ageorgedev/reveal-framework';
+import { SlideTypeCenter } from '@ageorgedev/reveal-framework';
 
 export function S01Intro() {
   return (
@@ -15,7 +12,8 @@ export function S01Intro() {
         <PBodyMd className="italic">Advanced strategies for production</PBodyMd>
       </SlideTypeCenter>
       <section>
-        <SlideTypeRegular heading={<Heading1>Why should you care?</Heading1>}>
+        <SlideTypeCenter>
+          <Heading1>Why should you care?</Heading1>
           <PBodyMd className="fragment">
             Tailwind has been the subject of much controversy and you are
             curious!
@@ -26,13 +24,18 @@ export function S01Intro() {
           <Heading3 className="fragment mt-10 text-cc-accent font-bold">
             Welcome to this talk and strap in!
           </Heading3>
-        </SlideTypeRegular>
-        <SlideTypeRegular heading={<Heading1>Topics covered</Heading1>}>
-          <ol>
-            <PBody as="li">Fundamentals of Tailwind CSS</PBody>
-            <PBody as="li">Anti-patterns</PBody>
-          </ol>
-        </SlideTypeRegular>
+        </SlideTypeCenter>
+        <SlideTypeCenter>
+          <Heading1>Topics covered</Heading1>
+          <PBody>Fundamentals of Tailwind CSS</PBody>
+          <PBody>Anti-patterns</PBody>
+          <PBody>strategy: Lean configuration</PBody>
+          <PBody>strategy: Componentisation</PBody>
+          <PBody>strategy: Theming with overrides</PBody>
+          <PBody>strategy: Dark mode</PBody>
+          <PBody>strategy: Plugins</PBody>
+          <PBody>strategy: CSS-in-JS</PBody>
+        </SlideTypeCenter>
       </section>
     </>
   );
