@@ -14,12 +14,12 @@ import {
 } from '@ageorgedev/reveal-framework';
 import { Warning } from '@phosphor-icons/react';
 
-export function S07DarkMode() {
+export function S08DarkMode() {
   return (
     <section>
       <SlideTypeCenter>
         <Heading3 as="h1" className="italic">
-          strategy #4
+          strategy #5
         </Heading3>
         <Heading1 as="h2" className="font-bold">
           Dark mode

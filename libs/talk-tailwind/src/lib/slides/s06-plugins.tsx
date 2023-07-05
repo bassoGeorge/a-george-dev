@@ -7,12 +7,12 @@ import {
   SlideTypeRegular,
 } from '@ageorgedev/reveal-framework';
 
-export function S08Plugins() {
+export function S06Plugins() {
   return (
     <section>
       <SlideTypeCenter>
         <Heading3 as="h1" className="italic">
-          strategy #5
+          strategy #3
         </Heading3>
         <Heading1 as="h2" className="font-bold">
           Plugins
