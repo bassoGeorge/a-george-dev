@@ -12,6 +12,7 @@ export function useRevealFramework(ref: RefObject<HTMLElement>) {
         keyboardCondition: 'focused',
         controlsTutorial: false,
         disableLayout: true,
+        transition: 'fade',
       });
 
       deck.initialize().then((evt) => {
