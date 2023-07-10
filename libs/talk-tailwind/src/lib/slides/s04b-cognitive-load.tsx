@@ -2,6 +2,7 @@ import {
   Heading1,
   Heading2,
   Heading3,
+  PBody,
   PBodyLg,
   PBodyMd,
 } from '@ageorgedev/atoms';
@@ -41,6 +42,34 @@ export function S04BCognitiveLoad() {
           configuration
         </PBodyLg>
       </SlideTypeRegular>
+      <SlideTypeCenter>
+        <Heading2>How do we deal with this?</Heading2>
+      </SlideTypeCenter>
+      <SlideTypeCenter>
+        <Heading2>Step 1/2: Create components!</Heading2>
+        <PBody>
+          This reduces the amount of Tailwind most developers need to work on
+        </PBody>
+        <PBody>
+          If you have a strong enough design system with components, most devs
+          only need to learn the layout classes in Tailwind
+        </PBody>
+      </SlideTypeCenter>
+
+      <SlideTypeCenter>
+        <Heading2>Step 2/2: Solid documentation through Storybook</Heading2>
+        <PBody>
+          A heavily customised config makes the Tailwind docs partially useless
+        </PBody>
+        <PBody>
+          Use Storybook to create documentation which allows devs to peruse and
+          disover the design tokens available
+        </PBody>
+      </SlideTypeCenter>
+      <SlideTypeCenter>
+        <Heading2>Not a silver bullet</Heading2>
+        <PBodyMd>Over time, devs adapt to it, but the cost is present</PBodyMd>
+      </SlideTypeCenter>
     </section>
   );
 }

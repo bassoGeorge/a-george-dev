@@ -114,8 +114,6 @@ export function S02Fundamentals() {
         <CodeBlock text={fixedTailwindWithComponents} lang="jsx"></CodeBlock>
       </SlideTypeRegular>
 
-      {/* TODO: Angular side note for using Directives */}
-
       <SlideTypeRegular
         heading={<Heading1>Finite values through configuration</Heading1>}
       >
