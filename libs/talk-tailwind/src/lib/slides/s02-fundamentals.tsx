@@ -24,7 +24,22 @@ export function S02Fundamentals() {
       </SlideTypeCenter>
 
       <SlideTypeRegular
-        heading={<Heading1>Utility First CSS principles</Heading1>}
+        heading={<Heading1>Utility first fundamentals</Heading1>}
+      >
+        <div className="flex gap-7 items-start">
+          <div className="flex flex-col items-end justify-start gap-7">
+            <CodeBlock text={simpleButtonTailwind} lang="html"></CodeBlock>
+            <PBody>
+              Each class basically maps to a single css property-value pair
+            </PBody>
+            <PBody>Lots of css classes needed</PBody>
+          </div>
+          <CodeBlock text={simpleButtonComputedStyles} lang="css"></CodeBlock>
+        </div>
+      </SlideTypeRegular>
+
+      <SlideTypeRegular
+        heading={<Heading1>How does Tailwind compare?</Heading1>}
       >
         <ComparisonRow
           left={
@@ -48,6 +63,9 @@ export function S02Fundamentals() {
               <PBody className="fragment" data-fragment-index="6">
                 Styles hidden away
               </PBody>
+              <PBody className="fragment" data-fragment-index="7">
+                CSS skills not that important
+              </PBody>
             </>
           }
           right={
@@ -66,11 +84,20 @@ export function S02Fundamentals() {
               <PBody className="fragment" data-fragment-index="4">
                 HTML becomes the authoring language
               </PBody>
-              <PBody className="fragment" data-fragment-index="5">
+              <PBody
+                className="fragment text-cc-danger"
+                data-fragment-index="5"
+              >
                 HTML overloaded with styling
               </PBody>
               <PBody className="fragment" data-fragment-index="6">
                 Styles co-located with markup
+              </PBody>
+              <PBody
+                className="fragment text-cc-accent"
+                data-fragment-index="7"
+              >
+                CSS skills required. It is just a one-to-one mapping of CSS
               </PBody>
             </>
           }
@@ -163,9 +190,30 @@ const simpleButtonTraditional = `<button class="btn btn-primary">
 `;
 
 const simpleButtonTailwind = `<button class="text-white text-lg bg-blue hover:bg-grey
-    rounded px-2 py-3">
+    rounded px-2 mb-2">
   Click Me!
 </button>`;
+
+const simpleButtonComputedStyles = `.text-white { color: white; }
+
+.text-lg { font-size: 1.25rem; }
+
+.bg-blue {
+  background-color: #3490dc;
+}
+
+.hover\\:bg-grey:hover {
+  background-color: #e8e8e8;
+}
+
+.px-2 {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.mb-2 {
+  margin-bottom: 0.5rem;
+}`;
 
 const fullTailwindWithoutComponents = `<div className="max-w-sm rounded overflow-hidden shadow-lg">
   <img className="w-full" src="http://dummy.com/img.jpeg" alt="User Avatar" />

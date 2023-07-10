@@ -64,10 +64,7 @@ export function S03AntiPatterns() {
       <SlideTypeRegular heading={<Heading1>Arbitrary value notation</Heading1>}>
         <div className="flex gap-6 items-start">
           <CodeBlock text={oneOffHtml} lang="html"></CodeBlock>
-          <ArrowRight
-            weight="duotone"
-            className="text-2xl text-cc-accent self-center"
-          />
+          <ArrowRight className="text-2xl text-cc-accent self-center" />
           <CodeBlock text={oneOffComputedCss} lang="css"></CodeBlock>
         </div>
 
