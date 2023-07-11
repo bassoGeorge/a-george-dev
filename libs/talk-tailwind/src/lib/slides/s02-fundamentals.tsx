@@ -64,7 +64,7 @@ export function S02Fundamentals() {
                 Styles hidden away
               </PBody>
               <PBody className="fragment" data-fragment-index="7">
-                CSS skills not that important
+                Only layout based CSS skills needed
               </PBody>
             </>
           }

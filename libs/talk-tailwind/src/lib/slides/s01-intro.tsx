@@ -5,9 +5,9 @@ export function S01Intro() {
   return (
     <section>
       <SlideTypeCenter>
-        <Heading1>
+        <Heading1 className="font-bold">
           Beyond prototyping with{' '}
-          <span className="font-bold text-cc-accent">Tailwind CSS</span>
+          <span className="text-cc-accent">Tailwind CSS</span>
         </Heading1>
         <PBodyMd className="italic">Advanced strategies for production</PBodyMd>
       </SlideTypeCenter>
