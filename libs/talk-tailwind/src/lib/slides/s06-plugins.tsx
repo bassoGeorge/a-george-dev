@@ -107,6 +107,18 @@ export function S06Plugins() {
           className="fragment"
         />
       </SlideTypeRegular>
+      <SlideTypeRegular
+        heading={
+          <Heading2>
+            Advanced <em>match*</em> plugins
+          </Heading2>
+        }
+      >
+        <div className="flex gap-7 items-center">
+          <CodeBlock lang="javascript" text={matchComponentsPlugin} />
+          <CodeBlock lang="javascript" text={matchComponentsLayout} />
+        </div>
+      </SlideTypeRegular>
     </section>
   );
 }
@@ -123,8 +135,8 @@ module.exports = {
   ]
 }`;
 
-const typographyPlugin = `plugin(({ addComponents, theme }) => {
-  addComponents({
+const typographyPlugin = `plugin(({ addBase, theme }) => {
+  addBase({
     '.typo-h1': {
       fontSize: theme('fontSize.4xl'),
       fontFamily: theme('fontFamily.serif'),
@@ -195,3 +207,45 @@ const layerStylesHtml = `<section class="grid layout-master-stacked lg:layout-ma
   <aside class="area-sidebar">sidebar</aside>
   <footer class="area-footer">footer</footer>
 </section>`;
+
+const matchComponentsPlugin = `const gridPlugin = plugin(({ matchComponents, addComponents, theme }) => {
+  matchComponents(
+    {
+      layout: (value) => ({
+        gridTemplateAreas: value.areas
+          .map((area) => \`"\${area}"\`).join(" "),
+        gridTemplateColumns: value.columns,
+        gridTemplateRows: value.rows,
+      }),
+    },
+    { values: theme("layouts") }
+  );
+
+  addComponents({
+    ".area-header": { gridArea: "header" },
+    ".area-sidebar": { gridArea: "sidebar" },
+    ".area-main": { gridArea: "main" },
+    ".area-footer": { gridArea: "footer" },
+  });
+});`;
+
+const matchComponentsLayout = `plugins: [gridPlugin],
+theme: {
+  layouts: {
+    master: {
+      areas: [
+          "header header", 
+          "sidebar main", 
+          "footer footer"
+      ],
+      columns: "minmax(200px, 2fr) 8fr",
+      rows: "100px 1fr 50px",
+    },
+    ["master-stacked"]: {
+      areas: [
+        "header", "sidebar", 
+        "main", "footer"
+      ],
+    },
+  },
+},`;
