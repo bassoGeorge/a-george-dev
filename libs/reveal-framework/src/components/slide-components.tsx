@@ -15,7 +15,7 @@ export function ImportantNote(props: ImportantNoteProps) {
   return (
     <div className={props.className ?? ''}>
       <TiltCard shape={props.shape} className={`${mainClasses} flex gap-2`}>
-        <Icon className={`${iconClasses} text-3xl`} />
+        <Icon className={`${iconClasses} text-3xl shrink-0`} />
         <div className="text-left">{props.children}</div>
       </TiltCard>
     </div>

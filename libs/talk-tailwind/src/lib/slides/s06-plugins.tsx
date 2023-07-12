@@ -18,6 +18,46 @@ export function S06Plugins() {
           Plugins
         </Heading1>
       </SlideTypeCenter>
+      <SlideTypeRegular
+        heading={
+          <Heading2>
+            Understanding <em>@layer</em>
+          </Heading2>
+        }
+      >
+        <div className="flex gap-7 items-start">
+          <CodeBlock lang="css" text={layerStylesCss} fontSize="small" />
+          <div className="flex flex-col gap-6 items-start max-w-[min-content] text-left">
+            <PBody className="fragment">
+              <em>@layer</em> moves your css into the right spot within tailwind
+              stylesheet
+            </PBody>
+            <ImportantNote
+              shape="trapLeft"
+              type="danger"
+              className="fragment self-end"
+            >
+              <PBody>
+                <em>@layer</em> can only be used within the context of the core
+                stylesheet
+              </PBody>
+            </ImportantNote>
+            <ImportantNote shape="trapRight" className="fragment">
+              <PBody>
+                Classes in <em>@layer</em> only{' '}
+                <span className="underline">added to stylsheet if used</span>{' '}
+                and they <span className="underline">work with modifiers</span>
+              </PBody>
+            </ImportantNote>
+
+            <CodeBlock
+              lang="html"
+              text={layerStylesHtml}
+              className="fragment"
+            />
+          </div>
+        </div>
+      </SlideTypeRegular>
       <SlideTypeRegular heading={<Heading2>Understanding plugins</Heading2>}>
         <ComparisonRow
           left={<CodeBlock lang="javascript" text={basicPluginInstallation} />}
@@ -83,8 +123,8 @@ module.exports = {
   ]
 }`;
 
-const typographyPlugin = `plugin(({ addBase, theme }) => {
-  addBase({
+const typographyPlugin = `plugin(({ addComponents, theme }) => {
+  addComponents({
     '.typo-h1': {
       fontSize: theme('fontSize.4xl'),
       fontFamily: theme('fontFamily.serif'),
@@ -124,3 +164,34 @@ const ngInvalidPluginUsage = `<app-custom-form-control class="invalid:ring-red-5
 <p class="mt-2 invisible peer-invalid:visible text-pink-600 text-sm">
   Please provide a valid email address.
 </p>`;
+
+const layerStylesCss = `@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .layout-master {
+    grid-template-columns: minmax(200px, 2fr) 8fr;
+    grid-template-rows: 100px 1fr 50px;
+    grid-template-areas: "header  header"
+                         "sidebar main"
+                         "footer  footer";
+  }
+
+  .layout-master-stacked {
+    grid-template-areas: "header"
+                         "sidebar"
+                         "main"
+                         "footer";
+  }
+
+  .area-header { grid-area: header; }
+  .area-main { grid-area: main; }
+}`;
+
+const layerStylesHtml = `<section class="grid layout-master-stacked lg:layout-master">
+  <header class="area-header">header</header>
+  <section class="area-main">main</section>
+  <aside class="area-sidebar">sidebar</aside>
+  <footer class="area-footer">footer</footer>
+</section>`;
