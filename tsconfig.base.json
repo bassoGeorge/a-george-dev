@@ -17,6 +17,7 @@
     "paths": {
       "@ageorgedev/atoms": ["libs/atoms/src/index.ts"],
       "@ageorgedev/brand-components": ["libs/brand-components/src/index.ts"],
+      "@ageorgedev/design-system": ["libs/design-system/src/index.ts"],
       "@ageorgedev/foundation-styles": ["libs/foundation-styles/src/index.ts"],
       "@ageorgedev/foundation-styles/globals": [
         "libs/foundation-styles/src/globals.ts"
