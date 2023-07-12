@@ -1,3 +1,16 @@
+import { mapKeys } from '@ageorgedev/toolbelt';
+
+const borderSizes = {
+  thick: '4px',
+  medium: '2px',
+  thin: '1px',
+};
+
+export const BorderWidth = {
+  ...borderSizes,
+  DEFAULT: borderSizes['thin'],
+};
+
 export const Spacing = {
   0: '0',
   px: '1px',
@@ -18,7 +31,5 @@ export const Spacing = {
   14: '32rem',
   15: '40rem',
   16: '48rem',
-  'thick-line': '4px',
-  'medium-line': '2px',
-  'thin-line': '1px',
+  ...mapKeys((weight) => weight + '-line', borderSizes),
 };
