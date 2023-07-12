@@ -5,10 +5,13 @@ const projects = ['atoms', 'molecules', 'foundation-styles'];
 
 const config = {
   stories: [
-    join(__dirname, fileGlob),
+    join(__dirname, '../', fileGlob),
     ...projects.map((project) => join(__dirname, '../../', project, fileGlob)),
   ],
-  addons: ['@storybook/addon-essentials'],
+  addons: [
+    { name: '@storybook/addon-essentials', options: { backgrounds: false } },
+    'storybook-addon-themes',
+  ],
   framework: {
     name: '@storybook/react-vite',
     options: {

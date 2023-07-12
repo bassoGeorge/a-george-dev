@@ -4,7 +4,7 @@
   "sourceRoot": "libs/design-system/src",
   "projectType": "library",
   "tags": [],
-  "implicitDependencies": ["atoms", "molecules"],
+  "implicitDependencies": ["atoms", "molecules", "foundation-styles"],
   "targets": {
     "lint": {
       "executor": "@nx/linter:eslint",
