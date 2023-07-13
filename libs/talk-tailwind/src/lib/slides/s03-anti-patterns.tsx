@@ -61,7 +61,10 @@ export function S03AntiPatterns() {
         </PBodyMd>
       </SlideTypeRegular>
 
-      <SlideTypeRegular heading={<Heading1>Arbitrary value notation</Heading1>}>
+      <SlideTypeRegular
+        callout="Opinion"
+        heading={<Heading1>Arbitrary value notation</Heading1>}
+      >
         <div className="flex gap-6 items-start">
           <CodeBlock text={oneOffHtml} lang="html"></CodeBlock>
           <ArrowRight className="text-2xl text-cc-accent self-center" />
