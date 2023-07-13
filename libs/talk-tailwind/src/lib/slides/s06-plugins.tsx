@@ -1,4 +1,11 @@
-import { Heading1, Heading2, Heading3, PBody } from '@ageorgedev/atoms';
+import {
+  Heading1,
+  Heading2,
+  Heading3,
+  PBody,
+  PBodyLg,
+  PBodyMd,
+} from '@ageorgedev/atoms';
 import { CodeBlock } from '@ageorgedev/molecules';
 import {
   ComparisonRow,
@@ -118,6 +125,37 @@ export function S06Plugins() {
           <CodeBlock lang="javascript" text={matchComponentsPlugin} />
           <CodeBlock lang="javascript" text={matchComponentsLayout} />
         </div>
+      </SlideTypeRegular>
+      <SlideTypeRegular heading={<Heading2>What to use?</Heading2>}>
+        <ComparisonRow
+          className="px-8"
+          left={
+            <>
+              <Heading3 className="font-bold mb-7">
+                <em>@layer</em> styles
+              </Heading3>
+              <PBodyMd className="fragment" data-fragment-index="1">
+                If you are in a single application and need to build simple
+                plugins
+              </PBodyMd>
+            </>
+          }
+          right={
+            <>
+              <Heading3 className="font-bold mb-7">plugins</Heading3>
+              <PBodyMd className="fragment" data-fragment-index="2">
+                If you in a MonoRepo and need to support multiple projects
+              </PBodyMd>
+              <PBodyMd
+                className="fragment text-cc-accent"
+                data-fragment-index="2"
+              >
+                Tailwind presets allow you to share entire tailwind
+                configurations including the plugins across projects easily
+              </PBodyMd>
+            </>
+          }
+        ></ComparisonRow>
       </SlideTypeRegular>
     </section>
   );
