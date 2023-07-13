@@ -66,21 +66,26 @@ export function S01Intro() {
         <PBody>CSS-in-JS</PBody>
       </SlideTypeCenter>
       <SlideTypeRegular heading={<Heading2>How I roll!</Heading2>}>
-        <PBodyMd>
-          Slides available at{' '}
-          <a
-            href="https://ageorge.dev/talks/tailwind"
-            className={`text-cc-alt-accent font-bold ${PBodyLg.classes}`}
-            target="_blank"
-            rel="noreferrer"
-          >
-            https://ageorge.dev/talks/tailwind
-          </a>
-        </PBodyMd>
-        <PointSeperator />
-        <PBodyMd>Lots of code snippets, some demos</PBodyMd>
-        <PointSeperator />
-        <Heading4 className="font-bold">Some slides have callouts</Heading4>
+        <div className="flex gap-10 items-start">
+          <div className="flex flex-col gap-2 items-start">
+            <PBodyMd>Slides available at</PBodyMd>
+            <a
+              href="https://ageorge.dev/talks/tailwind"
+              className={`text-cc-alt-accent font-bold ${PBodyLg.classes}`}
+              target="_blank"
+              rel="noreferrer"
+            >
+              https://ageorge.dev/talks/tailwind
+            </a>
+          </div>
+          <div className="flex flex-col gap-2 items-end">
+            <PBodyMd>Lots of code snippets, some demos</PBodyMd>
+            <PBodyMd>Assuming familiarity with CSS</PBodyMd>
+          </div>
+        </div>
+        <Heading4 className="font-bold mt-7">
+          Some slides have callouts
+        </Heading4>
         <div className="grid grid-cols-3 max-w-[1200px]">
           <div>
             <CalloutForVD />

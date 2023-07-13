@@ -58,6 +58,12 @@ export function CalloutForPersonalOpinion() {
   return <CalloutBadge type="info1" icon={Megaphone} text={'Opinion'} />;
 }
 
-export function PointSeperator() {
-  return <Circle className="text-3xl text-cc-accent large-desktop:my-3" />;
+export function PointSeperator({ className }: { className?: string }) {
+  return (
+    <Circle
+      className={`text-3xl text-cc-accent large-desktop:my-3 ${
+        className ?? ''
+      }`}
+    />
+  );
 }
