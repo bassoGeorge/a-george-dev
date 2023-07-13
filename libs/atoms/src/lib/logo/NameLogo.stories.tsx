@@ -3,6 +3,7 @@ import { NameLogo } from './NameLogo';
 
 export default {
   component: NameLogo,
+  title: 'Atoms/NameLogo',
 } satisfies Meta<typeof NameLogo>;
 
 type Story = StoryObj<typeof NameLogo>;

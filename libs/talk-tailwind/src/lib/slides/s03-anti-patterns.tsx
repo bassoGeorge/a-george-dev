@@ -1,4 +1,4 @@
-import { Heading1, Heading2, PBody } from '@ageorgedev/atoms';
+import { Heading1, Heading2, PBody, PBodyMd } from '@ageorgedev/atoms';
 import { CodeBlock } from '@ageorgedev/molecules';
 import {
   SlideTypeCenter,
@@ -43,31 +43,26 @@ export function S03AntiPatterns() {
           </Heading2>
         }
       >
-        <PBody>
+        <PBodyMd>
           The <em>@apply</em> directive is not a convenience construct. It has
           repurcussions
-        </PBody>
-        <PBody className="font-bold text-cc-accent">Use sparingly</PBody>
-        <ol>
-          <PBody as="li" className="fragment">
-            When writing complicated styles for psuedo selectors in one-off
-            scenarios
-          </PBody>
-          <PBody as="li" className="fragment">
-            Creating small highly re-usable classes <b>if</b> creating
-            components or plugins not a great option
-          </PBody>
-        </ol>
+        </PBodyMd>
+        <PBodyMd className="font-bold text-cc-accent">Use sparingly</PBodyMd>
+        <PBodyMd className="fragment">
+          When writing complicated styles for psuedo selectors in one-off
+          scenarios
+        </PBodyMd>
+        <PBodyMd className="fragment">
+          Creating small highly re-usable classes <b>if</b> creating components
+          or plugins not a great option
+        </PBodyMd>
       </SlideTypeRegular>
       {/** TODO: Side note for angular devs, use @HostBinding */}
 
       <SlideTypeRegular heading={<Heading1>Arbitrary value notation</Heading1>}>
         <div className="flex gap-6 items-start">
           <CodeBlock text={oneOffHtml} lang="html"></CodeBlock>
-          <ArrowRight
-            weight="duotone"
-            className="text-2xl text-cc-accent self-center"
-          />
+          <ArrowRight className="text-2xl text-cc-accent self-center" />
           <CodeBlock text={oneOffComputedCss} lang="css"></CodeBlock>
         </div>
 

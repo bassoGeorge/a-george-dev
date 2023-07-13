@@ -103,13 +103,3 @@ const rawColorsVariableNames = mapObjIndexed(
  * }
  */
 export const RawColors = createGlobalThemeContract(rawColorsVariableNames);
-
-/**
- * To be used by Tailwind. We don't want to provide the neutrals, they will be only available
- * as contextual colors.
- * timber and parchment would be available as both contextual colors, and raw colors. TBD
- */
-export const AccessibleRawColors = pick(
-  ['timber', 'parchment', 'pAccent', 'sAccent'] satisfies (keyof RC)[],
-  RawColors
-);

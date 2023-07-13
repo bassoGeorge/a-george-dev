@@ -11,13 +11,13 @@ The one mono-repo for all my website and connected applications
 #### Make a ts lib
 
 ```shell
-nx g @nx/js:lib --buildable=true --bundler=vite <name>
+nx g @ageorgedev/workspace-extensions:lib <name>
 ```
 
 #### Make a React lib
 
 ```shell
-nx g @nx/react:lib <name>
+nx g @ageorgedev/workspace-extensions:lib --react <name>
 ```
 
 ##### Additional steps

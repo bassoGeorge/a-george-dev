@@ -1,5 +1,5 @@
-import { AccessibleRawColors } from './tokens/raw-colors';
-import { Spacing } from './tokens/spacing';
+import { RawColors } from './tokens/raw-colors';
+import { BorderWidth, Spacing } from './tokens/spacing';
 import { mapObjIndexed } from 'ramda';
 import { Screens } from './tokens/responsive';
 import { cssCase, getTailwindPropertyMap } from './utils';
@@ -16,12 +16,13 @@ import { Shadows } from './tokens/shadows';
 
 export const TailwindTheme = {
   spacing: Spacing,
+  borderWidth: BorderWidth,
   screens: mapObjIndexed(
     (query: string) => ({ raw: query }),
     mapKeys(cssCase, Screens)
   ),
   colors: {
-    ...getTailwindPropertyMap(AccessibleRawColors),
+    ...getTailwindPropertyMap(RawColors),
     ...getTailwindPropertyMap(ContextualColors),
   },
   fontFamily: {

@@ -88,7 +88,7 @@ export function S04LeanConfig() {
           }
         ></ComparisonRow>
       </SlideTypeRegular>
-      {/** TODO: Add example of storybook visual here */}
+      {/** TODO: Add spacing scale here */}
       <SlideTypeRegular heading={<Heading2>Disable core plugins</Heading2>}>
         <ComparisonRow
           left={

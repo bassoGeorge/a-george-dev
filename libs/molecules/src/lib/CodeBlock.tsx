@@ -45,7 +45,7 @@ export function CodeBlock({
 }
 
 const fontSizeMap: Record<Required<CodeBlockProps>['fontSize'], string> = {
-  large: 'text-2xl',
+  large: 'text-xl large-desktop:text-2xl',
   normal: 'text-lg large-desktop:text-xl',
-  small: 'text-lg',
+  small: 'text-md large-desktop:text-lg',
 };

@@ -8,7 +8,7 @@
   "scripts": {
     "build": "keystone build",
     "dev": "keystone dev",
-    "postinstall": "keystone build --no-ui --frozen",
+    "temporarily_disabled_postinstall": "keystone build --no-ui --frozen",
     "build-schema": "keystone build --no-ui",
     "pscale-dev": "yarn run dev",
     "push-schema": "keystone prisma db push",
@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "@keystone-6/auth": "^7.0.0",
-    "@keystone-6/core": "^5.1.0",
+    "@keystone-6/core": "^5.3.2",
     "@keystone-6/fields-document": "^8.0.0"
   }
 }

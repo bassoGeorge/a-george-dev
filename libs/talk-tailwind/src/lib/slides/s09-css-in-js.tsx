@@ -26,10 +26,6 @@ export function S09CssInJs() {
         <Heading1 as="h2" className="font-bold">
           Tailwind CSS + CSS-in-JS
         </Heading1>
-        <Heading3 className="italic text-cc-danger">
-          <Skull className="inline-block -mt-2" /> controversial, experimental{' '}
-          <WarningDiamond className="inline-block -mt-2" />
-        </Heading3>
       </SlideTypeCenter>
       <SlideTypeCenter>
         <Heading2>Why?...</Heading2>
@@ -68,8 +64,9 @@ export function S09CssInJs() {
 
           <ImportantNote shape="trapLeft" className="self-end -ml-12 mb-4 w-14">
             <PBody>
-              In this setup, the tokens file needs to be <b>commonJS</b>
+              Prior to v3.3, the tokens file needs to be <b>commonJS</b>
             </PBody>
+            <PBody>Post v3.3, tailwind supports ESM config file</PBody>
           </ImportantNote>
         </SlideMediaRow>
       </SlideTypeRegular>
@@ -80,27 +77,6 @@ export function S09CssInJs() {
         </div>
       </SlideTypeRegular>
 
-      <SlideTypeRegular
-        heading={
-          <Heading2>
-            If you{' '}
-            <em>
-              <b>must</b>
-            </em>{' '}
-            build the tailwind config...
-          </Heading2>
-        }
-      >
-        <div className="flex items-start gap-7">
-          <CodeBlock lang="javascript" text={esBuildTailwind} />
-          <CodeBlock lang="javascript" text={esUsage} />
-        </div>
-        <ImportantNote shape="triUpperRight">
-          <PBody>
-            Make sure your preset is built before the tailwind config is used
-          </PBody>
-        </ImportantNote>
-      </SlideTypeRegular>
       <SlideTypeCenter>
         <Heading3 as="h1" className="italic">
           bonus
@@ -125,27 +101,6 @@ export function S09CssInJs() {
           </a>
         </PBodyMd>
       </SlideTypeCenter>
-      <SlideTypeRegular
-        heading={
-          <Heading2>Zero-runtime CSS-in-JS solution with Typescript</Heading2>
-        }
-      >
-        <ComparisonRow
-          left={<CodeBlock lang="typescript" text={vanillaExtractExample} />}
-          right={
-            <>
-              <PBody>You can colocate tailwind classes without penalty</PBody>
-              <PBody>Beautiful APIs, especially around CSS variables</PBody>
-              <PBody>Zero-runtime, creates full stylesheet during build</PBody>
-              <CodeBlock
-                className="mt-7"
-                lang="tsx"
-                text={vanillaExtractUsage}
-              />
-            </>
-          }
-        ></ComparisonRow>
-      </SlideTypeRegular>
     </section>
   );
 }
@@ -194,56 +149,3 @@ export default {
     }
   }
 };`;
-
-const esBuildTailwind = `/* tailwind-preset.js */
-import tokens from './tokens';
-import utils from './utils';
-
-// Some fancy code
-
-export default {
-  theme: {
-    // final theme stuff
-  }
-}`;
-
-const esUsage = `/* tailwind.config.js */
-const TailwindPreset = require('./dist/core-lib/tailwind-preset.min');
-
-module.exports = {
-  presets: [TailwindPreset],
-  theme: {
-    extend: {},
-  },
-  // ...
-};`;
-
-const vanillaExtractExample = `/* styles.css.ts */
-import { Spacing } from './tokens';
-import { style } from '@vanilla-extract/css';
-
-export const button = style({
-  backgroundColor: 'red',
-  color: 'white',
-  padding: Spacing[2],
-});
-// => 'button_1w2j3r'
-
-export const myCustomGrid = style([
-  'grid place-items-center gap-6',
-  {
-    gridTemplateRows: '2fr 8fr',
-  },
-]);
-// => 'myCustomGrid_1w2j3r grid place-items-center gap-6'`;
-
-const vanillaExtractUsage = `/* Button.tsx */
-import * as styles from './styles.css';
-
-export function MyComponent() {
-  return (
-    <div className={styles.myCustomGrid}>
-      <button className={styles.button}>Click me</button>
-    </div>
-  );
-}`;
