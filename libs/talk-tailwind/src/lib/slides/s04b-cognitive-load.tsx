@@ -8,6 +8,7 @@ import {
 } from '@ageorgedev/atoms';
 import { CodeBlock } from '@ageorgedev/molecules';
 import {
+  PointSeperator,
   SlideTypeCenter,
   SlideTypeRegular,
 } from '@ageorgedev/reveal-framework';
@@ -38,7 +39,7 @@ export function S04BCognitiveLoad() {
           We are adding mental steps to the development process
         </PBodyLg>
         <PBodyLg className="fragment">
-          Things get more complicated with we have heavily customised the
+          Things get more complicated if we have heavily customised the
           configuration
         </PBodyLg>
       </SlideTypeRegular>
@@ -47,24 +48,24 @@ export function S04BCognitiveLoad() {
       </SlideTypeCenter>
       <SlideTypeCenter>
         <Heading2>Step 1/2: Create components!</Heading2>
-        <PBody>
+        <PBodyMd>
           This reduces the amount of Tailwind most developers need to work on
-        </PBody>
-        <PBody>
+        </PBodyMd>
+        <PBodyMd>
           If you have a strong enough design system with components, most devs
           only need to learn the layout classes in Tailwind
-        </PBody>
+        </PBodyMd>
       </SlideTypeCenter>
 
       <SlideTypeCenter>
         <Heading2>Step 2/2: Solid documentation through Storybook</Heading2>
-        <PBody>
+        <PBodyMd>
           A heavily customised config makes the Tailwind docs partially useless
-        </PBody>
-        <PBody>
+        </PBodyMd>
+        <PBodyMd>
           Use Storybook to create documentation which allows devs to peruse and
           disover the design tokens available
-        </PBody>
+        </PBodyMd>
         <PBody className="italic">Let me show you what I mean...</PBody>
       </SlideTypeCenter>
       <SlideTypeCenter>

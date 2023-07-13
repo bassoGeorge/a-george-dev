@@ -8,6 +8,7 @@ import {
 import { CodeBlock } from '@ageorgedev/molecules';
 import {
   ImportantNote,
+  PointSeperator,
   SlideMediaRow,
   SlideTypeCenter,
   SlideTypeRegular,
@@ -27,15 +28,19 @@ export function S09CssInJs() {
       </SlideTypeCenter>
       <SlideTypeCenter>
         <Heading2>Why?...</Heading2>
+        <PointSeperator />
         <PBodyMd className="fragment">
           Let application logic manipulate CSS safely using design system tokens
         </PBodyMd>
+        <PointSeperator />
         <PBodyMd className="fragment">
           Migrating to tailwind from an existing system
         </PBodyMd>
+        <PointSeperator />
         <PBodyMd className="fragment">
           Some things are better done without Tailwind?
         </PBodyMd>
+        <PointSeperator />
         <PBodyMd className="fragment">You want the flexibility</PBodyMd>
       </SlideTypeCenter>
       <SlideTypeRegular

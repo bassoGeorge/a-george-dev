@@ -59,5 +59,5 @@ export function CalloutForPersonalOpinion() {
 }
 
 export function PointSeperator() {
-  return <Circle className="text-3xl text-cc-accent my-4" />;
+  return <Circle className="text-3xl text-cc-accent large-desktop:my-3" />;
 }

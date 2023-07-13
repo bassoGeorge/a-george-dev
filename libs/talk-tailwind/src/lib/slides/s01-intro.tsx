@@ -101,9 +101,6 @@ export function S01Intro() {
             </PBodyMd>
           </div>
         </div>
-        <Heading3 className="mt-8 text-cc-accent font-bold">
-          Welcome to this talk and strap in!
-        </Heading3>
       </SlideTypeRegular>
     </section>
   );

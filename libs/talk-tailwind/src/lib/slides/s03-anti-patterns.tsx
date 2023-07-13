@@ -1,6 +1,7 @@
 import { Heading1, Heading2, PBody, PBodyMd } from '@ageorgedev/atoms';
 import { CodeBlock } from '@ageorgedev/molecules';
 import {
+  PointSeperator,
   SlideTypeCenter,
   SlideTypeRegular,
 } from '@ageorgedev/reveal-framework';
@@ -48,10 +49,12 @@ export function S03AntiPatterns() {
           repurcussions
         </PBodyMd>
         <PBodyMd className="font-bold text-cc-accent">Use sparingly</PBodyMd>
+        <PointSeperator />
         <PBodyMd className="fragment">
           When writing complicated styles for psuedo selectors in one-off
           scenarios
         </PBodyMd>
+        <PointSeperator />
         <PBodyMd className="fragment">
           Creating small highly re-usable classes <b>if</b> creating components
           or plugins not a great option
