@@ -20,7 +20,7 @@ export function CalloutBadge({
     <div className={`${className ?? 'inline-block p-5'}`}>
       <div className="drop-shadow">
         <div className={`${calloutBadgeShape} ${typeClasses}`}>
-          <Icon className="text-4xl" />
+          <Icon weight="bold" className="text-4xl" />
           <InterfaceLg className="max-w-[80%] text-center">{text}</InterfaceLg>
         </div>
       </div>

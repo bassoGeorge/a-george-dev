@@ -18,5 +18,5 @@ export const calloutBadgeShape = style([
       transform: 'rotate(45deg)',
     },
   },
-  'flex flex-col gap-2 justify-center items-center',
+  'flex flex-col justify-center items-center',
 ]);
