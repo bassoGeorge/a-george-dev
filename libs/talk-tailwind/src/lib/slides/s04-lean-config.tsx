@@ -94,8 +94,10 @@ export function S04LeanConfig() {
           }
         ></ComparisonRow>
       </SlideTypeRegular>
-      {/** TODO: Add spacing scale here */}
-      <SlideTypeRegular heading={<Heading2>A good spacing scale?</Heading2>}>
+      <SlideTypeRegular
+        callout="UX"
+        heading={<Heading2>A good spacing scale?</Heading2>}
+      >
         <ComparisonRow
           left={
             <>

@@ -65,6 +65,7 @@ export function S04BCognitiveLoad() {
           Use Storybook to create documentation which allows devs to peruse and
           disover the design tokens available
         </PBody>
+        <PBody className="italic">Let me show you what I mean...</PBody>
       </SlideTypeCenter>
       <SlideTypeCenter>
         <Heading2>Not a silver bullet</Heading2>

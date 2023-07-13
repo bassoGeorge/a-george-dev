@@ -57,7 +57,6 @@ export function S03AntiPatterns() {
           or plugins not a great option
         </PBodyMd>
       </SlideTypeRegular>
-      {/** TODO: Side note for angular devs, use @HostBinding */}
 
       <SlideTypeRegular heading={<Heading1>Arbitrary value notation</Heading1>}>
         <div className="flex gap-6 items-start">

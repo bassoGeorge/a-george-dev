@@ -172,7 +172,7 @@ export function S08DarkMode() {
           text={contextualColorsProblem}
         />
       </SlideTypeRegular>
-      <SlideTypeCenter>
+      <SlideTypeCenter callout="Opinion">
         <Heading3 as="h1" className="italic">
           a final word on colors
         </Heading3>

@@ -7,13 +7,11 @@ import {
 } from '@ageorgedev/atoms';
 import { CodeBlock } from '@ageorgedev/molecules';
 import {
-  ComparisonRow,
   ImportantNote,
   SlideMediaRow,
   SlideTypeCenter,
   SlideTypeRegular,
 } from '@ageorgedev/reveal-framework';
-import { Skull, WarningDiamond } from '@phosphor-icons/react';
 import { D02CssPipeline } from '../diagrams/D02CssPipeline';
 
 export function S09CssInJs() {
@@ -77,7 +75,7 @@ export function S09CssInJs() {
         </div>
       </SlideTypeRegular>
 
-      <SlideTypeCenter>
+      <SlideTypeCenter callout="Opinion">
         <Heading3 as="h1" className="italic">
           bonus
         </Heading3>

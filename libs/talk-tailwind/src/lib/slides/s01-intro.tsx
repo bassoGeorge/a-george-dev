@@ -16,7 +16,6 @@ import {
   SlideTypeCenter,
   SlideTypeRegular,
 } from '@ageorgedev/reveal-framework';
-import { Circle } from '@phosphor-icons/react';
 
 export function S01Intro() {
   return (
