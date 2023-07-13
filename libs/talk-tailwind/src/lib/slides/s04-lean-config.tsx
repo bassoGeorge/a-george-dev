@@ -1,4 +1,10 @@
-import { Heading1, Heading2, Heading3, PBody } from '@ageorgedev/atoms';
+import {
+  Heading1,
+  Heading2,
+  Heading3,
+  Interface,
+  PBody,
+} from '@ageorgedev/atoms';
 import { CodeBlock } from '@ageorgedev/molecules';
 import {
   ComparisonRow,
@@ -89,6 +95,73 @@ export function S04LeanConfig() {
         ></ComparisonRow>
       </SlideTypeRegular>
       {/** TODO: Add spacing scale here */}
+      <SlideTypeRegular heading={<Heading2>A good spacing scale?</Heading2>}>
+        <ComparisonRow
+          left={
+            <>
+              <Heading3 className="font-bold">Tailwind default</Heading3>
+              <div
+                className="grid gap-2 justify-items-end"
+                style={{ gridTemplateColumns: 'minmax(0, 1fr) 100px' }}
+              >
+                <LSpaceBar name="w-px (1px)" className="w-[1px]" />
+                <LSpaceBar name="w-0.5 (2px)" className="w-[2px]" />
+                <LSpaceBar name="w-1 (4px)" className="w-[4px]" />
+                <LSpaceBar name="w-1.5 (6px)" className="w-[6px]" />
+                <LSpaceBar name="w-2 (8px)" className="w-[8px]" />
+                <LSpaceBar name="w-2.5 (10px)" className="w-[10px]" />
+                <LSpaceBar name="w-3 (12px)" className="w-[12px]" />
+                <LSpaceBar name="w-3.5 (14px)" className="w-[14px]" />
+                <LSpaceBar name="w-4 (16px)" className="w-[16px]" />
+                <LSpaceBar name="w-5 (20px)" className="w-[20px]" />
+                <LSpaceBar name="w-6 (24px)" className="w-[24px]" />
+                <LSpaceBar name="w-7 (24px)" className="w-[28px]" />
+                <LSpaceBar name="w-8 (24px)" className="w-[32px]" />
+                <LSpaceBar name="w-9 (36px)" className="w-[36px]" />
+                <LSpaceBar name="w-10 (40px)" className="w-[40px]" />
+                <LSpaceBar name="w-11 (44px)" className="w-[44px]" />
+                <LSpaceBar name="w-12 (48px)" className="w-[48px]" />
+                <LSpaceBar name="w-14 (56px)" className="w-[56px]" />
+                <LSpaceBar name="w-16 (64px)" className="w-[64px]" />
+                <LSpaceBar name="w-20 (80px)" className="w-[80px]" />
+              </div>
+            </>
+          }
+          right={
+            <>
+              <Heading3 className="font-bold">ageorge.dev</Heading3>
+              <div
+                className="grid gap-2 justify-items-start"
+                style={{ gridTemplateColumns: '100px minmax(0, 1fr)' }}
+              >
+                <RSpaceBar name="w-px (1px)" className="w-px" />
+                <RSpaceBar name="w-0.5 (2px)" className="w-0.5" />
+                <RSpaceBar name="w-1 (4px)" className="w-1" />
+                <div></div>
+                <div className="h-4"></div>
+                <RSpaceBar name="w-2 (8px)" className="w-2" />
+                <div></div>
+                <div className="h-4"></div>
+                <RSpaceBar name="w-3 (12px)" className="w-3" />
+                <div></div>
+                <div className="h-4"></div>
+                <RSpaceBar name="w-4 (16px)" className="w-4" />
+                <RSpaceBar name="w-5 (24px)" className="w-5" />
+                <RSpaceBar name="w-6 (32px)" className="w-6" />
+                <RSpaceBar name="w-7 (48px)" className="w-7" />
+                <RSpaceBar name="w-8 (64px)" className="w-8" />
+                <RSpaceBar name="w-9 (72px)" className="w-9" />
+                <RSpaceBar name="w-10 (128px)" className="w-10" />
+                <RSpaceBar name="w-11 (192px)" className="w-11" />
+                <RSpaceBar name="w-12 (256px)" className="w-12" />
+                <RSpaceBar name="w-13 (384px)" className="w-13" />
+                <RSpaceBar name="w-14 (480px)" className="w-14" />
+                <RSpaceBar name="w-15 (640px)" className="w-15" />
+              </div>
+            </>
+          }
+        ></ComparisonRow>
+      </SlideTypeRegular>
       <SlideTypeRegular heading={<Heading2>Disable core plugins</Heading2>}>
         <ComparisonRow
           left={
@@ -168,3 +241,25 @@ export default {
     animation: false  // will be custom anyway
   },
 };`;
+
+function RSpaceBar({ className, name }: { className?: string; name: string }) {
+  return (
+    <>
+      <Interface>{name}</Interface>
+      <Bar className={className} />
+    </>
+  );
+}
+
+function LSpaceBar({ className, name }: { className?: string; name: string }) {
+  return (
+    <>
+      <Bar className={className} />
+      <Interface>{name}</Interface>
+    </>
+  );
+}
+
+function Bar({ className }: { className?: string }) {
+  return <div className={`${className} bg-cc-accent h-4`}></div>;
+}
