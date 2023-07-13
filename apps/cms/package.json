@@ -8,7 +8,7 @@
   "scripts": {
     "build": "keystone build",
     "dev": "keystone dev",
-    "postinstall": "keystone build --no-ui --frozen",
+    "temporarily_disabled_postinstall": "keystone build --no-ui --frozen",
     "build-schema": "keystone build --no-ui",
     "pscale-dev": "yarn run dev",
     "push-schema": "keystone prisma db push",
