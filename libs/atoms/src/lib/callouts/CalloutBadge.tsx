@@ -1,5 +1,5 @@
 import { Icon } from '@phosphor-icons/react';
-import { InterfaceLg } from '../typography/typography-components';
+import { InterfaceXl } from '../typography/typography-components';
 import { calloutBadgeShape } from './CalloutBadge.css';
 
 type CalloutBadgeProps = {
@@ -20,8 +20,8 @@ export function CalloutBadge({
     <div className={`${className ?? 'inline-block p-5'}`}>
       <div className="drop-shadow">
         <div className={`${calloutBadgeShape} ${typeClasses}`}>
-          <Icon weight="bold" className="text-4xl" />
-          <InterfaceLg className="max-w-[80%] text-center">{text}</InterfaceLg>
+          <Icon weight="bold" className="text-5xl" />
+          <InterfaceXl className="max-w-[80%] text-center">{text}</InterfaceXl>
         </div>
       </div>
     </div>

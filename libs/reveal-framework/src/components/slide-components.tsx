@@ -1,5 +1,6 @@
 import { TiltCard, TiltCardProps, CalloutBadge } from '@ageorgedev/atoms';
 import {
+  Circle,
   Exam,
   Icon,
   Lightning,
@@ -50,9 +51,13 @@ export function CalloutForVD() {
 }
 
 export function CalloutForAdvancedTopic() {
-  return <CalloutBadge type="danger" icon={Exam} text={'ADV.'} />;
+  return <CalloutBadge type="danger" icon={Exam} text={'Advanced'} />;
 }
 
 export function CalloutForPersonalOpinion() {
   return <CalloutBadge type="info1" icon={Megaphone} text={'Opinion'} />;
+}
+
+export function PointSeperator() {
+  return <Circle className="text-3xl text-cc-accent my-4" />;
 }

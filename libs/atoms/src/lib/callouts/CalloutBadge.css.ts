@@ -4,8 +4,8 @@ import { style } from '@vanilla-extract/css';
 export const calloutBadgeShape = style([
   {
     position: 'relative',
-    height: Spacing[9],
-    width: Spacing[9],
+    height: Spacing[10],
+    width: Spacing[10],
     transform: 'rotate(-10deg)',
     ':before': {
       content: '',
@@ -18,5 +18,5 @@ export const calloutBadgeShape = style([
       transform: 'rotate(45deg)',
     },
   },
-  'flex flex-col justify-center items-center',
+  'flex flex-col justify-center items-center gap-1',
 ]);

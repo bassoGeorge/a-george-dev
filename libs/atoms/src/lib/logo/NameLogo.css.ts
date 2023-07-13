@@ -2,7 +2,7 @@ import { RawColors, Theme } from '@ageorgedev/foundation-styles';
 import { createVar, style } from '@vanilla-extract/css';
 
 export const logoWrapper = style([
-  'inline-block font-heading font-bold',
+  'inline-block font-heading font-bold text-left',
   {
     paddingBlock: '.1em .25em',
     paddingInline: '.1em',
