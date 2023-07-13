@@ -4,6 +4,10 @@ const borderSizes = {
   thick: '4px',
   medium: '2px',
   thin: '1px',
+} as const;
+
+const lineBasedSpacing = mapKeys((weight) => weight + '-line', borderSizes) as {
+  [Property in keyof typeof borderSizes as `${Property}-line`]: (typeof borderSizes)[Property];
 };
 
 export const BorderWidth = {
@@ -31,5 +35,5 @@ export const Spacing = {
   14: '32rem',
   15: '40rem',
   16: '48rem',
-  ...mapKeys((weight) => weight + '-line', borderSizes),
+  ...lineBasedSpacing,
 };
