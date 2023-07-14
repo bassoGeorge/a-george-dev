@@ -7,10 +7,24 @@ import {
   slideWithoutFooterBottomMargin,
   slideHeaderGrid,
 } from './deck-styles.css';
+import {
+  CalloutForAdvancedTopic,
+  CalloutForPersonalOpinion,
+  CalloutForVD,
+} from './slide-components';
 
-export function SlideTypeCenter(props: React.PropsWithChildren) {
+type CalloutType = 'UX' | 'Advanced' | 'Opinion';
+
+type SlideWithCallout = {
+  callout?: CalloutType;
+};
+
+export function SlideTypeCenter(
+  props: React.PropsWithChildren<SlideWithCallout>
+) {
   return (
     <section className={slideMainReset}>
+      <TopLeftPosition {...props} />
       <div
         className={`${slideCenterStyles} ${slideContentReset} ${slideWithoutFooterBottomMargin} ${slideMainGap}`}
       >
@@ -21,10 +35,13 @@ export function SlideTypeCenter(props: React.PropsWithChildren) {
 }
 
 export function SlideTypeRegular(
-  props: React.PropsWithChildren<{ heading: React.ReactNode }>
+  props: React.PropsWithChildren<
+    { heading: React.ReactNode } & SlideWithCallout
+  >
 ) {
   return (
     <section className={slideMainReset}>
+      <TopLeftPosition {...props} />
       <div
         className={`${slideHeaderGrid} ${slideContentReset} ${slideWithoutFooterBottomMargin}`}
       >
@@ -36,3 +53,20 @@ export function SlideTypeRegular(
     </section>
   );
 }
+
+function TopLeftPosition({
+  callout,
+}: React.PropsWithChildren<SlideWithCallout>) {
+  const Callout = callout ? CalloutMap[callout] : React.Fragment;
+  return (
+    <div className="absolute top-0 left-6">
+      <Callout />
+    </div>
+  );
+}
+
+const CalloutMap = {
+  UX: CalloutForVD,
+  Advanced: CalloutForAdvancedTopic,
+  Opinion: CalloutForPersonalOpinion,
+};

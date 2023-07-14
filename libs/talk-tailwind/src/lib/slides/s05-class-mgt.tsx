@@ -65,7 +65,10 @@ export function S05ClassManagement() {
         ></ComparisonRow>
       </SlideTypeRegular>
 
-      <SlideTypeRegular heading={<Heading2>Best of both worlds</Heading2>}>
+      <SlideTypeRegular
+        callout="Opinion"
+        heading={<Heading2>Best of both worlds</Heading2>}
+      >
         <div className="flex gap-7 items-start">
           <CodeBlock lang="tsx" text={advancedComponent}></CodeBlock>
           <CodeBlock lang="tsx" text={advancedComponentUsage}></CodeBlock>

@@ -132,6 +132,7 @@ export function S07OverrideTheming() {
         </div>
       </SlideTypeRegular>
       <SlideTypeRegular
+        callout="Advanced"
         heading={<Heading2>Using fallbacks for more flexibility</Heading2>}
       >
         <CodeBlock
@@ -141,6 +142,7 @@ export function S07OverrideTheming() {
         ></CodeBlock>
       </SlideTypeRegular>
       <SlideTypeRegular
+        callout="Advanced"
         heading={<Heading2>About color opacity modifiers</Heading2>}
       >
         <CodeBlock
@@ -161,6 +163,7 @@ export function S07OverrideTheming() {
       </SlideTypeRegular>
 
       <SlideTypeRegular
+        callout="Advanced"
         heading={<Heading2>We can make use of color channels!</Heading2>}
       >
         <div className="flex items-end gap-7">

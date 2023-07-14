@@ -115,9 +115,10 @@ export function S06Plugins() {
         />
       </SlideTypeRegular>
       <SlideTypeRegular
+        callout="Advanced"
         heading={
           <Heading2>
-            Advanced <em>match*</em> plugins
+            <em>match*</em> plugins
           </Heading2>
         }
       >
@@ -126,7 +127,10 @@ export function S06Plugins() {
           <CodeBlock lang="javascript" text={matchComponentsLayout} />
         </div>
       </SlideTypeRegular>
-      <SlideTypeRegular heading={<Heading2>What to use?</Heading2>}>
+      <SlideTypeRegular
+        callout="Opinion"
+        heading={<Heading2>What to use?</Heading2>}
+      >
         <ComparisonRow
           className="px-8"
           left={

@@ -1,5 +1,13 @@
-import { TiltCard, TiltCardProps } from '@ageorgedev/atoms';
-import { Icon, Lightning, Warning } from '@phosphor-icons/react';
+import { TiltCard, TiltCardProps, CalloutBadge } from '@ageorgedev/atoms';
+import {
+  Circle,
+  Exam,
+  Icon,
+  Lightning,
+  Megaphone,
+  PenNib,
+  Warning,
+} from '@phosphor-icons/react';
 
 type ImportantNoteProps = React.PropsWithChildren<{
   shape?: TiltCardProps['shape'];
@@ -37,3 +45,25 @@ const NoteConfigs: Record<
     Icon: Warning,
   },
 };
+
+export function CalloutForVD() {
+  return <CalloutBadge type="neutral" icon={PenNib} text={'UI/UX'} />;
+}
+
+export function CalloutForAdvancedTopic() {
+  return <CalloutBadge type="danger" icon={Exam} text={'Advanced'} />;
+}
+
+export function CalloutForPersonalOpinion() {
+  return <CalloutBadge type="info1" icon={Megaphone} text={'Opinion'} />;
+}
+
+export function PointSeperator({ className }: { className?: string }) {
+  return (
+    <Circle
+      className={`text-3xl text-cc-accent large-desktop:my-3 ${
+        className ?? ''
+      }`}
+    />
+  );
+}
