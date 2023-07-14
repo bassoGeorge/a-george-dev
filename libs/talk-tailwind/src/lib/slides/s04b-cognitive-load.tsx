@@ -34,10 +34,10 @@ export function S04BCognitiveLoad() {
           <ArrowRight className="text-2xl text-cc-accent" />
           <CodeBlock lang="html" text={imaginaryHTML}></CodeBlock>
         </div>
-        <PBodyLg className="text-cc-danger fragment">
+        <PBodyLg className="text-cc-danger">
           We are adding mental steps to the development process
         </PBodyLg>
-        <PBodyLg className="fragment">
+        <PBodyLg>
           Things get more complicated if we have heavily customised the
           configuration
         </PBodyLg>

@@ -3,7 +3,6 @@ import {
   Heading2,
   Heading3,
   PBody,
-  PBodyLg,
   PBodyMd,
 } from '@ageorgedev/atoms';
 import { CodeBlock } from '@ageorgedev/molecules';
@@ -212,12 +211,7 @@ const ngInvalidPlugin = `plugin(({ addVariant }) => {
 });
 `;
 
-const ngInvalidPluginUsage = `<app-custom-form-control class="invalid:ring-red-500" ></app-custom-form-control>
-
-<input type="email" class="peer ..."/>
-<p class="mt-2 invisible peer-invalid:visible text-pink-600 text-sm">
-  Please provide a valid email address.
-</p>`;
+const ngInvalidPluginUsage = `<app-custom-form-control class="invalid:ring-red-500" ></app-custom-form-control>`;
 
 const layerStylesCss = `@tailwind base;
 @tailwind components;
@@ -250,7 +244,7 @@ const layerStylesHtml = `<section class="grid layout-master-stacked lg:layout-ma
   <footer class="area-footer">footer</footer>
 </section>`;
 
-const matchComponentsPlugin = `const gridPlugin = plugin(({ matchComponents, addComponents, theme }) => {
+const matchComponentsPlugin = `const gridPlugin = plugin(({ matchComponents, theme }) => {
   matchComponents(
     {
       layout: (value) => ({
@@ -262,13 +256,6 @@ const matchComponentsPlugin = `const gridPlugin = plugin(({ matchComponents, add
     },
     { values: theme("layouts") }
   );
-
-  addComponents({
-    ".area-header": { gridArea: "header" },
-    ".area-sidebar": { gridArea: "sidebar" },
-    ".area-main": { gridArea: "main" },
-    ".area-footer": { gridArea: "footer" },
-  });
 });`;
 
 const matchComponentsLayout = `plugins: [gridPlugin],

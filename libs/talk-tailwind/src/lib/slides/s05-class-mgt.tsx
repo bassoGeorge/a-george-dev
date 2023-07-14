@@ -104,7 +104,7 @@ const reactComponent = `export function Card({
   );
 }`;
 const angularComponent = `@Directive({
-  selector: '[appCard],app-card',
+  selector: '[appCard]',
 })
 export class CardDirective {
   @HostBinding('class') classes 
@@ -128,7 +128,7 @@ function Heading1({
   );
 }
 
-Heading1.classes = 'text-2xl font-bold desktop:text-3xl';`;
+Heading1.classes = 'text-2xl font-bold md:text-3xl';`;
 
 const advancedComponentUsage = `<Heading1>Hello There</Heading1>
 

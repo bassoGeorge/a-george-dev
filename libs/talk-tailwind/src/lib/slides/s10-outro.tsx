@@ -16,7 +16,7 @@ export function S10Outro() {
     <section>
       <SlideTypeRegular
         callout="Opinion"
-        heading={<Heading2>Final thoughts</Heading2>}
+        heading={<Heading2 className="font-bold">Final thoughts</Heading2>}
       >
         <Heading3 className="italic">
           I am a CSS expert, I don't need Tailwind!
@@ -39,10 +39,16 @@ export function S10Outro() {
         </PBodyMd>
       </SlideTypeRegular>
       <SlideTypeCenter>
+        <Heading2>Tailwind is not a CSS framework..</Heading2>
+        <Heading2 className="font-bold">
+          it is a framework to <em>build your own CSS framework</em>
+        </Heading2>
+      </SlideTypeCenter>
+      <SlideTypeCenter>
         <Heading3 as="h1" className="italic">
           that's all folks!
         </Heading3>
-        <Heading1 as="h2" className="font-bold text-cc-alt-accent">
+        <Heading1 as="h2" className="font-bold text-cc-accent">
           Thank You
         </Heading1>
       </SlideTypeCenter>
