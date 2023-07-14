@@ -47,10 +47,16 @@ export function S01Intro() {
       <SlideTypeCenter>
         <Heading1>Why should you care?</Heading1>
         <PBodyMd className="fragment">
+          <PointSeperator />
           Tailwind has been the subject of much controversy and you are curious!
         </PBodyMd>
         <PBodyMd className="fragment">
+          <PointSeperator />
           You want/need/<b>have</b> to use it...
+        </PBodyMd>
+        <PBodyMd className="fragment">
+          <PointSeperator />
+          Tailwind has pretty much <em>"won"</em> the CSS-framework contest
         </PBodyMd>
       </SlideTypeCenter>
       <SlideTypeCenter>

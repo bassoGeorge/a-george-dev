@@ -1,5 +1,7 @@
 import { TiltCard, TiltCardProps, CalloutBadge } from '@ageorgedev/atoms';
 import {
+  AsteriskSimple,
+  BracketsAngle,
   Circle,
   Exam,
   Icon,
@@ -60,8 +62,8 @@ export function CalloutForPersonalOpinion() {
 
 export function PointSeperator({ className }: { className?: string }) {
   return (
-    <Circle
-      className={`text-3xl text-cc-accent large-desktop:my-3 ${
+    <BracketsAngle
+      className={`block text-xl text-cc-accent mx-auto mt-2 mb-3 large-desktop:mb-4 ${
         className ?? ''
       }`}
     />

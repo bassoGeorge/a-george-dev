@@ -8,7 +8,6 @@ import {
 } from '@ageorgedev/atoms';
 import { CodeBlock } from '@ageorgedev/molecules';
 import {
-  PointSeperator,
   SlideTypeCenter,
   SlideTypeRegular,
 } from '@ageorgedev/reveal-framework';

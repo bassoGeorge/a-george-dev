@@ -28,20 +28,22 @@ export function S09CssInJs() {
       </SlideTypeCenter>
       <SlideTypeCenter>
         <Heading2>Why?...</Heading2>
-        <PointSeperator />
         <PBodyMd className="fragment">
+          <PointSeperator />
           Let application logic manipulate CSS safely using design system tokens
         </PBodyMd>
-        <PointSeperator />
         <PBodyMd className="fragment">
+          <PointSeperator />
           Migrating to tailwind from an existing system
         </PBodyMd>
-        <PointSeperator />
         <PBodyMd className="fragment">
+          <PointSeperator />
           Some things are better done without Tailwind?
         </PBodyMd>
-        <PointSeperator />
-        <PBodyMd className="fragment">You want the flexibility</PBodyMd>
+        <PBodyMd className="fragment">
+          <PointSeperator />
+          You want the flexibility
+        </PBodyMd>
       </SlideTypeCenter>
       <SlideTypeRegular
         heading={<Heading2>Tailwind approved support</Heading2>}
