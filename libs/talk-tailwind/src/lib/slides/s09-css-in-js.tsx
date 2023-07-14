@@ -75,12 +75,6 @@ export function S09CssInJs() {
           </ImportantNote>
         </SlideMediaRow>
       </SlideTypeRegular>
-      <SlideTypeRegular heading={<Heading2>and here is an example</Heading2>}>
-        <div className="flex gap-7 items-start">
-          <CodeBlock lang="javascript" text={tokensFile} />
-          <CodeBlock lang="javascript" text={tokenImport} />
-        </div>
-      </SlideTypeRegular>
 
       <SlideTypeCenter callout="Opinion">
         <Heading3 as="h1" className="italic">

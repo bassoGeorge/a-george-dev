@@ -197,7 +197,7 @@ const typographyPlugin = `plugin(({ addBase, theme }) => {
   })
 })`;
 
-const typographyUsage = `<span class="typo-h2 desktop:typo-h1">
+const typographyUsage = `<span class="typo-h2 lg:typo-h1">
   Some content
 </span>`;
 
