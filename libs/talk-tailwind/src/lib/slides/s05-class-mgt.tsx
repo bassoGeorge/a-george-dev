@@ -24,6 +24,11 @@ export function S05ClassManagement() {
         </Heading1>
       </SlideTypeCenter>
       <SlideTypeRegular
+        heading={<Heading2>What do you do about this?</Heading2>}
+      >
+        <CodeBlock lang="html" text={fullTailwindWithoutComponents}></CodeBlock>
+      </SlideTypeRegular>
+      <SlideTypeRegular
         heading={<Heading2>Maintaining strings in Javascript</Heading2>}
       >
         <ComparisonRow
@@ -64,6 +69,9 @@ export function S05ClassManagement() {
           }
         ></ComparisonRow>
       </SlideTypeRegular>
+      <SlideTypeRegular heading={<Heading2>Looks better already</Heading2>}>
+        <CodeBlock lang="html" text={fixedTailwindWithComponents}></CodeBlock>
+      </SlideTypeRegular>
 
       <SlideTypeRegular
         callout="Opinion"
@@ -71,7 +79,14 @@ export function S05ClassManagement() {
       >
         <div className="flex gap-7 items-start">
           <CodeBlock lang="tsx" text={advancedComponent}></CodeBlock>
-          <CodeBlock lang="tsx" text={advancedComponentUsage}></CodeBlock>
+          <div className="flex flex-col items-start gap-7 text-left">
+            <CodeBlock lang="tsx" text={advancedComponentUsage}></CodeBlock>
+            <PBody>
+              Similar can be somewhat achieved in Angular using
+              <br />
+              static fields in Components/Directives
+            </PBody>
+          </div>
         </div>
       </SlideTypeRegular>
     </section>
@@ -104,7 +119,7 @@ const reactComponent = `export function Card({
   );
 }`;
 const angularComponent = `@Directive({
-  selector: '[appCard],app-card',
+  selector: '[appCard]',
 })
 export class CardDirective {
   @HostBinding('class') classes 
@@ -121,14 +136,14 @@ function Heading1({
 }: Heading1Props) {
   return (
     <h1 {...otherProps} 
-      className={MyHeading1.classes + ' ' + (className ?? '') }
+      className={Heading1.classes + ' ' + (className ?? '') }
     >
       {children}
     </h1>
   );
 }
 
-Heading1.classes = 'text-2xl font-bold desktop:text-3xl';`;
+Heading1.classes = 'text-2xl font-bold md:text-3xl';`;
 
 const advancedComponentUsage = `<Heading1>Hello There</Heading1>
 
@@ -138,3 +153,48 @@ const advancedComponentUsage = `<Heading1>Hello There</Heading1>
   <p>A section with common styling</p>
   <span>Pretty nifty</p>
 </section>`;
+
+const fullTailwindWithoutComponents = `<div className="max-w-sm rounded overflow-hidden shadow-lg">
+  <img className="w-full" src="http://dummy.com/img.jpeg" alt="User Avatar" />
+  <div className="px-6 py-4">
+    <h3 className="font-bold text-xl mb-3">
+      John Doe
+    </h3>
+    <p className="text-gray-700 text-base mb-2">
+      Professional Web developer with several years of experience
+    </p>
+    <p className="text-gray-700 text-base">
+      Loves basketball
+    </p>
+  </div>
+  <div className="px-6 py-4 flex gap-2">
+    <span className="bg-gray-200 rounded-full px-3 py-1 text-sm text-gray-700">
+      Web Developer
+    </span>
+    <span className="bg-gray-200 rounded-full px-3 py-1 text-sm text-gray-700">
+      UI/UX Designer
+    </span>
+  </div>
+</div>`;
+
+const fixedTailwindWithComponents = `<Card>
+  <img className="w-full" src="http://dummy.com/img.jpeg" alt="User Avatar" />
+  <div className="px-6 py-4">
+    <Heading2 className='mb-3'>John Doe</Heading2>
+    <Body strength="subtle" className='mb-2'>
+      Professional Web developer with several years of experience
+    </Body>
+    <Body strength="subtle">
+      Loves basketball
+    </Body>
+  </div>
+  <div className="px-6 py-4 flex gap-2">
+    <SkillBadge>
+      Web Developer
+    </SkillBadge>
+    <SkillBadge>
+      UI/UX Designer
+    </SkillBadge>
+    <SkillBadge>Photographer</SkillBadge>
+  </div>
+</Card>`;

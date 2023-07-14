@@ -15,6 +15,9 @@ type CodeBlockProps = {
   fontSize?: 'normal' | 'small' | 'large';
 } & React.HTMLProps<HTMLDivElement>;
 
+const fixedLightTheme = fixFont(lightTheme);
+const fixedDarkTheme = fixFont(darkTheme);
+
 export function CodeBlock({
   lang,
   text,
@@ -23,7 +26,7 @@ export function CodeBlock({
   ...otherProps
 }: CodeBlockProps) {
   const { theme } = useTheme();
-  const codeTheme = theme === 'light' ? lightTheme : darkTheme;
+  const codeTheme = theme === 'light' ? fixedLightTheme : fixedDarkTheme;
 
   return (
     <Card
@@ -49,3 +52,19 @@ const fontSizeMap: Record<Required<CodeBlockProps>['fontSize'], string> = {
   normal: 'text-lg large-desktop:text-xl',
   small: 'text-md large-desktop:text-lg',
 };
+
+function fixFont(theme: { [k: string]: { [y: string]: string } }) {
+  const styleKey1 = 'code[class*="language-"]';
+  const styleKey2 = 'pre[class*="language-"]';
+  return {
+    ...theme,
+    [styleKey1]: {
+      ...theme[styleKey1],
+      fontFamily: '"Source Code Pro", monospace',
+    },
+    [styleKey2]: {
+      ...theme[styleKey2],
+      fontFamily: '"Source Code Pro", monospace',
+    },
+  };
+}

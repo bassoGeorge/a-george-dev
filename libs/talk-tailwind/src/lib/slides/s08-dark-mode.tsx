@@ -208,28 +208,28 @@ const darkModeBasicUsage = `<button class="bg-primary-100 dark:bg-primary-800 da
 </button>`;
 
 const rawColorsRoot = `:root {
-  --ag-rc-parchment-500: hsl(39 100% 89%);
-  --ag-rc-timber-300: hsl(189, 31%, 13%);
+  --rc-parchment-500: hsl(39 100% 89%);
+  --rc-timber-300: hsl(189, 31%, 13%);
 
-  --ag-rc-p-accent-300: hsl(83 27% 53%);
-  --ag-rc-p-accent-500: hsl(83 49% 30%);
+  --rc-p-accent-300: hsl(83 27% 53%);
+  --rc-p-accent-500: hsl(83 49% 30%);
 
-  --ag-rc-d-neutral-500: hsl(189 67% 6%);
-  --ag-rc-l-neutral-500: hsl(45 100% 99%);
+  --rc-d-neutral-500: hsl(189 67% 6%);
+  --rc-l-neutral-500: hsl(45 100% 99%);
 }`;
 
 const contextualColorsRootLight = `:root {
-  --ag-cc-page-far: var(--ag-rc-parchment-500);
-  --ag-cc-accent: var(--ag-rc-p-accent-500);
-  --ag-cc-neutral: var(--ag-rc-d-neutral-500);
-  --ag-cc-neutral-inverse: var(--ag-rc-l-neutral-500);
+  --cc-page-far: var(--rc-parchment-500);
+  --cc-accent: var(--rc-p-accent-500);
+  --cc-neutral: var(--rc-d-neutral-500);
+  --cc-neutral-inverse: var(--rc-l-neutral-500);
 }`;
 
 const contextualColorsRootDark = `:root.dark {
-  --ag-cc-page-far: var(--ag-rc-timber-300);
-  --ag-cc-accent: var(--ag-rc-p-accent-300);
-  --ag-cc-neutral: var(--ag-rc-l-neutral-500);
-  --ag-cc-neutral-inverse: var(--ag-rc-d-neutral-500);
+  --cc-page-far: var(--rc-timber-300);
+  --cc-accent: var(--rc-p-accent-300);
+  --cc-neutral: var(--rc-l-neutral-500);
+  --cc-neutral-inverse: var(--rc-d-neutral-500);
 }`;
 
 const contextualColorsTailwindConfig = `/* tailwind.config.js */
@@ -237,9 +237,9 @@ const contextualColorsTailwindConfig = `/* tailwind.config.js */
 export default {
   theme: {
     colors: {
-      'cc-page-far': 'var(--ag-cc-page-far)',
-      'cc-accent': 'var(--ag-cc-accent)',
-      'cc-neutral': 'var(--ag-cc-neutral)',
+      'cc-page-far': 'var(--cc-page-far)',
+      'cc-accent': 'var(--cc-accent)',
+      'cc-neutral': 'var(--cc-neutral)',
       //... others
     }
   }

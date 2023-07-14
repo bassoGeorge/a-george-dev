@@ -28,20 +28,22 @@ export function S09CssInJs() {
       </SlideTypeCenter>
       <SlideTypeCenter>
         <Heading2>Why?...</Heading2>
-        <PointSeperator />
         <PBodyMd className="fragment">
+          <PointSeperator />
           Let application logic manipulate CSS safely using design system tokens
         </PBodyMd>
-        <PointSeperator />
         <PBodyMd className="fragment">
+          <PointSeperator />
           Migrating to tailwind from an existing system
         </PBodyMd>
-        <PointSeperator />
         <PBodyMd className="fragment">
+          <PointSeperator />
           Some things are better done without Tailwind?
         </PBodyMd>
-        <PointSeperator />
-        <PBodyMd className="fragment">You want the flexibility</PBodyMd>
+        <PBodyMd className="fragment">
+          <PointSeperator />
+          You want the flexibility
+        </PBodyMd>
       </SlideTypeCenter>
       <SlideTypeRegular
         heading={<Heading2>Tailwind approved support</Heading2>}
@@ -72,12 +74,6 @@ export function S09CssInJs() {
             <PBody>Post v3.3, tailwind supports ESM config file</PBody>
           </ImportantNote>
         </SlideMediaRow>
-      </SlideTypeRegular>
-      <SlideTypeRegular heading={<Heading2>and here is an example</Heading2>}>
-        <div className="flex gap-7 items-start">
-          <CodeBlock lang="javascript" text={tokensFile} />
-          <CodeBlock lang="javascript" text={tokenImport} />
-        </div>
       </SlideTypeRegular>
 
       <SlideTypeCenter callout="Opinion">

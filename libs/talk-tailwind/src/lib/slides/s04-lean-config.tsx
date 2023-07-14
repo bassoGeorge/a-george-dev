@@ -33,7 +33,9 @@ export function S04LeanConfig() {
           right={
             <>
               <PBody>Allows adding onto the existing Tailwind values</PBody>
-              <PBody>Easy for devs to use non-compliant design</PBody>
+              <PBody className="text-cc-danger">
+                Easy for devs to use non-compliant design
+              </PBody>
               <PBody>Tailwind tends to have too many values</PBody>
               <PBody>
                 Look at{' '}

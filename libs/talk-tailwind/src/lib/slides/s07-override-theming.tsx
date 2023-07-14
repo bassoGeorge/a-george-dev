@@ -45,67 +45,7 @@ export function S07OverrideTheming() {
       <SlideTypeRegular
         heading={
           <Heading2>
-            <em>Bonus</em>: The problem with Hex colors
-          </Heading2>
-        }
-      >
-        <ComparisonRow
-          left={
-            <>
-              <CodeBlock
-                className="mb-7"
-                lang="javascript"
-                text={colorProblemHex}
-                fontSize="large"
-              ></CodeBlock>
-              <PBody className="fragment" data-fragment-index="0">
-                Difficult to figure out the relationship between shades
-              </PBody>
-              <PBody className="fragment" data-fragment-index="0">
-                Cannot be programmatically changed
-              </PBody>
-            </>
-          }
-          right={
-            <>
-              <CodeBlock
-                className="fragment mb-7"
-                data-fragment-index="1"
-                lang="javascript"
-                text={colorProblemHsl}
-                fontSize="large"
-              ></CodeBlock>
-              <PBody className="fragment" data-fragment-index="2">
-                Do you see?
-              </PBody>
-              <PBody className="fragment" data-fragment-index="2">
-                In fact, you can do math on this
-              </PBody>
-            </>
-          }
-        ></ComparisonRow>
-
-        <div
-          className="flex justify-center gap-7 fragment"
-          data-fragment-index="3"
-        >
-          {colors.map((color) => (
-            <div
-              key={color.name}
-              className="w-12 h-9 rounded grid place-items-center"
-              style={{ backgroundColor: color.value }}
-            >
-              <PBodySm className="text-cc-neutral-inverse dark:text-cc-neutral">
-                {color.name}
-              </PBodySm>
-            </div>
-          ))}
-        </div>
-      </SlideTypeRegular>
-      <SlideTypeRegular
-        heading={
-          <Heading2>
-            <em>Bonus 2</em>: About the modern color syntax
+            <em>Side note</em>: HSL rocks
           </Heading2>
         }
       >
@@ -196,21 +136,6 @@ export function S07OverrideTheming() {
   );
 }
 
-const colors = [
-  {
-    name: 'light',
-    value: 'hsl(321 12% 48%)',
-  },
-  {
-    name: 'base',
-    value: 'hsl(321 12% 29%)',
-  },
-  {
-    name: 'dark',
-    value: 'hsl(119 22% 44%)',
-  },
-];
-
 const plainColorsConfig = `/* tailwind.config.js */
 
 export default {
@@ -229,14 +154,6 @@ export default {
     }
   },
 };`;
-
-const colorProblemHex = `const light = '#896C7F';
-const base = '#52414C';
-const dark = '#598958';`;
-
-const colorProblemHsl = `const light = 'hsl(321 12% 48%)';
-const base = 'hsl(321 12% 29%)';
-const dark = 'hsl(119 22% 44%)';`;
 
 const colorVarsRoot = `/* styles.css */
 @layer base {
@@ -279,9 +196,7 @@ const colorVarsRootChannels = `:root {
 }`;
 
 const colorVarsWithDefaultsChannels = `primary: {
-  DEFAULT: "hsl( var(--color-primary-base, 321 12% 29%) / <alpha-value>)",
-  light: "hsl( var(--color-primary-light, 321 12% 48%) / <alpha-value>)",
-  dark: "hsl( var(--color-primary-dark, 119 22% 44%) / <alpha-value>)",
+  DEFAULT: "hsl( var(--color-primary-base) / <alpha-value>)",
 }`;
 
 const modernHslSyntax = `.selector {

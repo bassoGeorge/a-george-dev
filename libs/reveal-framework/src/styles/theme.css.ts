@@ -1,4 +1,4 @@
-import { ContextualColors } from '@ageorgedev/foundation-styles';
+import { ContextualColors, RawColors } from '@ageorgedev/foundation-styles';
 import { globalStyle as gs } from '@vanilla-extract/css';
 
 gs('.reveal', {
@@ -20,4 +20,12 @@ gs('.reveal .progress span', {
 
 gs('.reveal.overview > footer', {
   display: 'none',
+});
+
+gs('.reveal code ::selection', {
+  backgroundColor: RawColors.pAccent[500],
+});
+
+gs('.light .reveal code ::selection', {
+  backgroundColor: RawColors.pAccent[100],
 });

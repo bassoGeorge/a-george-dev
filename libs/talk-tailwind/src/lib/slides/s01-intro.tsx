@@ -47,42 +47,45 @@ export function S01Intro() {
       <SlideTypeCenter>
         <Heading1>Why should you care?</Heading1>
         <PBodyMd className="fragment">
+          <PointSeperator />
           Tailwind has been the subject of much controversy and you are curious!
         </PBodyMd>
         <PBodyMd className="fragment">
+          <PointSeperator />
           You want/need/<b>have</b> to use it...
+        </PBodyMd>
+        <PBodyMd className="fragment">
+          <PointSeperator />
+          Tailwind has pretty much <em>"won"</em> the CSS-framework contest
         </PBodyMd>
       </SlideTypeCenter>
       <SlideTypeCenter>
-        <Heading1>Topics covered</Heading1>
-        <PBody>Fundamentals of Tailwind CSS</PBody>
-        <PBody>Anti-patterns</PBody>
-        <PBody>Lean configuration</PBody>
-        <PBody>Cognitive load</PBody>
-        <PBody>Componentisation</PBody>
-        <PBody>Plugins</PBody>
-        <PBody>Theming with overrides</PBody>
-        <PBody>Dark mode</PBody>
-        <PBody>CSS-in-JS</PBody>
+        <Heading1>What I'm assuming of you</Heading1>
+        <PBodyMd className="fragment">
+          <PointSeperator />
+          Good with CSS
+        </PBodyMd>
+        <PBodyMd className="fragment">
+          <PointSeperator />
+          Maybe have tried Tailwind CSS before
+        </PBodyMd>
+        <PBodyMd className="fragment">
+          <PointSeperator />
+          Knowledgeable on either React or Angular. Or else some other component
+          based fremework.
+        </PBodyMd>
       </SlideTypeCenter>
+
       <SlideTypeRegular heading={<Heading2>How I roll!</Heading2>}>
-        <div className="flex gap-10 items-start">
-          <div className="flex flex-col gap-2 items-start">
-            <PBodyMd>Slides available at</PBodyMd>
-            <a
-              href="https://ageorge.dev/talks/tailwind"
-              className={`text-cc-alt-accent font-bold ${PBodyLg.classes}`}
-              target="_blank"
-              rel="noreferrer"
-            >
-              https://ageorge.dev/talks/tailwind
-            </a>
-          </div>
-          <div className="flex flex-col gap-2 items-end">
-            <PBodyMd>Lots of code snippets, some demos</PBodyMd>
-            <PBodyMd>Assuming familiarity with CSS</PBodyMd>
-          </div>
-        </div>
+        <PBodyMd>Slides available at</PBodyMd>
+        <a
+          href="https://ageorge.dev/talks/tailwind"
+          className={`text-cc-alt-accent ${PBodyLg.classes}`}
+          target="_blank"
+          rel="noreferrer"
+        >
+          https:// <b>ageorge.dev</b> /talks/tailwind
+        </a>
         <Heading4 className="font-bold mt-7">
           Some slides have callouts
         </Heading4>
@@ -107,6 +110,18 @@ export function S01Intro() {
           </div>
         </div>
       </SlideTypeRegular>
+      <SlideTypeCenter>
+        <Heading1>Topics covered</Heading1>
+        <PBody>Fundamentals of Tailwind CSS</PBody>
+        <PBody>Anti-patterns</PBody>
+        <PBody>Lean configuration</PBody>
+        <PBody>Cognitive load</PBody>
+        <PBody>Componentisation</PBody>
+        <PBody>Plugins</PBody>
+        <PBody>Theming with overrides</PBody>
+        <PBody>Dark mode</PBody>
+        <PBody>CSS-in-JS</PBody>
+      </SlideTypeCenter>
     </section>
   );
 }

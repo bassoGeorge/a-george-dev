@@ -16,7 +16,7 @@ import {
 type CalloutType = 'UX' | 'Advanced' | 'Opinion';
 
 type SlideWithCallout = {
-  callout?: CalloutType;
+  callout?: CalloutType | CalloutType[];
 };
 
 export function SlideTypeCenter(
@@ -57,10 +57,15 @@ export function SlideTypeRegular(
 function TopLeftPosition({
   callout,
 }: React.PropsWithChildren<SlideWithCallout>) {
-  const Callout = callout ? CalloutMap[callout] : React.Fragment;
+  const calloutTypes = Array.isArray(callout) ? callout : [callout];
+  const calloutComponents = calloutTypes.map((c) =>
+    c ? CalloutMap[c] : React.Fragment
+  );
   return (
-    <div className="absolute top-0 left-6">
-      <Callout />
+    <div className="absolute top-0 left-6 flex gap-5">
+      {calloutComponents.map((Comp) => (
+        <Comp />
+      ))}
     </div>
   );
 }

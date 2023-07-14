@@ -104,16 +104,6 @@ export function S02Fundamentals() {
         ></ComparisonRow>
       </SlideTypeRegular>
 
-      <SlideTypeRegular heading={<Heading1>What a mess!</Heading1>}>
-        <CodeBlock text={fullTailwindWithoutComponents} lang="jsx"></CodeBlock>
-      </SlideTypeRegular>
-
-      <SlideTypeRegular
-        heading={<Heading2>You are supposed to build components!</Heading2>}
-      >
-        <CodeBlock text={fixedTailwindWithComponents} lang="jsx"></CodeBlock>
-      </SlideTypeRegular>
-
       <SlideTypeRegular
         heading={<Heading1>Finite values through configuration</Heading1>}
       >
@@ -143,11 +133,16 @@ export function S02Fundamentals() {
             <CodeBlock text={exampleHtml} lang="html"></CodeBlock>
             <CodeBlock text={sourceStyleFile} lang="css"></CodeBlock>
           </div>
-          <CodeBlock
-            text={computedStyleFile}
-            lang="css"
-            className="fragment"
-          ></CodeBlock>
+          <div className="flex gap-7 items-start">
+            <CodeBlock
+              text={computedStyleFile}
+              lang="css"
+              className="fragment"
+            ></CodeBlock>
+            <ImportantNote shape="triUpperRight">
+              <PBody>PostCSS magic</PBody>
+            </ImportantNote>
+          </div>
         </div>
       </SlideTypeRegular>
       <SlideTypeRegular
@@ -212,51 +207,6 @@ const simpleButtonComputedStyles = `.text-white { color: white; }
 .mb-2 {
   margin-bottom: 0.5rem;
 }`;
-
-const fullTailwindWithoutComponents = `<div className="max-w-sm rounded overflow-hidden shadow-lg">
-  <img className="w-full" src="http://dummy.com/img.jpeg" alt="User Avatar" />
-  <div className="px-6 py-4">
-    <h3 className="font-bold text-xl mb-3">
-      John Doe
-    </h3>
-    <p className="text-gray-700 text-base mb-2">
-      Professional Web developer with several years of experience
-    </p>
-    <p className="text-gray-700 text-base">
-      Loves basketball
-    </p>
-  </div>
-  <div className="px-6 py-4 flex gap-2">
-    <span className="bg-gray-200 rounded-full px-3 py-1 text-sm text-gray-700">
-      Web Developer
-    </span>
-    <span className="bg-gray-200 rounded-full px-3 py-1 text-sm text-gray-700">
-      UI/UX Designer
-    </span>
-  </div>
-</div>`;
-
-const fixedTailwindWithComponents = `<Card>
-  <img className="w-full" src="http://dummy.com/img.jpeg" alt="User Avatar" />
-  <div className="px-6 py-4">
-    <Heading2 className='mb-3'>John Doe</Heading2>
-    <Body strength="subtle" className='mb-2'>
-      Professional Web developer with several years of experience
-    </Body>
-    <Body strength="subtle">
-      Loves basketball
-    </Body>
-  </div>
-  <div className="px-6 py-4 flex gap-2">
-    <SkillBadge>
-      Web Developer
-    </SkillBadge>
-    <SkillBadge>
-      UI/UX Designer
-    </SkillBadge>
-    <SkillBadge>Photographer</SkillBadge>
-  </div>
-</Card>`;
 
 const tailwindConfigFile = `// tailwind.config.js
 
