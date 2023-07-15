@@ -3,6 +3,7 @@ import {
   Heading2,
   Heading3,
   PBody,
+  PBodyLg,
   PBodyMd,
 } from '@ageorgedev/atoms';
 import {
@@ -51,6 +52,10 @@ export function S10Outro() {
         <Heading1 as="h2" className="font-bold text-cc-accent">
           Thank You
         </Heading1>
+        <PBodyLg className="mt-7">
+          <PointSeperator />
+          https://<b>ageorge.dev</b>/talks/tailwind
+        </PBodyLg>
       </SlideTypeCenter>
     </section>
   );

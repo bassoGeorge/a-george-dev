@@ -30,7 +30,7 @@ export function HomeAboveFold() {
           <Heading3 className="font-bold text-cc-alt-accent-subtle">
             Web Developer
           </Heading3>
-          <Heading4 as="p" className="text-cc-neutral-subtlest">
+          <Heading4 as="p" className="text-cc-neutral-subtle">
             Architecting web experiences since 2016
           </Heading4>
         </div>

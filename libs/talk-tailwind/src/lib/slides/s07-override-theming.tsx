@@ -4,7 +4,6 @@ import {
   Heading3,
   PBody,
   PBodyMd,
-  PBodySm,
 } from '@ageorgedev/atoms';
 import { CodeBlock } from '@ageorgedev/molecules';
 import {
@@ -45,7 +44,7 @@ export function S07OverrideTheming() {
       <SlideTypeRegular
         heading={
           <Heading2>
-            <em>Side note</em>: HSL rocks
+            Side note: <em>HSL rocks!</em>
           </Heading2>
         }
       >
