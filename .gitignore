@@ -51,3 +51,12 @@ libs/**/generated-src
 # environment files
 *.env
 */**/*.env
+
+# yarn stuff
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
