@@ -9,6 +9,9 @@ runs:
       with:
         node-version: '18.x'
         cache: 'yarn'
+    - name: Set yarn version
+      shell: bash
+      run: yarn set version 4.0.0-rc.48
     - name: 📥 Install dependencies
       shell: bash
       run: yarn install --frozen-lockfile
