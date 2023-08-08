@@ -6,17 +6,21 @@
   "license": "",
   "sideEffects": false,
   "scripts": {
-    "build": "keystone build",
+    "build_is_broken": "keystone build",
     "dev": "keystone dev",
-    "temporarily_disabled_postinstall": "keystone build --no-ui --frozen",
+    "validate": "keystone build --no-ui --frozen",
     "build-schema": "keystone build --no-ui",
     "pscale-dev": "yarn run dev",
     "push-schema": "keystone prisma db push",
     "job:heartbeat": "ts-node src/jobs/heartbeat/run.ts"
   },
   "dependencies": {
-    "@keystone-6/auth": "^7.0.0",
-    "@keystone-6/core": "^5.3.2",
-    "@keystone-6/fields-document": "^8.0.0"
+    "@keystone-6/auth": "7.0.2",
+    "@keystone-6/core": "5.5.0",
+    "@keystone-6/fields-document": "8.0.0"
+  },
+  "devDependencies": {
+    "next": "13.4.9",
+    "prisma": "4.16.2"
   }
 }
