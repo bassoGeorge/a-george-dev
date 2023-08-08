@@ -51,6 +51,9 @@
         "!{projectRoot}/.storybook/**/*",
         "!{projectRoot}/.storybook/**/*"
       ]
+    },
+    "validate": {
+      "dependsOn": ["^validate"]
     }
   },
   "namedInputs": {

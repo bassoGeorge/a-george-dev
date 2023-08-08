@@ -52,6 +52,8 @@ jobs:
       - name: 🔧 List affected projects
         id: affected_projects
         run: echo "affected_projects=$(yarn nx print-affected | jq -c '.projects')" >> "$GITHUB_OUTPUT"
+      - name: Source validations on affected projects
+        run: yarn nx affected --target validate
       - name: 🔍 Debug
         run: |
           echo "Is hotfix: ${{ steps.is_hotfix.outputs.is_hotfix }}"
