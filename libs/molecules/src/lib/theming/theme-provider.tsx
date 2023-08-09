@@ -76,35 +76,35 @@ export function ThemeProvider({ children }: React.PropsWithChildren) {
   // The mutation callback to be attached to the <html> element
   // This is for the extremely unlikely scenario where an external script / or user manually
   // changes the class on the <html> element
-  const onMutation = useCallback<MutationCallback>((mutations) => {
-    mutations.forEach((mutation) => {
-      switch (mutation.type) {
-        case 'attributes': {
-          if (mutation.attributeName !== 'class') {
-            return;
-          }
+  // const onMutation = useCallback<MutationCallback>((mutations) => {
+  //   mutations.forEach((mutation) => {
+  //     switch (mutation.type) {
+  //       case 'attributes': {
+  //         if (mutation.attributeName !== 'class') {
+  //           return;
+  //         }
 
-          const nextTheme = getThemeFromClassString(
-            (mutation.target as HTMLHtmlElement).getAttribute(
-              mutation.attributeName
-            ) ?? ''
-          );
+  //         const nextTheme = getThemeFromClassString(
+  //           (mutation.target as HTMLHtmlElement).getAttribute(
+  //             mutation.attributeName
+  //           ) ?? ''
+  //         );
 
-          // Note: This will trigger a re-render, but that is fine, covers the edge case of external scripts
-          // Adding a theme check here is fine, but then the callback changes and we are re-mounting the observer
-          // on every theme change. This is the better tradeoff
-          dispatch({
-            type: 'setByDom',
-            theme: nextTheme,
-          });
+  //         // Note: This will trigger a re-render, but that is fine, covers the edge case of external scripts
+  //         // Adding a theme check here is fine, but then the callback changes and we are re-mounting the observer
+  //         // on every theme change. This is the better tradeoff
+  //         dispatch({
+  //           type: 'setByDom',
+  //           theme: nextTheme,
+  //         });
 
-          break;
-        }
-        default:
-          return;
-      }
-    });
-  }, []);
+  //         break;
+  //       }
+  //       default:
+  //         return;
+  //     }
+  //   });
+  // }, []);
 
   /** NOTE: some weird race condition is happening, so disabling the dom check for mutation */
   // Attaching the mutation callback, this is typically a one time operation
@@ -157,14 +157,14 @@ function safeAddClass(classList: DOMTokenList, className: string) {
   }
 }
 
-function getThemeFromClassString(classString: string): Theme | null {
-  const classes = classString.split(' ');
-  return classes.includes('dark')
-    ? 'dark'
-    : classes.includes('light')
-    ? 'light'
-    : null;
-}
+// function getThemeFromClassString(classString: string): Theme | null {
+//   const classes = classString.split(' ');
+//   return classes.includes('dark')
+//     ? 'dark'
+//     : classes.includes('light')
+//     ? 'light'
+//     : null;
+// }
 
 /** LocalStorage stuff */
 const LS_THEME_KEY = 'theme';

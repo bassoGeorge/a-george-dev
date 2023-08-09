@@ -1,5 +1,5 @@
 import { createGlobalThemeContract } from '@vanilla-extract/css';
-import { mapObjIndexed, pick } from 'ramda';
+import { mapObjIndexed } from 'ramda';
 import { FOUNDATION_RAW_COLOR_PREFIX } from '../constants';
 import { cssVarName } from '../utils';
 

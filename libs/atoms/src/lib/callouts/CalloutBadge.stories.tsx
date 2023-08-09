@@ -4,7 +4,6 @@ import {
   AddressBook,
   AirplaneInFlight,
   PenNib,
-  PencilSlash,
   SealWarning,
   Skull,
 } from '@phosphor-icons/react';

@@ -1,4 +1,4 @@
-import { BodyMd, Interface, InterfaceMd } from '@ageorgedev/atoms';
+import { Interface } from '@ageorgedev/atoms';
 import { Spacing } from '@ageorgedev/foundation-styles';
 import { StoryObj } from '@storybook/react';
 import { compose, map, prop, sortBy, toPairs } from 'ramda';

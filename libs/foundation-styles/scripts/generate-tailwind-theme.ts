@@ -1,5 +1,5 @@
 import { TailwindTheme } from '../src/lib/tailwind-theme';
-import { promises as fs, existsSync } from 'fs';
+import { promises as fs } from 'fs';
 import * as path from 'path';
 
 async function generate() {

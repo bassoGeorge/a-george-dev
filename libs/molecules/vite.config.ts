@@ -4,17 +4,12 @@ import react from '@vitejs/plugin-react';
 import viteTsConfigPaths from 'vite-tsconfig-paths';
 import dts from 'vite-plugin-dts';
 import { join } from 'path';
-import Inspect from 'vite-plugin-inspect';
 import { removeFilesPlugin } from './vite-plugins';
 
 export default defineConfig({
   cacheDir: '../../node_modules/.vite/molecules',
 
   plugins: [
-    Inspect({
-      build: true,
-      outputDir: '.vite-inspect',
-    }),
     dts({
       entryRoot: 'src',
       tsConfigFilePath: join(__dirname, 'tsconfig.lib.json'),
