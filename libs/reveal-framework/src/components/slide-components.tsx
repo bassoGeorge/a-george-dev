@@ -1,8 +1,6 @@
 import { TiltCard, TiltCardProps, CalloutBadge } from '@ageorgedev/atoms';
 import {
-  AsteriskSimple,
   BracketsAngle,
-  Circle,
   Exam,
   Icon,
   Lightning,

@@ -1,10 +1,4 @@
-import {
-  Heading1,
-  Heading2,
-  Heading3,
-  PBody,
-  PBodyMd,
-} from '@ageorgedev/atoms';
+import { Heading1, Heading3, PBody, PBodyMd } from '@ageorgedev/atoms';
 import { CodeBlock } from '@ageorgedev/molecules';
 import {
   ComparisonRow,

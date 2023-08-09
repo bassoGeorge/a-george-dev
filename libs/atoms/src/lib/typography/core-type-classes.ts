@@ -1,4 +1,4 @@
-import { map, mapObjIndexed } from 'ramda';
+import { mapObjIndexed } from 'ramda';
 
 const headingFont = 'font-heading';
 const bodyFont = 'font-body';
