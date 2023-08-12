@@ -17,7 +17,7 @@
       "outputs": ["{options.outputPath}"],
       "defaultConfiguration": "production",
       "options": {
-        "outputPath": "dist/libs/atoms"
+        "outputPath": "libs/atoms/dist"
       },
       "configurations": {
         "development": {
@@ -30,7 +30,7 @@
     },
     "test": {
       "executor": "@nx/vite:test",
-      "outputs": ["coverage/libs/atoms"],
+      "outputs": ["{workspaceRoot}/coverage/libs/atoms"],
       "options": {
         "passWithNoTests": true,
         "reportsDirectory": "../../coverage/libs/atoms"

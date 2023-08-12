@@ -4,7 +4,7 @@
     "../../.eslintrc.json",
     "../../.eslintrc.ts.json"
   ],
-  "ignorePatterns": ["!**/*", ".storybook/preview.js"],
+  "ignorePatterns": ["!**/*", "dist/**/*", ".storybook/preview.js"],
   "overrides": [
     {
       "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],

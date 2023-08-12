@@ -1,4 +1,5 @@
 /// <reference types="vitest" />
+
 import { vanillaExtractPlugin } from '@vanilla-extract/vite-plugin';
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
@@ -49,6 +50,7 @@ export default defineConfig({
     },
   },
 
+  // @ts-ignore
   test: {
     globals: true,
     cache: {
