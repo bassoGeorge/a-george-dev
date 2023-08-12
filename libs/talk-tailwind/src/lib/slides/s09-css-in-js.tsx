@@ -116,35 +116,3 @@ fullConfig.theme.width[4]
 
 fullConfig.theme.screens.md
 // => '768px'`;
-
-const tokensFile = `/* tokens.js */
-
-module.exports = {
-  colors: {
-    primaryBase: 'hsl(321 12% 29%)',
-    primaryDark: 'hsl(119 22% 44%)',
-  },
-  spacingScale: [8, 12, 16, 32]
-}
-`;
-
-const tokenImport = `/* tailwind.config.js */
-const tokens = require('./tokens.js');
-export default {
-  theme: {
-    colors: {
-      primary: {
-        DEFAULT: tokens.colors.primaryBase,
-        light: tokens.colors.primaryLight,
-        dark: tokens.colors.primaryDark,
-      }
-    },
-    spacing: {
-      1: tokens.spacingScale[0] + 'px',
-      2: tokens.spacingScale[1] + 'px',
-      3: tokens.spacingScale[2] + 'px',
-      large: tokens.spacingScale[3] + 'px',
-      massive: tokens.spacingScale[4] + 'px',
-    }
-  }
-};`;

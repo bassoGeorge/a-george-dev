@@ -1,8 +1,9 @@
 /// <reference types="vitest" />
+
 import { vanillaExtractPlugin } from '@vanilla-extract/vite-plugin';
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
-import viteTsConfigPaths from 'vite-tsconfig-paths';
+import { nxViteTsPaths } from '@nx/vite/plugins/nx-tsconfig-paths.plugin';
 import dts from 'vite-plugin-dts';
 import { join } from 'path';
 
@@ -16,9 +17,7 @@ export default defineConfig({
       skipDiagnostics: true,
     }),
     react(),
-    viteTsConfigPaths({
-      root: '../../',
-    }),
+    nxViteTsPaths(),
     vanillaExtractPlugin(),
   ],
 
@@ -49,6 +48,7 @@ export default defineConfig({
     },
   },
 
+  // @ts-ignore
   test: {
     globals: true,
     cache: {

@@ -21,6 +21,7 @@ export default defineConfig({
   //  ],
   // },
 
+  // @ts-ignore
   test: {
     globals: true,
     cache: {

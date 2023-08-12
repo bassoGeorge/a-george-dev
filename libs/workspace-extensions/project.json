@@ -8,7 +8,7 @@
       "executor": "@nx/js:tsc",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/libs/workspace-extensions",
+        "outputPath": "libs/workspace-extensions/dist",
         "main": "libs/workspace-extensions/src/index.ts",
         "tsConfig": "libs/workspace-extensions/tsconfig.lib.json",
         "assets": [
@@ -33,7 +33,8 @@
             "glob": "executors.json",
             "output": "."
           }
-        ]
+        ],
+        "updateBuildableProjectDepsInPackageJson": true
       }
     },
     "lint": {

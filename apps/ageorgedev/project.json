@@ -22,7 +22,7 @@
     },
     "test": {
       "executor": "@nx/vite:test",
-      "outputs": ["coverage/apps/ageorgedev"],
+      "outputs": ["{workspaceRoot}/coverage/apps/ageorgedev"],
       "options": {
         "passWithNoTests": true,
         "reportsDirectory": "../../coverage/apps/ageorgedev"

@@ -17,7 +17,7 @@
       "outputs": ["{options.outputPath}"],
       "defaultConfiguration": "production",
       "options": {
-        "outputPath": "dist/libs/molecules"
+        "outputPath": "libs/molecules/dist"
       },
       "configurations": {
         "development": {
@@ -30,7 +30,7 @@
     },
     "test": {
       "executor": "@nx/vite:test",
-      "outputs": ["coverage/libs/molecules"],
+      "outputs": ["{workspaceRoot}/coverage/libs/molecules"],
       "options": {
         "passWithNoTests": true,
         "reportsDirectory": "../../coverage/libs/molecules"

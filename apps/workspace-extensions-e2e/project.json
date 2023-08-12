@@ -5,11 +5,12 @@
   "sourceRoot": "apps/workspace-extensions-e2e/src",
   "targets": {
     "e2e": {
-      "executor": "@nx/plugin:e2e",
+      "executor": "@nx/jest:jest",
       "options": {
-        "target": "workspace-extensions:build",
-        "jestConfig": "apps/workspace-extensions-e2e/jest.config.ts"
-      }
+        "jestConfig": "apps/workspace-extensions-e2e/jest.config.ts",
+        "runInBand": true
+      },
+      "dependsOn": ["workspace-extensions:build"]
     },
     "lint": {
       "executor": "@nx/linter:eslint",

@@ -17,7 +17,7 @@
       "outputs": ["{options.outputPath}"],
       "defaultConfiguration": "production",
       "options": {
-        "outputPath": "dist/libs/brand-components"
+        "outputPath": "libs/brand-components/dist"
       },
       "configurations": {
         "development": {
@@ -30,7 +30,7 @@
     },
     "test": {
       "executor": "@nx/vite:test",
-      "outputs": ["coverage/libs/brand-components"],
+      "outputs": ["{workspaceRoot}/coverage/libs/brand-components"],
       "options": {
         "passWithNoTests": true,
         "reportsDirectory": "../../coverage/libs/brand-components"

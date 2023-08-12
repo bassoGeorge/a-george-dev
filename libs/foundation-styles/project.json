@@ -34,7 +34,7 @@
     },
     "test": {
       "executor": "@nx/vite:test",
-      "outputs": ["coverage/libs/foundation-styles"],
+      "outputs": ["{workspaceRoot}/coverage/libs/foundation-styles"],
       "options": {
         "passWithNoTests": true,
         "reportsDirectory": "../../coverage/libs/foundation-styles"

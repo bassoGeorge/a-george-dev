@@ -4,7 +4,7 @@
     "../../.eslintrc.json",
     "../../.eslintrc.ts.json"
   ],
-  "ignorePatterns": ["!**/*", ".vite-inspect/**/*"],
+  "ignorePatterns": ["!**/*", "dist/**/*", ".vite-inspect/**/*"],
   "overrides": [
     {
       "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],

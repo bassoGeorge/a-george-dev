@@ -17,7 +17,7 @@
       "outputs": ["{options.outputPath}"],
       "defaultConfiguration": "production",
       "options": {
-        "outputPath": "dist/libs/talk-tailwind"
+        "outputPath": "libs/talk-tailwind/dist"
       },
       "configurations": {
         "development": {
@@ -30,7 +30,7 @@
     },
     "test": {
       "executor": "@nx/vite:test",
-      "outputs": ["coverage/libs/talk-tailwind"],
+      "outputs": ["{workspaceRoot}/coverage/libs/talk-tailwind"],
       "options": {
         "passWithNoTests": true,
         "reportsDirectory": "../../coverage/libs/talk-tailwind"

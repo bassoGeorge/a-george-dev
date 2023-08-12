@@ -17,7 +17,7 @@
       "outputs": ["{options.outputPath}"],
       "defaultConfiguration": "production",
       "options": {
-        "outputPath": "dist/libs/reveal-framework"
+        "outputPath": "libs/reveal-framework/dist"
       },
       "configurations": {
         "development": {
@@ -30,7 +30,7 @@
     },
     "test": {
       "executor": "@nx/vite:test",
-      "outputs": ["coverage/libs/reveal-framework"],
+      "outputs": ["{workspaceRoot}/coverage/libs/reveal-framework"],
       "options": {
         "passWithNoTests": true,
         "reportsDirectory": "../../coverage/libs/reveal-framework"

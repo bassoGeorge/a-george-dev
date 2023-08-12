@@ -1,12 +1,12 @@
 {
   "name": "@ageorgedev/atoms",
   "version": "0.0.1",
-  "main": "./index.js",
+  "main": "./dist/index.js",
   "types": "./index.d.ts",
   "exports": {
     ".": {
-      "import": "./index.mjs",
-      "require": "./index.js"
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
     }
   },
   "dependencies": {

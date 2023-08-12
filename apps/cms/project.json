@@ -14,7 +14,7 @@
     },
     "test": {
       "executor": "@nrwl/vite:test",
-      "outputs": ["coverage/apps/cms"],
+      "outputs": ["{workspaceRoot}/coverage/apps/cms"],
       "options": {
         "passWithNoTests": true,
         "reportsDirectory": "../../coverage/apps/cms"
