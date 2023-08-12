@@ -7,7 +7,8 @@
     "preinstall": "git config core.hooksPath .git-hooks",
     "affected-projects": "nx print-affected --select=projects",
     "prisma:generate": "prisma generate --schema ./apps/cms/schema.prisma && yarn run prisma:inline",
-    "prisma:inline": "cp -r ./node_modules/.prisma/client/* ./node_modules/@prisma/client"
+    "prisma:inline": "cp -r ./node_modules/.prisma/client/* ./node_modules/@prisma/client",
+    "clean-dist": "rm -rf dist && find ./libs -type d -name dist -exec rm -rf {} + && find ./apps -type d -name dist -exec rm -rf {} +"
   },
   "devDependencies": {
     "@nx/cypress": "16.6.0",
