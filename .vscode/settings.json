@@ -1,5 +1,6 @@
 {
   "yaml.schemas": {
     "https://json.schemastore.org/github-workflow.json": "file:///Users/anish/personal_workspace/a-george-dev/.github/workflows/deploy.yml"
-  }
+  },
+  "testing.automaticallyOpenPeekView": "never"
 }
