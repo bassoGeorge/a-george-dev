@@ -1,9 +1,9 @@
-import { RawColors } from './tokens/raw-colors';
+import { RawColors } from './tokens/raw-colors.css';
 import { BorderWidth, Spacing } from './tokens/spacing';
 import { mapObjIndexed } from 'ramda';
 import { Screens } from './tokens/responsive';
 import { cssCase, getTailwindPropertyMap } from './utils';
-import { ContextualColors } from './tokens/contextual-colors';
+import { ContextualColors } from './tokens/contextual-colors.css';
 import type { Config } from 'tailwindcss';
 import {
   FontFamily,

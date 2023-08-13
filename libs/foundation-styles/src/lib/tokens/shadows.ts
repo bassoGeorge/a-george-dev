@@ -1,5 +1,5 @@
 import { map } from 'ramda';
-import { ContextualColors } from './contextual-colors';
+import { ContextualColors } from './contextual-colors.css';
 
 export const Shadows = {
   near: `2px 4px ${ContextualColors.shadow.near}`,

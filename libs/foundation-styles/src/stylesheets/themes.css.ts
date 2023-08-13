@@ -1,6 +1,6 @@
 import { assignVars, globalStyle } from '@vanilla-extract/css';
-import { ContextualColors } from '../lib/tokens/contextual-colors';
-import { RawColors } from '../lib/tokens/raw-colors';
+import { ContextualColors } from '../lib/tokens/contextual-colors.css';
+import { RawColors } from '../lib/tokens/raw-colors.css';
 
 const lightStyle = {
   vars: assignVars(ContextualColors, {
