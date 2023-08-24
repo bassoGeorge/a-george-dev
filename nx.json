@@ -81,6 +81,12 @@
       "library": {
         "unitTestRunner": "vitest"
       }
+    },
+    "@nx/next": {
+      "application": {
+        "style": "css",
+        "linter": "eslint"
+      }
     }
   }
 }
