@@ -41,7 +41,7 @@ export function SocialLink({ type, full }: SocialLinkProps) {
 }
 
 const email = 'anishgeorgehb@gmail.com';
-const phone = '+91-999999';
+const phone = '+91-9711154215';
 
 const LINKS: Record<SocialLinkType, string> = {
   github: 'https://github.com/bassoGeorge',

@@ -101,6 +101,7 @@ export default function Resume() {
             href="https://confengine.com/conferences/functional-conf-2019/proposal/10768/demystifying-function-sub-typing"
             target="_blank"
             rel="noreferrer"
+            className="block mb-2"
           >
             <BodySm className="font-interface">
               Demystifying Function Sub-typing
@@ -111,6 +112,23 @@ export default function Resume() {
             </BodySm>
             <BodyXs className="text-cc-neutral-subtlest">
               Functional Conf Bangalore | 2019
+            </BodyXs>
+          </a>
+
+          <a
+            href="https://www.youtube.com/watch?v=t_YKOtitOe8"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <BodySm className="font-interface">
+              TailwindCSS: Production Strategies
+              <ArrowSquareOut
+                weight="duotone"
+                className="inline ml-2 text-rc-p-accent-400 relative -top-px"
+              />
+            </BodySm>
+            <BodyXs className="text-cc-neutral-subtlest">
+              Thoughtworks Unfold UI | 2023
             </BodyXs>
           </a>
         </section>
@@ -142,6 +160,28 @@ export default function Resume() {
       <article className={article}>
         <section className={expGrid}>
           <BodyLg className="justify-self-end font-bold text-rc-p-accent-500 tracking-wider">
+            2023 - Current
+          </BodyLg>
+          <Heading3 className="font-medium">Independent Contractor</Heading3>
+          <div className="justify-self-end self-start text-right">
+            <p className="font-interface text-md leading-[1.2rem] text-cc-neutral-subtle">
+              Lead Developer with
+              <br /> Fabric Group
+            </p>
+          </div>
+          <div className="flex flex-col gap-3">
+            <Body>
+              Led discovery and inception for a new project with an organisation
+              in the insurance sector.
+            </Body>
+            <Body>
+              Part of the seed squad, leading the frontend development and
+              contributing to future expasion of the account.
+            </Body>
+          </div>
+        </section>
+        <section className={expGrid}>
+          <BodyLg className="justify-self-end font-bold text-rc-p-accent-500 tracking-wider">
             2018 - 2023
           </BodyLg>
           <Heading3 className="font-medium">Thoughtworks</Heading3>
@@ -167,15 +207,14 @@ export default function Resume() {
           </div>
           <div className="flex flex-col gap-3">
             <Body>
-              I am currently working with a client in the Hospitality sector,
-              where I architected a brand new <Imp>Design System</Imp> and
-              helped set up an <Imp>Nx MonoRepo</Imp> for all future
-              applications and libraries. The Design System prioritizes
-              developer productivity and is based on{' '}
-              <Imp>Atomic design principles</Imp>. This approach has proven to
-              accelerate delivery speed. During a release rush, we implemented a
-              design philosophy change smoothly and quickly, thanks to the
-              scalable architecture of this system.
+              Worked with a client in the Hospitality sector, where I
+              architected a brand new <Imp>Design System</Imp> and helped set up
+              an <Imp>Nx MonoRepo</Imp> for all future applications and
+              libraries. The Design System prioritizes developer productivity
+              and is based on <Imp>Atomic design principles</Imp>. This approach
+              has proven to accelerate delivery speed. During a release rush, we
+              implemented a design philosophy change smoothly and quickly,
+              thanks to the scalable architecture of this system.
             </Body>
             <Body>
               At the same client, I led a team of developers in creating a new
@@ -205,21 +244,12 @@ export default function Resume() {
               Community initiatives
             </Heading5>
             <Body>
-              Helped organise <Imp>Unfold UI</Imp>, an external-facing event
-              showcasing UI best practices, and also conducted a VueJS workshop
-              during the event.
-            </Body>
-            <Body>
-              Designed and conducted the <Imp>CSS Level Zero Bootcamp</Imp>, a
-              crash course aimed at non-UI developers to learn CSS and
-              contribute better to frontend development.
-            </Body>
-            <Body>
-              Helped design and execute the recurring{' '}
+              Part of the core UI community at Thoughtworks. Helped organise{' '}
+              <Imp>Unfold UI</Imp>, an external-facing event showcasing UI best
+              practices. Helped design and execute the recurring{' '}
               <Imp>Frontend Architect Programme</Imp>, aimed at UI Developers
-              seeking to take on a more architect role. As a regular trainer, I
-              have participated in all seven batches of the programme which has
-              a 100% satisfaction record.
+              seeking to take on a more architect role. Contributed to multiple
+              volumes the <Imp>Thoughtworks Tech Radar</Imp>
             </Body>
             <Body>
               Part of a team which curated{' '}
@@ -227,16 +257,7 @@ export default function Resume() {
               organisation. I was responsible for curating resources for
               HTML/CSS and Angular.
             </Body>
-            <Body>
-              Contributed to multiple volumes of the{' '}
-              <Imp>Thoughtworks Tech Radar</Imp>.
-            </Body>
-            <Body>
-              Heavily involved in recruitment initiatives, regularly taking
-              interviews and contributing to the{' '}
-              <Imp>revamping of the UI Developer recruitment process</Imp> for
-              the global recruitment team.
-            </Body>
+            <Body>Heavily involved in recruitment initiatives</Body>
           </div>
         </section>
         <section className={expGrid}>
