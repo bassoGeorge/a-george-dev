@@ -13,7 +13,6 @@ if [ -z $BRANCH_NAME ]; then
   exit 1
 fi
 
-. ./ps-branch-helper-functions.sh
 echo "Deleting branch $BRANCH_NAME if it already exists..."
 pscale branch delete "$DB_NAME" "$BRANCH_NAME" --force --org "$ORG_NAME" >/dev/null 2>&1
 

@@ -6,7 +6,7 @@ runs:
     - name: Install Planetscale CLI
       shell: bash
       env:
-        CLI_VERSION: 0.139.0
+        CLI_VERSION: 0.156.0
       run: |
         mkdir -p ~/pscale-install
         wget -P ~/pscale-install https://github.com/planetscale/cli/releases/download/v${CLI_VERSION}/pscale_${CLI_VERSION}_linux_amd64.deb
