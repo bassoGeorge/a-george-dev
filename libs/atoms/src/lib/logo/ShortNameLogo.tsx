@@ -1,5 +1,5 @@
 import { Heading3 } from '../typography/typography-components';
-import { firstNameColor, lastNameColor } from './NameLogo.css';
+import { firstNameColor, lastNameColor } from './styles';
 
 export function ShortNameLogo() {
   return (
