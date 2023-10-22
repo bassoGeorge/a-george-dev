@@ -6,7 +6,7 @@ import {
   updateJson,
 } from '@nx/devkit';
 import { libraryGenerator as plainLibGenerator } from '@nx/js';
-import { Linter } from '@nx/linter';
+import { Linter } from '@nx/eslint';
 import { libraryGenerator as reactLibGenerator } from '@nx/react';
 import * as path from 'path';
 import { LibSchema } from './schema';

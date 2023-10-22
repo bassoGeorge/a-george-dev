@@ -1,33 +1,18 @@
 {
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
-  "npmScope": "ageorgedev",
   "cli": {
     "packageManager": "yarn"
-  },
-  "tasksRunnerOptions": {
-    "default": {
-      "runner": "nx-cloud",
-      "options": {
-        "cacheableOperations": [
-          "build",
-          "pre-build",
-          "lint",
-          "test",
-          "e2e",
-          "build-storybook"
-        ],
-        "accessToken": "Mzc3MTQ1YWItYjkwYS00YzQ5LWFlNDItMTczMjgxMzhmMGQ1fHJlYWQtd3JpdGU="
-      }
-    }
   },
   "targetDefaults": {
     "build": {
       "dependsOn": ["^build", "pre-build"],
-      "inputs": ["production", "^production"]
+      "inputs": ["production", "^production"],
+      "cache": true
     },
     "pre-build": {
       "dependsOn": ["^build"],
-      "inputs": ["production", "^production"]
+      "inputs": ["production", "^production"],
+      "cache": true
     },
     "dev": {
       "dependsOn": ["^build"]
@@ -36,13 +21,16 @@
       "dependsOn": ["build"]
     },
     "lint": {
-      "inputs": ["default", "{workspaceRoot}/.eslintrc.json"]
+      "inputs": ["default", "{workspaceRoot}/.eslintrc.json"],
+      "cache": true
     },
     "test": {
-      "inputs": ["default", "^production", "{workspaceRoot}/jest.preset.js"]
+      "inputs": ["default", "^production", "{workspaceRoot}/jest.preset.js"],
+      "cache": true
     },
     "e2e": {
-      "inputs": ["default", "^production"]
+      "inputs": ["default", "^production"],
+      "cache": true
     },
     "build-storybook": {
       "inputs": [
@@ -51,7 +39,8 @@
         "!{projectRoot}/.storybook/**/*",
         "{projectRoot}/.storybook/**/*",
         "{projectRoot}/tsconfig.storybook.json"
-      ]
+      ],
+      "cache": true
     },
     "validate": {
       "dependsOn": ["^validate"]
@@ -82,5 +71,6 @@
         "unitTestRunner": "vitest"
       }
     }
-  }
+  },
+  "nxCloudAccessToken": "Mzc3MTQ1YWItYjkwYS00YzQ5LWFlNDItMTczMjgxMzhmMGQ1fHJlYWQtd3JpdGU="
 }

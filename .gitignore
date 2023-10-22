@@ -60,3 +60,5 @@ libs/**/generated-src
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
+
+.nx/cache

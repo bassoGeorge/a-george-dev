@@ -3,3 +3,5 @@
 /dist
 /coverage
 /apps/cms/schema*
+
+/.nx/cache

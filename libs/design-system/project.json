@@ -7,7 +7,7 @@
   "implicitDependencies": ["atoms", "molecules", "foundation-styles"],
   "targets": {
     "lint": {
-      "executor": "@nx/linter:eslint",
+      "executor": "@nx/eslint:lint",
       "outputs": ["{options.outputFile}"],
       "options": {
         "lintFilePatterns": ["libs/design-system/**/*.{ts,tsx,js,jsx}"]
