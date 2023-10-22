@@ -1,4 +1,4 @@
-import { bar, text } from './TwLogo.css';
+import { bar, text } from './styles';
 
 export function TwLogo(props: React.SVGProps<SVGSVGElement>) {
   return (
