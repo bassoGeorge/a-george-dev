@@ -70,6 +70,12 @@
       "library": {
         "unitTestRunner": "vitest"
       }
+    },
+    "@nx/next": {
+      "application": {
+        "style": "tailwind",
+        "linter": "eslint"
+      }
     }
   },
   "nxCloudAccessToken": "Mzc3MTQ1YWItYjkwYS00YzQ5LWFlNDItMTczMjgxMzhmMGQ1fHJlYWQtd3JpdGU=",
@@ -81,6 +87,13 @@
         "buildTargetName": "build",
         "devTargetName": "dev",
         "serveStaticTargetName": "serve-static"
+      }
+    },
+    {
+      "plugin": "@nx/eslint/plugin",
+      "options": {
+        "targetName": "eslint:lint",
+        "extensions": ["ts", "tsx", "js", "jsx", "html", "vue"]
       }
     }
   ]
