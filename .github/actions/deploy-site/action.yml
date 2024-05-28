@@ -14,9 +14,6 @@ inputs:
   NETLIFY_AUTH_TOKEN:
     required: true
     description: 'Token for Netlify authentication'
-  DB_BRANCH_CONNECTION_STRING:
-    required: false
-    description: 'Connection string for the db_branch in case of non-production deployment'
 outputs:
   preview_url:
     description: 'Preview Url deployed to if any'
@@ -28,17 +25,6 @@ outputs:
 runs:
   using: 'composite'
   steps:
-    - name: Set netlify env variable for branch-deploy context
-      if: ${{ !inputs.production || inputs.production == 'false' }}
-      shell: bash
-      working-directory: apps/ageorgedev
-      env:
-        NETLIFY_SITE_ID: ${{ inputs.NETLIFY_SITE_ID }}
-        NETLIFY_AUTH_TOKEN: ${{ inputs.NETLIFY_AUTH_TOKEN }}
-        DB_BRANCH_CONNECTION_STRING: ${{ inputs.DB_BRANCH_CONNECTION_STRING }}
-      run: |
-        echo "Setting netlify env variable for database url on branch-deploy context..."
-        yarn netlify env:set DATABASE_URL $DB_BRANCH_CONNECTION_STRING --context branch-deploy
     - name: 🏗️ Build and 🚀 Deploy
       shell: bash
       working-directory: apps/ageorgedev

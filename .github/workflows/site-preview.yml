@@ -8,42 +8,18 @@ on:
       NETLIFY_SITE_ID:
         required: true
         type: string
-      DB_BRANCH_NAME:
-        required: true
-        type: string
     secrets:
       NETLIFY_AUTH_TOKEN:
-        required: true
-      DB_NAME:
-        required: true
-      ORG_NAME:
-        required: true
-      PLANETSCALE_SERVICE_TOKEN_ID:
-        required: true
-      PLANETSCALE_SERVICE_TOKEN:
         required: true
 
 jobs:
   SitePreview:
     runs-on: ubuntu-latest
-    env:
-      DB_NAME: ${{ secrets.DB_NAME }}
-      ORG_NAME: ${{ secrets.ORG_NAME }}
-      PLANETSCALE_SERVICE_TOKEN: ${{ secrets.PLANETSCALE_SERVICE_TOKEN }}
-      PLANETSCALE_SERVICE_TOKEN_ID: ${{ secrets.PLANETSCALE_SERVICE_TOKEN_ID }}
-      DB_BRANCH_NAME: ${{ inputs.DB_BRANCH_NAME }}
     steps:
       - name: ⬇️ Check out repository code
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
-      - name: 🌏 Install pscale CLI
-        uses: ./.github/actions/pscale
-      - name: 🌏 Create database url
-        id: pscaleAction
-        run: |
-          cd scripts/pscale
-          bash create-branch-connection-string.sh $DB_BRANCH_NAME readwriter
       - name: 📦 Install dependencies
         uses: ./.github/actions/install-dependencies
       - name: 🚀 Deploy preview site
@@ -54,10 +30,7 @@ jobs:
           note: ${{ inputs.title }}
           NETLIFY_SITE_ID: ${{ inputs.NETLIFY_SITE_ID }}
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-          DB_BRANCH_CONNECTION_STRING: ${{ steps.pscaleAction.outputs.DB_BRANCH_CONNECTION_STRING }}
       - name: 🧪 Run e2e
         uses: ./.github/actions/run-e2e
         with:
           site_url: ${{ steps.deploy.outputs.preview_url }}
-          run_seed: true
-          DATABASE_URL: ${{ steps.pscaleAction.outputs.DB_BRANCH_CONNECTION_STRING }}

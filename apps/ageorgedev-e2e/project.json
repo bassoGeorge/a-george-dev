@@ -21,16 +21,6 @@
       "options": {
         "lintFilePatterns": ["apps/ageorgedev-e2e/**/*.{js,ts}"]
       }
-    },
-    "seed": {
-      "executor": "nx:run-commands",
-      "outputs": [],
-      "options": {
-        "cwd": "apps/ageorgedev-e2e",
-        "commands": [
-          "ts-node --skipProject --transpile-only --esm ./src/support/db-seed.ts"
-        ]
-      }
     }
   },
   "tags": [],

@@ -15,6 +15,3 @@ runs:
     - name: 📥 Install dependencies
       shell: bash
       run: yarn install --frozen-lockfile
-    - name: Generate prisma types
-      shell: bash
-      run: yarn run prisma:generate
