@@ -1,14 +1,14 @@
-/** @type {import("tailwindcss").Config} */
 const { createGlobPatternsForDependencies } = require('@nx/react/tailwind');
 const { join } = require('path');
 
-const fileGlob = '**/!(*.stories|*.spec)*.{ts,tsx,js,jsx}';
-
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   presets: [require('@ageorgedev/foundation-styles/tailwind')],
   content: [
-    join(__dirname, './app/', fileGlob),
-    ...createGlobPatternsForDependencies(__dirname, fileGlob),
+    join(
+      __dirname,
+      '{src,pages,components,app}/**/*!(*.stories|*.spec).{ts,tsx,html}'
+    ),
+    ...createGlobPatternsForDependencies(__dirname),
   ],
-  plugins: [],
 };

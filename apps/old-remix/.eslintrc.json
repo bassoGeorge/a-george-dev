@@ -1,0 +1,13 @@
+{
+  "extends": [
+    "../../.eslintrc.json",
+    "@remix-run/eslint-config",
+    "@remix-run/eslint-config/node"
+  ],
+  "ignorePatterns": [
+    "!**/*",
+    "public/build/**/*",
+    "build/**/*",
+    ".netlify/**/*"
+  ]
+}
