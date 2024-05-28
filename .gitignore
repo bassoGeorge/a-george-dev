@@ -62,3 +62,7 @@ libs/**/generated-src
 !.yarn/versions
 
 .nx/cache
+
+# Next.js
+.next
+out

@@ -72,5 +72,16 @@
       }
     }
   },
-  "nxCloudAccessToken": "Mzc3MTQ1YWItYjkwYS00YzQ5LWFlNDItMTczMjgxMzhmMGQ1fHJlYWQtd3JpdGU="
+  "nxCloudAccessToken": "Mzc3MTQ1YWItYjkwYS00YzQ5LWFlNDItMTczMjgxMzhmMGQ1fHJlYWQtd3JpdGU=",
+  "plugins": [
+    {
+      "plugin": "@nx/next/plugin",
+      "options": {
+        "startTargetName": "start",
+        "buildTargetName": "build",
+        "devTargetName": "dev",
+        "serveStaticTargetName": "serve-static"
+      }
+    }
+  ]
 }
