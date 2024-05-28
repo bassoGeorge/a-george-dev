@@ -1,7 +1,7 @@
 {
-  "name": "ageorgedev",
+  "name": "old-remix",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "apps/ageorgedev",
+  "sourceRoot": "apps/old-remix",
   "projectType": "application",
   "tags": [],
   "targets": {
@@ -9,7 +9,7 @@
       "executor": "nx:run-commands",
       "outputs": ["{projectRoot}/.netlify", "{projectRoot}/public/build"],
       "options": {
-        "cwd": "apps/ageorgedev",
+        "cwd": "apps/old-remix",
         "commands": ["yarn run build"]
       }
     },
@@ -17,15 +17,15 @@
       "executor": "@nx/eslint:lint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["apps/ageorgedev/**/*.{ts,tsx,js,jsx}"]
+        "lintFilePatterns": ["apps/old-remix/**/*.{ts,tsx,js,jsx}"]
       }
     },
     "test": {
       "executor": "@nx/vite:test",
-      "outputs": ["{workspaceRoot}/coverage/apps/ageorgedev"],
+      "outputs": ["{workspaceRoot}/coverage/apps/old-remix"],
       "options": {
         "passWithNoTests": true,
-        "reportsDirectory": "../../coverage/apps/ageorgedev"
+        "reportsDirectory": "../../coverage/apps/old-remix"
       }
     }
   }
