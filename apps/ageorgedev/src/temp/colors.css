@@ -1,0 +1,118 @@
+:root {
+  --ag-rc-timber-100: hsl(191, 17%, 32%);
+  --ag-rc-timber-200: hsl(190, 18%, 19%);
+  --ag-rc-timber-300: hsl(189, 31%, 13%);
+  --ag-rc-timber-400: hsl(188, 47%, 10%);
+  --ag-rc-timber-500: hsl(189, 67%, 6%);
+
+  --ag-rc-parchment-100: hsl(45, 100%, 99%);
+  --ag-rc-parchment-200: hsl(38, 100%, 98%);
+  --ag-rc-parchment-300: hsl(39, 100%, 95%);
+  --ag-rc-parchment-400: hsl(38, 100%, 92%);
+  --ag-rc-parchment-500: hsl(39, 100%, 89%);
+
+  --ag-rc-p-accent-100: hsl(83, 50%, 86%);
+  --ag-rc-p-accent-200: hsl(83, 33%, 68%);
+  --ag-rc-p-accent-300: hsl(83, 27%, 53%);
+  --ag-rc-p-accent-400: hsl(83, 33%, 41%);
+  --ag-rc-p-accent-500: hsl(83, 49%, 30%);
+
+  --ag-rc-s-accent-100: hsl(348, 56%, 96%);
+  --ag-rc-s-accent-200: hsl(351, 57%, 88%);
+  --ag-rc-s-accent-300: hsl(351, 58%, 81%);
+  --ag-rc-s-accent-400: hsl(352, 40%, 64%);
+  --ag-rc-s-accent-500: hsl(352, 36%, 48%);
+
+  --ag-rc-d-neutral-100: hsl(189 67% 6% / 0.2);
+  --ag-rc-d-neutral-200: hsl(189 67% 6% / 0.4);
+  --ag-rc-d-neutral-300: hsl(189 67% 6% / 0.6);
+  --ag-rc-d-neutral-400: hsl(189 67% 6% / 0.8);
+  --ag-rc-d-neutral-500: hsl(189 67% 6%);
+
+  --ag-rc-l-neutral-100: hsl(45 100% 99% / 0.2);
+  --ag-rc-l-neutral-200: hsl(45 100% 99% / 0.4);
+  --ag-rc-l-neutral-300: hsl(45 100% 99% / 0.6);
+  --ag-rc-l-neutral-400: hsl(45 100% 99% / 0.8);
+  --ag-rc-l-neutral-500: hsl(45 100% 99%);
+
+  --ag-rc-shadow-1: rgb(0 0 0 / 0.1);
+  --ag-rc-shadow-2: rgb(0 0 0 / 0.25);
+  --ag-rc-shadow-3: rgb(0 0 0 / 0.6);
+  --ag-rc-shadow-4: rgb(0 0 0 / 0.8);
+  --ag-rc-shadow-5: rgb(0 0 0);
+
+  --ag-rc-line-main: hsl(189 67% 6%);
+  --ag-rc-line-inverse: hsl(83 5% 46%);
+
+  --ag-rc-red-100: hsl(360, 82%, 89%);
+  --ag-rc-red-200: hsl(360, 71%, 66%);
+  --ag-rc-red-400: hsl(360, 67%, 44%);
+  --ag-rc-red-500: hsl(360, 92%, 20%);
+}
+
+:root,
+:root.light {
+  --ag-cc-page-0: var(--ag-rc-parchment-500);
+  --ag-cc-page-1: var(--ag-rc-parchment-400);
+  --ag-cc-page-2: var(--ag-rc-parchment-300);
+  --ag-cc-page-3: var(--ag-rc-parchment-200);
+  --ag-cc-page-4: var(--ag-rc-parchment-100);
+
+  --ag-cc-neutral-DEFAULT: var(--ag-rc-d-neutral-500);
+  --ag-cc-neutral-subtle: var(--ag-rc-d-neutral-300);
+  --ag-cc-neutral-subtlest: var(--ag-rc-d-neutral-200);
+
+  --ag-cc-neutral-inverse-DEFAULT: var(--ag-rc-l-neutral-500);
+  --ag-cc-neutral-inverse-subtle: var(--ag-rc-l-neutral-300);
+  --ag-cc-neutral-inverse-subtlest: var(--ag-rc-l-neutral-200);
+
+  --ag-cc-shadow-far: var(--ag-rc-shadow-2);
+  --ag-cc-shadow-DEFAULT: var(--ag-rc-shadow-3);
+  --ag-cc-shadow-near: var(--ag-rc-shadow-4);
+
+  --ag-cc-line-DEFAULT: var(--ag-rc-line-main);
+  --ag-cc-line-dark: var(--ag-rc-line-main);
+
+  --ag-cc-accent-DEFAULT: var(--ag-rc-p-accent-500);
+  --ag-cc-accent-subtle: var(--ag-rc-p-accent-300);
+
+  --ag-cc-alt-accent-DEFAULT: var(--ag-rc-s-accent-500);
+  --ag-cc-alt-accent-subtle: var(--ag-rc-s-accent-400);
+
+  --ag-cc-danger-DEFAULT: var(--ag-rc-red-400);
+  --ag-cc-danger-bg: var(--ag-rc-red-100);
+  --ag-cc-danger-fg: var(--ag-rc-red-400);
+}
+
+:root.dark {
+  --ag-cc-page-0: var(--ag-rc-timber-500);
+  --ag-cc-page-1: var(--ag-rc-timber-400);
+  --ag-cc-page-2: var(--ag-rc-timber-300);
+  --ag-cc-page-3: var(--ag-rc-timber-200);
+  --ag-cc-page-4: var(--ag-rc-timber-100);
+
+  --ag-cc-neutral-DEFAULT: var(--ag-rc-l-neutral-500);
+  --ag-cc-neutral-subtle: var(--ag-rc-l-neutral-300);
+  --ag-cc-neutral-subtlest: var(--ag-rc-l-neutral-200);
+
+  --ag-cc-neutral-inverse-DEFAULT: var(--ag-rc-d-neutral-500);
+  --ag-cc-neutral-inverse-subtle: var(--ag-rc-d-neutral-300);
+  --ag-cc-neutral-inverse-subtlest: var(--ag-rc-d-neutral-200);
+
+  --ag-cc-shadow-far: var(--ag-rc-shadow-3);
+  --ag-cc-shadow-DEFAULT: var(--ag-rc-shadow-4);
+  --ag-cc-shadow-near: var(--ag-rc-shadow-5);
+
+  --ag-cc-line-DEFAULT: var(--ag-rc-line-inverse);
+  --ag-cc-line-dark: var(--ag-rc-line-main);
+
+  --ag-cc-accent-DEFAULT: var(--ag-rc-p-accent-300);
+  --ag-cc-accent-subtle: var(--ag-rc-p-accent-400);
+
+  --ag-cc-alt-accent-DEFAULT: var(--ag-rc-s-accent-300);
+  --ag-cc-alt-accent-subtle: var(--ag-rc-s-accent-400);
+
+  --ag-cc-danger-DEFAULT: var(--ag-rc-red-200);
+  --ag-cc-danger-bg: var(--ag-rc-red-500);
+  --ag-cc-danger-fg: var(--ag-rc-l-neutral-500);
+}
