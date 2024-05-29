@@ -1,21 +1,21 @@
 .reveal {
   @apply bg-cc-page-1 text-cc-neutral;
-}
 
-.reveal code {
-  @apply text-left;
-}
+  & code {
+    @apply text-left;
+  }
 
-.reveal .controls-arrow {
-  @apply text-cc-accent;
-}
+  .controls-arrow {
+    @apply text-cc-accent;
+  }
 
-.reveal .progress span {
-  @apply bg-cc-accent;
-}
+  .progress span {
+    @apply bg-cc-accent;
+  }
 
-.reveal.overview > footer {
-  display: block;
+  &.overview > footer {
+    display: block;
+  }
 }
 
 .reveal code ::selection {

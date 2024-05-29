@@ -1,0 +1,1 @@
+import './resume.global.css';

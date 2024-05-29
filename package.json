@@ -68,6 +68,7 @@
     "jsonc-eslint-parser": "^2.1.0",
     "nx": "19.1.0",
     "postcss": "^8.4.21",
+    "postcss-nesting": "^12.1.5",
     "prettier": "^2.6.2",
     "sass": "^1.55.0",
     "storybook-addon-themes": "^6.1.0",

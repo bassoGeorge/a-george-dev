@@ -1,0 +1,3 @@
+.paper {
+  @apply relative before:inset-0 before:absolute;
+}
