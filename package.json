@@ -5,6 +5,7 @@
   "private": true,
   "packageManager": "yarn@1.22.19",
   "scripts": {
+    "dev": "nx dev ageorgedev",
     "preinstall": "git config core.hooksPath .git-hooks",
     "affected-projects": "nx print-affected --select=projects",
     "clean-dist": "rm -rf dist && find ./libs -type d -name dist -exec rm -rf {} + && find ./apps -type d -name dist -exec rm -rf {} +",
