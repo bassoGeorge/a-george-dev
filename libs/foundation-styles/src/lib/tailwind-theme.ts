@@ -1,11 +1,10 @@
 import { mapKeys } from '@ageorgedev/toolbelt';
 import { mapObjIndexed } from 'ramda';
 import type { Config } from 'tailwindcss';
-import { allTailwindColors } from './tokens/new-colors';
+import { allTailwindColors } from './tokens/colors';
 import { Screens } from './tokens/responsive';
 import { Shadows } from './tokens/shadows';
 import { BorderWidth, Spacing } from './tokens/spacing';
-
 import {
   FontFamily,
   FontSize,

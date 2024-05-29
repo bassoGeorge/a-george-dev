@@ -1,5 +1,5 @@
 import { map } from 'ramda';
-import { allTailwindColors } from './new-colors';
+import { allTailwindColors } from './colors';
 
 export const Shadows = {
   near: `2px 4px ${allTailwindColors['cc-shadow-near']}`,

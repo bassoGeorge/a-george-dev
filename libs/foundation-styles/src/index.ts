@@ -1,8 +1,2 @@
-export {
-  RawColors,
-  RAW_COLORS as RAW_COLORS_DIRECT_DO_NOT_USE,
-} from './lib/tokens/raw-colors';
-export { ContextualColors } from './lib/tokens/contextual-colors';
-export { Spacing } from './lib/tokens/spacing';
-export { Shadows, DropShadows } from './lib/tokens/shadows';
-export * from './lib/tokens/dumping-ground';
+/** Nothing is exported for JS from this library,
+ * use the globals for side-effect stylesheets */
