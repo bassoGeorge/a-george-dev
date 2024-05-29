@@ -1,4 +1,4 @@
-import { middleDivider, slideMainGap } from './deck-styles.css';
+import { middleDivider, slideMainGap } from './deck-styles';
 
 export function SlideMediaRow({
   className,

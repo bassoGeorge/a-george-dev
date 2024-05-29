@@ -1,7 +1,6 @@
 import Head from 'next/head';
 import './global.css';
 import '../temp/colors.css';
-// import '@ageorgedev/foundation-styles/globals';
 
 export const metadata = {
   title: 'Welcome to ageorgedev',

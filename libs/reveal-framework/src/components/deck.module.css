@@ -1,0 +1,16 @@
+.middleDivider {
+  position: relative;
+  &::after {
+    content: '';
+    position: absolute;
+    left: calc(50% - 1px);
+    top: 0;
+    width: 2px;
+    height: 100%;
+    background-color: theme(colors.cc-line);
+  }
+}
+
+.slideHeaderGrid {
+  grid-template-rows: minmax(10%, theme(spacing.10)) minmax(0, 1fr);
+}
