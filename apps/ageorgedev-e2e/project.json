@@ -4,7 +4,7 @@
   "sourceRoot": "apps/ageorgedev-e2e/src",
   "projectType": "application",
   "tags": [],
-  "implicitDependencies": ["old-remix"],
+  "implicitDependencies": ["ageorgedev"],
   "targets": {
     "e2e": {
       "executor": "@nx/cypress:cypress",
