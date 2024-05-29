@@ -1,2 +1,2 @@
 import 'reveal.js/dist/reveal.css';
-import './styles/theme.css';
+import './styles/reveal-theme.css';

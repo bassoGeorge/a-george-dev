@@ -1,8 +1,3 @@
-import { StyleRule } from '@vanilla-extract/css';
-import { CSSRuleObject } from 'tailwindcss/types/config';
-import { compose, concat, mapObjIndexed } from 'ramda';
-import { mapKeys } from '@ageorgedev/toolbelt';
-
 const minH = (n: number) => `(min-height: ${n}px)`;
 const maxH = (n: number) => `(max-height: ${n}px)`;
 const minW = (n: number) => `(min-width: ${n}px)`;
@@ -32,23 +27,6 @@ export const Screens = {
   largeDesktop: sc + minW(minBreakpoints.largeDesktop),
 };
 
-const veQuery =
-  (screen: keyof typeof Screens) =>
-  (styles: StyleRule): StyleRule => ({
-    '@media': {
-      [Screens[screen]]: styles,
-    },
-  });
-
-export const Media = {
-  tablet: veQuery('tablet'),
-  tabletLandscape: veQuery('tabletLandscape'),
-  desktop: veQuery('desktop'),
-  largeDesktop: veQuery('largeDesktop'),
-  phoneOnly: veQuery('phoneOnly'),
-  phoneLandscapeOnly: veQuery('phoneLandscapeOnly'),
-};
-
 /**
  * For Tailwind's plugin system, we need a flattened version of @media rule
  * So VE uses:
@@ -65,12 +43,12 @@ export const Media = {
  * This is currently not being used, but we will keep it around for later
  */
 
-const getInlineMediaQueryObject: (style: StyleRule) => CSSRuleObject = compose(
-  mapKeys(concat('@media ')),
-  (s: StyleRule) => s['@media']
-);
+// const getInlineMediaQueryObject: (style: StyleRule) => CSSRuleObject = compose(
+//   mapKeys(concat('@media ')),
+//   (s: StyleRule) => s['@media']
+// );
 
-export const TailwindMedia = mapObjIndexed(
-  (fn) => compose(getInlineMediaQueryObject, fn),
-  Media
-);
+// export const TailwindMedia = mapObjIndexed(
+//   (fn) => compose(getInlineMediaQueryObject, fn),
+//   Media
+// );

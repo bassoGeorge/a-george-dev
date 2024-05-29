@@ -1,0 +1,27 @@
+.reveal {
+  @apply bg-cc-page-1 text-cc-neutral;
+
+  & code {
+    @apply text-left;
+  }
+
+  .controls-arrow {
+    @apply text-cc-accent;
+  }
+
+  .progress span {
+    @apply bg-cc-accent;
+  }
+
+  &.overview > footer {
+    display: block;
+  }
+}
+
+.reveal code ::selection {
+  @apply bg-rc-p-accent-500;
+}
+
+.light .reveal code ::selection {
+  @apply bg-rc-p-accent-100;
+}

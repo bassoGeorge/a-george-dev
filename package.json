@@ -5,6 +5,7 @@
   "private": true,
   "packageManager": "yarn@1.22.19",
   "scripts": {
+    "dev": "nx dev ageorgedev",
     "preinstall": "git config core.hooksPath .git-hooks",
     "affected-projects": "nx print-affected --select=projects",
     "clean-dist": "rm -rf dist && find ./libs -type d -name dist -exec rm -rf {} + && find ./apps -type d -name dist -exec rm -rf {} +",
@@ -67,6 +68,7 @@
     "jsonc-eslint-parser": "^2.1.0",
     "nx": "19.1.0",
     "postcss": "^8.4.21",
+    "postcss-nesting": "^12.1.5",
     "prettier": "^2.6.2",
     "sass": "^1.55.0",
     "storybook-addon-themes": "^6.1.0",

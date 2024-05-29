@@ -6,7 +6,7 @@ import {
   slideMainReset,
   slideWithoutFooterBottomMargin,
   slideHeaderGrid,
-} from './deck-styles.css';
+} from './deck-styles';
 import {
   CalloutForAdvancedTopic,
   CalloutForPersonalOpinion,
@@ -63,8 +63,8 @@ function TopLeftPosition({
   );
   return (
     <div className="absolute top-0 left-6 flex gap-5">
-      {calloutComponents.map((Comp) => (
-        <Comp />
+      {calloutComponents.map((Comp, i) => (
+        <Comp key={i} />
       ))}
     </div>
   );
