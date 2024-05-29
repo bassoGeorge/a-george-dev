@@ -1,15 +1,12 @@
-import { RecipeVariants } from '@vanilla-extract/recipes';
-import {
-  skewedBoxBorderContainer,
-  skewedBoxContents,
-  skewedBoxShadowContainer,
-} from './TiltCard.css';
+import styles from './TiltCard.module.css';
 
 export type TiltCardProps = {
   outerClassName?: string;
-} & RecipeVariants<typeof skewedBoxShadowContainer> &
-  RecipeVariants<typeof skewedBoxBorderContainer> &
-  React.HTMLProps<HTMLDivElement>;
+  shape?: 'trapRight' | 'trapLeft' | 'triUpperRight' | 'triUpperLeft';
+  interactive?: boolean;
+  skewStrength?: 'small' | 'medium' | 'large';
+  border?: 'all' | 'bottom' | 'none';
+} & React.HTMLProps<HTMLDivElement>;
 
 export function TiltCard({
   children,
@@ -21,20 +18,34 @@ export function TiltCard({
   border,
   ...htmlProps
 }: TiltCardProps) {
+  const skewClass = shape ? styles[shape] : '';
+  const skewStrengthClass = styles['skew-' + (skewStrength ?? 'medium')];
+  const interC = interactive ? styles.interactive : '';
+  const borderC = borderClassMap[border ?? 'all'];
+
   return (
     <div
       {...htmlProps}
-      className={`${skewedBoxShadowContainer({
-        shape,
-        interactive,
-        skewStrength,
-      })} ${outerClassName ?? ''}`}
+      className={`
+      drop-shadow
+      ${skewClass}
+      ${skewStrengthClass}
+      ${interC} 
+      ${outerClassName ?? ''}`}
     >
-      <div className={skewedBoxBorderContainer({ border })}>
-        <div className={`${skewedBoxContents} ${className ?? ''}`}>
+      <div className={`bg-cc-line ${styles.skewStyle} ${borderC}`}>
+        <div
+          className={`p-6 bg-cc-page-1 ${styles.skewStyle} ${className ?? ''}`}
+        >
           {children}
         </div>
       </div>
     </div>
   );
 }
+
+const borderClassMap: Record<Required<TiltCardProps>['border'], string> = {
+  all: 'p-thick-line',
+  bottom: 'pb-thick-line',
+  none: '',
+};
