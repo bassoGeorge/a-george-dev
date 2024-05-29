@@ -1,5 +1,4 @@
 /// <reference types="vitest" />
-import { vanillaExtractPlugin } from '@vanilla-extract/vite-plugin';
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import viteTsConfigPaths from 'vite-tsconfig-paths';
@@ -19,7 +18,6 @@ export default defineConfig({
     viteTsConfigPaths({
       root: '../../',
     }),
-    vanillaExtractPlugin(),
   ],
 
   // Uncomment this if you are using workers.

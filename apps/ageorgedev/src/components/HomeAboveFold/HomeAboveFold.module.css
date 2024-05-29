@@ -1,0 +1,75 @@
+.container {
+  --skew-deg: 3deg;
+  --n-skew-deg: calc(var(--skew-deg) * -1);
+
+  grid-template-columns: 1fr;
+  grid-template-rows: 3fr 2fr max-content;
+  color: theme(colors.cc-neutral);
+  height: 100vh;
+
+  @supports (height: 100dvh) {
+    height: 100dvh;
+  }
+
+  @media screen(tablet) {
+    grid-template-columns: 4fr 3fr;
+    grid-template-rows: 1fr max-content;
+  }
+
+  @media screen(desktop) {
+    --skew-deg: 2deg;
+    grid-template-columns: 5fr 3fr;
+  }
+}
+
+.nameSection {
+  background-color: theme(colors.cc-page-0);
+}
+
+.paper {
+  background-color: var(--bg);
+
+  &::before {
+    content: '';
+    position: absolute;
+    background: var(--bg);
+    inset: 0;
+    z-index: -1;
+  }
+}
+
+.subTextSection {
+  --bg: theme(colors.cc-page-0);
+  z-index: 1;
+  &::before {
+    content: unset;
+    top: -5px;
+    transform: skew(var(--n-skew-deg), var(--skew-deg));
+    transform-origin: top left;
+    box-shadow: -4px 4px theme(colors.rc-shadow-1);
+    border-left: theme(spacing.medium-line) solid theme(colors.cc-line-dark);
+  }
+  @media screen(tablet) {
+    --bg: theme(colors.cc-page-1);
+    &::before {
+      content: '';
+    }
+  }
+}
+
+.conSection {
+  --bg: theme(colors.cc-page-2);
+  z-index: 2;
+
+  &::before {
+    right: -5px;
+    transform: skew(0deg, var(--skew-deg)) scaleY(2);
+    transform-origin: top right;
+    box-shadow: -4px -8px theme(colors.rc-shadow-2);
+    border-top: theme(spacing.thick-line) solid theme(colors.cc-line-dark);
+  }
+}
+
+/* .name {
+  text-shadow: 4px 8px rgb(0 0 0 / .25);
+} */

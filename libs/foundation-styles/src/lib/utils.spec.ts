@@ -1,42 +1,7 @@
-import {
-  cssCase,
-  cssVarName,
-  getTailwindPropertyMap,
-  joinCssClassParts,
-  toRem,
-} from './utils';
 import { describe, expect } from 'vitest';
+import { cssCase, toRem } from './utils';
 
 describe('Foundation Utils', () => {
-  describe('createCssVarName', () => {
-    it('creates base css variable names correctly', () => {
-      expect(cssVarName(['something', 'good'])).toEqual('ag-something-good');
-      expect(cssVarName(['pascalCase'])).toEqual('ag-pascal-case');
-      expect(cssVarName(['part', ''])).toEqual('ag-part');
-    });
-  });
-
-  describe('getTailwindPropertyMap', () => {
-    it('works', () => {
-      const styles = {
-        colorA: {
-          100: 'var(--ag-rc-test-color-100)',
-          200: 'var(--ag-cc-test-color-200)',
-        },
-        colorB: {
-          doesNotMatter: 'var(--ag-some-other-stuff)',
-        },
-      };
-
-      const tailwindMap = getTailwindPropertyMap(styles);
-      expect(tailwindMap).toEqual({
-        'rc-test-color-100': 'var(--ag-rc-test-color-100)',
-        'cc-test-color-200': 'var(--ag-cc-test-color-200)',
-        'some-other-stuff': 'var(--ag-some-other-stuff)',
-      });
-    });
-  });
-
   describe('toRem', () => {
     it('works', () => {
       expect(toRem(16)).toEqual('1rem');
@@ -45,16 +10,7 @@ describe('Foundation Utils', () => {
     });
   });
 
-  describe('joinCssClassParts', () => {
-    it('cssCase does param case without loosing characters', () => {
-      expect(cssCase('.another')).toEqual('.another');
-    });
-
-    it('works', () => {
-      expect(joinCssClassParts(['a', 'somethingElse', ''])).toEqual(
-        'a-something-else'
-      );
-      expect(joinCssClassParts(['.a', 'b'])).toEqual('.a-b');
-    });
+  it('cssCase does param case without loosing characters', () => {
+    expect(cssCase('.another')).toEqual('.another');
   });
 });
