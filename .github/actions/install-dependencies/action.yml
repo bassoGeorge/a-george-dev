@@ -1,5 +1,9 @@
 name: Install Dependencies
 description: Use node and install the project dependencies
+inputs:
+  NX_CLOUD_ACCESS_TOKEN:
+    required: true
+    description: 'Nx Cloud access token'
 
 runs:
   using: 'composite'
@@ -9,9 +13,12 @@ runs:
       with:
         node-version: '18.x'
         cache: 'yarn'
-    - name: Set yarn version
+    - name: ⎔ Set yarn version
       shell: bash
       run: yarn set version 4.0.0-rc.48
     - name: 📥 Install dependencies
       shell: bash
       run: yarn install --frozen-lockfile
+    - name: Add NX_CLOUD_ACCESS_TOKEN to nx-cloud.env
+      shell: bash
+      run: echo "NX_CLOUD_ACCESS_TOKEN=${{ inputs.NX_CLOUD_ACCESS_TOKEN }}" >> nx-cloud.env
