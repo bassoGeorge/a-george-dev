@@ -7,7 +7,8 @@
   "scripts": {
     "preinstall": "git config core.hooksPath .git-hooks",
     "affected-projects": "nx print-affected --select=projects",
-    "clean-dist": "rm -rf dist && find ./libs -type d -name dist -exec rm -rf {} + && find ./apps -type d -name dist -exec rm -rf {} +"
+    "clean-dist": "rm -rf dist && find ./libs -type d -name dist -exec rm -rf {} + && find ./apps -type d -name dist -exec rm -rf {} +",
+    "storybook": "nx storybook design-system"
   },
   "devDependencies": {
     "@nx/cypress": "19.1.0",
