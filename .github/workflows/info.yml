@@ -1,6 +1,9 @@
 name: Info
 on:
   workflow_call:
+    secrets:
+      NX_CLOUD_ACCESS_TOKEN:
+        required: true
     outputs:
       is_hotfix:
         description: 'Whether the current commit is unique to this branch or has been a part of PR. For Main push'
@@ -49,6 +52,8 @@ jobs:
         uses: nrwl/nx-set-shas@v3
       - name: 📦 Install dependencies
         uses: ./.github/actions/install-dependencies
+        with:
+          NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
       - name: 🔧 List affected projects
         id: affected_projects
         run: echo "affected_projects=$(yarn nx print-affected | jq -c '.projects')" >> "$GITHUB_OUTPUT"

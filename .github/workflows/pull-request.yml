@@ -6,12 +6,16 @@ on:
 jobs:
   Info:
     uses: ./.github/workflows/info.yml
+    secrets:
+      NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
   Run_Tests:
     needs: [Info]
     uses: ./.github/workflows/tests.yml
     with:
       affected_base: ${{ needs.Info.outputs.affected_base }}
       affected_head: ${{ needs.Info.outputs.affected_head }}
+    secrets:
+      NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
   Site_Preview:
     needs: [Run_Tests, Info]
     if: needs.Info.outputs.should_preview_site == 'true' || needs.Info.outputs.should_deploy_schema == 'true'
@@ -21,3 +25,4 @@ jobs:
       NETLIFY_SITE_ID: ${{ vars.AGEORGEDEV_SITE_ID }}
     secrets:
       NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+      NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
