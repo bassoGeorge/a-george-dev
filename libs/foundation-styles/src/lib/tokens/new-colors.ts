@@ -57,28 +57,28 @@ const allColors = [
   'cc-page-3',
   'cc-page-4',
 
-  'cc-neutral-DEFAULT',
+  'cc-neutral',
   'cc-neutral-subtle',
   'cc-neutral-subtlest',
 
-  'cc-neutral-inverse-DEFAULT',
+  'cc-neutral-inverse',
   'cc-neutral-inverse-subtle',
   'cc-neutral-inverse-subtlest',
 
   'cc-shadow-far',
-  'cc-shadow-DEFAULT',
+  'cc-shadow',
   'cc-shadow-near',
 
-  'cc-line-DEFAULT',
+  'cc-line',
   'cc-line-dark',
 
-  'cc-accent-DEFAULT',
+  'cc-accent',
   'cc-accent-subtle',
 
-  'cc-alt-accent-DEFAULT',
+  'cc-alt-accent',
   'cc-alt-accent-subtle',
 
-  'cc-danger-DEFAULT',
+  'cc-danger',
   'cc-danger-bg',
   'cc-danger-fg',
 ];

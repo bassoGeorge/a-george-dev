@@ -58,28 +58,28 @@
   --ag-cc-page-3: var(--ag-rc-parchment-200);
   --ag-cc-page-4: var(--ag-rc-parchment-100);
 
-  --ag-cc-neutral-DEFAULT: var(--ag-rc-d-neutral-500);
+  --ag-cc-neutral: var(--ag-rc-d-neutral-500);
   --ag-cc-neutral-subtle: var(--ag-rc-d-neutral-300);
   --ag-cc-neutral-subtlest: var(--ag-rc-d-neutral-200);
 
-  --ag-cc-neutral-inverse-DEFAULT: var(--ag-rc-l-neutral-500);
+  --ag-cc-neutral-inverse: var(--ag-rc-l-neutral-500);
   --ag-cc-neutral-inverse-subtle: var(--ag-rc-l-neutral-300);
   --ag-cc-neutral-inverse-subtlest: var(--ag-rc-l-neutral-200);
 
   --ag-cc-shadow-far: var(--ag-rc-shadow-2);
-  --ag-cc-shadow-DEFAULT: var(--ag-rc-shadow-3);
+  --ag-cc-shadow: var(--ag-rc-shadow-3);
   --ag-cc-shadow-near: var(--ag-rc-shadow-4);
 
-  --ag-cc-line-DEFAULT: var(--ag-rc-line-main);
+  --ag-cc-line: var(--ag-rc-line-main);
   --ag-cc-line-dark: var(--ag-rc-line-main);
 
-  --ag-cc-accent-DEFAULT: var(--ag-rc-p-accent-500);
+  --ag-cc-accent: var(--ag-rc-p-accent-500);
   --ag-cc-accent-subtle: var(--ag-rc-p-accent-300);
 
-  --ag-cc-alt-accent-DEFAULT: var(--ag-rc-s-accent-500);
+  --ag-cc-alt-accent: var(--ag-rc-s-accent-500);
   --ag-cc-alt-accent-subtle: var(--ag-rc-s-accent-400);
 
-  --ag-cc-danger-DEFAULT: var(--ag-rc-red-400);
+  --ag-cc-danger: var(--ag-rc-red-400);
   --ag-cc-danger-bg: var(--ag-rc-red-100);
   --ag-cc-danger-fg: var(--ag-rc-red-400);
 }
@@ -91,28 +91,28 @@
   --ag-cc-page-3: var(--ag-rc-timber-200);
   --ag-cc-page-4: var(--ag-rc-timber-100);
 
-  --ag-cc-neutral-DEFAULT: var(--ag-rc-l-neutral-500);
+  --ag-cc-neutral: var(--ag-rc-l-neutral-500);
   --ag-cc-neutral-subtle: var(--ag-rc-l-neutral-300);
   --ag-cc-neutral-subtlest: var(--ag-rc-l-neutral-200);
 
-  --ag-cc-neutral-inverse-DEFAULT: var(--ag-rc-d-neutral-500);
+  --ag-cc-neutral-inverse: var(--ag-rc-d-neutral-500);
   --ag-cc-neutral-inverse-subtle: var(--ag-rc-d-neutral-300);
   --ag-cc-neutral-inverse-subtlest: var(--ag-rc-d-neutral-200);
 
   --ag-cc-shadow-far: var(--ag-rc-shadow-3);
-  --ag-cc-shadow-DEFAULT: var(--ag-rc-shadow-4);
+  --ag-cc-shadow: var(--ag-rc-shadow-4);
   --ag-cc-shadow-near: var(--ag-rc-shadow-5);
 
-  --ag-cc-line-DEFAULT: var(--ag-rc-line-inverse);
+  --ag-cc-line: var(--ag-rc-line-inverse);
   --ag-cc-line-dark: var(--ag-rc-line-main);
 
-  --ag-cc-accent-DEFAULT: var(--ag-rc-p-accent-300);
+  --ag-cc-accent: var(--ag-rc-p-accent-300);
   --ag-cc-accent-subtle: var(--ag-rc-p-accent-400);
 
-  --ag-cc-alt-accent-DEFAULT: var(--ag-rc-s-accent-300);
+  --ag-cc-alt-accent: var(--ag-rc-s-accent-300);
   --ag-cc-alt-accent-subtle: var(--ag-rc-s-accent-400);
 
-  --ag-cc-danger-DEFAULT: var(--ag-rc-red-200);
+  --ag-cc-danger: var(--ag-rc-red-200);
   --ag-cc-danger-bg: var(--ag-rc-red-500);
   --ag-cc-danger-fg: var(--ag-rc-l-neutral-500);
 }

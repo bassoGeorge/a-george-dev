@@ -3,6 +3,8 @@ import { mapObjIndexed } from 'ramda';
 import { FOUNDATION_RAW_COLOR_PREFIX } from '../constants';
 import { cssVarName } from '../utils';
 
+//@deprecated
+
 export const RAW_COLORS = {
   timber: {
     100: 'hsl(191, 17%, 32%)',
