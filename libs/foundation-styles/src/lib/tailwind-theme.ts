@@ -1,18 +1,18 @@
-import { RawColors } from './tokens/raw-colors';
-import { BorderWidth, Spacing } from './tokens/spacing';
+import { mapKeys } from '@ageorgedev/toolbelt';
 import { mapObjIndexed } from 'ramda';
-import { Screens } from './tokens/responsive';
-import { cssCase, getTailwindPropertyMap } from './utils';
-import { ContextualColors } from './tokens/contextual-colors';
 import type { Config } from 'tailwindcss';
+import { allTailwindColors } from './tokens/new-colors';
+import { Screens } from './tokens/responsive';
+import { Shadows } from './tokens/shadows';
+import { BorderWidth, Spacing } from './tokens/spacing';
+
 import {
   FontFamily,
   FontSize,
   LetterSpacing,
   LineHeight,
 } from './tokens/typography';
-import { mapKeys } from '@ageorgedev/toolbelt';
-import { Shadows } from './tokens/shadows';
+import { cssCase } from './utils';
 
 export const TailwindTheme = {
   spacing: Spacing,
@@ -21,10 +21,7 @@ export const TailwindTheme = {
     (query: string) => ({ raw: query }),
     mapKeys(cssCase, Screens)
   ),
-  colors: {
-    ...getTailwindPropertyMap(RawColors),
-    ...getTailwindPropertyMap(ContextualColors),
-  },
+  colors: allTailwindColors,
   fontFamily: {
     sans: FontFamily.body,
     body: FontFamily.body,
