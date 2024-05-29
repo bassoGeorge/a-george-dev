@@ -4,4 +4,8 @@
   &:hover {
     color: yellow;
   }
+
+  @media screen(tablet) {
+    color: #ff00ff;
+  }
 }
