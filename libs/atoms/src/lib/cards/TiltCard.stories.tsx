@@ -8,10 +8,10 @@ export default {
 
 type Story = StoryObj<typeof TiltCard>;
 
-export const Test: Story = {
+export const TrapRight: Story = {
   render: () => (
     <TiltCard shape="trapRight" interactive>
-      <div className="text-left">What the hell</div>
+      shape = trapRight
     </TiltCard>
   ),
 };

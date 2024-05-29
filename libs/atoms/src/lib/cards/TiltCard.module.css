@@ -34,18 +34,16 @@
 }
 
 .skew-light {
-  /** SP */
-  --delta: 0.25rem;
+  --delta: theme(spacing.1);
 }
 
 .skew-medium {
-  /** SP */
-  --delta: 0.5rem;
+  --delta: theme(spacing.2);
 }
 
 .skew-heavy {
   /** SP */
-  --delta: 1rem;
+  --delta: theme(spacing.4);
 }
 
 .interactive {
