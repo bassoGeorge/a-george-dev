@@ -1,0 +1,61 @@
+.myCustomStuff {
+  text-decoration: underline;
+}
+
+.skewStyle {
+  clip-path: polygon(
+    var(--tlX, 0px) var(--tlY, 0px),
+    calc(100% - var(--trX, 0px)) var(--trY, 0px),
+    calc(100% - var(--brX, 0px)) calc(100% - var(--brY, 0px)),
+    var(--blX, 0px) calc(100% - var(--blY, 0px))
+  );
+}
+
+.trapRight {
+  --trY: var(--delta);
+  --brY: var(--delta);
+}
+
+.trapLeft {
+  --tlY: var(--delta);
+  --blY: var(--delta);
+}
+
+.triUpperRight {
+  --brY: var(--delta);
+}
+
+.triUpperLeft {
+  --blY: var(--delta);
+}
+
+.skew-none {
+  --delta: 0;
+}
+
+.skew-light {
+  /** SP */
+  --delta: 0.25rem;
+}
+
+.skew-medium {
+  /** SP */
+  --delta: 0.5rem;
+}
+
+.skew-heavy {
+  /** SP */
+  --delta: 1rem;
+}
+
+.interactive {
+  @apply hover:drop-shadow-far active:drop-shadow-near transition;
+}
+
+.interactive:hover {
+  transform: translate(-2px, -4px);
+}
+
+.interactive:active {
+  transform: translate(2px, 4px);
+}

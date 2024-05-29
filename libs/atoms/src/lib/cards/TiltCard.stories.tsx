@@ -10,7 +10,7 @@ type Story = StoryObj<typeof TiltCard>;
 
 export const Test: Story = {
   render: () => (
-    <TiltCard shape="trapRight" skewStrength="heavy">
+    <TiltCard shape="trapRight" interactive>
       <div className="text-left">What the hell</div>
     </TiltCard>
   ),
