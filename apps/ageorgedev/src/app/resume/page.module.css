@@ -1,3 +1,75 @@
 .paper {
   @apply relative before:inset-0 before:absolute;
+
+  &:before {
+    z-index: -1;
+    background-color: var(--bg);
+    transform: var(--rot);
+  }
+}
+
+.page {
+  --rot: rotate(-2deg);
+  display: grid;
+  height: 100dvh;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 8fr);
+  grid-template-rows: max-content 1fr;
+  grid-template-areas:
+    'header header'
+    'aside article';
+  overflow: hidden;
+  print-color-adjust: exact;
+}
+
+.header {
+  @apply flex items-start justify-between px-5 pt-6 relative;
+  --bg: theme(colors.cc-page-0);
+  z-index: 2;
+  background: var(--bg);
+  grid-area: header;
+
+  &:before {
+    transform-origin: 33.33% center;
+    transform: var(--rot) scale(1.1, 1.5);
+    box-shadow: -4px 6px rgb(0 0 0 / 0.1);
+    border: 2px solid theme(colors.rc-d-neutral-300);
+  }
+}
+
+.aside {
+  @apply pt-9 pb-5 pl-5 pr-2 grid content-between;
+  --bg: theme(colors.cc-page-1);
+  z-index: 1;
+  grid-area: aside;
+  grid-template-columns: minmax(0, 1fr);
+
+  &:before {
+    transform-origin: top right;
+    transform: var(--rot) scale(1.2, 1);
+  }
+}
+
+.article {
+  @apply pt-9 pb-5 pr-8 pl-6 flex flex-col gap-7;
+  --bg: theme(colors.cc-page-4);
+  z-index: 3;
+  grid-area: article;
+
+  &:before {
+    transform-origin: top left;
+    transform: var(--rot) scale(1.5, 1.5);
+    box-shadow: -8px 4px rgb(0 0 0 / 0.25);
+    border: 4px solid theme(colors.rc-d-neutral-500);
+  }
+}
+
+.eduGrid {
+  @apply grid gap-x-2 gap-y-3;
+
+  grid-template-columns: max-content minmax(0, 1fr);
+}
+
+.expGrid {
+  @apply grid gap-x-4 gap-y-2 items-baseline;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 3fr);
 }
