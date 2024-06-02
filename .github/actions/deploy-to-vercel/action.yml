@@ -3,8 +3,12 @@ description: Deploy an app to Vercel
 inputs:
   production:
     required: false
-    description: 'Whether to deploy the production site or do a preview deploy, true/false'
     default: 'false'
+    description: 'Whether to deploy the production site or do a preview deploy, true/false'
+  staged:
+    required: false
+    default: 'false'
+    description: 'Weather to stop the auto link of domain to the deployment'
   VERCEL_ACCESS_TOKEN:
     required: true
     description: 'Token for Vercel authentication'
@@ -44,7 +48,7 @@ runs:
       env:
         VERCEL_ACCESS_TOKEN: ${{ inputs.VERCEL_ACCESS_TOKEN }}
       run: |
-        vercel deploy ${{ fromJSON('{ "true": "--prod", "false": "" }')[inputs.production] }} --prebuilt --token $VERCEL_ACCESS_TOKEN > deploy-url.txt
+        vercel deploy ${{ fromJSON('{ "true": { "true": "--prod --skip-domain", "false": "--prod" }, "false": { "true": "", "false": "" } }')[inputs.production][inputs.staged] }} --prebuilt --token $VERCEL_ACCESS_TOKEN > deploy-url.txt
     - name: ⎔ Extract deployment information
       shell: bash
       id: deployInfo

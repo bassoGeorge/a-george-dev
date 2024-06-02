@@ -1,0 +1,27 @@
+name: Promote vercel site to production
+description: Deploy an app to Vercel
+inputs:
+  VERCEL_ACCESS_TOKEN:
+    required: true
+    description: 'Token for Vercel authentication'
+  deploy_url:
+    required: true
+    description: 'Vercel url to promote'
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Install vercel CLI if not available
+      shell: bash
+      run: |
+        if ! command -v vercel &> /dev/null
+        then
+            echo "vercel command could not be found, installing..."
+            npm install -g vercel
+        fi
+    - name: Promote app to production
+      shell: bash
+      env:
+        VERCEL_ACCESS_TOKEN: ${{ inputs.VERCEL_ACCESS_TOKEN }}
+      run: |
+        vercel promote ${{ inputs.deploy_url }} --token $VERCEL_ACCESS_TOKEN

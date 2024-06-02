@@ -17,17 +17,17 @@ on:
       affected_projects:
         description: 'Comma space separated list of affected projects as a single string'
         value: ${{ jobs.Info.outputs.affected_projects }}
-      should_preview_site:
-        description: 'Whether to run the site preview workflow'
-        # preview should be build if array contains either ageorgedev or ageorgedev-e2e, so using simple substring search
-        value: ${{ contains(jobs.Info.outputs.affected_projects, 'ageorgedev') }}
+      should_run_e2e:
+        description: 'Whether to run the e2e because of e2e change'
+        value: ${{ contains(fromJSON(jobs.Info.outputs.affected_projects), 'ageorgedev-e2e') }}
       should_deploy_site:
         description: 'Whether to deploy the site'
         # site should be deployed only if 'ageorgedev' is in the arry, so using array contains
         value: ${{ contains(fromJSON(jobs.Info.outputs.affected_projects), 'ageorgedev') }}
-      should_deploy_schema:
-        description: 'Whether to deploy the schema'
-        value: ${{ contains(fromJSON(jobs.Info.outputs.affected_projects), 'cms') }}
+      should_preview_site:
+        description: 'Whether to run the site preview workflow'
+        # preview should be build if array contains either ageorgedev or ageorgedev-e2e, so using simple substring search
+        value: ${{ contains(jobs.Info.outputs.affected_projects, 'ageorgedev') }}
 
 jobs:
   Info:
