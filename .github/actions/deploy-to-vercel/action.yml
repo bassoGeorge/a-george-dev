@@ -1,0 +1,52 @@
+name: Deploy Vercel site
+description: Deploy an app to Vercel
+inputs:
+  production:
+    required: false
+    description: 'Whether to deploy the production site or do a preview deploy, true/false'
+    default: 'false'
+  VERCEL_ACCESS_TOKEN:
+    required: true
+    description: 'Token for Vercel authentication'
+  VERCEL_PROJECT_NAME:
+    required: true
+    description: 'Vercel project name'
+outputs:
+  deploy_url:
+    description: 'URL of deployed site'
+    value: ${{ steps.deployInfo.outputs.DEPLOY_URL }}
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Install vercel CLI if not available
+      shell: bash
+      run: |
+        if ! command -v vercel &> /dev/null
+        then
+            echo "vercel command could not be found, installing..."
+            npm install -g vercel
+        fi
+    - name: Link vercel project
+      shell: bash
+      env:
+        VERCEL_ACCESS_TOKEN: ${{ inputs.VERCEL_ACCESS_TOKEN }}
+      run: |
+        vercel link --project ${{ inputs.VERCEL_PROJECT_NAME }} --yes --token $VERCEL_ACCESS_TOKEN
+    - name: 🏗️ Build project, pulling environment
+      shell: bash
+      env:
+        VERCEL_ACCESS_TOKEN: ${{ inputs.VERCEL_ACCESS_TOKEN }}
+      run: |
+        vercel build ${{ fromJSON('{ "true": "--prod", "false": "" }')[inputs.production] }} --yes --token $VERCEL_ACCESS_TOKEN
+    - name: 🚀 Deploy
+      shell: bash
+      env:
+        VERCEL_ACCESS_TOKEN: ${{ inputs.VERCEL_ACCESS_TOKEN }}
+      run: |
+        vercel deploy ${{ fromJSON('{ "true": "--prod", "false": "" }')[inputs.production] }} --prebuilt --token $VERCEL_ACCESS_TOKEN > deploy-url.txt
+    - name: ⎔ Extract deployment information
+      shell: bash
+      id: deployInfo
+      run: |
+        echo "DEPLOY_URL=$(cat deploy-url.txt)" >> $GITHUB_OUTPUT
