@@ -44,3 +44,4 @@ jobs:
         with:
           deploy_url: ${{ steps.deploy.outputs.deploy_url }}
           VERCEL_ACCESS_TOKEN: ${{ secrets.VERCEL_ACCESS_TOKEN }}
+          VERCEL_PROJECT_NAME: ${{ inputs.VERCEL_PROJECT_AGEORGEDEV }}

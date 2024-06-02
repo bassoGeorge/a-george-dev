@@ -7,6 +7,9 @@ inputs:
   deploy_url:
     required: true
     description: 'Vercel url to promote'
+  VERCEL_PROJECT_NAME:
+    required: true
+    description: 'Vercel project name'
 
 runs:
   using: 'composite'
@@ -19,6 +22,12 @@ runs:
             echo "vercel command could not be found, installing..."
             npm install -g vercel
         fi
+    - name: Link vercel project
+      shell: bash
+      env:
+        VERCEL_ACCESS_TOKEN: ${{ inputs.VERCEL_ACCESS_TOKEN }}
+      run: |
+        vercel link --project ${{ inputs.VERCEL_PROJECT_NAME }} --yes --token $VERCEL_ACCESS_TOKEN
     - name: Promote app to production
       shell: bash
       env:
