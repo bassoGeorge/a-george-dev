@@ -1,6 +1,7 @@
+import '@ageorgedev/foundation-styles/globals';
 import Head from 'next/head';
 import './tailwind.css';
-import '@ageorgedev/foundation-styles/globals';
+import { GlobalProviders } from './GlobalProviders';
 
 export const metadata = {
   title: 'Welcome to ageorgedev',
@@ -30,7 +31,9 @@ export default function RootLayout({
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/site.webmanifest" />
       </Head>
-      <body>{children}</body>
+      <body>
+        <GlobalProviders>{children}</GlobalProviders>
+      </body>
     </html>
   );
 }
