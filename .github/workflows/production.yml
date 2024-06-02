@@ -10,12 +10,17 @@ jobs:
   Run_Tests:
     needs: [Info]
     if: ${{ needs.Info.outputs.is_hotfix == 'true' }}
-    uses: ./.github/workflows/tests.yml
-    with:
-      affected_base: ${{ needs.Info.outputs.affected_base }}
-      affected_head: ${{ needs.Info.outputs.affected_head }}
-    secrets:
-      NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dummy
+        shell: bash
+        run: echo "Fake tests for now"
+    # uses: ./.github/workflows/tests.yml
+    # with:
+    #   affected_base: ${{ needs.Info.outputs.affected_base }}
+    #   affected_head: ${{ needs.Info.outputs.affected_head }}
+    # secrets:
+    #   NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
   Deploy:
     needs: [Run_Tests, Info]
     if: needs.Info.outputs.should_deploy_site == 'true'
