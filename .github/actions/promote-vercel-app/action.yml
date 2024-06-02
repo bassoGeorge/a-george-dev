@@ -28,10 +28,9 @@ runs:
         VERCEL_ACCESS_TOKEN: ${{ inputs.VERCEL_ACCESS_TOKEN }}
       run: |
         vercel link --project ${{ inputs.VERCEL_PROJECT_NAME }} --yes --token $VERCEL_ACCESS_TOKEN
-        vercel switch anish-georges-projects --token $VERCEL_ACCESS_TOKEN
     - name: Promote app to production
       shell: bash
       env:
         VERCEL_ACCESS_TOKEN: ${{ inputs.VERCEL_ACCESS_TOKEN }}
       run: |
-        vercel promote ${{ inputs.deploy_url }} --token $VERCEL_ACCESS_TOKEN
+        vercel promote ${{ inputs.deploy_url }} --scope anish-georges-projects --token $VERCEL_ACCESS_TOKEN
