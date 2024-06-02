@@ -19,6 +19,6 @@ runs:
     - name: 📥 Install dependencies
       shell: bash
       run: yarn install --frozen-lockfile
-    - name: Add NX_CLOUD_ACCESS_TOKEN to nx-cloud.env
-      shell: bash
-      run: echo "NX_CLOUD_ACCESS_TOKEN=${{ inputs.NX_CLOUD_ACCESS_TOKEN }}" >> nx-cloud.env
+    # - name: Add NX_CLOUD_ACCESS_TOKEN to nx-cloud.env
+    #   shell: bash
+    #   run: echo "NX_CLOUD_ACCESS_TOKEN=${{ inputs.NX_CLOUD_ACCESS_TOKEN }}" >> nx-cloud.env
