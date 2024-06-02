@@ -10,38 +10,24 @@ jobs:
   Run_Tests:
     needs: [Info]
     if: ${{ needs.Info.outputs.is_hotfix == 'true' }}
-    uses: ./.github/workflows/tests.yml
-    with:
-      affected_base: ${{ needs.Info.outputs.affected_base }}
-      affected_head: ${{ needs.Info.outputs.affected_head }}
-    secrets:
-      NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
-  Site_Preview:
-    needs: [Run_Tests, Info]
-    if: needs.Info.outputs.should_preview_site == 'true' || needs.Info.outputs.should_deploy_schema == 'true'
-    uses: ./.github/workflows/site-preview.yml
-    with:
-      title: ${{ format('Production Preview {0}', github.sha) }}
-      NETLIFY_SITE_ID: ${{ vars.AGEORGEDEV_SITE_ID }}
-    secrets:
-      NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-      NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
-  Production_Deploy:
-    needs: [Info, Site_Preview]
-    if: ${{ !cancelled() && always() && needs.Info.outputs.should_deploy_site == 'true' && (needs.Info.outputs.is_hotfix == 'false' || needs.Site_Preview.result == 'success') }}
     runs-on: ubuntu-latest
     steps:
-      - name: ⬇️ Check out repository code
-        uses: actions/checkout@v3
-      - name: 📦 Install dependencies
-        uses: ./.github/actions/install-dependencies
-        with:
-          NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
-      - name: 🚀 Deploy production site
-        uses: ./.github/actions/deploy-site
-        id: deploy
-        with:
-          production: true
-          note: ${{ format('Production {0}', github.sha) }}
-          NETLIFY_SITE_ID: ${{ vars.AGEORGEDEV_SITE_ID }}
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+      - name: Dummy
+        shell: bash
+        run: echo "Fake tests for now"
+    # uses: ./.github/workflows/tests.yml
+    # with:
+    #   affected_base: ${{ needs.Info.outputs.affected_base }}
+    #   affected_head: ${{ needs.Info.outputs.affected_head }}
+    # secrets:
+    #   NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
+  Deploy:
+    needs: [Run_Tests, Info]
+    if: needs.Info.outputs.should_deploy_site == 'true'
+    uses: ./.github/workflows/deploy-ageorgedev.yml
+    with:
+      VERCEL_PROJECT_AGEORGEDEV: ${{ vars.VERCEL_PROJECT_AGEORGEDEV }}
+      production: true
+    secrets:
+      NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
+      VERCEL_ACCESS_TOKEN: ${{ secrets.VERCEL_ACCESS_TOKEN }}

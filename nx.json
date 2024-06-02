@@ -3,7 +3,6 @@
   "cli": {
     "packageManager": "yarn"
   },
-  "nxCloudAccessToken": "---pick-token-from-nx-cloud.env---",
   "targetDefaults": {
     "build": {
       "dependsOn": ["^build", "pre-build"],

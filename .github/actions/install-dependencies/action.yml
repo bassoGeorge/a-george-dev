@@ -11,14 +11,14 @@ runs:
     - name: ⎔ Use Node.js
       uses: actions/setup-node@v3
       with:
-        node-version: '18.x'
+        node-version: '20.14.0'
         cache: 'yarn'
     - name: ⎔ Set yarn version
       shell: bash
-      run: yarn set version 4.0.0-rc.48
+      run: yarn set version 1.22.19
     - name: 📥 Install dependencies
       shell: bash
       run: yarn install --frozen-lockfile
-    - name: Add NX_CLOUD_ACCESS_TOKEN to nx-cloud.env
-      shell: bash
-      run: echo "NX_CLOUD_ACCESS_TOKEN=${{ inputs.NX_CLOUD_ACCESS_TOKEN }}" >> nx-cloud.env
+    # - name: Add NX_CLOUD_ACCESS_TOKEN to nx-cloud.env
+    #   shell: bash
+    #   run: echo "NX_CLOUD_ACCESS_TOKEN=${{ inputs.NX_CLOUD_ACCESS_TOKEN }}" >> nx-cloud.env

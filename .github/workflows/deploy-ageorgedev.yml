@@ -1,0 +1,46 @@
+name: Deploy a.george.dev site
+on:
+  workflow_call:
+    inputs:
+      VERCEL_PROJECT_AGEORGEDEV:
+        required: true
+        type: string
+      production:
+        required: true
+        type: boolean
+    secrets:
+      VERCEL_ACCESS_TOKEN:
+        required: true
+      NX_CLOUD_ACCESS_TOKEN:
+        required: true
+
+jobs:
+  Deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: ⬇️ Check out repository code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: 📦 Install dependencies
+        uses: ./.github/actions/install-dependencies
+        with:
+          NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
+      - name: 🚀 Deploy site
+        uses: ./.github/actions/deploy-to-vercel
+        id: deploy
+        with:
+          production: ${{ inputs.production }}
+          staged: true
+          VERCEL_ACCESS_TOKEN: ${{ secrets.VERCEL_ACCESS_TOKEN }}
+          VERCEL_PROJECT_NAME: ${{ inputs.VERCEL_PROJECT_AGEORGEDEV }}
+      - name: 🧪 Run e2e
+        uses: ./.github/actions/run-e2e
+        with:
+          site_url: ${{ steps.deploy.outputs.deploy_url }}
+      - name: Promote to production
+        if: ${{ inputs.production }}
+        uses: ./.github/actions/promote-vercel-app
+        with:
+          deploy_url: ${{ steps.deploy.outputs.deploy_url }}
+          VERCEL_ACCESS_TOKEN: ${{ secrets.VERCEL_ACCESS_TOKEN }}
