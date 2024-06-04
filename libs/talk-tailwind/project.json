@@ -27,14 +27,6 @@
           "mode": "production"
         }
       }
-    },
-    "test": {
-      "executor": "@nx/vite:test",
-      "outputs": ["{workspaceRoot}/coverage/libs/talk-tailwind"],
-      "options": {
-        "passWithNoTests": true,
-        "reportsDirectory": "../../coverage/libs/talk-tailwind"
-      }
     }
   }
 }

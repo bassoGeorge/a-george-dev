@@ -94,6 +94,12 @@
         "targetName": "eslint:lint",
         "extensions": ["ts", "tsx", "js", "jsx", "html", "vue"]
       }
+    },
+    {
+      "plugin": "@nx/jest/plugin",
+      "options": {
+        "targetName": "test"
+      }
     }
   ]
 }

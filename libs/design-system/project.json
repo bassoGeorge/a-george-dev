@@ -29,14 +29,6 @@
         }
       }
     },
-    "test": {
-      "executor": "@nx/vite:test",
-      "outputs": ["{workspaceRoot}/coverage/libs/design-system"],
-      "options": {
-        "passWithNoTests": true,
-        "reportsDirectory": "../../coverage/libs/design-system"
-      }
-    },
     "storybook": {
       "executor": "@nx/storybook:storybook",
       "options": {
