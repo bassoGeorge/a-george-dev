@@ -1,4 +1,3 @@
-import { describe, expect } from 'vitest';
 import { mapKeys } from './ramda-additions';
 
 describe('mapKeys', () => {

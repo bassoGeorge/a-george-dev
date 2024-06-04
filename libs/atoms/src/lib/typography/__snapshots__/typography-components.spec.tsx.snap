@@ -1,6 +1,6 @@
-// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+// Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Typography > should add add correct styling for body types 1`] = `
+exports[`Typography should add add correct styling for body types 1`] = `
 <body>
   <div>
     <div>
@@ -39,7 +39,7 @@ exports[`Typography > should add add correct styling for body types 1`] = `
 </body>
 `;
 
-exports[`Typography > should add add correct styling for heading types 1`] = `
+exports[`Typography should add add correct styling for heading types 1`] = `
 <body>
   <div>
     <div>
@@ -78,7 +78,7 @@ exports[`Typography > should add add correct styling for heading types 1`] = `
 </body>
 `;
 
-exports[`Typography > should add add correct styling for interface types 1`] = `
+exports[`Typography should add add correct styling for interface types 1`] = `
 <body>
   <div>
     <div>

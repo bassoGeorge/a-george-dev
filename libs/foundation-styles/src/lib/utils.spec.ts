@@ -1,4 +1,3 @@
-import { describe, expect } from 'vitest';
 import { cssCase, toRem } from './utils';
 
 describe('Foundation Utils', () => {
