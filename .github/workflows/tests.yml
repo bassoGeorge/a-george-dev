@@ -24,4 +24,4 @@ jobs:
         with:
           NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
       - name: ⚡ Run Unit Tests for affected apps
-        run: yarn nx affected:test --base=${{ inputs.affected_base }} --head=${{ inputs.affected_head }}
+        run: yarn nx affected:test --passWithNoTests --base=${{ inputs.affected_base }} --head=${{ inputs.affected_head }}
