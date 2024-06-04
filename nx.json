@@ -65,10 +65,10 @@
     "@nx/react": {
       "application": {
         "babel": true,
-        "unitTestRunner": "vitest"
+        "unitTestRunner": "jest"
       },
       "library": {
-        "unitTestRunner": "vitest"
+        "unitTestRunner": "jest"
       }
     },
     "@nx/next": {

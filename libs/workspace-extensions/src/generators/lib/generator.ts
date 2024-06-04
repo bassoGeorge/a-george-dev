@@ -16,7 +16,7 @@ export default async function (tree: Tree, schema: LibSchema) {
     name: schema.name,
     linter: Linter.EsLint,
     bundler: 'vite',
-    unitTestRunner: 'vitest',
+    unitTestRunner: 'jest',
     buildable: true,
     style: 'none',
   } as const;
