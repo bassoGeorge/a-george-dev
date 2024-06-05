@@ -1,1 +1,1 @@
-import './stylesheets/colors.css';
+import './lib/tokens/colors.css';

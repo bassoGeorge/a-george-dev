@@ -4,9 +4,8 @@ Contains the foundational styles for the design system.
 
 The library is responsible for
 
-1. The vanilla extract stylesheets required for core styles
-2. The tailwind configuration generation
-3. Utilities and constants to be used with vanilla extract in other libs
+1. The tailwind configuration generation
+2. Global styles to be added for design system
 
 ### Notes
 
