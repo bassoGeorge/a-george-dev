@@ -26,29 +26,3 @@ export const Screens = {
   desktop: sc + minW(minBreakpoints.desktop),
   largeDesktop: sc + minW(minBreakpoints.largeDesktop),
 };
-
-/**
- * For Tailwind's plugin system, we need a flattened version of @media rule
- * So VE uses:
- * {
- *   @media: {
- *     <rule>: <styles>
- *   }
- * }
- * Tailwind would need
- * { '@media <rule>': <styles> }
- *
- * For that we transform the functions and return a new Media object for tailwind
- *
- * This is currently not being used, but we will keep it around for later
- */
-
-// const getInlineMediaQueryObject: (style: StyleRule) => CSSRuleObject = compose(
-//   mapKeys(concat('@media ')),
-//   (s: StyleRule) => s['@media']
-// );
-
-// export const TailwindMedia = mapObjIndexed(
-//   (fn) => compose(getInlineMediaQueryObject, fn),
-//   Media
-// );
