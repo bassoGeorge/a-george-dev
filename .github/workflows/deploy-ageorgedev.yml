@@ -19,9 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: ⬇️ Check out repository code
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
+        uses: actions/checkout@v4
       - name: 📦 Install dependencies
         uses: ./.github/actions/install-dependencies
         with:
