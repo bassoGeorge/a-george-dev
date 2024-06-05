@@ -5,17 +5,16 @@
   },
   "targetDefaults": {
     "build": {
-      "dependsOn": ["^build", "pre-build"],
+      "dependsOn": ["pre-build"],
       "inputs": ["production", "^production"],
       "cache": true
     },
     "pre-build": {
-      "dependsOn": ["^build"],
       "inputs": ["production", "^production"],
       "cache": true
     },
     "dev": {
-      "dependsOn": ["^build"]
+      "dependsOn": ["^pre-build"]
     },
     "start": {
       "dependsOn": ["build"]
