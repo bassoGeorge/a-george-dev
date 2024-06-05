@@ -11,22 +11,6 @@
       "options": {
         "lintFilePatterns": ["libs/brand-components/**/*.{ts,tsx,js,jsx}"]
       }
-    },
-    "build": {
-      "executor": "@nx/vite:build",
-      "outputs": ["{options.outputPath}"],
-      "defaultConfiguration": "production",
-      "options": {
-        "outputPath": "libs/brand-components/dist"
-      },
-      "configurations": {
-        "development": {
-          "mode": "development"
-        },
-        "production": {
-          "mode": "production"
-        }
-      }
     }
   }
 }
