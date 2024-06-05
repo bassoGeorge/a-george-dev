@@ -44,12 +44,12 @@ jobs:
         id: is_hotfix
         run: echo "is_hotfix=${{ fromJSON(steps.comm_check.outputs.data)[0] == null }}" >> "$GITHUB_OUTPUT"
       - name: ⬇️ Check out repository code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
       - name: 🔧 Derive appropriate SHAs for base and head for `nx affected` commands
         id: setSHAs
-        uses: nrwl/nx-set-shas@v3
+        uses: nrwl/nx-set-shas@v4
       - name: 📦 Install dependencies
         uses: ./.github/actions/install-dependencies
         with:
