@@ -1,0 +1,27 @@
+name: Remove Vercel preview app
+description: Delete a previously deployed preview app
+inputs:
+  VERCEL_ACCESS_TOKEN:
+    required: true
+    description: 'Token for Vercel authentication'
+  deploy_url:
+    required: true
+    description: 'Vercel url to promote'
+  VERCEL_PROJECT_NAME:
+    required: true
+    description: 'Vercel project name'
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Setup vercel
+      uses: ./.github/actions/setup-vercel-cli
+      with:
+        VERCEL_ACCESS_TOKEN: ${{ inputs.VERCEL_ACCESS_TOKEN }}
+        VERCEL_PROJECT_NAME: ${{ inputs.VERCEL_PROJECT_NAME }}
+    - name: Remove app
+      shell: bash
+      env:
+        VERCEL_ACCESS_TOKEN: ${{ inputs.VERCEL_ACCESS_TOKEN }}
+      run: |
+        vercel remove ${{ inputs.deploy_url }} --scope anish-georges-projects --token $VERCEL_ACCESS_TOKEN
