@@ -26,3 +26,24 @@ jobs:
     secrets:
       NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
       VERCEL_ACCESS_TOKEN: ${{ secrets.VERCEL_ACCESS_TOKEN }}
+  Save_Preview_URL:
+    needs: [Site_Preview]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Add comment to PR with deploy url
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: 'Preview URL: ${{ needs.Site_Preview.outputs.deploy_url }}'
+            })
+      - name: Save preview url to file
+        run: echo "${{ needs.Site_Preview.outputs.deploy_url }}" > deploy-url.txt
+      - name: Upload preview url as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: preview-url-${{ github.event.pull_request.number }}
+          path: deploy-url.txt
