@@ -6,6 +6,8 @@ on:
 jobs:
   Check:
     runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
     steps:
       - name: Add a comment to the PR
         uses: actions/github-script@v7
