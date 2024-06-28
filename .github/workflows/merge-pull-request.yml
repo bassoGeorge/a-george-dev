@@ -30,6 +30,8 @@ jobs:
 
             console.log("Preview URLs found:", previewUrls);
             return previewUrls
+      - name: ⬇️ Check out repository code
+        uses: actions/checkout@v4
       - name: Setup vercel
         uses: ./.github/actions/setup-vercel-cli
         with:
