@@ -1,11 +1,11 @@
-name: PR workflow
+name: Clean up PR
 on:
   pull_request:
     branches: [main]
+    types: [closed]
 
 jobs:
-  WIP:
-    needs: [Site_Preview]
+  Clean_Up:
     runs-on: ubuntu-latest
     steps:
       - name: List comments on the current issue
@@ -31,7 +31,7 @@ jobs:
             console.log("Preview URLs found:", previewUrls);
             return previewUrls
       - name: log out preview urls
-        run: echo "${{ steps.list-urls.outputs.result }}" | jq -r ".[]" | xargs -I {} echo "What are {} we"
+        run: echo "${{ fromJSON(steps.list-urls.outputs.result).previewUrls[0] }}"
 
   Info:
     # if: ${{ false }}
