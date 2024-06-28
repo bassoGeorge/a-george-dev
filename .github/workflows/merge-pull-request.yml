@@ -30,47 +30,13 @@ jobs:
 
             console.log("Preview URLs found:", previewUrls);
             return previewUrls
-      - name: log out preview urls
-        run: echo "${{ fromJSON(steps.list-urls.outputs.result).previewUrls[0] }}"
-
-  Info:
-    # if: ${{ false }}
-    uses: ./.github/workflows/info.yml
-    secrets:
-      NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
-  Run_Tests:
-    if: ${{ false }}
-    needs: [Info]
-    uses: ./.github/workflows/tests.yml
-    with:
-      affected_base: ${{ needs.Info.outputs.affected_base }}
-      affected_head: ${{ needs.Info.outputs.affected_head }}
-    secrets:
-      NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
-  Site_Preview:
-    # needs: [Run_Tests, Info]
-    needs: [Info]
-    if: needs.Info.outputs.should_deploy_site == 'true' || needs.Info.outputs.should_run_e2e == 'true'
-    uses: ./.github/workflows/deploy-ageorgedev.yml
-    with:
-      VERCEL_PROJECT_AGEORGEDEV: ${{ vars.VERCEL_PROJECT_AGEORGEDEV }}
-      production: false
-    secrets:
-      NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
-      VERCEL_ACCESS_TOKEN: ${{ secrets.VERCEL_ACCESS_TOKEN }}
-  Save_Preview_URL:
-    needs: [Site_Preview]
-    runs-on: ubuntu-latest
-    permissions:
-      pull-requests: write
-    steps:
-      - name: Add a comment to the PR
-        uses: actions/github-script@v7
+      - name: Setup vercel
+        uses: ./.github/actions/setup-vercel-cli
         with:
-          script: |
-            github.rest.issues.createComment({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: 'Preview URL: ${{ needs.Site_Preview.outputs.deploy_url }}'
-            })
+          VERCEL_ACCESS_TOKEN: ${{ secrets.VERCEL_ACCESS_TOKEN }}
+          VERCEL_PROJECT_NAME: ${{ vars.VERCEL_PROJECT_AGEORGEDEV }}
+      - name: Remove previews
+        shell: bash
+        env:
+          VERCEL_ACCESS_TOKEN: ${{ secrets.VERCEL_ACCESS_TOKEN }}
+        run: echo '${{ steps.list-urls.outputs.result }}' | jq -r ".[]" | xargs  vercel remove --scope anish-georges-projects --token $VERCEL_ACCESS_TOKEN --yes --safe
