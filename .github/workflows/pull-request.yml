@@ -4,7 +4,36 @@ on:
     branches: [main]
 
 jobs:
+  WIP:
+    runs-on: ubuntu-latest
+    steps:
+      - name: List comments on the current issue
+        uses: actions/github-script@v7
+        id: list-urls
+        with:
+          script: |
+            // Fetch all comments on the current issue
+            const { data: comments } = await github.rest.issues.listComments({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+            });
+
+            // Find and log comments with the format "Preview URL: <url>"
+            const previewUrls = comments
+              .map(comment => {
+                const match = comment.body.match(/Preview URL: (https?:\/\/\S+)/);
+                return match ? match[1] : null;
+              })
+              .filter(url => url !== null);
+
+            console.log("Preview URLs found:", previewUrls);
+            return { previewUrls: previewUrls }
+      - name: log out preview urls
+        run: echo "${{ steps.list-urls.outputs.previewUrls }}"
+
   Info:
+    if: ${{ false }}
     uses: ./.github/workflows/info.yml
     secrets:
       NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
@@ -18,8 +47,7 @@ jobs:
     secrets:
       NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
   Site_Preview:
-    # needs: [Run_Tests, Info]
-    needs: [Info]
+    needs: [Run_Tests, Info]
     if: needs.Info.outputs.should_deploy_site == 'true' || needs.Info.outputs.should_run_e2e == 'true'
     uses: ./.github/workflows/deploy-ageorgedev.yml
     with:
