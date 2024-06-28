@@ -1,0 +1,42 @@
+name: Clean up PR
+on:
+  pull_request:
+    branches: [main]
+    types: [closed]
+
+jobs:
+  Clean_Up:
+    runs-on: ubuntu-latest
+    steps:
+      - name: List comments on the current issue
+        uses: actions/github-script@v7
+        id: list-urls
+        with:
+          script: |
+            // Fetch all comments on the current issue
+            const { data: comments } = await github.rest.issues.listComments({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+            });
+
+            // Find and log comments with the format "Preview URL: <url>"
+            const previewUrls = comments
+              .map(comment => {
+                const match = comment.body.match(/Preview URL: (https?:\/\/\S+)/);
+                return match ? match[1] : null;
+              })
+              .filter(url => url !== null);
+
+            console.log("Preview URLs found:", previewUrls);
+            return previewUrls
+      - name: Setup vercel
+        uses: ./.github/actions/setup-vercel-cli
+        with:
+          VERCEL_ACCESS_TOKEN: ${{ secrets.VERCEL_ACCESS_TOKEN }}
+          VERCEL_PROJECT_NAME: ${{ vars.VERCEL_PROJECT_AGEORGEDEV }}
+      - name: Remove previews
+        shell: bash
+        env:
+          VERCEL_ACCESS_TOKEN: ${{ secrets.VERCEL_ACCESS_TOKEN }}
+        run: echo '${{ steps.list-urls.outputs.result }}' | jq -r ".[]" | xargs  vercel remove --scope anish-georges-projects --token $VERCEL_ACCESS_TOKEN --yes --safe
