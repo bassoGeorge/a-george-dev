@@ -28,9 +28,9 @@ jobs:
               .filter(url => url !== null);
 
             console.log("Preview URLs found:", previewUrls);
-            return JSON.stringify({ previewUrls: previewUrls })
+            return { previewUrls: previewUrls }
       - name: log out preview urls
-        run: echo "${{ fromJSON(steps.list-urls.outputs.result.previewUrls)[0] }}"
+        run: echo "${{ fromJSON(steps.list-urls.outputs.result).previewUrls[0] }}"
 
   Info:
     if: ${{ false }}
