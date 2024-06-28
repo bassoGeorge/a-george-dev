@@ -30,7 +30,7 @@ jobs:
             console.log("Preview URLs found:", previewUrls);
             return { previewUrls: previewUrls }
       - name: log out preview urls
-        run: echo "${{ steps.list-urls.outputs.previewUrls }}"
+        run: echo "${{ steps.list-urls.outputs.result.previewUrls }}"
 
   Info:
     if: ${{ false }}
