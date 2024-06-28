@@ -30,6 +30,8 @@ jobs:
 
             console.log("Preview URLs found:", previewUrls);
             return previewUrls
+      - name: ⬇️ Check out repository code
+        uses: actions/checkout@v4
       - name: Setup vercel
         uses: ./.github/actions/setup-vercel-cli
         with:
@@ -39,4 +41,4 @@ jobs:
         shell: bash
         env:
           VERCEL_ACCESS_TOKEN: ${{ secrets.VERCEL_ACCESS_TOKEN }}
-        run: echo '${{ steps.list-urls.outputs.result }}' | jq -r ".[]" | xargs  vercel remove --scope anish-georges-projects --token $VERCEL_ACCESS_TOKEN --yes --safe
+        run: echo '${{ steps.list-urls.outputs.result }}' | jq -r ".[]" | xargs  vercel remove --scope anish-georges-projects --token $VERCEL_ACCESS_TOKEN --yes
