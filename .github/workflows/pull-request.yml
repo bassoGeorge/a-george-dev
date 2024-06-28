@@ -9,7 +9,6 @@ jobs:
     secrets:
       NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
   Run_Tests:
-    if: ${{ false }}
     needs: [Info]
     uses: ./.github/workflows/tests.yml
     with:
