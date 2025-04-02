@@ -1,0 +1,14 @@
+local_backend: true
+backend:
+  name: git-gateway
+
+media_folder: 'apps/ageorgedev/public/images'
+public_folder: 'images'
+
+collections:
+  - name: 'test'
+    label: 'TEST'
+    folder: 'apps/ageorgedev/public/_test'
+    create: true
+    fields:
+      - { label: 'Cummon', name: 'Really', widget: 'string' }
