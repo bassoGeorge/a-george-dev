@@ -6,9 +6,11 @@ media_folder: 'apps/ageorgedev/public/images'
 public_folder: 'images'
 
 collections:
-  - name: 'test'
-    label: 'TEST'
-    folder: 'apps/ageorgedev/public/_test'
+  - name: 'blog'
+    label: 'Blog Posts'
+    label_singular: 'Blog Post'
+    folder: 'apps/ageorgedev/src/content/blogPosts'
     create: true
     fields:
-      - { label: 'Cummon', name: 'Really', widget: 'string' }
+      - { name: 'title', widget: 'string' }
+      - { name: 'body', widget: 'markdown' }
