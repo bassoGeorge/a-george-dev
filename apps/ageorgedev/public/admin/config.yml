@@ -1,0 +1,20 @@
+local_backend: true
+backend:
+  name: git-gateway
+
+media_folder: 'apps/ageorgedev/public/images'
+public_folder: 'images'
+
+collections:
+  - name: 'blog'
+    label: 'Blog Posts'
+    label_singular: 'Blog Post'
+    folder: 'apps/ageorgedev/src/content/blogPosts'
+    create: true
+    path: '{{title}}'
+    format: 'frontmatter'
+    extension: 'mdx'
+    fields:
+      - { name: 'title', widget: 'string' }
+      - { name: 'description', widget: 'text' }
+      - { name: 'body', widget: 'markdown' }
