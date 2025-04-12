@@ -1,12 +1,18 @@
+import { BodyMd, Heading1 } from '@ageorgedev/atoms';
+
+// TODO
 export async function generateStaticParams() {
-  return [{ slug: 'first-one' }, { slug: 'second-try' }];
+  return [{ slug: 'a-brave-new-world' }, { slug: 'serenity' }];
 }
 
 async function getPost(slug: string) {
-  const { react: MarkDown } = await import(
-    `../../../../content/blogPosts/${slug}.md`
+  const { default: MarkDown, frontmatter } = await import(
+    `../../../../content/blogPosts/${slug}.mdx`
   );
-  return MarkDown as React.ElementType;
+  return {
+    Post: MarkDown as React.ElementType,
+    frontmatter: frontmatter as Record<string, string>,
+  };
 }
 
 export default async function BlogPost({
@@ -14,10 +20,12 @@ export default async function BlogPost({
 }: {
   params: { slug: string };
 }) {
-  const Post = await getPost(params.slug);
+  const { Post, frontmatter } = await getPost(params.slug);
   return (
     <div>
-      Trying for Post
+      <Heading1>{frontmatter.title}</Heading1>
+      <BodyMd>{frontmatter.description}</BodyMd>
+
       <article>
         <Post />
       </article>

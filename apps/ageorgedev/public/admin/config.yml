@@ -12,6 +12,9 @@ collections:
     folder: 'apps/ageorgedev/src/content/blogPosts'
     create: true
     path: '{{title}}'
+    format: 'frontmatter'
+    extension: 'mdx'
     fields:
       - { name: 'title', widget: 'string' }
+      - { name: 'description', widget: 'text' }
       - { name: 'body', widget: 'markdown' }
