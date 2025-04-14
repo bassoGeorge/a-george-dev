@@ -1,8 +1,10 @@
 import { BodyMd, Heading1 } from '@ageorgedev/atoms';
+import { getPosts } from '../getPosts';
+import { map, pick } from 'ramda';
 
-// TODO
 export async function generateStaticParams() {
-  return [{ slug: 'a-brave-new-world' }, { slug: 'serenity' }];
+  const allPosts = await getPosts();
+  return map(pick(['slug']), allPosts);
 }
 
 async function getPost(slug: string) {
