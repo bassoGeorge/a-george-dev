@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "private": true,
-  "packageManager": "yarn@1.22.19",
+  "packageManager": "yarn@1.22.22",
   "scripts": {
     "dev": "nx dev ageorgedev",
     "test": "nx run-many --target=test --passWithNoTests",
@@ -101,10 +101,10 @@
     "tslib": "^2.3.0"
   },
   "engines": {
-    "node": ">=20.14.0"
+    "node": ">=22.14.0"
   },
   "volta": {
-    "node": "20.14.0",
+    "node": "22.14.0",
     "yarn": "1.22.22"
   }
 }
