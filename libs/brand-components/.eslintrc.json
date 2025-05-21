@@ -8,7 +8,9 @@
     "!**/*",
     "dist/**/*",
     "generated-src/**/*",
-    ".storybook/preview.js"
+    ".storybook/preview.js",
+    "**/vite.config.*.timestamp*",
+    "**/vitest.config.*.timestamp*"
   ],
   "overrides": [
     {
