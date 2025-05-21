@@ -64,6 +64,24 @@
       }
     },
     {
+      "files": ["*.ts", "*.tsx"],
+      "extends": ["plugin:@nx/typescript"],
+      "rules": {
+        "@typescript-eslint/no-empty-function": [
+          "error",
+          {
+            "allow": ["arrowFunctions"]
+          }
+        ],
+        "@typescript-eslint/ban-ts-comment": "off"
+      }
+    },
+    {
+      "files": ["*.js", "*.jsx"],
+      "extends": ["plugin:@nx/javascript"],
+      "rules": {}
+    },
+    {
       "files": "*.json",
       "parser": "jsonc-eslint-parser",
       "rules": {}

@@ -29,7 +29,6 @@ export default async function (tree: Tree, schema: LibSchema) {
 
   // Fix eslint
   updateJson(tree, `${projectConfig.root}/.eslintrc.json`, (config) => {
-    config.extends.push('../../.eslintrc.ts.json');
     config.ignorePatterns = [
       ...config.ignorePatterns,
       'dist/**/*',
