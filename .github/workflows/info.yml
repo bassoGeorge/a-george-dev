@@ -54,6 +54,12 @@ jobs:
         uses: ./.github/actions/install-dependencies
         with:
           NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
+      - name: Debug
+        run: |
+          echo "branches"
+          git branch -a
+          echo "head"
+          git log HEAD
       - name: 🔧 List affected projects
         id: affected_projects
         run: echo "affected_projects=$(yarn --silent nx show projects --affected --json)" >> "$GITHUB_OUTPUT"
