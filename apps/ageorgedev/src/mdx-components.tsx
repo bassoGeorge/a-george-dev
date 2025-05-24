@@ -1,5 +1,5 @@
 import type { MDXComponents } from 'mdx/types';
-import { Heading1, Heading2, Heading3 } from '@ageorgedev/atoms';
+import { Heading1, Heading2, Heading3, Heading4 } from '@ageorgedev/atoms';
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
@@ -7,5 +7,6 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     h1: Heading1,
     h2: Heading2,
     h3: Heading3,
+    h4: Heading4,
   };
 }
