@@ -1,33 +1,23 @@
 import { defineConfig } from 'vite';
 
-import viteTsConfigPaths from 'vite-tsconfig-paths';
+import * as path from 'path';
 import dts from 'vite-plugin-dts';
-import { join } from 'path';
 
 export default defineConfig({
+  root: __dirname,
   cacheDir: '../../node_modules/.vite/toolbelt',
 
   plugins: [
     dts({
       entryRoot: 'src',
-      tsConfigFilePath: join(__dirname, 'tsconfig.lib.json'),
-      skipDiagnostics: true,
-    }),
-
-    viteTsConfigPaths({
-      root: '../../',
+      tsconfigPath: path.join(__dirname, 'tsconfig.lib.json'),
     }),
   ],
 
   // Uncomment this if you are using workers.
   // worker: {
-  //  plugins: [
-  //    viteTsConfigPaths({
-  //      root: '../../',
-  //    }),
-  //  ],
+  //  plugins: [ nxViteTsPaths() ],
   // },
-
   // Configuration for building your library.
   // See: https://vitejs.dev/guide/build.html#library-mode
   build: {

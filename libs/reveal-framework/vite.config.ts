@@ -1,32 +1,19 @@
-import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
-import viteTsConfigPaths from 'vite-tsconfig-paths';
+import * as path from 'path';
+import { defineConfig } from 'vite';
 import dts from 'vite-plugin-dts';
-import { join } from 'path';
 
 export default defineConfig({
+  root: __dirname,
   cacheDir: '../../node_modules/.vite/reveal-framework',
 
   plugins: [
     dts({
       entryRoot: 'src',
-      tsConfigFilePath: join(__dirname, 'tsconfig.lib.json'),
-      skipDiagnostics: true,
+      tsconfigPath: path.join(__dirname, 'tsconfig.lib.json'),
     }),
     react(),
-    viteTsConfigPaths({
-      root: '../../',
-    }),
   ],
-
-  // Uncomment this if you are using workers.
-  // worker: {
-  //  plugins: [
-  //    viteTsConfigPaths({
-  //      root: '../../',
-  //    }),
-  //  ],
-  // },
 
   // Configuration for building your library.
   // See: https://vitejs.dev/guide/build.html#library-mode

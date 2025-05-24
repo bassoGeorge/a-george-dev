@@ -31,7 +31,7 @@ export function HomeAboveFold() {
             Architecting web experiences since 2016
           </Heading4>
         </div>
-        <div className="flex gap-3 justify-end mt-5">
+        <div className="flex gap-3 justify-center tablet:justify-end mt-5">
           <a
             href="https://github.com/bassoGeorge"
             target="_blank"

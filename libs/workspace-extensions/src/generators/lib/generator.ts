@@ -6,7 +6,6 @@ import {
   updateJson,
 } from '@nx/devkit';
 import { libraryGenerator as plainLibGenerator } from '@nx/js';
-import { Linter } from '@nx/eslint';
 import { libraryGenerator as reactLibGenerator } from '@nx/react';
 import * as path from 'path';
 import { LibSchema } from './schema';
@@ -14,11 +13,12 @@ import { LibSchema } from './schema';
 export default async function (tree: Tree, schema: LibSchema) {
   const libGeneratorSchema = {
     name: schema.name,
-    linter: Linter.EsLint,
+    linter: 'eslint',
     bundler: 'vite',
     unitTestRunner: 'jest',
     buildable: true,
     style: 'none',
+    directory: `libs/${schema.name}`,
   } as const;
 
   const generator = schema.react ? reactLibGenerator : plainLibGenerator;
@@ -29,7 +29,6 @@ export default async function (tree: Tree, schema: LibSchema) {
 
   // Fix eslint
   updateJson(tree, `${projectConfig.root}/.eslintrc.json`, (config) => {
-    config.extends.push('../../.eslintrc.ts.json');
     config.ignorePatterns = [
       ...config.ignorePatterns,
       'dist/**/*',

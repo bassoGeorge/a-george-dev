@@ -5,3 +5,4 @@
 /apps/cms/schema*
 
 /.nx/cache
+/.nx/workspace-data

@@ -1,31 +1,17 @@
-import { join } from 'path';
+import * as path from 'path';
 import { defineConfig } from 'vite';
 import dts from 'vite-plugin-dts';
-import viteTsConfigPaths from 'vite-tsconfig-paths';
 
 export default defineConfig({
+  root: __dirname,
   cacheDir: '../../node_modules/.vite/foundation-styles',
 
   plugins: [
     dts({
       entryRoot: 'src',
-      tsConfigFilePath: join(__dirname, 'tsconfig.lib.json'),
-      skipDiagnostics: true,
-    }),
-
-    viteTsConfigPaths({
-      root: '../../',
+      tsconfigPath: path.join(__dirname, 'tsconfig.lib.json'),
     }),
   ],
-
-  // Uncomment this if you are using workers.
-  // worker: {
-  //  plugins: [
-  //    viteTsConfigPaths({
-  //      root: '../../',
-  //    }),
-  //  ],
-  // },
 
   // Configuration for building your library.
   // See: https://vitejs.dev/guide/build.html#library-mode

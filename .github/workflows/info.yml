@@ -15,7 +15,7 @@ on:
         description: 'Head sha for nx:affected'
         value: ${{ jobs.Info.outputs.affected_head }}
       affected_projects:
-        description: 'Comma space separated list of affected projects as a single string'
+        description: 'JSON array of affected projects'
         value: ${{ jobs.Info.outputs.affected_projects }}
       should_run_e2e:
         description: 'Whether to run the e2e because of e2e change'

@@ -17,7 +17,7 @@ nx g @ageorgedev/workspace-extensions:lib <name>
 #### Make a React lib
 
 ```shell
-nx g @ageorgedev/workspace-extensions:lib --react <name>
+nx g @ageorgedev/workspace-extensions:lib <name> --react
 ```
 
 ##### Additional steps

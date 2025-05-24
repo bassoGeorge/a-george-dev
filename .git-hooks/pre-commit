@@ -3,6 +3,7 @@
 # This makes sure that if any simple command (straightforward commands not under any expression) fails,
 # The whole script immediately fails
 set -e
+export NX_TUI=false
 
 # Step 0: Remember all the files that are not staged for this commit, comes in later
 UNSTAGED_FILES=$(git diff --name-only)
