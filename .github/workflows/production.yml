@@ -16,9 +16,20 @@ jobs:
       affected_projects: ${{ needs.Info.outputs.affected_projects }}
     secrets:
       NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
-  Deploy:
+  # duplicating cause there is no clean way to conditionally put needs or else conditionally skip the run tests
+  Deploy_Hotfix:
     needs: [Run_Tests, Info]
-    if: needs.Info.outputs.should_deploy_site == 'true'
+    if: ${{ needs.Info.outputs.should_deploy_site == 'true' && needs.Info.outputs.is_hotfix == 'true' }}
+    uses: ./.github/workflows/deploy-ageorgedev.yml
+    with:
+      VERCEL_PROJECT_AGEORGEDEV: ${{ vars.VERCEL_PROJECT_AGEORGEDEV }}
+      production: true
+    secrets:
+      NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
+      VERCEL_ACCESS_TOKEN: ${{ secrets.VERCEL_ACCESS_TOKEN }}
+  Deploy:
+    needs: [Info]
+    if: ${{ needs.Info.outputs.should_deploy_site == 'true' && needs.Info.outputs.is_hotfix == 'false' }}
     uses: ./.github/workflows/deploy-ageorgedev.yml
     with:
       VERCEL_PROJECT_AGEORGEDEV: ${{ vars.VERCEL_PROJECT_AGEORGEDEV }}
