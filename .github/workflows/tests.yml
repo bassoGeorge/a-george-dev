@@ -2,10 +2,7 @@ name: 🧪 Tests
 on:
   workflow_call:
     inputs:
-      affected_base:
-        required: true
-        type: string
-      affected_head:
+      affected_projects:
         required: true
         type: string
     secrets:
@@ -21,5 +18,5 @@ jobs:
         uses: ./.github/actions/install-dependencies
         with:
           NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
-      - name: ⚡ Run Unit Tests for affected apps
-        run: yarn nx affected:test --passWithNoTests --base=${{ inputs.affected_base }} --head=${{ inputs.affected_head }}
+      - name: ⚡ Run Unit Tests for given projects
+        run: echo '${{ inputs.affected_projects }}' | jq -r '.[]' | xargs yarn nx run-many --target=test --passWithNoTests --projects

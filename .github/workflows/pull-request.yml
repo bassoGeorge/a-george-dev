@@ -12,8 +12,7 @@ jobs:
     needs: [Info]
     uses: ./.github/workflows/tests.yml
     with:
-      affected_base: ${{ needs.Info.outputs.affected_base }}
-      affected_head: ${{ needs.Info.outputs.affected_head }}
+      affected_projects: ${{ needs.Info.outputs.affected_projects }}
     secrets:
       NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
   Site_Preview:
