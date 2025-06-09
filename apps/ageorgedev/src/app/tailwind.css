@@ -3,7 +3,7 @@
 @tailwind utilities; */
 @import 'tailwindcss';
 
-// TODO: https://github.com/tailwindlabs/tailwindcss/issues/13136#issuecomment-2424798055
+/* TODO: https://github.com/tailwindlabs/tailwindcss/issues/13136#issuecomment-2424798055 */
 
 @layer base {
   body {
