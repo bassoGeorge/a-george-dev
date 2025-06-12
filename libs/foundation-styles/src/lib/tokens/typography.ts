@@ -1,6 +1,6 @@
 import { toRem } from '../utils';
 import { map } from 'ramda';
-import type { ThemeConfig } from 'tailwindcss/types/config';
+// import type { ThemeConfig } from 'tailwindcss/types/config';
 
 //                   xs  sm   .  md  lg  xl 2xl 3xl 4xl 5xl 6xl
 //                    0   1   2   3   4   5   6   7   8   9  10
@@ -21,13 +21,13 @@ export const LineHeight = {
   normal: '1.2',
   relaxed: '1.25',
   loose: '1.6',
-} satisfies ThemeConfig['lineHeight'];
+}; // satisfies ThemeConfig['lineHeight'];
 
 export const LetterSpacing = {
   normal: '0',
   wide: '0.01em',
   wider: '0.02em',
-} satisfies ThemeConfig['letterSpacing'];
+}; // satisfies ThemeConfig['letterSpacing'];
 
 export const FontSize = {
   '6xl': [remScale[10], '1.05'],
@@ -53,4 +53,4 @@ export const FontSize = {
       letterSpacing: LetterSpacing.wider,
     },
   ],
-} satisfies ThemeConfig['fontSize'];
+}; // satisfies ThemeConfig['fontSize'];

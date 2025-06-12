@@ -1,4 +1,3 @@
-import '@ageorgedev/foundation-styles/globals';
 import Head from 'next/head';
 import './tailwind.css';
 import { GlobalProviders } from './GlobalProviders';

@@ -1,3 +1,4 @@
+@import 'tailwindcss';
 @import './lib/tokens/colors-new.css';
 @import './lib/tokens/typography.css';
 @import './lib/tokens/spacing.css';

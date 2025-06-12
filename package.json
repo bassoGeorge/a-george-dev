@@ -91,6 +91,7 @@
     "@nx/plugin": "21.1.0",
     "@phosphor-icons/react": "^2.0.6",
     "@storybook/addon-interactions": "^8.2.8",
+    "@tailwindcss/postcss": "^4.1.10",
     "@types/mdx": "^2.0.13",
     "next": "14.2.29",
     "param-case": "^3.0.4",

@@ -4,18 +4,6 @@
   "sourceRoot": "libs/foundation-styles/src",
   "projectType": "library",
   "targets": {
-    "pre-build": {
-      "executor": "nx:run-commands",
-      "outputs": ["{projectRoot}/generated-src"],
-      "inputs": [
-        "{projectRoot}/src/lib/**/*",
-        "{projectRoot}/scripts/generate-tailwind-theme.ts"
-      ],
-      "options": {
-        "cwd": "libs/foundation-styles",
-        "commands": ["ts-node scripts/generate-tailwind-theme.ts"]
-      }
-    },
     "build": {
       "executor": "@nx/vite:build",
       "outputs": ["{options.outputPath}"],

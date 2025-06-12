@@ -1,1 +1,1 @@
-import './lib/tokens/colors-new.css';
+import './lib/tokens/colors.css';

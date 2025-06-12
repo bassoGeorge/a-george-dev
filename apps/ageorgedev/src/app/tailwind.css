@@ -1,7 +1,9 @@
-/* @tailwind base;
-@tailwind components;
-@tailwind utilities; */
 @import 'tailwindcss';
+@import '@ageorgedev/foundation-styles/theme.css';
+
+.test-bullshit {
+  color: black;
+}
 
 /* TODO: https://github.com/tailwindlabs/tailwindcss/issues/13136#issuecomment-2424798055 */
 
