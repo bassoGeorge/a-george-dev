@@ -16,6 +16,7 @@ const maxHeightBreakpoints = {
   phoneLandscape: 500,
 };
 
+// TODO: Remove these once we have a proper responsive system
 export const Screens = {
   phoneOnly: sc + maxW(minBreakpoints.tablet - 1),
   phoneLandscapeOnly: sc + maxH(maxHeightBreakpoints.phoneLandscape),

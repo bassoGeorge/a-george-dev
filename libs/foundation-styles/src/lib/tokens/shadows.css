@@ -1,0 +1,6 @@
+/* not sure if inline is required  */
+@theme {
+  --shadow-near: 0 2px 4px var(--color-cc-shadow-near);
+  --shadow-default: 0 4px 8px var(--color-cc-shadow);
+  --shadow-far: 0 6px 12px var(--color-cc-shadow-far);
+}
