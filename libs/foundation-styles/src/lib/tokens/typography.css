@@ -7,6 +7,8 @@
   --font-code: var(--typeface-source-code-pro);
 
   /* Font Sizes */
+  --text-*: initial;
+
   --text-xs: 0.75rem; /* 12px */
   --text-xs--line-height: 1.6;
   --text-xs--letter-spacing: 0.02em;
