@@ -1,9 +1,10 @@
 @theme {
   /* Typography Families */
-  --font-heading: 'Alegreya, ui-serif, serif';
-  --font-interface: "'Alegreya Sans SC', ui-sans-serif, system-ui, sans-serif";
-  --font-body: "'Alegreya Sans', ui-sans-serif, system-ui, sans-serif";
-  --font-code: "'Source Code Pro', ui-monospace, monospace";
+
+  --font-heading: var(--typeface-alegreya);
+  --font-interface: var(--typeface-alegreya-sans-sc);
+  --font-body: var(--typeface-alegreya-sans);
+  --font-code: var(--typeface-source-code-pro);
 
   /* Font Sizes */
   --text-xs: 0.75rem; /* 12px */
