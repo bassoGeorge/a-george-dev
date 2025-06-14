@@ -13,12 +13,12 @@
     height: 100dvh;
   }
 
-  @media screen(tablet) {
+  @media (width >= theme(--breakpoint-tablet)) {
     grid-template-columns: 4fr 3fr;
     grid-template-rows: 1fr max-content;
   }
 
-  @media screen(desktop) {
+  @media (width >= theme(--breakpoint-desktop)) {
     --skew-deg: 2deg;
     grid-template-columns: 5fr 3fr;
   }
@@ -51,7 +51,7 @@
     box-shadow: -4px 4px var(--color-rc-shadow-1);
     border-left: var(--spacing-medium-line) solid var(--color-cc-line-dark);
   }
-  @media screen(tablet) {
+  @media (width >= theme(--breakpoint-tablet)) {
     --bg: var(--color-cc-page-1);
     &::before {
       content: '';

@@ -5,7 +5,7 @@
     color: yellow;
   }
 
-  @media screen(tablet) {
+  @media (width >= theme(--breakpoint-tablet)) {
     color: #ff00ff;
   }
 }
