@@ -1,3 +1,5 @@
+@reference "@ageorgedev/foundation-styles/theme.css";
+
 .paper {
   @apply relative before:inset-0 before:absolute;
 

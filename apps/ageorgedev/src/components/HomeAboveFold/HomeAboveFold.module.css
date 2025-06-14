@@ -1,3 +1,5 @@
+@reference "@ageorgedev/foundation-styles/theme.css";
+
 .container {
   --skew-deg: 3deg;
   --n-skew-deg: calc(var(--skew-deg) * -1);
