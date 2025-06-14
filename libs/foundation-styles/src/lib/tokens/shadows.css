@@ -1,6 +1,12 @@
-/* not sure if inline is required  */
 @theme {
+  --shadow-*: initial;
+  --drop-shadow-*: initial;
+
+  --drop-shadow-near: 2px 4px var(--color-cc-shadow-near);
+  --drop-shadow-normal: 4px 8px var(--color-cc-shadow);
+  --drop-shadow-far: 6px 12px var(--color-cc-shadow-far);
+
   --shadow-near: 0 2px 4px var(--color-cc-shadow-near);
-  --shadow-default: 0 4px 8px var(--color-cc-shadow);
+  --shadow-normal: 0 4px 8px var(--color-cc-shadow);
   --shadow-far: 0 6px 12px var(--color-cc-shadow-far);
 }

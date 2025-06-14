@@ -43,6 +43,8 @@
   --color-rc-shadow-4: rgb(0 0 0 / 0.8);
   --color-rc-shadow-5: rgb(0 0 0);
 
+  --color-rc-black: rgb(0 0 0);
+
   --color-rc-line-main: hsl(189 67% 6%);
   --color-rc-line-inverse: hsl(83 5% 46%);
 
@@ -66,7 +68,7 @@
   --color-cc-neutral-inverse-subtlest: var(--color-rc-l-neutral-200);
 
   --color-cc-shadow-far: var(--color-rc-shadow-2);
-  --color-cc-shadow: var(--color-rc-shadow-3);
+  --color-cc-shadow-normal: var(--color-rc-shadow-3);
   --color-cc-shadow-near: var(--color-rc-shadow-4);
 
   --color-cc-line: var(--color-rc-line-main);
@@ -99,7 +101,7 @@
   --color-cc-neutral-inverse-subtlest: var(--color-rc-d-neutral-200);
 
   --color-cc-shadow-far: var(--color-rc-shadow-3);
-  --color-cc-shadow: var(--color-rc-shadow-4);
+  --color-cc-shadow-normal: var(--color-rc-shadow-4);
   --color-cc-shadow-near: var(--color-rc-shadow-5);
 
   --color-cc-line: var(--color-rc-line-inverse);

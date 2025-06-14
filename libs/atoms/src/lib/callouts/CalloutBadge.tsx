@@ -17,7 +17,7 @@ export function CalloutBadge({
   const typeClasses = StyleClasses[type ?? 'info1'];
   return (
     <div className={`${className ?? 'inline-block p-5'}`}>
-      <div className="drop-shadow">
+      <div className="drop-shadow-normal">
         <div
           className={`
             flex flex-col justify-center items-center gap-1 
