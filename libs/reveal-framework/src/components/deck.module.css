@@ -7,10 +7,10 @@
     top: 0;
     width: 2px;
     height: 100%;
-    background-color: theme(colors.cc-line);
+    background-color: var(--color-cc-line);
   }
 }
 
 .slideHeaderGrid {
-  grid-template-rows: minmax(10%, theme(spacing.10)) minmax(0, 1fr);
+  grid-template-rows: minmax(10%, var(--spacing-10)) minmax(0, 1fr);
 }

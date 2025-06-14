@@ -4,7 +4,7 @@
 
   grid-template-columns: 1fr;
   grid-template-rows: 3fr 2fr max-content;
-  color: theme(colors.cc-neutral);
+  color: var(--color-cc-neutral);
   height: 100vh;
 
   @supports (height: 100dvh) {
@@ -23,7 +23,7 @@
 }
 
 .nameSection {
-  background-color: theme(colors.cc-page-0);
+  background-color: var(--color-cc-page-0);
 }
 
 .paper {
@@ -39,18 +39,18 @@
 }
 
 .subTextSection {
-  --bg: theme(colors.cc-page-0);
+  --bg: var(--color-cc-page-0);
   z-index: 1;
   &::before {
     content: unset;
     top: -5px;
     transform: skew(var(--n-skew-deg), var(--skew-deg));
     transform-origin: top left;
-    box-shadow: -4px 4px theme(colors.rc-shadow-1);
-    border-left: theme(spacing.medium-line) solid theme(colors.cc-line-dark);
+    box-shadow: -4px 4px var(--color-rc-shadow-1);
+    border-left: var(--spacing-medium-line) solid var(--color-cc-line-dark);
   }
   @media screen(tablet) {
-    --bg: theme(colors.cc-page-1);
+    --bg: var(--color-cc-page-1);
     &::before {
       content: '';
     }
@@ -58,15 +58,15 @@
 }
 
 .conSection {
-  --bg: theme(colors.cc-page-2);
+  --bg: var(--color-cc-page-2);
   z-index: 2;
 
   &::before {
     right: -5px;
     transform: skew(0deg, var(--skew-deg)) scaleY(2);
     transform-origin: top right;
-    box-shadow: -4px -8px theme(colors.rc-shadow-2);
-    border-top: theme(spacing.thick-line) solid theme(colors.cc-line-dark);
+    box-shadow: -4px -8px var(--color-rc-shadow-2);
+    border-top: var(--spacing-thick-line) solid var(--color-cc-line-dark);
   }
 }
 
