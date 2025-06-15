@@ -1,4 +1,5 @@
-const { join } = require('path');
+const { join, resolve } = require('path');
+const { mergeConfig } = require('vite');
 
 const fileGlob = 'src/lib/**/*.stories.@(js|jsx|ts|tsx|mdx)';
 const projects = ['atoms', 'molecules', 'foundation-styles'];
@@ -19,6 +20,25 @@ const config = {
         viteConfigPath: 'libs/design-system/vite.config.ts',
       },
     },
+  },
+  viteFinal: async (config) => {
+    return mergeConfig(config, {
+      resolve: {
+        // Some weird bug with the storybook vite builder, so we need to alias the paths to the correct files instead of relying on the tsconfig
+        // only happens for stories within this project
+        alias: {
+          '@ageorgedev/atoms': resolve(__dirname, '../../atoms/src/index.ts'),
+          '@ageorgedev/foundation-styles': resolve(
+            __dirname,
+            '../../foundation-styles/src/index.ts'
+          ),
+          '@ageorgedev/molecules': resolve(
+            __dirname,
+            '../../molecules/src/index.ts'
+          ),
+        },
+      },
+    });
   },
 };
 
