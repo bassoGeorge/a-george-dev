@@ -1,9 +1,4 @@
 import './storybook.css';
-import '../../foundation-styles/src/globals';
-import {
-  RawColors,
-  RAW_COLORS_DIRECT_DO_NOT_USE,
-} from '@ageorgedev/foundation-styles';
 
 export const parameters = {
   themes: {
@@ -12,12 +7,12 @@ export const parameters = {
       {
         name: 'light',
         class: 'light',
-        color: RAW_COLORS_DIRECT_DO_NOT_USE.parchment[500],
+        color: 'hsl(39, 100%, 89%)',
       },
       {
         name: 'dark',
         class: 'dark',
-        color: RAW_COLORS_DIRECT_DO_NOT_USE.timber[500],
+        color: 'hsl(189, 67%, 6%)',
       },
     ],
     target: 'root',

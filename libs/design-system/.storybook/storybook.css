@@ -1,9 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:wght@500;800&family=Alegreya+Sans:ital,wght@0,100;0,400;0,700;1,100;1,400;1,700&family=Alegreya:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Source+Code+Pro&display=swap');
-
-@reference '@ageorgedev/foundation-styles/theme.css';
+@import 'tailwindcss';
+@import '@ageorgedev/foundation-styles/theme.css';
 
 @layer base {
   body {
     @apply text-base text-cc-neutral bg-cc-page-0;
+  }
+  :root {
+    --typeface-alegreya-sans-sc: 'Alegreya Sans SC', sans-serif;
+    --typeface-alegreya-sans: 'Alegreya Sans', sans-serif;
+    --typeface-alegreya: 'Alegreya', serif;
+    --typeface-source-code-pro: 'Source Code Pro', monospace;
   }
 }
