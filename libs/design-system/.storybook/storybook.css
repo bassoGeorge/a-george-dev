@@ -3,10 +3,13 @@
 @import 'tailwindcss';
 @import '../../foundation-styles/src/theme.css';
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @layer base {
   body {
     @apply text-base text-cc-neutral bg-cc-page-0;
   }
+
   :root {
     --typeface-alegreya-sans-sc: 'Alegreya Sans SC', sans-serif;
     --typeface-alegreya-sans: 'Alegreya Sans', sans-serif;

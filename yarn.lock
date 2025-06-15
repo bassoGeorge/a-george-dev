@@ -3107,6 +3107,13 @@
   dependencies:
     "@sinonjs/commons" "^3.0.0"
 
+"@storybook/addon-themes@^9.0.9":
+  version "9.0.9"
+  resolved "https://registry.yarnpkg.com/@storybook/addon-themes/-/addon-themes-9.0.9.tgz#a083cb34cf08ff59144eb8253980f7872a2076dd"
+  integrity sha512-gNUOZCETW0LZtmbUsqfqMPHSgeUyer8spswLmXgQnRPgO+GEnDhWvtpybwyBIgcGCubRAUEVClTkoQ3svbLTwQ==
+  dependencies:
+    ts-dedent "^2.0.0"
+
 "@storybook/addons@^6.0.0":
   version "6.5.16"
   resolved "https://registry.yarnpkg.com/@storybook/addons/-/addons-6.5.16.tgz#07e8f2205f86fa4c9dada719e3e096cb468e3cdd"

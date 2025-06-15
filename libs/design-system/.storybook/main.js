@@ -11,7 +11,7 @@ const config = {
   ],
   addons: [
     { name: '@storybook/addon-essentials', options: { backgrounds: false } },
-    'storybook-addon-themes',
+    '@storybook/addon-themes',
   ],
   framework: {
     name: '@storybook/react-vite',
