@@ -27,7 +27,7 @@ export function TiltCard({
     <div
       {...htmlProps}
       className={`
-      drop-shadow
+      drop-shadow-normal
       ${skewClass}
       ${skewStrengthClass}
       ${interC} 

@@ -33,7 +33,7 @@ export function S06Plugins() {
       >
         <div className="flex gap-7 items-start">
           <CodeBlock lang="css" text={layerStylesCss} fontSize="small" />
-          <div className="flex flex-col gap-6 items-start max-w-[min-content] text-left">
+          <div className="flex flex-col gap-6 items-start max-w-min text-left">
             <PBody className="fragment">
               <em>@layer</em> moves your css into the right spot within tailwind
               stylesheet

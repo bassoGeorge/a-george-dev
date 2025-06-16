@@ -1,6 +1,8 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss' source('../../../../');
+@import '@ageorgedev/foundation-styles/theme.css';
+
+/* TODO: https://github.com/tailwindlabs/tailwindcss/issues/13136#issuecomment-2424798055 */
+@custom-variant dark (&:where(.dark, .dark *));
 
 @layer base {
   body {

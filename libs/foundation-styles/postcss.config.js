@@ -1,3 +1,5 @@
+// const { join } = require('path');
+
 // Note: If you use library-specific PostCSS/Tailwind configuration then you should remove the `postcssConfig` build
 // option from your application's configuration (i.e. project.json).
 //
@@ -5,6 +7,10 @@
 
 module.exports = {
   plugins: {
+    // tailwindcss: {
+    //   config: join(__dirname, 'tailwind.config.js'),
+    // },
+    // autoprefixer: {},
     'postcss-nesting': {},
     '@tailwindcss/postcss': {},
   },

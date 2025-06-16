@@ -1,2 +1,2 @@
 /** Nothing is exported for JS from this library,
- * use the globals for side-effect stylesheets */
+ * use the theme.css file for side-effect stylesheets */

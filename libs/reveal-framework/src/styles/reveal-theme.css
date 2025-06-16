@@ -1,3 +1,5 @@
+@reference "@ageorgedev/foundation-styles/theme.css";
+
 .reveal {
   @apply bg-cc-page-1 text-cc-neutral;
 

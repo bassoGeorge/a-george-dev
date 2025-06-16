@@ -1,7 +1,37 @@
-import '@ageorgedev/foundation-styles/globals';
 import Head from 'next/head';
 import './tailwind.css';
 import { GlobalProviders } from './GlobalProviders';
+import {
+  Alegreya_Sans_SC,
+  Alegreya_Sans,
+  Alegreya,
+  Source_Code_Pro,
+} from 'next/font/google';
+
+const alegreyaSansSC = Alegreya_Sans_SC({
+  weight: ['500', '800'],
+  subsets: ['latin'],
+  variable: '--typeface-alegreya-sans-sc',
+});
+
+const alegreyaSans = Alegreya_Sans({
+  weight: ['100', '400', '700'],
+  style: ['normal', 'italic'],
+  subsets: ['latin'],
+  variable: '--typeface-alegreya-sans',
+});
+
+const alegreya = Alegreya({
+  weight: ['400', '500', '700'],
+  style: ['normal', 'italic'],
+  subsets: ['latin'],
+  variable: '--typeface-alegreya',
+});
+
+const sourceCodePro = Source_Code_Pro({
+  subsets: ['latin'],
+  variable: '--typeface-source-code-pro',
+});
 
 export const metadata = {
   title: 'Welcome to ageorgedev',
@@ -14,19 +44,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html
+      lang="en"
+      className={`${alegreyaSansSC.variable} ${alegreyaSans.variable} ${alegreya.variable} ${sourceCodePro.variable}`}
+    >
       <Head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:wght@500;800&family=Alegreya+Sans:ital,wght@0,100;0,400;0,700;1,100;1,400;1,700&family=Alegreya:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Source+Code+Pro&display=swap"
-        />
-
         <link rel="icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/site.webmanifest" />

@@ -11,6 +11,7 @@
     "./tailwind": {
       "import": "./dist/tailwind.mjs",
       "require": "./dist/tailwind.js"
-    }
+    },
+    "./theme.css": "./src/theme.css"
   }
 }

@@ -1,0 +1,14 @@
+@theme {
+  --breakpoint-*: initial;
+  --breakpoint-tablet: 600px;
+  --breakpoint-tablet-landscape: 900px;
+  --breakpoint-desktop: 1200px;
+  --breakpoint-large-desktop: 1800px;
+  --breakpoint-phone-landscape-height: 500px;
+}
+
+/** 
+ * Looks like tailwind v4 does not support the kind of flexibility
+ * that was earlier being used wrt to any kind of breakpoints. 
+ * Need to fix that soon
+ */

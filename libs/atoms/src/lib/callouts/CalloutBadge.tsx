@@ -17,14 +17,14 @@ export function CalloutBadge({
   const typeClasses = StyleClasses[type ?? 'info1'];
   return (
     <div className={`${className ?? 'inline-block p-5'}`}>
-      <div className="drop-shadow">
+      <div className="drop-shadow-normal">
         <div
           className={`
             flex flex-col justify-center items-center gap-1 
             relative h-10 w-10 -rotate-12 
             before:absolute
             before:inset-0
-            before:-z-[1]
+            before:-z-1
             before:rotate-45
             ${typeClasses}`}
         >

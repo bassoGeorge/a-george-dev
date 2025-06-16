@@ -1,3 +1,5 @@
+@reference "@ageorgedev/foundation-styles/theme.css";
+
 .myCustomStuff {
   text-decoration: underline;
 }
@@ -34,16 +36,16 @@
 }
 
 .skew-light {
-  --delta: theme(spacing.1);
+  --delta: var(--spacing-1);
 }
 
 .skew-medium {
-  --delta: theme(spacing.2);
+  --delta: var(--spacing-2);
 }
 
 .skew-heavy {
   /** SP */
-  --delta: theme(spacing.4);
+  --delta: var(--spacing-4);
 }
 
 .interactive {
