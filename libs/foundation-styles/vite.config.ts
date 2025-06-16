@@ -24,7 +24,6 @@ export default defineConfig({
       // fileName: 'index',
       entry: {
         index: 'src/index.ts',
-        globals: 'src/globals.ts',
       },
       // Change this to the formats you want to support.
       // Don't forgot to update your package.json as well.
