@@ -134,7 +134,7 @@ export const ContextualColors: Story = {
 
       <InterfaceMd>Shadow</InterfaceMd>
       <Swatch bgClass="bg-cc-shadow-far" />
-      <Swatch bgClass="bg-cc-shadow" textClass={rTInverse} />
+      <Swatch bgClass="bg-cc-shadow-normal" textClass={rTInverse} />
       <Swatch bgClass="bg-cc-shadow-near" textClass={rTInverse} />
       <div />
       <div />

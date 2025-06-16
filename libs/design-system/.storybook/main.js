@@ -9,10 +9,8 @@ const config = {
     join(__dirname, '../', fileGlob),
     ...projects.map((project) => join(__dirname, '../../', project, fileGlob)),
   ],
-  addons: [
-    { name: '@storybook/addon-essentials', options: { backgrounds: false } },
-    '@storybook/addon-themes',
-  ],
+  addons: ['@storybook/addon-themes'],
+  features: { backgrounds: false },
   framework: {
     name: '@storybook/react-vite',
     options: {
