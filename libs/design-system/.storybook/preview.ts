@@ -1,7 +1,8 @@
 import './storybook.css';
 import { withThemeByClassName } from '@storybook/addon-themes';
+import type { Preview } from '@storybook/react-vite';
 
-const preview = {
+const preview: Preview = {
   decorators: [
     withThemeByClassName({
       themes: {

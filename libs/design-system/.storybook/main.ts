@@ -1,10 +1,11 @@
-const { join, resolve } = require('path');
-const { mergeConfig } = require('vite');
+import { join, resolve } from 'path';
+import { mergeConfig } from 'vite';
+import type { StorybookConfig } from '@storybook/react-vite';
 
 const fileGlob = 'src/lib/**/*.stories.@(js|jsx|ts|tsx|mdx)';
 const projects = ['atoms', 'molecules', 'foundation-styles'];
 
-const config = {
+const config: StorybookConfig = {
   stories: [
     join(__dirname, '../', fileGlob),
     ...projects.map((project) => join(__dirname, '../../', project, fileGlob)),
