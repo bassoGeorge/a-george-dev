@@ -1,3 +1,9 @@
+/**
+  We are using a custom spacing scale for the design system,
+  This is not a linear scale but grows faster as we go up the scale.
+  Tailwind still has a default --spacing: .25rem = 4px, 
+  an will allow doing spacing-<beyond-16> by doing spacing-x = x*.25rem
+*/
 @theme {
   /* Spacing */
   --spacing-0: 0;

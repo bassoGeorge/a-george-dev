@@ -24,7 +24,7 @@ export function CalloutBadge({
             relative h-10 w-10 -rotate-12 
             before:absolute
             before:inset-0
-            before:-z-[1]
+            before:-z-1
             before:rotate-45
             ${typeClasses}`}
         >
