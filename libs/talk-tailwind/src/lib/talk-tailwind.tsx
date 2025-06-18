@@ -1,4 +1,4 @@
-import { BodyXl } from '@ageorgedev/atoms';
+import { BodyXl } from '@ageorgedev/design-system';
 import { TwLogo } from '@ageorgedev/brand-components';
 import { DeckFooter, useRevealFramework } from '@ageorgedev/reveal-framework';
 import { useRef } from 'react';

@@ -1,4 +1,8 @@
-import { TiltCard, TiltCardProps, CalloutBadge } from '@ageorgedev/atoms';
+import {
+  TiltCard,
+  TiltCardProps,
+  CalloutBadge,
+} from '@ageorgedev/design-system';
 import {
   BracketsAngle,
   Exam,

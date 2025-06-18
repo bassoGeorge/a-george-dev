@@ -4,7 +4,7 @@ import {
   Heading3,
   Interface2Xl,
   PBody,
-} from '@ageorgedev/atoms';
+} from '@ageorgedev/design-system';
 import { CodeBlock } from '@ageorgedev/design-system';
 import {
   ComparisonRow,

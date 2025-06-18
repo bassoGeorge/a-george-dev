@@ -1,5 +1,10 @@
 import type { MDXComponents } from 'mdx/types';
-import { Heading1, Heading2, Heading3, Heading4 } from '@ageorgedev/atoms';
+import {
+  Heading1,
+  Heading2,
+  Heading3,
+  Heading4,
+} from '@ageorgedev/design-system';
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {

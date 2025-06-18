@@ -1,9 +1,14 @@
 'use client';
 
-import { Heading3, Heading4, InterfaceXl, NameLogo } from '@ageorgedev/atoms';
-import { ThemeSwitcher } from '@ageorgedev/design-system';
-import Link from 'next/link';
+import {
+  Heading3,
+  Heading4,
+  InterfaceXl,
+  NameLogo,
+  ThemeSwitcher,
+} from '@ageorgedev/design-system';
 import { GithubLogo, LinkedinLogo } from '@phosphor-icons/react';
+import Link from 'next/link';
 import styles from './HomeAboveFold.module.css';
 
 export function HomeAboveFold() {

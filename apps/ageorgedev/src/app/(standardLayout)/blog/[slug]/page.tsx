@@ -1,6 +1,6 @@
-import { BodyMd, Heading1 } from '@ageorgedev/atoms';
-import { getPosts } from '../getPosts';
+import { BodyMd, Heading1 } from '@ageorgedev/design-system';
 import { map, pick } from 'ramda';
+import { getPosts } from '../getPosts';
 
 export async function generateStaticParams() {
   const allPosts = await getPosts();

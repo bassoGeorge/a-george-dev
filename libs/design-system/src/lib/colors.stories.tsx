@@ -1,4 +1,4 @@
-import { BodyMd, InterfaceMd } from '@ageorgedev/atoms';
+import { BodyMd, InterfaceMd } from '../typography/typography-components';
 import { StoryObj } from '@storybook/react';
 
 export default {

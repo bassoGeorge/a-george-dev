@@ -1,4 +1,4 @@
-import { Heading1, Heading2, PBody, PBodyMd } from '@ageorgedev/atoms';
+import { Heading1, Heading2, PBody, PBodyMd } from '@ageorgedev/design-system';
 import { CodeBlock } from '@ageorgedev/design-system';
 import {
   PointSeperator,

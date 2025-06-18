@@ -9,7 +9,7 @@ import {
   Heading5,
   Heading6,
   NameLogo,
-} from '@ageorgedev/atoms';
+} from '@ageorgedev/design-system';
 import { ArrowSquareOut } from '@phosphor-icons/react';
 import { Skill, humanSkills, techSkills, toolSkills } from './Skill';
 import { SocialLink } from './SocialLink';

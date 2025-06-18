@@ -1,4 +1,4 @@
-import { Card } from '@ageorgedev/atoms';
+import { Card } from '../cards/Card';
 import { useTheme } from '../theming/theme-provider';
 
 // @ts-ignore
