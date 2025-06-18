@@ -22,7 +22,7 @@ export function TalkTailwind() {
   return (
     <IconContext.Provider value={{ weight: 'duotone', size: '1em' }}>
       <div className="h-screen w-full">
-        <div className="reveal " ref={presentationRef}>
+        <div className="reveal" ref={presentationRef}>
           <div className="slides">
             <S01Intro />
             <S02Fundamentals />
@@ -39,7 +39,7 @@ export function TalkTailwind() {
           <DeckFooter>
             <TwLogo className="h-full" />
             <BodyXl className="text-cc-neutral-subtle">|</BodyXl>
-            <BodyXl className="italic text-cc-neutral-subtle large-desktop:mt-2">
+            <BodyXl className="text-cc-neutral-subtle italic large-desktop:mt-2">
               Unfold UI
             </BodyXl>
           </DeckFooter>

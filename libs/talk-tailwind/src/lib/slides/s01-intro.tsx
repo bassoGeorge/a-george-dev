@@ -28,10 +28,10 @@ export function S01Intro() {
         <PBodyMd className="italic">Advanced strategies for production</PBodyMd>
       </SlideTypeCenter>
       <SlideTypeCenter>
-        <div className="flex gap-10 items-center">
+        <div className="flex items-center gap-10">
           <NameLogo className="text-[9vw]" />
-          <div className="flex flex-col gap-5 items-start">
-            <Heading3 className="font-bold text-cc-alt-accent mb-7">
+          <div className="flex flex-col items-start gap-5">
+            <Heading3 className="mb-7 font-bold text-cc-alt-accent">
               Lead UI Developer
             </Heading3>
             <PBody>Built a design system in Angular + Tailwind</PBody>
@@ -86,10 +86,10 @@ export function S01Intro() {
         >
           https:// <b>ageorge.dev</b> /talks/tailwind
         </a>
-        <Heading4 className="font-bold mt-7">
+        <Heading4 className="mt-7 font-bold">
           Some slides have callouts
         </Heading4>
-        <div className="grid grid-cols-3 max-w-[1200px]">
+        <div className="grid max-w-[1200px] grid-cols-3">
           <div>
             <CalloutForVD />
             <PBodyMd className="mt-5">

@@ -29,12 +29,7 @@ export default async function (tree: Tree, schema: LibSchema) {
 
   // Fix eslint
   updateJson(tree, `${projectConfig.root}/.eslintrc.json`, (config) => {
-    config.ignorePatterns = [
-      ...config.ignorePatterns,
-      'dist/**/*',
-      'generated-src/**/*',
-      '.storybook/preview.js',
-    ];
+    config.ignorePatterns = [...config.ignorePatterns, 'dist/**/*'];
     return config;
   });
 

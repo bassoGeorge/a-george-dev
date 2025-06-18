@@ -63,16 +63,16 @@ exports[`Typography should add add correct styling for heading types 1`] = `
       >
         Heading 4
       </h4>
-      <span
+      <h5
         class="font-heading text-lg tablet:text-xl desktop:text-2xl"
       >
         Heading 5
-      </span>
-      <span
+      </h5>
+      <h6
         class="font-heading text-md tablet:text-lg desktop:text-xl"
       >
         Heading 6
-      </span>
+      </h6>
     </div>
   </div>
 </body>

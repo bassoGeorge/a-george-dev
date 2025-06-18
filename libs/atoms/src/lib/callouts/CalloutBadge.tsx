@@ -19,14 +19,7 @@ export function CalloutBadge({
     <div className={`${className ?? 'inline-block p-5'}`}>
       <div className="drop-shadow-normal">
         <div
-          className={`
-            flex flex-col justify-center items-center gap-1 
-            relative h-10 w-10 -rotate-12 
-            before:absolute
-            before:inset-0
-            before:-z-1
-            before:rotate-45
-            ${typeClasses}`}
+          className={`relative flex h-10 w-10 -rotate-12 flex-col items-center justify-center gap-1 before:absolute before:inset-0 before:-z-1 before:rotate-45 ${typeClasses}`}
         >
           <Icon weight="bold" className="text-5xl" />
           <InterfaceXl className="max-w-[80%] text-center">{text}</InterfaceXl>

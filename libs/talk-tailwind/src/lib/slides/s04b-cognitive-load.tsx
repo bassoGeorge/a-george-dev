@@ -29,7 +29,7 @@ export function S04BCognitiveLoad() {
           <Heading2>With tailwind you need to remember 2 syntaxes</Heading2>
         }
       >
-        <div className="flex gap-7 items-center mb-7">
+        <div className="mb-7 flex items-center gap-7">
           <CodeBlock lang="css" text={imaginaryCSS}></CodeBlock>
           <ArrowRight className="text-2xl text-cc-accent" />
           <CodeBlock lang="html" text={imaginaryHTML}></CodeBlock>

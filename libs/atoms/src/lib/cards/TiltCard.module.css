@@ -49,7 +49,7 @@
 }
 
 .interactive {
-  @apply hover:drop-shadow-far active:drop-shadow-near transition;
+  @apply transition hover:drop-shadow-far active:drop-shadow-near;
 }
 
 .interactive:hover {

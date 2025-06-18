@@ -3,7 +3,6 @@
   "ignorePatterns": [
     "!**/*",
     "dist/**/*",
-    "generated-src/**/*",
     "**/vite.config.*.timestamp*",
     "**/vitest.config.*.timestamp*"
   ],

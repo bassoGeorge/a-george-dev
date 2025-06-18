@@ -1,74 +1,135 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import { CodeBlock } from './CodeBlock';
 
-const meta: Meta<typeof CodeBlock> = {
+export default {
   title: 'Molecules/CodeBlock',
   component: CodeBlock,
-  parameters: {
-    layout: 'centered',
-  },
-  tags: ['autodocs'],
   argTypes: {
     lang: {
       control: 'select',
-      options: ['typescript', 'javascript', 'html', 'css', 'jsx', 'tsx'],
-      description: 'Programming language for syntax highlighting',
+      options: ['typescript', 'html', 'css', 'jsx', 'tsx', 'javascript'],
     },
     fontSize: {
       control: 'select',
-      options: ['small', 'normal', 'large'],
-      description: 'Size of the code text',
+      options: ['normal', 'small', 'large'],
     },
     text: {
       control: 'text',
-      description: 'The code content to display',
     },
-    className: {
-      control: 'text',
-      description: 'Additional CSS classes',
-    },
+  },
+} satisfies Meta<typeof CodeBlock>;
+
+type Story = StoryObj<typeof CodeBlock>;
+
+const typescriptExample = `interface User {
+  id: string;
+  name: string;
+  email: string;
+  age?: number;
+}
+
+function greetUser(user: User): string {
+  return \`Hello \${user.name}!\`;
+}`;
+
+const htmlExample = `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Example Page</title>
+</head>
+<body>
+  <h1>Welcome</h1>
+  <p>This is an example HTML page.</p>
+</body>
+</html>`;
+
+const cssExample = `.container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+  background-color: #f5f5f5;
+}
+
+.button {
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  background-color: #007bff;
+  color: white;
+}`;
+
+const jsxExample = `function Button({ text, onClick }) {
+  return (
+    <button
+      className="px-4 py-2 bg-blue-500 text-white rounded"
+      onClick={onClick}
+    >
+      {text}
+    </button>
+  );
+}`;
+
+export const TypeScript: Story = {
+  args: {
+    lang: 'typescript',
+    text: typescriptExample,
+    fontSize: 'normal',
   },
 };
 
-export default meta;
-type Story = StoryObj<typeof CodeBlock>;
-
-export const Default: Story = {
+export const HTML: Story = {
   args: {
-    text: 'const greeting = "Hello, World!";\nconsole.log(greeting);',
-    lang: 'typescript',
+    lang: 'html',
+    text: htmlExample,
+    fontSize: 'normal',
+  },
+};
+
+export const CSS: Story = {
+  args: {
+    lang: 'css',
+    text: cssExample,
+    fontSize: 'normal',
+  },
+};
+
+export const JSX: Story = {
+  args: {
+    lang: 'jsx',
+    text: jsxExample,
     fontSize: 'normal',
   },
 };
 
 export const SmallFont: Story = {
   args: {
-    text: 'function add(a: number, b: number): number {\n  return a + b;\n}',
     lang: 'typescript',
+    text: typescriptExample,
     fontSize: 'small',
   },
 };
 
 export const LargeFont: Story = {
   args: {
-    text: 'const styles = {\n  color: "blue",\n  fontSize: "16px"\n};',
-    lang: 'javascript',
+    lang: 'typescript',
+    text: typescriptExample,
     fontSize: 'large',
   },
 };
 
-export const JSXExample: Story = {
+export const WithCustomClassName: Story = {
   args: {
-    text: 'function Greeting({ name }) {\n  return (\n    <div>\n      <h1>Hello, {name}!</h1>\n    </div>\n  );\n}',
-    lang: 'jsx',
-    fontSize: 'normal',
+    lang: 'typescript',
+    text: typescriptExample,
+    className: 'max-w-2xl',
   },
 };
 
-export const HTMLCode: Story = {
+export const InteractiveExample: Story = {
   args: {
-    text: '<div class="container">\n  <h1>Hello World</h1>\n  <p>Welcome to my website</p>\n</div>',
-    lang: 'html',
+    lang: 'typescript',
+    text: '// Try changing the language, font size, and code!',
     fontSize: 'normal',
   },
 };

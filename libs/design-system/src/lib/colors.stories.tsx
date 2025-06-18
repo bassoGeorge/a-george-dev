@@ -23,7 +23,7 @@ function Swatch({
     <div
       className={`${bgClass} ${textClass ?? ''} ${
         BodyMd.classes
-      } border-medium border-cc-line h-9 w-12 grid place-items-center`}
+      } border-medium grid h-9 w-12 place-items-center border-cc-line`}
     >
       {content}
     </div>
@@ -33,7 +33,7 @@ function Swatch({
 export const RawColors: Story = {
   render: () => (
     <div
-      className="inline-grid gap-7 items-center justify-items-end"
+      className="inline-grid items-center justify-items-end gap-7"
       style={{ gridTemplateColumns: 'max-content repeat(5, minmax(0, 1fr)' }}
     >
       <InterfaceMd>Primary Accent</InterfaceMd>
@@ -102,7 +102,7 @@ export const RawColors: Story = {
 export const ContextualColors: Story = {
   render: () => (
     <div
-      className="inline-grid gap-7 items-center justify-items-end"
+      className="inline-grid items-center justify-items-end gap-7"
       style={{ gridTemplateColumns: 'max-content repeat(5, minmax(0, 1fr)' }}
     >
       <InterfaceMd>Page</InterfaceMd>

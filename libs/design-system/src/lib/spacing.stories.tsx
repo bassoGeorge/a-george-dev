@@ -36,7 +36,7 @@ function SpaceBar({ className, name }: { className: string; name: string }) {
   return (
     <>
       <Interface>{name}</Interface>
-      <div className={`${className} bg-cc-accent h-5`}></div>
+      <div className={`${className} h-5 bg-cc-accent`}></div>
     </>
   );
 }
@@ -44,7 +44,7 @@ function SpaceBar({ className, name }: { className: string; name: string }) {
 export const SpacingScale: Story = {
   render: () => (
     <div
-      className="inline-grid gap-2 items-center justify-items-start"
+      className="inline-grid items-center justify-items-start gap-2"
       style={{ gridTemplateColumns: 'max-content minmax(0, 1fr)' }}
     >
       {SPACING_VALUES.map(([className, name, value]) => (

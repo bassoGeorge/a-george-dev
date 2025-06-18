@@ -32,8 +32,8 @@ export function S07OverrideTheming() {
             <CodeBlock lang="javascript" text={plainColorsConfig}></CodeBlock>
           }
           right={
-            <div className="flex flex-col justify-center h-full gap-2">
-              <Heading3 className="text-cc-danger font-bold">
+            <div className="flex h-full flex-col justify-center gap-2">
+              <Heading3 className="font-bold text-cc-danger">
                 Inflexible
               </Heading3>
               <PBody>You can't change colors at run-time.</PBody>
@@ -89,7 +89,7 @@ export function S07OverrideTheming() {
           text={tailwindColorOpacityModifiers}
           fontSize="large"
         ></CodeBlock>
-        <PBodyMd className="text-cc-danger mb-7">
+        <PBodyMd className="mb-7 text-cc-danger">
           This fails with our vars setup!
         </PBodyMd>
         <ImportantNote type="danger" shape="triUpperRight">
@@ -97,7 +97,7 @@ export function S07OverrideTheming() {
             It is debatable whether color opacity is a good practice from a
             design perspective
           </PBody>
-          <PBody className="font-bold mt-3">Talk to your designer!</PBody>
+          <PBody className="mt-3 font-bold">Talk to your designer!</PBody>
         </ImportantNote>
       </SlideTypeRegular>
 
@@ -120,7 +120,7 @@ export function S07OverrideTheming() {
             <PBody>
               You actually might want to hardcode opacities into colors instead
             </PBody>
-            <PBody className="font-bold mt-3">Talk to your designer!</PBody>
+            <PBody className="mt-3 font-bold">Talk to your designer!</PBody>
           </ImportantNote>
         </div>
         <CodeBlock
