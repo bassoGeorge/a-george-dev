@@ -2,12 +2,12 @@ import { Card } from '@ageorgedev/atoms';
 import { useTheme } from './theming/theme-provider';
 
 // @ts-ignore
-import SyntaxHighlighter from 'react-syntax-highlighter/dist/esm/prism-async-light';
+import SyntaxHighlighter from 'react-syntax-highlighter/dist/cjs/prism-async-light';
 import {
   darcula as darkTheme,
   solarizedlight as lightTheme,
   // @ts-ignore
-} from 'react-syntax-highlighter/dist/esm/styles/prism';
+} from 'react-syntax-highlighter/dist/cjs/styles/prism';
 
 type CodeBlockProps = {
   text: string;

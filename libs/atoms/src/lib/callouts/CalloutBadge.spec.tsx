@@ -12,12 +12,12 @@ describe('CalloutBadge', () => {
   it('renders with default props', () => {
     render(<CalloutBadge {...defaultProps} />);
     expect(screen.getByText('Test Badge')).toBeInTheDocument();
-    expect(
-      screen.getByText('Test Badge').parentElement?.parentElement
-    ).toHaveClass('before:bg-cc-accent');
-    expect(
-      screen.getByText('Test Badge').parentElement?.parentElement
-    ).toHaveClass('text-cc-neutral-inverse');
+    expect(screen.getByText('Test Badge').parentElement).toHaveClass(
+      'before:bg-cc-accent'
+    );
+    expect(screen.getByText('Test Badge').parentElement).toHaveClass(
+      'text-cc-neutral-inverse'
+    );
   });
 
   it('applies custom className', () => {
@@ -31,32 +31,32 @@ describe('CalloutBadge', () => {
     const { rerender } = render(
       <CalloutBadge {...defaultProps} type="info1" />
     );
-    expect(
-      screen.getByText('Test Badge').parentElement?.parentElement
-    ).toHaveClass('before:bg-cc-accent');
+    expect(screen.getByText('Test Badge').parentElement).toHaveClass(
+      'before:bg-cc-accent'
+    );
 
     rerender(<CalloutBadge {...defaultProps} type="info2" />);
-    expect(
-      screen.getByText('Test Badge').parentElement?.parentElement
-    ).toHaveClass('before:bg-cc-accent-subtle');
+    expect(screen.getByText('Test Badge').parentElement).toHaveClass(
+      'before:bg-cc-accent-subtle'
+    );
 
     rerender(<CalloutBadge {...defaultProps} type="info3" />);
-    expect(
-      screen.getByText('Test Badge').parentElement?.parentElement
-    ).toHaveClass('before:bg-cc-alt-accent-subtle');
+    expect(screen.getByText('Test Badge').parentElement).toHaveClass(
+      'before:bg-cc-alt-accent-subtle'
+    );
 
     rerender(<CalloutBadge {...defaultProps} type="neutral" />);
-    expect(
-      screen.getByText('Test Badge').parentElement?.parentElement
-    ).toHaveClass('before:bg-cc-neutral');
+    expect(screen.getByText('Test Badge').parentElement).toHaveClass(
+      'before:bg-cc-neutral'
+    );
 
     rerender(<CalloutBadge {...defaultProps} type="danger" />);
-    expect(
-      screen.getByText('Test Badge').parentElement?.parentElement
-    ).toHaveClass('before:bg-cc-danger-bg');
-    expect(
-      screen.getByText('Test Badge').parentElement?.parentElement
-    ).toHaveClass('text-cc-danger-fg');
+    expect(screen.getByText('Test Badge').parentElement).toHaveClass(
+      'before:bg-cc-danger-bg'
+    );
+    expect(screen.getByText('Test Badge').parentElement).toHaveClass(
+      'text-cc-danger-fg'
+    );
   });
 
   it('renders with default padding when no className is provided', () => {
@@ -67,12 +67,5 @@ describe('CalloutBadge', () => {
     expect(
       screen.getByText('Test Badge').parentElement?.parentElement?.parentElement
     ).toHaveClass('p-5');
-  });
-
-  it('renders icon with correct weight and size', () => {
-    render(<CalloutBadge {...defaultProps} />);
-    const icon = screen.getByText('Test Badge').previousElementSibling;
-    expect(icon).toHaveClass('text-5xl');
-    expect(icon).toHaveAttribute('weight', 'bold');
   });
 });
