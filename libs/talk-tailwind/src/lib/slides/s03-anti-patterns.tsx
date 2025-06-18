@@ -22,7 +22,7 @@ export function S03AntiPatterns() {
           </Heading1>
         }
       >
-        <div className="flex gap-7 items-start">
+        <div className="flex items-start gap-7">
           <div className="flex flex-col gap-7">
             <CodeBlock
               text={applyAntiPatternSourceStyles}
@@ -65,13 +65,13 @@ export function S03AntiPatterns() {
         callout="Opinion"
         heading={<Heading1>Arbitrary value notation</Heading1>}
       >
-        <div className="flex gap-6 items-start">
+        <div className="flex items-start gap-6">
           <CodeBlock text={oneOffHtml} lang="html"></CodeBlock>
-          <ArrowRight className="text-2xl text-cc-accent self-center" />
+          <ArrowRight className="self-center text-2xl text-cc-accent" />
           <CodeBlock text={oneOffComputedCss} lang="css"></CodeBlock>
         </div>
 
-        <PBody className="italic mt-7 fragment" data-fragment-index="0">
+        <PBody className="fragment mt-7 italic" data-fragment-index="0">
           But...
         </PBody>
         <CodeBlock

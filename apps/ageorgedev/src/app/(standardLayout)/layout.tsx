@@ -5,7 +5,7 @@ export default function InnerPage({ children }: React.PropsWithChildren) {
   return (
     <>
       <NavigationHeader />
-      <main className="py-4 px-4">{children}</main>
+      <main className="px-4 py-4">{children}</main>
     </>
   );
 }

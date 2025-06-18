@@ -52,7 +52,7 @@ export function S08DarkMode() {
             <Interface2Xl as="p" className="mb-7">
               Raw Colors
             </Interface2Xl>
-            <div className="grid grid-cols-3 gap-6 items-center justify-end">
+            <div className="grid grid-cols-3 items-center justify-end gap-6">
               <PBodyXs>Parchment</PBodyXs>
               <Swatch className="bg-rc-parchment-200" />
               <Swatch className="bg-rc-parchment-500" />
@@ -67,11 +67,11 @@ export function S08DarkMode() {
 
               <PBodyXs>Neutral</PBodyXs>
               <Swatch className="bg-cc-neutral dark:bg-cc-neutral-inverse" />
-              <Swatch className="dark:bg-cc-neutral bg-cc-neutral-inverse" />
+              <Swatch className="bg-cc-neutral-inverse dark:bg-cc-neutral" />
             </div>
           </div>
           <div
-            className="w-px self-stretch bg-cc-line fragment"
+            className="fragment w-px self-stretch bg-cc-line"
             data-fragment-index="0"
           ></div>
           <div className="fragment" data-fragment-index="0">
@@ -101,20 +101,20 @@ export function S08DarkMode() {
                 <PBodyXs className="mt-2">Neutral text</PBodyXs>
               </div>
               <div>
-                <Swatch className="dark:bg-cc-neutral bg-cc-neutral-inverse" />
+                <Swatch className="bg-cc-neutral-inverse dark:bg-cc-neutral" />
                 <PBodyXs className="mt-2">Inverse text</PBodyXs>
               </div>
             </div>
 
             <InterfaceXl
               as="p"
-              className="mb-5 mt-7 text-left fragment"
+              className="fragment mt-7 mb-5 text-left"
               data-fragment-index="1"
             >
               Dark Mode
             </InterfaceXl>
 
-            <div className="flex gap-6 fragment" data-fragment-index="1">
+            <div className="fragment flex gap-6" data-fragment-index="1">
               <div>
                 <Swatch className="bg-rc-timber-300" />
                 <PBodyXs className="mt-2">Page far</PBodyXs>
@@ -128,7 +128,7 @@ export function S08DarkMode() {
                 <PBodyXs className="mt-2">Accent</PBodyXs>
               </div>
               <div>
-                <Swatch className="dark:bg-cc-neutral bg-cc-neutral-inverse" />
+                <Swatch className="bg-cc-neutral-inverse dark:bg-cc-neutral" />
                 <PBodyXs className="mt-2">Neutral text</PBodyXs>
               </div>
               <div>
@@ -142,7 +142,7 @@ export function S08DarkMode() {
       <SlideTypeRegular heading={<Heading2>All together now...</Heading2>}>
         <div className="flex items-start gap-7">
           <CodeBlock lang="css" text={rawColorsRoot} />
-          <div className="flex flex-col gap-7 items-start">
+          <div className="flex flex-col items-start gap-7">
             <CodeBlock lang="css" text={contextualColorsRootLight} />
             <CodeBlock lang="css" text={contextualColorsRootDark} />
           </div>
@@ -164,7 +164,7 @@ export function S08DarkMode() {
         }
       >
         <PBodyLg className="text-cc-danger italic">
-          <Warning className="inline-block -mt-2" /> It allows all combinations!
+          <Warning className="-mt-2 inline-block" /> It allows all combinations!
         </PBodyLg>
         <CodeBlock
           fontSize="large"
@@ -187,7 +187,7 @@ export function S08DarkMode() {
 function Swatch({ className }: { className?: string }) {
   return (
     <div
-      className={`${className} w-10 h-9 rounded border border-cc-line`}
+      className={`${className} h-9 w-10 rounded border border-cc-line`}
     ></div>
   );
 }

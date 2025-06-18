@@ -23,7 +23,7 @@ export function ImportantNote(props: ImportantNoteProps) {
   return (
     <div className={props.className ?? ''}>
       <TiltCard shape={props.shape} className={`${mainClasses} flex gap-2`}>
-        <Icon className={`${iconClasses} text-3xl shrink-0`} />
+        <Icon className={`${iconClasses} shrink-0 text-3xl`} />
         <div className="text-left">{props.children}</div>
       </TiltCard>
     </div>
@@ -61,7 +61,7 @@ export function CalloutForPersonalOpinion() {
 export function PointSeperator({ className }: { className?: string }) {
   return (
     <BracketsAngle
-      className={`block text-xl text-cc-accent mx-auto mt-2 mb-3 large-desktop:mb-4 ${
+      className={`mx-auto mt-2 mb-3 block text-xl text-cc-accent large-desktop:mb-4 ${
         className ?? ''
       }`}
     />

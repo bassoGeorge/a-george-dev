@@ -1,7 +1,7 @@
 @reference "@ageorgedev/foundation-styles/theme.css";
 
 .paper {
-  @apply relative before:inset-0 before:absolute;
+  @apply relative before:absolute before:inset-0;
 
   &:before {
     z-index: -1;
@@ -24,7 +24,7 @@
 }
 
 .header {
-  @apply flex items-start justify-between px-5 pt-6 relative;
+  @apply relative flex items-start justify-between px-5 pt-6;
   --bg: var(--color-cc-page-0);
   z-index: 2;
   background: var(--bg);
@@ -39,7 +39,7 @@
 }
 
 .aside {
-  @apply pt-9 pb-5 pl-5 pr-2 grid content-between;
+  @apply grid content-between pt-9 pr-2 pb-5 pl-5;
   --bg: var(--color-cc-page-1);
   z-index: 1;
   grid-area: aside;
@@ -52,7 +52,7 @@
 }
 
 .article {
-  @apply pt-9 pb-5 pr-8 pl-6 flex flex-col gap-7;
+  @apply flex flex-col gap-7 pt-9 pr-8 pb-5 pl-6;
   --bg: var(--color-cc-page-4);
   z-index: 3;
   grid-area: article;
@@ -72,6 +72,6 @@
 }
 
 .expGrid {
-  @apply grid gap-x-4 gap-y-2 items-baseline;
+  @apply grid items-baseline gap-x-4 gap-y-2;
   grid-template-columns: minmax(0, 1fr) minmax(0, 3fr);
 }

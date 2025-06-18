@@ -109,7 +109,7 @@ export const WithCustomContent: Story = {
         <p>
           This is a card with custom content including a title and paragraph.
         </p>
-        <button className="px-4 py-2 bg-blue-500 text-white rounded">
+        <button className="bg-blue-500 text-white rounded px-4 py-2">
           Click Me
         </button>
       </div>

@@ -4,8 +4,8 @@ import Link from 'next/link';
 export default function TalksPage() {
   return (
     <>
-      <Heading1 className="font-bold text-center">Talks</Heading1>
-      <div className={`max-w-5xl mx-auto flex flex-col gap-3 mt-6`}>
+      <Heading1 className="text-center font-bold">Talks</Heading1>
+      <div className={`mx-auto mt-6 flex max-w-5xl flex-col gap-3`}>
         <Link href="/talks/tailwind">
           <TiltCard
             interactive={true}
@@ -18,7 +18,7 @@ export default function TalksPage() {
               Tailwind CSS. Managing scale, complexity and copy-paste-ability.
             </BodyXl>
 
-            <Body className="text-right mt-5 text-cc-neutral-subtlest">
+            <Body className="mt-5 text-right text-cc-neutral-subtlest">
               <em>Unfold UI | Thoughtworks | 2023</em>
             </Body>
           </TiltCard>

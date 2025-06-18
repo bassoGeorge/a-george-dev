@@ -77,7 +77,7 @@ export function S05ClassManagement() {
         callout="Opinion"
         heading={<Heading2>Best of both worlds</Heading2>}
       >
-        <div className="flex gap-7 items-start">
+        <div className="flex items-start gap-7">
           <CodeBlock lang="tsx" text={advancedComponent}></CodeBlock>
           <div className="flex flex-col items-start gap-7 text-left">
             <CodeBlock lang="tsx" text={advancedComponentUsage}></CodeBlock>

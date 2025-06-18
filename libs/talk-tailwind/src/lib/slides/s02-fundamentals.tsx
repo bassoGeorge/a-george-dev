@@ -20,7 +20,7 @@ export function S02Fundamentals() {
       <SlideTypeRegular
         heading={<Heading1>Utility first fundamentals</Heading1>}
       >
-        <div className="flex gap-7 items-start">
+        <div className="flex items-start gap-7">
           <div className="flex flex-col items-end justify-start gap-7">
             <CodeBlock text={simpleButtonTailwind} lang="html"></CodeBlock>
             <PBody>
@@ -101,9 +101,9 @@ export function S02Fundamentals() {
       <SlideTypeRegular
         heading={<Heading1>Finite values through configuration</Heading1>}
       >
-        <div className="flex gap-7 items-start">
+        <div className="flex items-start gap-7">
           <CodeBlock text={tailwindConfigFile} lang="javascript"></CodeBlock>
-          <div className="flex flex-col gap-7 items-start">
+          <div className="flex flex-col items-start gap-7">
             <CodeBlock text={configDerivedHtml} lang="html"></CodeBlock>
             <ImportantNote className="fragment" shape="triUpperRight">
               <PBodyMd>
@@ -122,12 +122,12 @@ export function S02Fundamentals() {
           <Heading1>Tailwind only generates the minimum CSS required</Heading1>
         }
       >
-        <div className="flex flex-col gap-7 items-center">
-          <div className="flex gap-7 items-start">
+        <div className="flex flex-col items-center gap-7">
+          <div className="flex items-start gap-7">
             <CodeBlock text={exampleHtml} lang="html"></CodeBlock>
             <CodeBlock text={sourceStyleFile} lang="css"></CodeBlock>
           </div>
-          <div className="flex gap-7 items-start">
+          <div className="flex items-start gap-7">
             <CodeBlock
               text={computedStyleFile}
               lang="css"

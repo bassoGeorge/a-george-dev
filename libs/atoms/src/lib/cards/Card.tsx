@@ -10,7 +10,7 @@ export function Card({
   return (
     <div
       {...otherProps}
-      className={`shadow-normal border-cc-line border-2 mb-4 ${
+      className={`mb-4 border-2 border-cc-line shadow-normal ${
         className ?? ''
       }`}
     ></div>

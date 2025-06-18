@@ -6,7 +6,7 @@
 
 @layer base {
   body {
-    @apply text-base text-cc-neutral bg-cc-page-0;
+    @apply bg-cc-page-0 text-base text-cc-neutral;
   }
 
   pre code {

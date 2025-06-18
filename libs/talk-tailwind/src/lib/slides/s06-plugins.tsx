@@ -31,9 +31,9 @@ export function S06Plugins() {
           </Heading2>
         }
       >
-        <div className="flex gap-7 items-start">
+        <div className="flex items-start gap-7">
           <CodeBlock lang="css" text={layerStylesCss} fontSize="small" />
-          <div className="flex flex-col gap-6 items-start max-w-min text-left">
+          <div className="flex max-w-min flex-col items-start gap-6 text-left">
             <PBody className="fragment">
               <em>@layer</em> moves your css into the right spot within tailwind
               stylesheet
@@ -95,7 +95,7 @@ export function S06Plugins() {
       <SlideTypeRegular heading={<Heading2>A plugin for typography</Heading2>}>
         <div className="flex items-center gap-7">
           <CodeBlock lang="javascript" text={typographyPlugin} />
-          <div className="flex flex-col gap-7 fragment items-start">
+          <div className="fragment flex flex-col items-start gap-7">
             <CodeBlock fontSize="large" lang="html" text={typographyUsage} />
             <ImportantNote shape="trapRight">
               <PBody>Your utilties can work with Tailwind modifiers!</PBody>
@@ -121,7 +121,7 @@ export function S06Plugins() {
           </Heading2>
         }
       >
-        <div className="flex gap-7 items-center">
+        <div className="flex items-center gap-7">
           <CodeBlock lang="javascript" text={matchComponentsPlugin} />
           <CodeBlock lang="javascript" text={matchComponentsLayout} />
         </div>
@@ -134,7 +134,7 @@ export function S06Plugins() {
           className="px-8"
           left={
             <>
-              <Heading3 className="font-bold mb-7">
+              <Heading3 className="mb-7 font-bold">
                 <em>@layer</em> styles
               </Heading3>
               <PBodyMd className="fragment" data-fragment-index="1">
@@ -145,7 +145,7 @@ export function S06Plugins() {
           }
           right={
             <>
-              <Heading3 className="font-bold mb-7">plugins</Heading3>
+              <Heading3 className="mb-7 font-bold">plugins</Heading3>
               <PBodyMd className="fragment" data-fragment-index="2">
                 If you in a MonoRepo and need to support multiple projects
               </PBodyMd>

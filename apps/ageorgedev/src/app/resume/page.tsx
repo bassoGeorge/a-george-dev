@@ -45,9 +45,9 @@ export default function Resume() {
       <header className={`${styles.header} ${styles.paper}`}>
         <NameLogo
           shadowDirection="left"
-          className="text-[4rem] self-end -mb-4"
+          className="-mb-4 self-end text-[4rem]"
         />
-        <BodySm className="italic text-cc-neutral-subtlest mb-2 absolute top-[9.5rem] left-[13.75rem]">
+        <BodySm className="absolute top-[9.5rem] left-[13.75rem] mb-2 text-cc-neutral-subtlest italic">
           (He/Him)
         </BodySm>
         <div className={`${socialLinksBlockClasses} mt-3`}>
@@ -59,7 +59,7 @@ export default function Resume() {
         <section className="mr-1">
           <Heading4
             as={'h2'}
-            className="italic font-medium text-rc-s-accent-400"
+            className="font-medium text-rc-s-accent-400 italic"
           >
             Frontend Architect
           </Heading4>
@@ -70,7 +70,7 @@ export default function Resume() {
             technical areas.
           </Body>
         </section>
-        <section className={`${socialLinksBlockClasses} -mr-6 -mt-2`}>
+        <section className={`${socialLinksBlockClasses} -mt-2 -mr-6`}>
           <SocialLink type="location" full={true} />
           <SocialLink type="github" full={true} />
           <SocialLink type="linkedin" full={true} />
@@ -79,17 +79,17 @@ export default function Resume() {
           <Heading6 as={'h3'} className="mb-2">
             Skills
           </Heading6>
-          <div className="flex gap-2 flex-wrap -mr-2">
+          <div className="-mr-2 flex flex-wrap gap-2">
             {toolSkills.map((props, index) => (
               <Skill key={index} {...props} />
             ))}
           </div>
-          <div className="flex gap-2 flex-wrap -mr-4 mt-2">
+          <div className="mt-2 -mr-4 flex flex-wrap gap-2">
             {techSkills.map((props, index) => (
               <Skill key={index} {...props} />
             ))}
           </div>
-          <div className="flex gap-2 flex-wrap -mr-7 mt-2">
+          <div className="mt-2 -mr-7 flex flex-wrap gap-2">
             {humanSkills.map((props, index) => (
               <Skill key={index} {...props} />
             ))}
@@ -108,7 +108,7 @@ export default function Resume() {
               Demystifying Function Sub-typing
               <ArrowSquareOut
                 weight="duotone"
-                className="inline ml-2 text-rc-p-accent-400 relative -top-px"
+                className="relative -top-px ml-2 inline text-rc-p-accent-400"
               />
             </BodySm>
             <BodyXs className="text-cc-neutral-subtlest">
@@ -135,7 +135,7 @@ export default function Resume() {
           </div>
         </section>
         <section className="-mr-6">
-          <BodySm className="text-cc-neutral italic font-thin">
+          <BodySm className="font-thin text-cc-neutral italic">
             I built this resume using HTML / CSS and it follows my new design
             language.
           </BodySm>
@@ -143,27 +143,27 @@ export default function Resume() {
       </aside>
       <article className={`${styles.article} ${styles.paper}`}>
         <section className={styles.expGrid}>
-          <BodyLg className="justify-self-end font-bold text-rc-p-accent-500 tracking-wider">
+          <BodyLg className="justify-self-end font-bold tracking-wider text-rc-p-accent-500">
             2018 - 2023
           </BodyLg>
           <Heading3 className="font-medium">Thoughtworks</Heading3>
-          <div className="justify-self-end self-start text-right">
+          <div className="self-start justify-self-end text-right">
             <p className="font-interface text-md leading-[1.2rem] text-cc-neutral-subtle">
               Lead UI Developer
             </p>
-            <p className="text-xs leading-[1.2rem] text-cc-neutral-subtlest -mt-1 pb-1">
+            <p className="-mt-1 pb-1 text-xs leading-[1.2rem] text-cc-neutral-subtlest">
               2021
             </p>
             <p className="font-interface text-xs leading-[1.2rem] text-cc-neutral-subtle">
               Senior UI Developer
             </p>
-            <p className="text-xs leading-[1.2rem] text-cc-neutral-subtlest -mt-1 pb-1">
+            <p className="-mt-1 pb-1 text-xs leading-[1.2rem] text-cc-neutral-subtlest">
               2019
             </p>
             <p className="font-interface text-xs leading-[1.2rem] text-cc-neutral-subtle">
               UI Developer
             </p>
-            <p className="text-xs leading-[1.2rem] text-cc-neutral-subtlest -mt-1 pb-1">
+            <p className="-mt-1 pb-1 text-xs leading-[1.2rem] text-cc-neutral-subtlest">
               2018
             </p>
           </div>
@@ -203,7 +203,7 @@ export default function Resume() {
               for a large business consultancy firm.
             </Body>
 
-            <Heading5 className="font-light mt-4">
+            <Heading5 className="mt-4 font-light">
               Community initiatives
             </Heading5>
             <Body>
@@ -242,11 +242,11 @@ export default function Resume() {
           </div>
         </section>
         <section className={styles.expGrid}>
-          <BodyLg className="justify-self-end font-bold text-rc-p-accent-500 tracking-wider">
+          <BodyLg className="justify-self-end font-bold tracking-wider text-rc-p-accent-500">
             2016 - 2018
           </BodyLg>
           <Heading3 className="font-medium">Ignite Solutions</Heading3>
-          <div className="justify-self-end self-start text-right">
+          <div className="self-start justify-self-end text-right">
             <p className="font-interface text-md leading-[1.2rem] text-cc-neutral-subtle">
               Full Stack
               <br />
@@ -272,11 +272,11 @@ export default function Resume() {
           </div>
         </section>
         <section className={styles.expGrid}>
-          <BodyLg className="justify-self-end font-bold text-rc-p-accent-500 tracking-wider">
+          <BodyLg className="justify-self-end font-bold tracking-wider text-rc-p-accent-500">
             mid 2015
           </BodyLg>
           <Heading3 className="font-medium">JLabs</Heading3>
-          <div className="justify-self-end self-start text-right">
+          <div className="self-start justify-self-end text-right">
             <p className="font-interface text-md leading-[1.2rem] text-cc-neutral-subtle">
               Developer
             </p>

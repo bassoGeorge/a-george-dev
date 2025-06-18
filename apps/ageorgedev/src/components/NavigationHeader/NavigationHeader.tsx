@@ -13,7 +13,7 @@ export default function NavigationHeader(props: NavigationHeaderProps) {
   const Wrapper = props.seemless ? 'div' : BoxMode;
   return (
     <Wrapper className={paddingClasses}>
-      <header className="flex justify-between items-center">
+      <header className="flex items-center justify-between">
         <div>
           <HomeLink href="/">
             <ShortNameLogo />

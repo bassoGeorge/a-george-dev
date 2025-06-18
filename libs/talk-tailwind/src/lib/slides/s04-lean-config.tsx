@@ -83,7 +83,7 @@ export function S04LeanConfig() {
                 properties
               </PBody>
               <PBody>Storybook can be a good solution</PBody>
-              <PBody className="text-cc-accent font-bold">
+              <PBody className="font-bold text-cc-accent">
                 The earlier you move to custom sets, the better
               </PBody>
               <PBody className="italic">
@@ -105,7 +105,7 @@ export function S04LeanConfig() {
             <>
               <Heading3 className="font-bold">Tailwind default</Heading3>
               <div
-                className="grid gap-2 justify-items-end"
+                className="grid justify-items-end gap-2"
                 style={{ gridTemplateColumns: 'minmax(0, 1fr) 100px' }}
               >
                 <LSpaceBar name="w-px (1px)" className="w-[1px]" />
@@ -135,7 +135,7 @@ export function S04LeanConfig() {
             <>
               <Heading3 className="font-bold">ageorge.dev</Heading3>
               <div
-                className="grid gap-2 justify-items-start"
+                className="grid justify-items-start gap-2"
                 style={{ gridTemplateColumns: '100px minmax(0, 1fr)' }}
               >
                 <RSpaceBar name="w-px (1px)" className="w-px" />
@@ -191,7 +191,7 @@ export function S04LeanConfig() {
                 <br />
                 engine to drive your plugins. More on that later
               </PBody>
-              <PBody className="text-cc-accent font-bold">
+              <PBody className="font-bold text-cc-accent">
                 It is a good idea to prune out CSS practices you don't need
               </PBody>
             </>
@@ -265,5 +265,5 @@ function LSpaceBar({ className, name }: { className?: string; name: string }) {
 }
 
 function Bar({ className }: { className?: string }) {
-  return <div className={`${className} bg-cc-accent h-4`}></div>;
+  return <div className={`${className} h-4 bg-cc-accent`}></div>;
 }

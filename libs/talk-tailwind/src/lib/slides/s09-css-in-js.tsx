@@ -67,7 +67,7 @@ export function S09CssInJs() {
         <SlideMediaRow>
           <D02CssPipeline />
 
-          <ImportantNote shape="trapLeft" className="self-end -ml-12 mb-4 w-14">
+          <ImportantNote shape="trapLeft" className="mb-4 -ml-12 w-14 self-end">
             <PBody>
               Prior to v3.3, the tokens file needs to be <b>commonJS</b>
             </PBody>
@@ -84,7 +84,7 @@ export function S09CssInJs() {
           A CSS-in-JS library that works well with Tailwind CSS...
         </Heading2>
         <Heading1
-          className="fragment font-bold mt-4 text-cc-accent"
+          className="fragment mt-4 font-bold text-cc-accent"
           data-fragment-index="0"
         >
           Vanilla Extract

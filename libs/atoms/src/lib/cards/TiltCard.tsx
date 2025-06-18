@@ -26,16 +26,11 @@ export function TiltCard({
   return (
     <div
       {...htmlProps}
-      className={`
-      drop-shadow-normal
-      ${skewClass}
-      ${skewStrengthClass}
-      ${interC} 
-      ${outerClassName ?? ''}`}
+      className={`drop-shadow-normal ${skewClass} ${skewStrengthClass} ${interC} ${outerClassName ?? ''}`}
     >
       <div className={`bg-cc-line ${styles.skewStyle} ${borderC}`}>
         <div
-          className={`p-6 bg-cc-page-1 ${styles.skewStyle} ${className ?? ''}`}
+          className={`bg-cc-page-1 p-6 ${styles.skewStyle} ${className ?? ''}`}
         >
           {children}
         </div>
