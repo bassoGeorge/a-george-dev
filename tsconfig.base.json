@@ -22,7 +22,6 @@
       "@ageorgedev/foundation-styles/globals": [
         "libs/foundation-styles/src/globals.ts"
       ],
-      "@ageorgedev/molecules": ["libs/molecules/src/index.ts"],
       "@ageorgedev/reveal-framework": ["libs/reveal-framework/src/index.ts"],
       "@ageorgedev/reveal-framework/globals": [
         "libs/reveal-framework/src/globals.ts"

@@ -4,7 +4,7 @@
   "sourceRoot": "libs/design-system/src",
   "projectType": "library",
   "tags": ["scope:ds", "type:ui"],
-  "implicitDependencies": ["atoms", "molecules", "foundation-styles"],
+  "implicitDependencies": ["atoms", "foundation-styles"],
   "targets": {
     "lint": {
       "executor": "@nx/eslint:lint",
