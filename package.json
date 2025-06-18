@@ -65,7 +65,7 @@
     "nx": "21.2.0",
     "postcss": "8.4.38",
     "postcss-nesting": "^12.1.5",
-    "prettier": "^2.6.2",
+    "prettier": "3",
     "sass": "^1.55.0",
     "tailwindcss": "^4.1.8",
     "ts-jest": "29.1.0",
