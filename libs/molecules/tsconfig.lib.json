@@ -22,5 +22,13 @@
     "**/*.spec.jsx",
     "**/*.test.jsx"
   ],
-  "include": ["**/*.js", "**/*.jsx", "**/*.ts", "**/*.tsx"]
+  "include": [
+    "**/*.js",
+    "**/*.jsx",
+    "**/*.ts",
+    "**/*.tsx",
+    "../design-system/src/lib/CodeBlock/CodeBlock.spec.tsx",
+    "../design-system/src/lib/CodeBlock/CodeBlock.stories.tsx",
+    "../design-system/src/lib/CodeBlock/CodeBlock.tsx"
+  ]
 }

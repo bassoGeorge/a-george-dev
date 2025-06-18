@@ -3,7 +3,7 @@ import { mergeConfig } from 'vite';
 import type { StorybookConfig } from '@storybook/react-vite';
 
 const fileGlob = 'src/lib/**/*.stories.@(js|jsx|ts|tsx|mdx)';
-const projects = ['atoms', 'molecules', 'foundation-styles'];
+const projects = ['atoms', 'foundation-styles'];
 
 const config: StorybookConfig = {
   stories: [
@@ -30,10 +30,6 @@ const config: StorybookConfig = {
           '@ageorgedev/foundation-styles': resolve(
             __dirname,
             '../../foundation-styles/src/index.ts'
-          ),
-          '@ageorgedev/molecules': resolve(
-            __dirname,
-            '../../molecules/src/index.ts'
           ),
         },
       },

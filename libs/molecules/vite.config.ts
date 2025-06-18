@@ -2,7 +2,6 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import dts from 'vite-plugin-dts';
 import * as path from 'path';
-import { removeFilesPlugin } from './vite-plugins';
 
 export default defineConfig({
   root: __dirname,
@@ -13,7 +12,6 @@ export default defineConfig({
       tsconfigPath: path.join(__dirname, 'tsconfig.lib.json'),
     }),
     react(),
-    removeFilesPlugin(),
   ],
 
   // Configuration for building your library.

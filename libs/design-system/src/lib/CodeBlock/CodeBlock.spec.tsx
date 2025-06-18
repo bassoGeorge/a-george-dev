@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom';
 import { render } from '@testing-library/react';
 import { CodeBlock } from './CodeBlock';
-import { ThemeProvider } from './theming/theme-provider';
+import { ThemeProvider } from '../theming/theme-provider';
 
 // Mock window.matchMedia for tests
 beforeAll(() => {
@@ -37,10 +37,9 @@ describe('CodeBlock', () => {
   });
 
   it('renders with different font sizes', () => {
-    const { container, rerender, debug } = renderWithTheme(
+    const { container, rerender } = renderWithTheme(
       <CodeBlock {...defaultProps} fontSize="small" />
     );
-    debug();
     const codeElement = container.querySelector('code');
     expect(codeElement?.parentElement?.parentElement).toHaveClass('text-md');
 

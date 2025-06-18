@@ -7,7 +7,7 @@ import {
   PBodyLg,
   PBodyXs,
 } from '@ageorgedev/atoms';
-import { CodeBlock } from '@ageorgedev/molecules';
+import { CodeBlock } from '@ageorgedev/design-system';
 import {
   SlideTypeCenter,
   SlideTypeRegular,

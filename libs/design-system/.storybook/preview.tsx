@@ -1,7 +1,7 @@
 import './storybook.css';
 import { withThemeByClassName } from '@storybook/addon-themes';
 import type { Preview } from '@storybook/react-vite';
-import { ThemeProvider } from '@ageorgedev/molecules';
+import { ThemeProvider } from '../src/lib/theming/theme-provider';
 
 const preview: Preview = {
   decorators: [

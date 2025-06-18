@@ -1,5 +1,5 @@
 import { Heading1, Heading2, PBody, PBodyMd } from '@ageorgedev/atoms';
-import { CodeBlock } from '@ageorgedev/molecules';
+import { CodeBlock } from '@ageorgedev/design-system';
 import {
   PointSeperator,
   SlideTypeCenter,

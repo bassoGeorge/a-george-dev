@@ -5,7 +5,7 @@ import {
   PBody,
   PBodyMd,
 } from '@ageorgedev/atoms';
-import { CodeBlock } from '@ageorgedev/molecules';
+import { CodeBlock } from '@ageorgedev/design-system';
 import {
   ComparisonRow,
   ImportantNote,
