@@ -1,7 +1,7 @@
-import { composePlugins, withNx } from '@nx/next';
-import createMDX from '@next/mdx';
-import remarkFrontmatter from 'remark-frontmatter';
-import remarkMdxFrontmatter from 'remark-mdx-frontmatter';
+const { composePlugins, withNx } = require('@nx/next');
+const createMDX = require('@next/mdx');
+const remarkFrontmatter = require('remark-frontmatter');
+const remarkMdxFrontmatter = require('remark-mdx-frontmatter');
 
 /**
  * @type {import('@nx/next/plugins/with-nx').WithNxOptions}
@@ -33,4 +33,4 @@ const plugins = [
   withMdx,
 ];
 
-export default composePlugins(...plugins)(nextConfig);
+module.exports = composePlugins(...plugins)(nextConfig);
