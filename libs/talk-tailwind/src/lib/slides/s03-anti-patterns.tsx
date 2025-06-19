@@ -5,7 +5,7 @@ import {
   SlideTypeCenter,
   SlideTypeRegular,
 } from '@ageorgedev/reveal-framework';
-import { ArrowRight } from '@phosphor-icons/react';
+import { ArrowRightIcon } from '@phosphor-icons/react';
 
 export function S03AntiPatterns() {
   return (
@@ -67,7 +67,7 @@ export function S03AntiPatterns() {
       >
         <div className="flex items-start gap-6">
           <CodeBlock text={oneOffHtml} lang="html"></CodeBlock>
-          <ArrowRight className="self-center text-2xl text-cc-accent" />
+          <ArrowRightIcon className="self-center text-2xl text-cc-accent" />
           <CodeBlock text={oneOffComputedCss} lang="css"></CodeBlock>
         </div>
 

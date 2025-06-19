@@ -46,7 +46,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${alegreyaSansSC.variable} ${alegreyaSans.variable} ${alegreya.variable} ${sourceCodePro.variable}`}
+      className={`dark ${alegreyaSansSC.variable} ${alegreyaSans.variable} ${alegreya.variable} ${sourceCodePro.variable}`}
     >
       <Head>
         <link rel="icon" href="/favicon.ico" />

@@ -1,14 +1,13 @@
+import { BodySm } from '@ageorgedev/design-system';
 import type { Icon } from '@phosphor-icons/react';
 import {
-  Envelope,
-  GithubLogo,
-  Globe,
-  LinkedinLogo,
-  MapPin,
-  Phone,
-} from '@phosphor-icons/react';
-import React from 'react';
-import { BodySm } from '@ageorgedev/design-system';
+  EnvelopeIcon,
+  GithubLogoIcon,
+  GlobeIcon,
+  LinkedinLogoIcon,
+  MapPinIcon,
+  PhoneIcon,
+} from '@phosphor-icons/react/ssr';
 
 type SocialLinkType =
   | 'github'
@@ -59,10 +58,10 @@ const DISPLAY_LINKS: Partial<Record<SocialLinkType, string>> = {
 };
 
 const ICONS: Record<SocialLinkType, Icon> = {
-  github: GithubLogo,
-  linkedin: LinkedinLogo,
-  email: Envelope,
-  web: Globe,
-  phone: Phone,
-  location: MapPin,
+  github: GithubLogoIcon,
+  linkedin: LinkedinLogoIcon,
+  email: EnvelopeIcon,
+  web: GlobeIcon,
+  phone: PhoneIcon,
+  location: MapPinIcon,
 };

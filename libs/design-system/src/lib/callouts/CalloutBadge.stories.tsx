@@ -1,21 +1,21 @@
 import { Meta, StoryObj } from '@storybook/react';
 import { CalloutBadge } from './CalloutBadge';
 import {
-  AddressBook,
-  AirplaneInFlight,
-  PenNib,
-  SealWarning,
-  Skull,
-  Bell,
-  Book,
-  Camera,
-  Coffee,
-  Heart,
-  Lightning,
-  Star,
-  Trophy,
-  User,
-} from '@phosphor-icons/react';
+  AddressBookIcon,
+  AirplaneInFlightIcon,
+  PenNibIcon,
+  SealWarningIcon,
+  SkullIcon,
+  BellIcon,
+  BookIcon,
+  CameraIcon,
+  CoffeeIcon,
+  HeartIcon,
+  LightningIcon,
+  StarIcon,
+  TrophyIcon,
+  UserIcon,
+} from '@phosphor-icons/react/ssr';
 
 export default {
   title: 'Atoms/Callout Badge',
@@ -47,20 +47,20 @@ export default {
         'User',
       ],
       mapping: {
-        AddressBook,
-        AirplaneInFlight,
-        PenNib,
-        SealWarning,
-        Skull,
-        Bell,
-        Book,
-        Camera,
-        Coffee,
-        Heart,
-        Lightning,
-        Star,
-        Trophy,
-        User,
+        AddressBook: AddressBookIcon,
+        AirplaneInFlight: AirplaneInFlightIcon,
+        PenNib: PenNibIcon,
+        SealWarning: SealWarningIcon,
+        Skull: SkullIcon,
+        Bell: BellIcon,
+        Book: BookIcon,
+        Camera: CameraIcon,
+        Coffee: CoffeeIcon,
+        Heart: HeartIcon,
+        Lightning: LightningIcon,
+        Star: StarIcon,
+        Trophy: TrophyIcon,
+        User: UserIcon,
       },
     },
   },
@@ -71,7 +71,7 @@ type Story = StoryObj<typeof CalloutBadge>;
 export const Default: Story = {
   args: {
     type: 'info1',
-    icon: AddressBook,
+    icon: AddressBookIcon,
     text: 'Default Badge',
   },
 };
@@ -79,7 +79,7 @@ export const Default: Story = {
 export const Info1: Story = {
   args: {
     type: 'info1',
-    icon: AddressBook,
+    icon: AddressBookIcon,
     text: 'Info 1 Badge',
   },
 };
@@ -87,7 +87,7 @@ export const Info1: Story = {
 export const Info2: Story = {
   args: {
     type: 'info2',
-    icon: AirplaneInFlight,
+    icon: AirplaneInFlightIcon,
     text: 'Info 2 Badge',
   },
 };
@@ -95,7 +95,7 @@ export const Info2: Story = {
 export const Info3: Story = {
   args: {
     type: 'info3',
-    icon: SealWarning,
+    icon: SealWarningIcon,
     text: 'Info 3 Badge',
   },
 };
@@ -103,7 +103,7 @@ export const Info3: Story = {
 export const Danger: Story = {
   args: {
     type: 'danger',
-    icon: Skull,
+    icon: SkullIcon,
     text: 'Danger Badge',
   },
 };
@@ -111,7 +111,7 @@ export const Danger: Story = {
 export const Neutral: Story = {
   args: {
     type: 'neutral',
-    icon: PenNib,
+    icon: PenNibIcon,
     text: 'Neutral Badge',
   },
 };
@@ -119,11 +119,11 @@ export const Neutral: Story = {
 export const WithDifferentIcons: Story = {
   render: () => (
     <div className="flex flex-wrap gap-4">
-      <CalloutBadge type="info1" icon={Bell} text="Notification" />
-      <CalloutBadge type="info2" icon={Book} text="Document" />
-      <CalloutBadge type="info3" icon={Camera} text="Photo" />
-      <CalloutBadge type="danger" icon={Lightning} text="Warning" />
-      <CalloutBadge type="neutral" icon={Coffee} text="Break" />
+      <CalloutBadge type="info1" icon={BellIcon} text="Notification" />
+      <CalloutBadge type="info2" icon={BookIcon} text="Document" />
+      <CalloutBadge type="info3" icon={CameraIcon} text="Photo" />
+      <CalloutBadge type="danger" icon={LightningIcon} text="Warning" />
+      <CalloutBadge type="neutral" icon={CoffeeIcon} text="Break" />
     </div>
   ),
 };
@@ -131,7 +131,7 @@ export const WithDifferentIcons: Story = {
 export const WithLongText: Story = {
   args: {
     type: 'info1',
-    icon: Heart,
+    icon: HeartIcon,
     text: 'This is a callout badge with a longer text that might wrap',
   },
 };
@@ -139,7 +139,7 @@ export const WithLongText: Story = {
 export const WithCustomSize: Story = {
   args: {
     type: 'info1',
-    icon: Star,
+    icon: StarIcon,
     text: 'Custom Size',
     className: 'p-8',
   },
@@ -148,7 +148,7 @@ export const WithCustomSize: Story = {
 export const InteractiveExample: Story = {
   args: {
     type: 'info1',
-    icon: Trophy,
+    icon: TrophyIcon,
     text: 'Try changing the type, icon, and text!',
   },
 };

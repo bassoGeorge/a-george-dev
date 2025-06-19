@@ -1,33 +1,23 @@
 'use client';
-import {
-  createContext,
-  useCallback,
-  useContext,
-  useEffect,
-  useReducer,
-} from 'react';
-import { initialThemeState, themeReducer, Theme } from './theme-state';
 
-type ThemeContext = {
-  theme: Theme;
-  setTheme(newTheme: Theme): void;
-};
+import { useCallback, useEffect, useReducer } from 'react';
+import { Theme } from './models';
+import { initialThemeState, themeReducer } from './theme-state';
+import { ThemeContext } from './ThemeContext';
 
-const defaultValue: ThemeContext = {
-  theme: 'light',
-  setTheme: () => {},
-};
-
-const themeContext = createContext<ThemeContext>(defaultValue);
-
-/** Hooks */
-export function useTheme() {
-  return useContext(themeContext);
-}
+export type ThemeProviderProps = React.PropsWithChildren<{
+  startingTheme?: Theme;
+}>;
 
 /** Provider */
-export function ThemeProvider({ children }: React.PropsWithChildren) {
-  const [{ theme }, dispatch] = useReducer(themeReducer, initialThemeState);
+export function ThemeProvider({
+  children,
+  startingTheme = 'dark',
+}: ThemeProviderProps) {
+  const [{ theme }, dispatch] = useReducer(themeReducer, {
+    ...initialThemeState,
+    theme: startingTheme,
+  });
 
   // Listen to the browser theme change, can also be directly used on the queryList
   const mediaChangeListener = useCallback(
@@ -56,7 +46,7 @@ export function ThemeProvider({ children }: React.PropsWithChildren) {
 
   /** Set the user theme from local storage if present */
   useEffect(() => {
-    const existingTheme = getThemeFromLS();
+    const existingTheme = getThemeFromStorage();
     if (existingTheme) {
       dispatch({
         type: 'setByUser',
@@ -71,7 +61,7 @@ export function ThemeProvider({ children }: React.PropsWithChildren) {
       type: 'setByUser',
       theme: newTheme,
     });
-    setThemeInLS(newTheme);
+    setThemeInStorage(newTheme);
   }, []);
 
   // The mutation callback to be attached to the <html> element
@@ -139,9 +129,9 @@ export function ThemeProvider({ children }: React.PropsWithChildren) {
   }, [theme]);
 
   return (
-    <themeContext.Provider value={{ theme, setTheme: manuallySetTheme }}>
+    <ThemeContext.Provider value={{ theme, setTheme: manuallySetTheme }}>
       {children}
-    </themeContext.Provider>
+    </ThemeContext.Provider>
   );
 }
 
@@ -158,20 +148,20 @@ function safeAddClass(classList: DOMTokenList, className: string) {
   }
 }
 
-// function getThemeFromClassString(classString: string): Theme | null {
-//   const classes = classString.split(' ');
-//   return classes.includes('dark')
-//     ? 'dark'
-//     : classes.includes('light')
-//     ? 'light'
-//     : null;
-// }
+function getThemeFromClassString(classString: string): Theme | null {
+  const classes = classString.split(' ');
+  return classes.includes('dark')
+    ? 'dark'
+    : classes.includes('light')
+      ? 'light'
+      : null;
+}
 
 /** LocalStorage stuff */
-const LS_THEME_KEY = 'theme';
+const STORAGE_THEME_KEY = 'theme';
 
-function getThemeFromLS(): Theme | null {
-  const userPreference = localStorage.getItem(LS_THEME_KEY);
+function getThemeFromStorage(): Theme | null {
+  const userPreference = sessionStorage.getItem(STORAGE_THEME_KEY);
   if (userPreference) {
     return userPreference === 'dark' ? 'dark' : 'light';
   } else {
@@ -179,6 +169,6 @@ function getThemeFromLS(): Theme | null {
   }
 }
 
-function setThemeInLS(theme: Theme) {
-  localStorage.setItem(LS_THEME_KEY, theme);
+function setThemeInStorage(theme: Theme) {
+  sessionStorage.setItem(STORAGE_THEME_KEY, theme);
 }
