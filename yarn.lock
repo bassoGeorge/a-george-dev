@@ -1828,7 +1828,7 @@
   resolved "https://registry.yarnpkg.com/@leichtgewicht/ip-codec/-/ip-codec-2.0.5.tgz#4fc56c15c580b9adb7dc3c333a134e540b44bfb1"
   integrity sha512-Vo+PSpZG2/fmgmiNzYK9qWRh8h/CHrwD0mo1h1DzL4yzHNSfWYujGTYsWGreD000gcgmZ7K4Ys6Tx9TxtsKdDw==
 
-"@mdx-js/loader@^3.0.1":
+"@mdx-js/loader@3.1.0":
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/@mdx-js/loader/-/loader-3.1.0.tgz#715fdab11d0c9567e45049c16a7d9c83cec88214"
   integrity sha512-xU/lwKdOyfXtQGqn3VnJjlDrmKXEvMi1mgYxVmukEUtVycIz1nh7oQ40bKTd4cA7rLStqu0740pnhGYxGoqsCg==
@@ -1866,7 +1866,7 @@
     unist-util-visit "^5.0.0"
     vfile "^6.0.0"
 
-"@mdx-js/react@^3.0.1":
+"@mdx-js/react@3.1.0":
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/@mdx-js/react/-/react-3.1.0.tgz#c4522e335b3897b9a845db1dbdd2f966ae8fb0ed"
   integrity sha512-QjHtSaoameoalGnKDT3FoIl4+9RwyTmo9ZJGBdLOks/YOiWHoRDI3PUwEzOE7kEmGcV3AFcp9K6dYu9rEuKLAQ==
@@ -12485,7 +12485,7 @@ rehype-recma@^1.0.0:
     "@types/hast" "^3.0.0"
     hast-util-to-estree "^3.0.0"
 
-remark-frontmatter@^5.0.0:
+remark-frontmatter@5.0.0:
   version "5.0.0"
   resolved "https://registry.yarnpkg.com/remark-frontmatter/-/remark-frontmatter-5.0.0.tgz#b68d61552a421ec412c76f4f66c344627dc187a2"
   integrity sha512-XTFYvNASMe5iPN0719nPrdItC9aU0ssC4v14mH1BCi1u0n1gAocqcujWUrByftZTbLhRtiKRyjYTSIOcr69UVQ==
@@ -12495,10 +12495,10 @@ remark-frontmatter@^5.0.0:
     micromark-extension-frontmatter "^2.0.0"
     unified "^11.0.0"
 
-remark-mdx-frontmatter@^5.1.0:
-  version "5.1.0"
-  resolved "https://registry.yarnpkg.com/remark-mdx-frontmatter/-/remark-mdx-frontmatter-5.1.0.tgz#203c63f7772c3d80bf5f25ad4a01a5a1ecef9f4c"
-  integrity sha512-F2l+FydK/QVwYMC4niMYl4Kh83TIfoR4qV9ekh/riWRakTTyjcLLyKTBo9fVgEtOmTEfIrqWwiYIm42+I5PMfQ==
+remark-mdx-frontmatter@5.2.0:
+  version "5.2.0"
+  resolved "https://registry.yarnpkg.com/remark-mdx-frontmatter/-/remark-mdx-frontmatter-5.2.0.tgz#fd3738b289248ef9afe84d45767acab8b9e00fcb"
+  integrity sha512-U/hjUYTkQqNjjMRYyilJgLXSPF65qbLPdoESOkXyrwz2tVyhAnm4GUKhfXqOOS9W34M3545xEMq+aMpHgVjEeQ==
   dependencies:
     "@types/mdast" "^4.0.0"
     estree-util-value-to-estree "^3.0.0"

@@ -1,7 +1,9 @@
-const { composePlugins, withNx } = require('@nx/next');
-const createMDX = require('@next/mdx');
-const remarkFrontmatter = require('remark-frontmatter');
-const remarkMdxFrontmatter = require('remark-mdx-frontmatter');
+// This file HAS to be ESM .mjs. The remark plugins are all esm only
+
+import { composePlugins, withNx } from '@nx/next';
+import createMDX from '@next/mdx';
+import remarkFrontmatter from 'remark-frontmatter';
+import remarkMdxFrontmatter from 'remark-mdx-frontmatter';
 
 /**
  * @type {import('@nx/next/plugins/with-nx').WithNxOptions}
@@ -33,4 +35,4 @@ const plugins = [
   withMdx,
 ];
 
-module.exports = composePlugins(...plugins)(nextConfig);
+export default composePlugins(...plugins)(nextConfig);

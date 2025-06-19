@@ -28,7 +28,7 @@
     "next-env.d.ts",
     ".next/types/**/*.ts",
     "src/globals.d.ts",
-    "next.config.js"
+    "next.config.mjs"
   ],
   "exclude": ["node_modules", "jest.config.ts", "**/*.spec.ts", "**/*.test.ts"]
 }
