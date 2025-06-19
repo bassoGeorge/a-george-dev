@@ -4,13 +4,13 @@ import {
   CalloutBadge,
 } from '@ageorgedev/design-system';
 import {
-  BracketsAngle,
-  Exam,
+  BracketsAngleIcon,
+  ExamIcon,
   Icon,
-  Lightning,
-  Megaphone,
-  PenNib,
-  Warning,
+  LightningIcon,
+  MegaphoneIcon,
+  PenNibIcon,
+  WarningIcon,
 } from '@phosphor-icons/react';
 
 type ImportantNoteProps = React.PropsWithChildren<{
@@ -41,30 +41,30 @@ const NoteConfigs: Record<
   tip: {
     mainClasses: 'bg-rc-p-accent-100 dark:bg-rc-p-accent-500',
     iconClasses: 'text-cc-accent dark:text-cc-neutral',
-    Icon: Lightning,
+    Icon: LightningIcon,
   },
   danger: {
     mainClasses: 'bg-cc-danger-bg text-cc-danger-fg',
     iconClasses: '',
-    Icon: Warning,
+    Icon: WarningIcon,
   },
 };
 
 export function CalloutForVD() {
-  return <CalloutBadge type="neutral" icon={PenNib} text={'UI/UX'} />;
+  return <CalloutBadge type="neutral" icon={PenNibIcon} text={'UI/UX'} />;
 }
 
 export function CalloutForAdvancedTopic() {
-  return <CalloutBadge type="danger" icon={Exam} text={'Advanced'} />;
+  return <CalloutBadge type="danger" icon={ExamIcon} text={'Advanced'} />;
 }
 
 export function CalloutForPersonalOpinion() {
-  return <CalloutBadge type="info1" icon={Megaphone} text={'Opinion'} />;
+  return <CalloutBadge type="info1" icon={MegaphoneIcon} text={'Opinion'} />;
 }
 
 export function PointSeperator({ className }: { className?: string }) {
   return (
-    <BracketsAngle
+    <BracketsAngleIcon
       className={`mx-auto mt-2 mb-3 block text-xl text-cc-accent large-desktop:mb-4 ${
         className ?? ''
       }`}

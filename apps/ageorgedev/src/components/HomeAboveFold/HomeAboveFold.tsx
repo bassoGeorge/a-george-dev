@@ -1,5 +1,3 @@
-'use client';
-
 import {
   Heading3,
   Heading4,
@@ -7,7 +5,7 @@ import {
   NameLogo,
   ThemeSwitcher,
 } from '@ageorgedev/design-system';
-import { GithubLogoIcon, LinkedinLogoIcon } from '@phosphor-icons/react';
+import { GithubLogoIcon, LinkedinLogoIcon } from '@phosphor-icons/react/ssr';
 import Link from 'next/link';
 import styles from './HomeAboveFold.module.css';
 

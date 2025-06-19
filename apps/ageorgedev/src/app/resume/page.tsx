@@ -1,4 +1,3 @@
-'use client';
 import {
   Body,
   BodyLg,
@@ -10,7 +9,8 @@ import {
   Heading6,
   NameLogo,
 } from '@ageorgedev/design-system';
-import { ArrowSquareOutIcon } from '@phosphor-icons/react';
+import { ArrowSquareOutIcon } from '@phosphor-icons/react/ssr';
+import { Fragment } from 'react';
 import { Skill, humanSkills, techSkills, toolSkills } from './Skill';
 import { SocialLink } from './SocialLink';
 import styles from './page.module.css';
@@ -122,7 +122,7 @@ export default function Resume() {
           </Heading6>
           <div className={styles.eduGrid}>
             {education.map((edu) => (
-              <>
+              <Fragment key={edu.period}>
                 <BodyXs>{edu.period}</BodyXs>
                 <div>
                   <BodySm className="font-interface">{edu.programme}</BodySm>
@@ -130,7 +130,7 @@ export default function Resume() {
                     {edu.institute}
                   </BodyXs>
                 </div>
-              </>
+              </Fragment>
             ))}
           </div>
         </section>

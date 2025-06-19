@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 import { CalloutBadge } from './CalloutBadge';
-import { InfoIcon } from '@phosphor-icons/react';
+import { InfoIcon } from '@phosphor-icons/react/ssr';
 
 describe('CalloutBadge', () => {
   const defaultProps = {
