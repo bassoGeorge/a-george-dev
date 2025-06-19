@@ -16,7 +16,7 @@ import { S10Outro } from './slides/s10-outro';
 import { S04BCognitiveLoad } from './slides/s04b-cognitive-load';
 
 export function TalkTailwind() {
-  const presentationRef = useRef(null);
+  const presentationRef = useRef<HTMLDivElement | null>(null);
   useRevealFramework(presentationRef);
 
   return (

@@ -1,3 +1,5 @@
+// This file HAS to be ESM .mjs. The remark plugins are all esm only
+
 import { composePlugins, withNx } from '@nx/next';
 import createMDX from '@next/mdx';
 import remarkFrontmatter from 'remark-frontmatter';
