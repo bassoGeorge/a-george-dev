@@ -15,7 +15,7 @@ type ThemeContext = {
 };
 
 const defaultValue: ThemeContext = {
-  theme: 'light',
+  theme: 'dark',
   setTheme: () => {},
 };
 
@@ -57,7 +57,7 @@ export function ThemeProvider({ children }: React.PropsWithChildren) {
 
   /** Set the user theme from local storage if present */
   useEffect(() => {
-    const existingTheme = getThemeFromLS();
+    const existingTheme = getThemeFromStorage();
     if (existingTheme) {
       dispatch({
         type: 'setByUser',
@@ -72,7 +72,7 @@ export function ThemeProvider({ children }: React.PropsWithChildren) {
       type: 'setByUser',
       theme: newTheme,
     });
-    setThemeInLS(newTheme);
+    setThemeInStorage(newTheme);
   }, []);
 
   // The mutation callback to be attached to the <html> element
@@ -159,20 +159,20 @@ function safeAddClass(classList: DOMTokenList, className: string) {
   }
 }
 
-// function getThemeFromClassString(classString: string): Theme | null {
-//   const classes = classString.split(' ');
-//   return classes.includes('dark')
-//     ? 'dark'
-//     : classes.includes('light')
-//     ? 'light'
-//     : null;
-// }
+function getThemeFromClassString(classString: string): Theme | null {
+  const classes = classString.split(' ');
+  return classes.includes('dark')
+    ? 'dark'
+    : classes.includes('light')
+      ? 'light'
+      : null;
+}
 
 /** LocalStorage stuff */
-const LS_THEME_KEY = 'theme';
+const STORAGE_THEME_KEY = 'theme';
 
-function getThemeFromLS(): Theme | null {
-  const userPreference = localStorage.getItem(LS_THEME_KEY);
+function getThemeFromStorage(): Theme | null {
+  const userPreference = sessionStorage.getItem(STORAGE_THEME_KEY);
   if (userPreference) {
     return userPreference === 'dark' ? 'dark' : 'light';
   } else {
@@ -180,6 +180,6 @@ function getThemeFromLS(): Theme | null {
   }
 }
 
-function setThemeInLS(theme: Theme) {
-  localStorage.setItem(LS_THEME_KEY, theme);
+function setThemeInStorage(theme: Theme) {
+  sessionStorage.setItem(STORAGE_THEME_KEY, theme);
 }
