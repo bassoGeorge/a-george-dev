@@ -14,7 +14,10 @@ const nextConfig = {
   },
   pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'md', 'mdx'],
   experimental: {
-    optimizePackageImports: ['@ageorgedev/design-system'],
+    optimizePackageImports: [
+      '@ageorgedev/design-system',
+      '@phosphor-icons/react',
+    ],
   },
 };
 
