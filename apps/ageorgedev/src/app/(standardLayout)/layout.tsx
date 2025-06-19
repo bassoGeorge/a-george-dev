@@ -1,5 +1,3 @@
-'use client';
-
 import NavigationHeader from '../../components/NavigationHeader/NavigationHeader';
 
 export default function InnerPage({ children }: React.PropsWithChildren) {
