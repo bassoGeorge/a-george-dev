@@ -1,10 +1,16 @@
 import '@testing-library/jest-dom';
-import { render } from '@testing-library/react';
-import { CodeBlock } from './CodeBlock';
+import { act, render } from '@testing-library/react';
 import { ThemeProvider } from '../theming/ThemeProvider';
 import { Theme } from '../theming/models';
+import { CodeBlock } from './CodeBlock';
 
 jest.mock('../theming/ThemeProvider');
+
+async function setupTestSubject(ui: React.ReactElement, theme: Theme = 'dark') {
+  return act(() =>
+    render(<ThemeProvider startingTheme={theme}>{ui}</ThemeProvider>)
+  );
+}
 
 describe('CodeBlock', () => {
   const defaultProps = {
@@ -12,18 +18,16 @@ describe('CodeBlock', () => {
     lang: 'typescript' as const,
   };
 
-  const renderWithTheme = (ui: React.ReactElement, theme: Theme = 'dark') => {
-    return render(<ThemeProvider startingTheme={theme}>{ui}</ThemeProvider>);
-  };
-
-  it('renders code with default props', () => {
-    const { container } = renderWithTheme(<CodeBlock {...defaultProps} />);
+  it('renders code with default props', async () => {
+    const { container } = await setupTestSubject(
+      <CodeBlock {...defaultProps} />
+    );
     const codeElement = container.querySelector('code');
     expect(codeElement).toBeInTheDocument();
   });
 
-  it('renders with different font sizes', () => {
-    const { container, rerender } = renderWithTheme(
+  it('renders with different font sizes', async () => {
+    const { container, rerender } = await setupTestSubject(
       <CodeBlock {...defaultProps} fontSize="small" />
     );
     const codeElement = container.querySelector('code');
@@ -40,8 +44,8 @@ describe('CodeBlock', () => {
     );
   });
 
-  it('renders with different languages', () => {
-    const { container } = renderWithTheme(
+  it('renders with different languages', async () => {
+    const { container } = await setupTestSubject(
       <CodeBlock {...defaultProps} lang="javascript" />
     );
     const codeElement = container.querySelector('code');
@@ -49,8 +53,8 @@ describe('CodeBlock', () => {
     expect(codeElement?.textContent).toBe('1const hello = "world";');
   });
 
-  it('renders with dark theme', () => {
-    const { container } = renderWithTheme(
+  it('renders with dark theme', async () => {
+    const { container } = await setupTestSubject(
       <CodeBlock {...defaultProps} />,
       'dark'
     );
