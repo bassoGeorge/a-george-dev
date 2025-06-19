@@ -1,5 +1,8 @@
-import { ShortNameLogo, TiltCard } from '@ageorgedev/atoms';
-import { ThemeSwitcher } from '@ageorgedev/molecules';
+import {
+  ShortNameLogo,
+  ThemeSwitcher,
+  TiltCard,
+} from '@ageorgedev/design-system';
 import Link from 'next/link';
 
 export type NavigationHeaderProps = {

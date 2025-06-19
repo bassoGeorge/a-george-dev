@@ -6,8 +6,8 @@ import {
   InterfaceXl,
   PBodyLg,
   PBodyXs,
-} from '@ageorgedev/atoms';
-import { CodeBlock } from '@ageorgedev/molecules';
+} from '@ageorgedev/design-system';
+import { CodeBlock } from '@ageorgedev/design-system';
 import {
   SlideTypeCenter,
   SlideTypeRegular,

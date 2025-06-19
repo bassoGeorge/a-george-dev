@@ -1,4 +1,4 @@
-import { Interface } from '@ageorgedev/atoms';
+import { Interface } from '../typography/typography-components';
 import { StoryObj } from '@storybook/react';
 
 export default {

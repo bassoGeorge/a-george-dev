@@ -13,6 +13,9 @@ const nextConfig = {
     svgr: false,
   },
   pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'md', 'mdx'],
+  experimental: {
+    optimizePackageImports: ['@ageorgedev/design-system'],
+  },
 };
 
 const withMdx = createMDX({

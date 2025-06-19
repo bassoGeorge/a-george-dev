@@ -1,4 +1,10 @@
-import { Heading1, Heading2, TiltCard, BodyXl, Body } from '@ageorgedev/atoms';
+import {
+  Body,
+  BodyXl,
+  Heading1,
+  Heading2,
+  TiltCard,
+} from '@ageorgedev/design-system';
 import Link from 'next/link';
 
 export default function TalksPage() {

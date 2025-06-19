@@ -8,7 +8,7 @@ import {
   Phone,
 } from '@phosphor-icons/react';
 import React from 'react';
-import { BodySm } from '@ageorgedev/atoms';
+import { BodySm } from '@ageorgedev/design-system';
 
 type SocialLinkType =
   | 'github'

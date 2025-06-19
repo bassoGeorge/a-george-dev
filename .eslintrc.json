@@ -39,14 +39,6 @@
               {
                 "sourceTag": "type:ui",
                 "onlyDependOnLibsWithTags": ["type:ui", "type:util"]
-              },
-              {
-                "sourceTag": "ui-type:atom",
-                "notDependOnLibsWithTags": ["ui-type:molecule"]
-              },
-              {
-                "sourceTag": "ui-type:molecule",
-                "onlyDependOnLibsWithTags": ["ui-type:atom", "ui-type:molecule"]
               }
             ]
           }

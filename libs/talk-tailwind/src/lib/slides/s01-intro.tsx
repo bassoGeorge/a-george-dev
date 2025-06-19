@@ -7,7 +7,7 @@ import {
   PBody,
   PBodyLg,
   PBodyMd,
-} from '@ageorgedev/atoms';
+} from '@ageorgedev/design-system';
 import {
   CalloutForAdvancedTopic,
   CalloutForPersonalOpinion,

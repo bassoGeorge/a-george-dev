@@ -3,8 +3,8 @@
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/design-system/src",
   "projectType": "library",
-  "tags": [],
-  "implicitDependencies": ["atoms", "molecules", "foundation-styles"],
+  "tags": ["scope:ds", "type:ui"],
+  "implicitDependencies": ["foundation-styles"],
   "targets": {
     "lint": {
       "executor": "@nx/eslint:lint",

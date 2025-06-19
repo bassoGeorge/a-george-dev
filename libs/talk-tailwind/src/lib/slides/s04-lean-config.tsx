@@ -4,8 +4,8 @@ import {
   Heading3,
   Interface,
   PBody,
-} from '@ageorgedev/atoms';
-import { CodeBlock } from '@ageorgedev/molecules';
+} from '@ageorgedev/design-system';
+import { CodeBlock } from '@ageorgedev/design-system';
 import {
   ComparisonRow,
   SlideTypeCenter,
