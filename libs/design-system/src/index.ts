@@ -6,6 +6,8 @@ export * from './lib/cards/Card';
 export * from './lib/callouts/CalloutBadge';
 
 export * from './lib/theming/ThemeSwitcher';
-export * from './lib/theming/theme-provider';
+export * from './lib/theming/ThemeProvider';
+export * from './lib/theming/ThemeContext';
+export * from './lib/theming/models';
 
 export * from './lib/CodeBlock/CodeBlock';

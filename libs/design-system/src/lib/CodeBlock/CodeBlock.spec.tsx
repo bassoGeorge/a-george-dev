@@ -1,24 +1,10 @@
 import '@testing-library/jest-dom';
 import { render } from '@testing-library/react';
 import { CodeBlock } from './CodeBlock';
-import { ThemeProvider } from '../theming/theme-provider';
+import { ThemeProvider } from '../theming/ThemeProvider';
+import { Theme } from '../theming/models';
 
-// Mock window.matchMedia for tests
-beforeAll(() => {
-  Object.defineProperty(window, 'matchMedia', {
-    writable: true,
-    value: jest.fn().mockImplementation((query) => ({
-      matches: false,
-      media: query,
-      onchange: null,
-      addListener: jest.fn(), // deprecated
-      removeListener: jest.fn(), // deprecated
-      addEventListener: jest.fn(),
-      removeEventListener: jest.fn(),
-      dispatchEvent: jest.fn(),
-    })),
-  });
-});
+jest.mock('../theming/ThemeProvider');
 
 describe('CodeBlock', () => {
   const defaultProps = {
@@ -26,8 +12,8 @@ describe('CodeBlock', () => {
     lang: 'typescript' as const,
   };
 
-  const renderWithTheme = (ui: React.ReactElement) => {
-    return render(<ThemeProvider>{ui}</ThemeProvider>);
+  const renderWithTheme = (ui: React.ReactElement, theme: Theme = 'dark') => {
+    return render(<ThemeProvider startingTheme={theme}>{ui}</ThemeProvider>);
   };
 
   it('renders code with default props', () => {
@@ -64,11 +50,12 @@ describe('CodeBlock', () => {
   });
 
   it('renders with dark theme', () => {
-    document.documentElement.classList.add('dark');
-    const { container } = renderWithTheme(<CodeBlock {...defaultProps} />);
+    const { container } = renderWithTheme(
+      <CodeBlock {...defaultProps} />,
+      'dark'
+    );
     const codeElement = container.querySelector('code');
     expect(codeElement).toBeInTheDocument();
     expect(codeElement?.textContent).toBe('1const hello = "world";');
-    document.documentElement.classList.remove('dark');
   });
 });

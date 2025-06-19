@@ -1,5 +1,5 @@
 import { Card } from '../cards/Card';
-import { useTheme } from '../theming/theme-provider';
+import { useTheme } from '../theming/ThemeContext';
 
 // @ts-ignore
 import SyntaxHighlighter from 'react-syntax-highlighter/dist/cjs/prism-async-light';

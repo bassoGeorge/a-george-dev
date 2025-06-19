@@ -2,7 +2,7 @@
 
 import { useCallback } from 'react';
 import { MoonIcon, SunIcon } from '@phosphor-icons/react/ssr';
-import { useTheme } from './theme-provider';
+import { useTheme } from './ThemeContext';
 
 export function ThemeSwitcher() {
   const { theme, setTheme } = useTheme();

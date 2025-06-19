@@ -1,34 +1,23 @@
 'use client';
 
-import {
-  createContext,
-  useCallback,
-  useContext,
-  useEffect,
-  useReducer,
-} from 'react';
-import { initialThemeState, themeReducer, Theme } from './theme-state';
+import { useCallback, useEffect, useReducer } from 'react';
+import { Theme } from './models';
+import { initialThemeState, themeReducer } from './theme-state';
+import { ThemeContext } from './ThemeContext';
 
-type ThemeContext = {
-  theme: Theme;
-  setTheme(newTheme: Theme): void;
-};
-
-const defaultValue: ThemeContext = {
-  theme: 'dark',
-  setTheme: () => {},
-};
-
-const themeContext = createContext<ThemeContext>(defaultValue);
-
-/** Hooks */
-export function useTheme() {
-  return useContext(themeContext);
-}
+export type ThemeProviderProps = React.PropsWithChildren<{
+  startingTheme?: Theme;
+}>;
 
 /** Provider */
-export function ThemeProvider({ children }: React.PropsWithChildren) {
-  const [{ theme }, dispatch] = useReducer(themeReducer, initialThemeState);
+export function ThemeProvider({
+  children,
+  startingTheme = 'dark',
+}: ThemeProviderProps) {
+  const [{ theme }, dispatch] = useReducer(themeReducer, {
+    ...initialThemeState,
+    theme: startingTheme,
+  });
 
   // Listen to the browser theme change, can also be directly used on the queryList
   const mediaChangeListener = useCallback(
@@ -140,9 +129,9 @@ export function ThemeProvider({ children }: React.PropsWithChildren) {
   }, [theme]);
 
   return (
-    <themeContext.Provider value={{ theme, setTheme: manuallySetTheme }}>
+    <ThemeContext.Provider value={{ theme, setTheme: manuallySetTheme }}>
       {children}
-    </themeContext.Provider>
+    </ThemeContext.Provider>
   );
 }
 

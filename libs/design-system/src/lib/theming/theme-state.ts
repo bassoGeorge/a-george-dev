@@ -1,4 +1,4 @@
-export type Theme = 'light' | 'dark';
+import { Theme } from './models';
 
 export type ThemeState = {
   theme: Theme;
