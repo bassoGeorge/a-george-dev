@@ -11,7 +11,7 @@ import {
   SlideTypeCenter,
   SlideTypeRegular,
 } from '@ageorgedev/reveal-framework';
-import { ArrowRight } from '@phosphor-icons/react';
+import { ArrowRightIcon } from '@phosphor-icons/react';
 
 export function S04BCognitiveLoad() {
   return (
@@ -31,7 +31,7 @@ export function S04BCognitiveLoad() {
       >
         <div className="mb-7 flex items-center gap-7">
           <CodeBlock lang="css" text={imaginaryCSS}></CodeBlock>
-          <ArrowRight className="text-2xl text-cc-accent" />
+          <ArrowRightIcon className="text-2xl text-cc-accent" />
           <CodeBlock lang="html" text={imaginaryHTML}></CodeBlock>
         </div>
         <PBodyLg className="text-cc-danger">

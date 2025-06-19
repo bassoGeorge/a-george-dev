@@ -12,7 +12,7 @@ import {
   SlideTypeCenter,
   SlideTypeRegular,
 } from '@ageorgedev/reveal-framework';
-import { Warning } from '@phosphor-icons/react';
+import { WarningIcon } from '@phosphor-icons/react';
 
 export function S08DarkMode() {
   return (
@@ -164,7 +164,8 @@ export function S08DarkMode() {
         }
       >
         <PBodyLg className="text-cc-danger italic">
-          <Warning className="-mt-2 inline-block" /> It allows all combinations!
+          <WarningIcon className="-mt-2 inline-block" /> It allows all
+          combinations!
         </PBodyLg>
         <CodeBlock
           fontSize="large"

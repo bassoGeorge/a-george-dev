@@ -1,12 +1,12 @@
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 import { CalloutBadge } from './CalloutBadge';
-import { Info } from '@phosphor-icons/react';
+import { InfoIcon } from '@phosphor-icons/react';
 
 describe('CalloutBadge', () => {
   const defaultProps = {
     text: 'Test Badge',
-    icon: Info,
+    icon: InfoIcon,
   };
 
   it('renders with default props', () => {

@@ -87,7 +87,7 @@
     "@mdx-js/react": "^3.0.1",
     "@next/mdx": "^14.2.13",
     "@nx/plugin": "21.2.0",
-    "@phosphor-icons/react": "^2.0.6",
+    "@phosphor-icons/react": "2.1.10",
     "@tailwindcss/postcss": "^4.1.10",
     "@types/mdx": "^2.0.13",
     "next": "14.2.29",

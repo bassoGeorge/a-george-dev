@@ -7,7 +7,7 @@ import {
   NameLogo,
   ThemeSwitcher,
 } from '@ageorgedev/design-system';
-import { GithubLogo, LinkedinLogo } from '@phosphor-icons/react';
+import { GithubLogoIcon, LinkedinLogoIcon } from '@phosphor-icons/react';
 import Link from 'next/link';
 import styles from './HomeAboveFold.module.css';
 
@@ -44,7 +44,7 @@ export function HomeAboveFold() {
             className="text-2xl leading-none text-cc-neutral-subtlest transition-colors hover:text-cc-accent-subtle"
             aria-label="Github"
           >
-            <GithubLogo weight="duotone" />
+            <GithubLogoIcon weight="duotone" />
           </a>
           <a
             href="https://linkedin.com/in/anishbassogeorge"
@@ -53,7 +53,7 @@ export function HomeAboveFold() {
             className="text-2xl leading-none text-cc-neutral-subtlest transition-colors hover:text-cc-accent-subtle"
             aria-label="Linkedin"
           >
-            <LinkedinLogo weight="duotone" />
+            <LinkedinLogoIcon weight="duotone" />
           </a>
         </div>
       </section>

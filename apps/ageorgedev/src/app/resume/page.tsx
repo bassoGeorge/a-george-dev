@@ -10,7 +10,7 @@ import {
   Heading6,
   NameLogo,
 } from '@ageorgedev/design-system';
-import { ArrowSquareOut } from '@phosphor-icons/react';
+import { ArrowSquareOutIcon } from '@phosphor-icons/react';
 import { Skill, humanSkills, techSkills, toolSkills } from './Skill';
 import { SocialLink } from './SocialLink';
 import styles from './page.module.css';
@@ -106,7 +106,7 @@ export default function Resume() {
           >
             <BodySm className="font-interface">
               Demystifying Function Sub-typing
-              <ArrowSquareOut
+              <ArrowSquareOutIcon
                 weight="duotone"
                 className="relative -top-px ml-2 inline text-rc-p-accent-400"
               />
