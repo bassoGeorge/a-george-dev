@@ -13,22 +13,21 @@ const compat = new FlatCompat({
 
 export default [
   {
-    ignores: ['.next/**/*'],
+    // for some reason, local path not working. need to investigate
+    ignores: [`**/.next/**/*`],
   },
-  ...fixupConfigRules(compat.extends('next')),
+  // ...fixupConfigRules(compat.extends('next')),
+  ...fixupConfigRules(
+    compat.config({
+      extends: ['next'],
+      settings: {
+        next: {
+          rootDir: 'apps/ageorgedev',
+        },
+      },
+    })
+  ),
   ...fixupConfigRules(compat.extends('next/core-web-vitals')),
   ...baseConfig,
   ...nx.configs['flat/react-typescript'],
-  {
-    files: ['**/*.ts', '**/*.tsx', '**/*.js', '**/*.jsx'],
-    rules: {
-      '@next/next/no-html-link-for-pages': ['error', 'apps/ageorgedev/pages'],
-    },
-  },
-  // {
-  //   files: ['postcss.config.js', 'tailwind.config.js'],
-  //   rules: {
-  //     '@typescript-eslint/no-var-requires': 'off',
-  //   },
-  // },
 ];
