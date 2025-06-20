@@ -3,6 +3,7 @@
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/foundation-styles/src",
   "projectType": "library",
+  "tags": ["scope:ds", "type:util"],
   "targets": {
     "build": {
       "executor": "@nx/vite:build",
@@ -27,6 +28,5 @@
         "lintFilePatterns": ["libs/foundation-styles/**/*.ts"]
       }
     }
-  },
-  "tags": ["scope:ds", "type:util"]
+  }
 }
