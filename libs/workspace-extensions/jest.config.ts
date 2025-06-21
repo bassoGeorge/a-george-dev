@@ -1,4 +1,3 @@
-/* eslint-disable */
 export default {
   displayName: 'workspace-extensions',
   preset: '../../jest.preset.js',

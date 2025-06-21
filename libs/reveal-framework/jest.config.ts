@@ -1,4 +1,3 @@
-/* eslint-disable */
 export default {
   displayName: 'reveal-framework',
   preset: '../../jest.preset.js',
