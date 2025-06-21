@@ -15,7 +15,7 @@ runs:
         cache: 'yarn'
     - name: ⎔ Set yarn version
       shell: bash
-      run: yarn set version 1.22.22
+      run: yarn set version 4.9.2
     - name: 📥 Install dependencies
       shell: bash
       run: yarn install --frozen-lockfile
