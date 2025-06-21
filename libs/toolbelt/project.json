@@ -3,6 +3,7 @@
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/toolbelt/src",
   "projectType": "library",
+  "tags": ["scope:global", "type:util"],
   "targets": {
     "build": {
       "executor": "@nx/vite:build",
@@ -27,6 +28,5 @@
         "lintFilePatterns": ["libs/toolbelt/**/*.ts"]
       }
     }
-  },
-  "tags": ["scope:global", "type:util"]
+  }
 }

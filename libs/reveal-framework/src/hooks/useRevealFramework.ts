@@ -15,7 +15,7 @@ export function useRevealFramework(elementRef: RefObject<HTMLElement | null>) {
         transition: 'fade',
       });
 
-      deck.initialize().then((evt) => {
+      deck.initialize().then((_) => {
         // Hack for dev
         // deck.slide(6, 1);
         revealInstance.current = deck;

@@ -1,4 +1,3 @@
-/* eslint-disable */
 export default {
   displayName: 'talk-tailwind',
   preset: '../../jest.preset.js',

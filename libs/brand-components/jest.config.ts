@@ -1,4 +1,3 @@
-/* eslint-disable */
 export default {
   displayName: 'brand-components',
   preset: '../../jest.preset.js',

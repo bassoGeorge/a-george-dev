@@ -22,14 +22,6 @@ export function Skill(props: SkillProps) {
   );
 }
 
-const bSkill =
-  (type: SkillType) =>
-  (name: string, level: SkillLevel = 5): SkillProps => ({
-    name,
-    level,
-    type,
-  });
-
 type SkillClassMap = Record<SkillLevel, string>;
 
 const primaryAccentColorClasses: SkillClassMap = {
@@ -53,7 +45,7 @@ const levelClassesForHuman: SkillClassMap = {
 const levelClasses: Record<SkillType, SkillClassMap> = {
   tool: primaryAccentColorClasses,
   technique: secondaryAccentColorClasses,
-  human: primaryAccentColorClasses,
+  human: levelClassesForHuman,
 };
 
 const skillMapper =
