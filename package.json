@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "private": true,
-  "packageManager": "yarn@1.22.22",
+  "packageManager": "yarn@4.9.2",
   "scripts": {
     "dev": "nx dev ageorgedev",
     "test": "nx run-many --target=test --passWithNoTests",
@@ -108,7 +108,7 @@
   },
   "volta": {
     "node": "22.15.1",
-    "yarn": "1.22.22"
+    "yarn": "4.9.2"
   },
   "resolutions": {
     "@types/react": "19.1.8",

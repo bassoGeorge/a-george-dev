@@ -56,7 +56,7 @@ jobs:
           NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
       - name: 🔧 List affected projects
         id: affected_projects
-        run: echo "affected_projects=$(yarn --silent nx show projects --affected --json)" >> "$GITHUB_OUTPUT"
+        run: echo "affected_projects=$(yarn nx show projects --affected --json)" >> "$GITHUB_OUTPUT"
       - name: Source validations on affected projects
         run: yarn nx affected --target validate
       - name: 🔍 Debug
