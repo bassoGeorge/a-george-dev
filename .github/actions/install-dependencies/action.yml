@@ -18,7 +18,7 @@ runs:
         cache: 'yarn'
     - name: 📥 Install dependencies
       shell: bash
-      run: yarn install --frozen-lockfile
+      run: yarn install --immutable
     # - name: Add NX_CLOUD_ACCESS_TOKEN to nx-cloud.env
     #   shell: bash
     #   run: echo "NX_CLOUD_ACCESS_TOKEN=${{ inputs.NX_CLOUD_ACCESS_TOKEN }}" >> nx-cloud.env
