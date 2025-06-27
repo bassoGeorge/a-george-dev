@@ -78,19 +78,13 @@ export function S02Fundamentals() {
               <PBody className="fragment" data-fragment-index="4">
                 HTML becomes the authoring language
               </PBody>
-              <PBody
-                className="fragment text-cc-danger"
-                data-fragment-index="5"
-              >
+              <PBody className="fragment text-danger" data-fragment-index="5">
                 HTML overloaded with styling
               </PBody>
               <PBody className="fragment" data-fragment-index="6">
                 Styles co-located with markup
               </PBody>
-              <PBody
-                className="fragment text-cc-accent"
-                data-fragment-index="7"
-              >
+              <PBody className="fragment text-accent" data-fragment-index="7">
                 CSS skills required. It is just a one-to-one mapping of CSS
               </PBody>
             </>
@@ -157,7 +151,7 @@ export function S02Fundamentals() {
           <a
             href="https://tailwindcss.com"
             target="_blank"
-            className="text-cc-alt-accent"
+            className="text-alt-accent"
             rel="noreferrer"
           >
             https://tailwindcss.com

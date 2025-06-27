@@ -31,10 +31,10 @@ export function S04BCognitiveLoad() {
       >
         <div className="mb-7 flex items-center gap-7">
           <CodeBlock lang="css" text={imaginaryCSS}></CodeBlock>
-          <ArrowRightIcon className="text-2xl text-cc-accent" />
+          <ArrowRightIcon className="text-2xl text-accent" />
           <CodeBlock lang="html" text={imaginaryHTML}></CodeBlock>
         </div>
-        <PBodyLg className="text-cc-danger">
+        <PBodyLg className="text-danger">
           We are adding mental steps to the development process
         </PBodyLg>
         <PBodyLg>

@@ -33,7 +33,7 @@ export function S04LeanConfig() {
           right={
             <>
               <PBody>Allows adding onto the existing Tailwind values</PBody>
-              <PBody className="text-cc-danger">
+              <PBody className="text-danger">
                 Easy for devs to use non-compliant design
               </PBody>
               <PBody>Tailwind tends to have too many values</PBody>
@@ -42,7 +42,7 @@ export function S04LeanConfig() {
                 <a
                   href="https://tailwindcss.com/docs/customizing-colors"
                   target="_blank"
-                  className="text-cc-alt-accent"
+                  className="text-alt-accent"
                   rel="noreferrer"
                 >
                   their colors
@@ -51,7 +51,7 @@ export function S04LeanConfig() {
                 <a
                   href="https://tailwindcss.com/docs/customizing-spacing#default-spacing-scale"
                   target="_blank"
-                  className="text-cc-alt-accent"
+                  className="text-alt-accent"
                   rel="noreferrer"
                 >
                   spacing scale
@@ -83,7 +83,7 @@ export function S04LeanConfig() {
                 properties
               </PBody>
               <PBody>Storybook can be a good solution</PBody>
-              <PBody className="font-bold text-cc-accent">
+              <PBody className="font-bold text-accent">
                 The earlier you move to custom sets, the better
               </PBody>
               <PBody className="italic">
@@ -191,7 +191,7 @@ export function S04LeanConfig() {
                 <br />
                 engine to drive your plugins. More on that later
               </PBody>
-              <PBody className="font-bold text-cc-accent">
+              <PBody className="font-bold text-accent">
                 It is a good idea to prune out CSS practices you don't need
               </PBody>
             </>
@@ -265,5 +265,5 @@ function LSpaceBar({ className, name }: { className?: string; name: string }) {
 }
 
 function Bar({ className }: { className?: string }) {
-  return <div className={`${className} h-4 bg-cc-accent`}></div>;
+  return <div className={`${className} h-4 bg-accent`}></div>;
 }

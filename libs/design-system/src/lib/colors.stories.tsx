@@ -23,7 +23,7 @@ function Swatch({
     <div
       className={`${bgClass} ${textClass ?? ''} ${
         BodyMd.classes
-      } border-medium grid h-9 w-12 place-items-center border-cc-line`}
+      } border-medium grid h-9 w-12 place-items-center border-line`}
     >
       {content}
     </div>
@@ -106,57 +106,51 @@ export const ContextualColors: Story = {
       style={{ gridTemplateColumns: 'max-content repeat(5, minmax(0, 1fr)' }}
     >
       <InterfaceMd>Page</InterfaceMd>
-      <Swatch bgClass="bg-cc-page-0" />
-      <Swatch bgClass="bg-cc-page-1" />
-      <Swatch bgClass="bg-cc-page-2" />
-      <Swatch bgClass="bg-cc-page-3" />
-      <Swatch bgClass="bg-cc-page-4" />
+      <Swatch bgClass="bg-page-0" />
+      <Swatch bgClass="bg-page-1" />
+      <Swatch bgClass="bg-page-2" />
+      <Swatch bgClass="bg-page-3" />
+      <Swatch bgClass="bg-page-4" />
 
       <InterfaceMd>Neutral</InterfaceMd>
-      <Swatch bgClass="bg-cc-neutral" textClass="text-cc-neutral-inverse" />
-      <Swatch
-        bgClass="bg-cc-neutral-subtle"
-        textClass="text-cc-neutral-inverse"
-      />
-      <Swatch
-        bgClass="bg-cc-neutral-subtlest"
-        textClass="text-cc-neutral-inverse"
-      />
+      <Swatch bgClass="bg-neutral" textClass="text-neutral-inverse" />
+      <Swatch bgClass="bg-neutral-subtle" textClass="text-neutral-inverse" />
+      <Swatch bgClass="bg-neutral-subtlest" textClass="text-neutral-inverse" />
       <div />
       <div />
 
       <InterfaceMd>Neutral Inverse</InterfaceMd>
-      <Swatch bgClass="bg-cc-neutral-inverse" />
-      <Swatch bgClass="bg-cc-neutral-inverse-subtle" />
-      <Swatch bgClass="bg-cc-neutral-inverse-subtlest" />
+      <Swatch bgClass="bg-neutral-inverse" />
+      <Swatch bgClass="bg-neutral-inverse-subtle" />
+      <Swatch bgClass="bg-neutral-inverse-subtlest" />
       <div />
       <div />
 
       <InterfaceMd>Line</InterfaceMd>
-      <Swatch bgClass="bg-cc-line" textClass={rTInverse} />
-      <Swatch bgClass="bg-cc-line-dark" textClass={rTInverse} />
+      <Swatch bgClass="bg-line" textClass={rTInverse} />
+      <Swatch bgClass="bg-line-dark" textClass={rTInverse} />
       <div />
       <div />
       <div />
 
       <InterfaceMd>Accent</InterfaceMd>
-      <Swatch bgClass="bg-cc-accent" textClass="text-cc-neutral-inverse" />
-      <Swatch bgClass="bg-cc-accent-subtle" />
+      <Swatch bgClass="bg-accent" textClass="text-neutral-inverse" />
+      <Swatch bgClass="bg-accent-subtle" />
       <div />
       <div />
       <div />
 
       <InterfaceMd>Alt Accent</InterfaceMd>
-      <Swatch bgClass="bg-cc-alt-accent" textClass="text-cc-neutral-inverse" />
-      <Swatch bgClass="bg-cc-alt-accent-subtle" />
+      <Swatch bgClass="bg-alt-accent" textClass="text-neutral-inverse" />
+      <Swatch bgClass="bg-alt-accent-subtle" />
       <div />
       <div />
       <div />
 
       <InterfaceMd>Danger</InterfaceMd>
-      <Swatch bgClass="bg-cc-danger" textClass="text-cc-neutral-inverse" />
-      <Swatch bgClass="bg-cc-danger-bg" />
-      <Swatch bgClass="bg-cc-danger-fg" textClass="text-cc-neutral-inverse" />
+      <Swatch bgClass="bg-danger" textClass="text-neutral-inverse" />
+      <Swatch bgClass="bg-danger-bg" />
+      <Swatch bgClass="bg-danger-fg" textClass="text-neutral-inverse" />
       <div />
       <div />
     </div>

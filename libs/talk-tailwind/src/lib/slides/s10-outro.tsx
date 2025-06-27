@@ -34,7 +34,7 @@ export function S10Outro() {
           <PointSeperator />
           Will your dev team already have experience with your CSS approach?
         </PBody>
-        <PBodyMd className="fragment font-bold text-cc-accent">
+        <PBodyMd className="fragment font-bold text-accent">
           <PointSeperator />
           In fact, most of the time, we build an inferior Tailwind ourselves...
         </PBodyMd>
@@ -49,7 +49,7 @@ export function S10Outro() {
         <Heading3 as="h1" className="italic">
           that's all folks!
         </Heading3>
-        <Heading1 as="h2" className="font-bold text-cc-accent">
+        <Heading1 as="h2" className="font-bold text-accent">
           Thank You
         </Heading1>
         <PBodyLg className="mt-7">

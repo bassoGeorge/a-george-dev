@@ -14,7 +14,7 @@ export function ThemeSwitcher() {
 
   return (
     <button
-      className={`p-3 text-2xl leading-none text-cc-neutral-subtlest transition-colors hover:text-cc-alt-accent`}
+      className={`p-3 text-2xl leading-none text-neutral-subtlest transition-colors hover:text-alt-accent`}
       title={`Switch to ${nextTheme} theme`}
       onClick={switchTheme}
     >

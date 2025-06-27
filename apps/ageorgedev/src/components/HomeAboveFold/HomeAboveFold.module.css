@@ -6,7 +6,7 @@
 
   grid-template-columns: 1fr;
   grid-template-rows: 3fr 2fr max-content;
-  color: var(--color-cc-neutral);
+  color: var(--color-neutral);
   height: 100vh;
 
   @supports (height: 100dvh) {
@@ -25,7 +25,7 @@
 }
 
 .nameSection {
-  background-color: var(--color-cc-page-0);
+  background-color: var(--color-page-0);
 }
 
 .paper {
@@ -41,7 +41,7 @@
 }
 
 .subTextSection {
-  --bg: var(--color-cc-page-0);
+  --bg: var(--color-page-0);
   z-index: 1;
   &::before {
     content: unset;
@@ -49,10 +49,10 @@
     transform: skew(var(--n-skew-deg), var(--skew-deg));
     transform-origin: top left;
     box-shadow: -4px 4px var(--color-rc-shadow-1);
-    border-left: var(--spacing-medium-line) solid var(--color-cc-line-dark);
+    border-left: var(--spacing-medium-line) solid var(--color-line-dark);
   }
   @media (width >= theme(--breakpoint-tablet)) {
-    --bg: var(--color-cc-page-1);
+    --bg: var(--color-page-1);
     &::before {
       content: '';
     }
@@ -60,7 +60,7 @@
 }
 
 .conSection {
-  --bg: var(--color-cc-page-2);
+  --bg: var(--color-page-2);
   z-index: 2;
 
   &::before {
@@ -68,7 +68,7 @@
     transform: skew(0deg, var(--skew-deg)) scaleY(2);
     transform-origin: top right;
     box-shadow: -4px -8px var(--color-rc-shadow-2);
-    border-top: var(--spacing-thick-line) solid var(--color-cc-line-dark);
+    border-top: var(--spacing-thick-line) solid var(--color-line-dark);
   }
 }
 

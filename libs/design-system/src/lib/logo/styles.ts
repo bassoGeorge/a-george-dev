@@ -1,5 +1,5 @@
 export const firstNameColor = 'text-rc-timber-400 dark:text-rc-parchment-500';
-export const lastNameColor = 'text-cc-accent';
+export const lastNameColor = 'text-accent';
 
 export const logoFont = `tracking-wide leading-[.75em]`;
 

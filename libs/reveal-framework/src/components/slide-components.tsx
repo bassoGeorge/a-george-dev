@@ -40,11 +40,11 @@ const NoteConfigs: Record<
 > = {
   tip: {
     mainClasses: 'bg-rc-p-accent-100 dark:bg-rc-p-accent-500',
-    iconClasses: 'text-cc-accent dark:text-cc-neutral',
+    iconClasses: 'text-accent dark:text-neutral',
     Icon: LightningIcon,
   },
   danger: {
-    mainClasses: 'bg-cc-danger-bg text-cc-danger-fg',
+    mainClasses: 'bg-danger-bg text-danger-fg',
     iconClasses: '',
     Icon: WarningIcon,
   },
@@ -65,7 +65,7 @@ export function CalloutForPersonalOpinion() {
 export function PointSeperator({ className }: { className?: string }) {
   return (
     <BracketsAngleIcon
-      className={`mx-auto mt-2 mb-3 block text-xl text-cc-accent large-desktop:mb-4 ${
+      className={`mx-auto mt-2 mb-3 block text-xl text-accent large-desktop:mb-4 ${
         className ?? ''
       }`}
     />

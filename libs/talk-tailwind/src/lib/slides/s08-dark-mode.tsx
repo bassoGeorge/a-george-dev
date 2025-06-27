@@ -66,12 +66,12 @@ export function S08DarkMode() {
               <Swatch className="bg-rc-p-accent-500" />
 
               <PBodyXs>Neutral</PBodyXs>
-              <Swatch className="bg-cc-neutral dark:bg-cc-neutral-inverse" />
-              <Swatch className="bg-cc-neutral-inverse dark:bg-cc-neutral" />
+              <Swatch className="bg-neutral dark:bg-neutral-inverse" />
+              <Swatch className="bg-neutral-inverse dark:bg-neutral" />
             </div>
           </div>
           <div
-            className="fragment w-px self-stretch bg-cc-line"
+            className="fragment w-px self-stretch bg-line"
             data-fragment-index="0"
           ></div>
           <div className="fragment" data-fragment-index="0">
@@ -97,11 +97,11 @@ export function S08DarkMode() {
                 <PBodyXs className="mt-2">Accent</PBodyXs>
               </div>
               <div>
-                <Swatch className="bg-cc-neutral dark:bg-cc-neutral-inverse" />
+                <Swatch className="bg-neutral dark:bg-neutral-inverse" />
                 <PBodyXs className="mt-2">Neutral text</PBodyXs>
               </div>
               <div>
-                <Swatch className="bg-cc-neutral-inverse dark:bg-cc-neutral" />
+                <Swatch className="bg-neutral-inverse dark:bg-neutral" />
                 <PBodyXs className="mt-2">Inverse text</PBodyXs>
               </div>
             </div>
@@ -128,11 +128,11 @@ export function S08DarkMode() {
                 <PBodyXs className="mt-2">Accent</PBodyXs>
               </div>
               <div>
-                <Swatch className="bg-cc-neutral-inverse dark:bg-cc-neutral" />
+                <Swatch className="bg-neutral-inverse dark:bg-neutral" />
                 <PBodyXs className="mt-2">Neutral text</PBodyXs>
               </div>
               <div>
-                <Swatch className="bg-cc-neutral dark:bg-cc-neutral-inverse" />
+                <Swatch className="bg-neutral dark:bg-neutral-inverse" />
                 <PBodyXs className="mt-2">Inverse text</PBodyXs>
               </div>
             </div>
@@ -163,7 +163,7 @@ export function S08DarkMode() {
           </Heading2>
         }
       >
-        <PBodyLg className="text-cc-danger italic">
+        <PBodyLg className="text-danger italic">
           <WarningIcon className="-mt-2 inline-block" /> It allows all
           combinations!
         </PBodyLg>
@@ -187,9 +187,7 @@ export function S08DarkMode() {
 
 function Swatch({ className }: { className?: string }) {
   return (
-    <div
-      className={`${className} h-9 w-10 rounded border border-cc-line`}
-    ></div>
+    <div className={`${className} h-9 w-10 rounded border border-line`}></div>
   );
 }
 
@@ -220,17 +218,17 @@ const rawColorsRoot = `:root {
 }`;
 
 const contextualColorsRootLight = `:root {
-  --cc-page-far: var(--rc-parchment-500);
-  --cc-accent: var(--rc-p-accent-500);
-  --cc-neutral: var(--rc-d-neutral-500);
-  --cc-neutral-inverse: var(--rc-l-neutral-500);
+  --page-far: var(--rc-parchment-500);
+  --accent: var(--rc-p-accent-500);
+  --neutral: var(--rc-d-neutral-500);
+  --neutral-inverse: var(--rc-l-neutral-500);
 }`;
 
 const contextualColorsRootDark = `:root.dark {
-  --cc-page-far: var(--rc-timber-300);
-  --cc-accent: var(--rc-p-accent-300);
-  --cc-neutral: var(--rc-l-neutral-500);
-  --cc-neutral-inverse: var(--rc-d-neutral-500);
+  --page-far: var(--rc-timber-300);
+  --accent: var(--rc-p-accent-300);
+  --neutral: var(--rc-l-neutral-500);
+  --neutral-inverse: var(--rc-d-neutral-500);
 }`;
 
 const contextualColorsTailwindConfig = `/* tailwind.config.js */
@@ -238,19 +236,19 @@ const contextualColorsTailwindConfig = `/* tailwind.config.js */
 export default {
   theme: {
     colors: {
-      'cc-page-far': 'var(--cc-page-far)',
-      'cc-accent': 'var(--cc-accent)',
-      'cc-neutral': 'var(--cc-neutral)',
+      'cc-page-far': 'var(--page-far)',
+      'cc-accent': 'var(--accent)',
+      'cc-neutral': 'var(--neutral)',
       //... others
     }
   }
 }`;
 
-const contextualColorsUsage = `<section class="bg-cc-page-far text-cc-neutral">
-  <button class="bg-cc-accent">Click me</button>
+const contextualColorsUsage = `<section class="bg-page-far text-neutral">
+  <button class="bg-accent">Click me</button>
 </section>`;
 
-const contextualColorsProblem = `<button class="text-cc-page-far">Click me</button>
-<div class="bg-cc-neutral">
+const contextualColorsProblem = `<button class="text-page-far">Click me</button>
+<div class="bg-neutral">
   <!-- other stuff -->
 </div>`;

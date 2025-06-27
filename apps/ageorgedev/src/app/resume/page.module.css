@@ -25,7 +25,7 @@
 
 .header {
   @apply relative flex items-start justify-between px-5 pt-6;
-  --bg: var(--color-cc-page-0);
+  --bg: var(--color-page-0);
   z-index: 2;
   background: var(--bg);
   grid-area: header;
@@ -40,7 +40,7 @@
 
 .aside {
   @apply grid content-between pt-9 pr-2 pb-5 pl-5;
-  --bg: var(--color-cc-page-1);
+  --bg: var(--color-page-1);
   z-index: 1;
   grid-area: aside;
   grid-template-columns: minmax(0, 1fr);
@@ -53,7 +53,7 @@
 
 .article {
   @apply flex flex-col gap-7 pt-9 pr-8 pb-5 pl-6;
-  --bg: var(--color-cc-page-4);
+  --bg: var(--color-page-4);
   z-index: 3;
   grid-area: article;
 
