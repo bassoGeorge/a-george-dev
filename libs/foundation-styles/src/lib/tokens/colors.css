@@ -67,10 +67,6 @@
   --color-cc-neutral-inverse-subtle: var(--color-rc-l-neutral-300);
   --color-cc-neutral-inverse-subtlest: var(--color-rc-l-neutral-200);
 
-  --color-cc-shadow-far: var(--color-rc-shadow-2);
-  --color-cc-shadow-normal: var(--color-rc-shadow-3);
-  --color-cc-shadow-near: var(--color-rc-shadow-4);
-
   --color-cc-line: var(--color-rc-line-main);
   --color-cc-line-dark: var(--color-rc-line-main);
 
@@ -99,10 +95,6 @@
   --color-cc-neutral-inverse: var(--color-rc-d-neutral-500);
   --color-cc-neutral-inverse-subtle: var(--color-rc-d-neutral-300);
   --color-cc-neutral-inverse-subtlest: var(--color-rc-d-neutral-200);
-
-  --color-cc-shadow-far: var(--color-rc-shadow-3);
-  --color-cc-shadow-normal: var(--color-rc-shadow-4);
-  --color-cc-shadow-near: var(--color-rc-shadow-5);
 
   --color-cc-line: var(--color-rc-line-inverse);
   --color-cc-line-dark: var(--color-rc-line-main);

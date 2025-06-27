@@ -1,4 +1,4 @@
-import { BodyMd, InterfaceMd } from '../typography/typography-components';
+import { BodyMd, InterfaceMd } from './typography/typography-components';
 import { StoryObj } from '@storybook/react';
 
 export default {
@@ -129,13 +129,6 @@ export const ContextualColors: Story = {
       <Swatch bgClass="bg-cc-neutral-inverse" />
       <Swatch bgClass="bg-cc-neutral-inverse-subtle" />
       <Swatch bgClass="bg-cc-neutral-inverse-subtlest" />
-      <div />
-      <div />
-
-      <InterfaceMd>Shadow</InterfaceMd>
-      <Swatch bgClass="bg-cc-shadow-far" />
-      <Swatch bgClass="bg-cc-shadow-normal" textClass={rTInverse} />
-      <Swatch bgClass="bg-cc-shadow-near" textClass={rTInverse} />
       <div />
       <div />
 

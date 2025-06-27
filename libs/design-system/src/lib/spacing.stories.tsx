@@ -1,5 +1,5 @@
-import { Interface } from '../typography/typography-components';
 import { StoryObj } from '@storybook/react';
+import { Interface } from './typography/typography-components';
 
 export default {
   title: 'Foundation/Spacing',
