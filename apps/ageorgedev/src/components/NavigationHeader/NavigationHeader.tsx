@@ -12,7 +12,7 @@ export type NavigationHeaderProps = {
 
 export default function NavigationHeader(props: NavigationHeaderProps) {
   const HomeLink = props.noLinks ? 'span' : Link;
-  const paddingClasses = 'px-3 py-4 bg-cc-page-1';
+  const paddingClasses = 'px-3 py-4 bg-page-1';
   const Wrapper = props.seemless ? 'div' : BoxMode;
   return (
     <Wrapper className={paddingClasses}>

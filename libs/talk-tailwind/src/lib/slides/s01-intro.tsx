@@ -23,7 +23,7 @@ export function S01Intro() {
       <SlideTypeCenter>
         <Heading1 className="font-bold">
           Beyond prototyping with{' '}
-          <span className="text-cc-accent">Tailwind CSS</span>
+          <span className="text-accent">Tailwind CSS</span>
         </Heading1>
         <PBodyMd className="italic">Advanced strategies for production</PBodyMd>
       </SlideTypeCenter>
@@ -31,14 +31,14 @@ export function S01Intro() {
         <div className="flex items-center gap-10">
           <NameLogo className="text-[9vw]" />
           <div className="flex flex-col items-start gap-5">
-            <Heading3 className="mb-7 font-bold text-cc-alt-accent">
+            <Heading3 className="mb-7 font-bold text-alt-accent">
               Lead UI Developer
             </Heading3>
             <PBody>Built a design system in Angular + Tailwind</PBody>
             <PBody>This site is in Remix + Tailwind + Vanilla-Extract</PBody>
           </div>
         </div>
-        <PBodyLg className="mt-7 font-bold text-cc-alt-accent">
+        <PBodyLg className="mt-7 font-bold text-alt-accent">
           <a href="https://ageorge.dev" target="_blank" rel="noreferrer">
             https://ageorge.dev
           </a>
@@ -80,7 +80,7 @@ export function S01Intro() {
         <PBodyMd>Slides available at</PBodyMd>
         <a
           href="https://ageorge.dev/talks/tailwind"
-          className={`text-cc-alt-accent ${PBodyLg.classes}`}
+          className={`text-alt-accent ${PBodyLg.classes}`}
           target="_blank"
           rel="noreferrer"
         >

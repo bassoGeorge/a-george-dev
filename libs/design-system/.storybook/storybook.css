@@ -7,7 +7,7 @@
 
 @layer base {
   body {
-    @apply bg-cc-page-0 text-base text-cc-neutral;
+    @apply bg-page-0 text-base text-neutral;
   }
 
   :root {

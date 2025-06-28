@@ -1,5 +1,5 @@
-import { Interface } from '../typography/typography-components';
 import { StoryObj } from '@storybook/react';
+import { Interface } from './typography/typography-components';
 
 export default {
   title: 'Foundation/Spacing',
@@ -36,7 +36,7 @@ function SpaceBar({ className, name }: { className: string; name: string }) {
   return (
     <>
       <Interface>{name}</Interface>
-      <div className={`${className} h-5 bg-cc-accent`}></div>
+      <div className={`${className} h-5 bg-accent`}></div>
     </>
   );
 }

@@ -32,9 +32,9 @@ export function CalloutBadge({
 type CalloutType = 'info1' | 'info2' | 'info3' | 'danger' | 'neutral';
 
 const StyleClasses: Record<CalloutType, string> = {
-  info1: 'before:bg-cc-accent text-cc-neutral-inverse',
-  info2: 'before:bg-cc-accent-subtle text-cc-neutral-inverse',
-  info3: 'before:bg-cc-alt-accent-subtle text-cc-neutral-inverse',
-  neutral: 'before:bg-cc-neutral text-cc-neutral-inverse',
-  danger: 'before:bg-cc-danger-bg text-cc-danger-fg',
+  info1: 'before:bg-accent text-neutral-inverse',
+  info2: 'before:bg-accent-subtle text-neutral-inverse',
+  info3: 'before:bg-alt-accent-subtle text-neutral-inverse',
+  neutral: 'before:bg-neutral text-neutral-inverse',
+  danger: 'before:bg-danger-bg text-danger-fg',
 };

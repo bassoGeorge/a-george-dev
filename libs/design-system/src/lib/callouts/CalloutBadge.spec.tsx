@@ -13,10 +13,10 @@ describe('CalloutBadge', () => {
     render(<CalloutBadge {...defaultProps} />);
     expect(screen.getByText('Test Badge')).toBeInTheDocument();
     expect(screen.getByText('Test Badge').parentElement).toHaveClass(
-      'before:bg-cc-accent'
+      'before:bg-accent'
     );
     expect(screen.getByText('Test Badge').parentElement).toHaveClass(
-      'text-cc-neutral-inverse'
+      'text-neutral-inverse'
     );
   });
 
@@ -32,30 +32,30 @@ describe('CalloutBadge', () => {
       <CalloutBadge {...defaultProps} type="info1" />
     );
     expect(screen.getByText('Test Badge').parentElement).toHaveClass(
-      'before:bg-cc-accent'
+      'before:bg-accent'
     );
 
     rerender(<CalloutBadge {...defaultProps} type="info2" />);
     expect(screen.getByText('Test Badge').parentElement).toHaveClass(
-      'before:bg-cc-accent-subtle'
+      'before:bg-accent-subtle'
     );
 
     rerender(<CalloutBadge {...defaultProps} type="info3" />);
     expect(screen.getByText('Test Badge').parentElement).toHaveClass(
-      'before:bg-cc-alt-accent-subtle'
+      'before:bg-alt-accent-subtle'
     );
 
     rerender(<CalloutBadge {...defaultProps} type="neutral" />);
     expect(screen.getByText('Test Badge').parentElement).toHaveClass(
-      'before:bg-cc-neutral'
+      'before:bg-neutral'
     );
 
     rerender(<CalloutBadge {...defaultProps} type="danger" />);
     expect(screen.getByText('Test Badge').parentElement).toHaveClass(
-      'before:bg-cc-danger-bg'
+      'before:bg-danger-bg'
     );
     expect(screen.getByText('Test Badge').parentElement).toHaveClass(
-      'text-cc-danger-fg'
+      'text-danger-fg'
     );
   });
 

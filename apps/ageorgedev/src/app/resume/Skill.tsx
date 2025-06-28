@@ -26,20 +26,20 @@ type SkillClassMap = Record<SkillLevel, string>;
 
 const primaryAccentColorClasses: SkillClassMap = {
   3: 'bg-rc-p-accent-200 opacity-80',
-  4: 'bg-rc-p-accent-300 text-cc-neutral-inverse',
-  5: styles.highSkill + ' bg-rc-p-accent-400 text-cc-neutral-inverse',
+  4: 'bg-rc-p-accent-300 text-neutral-inverse',
+  5: styles.highSkill + ' bg-rc-p-accent-400 text-neutral-inverse',
 };
 
 const secondaryAccentColorClasses: SkillClassMap = {
   3: 'bg-rc-s-accent-200 opacity-80',
-  4: 'bg-rc-s-accent-300 text-cc-neutral-subtle',
-  5: styles.highSkill + ' bg-rc-s-accent-400 text-cc-neutral-inverse',
+  4: 'bg-rc-s-accent-300 text-neutral-subtle',
+  5: styles.highSkill + ' bg-rc-s-accent-400 text-neutral-inverse',
 };
 
 const levelClassesForHuman: SkillClassMap = {
-  3: 'bg-rc-timber-100 text-cc-neutral-inverse opacity-30',
-  4: 'bg-rc-timber-200 text-cc-neutral-inverse opacity-50',
-  5: styles.highSkill + ' bg-rc-timber-300 text-cc-neutral-inverse opacity-60',
+  3: 'bg-rc-timber-100 text-neutral-inverse opacity-30',
+  4: 'bg-rc-timber-200 text-neutral-inverse opacity-50',
+  5: styles.highSkill + ' bg-rc-timber-300 text-neutral-inverse opacity-60',
 };
 
 const levelClasses: Record<SkillType, SkillClassMap> = {

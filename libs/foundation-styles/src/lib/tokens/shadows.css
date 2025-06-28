@@ -2,11 +2,20 @@
   --shadow-*: initial;
   --drop-shadow-*: initial;
 
-  --drop-shadow-near: 2px 4px var(--color-cc-shadow-near);
-  --drop-shadow-normal: 4px 8px var(--color-cc-shadow);
-  --drop-shadow-far: 6px 12px var(--color-cc-shadow-far);
+  --drop-shadow-near: 2px 4px var(--color-rc-shadow-4);
+  --drop-shadow-normal: 4px 8px var(--color-rc-shadow-3);
+  --drop-shadow-far: 6px 12px var(--color-rc-shadow-2);
 
-  --shadow-near: 0 2px 4px var(--color-cc-shadow-near);
-  --shadow-normal: 0 4px 8px var(--color-cc-shadow);
-  --shadow-far: 0 6px 12px var(--color-cc-shadow-far);
+  --shadow-near: 0 2px 4px var(--color-rc-shadow-4);
+  --shadow-normal: 0 4px 8px var(--color-rc-shadow-3);
+  --shadow-far: 0 6px 12px var(--color-rc-shadow-2);
+}
+:root.dark {
+  --drop-shadow-near: 2px 4px var(--color-rc-shadow-5);
+  --drop-shadow-normal: 4px 8px var(--color-rc-shadow-4);
+  --drop-shadow-far: 6px 12px var(--color-rc-shadow-3);
+
+  --shadow-near: 0 2px 4px var(--color-rc-shadow-5);
+  --shadow-normal: 0 4px 8px var(--color-rc-shadow-4);
+  --shadow-far: 0 6px 12px var(--color-rc-shadow-3);
 }

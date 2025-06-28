@@ -33,9 +33,7 @@ export function S07OverrideTheming() {
           }
           right={
             <div className="flex h-full flex-col justify-center gap-2">
-              <Heading3 className="font-bold text-cc-danger">
-                Inflexible
-              </Heading3>
+              <Heading3 className="font-bold text-danger">Inflexible</Heading3>
               <PBody>You can't change colors at run-time.</PBody>
             </div>
           }
@@ -89,7 +87,7 @@ export function S07OverrideTheming() {
           text={tailwindColorOpacityModifiers}
           fontSize="large"
         ></CodeBlock>
-        <PBodyMd className="mb-7 text-cc-danger">
+        <PBodyMd className="mb-7 text-danger">
           This fails with our vars setup!
         </PBodyMd>
         <ImportantNote type="danger" shape="triUpperRight">

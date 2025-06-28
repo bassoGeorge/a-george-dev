@@ -8,7 +8,7 @@ describe('Card', () => {
     const card = screen.getByText('Card content');
     expect(card).toBeInTheDocument();
     expect(card).toHaveClass('shadow-normal');
-    expect(card).toHaveClass('border-cc-line');
+    expect(card).toHaveClass('border-line');
     expect(card).toHaveClass('border-2');
     expect(card).toHaveClass('mb-4');
   });
