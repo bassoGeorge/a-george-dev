@@ -13,7 +13,7 @@
   "aliases": {
     "components": "@ageorgedev/design-system/lib",
     "utils": "@ageorgedev/design-system",
-    "ui": "@ageorgedev/design-system/lib",
+    "ui": "@ageorgedev/design-system/lib/ui",
     "lib": "@ageorgedev/design-system/lib",
     "hooks": "@ageorgedev/design-system/lib"
   },
