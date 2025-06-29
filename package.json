@@ -11,7 +11,8 @@
     "affected-projects": "nx print-affected --select=projects",
     "clean-dist": "rm -rf dist && find ./libs -type d -name dist -exec rm -rf {} + && find ./apps -type d -name dist -exec rm -rf {} +",
     "storybook": "nx storybook design-system",
-    "decap-server": "npx decap-server"
+    "decap-server": "npx decap-server",
+    "shadcn": "yarn dlx shadcn"
   },
   "devDependencies": {
     "@babel/core": "^7.26.10",
