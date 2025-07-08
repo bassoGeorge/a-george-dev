@@ -23,3 +23,35 @@ export const Destructive: Story = {
     size: 'default',
   },
 };
+
+export const Outline: Story = {
+  args: {
+    children: 'Button',
+    variant: 'outline',
+    size: 'default',
+  },
+};
+
+export const Secondary: Story = {
+  args: {
+    children: 'Button',
+    variant: 'secondary',
+    size: 'default',
+  },
+};
+
+export const Ghost: Story = {
+  args: {
+    children: 'Button',
+    variant: 'ghost',
+    size: 'default',
+  },
+};
+
+export const Link: Story = {
+  args: {
+    children: 'Button',
+    variant: 'link',
+    size: 'default',
+  },
+};
