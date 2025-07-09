@@ -73,7 +73,7 @@
 
 @theme inline {
   --color-background: var(--color-page-1);
-  --color-foreground: var(--color-neutral);
+  /* --color-foreground: var(--color-neutral); */
   --color-card: var(--color-page-2);
   --color-card-foreground: var(--color-neutral);
   --color-popover: var(--color-page-3);

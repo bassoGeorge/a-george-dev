@@ -85,18 +85,26 @@
   --color-danger-fg: var(--color-rc-red-400);
   /* ========================================= */
 
+  --color-foreground: var(--color-rc-d-neutral-500);
+  --color-foreground-subtle: var(--color-rc-d-neutral-300);
+  --color-foreground-subtlest: var(--color-rc-d-neutral-200);
+
+  --color-inverse: var(--color-rc-l-neutral-500);
+  --color-inverse-subtle: var(--color-rc-l-neutral-300);
+  --color-inverse-subtlest: var(--color-rc-l-neutral-200);
+
   --color-primary: var(--color-rc-p-accent-500);
   --color-primary-subtle: var(--color-rc-p-accent-300);
-  --color-primary-foreground: var(--color-neutral);
+  --color-primary-foreground: var(--color-inverse);
 
   --color-secondary: var(--color-rc-s-accent-500);
   --color-secondary-subtle: var(--color-rc-s-accent-300);
-  --color-secondary-foreground: var(--color-neutral);
+  --color-secondary-foreground: var(--color-inverse);
 
   /* This has changed */
   --color-destructive: var(--color-rc-red-400);
   --color-destructive-subtle: var(--color-rc-red-100);
-  --color-destructive-foreground: var(--color-neutral-inverse);
+  --color-destructive-foreground: var(--color-inverse);
 }
 
 :root.dark {
@@ -129,16 +137,24 @@
   --color-danger-fg: var(--color-rc-l-neutral-500);
   /* ========================================= */
 
+  --color-foreground: var(--color-rc-l-neutral-500);
+  --color-foreground-subtle: var(--color-rc-l-neutral-300);
+  --color-foreground-subtlest: var(--color-rc-l-neutral-200);
+
+  --color-inverse: var(--color-rc-d-neutral-500);
+  --color-inverse-subtle: var(--color-rc-d-neutral-300);
+  --color-inverse-subtlest: var(--color-rc-d-neutral-200);
+
   --color-primary: var(--color-rc-p-accent-300);
   --color-primary-subtle: var(--color-rc-p-accent-400);
-  --color-primary-foreground: var(--color-neutral);
+  --color-primary-foreground: var(--color-inverse);
 
   --color-secondary: var(--color-rc-s-accent-300);
   --color-secondary-subtle: var(--color-rc-s-accent-400);
-  --color-secondary-foreground: var(--color-neutral);
+  --color-secondary-foreground: var(--color-inverse);
 
   /* This has changed */
   --color-destructive: var(--color-rc-red-500);
   --color-destructive-subtle: var(--color-rc-red-200);
-  --color-destructive-foreground: var(--color-neutral-inverse);
+  --color-destructive-foreground: var(--color-foreground);
 }
