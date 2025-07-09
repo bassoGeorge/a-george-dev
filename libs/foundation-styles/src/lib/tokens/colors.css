@@ -52,7 +52,10 @@
   --color-rc-red-200: hsl(360, 71%, 66%);
   --color-rc-red-400: hsl(360, 67%, 44%);
   --color-rc-red-500: hsl(360, 92%, 20%);
+}
 
+/* should not be inline */
+@theme {
   --color-page-0: var(--color-rc-parchment-500);
   --color-page-1: var(--color-rc-parchment-400);
   --color-page-2: var(--color-rc-parchment-300);
@@ -70,6 +73,7 @@
   --color-line: var(--color-rc-line-main);
   --color-line-dark: var(--color-rc-line-main);
 
+  /* Deprecated */
   --color-accent: var(--color-rc-p-accent-500);
   --color-accent-subtle: var(--color-rc-p-accent-300);
 
@@ -79,6 +83,20 @@
   --color-danger: var(--color-rc-red-400);
   --color-danger-bg: var(--color-rc-red-100);
   --color-danger-fg: var(--color-rc-red-400);
+  /* ========================================= */
+
+  --color-primary: var(--color-rc-p-accent-500);
+  --color-primary-subtle: var(--color-rc-p-accent-300);
+  --color-primary-foreground: var(--color-neutral);
+
+  --color-secondary: var(--color-rc-s-accent-500);
+  --color-secondary-subtle: var(--color-rc-s-accent-300);
+  --color-secondary-foreground: var(--color-neutral);
+
+  /* This has changed */
+  --color-destructive: var(--color-rc-red-400);
+  --color-destructive-subtle: var(--color-rc-red-100);
+  --color-destructive-foreground: var(--color-neutral-inverse);
 }
 
 :root.dark {
@@ -99,6 +117,7 @@
   --color-line: var(--color-rc-line-inverse);
   --color-line-dark: var(--color-rc-line-main);
 
+  /* Deprecated */
   --color-accent: var(--color-rc-p-accent-300);
   --color-accent-subtle: var(--color-rc-p-accent-400);
 
@@ -108,4 +127,18 @@
   --color-danger: var(--color-rc-red-200);
   --color-danger-bg: var(--color-rc-red-500);
   --color-danger-fg: var(--color-rc-l-neutral-500);
+  /* ========================================= */
+
+  --color-primary: var(--color-rc-p-accent-300);
+  --color-primary-subtle: var(--color-rc-p-accent-400);
+  --color-primary-foreground: var(--color-neutral);
+
+  --color-secondary: var(--color-rc-s-accent-300);
+  --color-secondary-subtle: var(--color-rc-s-accent-400);
+  --color-secondary-foreground: var(--color-neutral);
+
+  /* This has changed */
+  --color-destructive: var(--color-rc-red-500);
+  --color-destructive-subtle: var(--color-rc-red-200);
+  --color-destructive-foreground: var(--color-neutral-inverse);
 }

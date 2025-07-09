@@ -156,3 +156,36 @@ export const ContextualColors: Story = {
     </div>
   ),
 };
+
+export const NewSystem: Story = {
+  render: () => (
+    <div
+      className="inline-grid items-center justify-items-end gap-7"
+      style={{ gridTemplateColumns: 'max-content repeat(3, minmax(0, 1fr)' }}
+    >
+      <InterfaceMd>Primary</InterfaceMd>
+      <Swatch bgClass="bg-primary" textClass="text-primary-foreground" />
+      <Swatch bgClass="bg-primary-subtle" textClass="text-primary-foreground" />
+      <div />
+
+      <InterfaceMd>Secondary</InterfaceMd>
+      <Swatch bgClass="bg-secondary" textClass="text-secondary-foreground" />
+      <Swatch
+        bgClass="bg-secondary-subtle"
+        textClass="text-secondary-foreground"
+      />
+      <div />
+
+      <InterfaceMd>Destructive</InterfaceMd>
+      <Swatch
+        bgClass="bg-destructive"
+        textClass="text-destructive-foreground"
+      />
+      <Swatch
+        bgClass="bg-destructive-subtle"
+        textClass="text-destructive-foreground"
+      />
+      <div />
+    </div>
+  ),
+};
