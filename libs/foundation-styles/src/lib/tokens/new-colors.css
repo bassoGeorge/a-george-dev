@@ -5,21 +5,21 @@
   --nc-page-3: oklch(98.951% 0.0089 78.129);
   --nc-page-4: oklch(99.668% 0.00526 95.189);
 
-  --nc-neutral: oklch(18.725% 0.02487 214.521 / 0.8);
-  --nc-neutral-strong: oklch(18.725% 0.02487 214.521);
-  --nc-neutral-subdued: oklch(18.725% 0.02487 214.521 / 0.6);
-  --nc-neutral-disabled: oklch(18.725% 0.02487 214.521 / 0.2);
+  --nc-neutral-strong: oklch(18% 0.00003 176.418);
+  --nc-neutral: oklch(25.197% 0.00003 176.418);
+  --nc-neutral-subdued: oklch(25.197% 0.00003 176.418 / 0.7);
+  --nc-neutral-disabled: oklch(76.039% 0.00009 176.418);
 }
 
 :root.dark {
-  --nc-page-0: oklch(18.725% 0.02487 214.521);
-  --nc-page-1: oklch(23.664% 0.02651 208.139);
-  --nc-page-2: oklch(26.329% 0.02327 209.845);
-  --nc-page-3: oklch(32.159% 0.01929 212.321);
-  --nc-page-4: oklch(45.146% 0.02793 213.249);
+  --nc-page-0: oklch(18.725% 0.02487 176.418);
+  --nc-page-1: oklch(23.664% 0.02651 176.418);
+  --nc-page-2: oklch(26.329% 0.02327 176.418);
+  --nc-page-3: oklch(32.159% 0.01929 176.418);
+  --nc-page-4: oklch(36.146% 0.02793 176.418);
 
-  --nc-neutral: oklch(99.668% 0.00526 95.189 / 0.8);
-  --nc-neutral-strong: oklch(99.668% 0.00526 95.189);
-  --nc-neutral-subdued: oklch(99.668% 0.00526 95.189 / 0.6);
+  --nc-neutral-strong: oklch(97.562% 0.02425 83.389);
+  --nc-neutral: oklch(92% 0.02425 83.389);
+  --nc-neutral-subdued: oklch(78% 0.02425 83.389);
   --nc-neutral-disabled: oklch(99.668% 0.00526 95.189 / 0.2);
 }
