@@ -1,3 +1,4 @@
+import { HTMLAttributes } from 'react';
 import { BodyMd, InterfaceMd } from './typography/typography-components';
 import { StoryObj } from '@storybook/react';
 
@@ -189,3 +190,55 @@ export const NewSystem: Story = {
     </div>
   ),
 };
+
+export const AnotherNewSystem: Story = {
+  render: () => (
+    <div
+      className="inline-grid items-center justify-items-end gap-7"
+      style={{ gridTemplateColumns: 'max-content repeat(5, minmax(0, 1fr)' }}
+    >
+      <NSwatch className="bg-(--nc-page-0)">
+        <StandardText />
+      </NSwatch>
+
+      <NSwatch className="bg-(--nc-page-1)">
+        <StandardText />
+      </NSwatch>
+
+      <NSwatch className="bg-(--nc-page-2)">
+        <StandardText />
+      </NSwatch>
+
+      <NSwatch className="bg-(--nc-page-3)">
+        <StandardText />
+      </NSwatch>
+
+      <NSwatch className="bg-(--nc-page-4)">
+        <StandardText />
+      </NSwatch>
+    </div>
+  ),
+};
+
+function StandardText() {
+  return (
+    <>
+      <p className="text-(--nc-neutral)">Neutral</p>
+      <p className="text-(--nc-neutral-strong)">Neutral Strong</p>
+      <p className="text-(--nc-neutral-subdued)">Neutral Subdued</p>
+      <p className="text-(--nc-neutral-disabled)">Neutral Disabled</p>
+    </>
+  );
+}
+
+function NSwatch({ className, children }: HTMLAttributes<HTMLDivElement>) {
+  return (
+    <div
+      className={`${className} ${
+        BodyMd.classes
+      } grid w-12 place-items-center p-4`}
+    >
+      {children}
+    </div>
+  );
+}

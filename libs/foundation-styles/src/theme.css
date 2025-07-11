@@ -5,3 +5,5 @@
 @import './lib/tokens/responsive.css';
 
 @import './lib/tokens/colors-shadcn.css';
+
+@import './lib/tokens/new-colors.css';
