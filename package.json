@@ -31,6 +31,7 @@
     "@nx/storybook": "21.2.0",
     "@nx/vite": "21.2.0",
     "@nx/workspace": "21.2.0",
+    "@storybook/addon-a11y": "^9.0.16",
     "@storybook/addon-themes": "9.0.9",
     "@storybook/react-vite": "9.0.9",
     "@swc-node/register": "1.9.2",

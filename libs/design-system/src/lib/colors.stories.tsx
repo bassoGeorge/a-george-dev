@@ -226,7 +226,9 @@ function StandardText() {
       <p className="text-(--nc-neutral)">Neutral</p>
       <p className="text-(--nc-neutral-strong)">Neutral Strong</p>
       <p className="text-(--nc-neutral-subdued)">Neutral Subdued</p>
-      <p className="text-(--nc-neutral-disabled)">Neutral Disabled</p>
+      <p className="text-(--nc-neutral-disabled)" aria-disabled>
+        Neutral Disabled
+      </p>
     </>
   );
 }
