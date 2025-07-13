@@ -223,6 +223,11 @@ export const AnotherNewSystem: Story = {
       </NSwatch>
 
       {/* Primary */}
+      <NSwatch className="bg-(--nc-primary-surface-0)">
+        {/* <StandardText /> */}
+        <p className="text-(--nc-primary-onsurface-0)">Primary onsurface-0</p>
+      </NSwatch>
+
       <NSwatch className="bg-(--nc-primary-surface)">
         {/* <StandardText /> */}
         <p className="text-(--nc-primary-onsurface)">Primary onsurface</p>
@@ -232,15 +237,17 @@ export const AnotherNewSystem: Story = {
         {/* <StandardText /> */}
         <p className="text-(--nc-primary-onsurface-2)">Primary onsurface-2</p>
       </NSwatch>
-
-      <NSwatch className="bg-(--nc-primary-surface-3)">
-        {/* <StandardText /> */}
-        <p className="text-(--nc-primary-onsurface-3)">Primary onsurface-3</p>
-      </NSwatch>
       <div></div>
       <div></div>
 
       {/* Secondary */}
+      <NSwatch className="bg-(--nc-secondary-surface-0)">
+        {/* <StandardText /> */}
+        <p className="text-(--nc-secondary-onsurface-0)">
+          Secondary onsurface-0
+        </p>
+      </NSwatch>
+
       <NSwatch className="bg-(--nc-secondary-surface)">
         {/* <StandardText /> */}
         <p className="text-(--nc-secondary-onsurface)">Secondary onsurface</p>
@@ -252,17 +259,17 @@ export const AnotherNewSystem: Story = {
           Secondary onsurface-2
         </p>
       </NSwatch>
-
-      <NSwatch className="bg-(--nc-secondary-surface-3)">
-        {/* <StandardText /> */}
-        <p className="text-(--nc-secondary-onsurface-3)">
-          Secondary onsurface-3
-        </p>
-      </NSwatch>
       <div></div>
       <div></div>
 
       {/* Destructive */}
+      <NSwatch className="bg-(--nc-destructive-surface-0)">
+        {/* <StandardText /> */}
+        <p className="text-(--nc-destructive-onsurface-0)">
+          Destructive onsurface-0
+        </p>
+      </NSwatch>
+
       <NSwatch className="bg-(--nc-destructive-surface)">
         {/* <StandardText /> */}
         <p className="text-(--nc-destructive-onsurface)">
@@ -276,17 +283,15 @@ export const AnotherNewSystem: Story = {
           Destructive onsurface-2
         </p>
       </NSwatch>
-
-      <NSwatch className="bg-(--nc-destructive-surface-3)">
-        {/* <StandardText /> */}
-        <p className="text-(--nc-destructive-onsurface-3)">
-          Destructive onsurface-3
-        </p>
-      </NSwatch>
       <div></div>
       <div></div>
 
       {/* Warning */}
+      <NSwatch className="bg-(--nc-warning-surface-0)">
+        {/* <StandardText /> */}
+        <p className="text-(--nc-warning-onsurface-0)">Warning onsurface-0</p>
+      </NSwatch>
+
       <NSwatch className="bg-(--nc-warning-surface)">
         {/* <StandardText /> */}
         <p className="text-(--nc-warning-onsurface)">Warning onsurface</p>
@@ -296,15 +301,15 @@ export const AnotherNewSystem: Story = {
         {/* <StandardText /> */}
         <p className="text-(--nc-warning-onsurface-2)">Warning onsurface-2</p>
       </NSwatch>
-
-      <NSwatch className="bg-(--nc-warning-surface-3)">
-        {/* <StandardText /> */}
-        <p className="text-(--nc-warning-onsurface-3)">Warning onsurface-3</p>
-      </NSwatch>
       <div></div>
       <div></div>
 
       {/* Info */}
+      <NSwatch className="bg-(--nc-info-surface-0)">
+        {/* <StandardText /> */}
+        <p className="text-(--nc-info-onsurface-0)">Info onsurface-0</p>
+      </NSwatch>
+
       <NSwatch className="bg-(--nc-info-surface)">
         {/* <StandardText /> */}
         <p className="text-(--nc-info-onsurface)">Info onsurface</p>
@@ -313,11 +318,6 @@ export const AnotherNewSystem: Story = {
       <NSwatch className="bg-(--nc-info-surface-2)">
         {/* <StandardText /> */}
         <p className="text-(--nc-info-onsurface-2)">Info onsurface-2</p>
-      </NSwatch>
-
-      <NSwatch className="bg-(--nc-info-surface-3)">
-        {/* <StandardText /> */}
-        <p className="text-(--nc-info-onsurface-3)">Info onsurface-3</p>
       </NSwatch>
       <div></div>
       <div></div>
