@@ -408,6 +408,20 @@
   --nc-destructive-foreground: var(--cs-red-vivid-700);
   --nc-destructive-foreground-2: var(--cs-red-vivid-800);
   --nc-destructive-foreground-3: var(--cs-red-vivid-900);
+
+  /** Warning color */
+  --nc-warning-surface: var(--cs-yellow-200);
+  --nc-warning-onsurface: var(--cs-yellow-800);
+
+  --nc-warning-surface-2: var(--cs-yellow-300);
+  --nc-warning-onsurface-2: var(--cs-yellow-900);
+
+  --nc-warning-surface-3: var(--cs-yellow-400);
+  --nc-warning-onsurface-3: var(--cs-yellow-900);
+
+  --nc-warning-foreground: var(--cs-yellow-700);
+  --nc-warning-foreground-2: var(--cs-yellow-800);
+  --nc-warning-foreground-3: var(--cs-yellow-900);
 }
 
 :root.dark {
@@ -453,7 +467,7 @@
 
   /** Destructive color */
   --nc-destructive-surface: var(--cs-red-vivid-900);
-  --nc-destructive-onsurface: var(--cs-red-vivid-200);
+  --nc-destructive-onsurface: var(--cs-red-vivid-100);
 
   --nc-destructive-surface-2: var(--cs-red-vivid-800);
   --nc-destructive-onsurface-2: var(--cs-red-vivid-100);
@@ -464,4 +478,18 @@
   --nc-destructive-foreground: var(--cs-red-vivid-300);
   --nc-destructive-foreground-2: var(--cs-red-vivid-200);
   --nc-destructive-foreground-3: var(--cs-red-vivid-100);
+
+  /** Warning color */
+  --nc-warning-surface: var(--cs-yellow-900);
+  --nc-warning-onsurface: var(--cs-yellow-300);
+
+  --nc-warning-surface-2: var(--cs-yellow-800);
+  --nc-warning-onsurface-2: var(--cs-yellow-100);
+
+  --nc-warning-surface-3: var(--cs-yellow-700);
+  --nc-warning-onsurface-3: var(--cs-yellow-050);
+
+  --nc-warning-foreground: var(--cs-yellow-300);
+  --nc-warning-foreground-2: var(--cs-yellow-200);
+  --nc-warning-foreground-3: var(--cs-yellow-100);
 }

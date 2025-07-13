@@ -285,6 +285,24 @@ export const AnotherNewSystem: Story = {
       </NSwatch>
       <div></div>
       <div></div>
+
+      {/* Warning */}
+      <NSwatch className="bg-(--nc-warning-surface)">
+        {/* <StandardText /> */}
+        <p className="text-(--nc-warning-onsurface)">Warning onsurface</p>
+      </NSwatch>
+
+      <NSwatch className="bg-(--nc-warning-surface-2)">
+        {/* <StandardText /> */}
+        <p className="text-(--nc-warning-onsurface-2)">Warning onsurface-2</p>
+      </NSwatch>
+
+      <NSwatch className="bg-(--nc-warning-surface-3)">
+        {/* <StandardText /> */}
+        <p className="text-(--nc-warning-onsurface-3)">Warning onsurface-3</p>
+      </NSwatch>
+      <div></div>
+      <div></div>
     </div>
   ),
 };
