@@ -1,5 +1,5 @@
 import { HTMLAttributes } from 'react';
-import { BodyMd, InterfaceMd } from './typography/typography-components';
+import { Body, BodyMd, InterfaceMd } from './typography/typography-components';
 import { StoryObj } from '@storybook/react';
 
 export default {
@@ -222,6 +222,7 @@ export const AnotherNewSystem: Story = {
         <ColoredText />
       </NSwatch>
 
+      {/* Primary */}
       <NSwatch className="bg-(--nc-primary-surface)">
         {/* <StandardText /> */}
         <p className="text-(--nc-primary-onsurface)">Primary onsurface</p>
@@ -239,6 +240,7 @@ export const AnotherNewSystem: Story = {
       <div></div>
       <div></div>
 
+      {/* Secondary */}
       <NSwatch className="bg-(--nc-secondary-surface)">
         {/* <StandardText /> */}
         <p className="text-(--nc-secondary-onsurface)">Secondary onsurface</p>
@@ -257,6 +259,32 @@ export const AnotherNewSystem: Story = {
           Secondary onsurface-3
         </p>
       </NSwatch>
+      <div></div>
+      <div></div>
+
+      {/* Destructive */}
+      <NSwatch className="bg-(--nc-destructive-surface)">
+        {/* <StandardText /> */}
+        <p className="text-(--nc-destructive-onsurface)">
+          Destructive onsurface
+        </p>
+      </NSwatch>
+
+      <NSwatch className="bg-(--nc-destructive-surface-2)">
+        {/* <StandardText /> */}
+        <p className="text-(--nc-destructive-onsurface-2)">
+          Destructive onsurface-2
+        </p>
+      </NSwatch>
+
+      <NSwatch className="bg-(--nc-destructive-surface-3)">
+        {/* <StandardText /> */}
+        <p className="text-(--nc-destructive-onsurface-3)">
+          Destructive onsurface-3
+        </p>
+      </NSwatch>
+      <div></div>
+      <div></div>
     </div>
   ),
 };
@@ -277,17 +305,34 @@ function StandardText() {
 function ColoredText() {
   return (
     <>
-      <p className="text-(--nc-primary-foreground)">Primary foreground</p>
-      <p className="text-(--nc-primary-foreground-2)">Primary foreground-2</p>
-      <p className="text-(--nc-primary-foreground-3)">Primary foreground-3</p>
-
-      <p className="text-(--nc-secondary-foreground)">Secondary foreground</p>
-      <p className="text-(--nc-secondary-foreground-2)">
+      <Body />
+      <Body className="text-(--nc-primary-foreground)">Primary foreground</Body>
+      <Body className="text-(--nc-primary-foreground-2)">
+        Primary foreground-2
+      </Body>
+      <Body className="text-(--nc-primary-foreground-3)">
+        Primary foreground-3
+      </Body>
+      <Body></Body>
+      <Body className="text-(--nc-secondary-foreground)">
+        Secondary foreground
+      </Body>
+      <Body className="text-(--nc-secondary-foreground-2)">
         Secondary foreground-2
-      </p>
-      <p className="text-(--nc-secondary-foreground-3)">
+      </Body>
+      <Body className="text-(--nc-secondary-foreground-3)">
         Secondary foreground-3
-      </p>
+      </Body>
+      <Body></Body>
+      <Body className="text-(--nc-destructive-foreground)">
+        Destructive foreground
+      </Body>
+      <Body className="text-(--nc-destructive-foreground-2)">
+        Destructive foreground-2
+      </Body>
+      <Body className="text-(--nc-destructive-foreground-3)">
+        Destructive foreground-3
+      </Body>
     </>
   );
 }
@@ -295,7 +340,7 @@ function ColoredText() {
 function NSwatch({ className, children }: HTMLAttributes<HTMLDivElement>) {
   return (
     <div
-      className={`${className} ${BodyMd.classes} grid place-items-center p-4`}
+      className={`${className} ${BodyMd.classes} grid place-items-center gap-1 p-4`}
     >
       {children}
     </div>
