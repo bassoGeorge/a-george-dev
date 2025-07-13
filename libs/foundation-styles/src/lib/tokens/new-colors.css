@@ -300,19 +300,43 @@
   --cs-warm-grey-700: #504a40;
   --cs-warm-grey-800: #423d33;
   --cs-warm-grey-900: #27241d;
+
+  --ms-rose-050: #fcf2f3;
+  --ms-rose-100: #f9e5e8;
+  --ms-rose-200: #f6d8dd;
+  --ms-rose-300: #f3ccd1;
+  --ms-rose-400: #efbfc6;
+  --ms-rose-500: #ebb2bb;
+
+  --ms-rose-600: #b88b92;
+  --ms-rose-700: #88666b;
+  --ms-rose-800: #5b4346;
+  --ms-rose-900: #312325;
 }
 
 :root {
-  --s-lime-green-050: #f2fde0;
-  --s-lime-green-100: #e2f7c2;
-  --s-lime-green-200: #c7ea8f;
-  --s-lime-green-300: #abdb5e;
-  --s-lime-green-400: #94c843;
-  --s-lime-green-500: #7bb026;
-  --s-lime-green-600: #63921a;
-  --s-lime-green-700: #507712;
-  --s-lime-green-800: #42600c;
-  --s-lime-green-900: #2b4005;
+  --s-lime-green-050: oklch(97.824% 0.03959 124.172);
+  --s-lime-green-100: oklch(94.744% 0.07261 125.382);
+  --s-lime-green-200: oklch(89.111% 0.12258 125.956);
+  --s-lime-green-300: oklch(83.209% 0.16229 127.231);
+  --s-lime-green-400: oklch(77.045% 0.16988 128.271);
+  --s-lime-green-500: oklch(69.478% 0.17021 129.094);
+  --s-lime-green-600: oklch(60.385% 0.15147 129.66);
+  --s-lime-green-700: oklch(52.085% 0.1312 129.557);
+  --s-lime-green-800: oklch(44.898% 0.11164 128.452);
+  --s-lime-green-900: oklch(34.123% 0.08486 128.222);
+
+  --s-rose-050: oklch(96.922% 0.01082 9.756);
+  --s-rose-100: oklch(94.18% 0.02216 6.909);
+  --s-rose-200: oklch(90.845% 0.03391 6.23);
+  --s-rose-300: oklch(87.987% 0.04444 9.194);
+  --s-rose-400: oklch(84.892% 0.0557 8.409);
+  /* TODO; this color turns into a brown on higher shades */
+  --s-rose-500: oklch(81.815% 0.06728 8.045);
+  --s-rose-600: oklch(68.178% 0.05556 8.181);
+  --s-rose-700: oklch(54.613% 0.04431 8.734);
+  --s-rose-800: oklch(40.992% 0.03351 10.216);
+  --s-rose-900: oklch(27.363% 0.02166 8.962);
 }
 
 :root {
@@ -328,32 +352,30 @@
   --nc-neutral-disabled: oklch(76.039% 0.00009 176.418);
 
   --nc-primary-surface: var(--s-lime-green-050);
-  --nc-primary-surface-2: var(--s-lime-green-100);
-  --nc-primary-surface-3: var(--s-lime-green-200);
-
   --nc-primary-onsurface: var(--s-lime-green-700);
-  --nc-primary-onsurface-2: var(--s-lime-green-900);
+
+  --nc-primary-surface-2: var(--s-lime-green-100);
+  --nc-primary-onsurface-2: var(--s-lime-green-800);
+
+  --nc-primary-surface-3: var(--s-lime-green-200);
   --nc-primary-onsurface-3: var(--s-lime-green-900);
 
   --nc-primary-foreground: var(--s-lime-green-700);
   --nc-primary-foreground-2: var(--s-lime-green-800);
   --nc-primary-foreground-3: var(--s-lime-green-900);
 
-  /* --nc-primary-100: oklch(92.622% 0.04981 124);
-  --nc-primary-200: oklch(80.397% 0.07605 124);
-  --nc-primary-300: oklch(69.654% 0.09333 124); */
+  --nc-secondary-surface: var(--s-rose-050);
+  --nc-secondary-onsurface: var(--s-rose-800);
 
-  /* --nc-primary-100: oklch(82.036% 0.05538 124.775);
-  --nc-primary-200: oklch(79.344% 0.06244 124.094);
-  --nc-primary-300: oklch(76.782% 0.07146 124.99); */
+  --nc-secondary-surface-2: var(--s-rose-100);
+  --nc-secondary-onsurface-2: var(--s-rose-900);
 
-  /* --nc-primary-400: oklch(60.013% 0.10001 124);
-  --nc-primary-500: oklch(51.27% 0.10771 124);
-  --nc-primary-600: oklch(49.27% 0.10871 124); */
+  --nc-secondary-surface-3: var(--s-rose-200);
+  --nc-secondary-onsurface-3: var(--s-rose-900);
 
-  /* --nc-primary-700: oklch(49.27% 0.10871 124);
-  --nc-primary-800: oklch(49.27% 0.10871 124);
-  --nc-primary-900: oklch(49.27% 0.10871 124); */
+  --nc-secondary-foreground: var(--s-rose-700);
+  --nc-secondary-foreground-2: var(--s-rose-800);
+  --nc-secondary-foreground-3: var(--s-rose-900);
 }
 
 :root.dark {
@@ -380,4 +402,17 @@
   --nc-primary-foreground: var(--s-lime-green-400);
   --nc-primary-foreground-2: var(--s-lime-green-300);
   --nc-primary-foreground-3: var(--s-lime-green-200);
+
+  --nc-secondary-surface: var(--s-rose-900);
+  --nc-secondary-onsurface: var(--s-rose-300);
+
+  --nc-secondary-surface-2: var(--s-rose-800);
+  --nc-secondary-onsurface-2: var(--s-rose-100);
+
+  --nc-secondary-surface-3: var(--s-rose-700);
+  --nc-secondary-onsurface-3: var(--s-rose-050);
+
+  --nc-secondary-foreground: var(--s-rose-400);
+  --nc-secondary-foreground-2: var(--s-rose-300);
+  --nc-secondary-foreground-3: var(--s-rose-200);
 }

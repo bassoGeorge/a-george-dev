@@ -204,45 +204,28 @@ export const AnotherNewSystem: Story = {
     >
       <NSwatch className="bg-(--nc-page-0)">
         <StandardText />
-        <PrimaryText />
+        <ColoredText />
       </NSwatch>
 
       <NSwatch className="bg-(--nc-page-1)">
         <StandardText />
-        <PrimaryText />
+        <ColoredText />
       </NSwatch>
 
       <NSwatch className="bg-(--nc-page-2)">
         <StandardText />
-        <PrimaryText />
+        <ColoredText />
       </NSwatch>
 
       <NSwatch className="bg-(--nc-page-3)">
         <StandardText />
-        <PrimaryText />
+        <ColoredText />
       </NSwatch>
 
       <NSwatch className="bg-(--nc-page-4)">
         <StandardText />
-        <PrimaryText />
+        <ColoredText />
       </NSwatch>
-      {/* 
-      <NSwatch className="bg-(--nc-primary-100)">
-        <StandardText />
-        <PrimaryText />
-      </NSwatch>
-
-      <NSwatch className="bg-(--nc-primary-200)">
-        <StandardText />
-        <PrimaryText />
-      </NSwatch>
-
-      <NSwatch className="bg-(--nc-primary-300)">
-        <StandardText />
-        <PrimaryText />
-      </NSwatch>
-      <div />
-      <div /> */}
 
       <NSwatch className="bg-(--nc-primary-surface)">
         {/* <StandardText /> */}
@@ -257,6 +240,27 @@ export const AnotherNewSystem: Story = {
       <NSwatch className="bg-(--nc-primary-surface-3)">
         {/* <StandardText /> */}
         <p className="text-(--nc-primary-onsurface-3)">Primary onsurface-3</p>
+      </NSwatch>
+      <div></div>
+      <div></div>
+
+      <NSwatch className="bg-(--nc-secondary-surface)">
+        {/* <StandardText /> */}
+        <p className="text-(--nc-secondary-onsurface)">Secondary onsurface</p>
+      </NSwatch>
+
+      <NSwatch className="bg-(--nc-secondary-surface-2)">
+        {/* <StandardText /> */}
+        <p className="text-(--nc-secondary-onsurface-2)">
+          Secondary onsurface-2
+        </p>
+      </NSwatch>
+
+      <NSwatch className="bg-(--nc-secondary-surface-3)">
+        {/* <StandardText /> */}
+        <p className="text-(--nc-secondary-onsurface-3)">
+          Secondary onsurface-3
+        </p>
       </NSwatch>
     </div>
   ),
@@ -275,22 +279,20 @@ function StandardText() {
   );
 }
 
-function PrimaryText() {
+function ColoredText() {
   return (
     <>
       <p className="text-(--nc-primary-foreground)">Primary foreground</p>
       <p className="text-(--nc-primary-foreground-2)">Primary foreground-2</p>
       <p className="text-(--nc-primary-foreground-3)">Primary foreground-3</p>
-    </>
-  );
-}
 
-function PrimaryOnSurface() {
-  return (
-    <>
-      <p className="text-(--nc-primary-onsurface)">Primary onsurface</p>
-      <p className="text-(--nc-primary-onsurface-2)">Primary onsurface-2</p>
-      <p className="text-(--nc-primary-onsurface-3)">Primary onsurface-3</p>
+      <p className="text-(--nc-secondary-foreground)">Secondary foreground</p>
+      <p className="text-(--nc-secondary-foreground-2)">
+        Secondary foreground-2
+      </p>
+      <p className="text-(--nc-secondary-foreground-3)">
+        Secondary foreground-3
+      </p>
     </>
   );
 }
