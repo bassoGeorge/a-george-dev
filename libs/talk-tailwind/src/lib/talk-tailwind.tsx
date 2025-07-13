@@ -38,8 +38,8 @@ export function TalkTailwind() {
           </div>
           <DeckFooter>
             <TwLogo className="h-full" />
-            <BodyXl className="text-neutral-subtle">|</BodyXl>
-            <BodyXl className="text-neutral-subtle italic large-desktop:mt-2">
+            <BodyXl className="text-neutral-subdued">|</BodyXl>
+            <BodyXl className="text-neutral-subdued italic large-desktop:mt-2">
               Unfold UI
             </BodyXl>
           </DeckFooter>

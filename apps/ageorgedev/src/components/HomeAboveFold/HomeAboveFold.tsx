@@ -27,10 +27,10 @@ export function HomeAboveFold() {
         className={`${styles.paper} ${styles.subTextSection} phone-landscape-only:pb-3 relative flex flex-col justify-start tablet:justify-end tablet:p-6 tablet:pb-10`}
       >
         <div className="phone-only:px-4 text-center tablet:text-right">
-          <Heading3 className="font-bold text-alt-accent-subtle">
+          <Heading3 className="font-bold text-secondary-foreground-3">
             Web Developer
           </Heading3>
-          <Heading4 as="p" className="text-neutral-subtle">
+          <Heading4 as="p" className="text-neutral-subdued">
             Architecting web experiences since 2016
           </Heading4>
         </div>
@@ -39,7 +39,7 @@ export function HomeAboveFold() {
             href="https://github.com/bassoGeorge"
             target="_blank"
             rel="noreferrer"
-            className="text-2xl leading-none text-neutral-subtlest transition-colors hover:text-accent-subtle"
+            className="text-2xl leading-none text-neutral-subdued transition-colors hover:text-primary-foreground"
             aria-label="Github"
           >
             <GithubLogoIcon weight="duotone" />
@@ -48,7 +48,7 @@ export function HomeAboveFold() {
             href="https://linkedin.com/in/anishbassogeorge"
             target="_blank"
             rel="noreferrer"
-            className="text-2xl leading-none text-neutral-subtlest transition-colors hover:text-accent-subtle"
+            className="text-2xl leading-none text-neutral-subdued transition-colors hover:text-primary-foreground"
             aria-label="Linkedin"
           >
             <LinkedinLogoIcon weight="duotone" />
@@ -60,7 +60,7 @@ export function HomeAboveFold() {
       >
         <Link
           href="/talks"
-          className="transition-colors hover:text-alt-accent focus:text-alt-accent"
+          className="transition-colors hover:text-secondary-foreground focus:text-secondary-foreground"
         >
           Talks
         </Link>

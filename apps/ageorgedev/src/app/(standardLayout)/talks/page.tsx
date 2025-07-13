@@ -20,7 +20,7 @@ export default function TalksPage() {
               Tailwind CSS. Managing scale, complexity and copy-paste-ability.
             </BodyXl>
 
-            <Body className="mt-5 text-right text-neutral-subtlest">
+            <Body className="mt-5 text-right text-neutral-subdued">
               <em>Unfold UI | Thoughtworks | 2023</em>
             </Body>
           </TiltCard>

@@ -12,7 +12,7 @@
   }
 
   .progress span {
-    @apply bg-accent;
+    @apply bg-primary-surface;
   }
 
   &.overview > footer {

@@ -35,7 +35,7 @@ const education: { period: string; institute: string; programme: string }[] = [
 ];
 
 function Imp({ children }: React.PropsWithChildren) {
-  return <span className="text-alt-accent italic">{children}</span>;
+  return <span className="text-secondary-foreground italic">{children}</span>;
 }
 
 export default function Resume() {
@@ -47,7 +47,7 @@ export default function Resume() {
           shadowDirection="left"
           className="-mb-4 self-end text-[4rem]"
         />
-        <BodySm className="absolute top-[9.5rem] left-[13.75rem] mb-2 text-neutral-subtlest italic">
+        <BodySm className="absolute top-[9.5rem] left-[13.75rem] mb-2 text-neutral-subdued italic">
           (He/Him)
         </BodySm>
         <div className={`${socialLinksBlockClasses} mt-3`}>
@@ -59,7 +59,7 @@ export default function Resume() {
         <section className="mr-1">
           <Heading4
             as={'h2'}
-            className="font-medium text-rc-s-accent-400 italic"
+            className="font-medium text-secondary-foreground italic"
           >
             Frontend Architect
           </Heading4>
@@ -108,10 +108,10 @@ export default function Resume() {
               Demystifying Function Sub-typing
               <ArrowSquareOutIcon
                 weight="duotone"
-                className="relative -top-px ml-2 inline text-rc-p-accent-400"
+                className="relative -top-px ml-2 inline text-primary-foreground"
               />
             </BodySm>
-            <BodyXs className="text-neutral-subtlest">
+            <BodyXs className="text-neutral-subdued">
               Functional Conf Bangalore | 2019
             </BodyXs>
           </a>
@@ -126,7 +126,7 @@ export default function Resume() {
                 <BodyXs>{edu.period}</BodyXs>
                 <div>
                   <BodySm className="font-interface">{edu.programme}</BodySm>
-                  <BodyXs className="text-neutral-subtlest">
+                  <BodyXs className="text-neutral-subdued">
                     {edu.institute}
                   </BodyXs>
                 </div>
@@ -143,27 +143,27 @@ export default function Resume() {
       </aside>
       <article className={`${styles.article} ${styles.paper}`}>
         <section className={styles.expGrid}>
-          <BodyLg className="justify-self-end font-bold tracking-wider text-rc-p-accent-500">
+          <BodyLg className="justify-self-end font-bold tracking-wider text-primary-foreground">
             2018 - 2023
           </BodyLg>
           <Heading3 className="font-medium">Thoughtworks</Heading3>
           <div className="self-start justify-self-end text-right">
-            <p className="font-interface text-md leading-[1.2rem] text-neutral-subtle">
+            <p className="font-interface text-md leading-[1.2rem] text-neutral-subdued">
               Lead UI Developer
             </p>
-            <p className="-mt-1 pb-1 text-xs leading-[1.2rem] text-neutral-subtlest">
+            <p className="-mt-1 pb-1 text-xs leading-[1.2rem] text-neutral-subdued">
               2021
             </p>
-            <p className="font-interface text-xs leading-[1.2rem] text-neutral-subtle">
+            <p className="font-interface text-xs leading-[1.2rem] text-neutral-subdued">
               Senior UI Developer
             </p>
-            <p className="-mt-1 pb-1 text-xs leading-[1.2rem] text-neutral-subtlest">
+            <p className="-mt-1 pb-1 text-xs leading-[1.2rem] text-neutral-subdued">
               2019
             </p>
-            <p className="font-interface text-xs leading-[1.2rem] text-neutral-subtle">
+            <p className="font-interface text-xs leading-[1.2rem] text-neutral-subdued">
               UI Developer
             </p>
-            <p className="-mt-1 pb-1 text-xs leading-[1.2rem] text-neutral-subtlest">
+            <p className="-mt-1 pb-1 text-xs leading-[1.2rem] text-neutral-subdued">
               2018
             </p>
           </div>
@@ -242,12 +242,12 @@ export default function Resume() {
           </div>
         </section>
         <section className={styles.expGrid}>
-          <BodyLg className="justify-self-end font-bold tracking-wider text-rc-p-accent-500">
+          <BodyLg className="text-rc-p-accent-500 justify-self-end font-bold tracking-wider">
             2016 - 2018
           </BodyLg>
           <Heading3 className="font-medium">Ignite Solutions</Heading3>
           <div className="self-start justify-self-end text-right">
-            <p className="font-interface text-md leading-[1.2rem] text-neutral-subtle">
+            <p className="font-interface text-md leading-[1.2rem] text-neutral-subdued">
               Full Stack
               <br />
               Developer
@@ -272,12 +272,12 @@ export default function Resume() {
           </div>
         </section>
         <section className={styles.expGrid}>
-          <BodyLg className="justify-self-end font-bold tracking-wider text-rc-p-accent-500">
+          <BodyLg className="text-rc-p-accent-500 justify-self-end font-bold tracking-wider">
             mid 2015
           </BodyLg>
           <Heading3 className="font-medium">JLabs</Heading3>
           <div className="self-start justify-self-end text-right">
-            <p className="font-interface text-md leading-[1.2rem] text-neutral-subtle">
+            <p className="font-interface text-md leading-[1.2rem] text-neutral-subdued">
               Developer
             </p>
           </div>

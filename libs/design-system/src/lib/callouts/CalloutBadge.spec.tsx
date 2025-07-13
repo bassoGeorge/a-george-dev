@@ -13,10 +13,10 @@ describe('CalloutBadge', () => {
     render(<CalloutBadge {...defaultProps} />);
     expect(screen.getByText('Test Badge')).toBeInTheDocument();
     expect(screen.getByText('Test Badge').parentElement).toHaveClass(
-      'before:bg-accent'
+      'before:bg-primary-surface-0'
     );
     expect(screen.getByText('Test Badge').parentElement).toHaveClass(
-      'text-neutral-inverse'
+      'text-primary-onsurface-0'
     );
   });
 
@@ -32,12 +32,12 @@ describe('CalloutBadge', () => {
       <CalloutBadge {...defaultProps} type="info1" />
     );
     expect(screen.getByText('Test Badge').parentElement).toHaveClass(
-      'before:bg-accent'
+      'before:bg-primary-surface'
     );
 
     rerender(<CalloutBadge {...defaultProps} type="info2" />);
     expect(screen.getByText('Test Badge').parentElement).toHaveClass(
-      'before:bg-accent-subtle'
+      'before:bg-primary-surface-0'
     );
 
     rerender(<CalloutBadge {...defaultProps} type="info3" />);

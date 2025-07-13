@@ -250,6 +250,8 @@
 }
 
 @theme {
+  --color-*: initial;
+
   /** Page and Neutral */
   --color-page-0: var(--c-page-0);
   --color-page-1: var(--c-page-1);
@@ -331,4 +333,11 @@
   --color-info-foreground: var(--c-info-foreground);
   --color-info-foreground-2: var(--c-info-foreground-2);
   --color-info-foreground-3: var(--c-info-foreground-3);
+
+  /** Depercated **/
+  --color-rc-shadow-1: rgb(0 0 0 / 0.1);
+  --color-rc-shadow-2: rgb(0 0 0 / 0.25);
+  --color-rc-shadow-3: rgb(0 0 0 / 0.6);
+  --color-rc-shadow-4: rgb(0 0 0 / 0.8);
+  --color-rc-shadow-5: rgb(0 0 0);
 }
