@@ -166,7 +166,7 @@ export const ContextualColors: Story = {
 export const NewSystem: Story = {
   render: () => (
     <div
-      className="inline-grid items-center justify-items-end gap-7"
+      className="inline-grid items-center justify-items-center gap-7"
       style={{ gridTemplateColumns: 'max-content repeat(3, minmax(0, 1fr)' }}
     >
       <InterfaceMd>Primary</InterfaceMd>
@@ -204,24 +204,29 @@ export const AnotherNewSystem: Story = {
     >
       <NSwatch className="bg-(--nc-page-0)">
         <StandardText />
+        <PrimaryText />
       </NSwatch>
 
       <NSwatch className="bg-(--nc-page-1)">
         <StandardText />
+        <PrimaryText />
       </NSwatch>
 
       <NSwatch className="bg-(--nc-page-2)">
         <StandardText />
+        <PrimaryText />
       </NSwatch>
 
       <NSwatch className="bg-(--nc-page-3)">
         <StandardText />
+        <PrimaryText />
       </NSwatch>
 
       <NSwatch className="bg-(--nc-page-4)">
         <StandardText />
+        <PrimaryText />
       </NSwatch>
-
+      {/* 
       <NSwatch className="bg-(--nc-primary-100)">
         <StandardText />
         <PrimaryText />
@@ -235,6 +240,23 @@ export const AnotherNewSystem: Story = {
       <NSwatch className="bg-(--nc-primary-300)">
         <StandardText />
         <PrimaryText />
+      </NSwatch>
+      <div />
+      <div /> */}
+
+      <NSwatch className="bg-(--nc-primary-surface)">
+        {/* <StandardText /> */}
+        <p className="text-(--nc-primary-onsurface)">Primary onsurface</p>
+      </NSwatch>
+
+      <NSwatch className="bg-(--nc-primary-surface-2)">
+        {/* <StandardText /> */}
+        <p className="text-(--nc-primary-onsurface-2)">Primary onsurface-2</p>
+      </NSwatch>
+
+      <NSwatch className="bg-(--nc-primary-surface-3)">
+        {/* <StandardText /> */}
+        <p className="text-(--nc-primary-onsurface-3)">Primary onsurface-3</p>
       </NSwatch>
     </div>
   ),
@@ -256,9 +278,19 @@ function StandardText() {
 function PrimaryText() {
   return (
     <>
-      <p className="text-(--nc-primary-700)">Primary 700</p>
-      <p className="text-(--nc-primary-800)">Primary 800</p>
-      <p className="text-(--nc-primary-900)">Primary 900</p>
+      <p className="text-(--nc-primary-foreground)">Primary foreground</p>
+      <p className="text-(--nc-primary-foreground-2)">Primary foreground-2</p>
+      <p className="text-(--nc-primary-foreground-3)">Primary foreground-3</p>
+    </>
+  );
+}
+
+function PrimaryOnSurface() {
+  return (
+    <>
+      <p className="text-(--nc-primary-onsurface)">Primary onsurface</p>
+      <p className="text-(--nc-primary-onsurface-2)">Primary onsurface-2</p>
+      <p className="text-(--nc-primary-onsurface-3)">Primary onsurface-3</p>
     </>
   );
 }
