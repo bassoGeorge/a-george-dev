@@ -8,8 +8,6 @@
 @layer base {
   body {
     @apply bg-page-0 text-base text-neutral;
-
-    background-color: var(--nc-page-0);
   }
 
   :root {

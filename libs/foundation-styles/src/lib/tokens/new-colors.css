@@ -83,168 +83,252 @@
 
 :root {
   /** Page and Neutral */
-  --nc-page-0: var(--s-parchment-500);
-  --nc-page-1: var(--s-parchment-400);
-  --nc-page-2: var(--s-parchment-300);
-  --nc-page-3: var(--s-parchment-200);
-  --nc-page-4: var(--s-parchment-100);
+  --c-page-0: var(--s-parchment-500);
+  --c-page-1: var(--s-parchment-400);
+  --c-page-2: var(--s-parchment-300);
+  --c-page-3: var(--s-parchment-200);
+  --c-page-4: var(--s-parchment-100);
 
-  --nc-neutral-strong: var(--s-warm-grey-900);
-  --nc-neutral: var(--s-warm-grey-800);
-  --nc-neutral-subdued: var(--s-warm-grey-600);
-  --nc-neutral-disabled: var(--s-warm-grey-400);
+  --c-neutral-strong: var(--s-warm-grey-900);
+  --c-neutral: var(--s-warm-grey-800);
+  --c-neutral-subdued: var(--s-warm-grey-600);
+  --c-neutral-disabled: var(--s-warm-grey-400);
 
   /** Primary color */
-  --nc-primary-surface-0: var(--s-lime-green-050);
-  --nc-primary-onsurface-0: var(--s-lime-green-700);
+  --c-primary-surface-0: var(--s-lime-green-050);
+  --c-primary-onsurface-0: var(--s-lime-green-700);
 
-  --nc-primary-surface: var(--s-lime-green-100);
-  --nc-primary-onsurface: var(--s-lime-green-800);
+  --c-primary-surface: var(--s-lime-green-100);
+  --c-primary-onsurface: var(--s-lime-green-800);
 
-  --nc-primary-surface-2: var(--s-lime-green-200);
-  --nc-primary-onsurface-2: var(--s-lime-green-900);
+  --c-primary-surface-2: var(--s-lime-green-200);
+  --c-primary-onsurface-2: var(--s-lime-green-900);
 
-  --nc-primary-foreground: var(--s-lime-green-700);
-  --nc-primary-foreground-2: var(--s-lime-green-800);
-  --nc-primary-foreground-3: var(--s-lime-green-900);
+  --c-primary-foreground: var(--s-lime-green-700);
+  --c-primary-foreground-2: var(--s-lime-green-800);
+  --c-primary-foreground-3: var(--s-lime-green-900);
 
   /** Secondary color */
-  --nc-secondary-surface-0: var(--s-pink-050);
-  --nc-secondary-onsurface-0: var(--s-pink-700);
+  --c-secondary-surface-0: var(--s-pink-050);
+  --c-secondary-onsurface-0: var(--s-pink-700);
 
-  --nc-secondary-surface: var(--s-pink-100);
-  --nc-secondary-onsurface: var(--s-pink-800);
+  --c-secondary-surface: var(--s-pink-100);
+  --c-secondary-onsurface: var(--s-pink-800);
 
-  --nc-secondary-surface-2: var(--s-pink-200);
-  --nc-secondary-onsurface-2: var(--s-pink-900);
+  --c-secondary-surface-2: var(--s-pink-200);
+  --c-secondary-onsurface-2: var(--s-pink-900);
 
-  --nc-secondary-foreground: var(--s-pink-700);
-  --nc-secondary-foreground-2: var(--s-pink-800);
-  --nc-secondary-foreground-3: var(--s-pink-900);
+  --c-secondary-foreground: var(--s-pink-700);
+  --c-secondary-foreground-2: var(--s-pink-800);
+  --c-secondary-foreground-3: var(--s-pink-900);
 
   /** Destructive */
-  --nc-destructive-surface-0: var(--s-red-vivid-050);
-  --nc-destructive-onsurface-0: var(--s-red-vivid-700);
+  --c-destructive-surface-0: var(--s-red-vivid-050);
+  --c-destructive-onsurface-0: var(--s-red-vivid-700);
 
-  --nc-destructive-surface: var(--s-red-vivid-100);
-  --nc-destructive-onsurface: var(--s-red-vivid-800);
+  --c-destructive-surface: var(--s-red-vivid-100);
+  --c-destructive-onsurface: var(--s-red-vivid-800);
 
-  --nc-destructive-surface-2: var(--s-red-vivid-200);
-  --nc-destructive-onsurface-2: var(--s-red-vivid-900);
+  --c-destructive-surface-2: var(--s-red-vivid-200);
+  --c-destructive-onsurface-2: var(--s-red-vivid-900);
 
-  --nc-destructive-foreground: var(--s-red-vivid-700);
-  --nc-destructive-foreground-2: var(--s-red-vivid-800);
-  --nc-destructive-foreground-3: var(--s-red-vivid-900);
+  --c-destructive-foreground: var(--s-red-vivid-700);
+  --c-destructive-foreground-2: var(--s-red-vivid-800);
+  --c-destructive-foreground-3: var(--s-red-vivid-900);
 
   /** Warning color */
-  --nc-warning-surface-0: var(--s-yellow-200);
-  --nc-warning-onsurface-0: var(--s-yellow-800);
+  --c-warning-surface-0: var(--s-yellow-200);
+  --c-warning-onsurface-0: var(--s-yellow-800);
 
-  --nc-warning-surface: var(--s-yellow-300);
-  --nc-warning-onsurface: var(--s-yellow-900);
+  --c-warning-surface: var(--s-yellow-300);
+  --c-warning-onsurface: var(--s-yellow-900);
 
-  --nc-warning-surface-2: var(--s-yellow-400);
-  --nc-warning-onsurface-2: var(--s-yellow-900);
+  --c-warning-surface-2: var(--s-yellow-400);
+  --c-warning-onsurface-2: var(--s-yellow-900);
 
-  --nc-warning-foreground: var(--s-yellow-700);
-  --nc-warning-foreground-2: var(--s-yellow-800);
-  --nc-warning-foreground-3: var(--s-yellow-900);
+  --c-warning-foreground: var(--s-yellow-700);
+  --c-warning-foreground-2: var(--s-yellow-800);
+  --c-warning-foreground-3: var(--s-yellow-900);
 
   /** Info color */
-  --nc-info-surface-0: var(--s-light-blue-050);
-  --nc-info-onsurface-0: var(--s-light-blue-700);
+  --c-info-surface-0: var(--s-light-blue-050);
+  --c-info-onsurface-0: var(--s-light-blue-700);
 
-  --nc-info-surface: var(--s-light-blue-100);
-  --nc-info-onsurface: var(--s-light-blue-800);
+  --c-info-surface: var(--s-light-blue-100);
+  --c-info-onsurface: var(--s-light-blue-800);
 
-  --nc-info-surface-2: var(--s-light-blue-200);
-  --nc-info-onsurface-2: var(--s-light-blue-900);
+  --c-info-surface-2: var(--s-light-blue-200);
+  --c-info-onsurface-2: var(--s-light-blue-900);
 
-  --nc-info-foreground: var(--s-light-blue-700);
-  --nc-info-foreground-2: var(--s-light-blue-800);
-  --nc-info-foreground-3: var(--s-light-blue-900);
+  --c-info-foreground: var(--s-light-blue-700);
+  --c-info-foreground-2: var(--s-light-blue-800);
+  --c-info-foreground-3: var(--s-light-blue-900);
 }
 
 :root.dark {
   /** Page and Neutral */
-  --nc-page-0: var(--s-aztec-900);
-  --nc-page-1: var(--s-aztec-800);
-  --nc-page-2: var(--s-aztec-700);
-  --nc-page-3: var(--s-aztec-600);
-  --nc-page-4: var(--s-aztec-500);
+  --c-page-0: var(--s-aztec-900);
+  --c-page-1: var(--s-aztec-800);
+  --c-page-2: var(--s-aztec-700);
+  --c-page-3: var(--s-aztec-600);
+  --c-page-4: var(--s-aztec-500);
 
-  --nc-neutral-strong: var(--s-warm-grey-050);
-  --nc-neutral: var(--s-warm-grey-100);
-  --nc-neutral-subdued: var(--s-warm-grey-300);
-  --nc-neutral-disabled: var(--s-warm-grey-500);
+  --c-neutral-strong: var(--s-warm-grey-050);
+  --c-neutral: var(--s-warm-grey-100);
+  --c-neutral-subdued: var(--s-warm-grey-300);
+  --c-neutral-disabled: var(--s-warm-grey-500);
 
   /** Primary color */
-  --nc-primary-surface-0: var(--s-lime-green-900);
-  --nc-primary-onsurface-0: var(--s-lime-green-300);
+  --c-primary-surface-0: var(--s-lime-green-900);
+  --c-primary-onsurface-0: var(--s-lime-green-300);
 
-  --nc-primary-surface: var(--s-lime-green-800);
-  --nc-primary-onsurface: var(--s-lime-green-200);
+  --c-primary-surface: var(--s-lime-green-800);
+  --c-primary-onsurface: var(--s-lime-green-200);
 
-  --nc-primary-surface-2: var(--s-lime-green-700);
-  --nc-primary-onsurface-2: var(--s-lime-green-100);
+  --c-primary-surface-2: var(--s-lime-green-700);
+  --c-primary-onsurface-2: var(--s-lime-green-100);
 
-  --nc-primary-foreground: var(--s-lime-green-400);
-  --nc-primary-foreground-2: var(--s-lime-green-300);
-  --nc-primary-foreground-3: var(--s-lime-green-200);
+  --c-primary-foreground: var(--s-lime-green-400);
+  --c-primary-foreground-2: var(--s-lime-green-300);
+  --c-primary-foreground-3: var(--s-lime-green-200);
 
   /** Secondary color */
-  --nc-secondary-surface-0: var(--s-pink-900);
-  --nc-secondary-onsurface-0: var(--s-pink-100);
+  --c-secondary-surface-0: var(--s-pink-900);
+  --c-secondary-onsurface-0: var(--s-pink-100);
 
-  --nc-secondary-surface: var(--s-pink-800);
-  --nc-secondary-onsurface: var(--s-pink-100);
+  --c-secondary-surface: var(--s-pink-800);
+  --c-secondary-onsurface: var(--s-pink-100);
 
-  --nc-secondary-surface-2: var(--s-pink-700);
-  --nc-secondary-onsurface-2: var(--s-pink-050);
+  --c-secondary-surface-2: var(--s-pink-700);
+  --c-secondary-onsurface-2: var(--s-pink-050);
 
-  --nc-secondary-foreground: var(--s-pink-300);
-  --nc-secondary-foreground-2: var(--s-pink-200);
-  --nc-secondary-foreground-3: var(--s-pink-100);
+  --c-secondary-foreground: var(--s-pink-300);
+  --c-secondary-foreground-2: var(--s-pink-200);
+  --c-secondary-foreground-3: var(--s-pink-100);
 
   /** Destructive color */
-  --nc-destructive-surface-0: var(--s-red-vivid-900);
-  --nc-destructive-onsurface-0: var(--s-red-vivid-100);
+  --c-destructive-surface-0: var(--s-red-vivid-900);
+  --c-destructive-onsurface-0: var(--s-red-vivid-100);
 
-  --nc-destructive-surface: var(--s-red-vivid-800);
-  --nc-destructive-onsurface: var(--s-red-vivid-100);
+  --c-destructive-surface: var(--s-red-vivid-800);
+  --c-destructive-onsurface: var(--s-red-vivid-100);
 
-  --nc-destructive-surface-2: var(--s-red-vivid-700);
-  --nc-destructive-onsurface-2: var(--s-red-vivid-050);
+  --c-destructive-surface-2: var(--s-red-vivid-700);
+  --c-destructive-onsurface-2: var(--s-red-vivid-050);
 
-  --nc-destructive-foreground: var(--s-red-vivid-300);
-  --nc-destructive-foreground-2: var(--s-red-vivid-200);
-  --nc-destructive-foreground-3: var(--s-red-vivid-100);
+  --c-destructive-foreground: var(--s-red-vivid-300);
+  --c-destructive-foreground-2: var(--s-red-vivid-200);
+  --c-destructive-foreground-3: var(--s-red-vivid-100);
 
   /** Warning color */
-  --nc-warning-surface-0: var(--s-yellow-900);
-  --nc-warning-onsurface-0: var(--s-yellow-300);
+  --c-warning-surface-0: var(--s-yellow-900);
+  --c-warning-onsurface-0: var(--s-yellow-300);
 
-  --nc-warning-surface: var(--s-yellow-800);
-  --nc-warning-onsurface: var(--s-yellow-100);
+  --c-warning-surface: var(--s-yellow-800);
+  --c-warning-onsurface: var(--s-yellow-100);
 
-  --nc-warning-surface-2: var(--s-yellow-800);
-  --nc-warning-onsurface-2: var(--s-yellow-050);
+  --c-warning-surface-2: var(--s-yellow-800);
+  --c-warning-onsurface-2: var(--s-yellow-050);
 
-  --nc-warning-foreground: var(--s-yellow-300);
-  --nc-warning-foreground-2: var(--s-yellow-200);
-  --nc-warning-foreground-3: var(--s-yellow-100);
+  --c-warning-foreground: var(--s-yellow-300);
+  --c-warning-foreground-2: var(--s-yellow-200);
+  --c-warning-foreground-3: var(--s-yellow-100);
 
   /** Info color */
-  --nc-info-surface-0: var(--s-light-blue-900);
-  --nc-info-onsurface-0: var(--s-light-blue-200);
+  --c-info-surface-0: var(--s-light-blue-900);
+  --c-info-onsurface-0: var(--s-light-blue-200);
 
-  --nc-info-surface: var(--s-light-blue-800);
-  --nc-info-onsurface: var(--s-light-blue-100);
+  --c-info-surface: var(--s-light-blue-800);
+  --c-info-onsurface: var(--s-light-blue-100);
 
-  --nc-info-surface-2: var(--s-light-blue-700);
-  --nc-info-onsurface-2: var(--s-light-blue-050);
+  --c-info-surface-2: var(--s-light-blue-700);
+  --c-info-onsurface-2: var(--s-light-blue-050);
 
-  --nc-info-foreground: var(--s-light-blue-300);
-  --nc-info-foreground-2: var(--s-light-blue-200);
-  --nc-info-foreground-3: var(--s-light-blue-100);
+  --c-info-foreground: var(--s-light-blue-300);
+  --c-info-foreground-2: var(--s-light-blue-200);
+  --c-info-foreground-3: var(--s-light-blue-100);
+}
+
+@theme {
+  /** Page and Neutral */
+  --color-page-0: var(--c-page-0);
+  --color-page-1: var(--c-page-1);
+  --color-page-2: var(--c-page-2);
+  --color-page-3: var(--c-page-3);
+  --color-page-4: var(--c-page-4);
+
+  --color-neutral-strong: var(--c-neutral-strong);
+  --color-neutral: var(--c-neutral);
+  --color-neutral-subdued: var(--c-neutral-subdued);
+  --color-neutral-disabled: var(--c-neutral-disabled);
+
+  /** Primary color */
+  --color-primary-surface-0: var(--c-primary-surface-0);
+  --color-primary-onsurface-0: var(--c-primary-onsurface-0);
+
+  --color-primary-surface: var(--c-primary-surface);
+  --color-primary-onsurface: var(--c-primary-onsurface);
+
+  --color-primary-surface-2: var(--c-primary-surface-2);
+  --color-primary-onsurface-2: var(--c-primary-onsurface-2);
+
+  --color-primary-foreground: var(--c-primary-foreground);
+  --color-primary-foreground-2: var(--c-primary-foreground-2);
+  --color-primary-foreground-3: var(--c-primary-foreground-3);
+
+  /** Secondary color */
+  --color-secondary-surface-0: var(--c-secondary-surface-0);
+  --color-secondary-onsurface-0: var(--c-secondary-onsurface-0);
+
+  --color-secondary-surface: var(--c-secondary-surface);
+  --color-secondary-onsurface: var(--c-secondary-onsurface);
+
+  --color-secondary-surface-2: var(--c-secondary-surface-2);
+  --color-secondary-onsurface-2: var(--c-secondary-onsurface-2);
+
+  --color-secondary-foreground: var(--c-secondary-foreground);
+  --color-secondary-foreground-2: var(--c-secondary-foreground-2);
+  --color-secondary-foreground-3: var(--c-secondary-foreground-3);
+
+  /** Destructive color */
+  --color-destructive-surface-0: var(--c-destructive-surface-0);
+  --color-destructive-onsurface-0: var(--c-destructive-onsurface-0);
+
+  --color-destructive-surface: var(--c-destructive-surface);
+  --color-destructive-onsurface: var(--c-destructive-onsurface);
+
+  --color-destructive-surface-2: var(--c-destructive-surface-2);
+  --color-destructive-onsurface-2: var(--c-destructive-onsurface-2);
+
+  --color-destructive-foreground: var(--c-destructive-foreground);
+  --color-destructive-foreground-2: var(--c-destructive-foreground-2);
+  --color-destructive-foreground-3: var(--c-destructive-foreground-3);
+
+  /** Warning color */
+  --color-warning-surface-0: var(--c-warning-surface-0);
+  --color-warning-onsurface-0: var(--c-warning-onsurface-0);
+
+  --color-warning-surface: var(--c-warning-surface);
+  --color-warning-onsurface: var(--c-warning-onsurface);
+
+  --color-warning-surface-2: var(--c-warning-surface-2);
+  --color-warning-onsurface-2: var(--c-warning-onsurface-2);
+
+  --color-warning-foreground: var(--c-warning-foreground);
+  --color-warning-foreground-2: var(--c-warning-foreground-2);
+  --color-warning-foreground-3: var(--c-warning-foreground-3);
+
+  /** Info color */
+  --color-info-surface-0: var(--c-info-surface-0);
+  --color-info-onsurface-0: var(--c-info-onsurface-0);
+
+  --color-info-surface: var(--c-info-surface);
+  --color-info-onsurface: var(--c-info-onsurface);
+
+  --color-info-surface-2: var(--c-info-surface-2);
+  --color-info-onsurface-2: var(--c-info-onsurface-2);
+
+  --color-info-foreground: var(--c-info-foreground);
+  --color-info-foreground-2: var(--c-info-foreground-2);
+  --color-info-foreground-3: var(--c-info-foreground-3);
 }
