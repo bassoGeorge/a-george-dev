@@ -303,6 +303,24 @@ export const AnotherNewSystem: Story = {
       </NSwatch>
       <div></div>
       <div></div>
+
+      {/* Info */}
+      <NSwatch className="bg-(--nc-info-surface)">
+        {/* <StandardText /> */}
+        <p className="text-(--nc-info-onsurface)">Info onsurface</p>
+      </NSwatch>
+
+      <NSwatch className="bg-(--nc-info-surface-2)">
+        {/* <StandardText /> */}
+        <p className="text-(--nc-info-onsurface-2)">Info onsurface-2</p>
+      </NSwatch>
+
+      <NSwatch className="bg-(--nc-info-surface-3)">
+        {/* <StandardText /> */}
+        <p className="text-(--nc-info-onsurface-3)">Info onsurface-3</p>
+      </NSwatch>
+      <div></div>
+      <div></div>
     </div>
   ),
 };
@@ -351,6 +369,18 @@ function ColoredText() {
       <Body className="text-(--nc-destructive-foreground-3)">
         Destructive foreground-3
       </Body>
+      <Body></Body>
+      <Body className="text-(--nc-warning-foreground)">Warning foreground</Body>
+      <Body className="text-(--nc-warning-foreground-2)">
+        Warning foreground-2
+      </Body>
+      <Body className="text-(--nc-warning-foreground-3)">
+        Warning foreground-3
+      </Body>
+      <Body></Body>
+      <Body className="text-(--nc-info-foreground)">Info foreground</Body>
+      <Body className="text-(--nc-info-foreground-2)">Info foreground-2</Body>
+      <Body className="text-(--nc-info-foreground-3)">Info foreground-3</Body>
     </>
   );
 }

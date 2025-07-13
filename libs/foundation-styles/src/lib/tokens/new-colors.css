@@ -422,6 +422,20 @@
   --nc-warning-foreground: var(--cs-yellow-700);
   --nc-warning-foreground-2: var(--cs-yellow-800);
   --nc-warning-foreground-3: var(--cs-yellow-900);
+
+  /** Info color */
+  --nc-info-surface: var(--cs-light-blue-050);
+  --nc-info-onsurface: var(--cs-light-blue-700);
+
+  --nc-info-surface-2: var(--cs-light-blue-100);
+  --nc-info-onsurface-2: var(--cs-light-blue-800);
+
+  --nc-info-surface-3: var(--cs-light-blue-200);
+  --nc-info-onsurface-3: var(--cs-light-blue-900);
+
+  --nc-info-foreground: var(--cs-light-blue-700);
+  --nc-info-foreground-2: var(--cs-light-blue-800);
+  --nc-info-foreground-3: var(--cs-light-blue-900);
 }
 
 :root.dark {
@@ -486,10 +500,24 @@
   --nc-warning-surface-2: var(--cs-yellow-800);
   --nc-warning-onsurface-2: var(--cs-yellow-100);
 
-  --nc-warning-surface-3: var(--cs-yellow-700);
+  --nc-warning-surface-3: var(--cs-yellow-800);
   --nc-warning-onsurface-3: var(--cs-yellow-050);
 
   --nc-warning-foreground: var(--cs-yellow-300);
   --nc-warning-foreground-2: var(--cs-yellow-200);
   --nc-warning-foreground-3: var(--cs-yellow-100);
+
+  /** Info color */
+  --nc-info-surface: var(--cs-light-blue-900);
+  --nc-info-onsurface: var(--cs-light-blue-200);
+
+  --nc-info-surface-2: var(--cs-light-blue-800);
+  --nc-info-onsurface-2: var(--cs-light-blue-100);
+
+  --nc-info-surface-3: var(--cs-light-blue-700);
+  --nc-info-onsurface-3: var(--cs-light-blue-050);
+
+  --nc-info-foreground: var(--cs-light-blue-300);
+  --nc-info-foreground-2: var(--cs-light-blue-200);
+  --nc-info-foreground-3: var(--cs-light-blue-100);
 }
