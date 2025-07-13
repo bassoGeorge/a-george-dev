@@ -1,10 +1,5 @@
 import { HTMLAttributes } from 'react';
-import {
-  BodyMd,
-  Heading3,
-  Heading4,
-  InterfaceMd,
-} from './typography/typography-components';
+import { BodyMd, InterfaceMd } from './typography/typography-components';
 import { StoryObj } from '@storybook/react';
 
 export default {
@@ -269,8 +264,8 @@ export const AnotherNewSystem: Story = {
 function StandardText() {
   return (
     <>
-      <Heading3 className="text-(--nc-neutral-strong)">Neutral Strong</Heading3>
-      <Heading4 className="text-(--nc-neutral)">Neutral</Heading4>
+      <p className="text-(--nc-neutral-strong)">Neutral Strong</p>
+      <p className="text-(--nc-neutral)">Neutral</p>
       <p className="text-(--nc-neutral-subdued)">Neutral Subdued</p>
       <p className="text-(--nc-neutral-disabled)" aria-disabled>
         Neutral Disabled
