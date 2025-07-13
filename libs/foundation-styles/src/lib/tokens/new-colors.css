@@ -382,18 +382,18 @@
   --nc-primary-foreground-3: var(--s-lime-green-900);
 
   /** Secondary color */
-  --nc-secondary-surface: var(--s-rose-050);
-  --nc-secondary-onsurface: var(--s-rose-800);
+  --nc-secondary-surface: var(--cs-pink-050);
+  --nc-secondary-onsurface: var(--cs-pink-700);
 
-  --nc-secondary-surface-2: var(--s-rose-100);
-  --nc-secondary-onsurface-2: var(--s-rose-900);
+  --nc-secondary-surface-2: var(--cs-pink-100);
+  --nc-secondary-onsurface-2: var(--cs-pink-800);
 
-  --nc-secondary-surface-3: var(--s-rose-200);
-  --nc-secondary-onsurface-3: var(--s-rose-900);
+  --nc-secondary-surface-3: var(--cs-pink-200);
+  --nc-secondary-onsurface-3: var(--cs-pink-900);
 
-  --nc-secondary-foreground: var(--s-rose-700);
-  --nc-secondary-foreground-2: var(--s-rose-800);
-  --nc-secondary-foreground-3: var(--s-rose-900);
+  --nc-secondary-foreground: var(--cs-pink-700);
+  --nc-secondary-foreground-2: var(--cs-pink-800);
+  --nc-secondary-foreground-3: var(--cs-pink-900);
 
   /** Destructive */
   --nc-destructive-surface: var(--cs-red-vivid-050);
@@ -466,18 +466,18 @@
   --nc-primary-foreground-3: var(--s-lime-green-200);
 
   /** Secondary color */
-  --nc-secondary-surface: var(--s-rose-900);
-  --nc-secondary-onsurface: var(--s-rose-300);
+  --nc-secondary-surface: var(--cs-pink-900);
+  --nc-secondary-onsurface: var(--cs-pink-100);
 
-  --nc-secondary-surface-2: var(--s-rose-800);
-  --nc-secondary-onsurface-2: var(--s-rose-100);
+  --nc-secondary-surface-2: var(--cs-pink-800);
+  --nc-secondary-onsurface-2: var(--cs-pink-100);
 
-  --nc-secondary-surface-3: var(--s-rose-700);
-  --nc-secondary-onsurface-3: var(--s-rose-050);
+  --nc-secondary-surface-3: var(--cs-pink-700);
+  --nc-secondary-onsurface-3: var(--cs-pink-050);
 
-  --nc-secondary-foreground: var(--s-rose-400);
-  --nc-secondary-foreground-2: var(--s-rose-300);
-  --nc-secondary-foreground-3: var(--s-rose-200);
+  --nc-secondary-foreground: var(--cs-pink-300);
+  --nc-secondary-foreground-2: var(--cs-pink-200);
+  --nc-secondary-foreground-3: var(--cs-pink-100);
 
   /** Destructive color */
   --nc-destructive-surface: var(--cs-red-vivid-900);
