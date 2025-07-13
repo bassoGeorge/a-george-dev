@@ -301,20 +301,9 @@
   --cs-warm-grey-700: #504a40;
   --cs-warm-grey-800: #423d33;
   --cs-warm-grey-900: #27241d;
-
-  --ms-rose-050: #fcf2f3;
-  --ms-rose-100: #f9e5e8;
-  --ms-rose-200: #f6d8dd;
-  --ms-rose-300: #f3ccd1;
-  --ms-rose-400: #efbfc6;
-  --ms-rose-500: #ebb2bb;
-
-  --ms-rose-600: #b88b92;
-  --ms-rose-700: #88666b;
-  --ms-rose-800: #5b4346;
-  --ms-rose-900: #312325;
 }
 
+/* Swatches */
 :root {
   --s-warm-grey-050: #faf9f7;
   --s-warm-grey-100: #e8e6e1;
@@ -349,15 +338,29 @@
   --s-rose-700: oklch(54.613% 0.04431 8.734);
   --s-rose-800: oklch(40.992% 0.03351 10.216);
   --s-rose-900: oklch(27.363% 0.02166 8.962);
+
+  --s-aztec-300: oklch(45.664% 0.0498 193.743);
+  --s-aztec-400: oklch(40.097% 0.05389 195.267);
+  --s-aztec-500: oklch(34.666% 0.05919 194.807);
+  --s-aztec-600: oklch(31.9% 0.05446 194.807);
+  --s-aztec-700: oklch(28.714% 0.04902 194.807);
+  --s-aztec-800: oklch(26.174% 0.04469 194.807);
+  --s-aztec-900: oklch(23.192% 0.0396 194.807);
+
+  --s-parchment-100: oklch(99.668% 0.00526 95.189);
+  --s-parchment-200: oklch(98.951% 0.0089 78.129);
+  --s-parchment-300: oklch(97.562% 0.02425 83.389);
+  --s-parchment-400: oklch(96.026% 0.03765 81.494);
+  --s-parchment-500: oklch(94.707% 0.0516 82.27);
 }
 
 :root {
   /** Page and Neutral */
-  --nc-page-0: oklch(94.707% 0.0516 82.27);
-  --nc-page-1: oklch(96.026% 0.03765 81.494);
-  --nc-page-2: oklch(97.562% 0.02425 83.389);
-  --nc-page-3: oklch(98.951% 0.0089 78.129);
-  --nc-page-4: oklch(99.668% 0.00526 95.189);
+  --nc-page-0: var(--s-parchment-500);
+  --nc-page-1: var(--s-parchment-400);
+  --nc-page-2: var(--s-parchment-300);
+  --nc-page-3: var(--s-parchment-200);
+  --nc-page-4: var(--s-parchment-100);
 
   --nc-neutral-strong: var(--s-warm-grey-900);
   --nc-neutral: var(--s-warm-grey-800);
@@ -395,11 +398,11 @@
 
 :root.dark {
   /** Page and Neutral */
-  --nc-page-0: oklch(18.725% 0.02487 176.418);
-  --nc-page-1: oklch(23.664% 0.02651 176.418);
-  --nc-page-2: oklch(26.329% 0.02327 176.418);
-  --nc-page-3: oklch(32.159% 0.01929 176.418);
-  --nc-page-4: oklch(36.146% 0.02793 176.418);
+  --nc-page-0: var(--s-aztec-900);
+  --nc-page-1: var(--s-aztec-800);
+  --nc-page-2: var(--s-aztec-700);
+  --nc-page-3: var(--s-aztec-600);
+  --nc-page-4: var(--s-aztec-500);
 
   --nc-neutral-strong: var(--s-warm-grey-050);
   --nc-neutral: var(--s-warm-grey-100);
