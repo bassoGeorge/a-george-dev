@@ -221,6 +221,21 @@ export const AnotherNewSystem: Story = {
       <NSwatch className="bg-(--nc-page-4)">
         <StandardText />
       </NSwatch>
+
+      <NSwatch className="bg-(--nc-primary-100)">
+        <StandardText />
+        <PrimaryText />
+      </NSwatch>
+
+      <NSwatch className="bg-(--nc-primary-200)">
+        <StandardText />
+        <PrimaryText />
+      </NSwatch>
+
+      <NSwatch className="bg-(--nc-primary-300)">
+        <StandardText />
+        <PrimaryText />
+      </NSwatch>
     </div>
   ),
 };
@@ -234,6 +249,16 @@ function StandardText() {
       <p className="text-(--nc-neutral-disabled)" aria-disabled>
         Neutral Disabled
       </p>
+    </>
+  );
+}
+
+function PrimaryText() {
+  return (
+    <>
+      <p className="text-(--nc-primary-700)">Primary 700</p>
+      <p className="text-(--nc-primary-800)">Primary 800</p>
+      <p className="text-(--nc-primary-900)">Primary 900</p>
     </>
   );
 }
