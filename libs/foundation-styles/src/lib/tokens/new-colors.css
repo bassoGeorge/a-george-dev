@@ -98,10 +98,10 @@
   --c-primary-surface-0: var(--s-lime-green-050);
   --c-primary-onsurface-0: var(--s-lime-green-700);
 
-  --c-primary-surface: var(--s-lime-green-100);
-  --c-primary-onsurface: var(--s-lime-green-800);
+  --c-primary-surface: var(--s-lime-green-200);
+  --c-primary-onsurface: var(--s-lime-green-900);
 
-  --c-primary-surface-2: var(--s-lime-green-200);
+  --c-primary-surface-2: var(--s-lime-green-300);
   --c-primary-onsurface-2: var(--s-lime-green-900);
 
   --c-primary-foreground: var(--s-lime-green-700);
@@ -109,6 +109,7 @@
   --c-primary-foreground-3: var(--s-lime-green-900);
 
   /** Secondary color */
+  /** DEPRECATED */
   --c-secondary-surface-0: var(--s-pink-050);
   --c-secondary-onsurface-0: var(--s-pink-700);
 
@@ -121,6 +122,20 @@
   --c-secondary-foreground: var(--s-pink-700);
   --c-secondary-foreground-2: var(--s-pink-800);
   --c-secondary-foreground-3: var(--s-pink-900);
+
+  /** Secondary color */
+  --c-secondary-surface-0: var(--s-aztec-300);
+  --c-secondary-onsurface-0: var(--s-warm-grey-050);
+
+  --c-secondary-surface: var(--s-aztec-500);
+  --c-secondary-onsurface: var(--s-warm-grey-100);
+
+  --c-secondary-surface-2: var(--s-aztec-600);
+  --c-secondary-onsurface-2: var(--s-warm-grey-100);
+
+  --c-secondary-foreground: var(--s-aztec-500);
+  --c-secondary-foreground-2: var(--s-aztec-600);
+  --c-secondary-foreground-3: var(--s-aztec-700);
 
   /** Destructive */
   --c-destructive-surface-0: var(--s-red-vivid-050);
