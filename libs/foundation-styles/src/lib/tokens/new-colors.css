@@ -175,7 +175,7 @@
 
   --c-neutral-strong: var(--s-warm-grey-050);
   --c-neutral: var(--s-warm-grey-100);
-  --c-neutral-subdued: var(--s-warm-grey-300);
+  --c-neutral-subdued: var(--s-warm-grey-200);
   --c-neutral-disabled: var(--s-warm-grey-500);
 
   /** Primary color */
@@ -249,7 +249,7 @@
   --c-info-foreground-3: var(--s-light-blue-100);
 }
 
-@theme {
+@theme inline {
   --color-*: initial;
 
   /** Page and Neutral */

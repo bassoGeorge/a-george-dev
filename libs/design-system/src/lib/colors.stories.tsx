@@ -158,10 +158,10 @@ export const AnotherNewSystem: Story = {
 function StandardText() {
   return (
     <>
-      <p className="text-neutral-strong)">Neutral Strong</p>
-      <p className="text-neutral)">Neutral</p>
-      <p className="text-neutral-subdued)">Neutral Subdued</p>
-      <p className="text-neutral-disabled)" aria-disabled>
+      <p className="text-neutral-strong">Neutral Strong</p>
+      <p className="text-neutral">Neutral</p>
+      <p className="text-neutral-subdued">Neutral Subdued</p>
+      <p className="text-neutral-disabled" aria-disabled>
         Neutral Disabled
       </p>
     </>
