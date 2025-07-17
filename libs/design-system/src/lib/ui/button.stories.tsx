@@ -55,3 +55,28 @@ export const Link: Story = {
     size: 'default',
   },
 };
+
+export const SizeSmall: Story = {
+  args: {
+    children: 'Button',
+    variant: 'default',
+    size: 'sm',
+  },
+};
+
+export const SizeLarge: Story = {
+  args: {
+    children: 'Button',
+    variant: 'default',
+    size: 'lg',
+  },
+};
+
+// TODO
+export const SizeIcon: Story = {
+  args: {
+    children: 'Button',
+    variant: 'default',
+    size: 'icon',
+  },
+};
