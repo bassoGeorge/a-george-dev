@@ -27,7 +27,7 @@ export function HomeAboveFold() {
         className={`${styles.paper} ${styles.subTextSection} phone-landscape-only:pb-3 relative flex flex-col justify-start tablet:justify-end tablet:p-6 tablet:pb-10`}
       >
         <div className="phone-only:px-4 text-center tablet:text-right">
-          <Heading3 className="font-bold text-secondary-foreground-3">
+          <Heading3 className="font-bold text-secondary-foreground">
             Web Developer
           </Heading3>
           <Heading4 as="p" className="text-neutral-subdued">
@@ -60,7 +60,7 @@ export function HomeAboveFold() {
       >
         <Link
           href="/talks"
-          className="transition-colors hover:text-secondary-foreground focus:text-secondary-foreground"
+          className="focus:text-primary-foreground-0 transition-colors hover:text-primary-foreground"
         >
           Talks
         </Link>

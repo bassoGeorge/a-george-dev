@@ -10,11 +10,15 @@ import Link from 'next/link';
 export default function TalksPage() {
   return (
     <>
-      <Heading1 className="text-center font-bold">Talks</Heading1>
+      <Heading1 className="text-center font-bold text-neutral-strong">
+        Talks
+      </Heading1>
       <div className={`mx-auto mt-6 flex max-w-5xl flex-col gap-3`}>
         <Link href="/talks/tailwind">
           <TiltCard interactive={true} shape="trapRight" className="bg-page-2">
-            <Heading2>Tailwind beyond Production</Heading2>
+            <Heading2 className="text-neutral-strong">
+              Tailwind beyond Production
+            </Heading2>
             <BodyXl className="mt-2">
               Practical strategies for building production applications with
               Tailwind CSS. Managing scale, complexity and copy-paste-ability.
