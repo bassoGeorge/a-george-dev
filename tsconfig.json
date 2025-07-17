@@ -1,0 +1,6 @@
+{
+  // just for shadcn ui to work
+  "extends": "./tsconfig.base.json",
+  "files": [],
+  "include": []
+}

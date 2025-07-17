@@ -1,5 +1,6 @@
-@import './lib/tokens/colors.css';
 @import './lib/tokens/typography.css';
 @import './lib/tokens/spacing.css';
 @import './lib/tokens/shadows.css';
 @import './lib/tokens/responsive.css';
+
+@import './lib/tokens/new-colors.css';

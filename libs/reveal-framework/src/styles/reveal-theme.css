@@ -8,11 +8,11 @@
   }
 
   .controls-arrow {
-    @apply text-accent;
+    @apply text-primary-foreground;
   }
 
   .progress span {
-    @apply bg-accent;
+    @apply bg-primary-surface;
   }
 
   &.overview > footer {
@@ -21,9 +21,5 @@
 }
 
 .reveal code ::selection {
-  @apply bg-rc-p-accent-500;
-}
-
-.light .reveal code ::selection {
-  @apply bg-rc-p-accent-100;
+  @apply bg-primary-surface;
 }

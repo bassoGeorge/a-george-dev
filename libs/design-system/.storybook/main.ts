@@ -10,7 +10,7 @@ const config: StorybookConfig = {
     join(__dirname, '../', fileGlob),
     ...projects.map((project) => join(__dirname, '../../', project, fileGlob)),
   ],
-  addons: ['@storybook/addon-themes'],
+  addons: ['@storybook/addon-themes', '@storybook/addon-a11y'],
   features: { backgrounds: false },
   framework: {
     name: '@storybook/react-vite',

@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema.json",
+  "style": "new-york",
+  "rsc": false,
+  "tsx": true,
+  "tailwind": {
+    "config": "",
+    "css": "apps/ageorgedev/src/app/tailwind.css",
+    "baseColor": "neutral",
+    "cssVariables": true,
+    "prefix": ""
+  },
+  "aliases": {
+    "components": "@ageorgedev/design-system/lib",
+    "utils": "@ageorgedev/design-system",
+    "ui": "@ageorgedev/design-system/lib/ui",
+    "lib": "@ageorgedev/design-system/lib",
+    "hooks": "@ageorgedev/design-system/lib"
+  },
+  "iconLibrary": "lucide"
+}

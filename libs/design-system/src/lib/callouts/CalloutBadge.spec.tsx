@@ -13,10 +13,10 @@ describe('CalloutBadge', () => {
     render(<CalloutBadge {...defaultProps} />);
     expect(screen.getByText('Test Badge')).toBeInTheDocument();
     expect(screen.getByText('Test Badge').parentElement).toHaveClass(
-      'before:bg-accent'
+      'before:bg-primary-surface-2'
     );
     expect(screen.getByText('Test Badge').parentElement).toHaveClass(
-      'text-neutral-inverse'
+      'text-primary-onsurface-2'
     );
   });
 
@@ -32,30 +32,42 @@ describe('CalloutBadge', () => {
       <CalloutBadge {...defaultProps} type="info1" />
     );
     expect(screen.getByText('Test Badge').parentElement).toHaveClass(
-      'before:bg-accent'
+      'before:bg-primary-surface-2'
+    );
+    expect(screen.getByText('Test Badge').parentElement).toHaveClass(
+      'text-primary-onsurface-2'
     );
 
     rerender(<CalloutBadge {...defaultProps} type="info2" />);
     expect(screen.getByText('Test Badge').parentElement).toHaveClass(
-      'before:bg-accent-subtle'
+      'before:bg-primary-surface'
+    );
+    expect(screen.getByText('Test Badge').parentElement).toHaveClass(
+      'text-primary-onsurface'
     );
 
     rerender(<CalloutBadge {...defaultProps} type="info3" />);
     expect(screen.getByText('Test Badge').parentElement).toHaveClass(
-      'before:bg-alt-accent-subtle'
+      'before:bg-primary-surface-0'
+    );
+    expect(screen.getByText('Test Badge').parentElement).toHaveClass(
+      'text-primary-onsurface-0'
     );
 
     rerender(<CalloutBadge {...defaultProps} type="neutral" />);
     expect(screen.getByText('Test Badge').parentElement).toHaveClass(
-      'before:bg-neutral'
+      'before:bg-info-surface'
+    );
+    expect(screen.getByText('Test Badge').parentElement).toHaveClass(
+      'text-info-onsurface'
     );
 
     rerender(<CalloutBadge {...defaultProps} type="danger" />);
     expect(screen.getByText('Test Badge').parentElement).toHaveClass(
-      'before:bg-danger-bg'
+      'before:bg-destructive-surface'
     );
     expect(screen.getByText('Test Badge').parentElement).toHaveClass(
-      'text-danger-fg'
+      'text-destructive-onsurface'
     );
   });
 

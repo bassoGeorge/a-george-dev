@@ -25,21 +25,21 @@ export function Skill(props: SkillProps) {
 type SkillClassMap = Record<SkillLevel, string>;
 
 const primaryAccentColorClasses: SkillClassMap = {
-  3: 'bg-rc-p-accent-200 opacity-80',
-  4: 'bg-rc-p-accent-300 text-neutral-inverse',
-  5: styles.highSkill + ' bg-rc-p-accent-400 text-neutral-inverse',
+  3: 'bg-primary-surface text-primary-onsurface',
+  4: 'bg-primary-surface-2 text-primary-onsurface-2',
+  5: styles.highSkill + ' bg-primary-surface-2 text-primary-onsurface-2', // TODO
 };
 
 const secondaryAccentColorClasses: SkillClassMap = {
-  3: 'bg-rc-s-accent-200 opacity-80',
-  4: 'bg-rc-s-accent-300 text-neutral-subtle',
-  5: styles.highSkill + ' bg-rc-s-accent-400 text-neutral-inverse',
+  3: 'bg-secondary-surface text-secondary-onsurface',
+  4: 'bg-secondary-surface-2 text-secondary-onsurface-2',
+  5: styles.highSkill + ' bg-secondary-surface-2 text-secondary-onsurface-2',
 };
 
 const levelClassesForHuman: SkillClassMap = {
-  3: 'bg-rc-timber-100 text-neutral-inverse opacity-30',
-  4: 'bg-rc-timber-200 text-neutral-inverse opacity-50',
-  5: styles.highSkill + ' bg-rc-timber-300 text-neutral-inverse opacity-60',
+  3: 'bg-primary-surface text-primary-onsurface',
+  4: 'bg-primary-surface-2 text-primary-onsurface-2',
+  5: styles.highSkill + ' bg-primary-surface-2 text-primary-onsurface-2', // TODO
 };
 
 const levelClasses: Record<SkillType, SkillClassMap> = {
