@@ -22,6 +22,7 @@
   --s-lime-green-800: oklch(44.898% 0.11164 128.452);
   --s-lime-green-900: oklch(34.123% 0.08486 128.222);
 
+  --s-aztec-200: oklch(50.143% 0.04506 193.871);
   --s-aztec-300: oklch(45.664% 0.0498 193.743);
   --s-aztec-400: oklch(40.097% 0.05389 195.267);
   --s-aztec-500: oklch(34.666% 0.05919 194.807);
@@ -35,6 +36,8 @@
   --s-parchment-300: oklch(97.562% 0.02425 83.389);
   --s-parchment-400: oklch(96.026% 0.03765 81.494);
   --s-parchment-500: oklch(94.707% 0.0516 82.27);
+  --s-parchment-600: oklch(86.724% 0.047 81.994);
+  --s-parchment-700: oklch(78.866% 0.04225 81.642);
 
   --s-red-vivid-050: #ffe3e3;
   --s-red-vivid-100: #ffbdbd;
@@ -109,29 +112,14 @@
   --c-primary-foreground-3: var(--s-lime-green-900);
 
   /** Secondary color */
-  /** DEPRECATED */
-  --c-secondary-surface-0: var(--s-pink-050);
-  --c-secondary-onsurface-0: var(--s-pink-700);
-
-  --c-secondary-surface: var(--s-pink-100);
-  --c-secondary-onsurface: var(--s-pink-800);
-
-  --c-secondary-surface-2: var(--s-pink-200);
-  --c-secondary-onsurface-2: var(--s-pink-900);
-
-  --c-secondary-foreground: var(--s-pink-700);
-  --c-secondary-foreground-2: var(--s-pink-800);
-  --c-secondary-foreground-3: var(--s-pink-900);
-
-  /** Secondary color */
-  --c-secondary-surface-0: var(--s-aztec-300);
+  --c-secondary-surface-0: var(--s-aztec-200);
   --c-secondary-onsurface-0: var(--s-warm-grey-050);
 
-  --c-secondary-surface: var(--s-aztec-500);
-  --c-secondary-onsurface: var(--s-warm-grey-100);
+  --c-secondary-surface: var(--s-aztec-300);
+  --c-secondary-onsurface: var(--s-warm-grey-050);
 
-  --c-secondary-surface-2: var(--s-aztec-600);
-  --c-secondary-onsurface-2: var(--s-warm-grey-100);
+  --c-secondary-surface-2: var(--s-aztec-400);
+  --c-secondary-onsurface-2: var(--s-warm-grey-050);
 
   --c-secondary-foreground: var(--s-aztec-500);
   --c-secondary-foreground-2: var(--s-aztec-600);
@@ -208,18 +196,18 @@
   --c-primary-foreground-3: var(--s-lime-green-200);
 
   /** Secondary color */
-  --c-secondary-surface-0: var(--s-pink-900);
-  --c-secondary-onsurface-0: var(--s-pink-100);
+  --c-secondary-surface-0: var(--s-parchment-600);
+  --c-secondary-onsurface-0: var(--s-warm-grey-800);
 
-  --c-secondary-surface: var(--s-pink-800);
-  --c-secondary-onsurface: var(--s-pink-100);
+  --c-secondary-surface: var(--s-parchment-500);
+  --c-secondary-onsurface: var(--s-warm-grey-700);
 
-  --c-secondary-surface-2: var(--s-pink-700);
-  --c-secondary-onsurface-2: var(--s-pink-050);
+  --c-secondary-surface-2: var(--s-parchment-300);
+  --c-secondary-onsurface-2: var(--s-warm-grey-800);
 
-  --c-secondary-foreground: var(--s-pink-300);
-  --c-secondary-foreground-2: var(--s-pink-200);
-  --c-secondary-foreground-3: var(--s-pink-100);
+  --c-secondary-foreground: var(--s-parchment-500);
+  --c-secondary-foreground-2: var(--s-parchment-400);
+  --c-secondary-foreground-3: var(--s-parchment-300);
 
   /** Destructive color */
   --c-destructive-surface-0: var(--s-red-vivid-900);

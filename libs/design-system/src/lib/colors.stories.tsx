@@ -8,29 +8,6 @@ export default {
 
 type Story = StoryObj;
 
-const rTNormal = 'text-rc-d-neutral-500';
-const rTInverse = 'text-rc-l-neutral-500';
-
-function Swatch({
-  bgClass,
-  textClass,
-}: {
-  bgClass: string;
-  textClass?: string;
-}) {
-  const content = bgClass.replace('bg-', '*-');
-
-  return (
-    <div
-      className={`${bgClass} ${textClass ?? ''} ${
-        BodyMd.classes
-      } border-medium border-line grid h-9 w-12 place-items-center`}
-    >
-      {content}
-    </div>
-  );
-}
-
 export const AnotherNewSystem: Story = {
   render: () => (
     <div
