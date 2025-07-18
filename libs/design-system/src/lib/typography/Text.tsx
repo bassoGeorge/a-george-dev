@@ -1,5 +1,6 @@
 import { TYPOGRAPHY_CLASSES, TypographyVariant } from './core-type-classes';
 import { test } from 'ramda';
+import { cn } from '../utils';
 
 export type TextTag =
   | 'h1'
@@ -29,7 +30,7 @@ export function Text({
 }: React.PropsWithChildren<TextProps> & React.HTMLAttributes<HTMLElement>) {
   const Tag = tag ?? getDefaultTag(variant);
 
-  const classes = `${TYPOGRAPHY_CLASSES[variant]} ${className ?? ''}`.trim();
+  const classes = cn(TYPOGRAPHY_CLASSES[variant], className);
 
   return (
     <Tag className={classes} {...otherProps}>

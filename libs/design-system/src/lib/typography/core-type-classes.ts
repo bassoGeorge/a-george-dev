@@ -2,7 +2,7 @@ import { mapObjIndexed } from 'ramda';
 
 const headingFont = 'font-heading';
 const bodyFont = 'font-body';
-const interfaceFont = 'font-interface leading-none';
+const interfaceFont = 'font-interface';
 
 const withFont = (font: string) => (v: string) => `${font} ${v}`;
 
@@ -32,13 +32,14 @@ const presentationBodyClasses = mapObjIndexed(withFont(bodyFont), {
   'p-body-xs': 'text-lg',
 });
 
+// TODO: cn will remove leading-none if added before the font-size class. Refactor this file to work correctly with cn
 const interfaceClasses = mapObjIndexed(withFont(interfaceFont), {
-  'interface-2xl': 'text-2xl',
-  'interface-xl': 'text-xl',
-  'interface-lg': 'text-lg',
-  'interface-md': 'text-md',
-  interface: '',
-  'interface-sm': 'text-sm',
+  'interface-2xl': 'text-2xl leading-none',
+  'interface-xl': 'text-xl leading-none',
+  'interface-lg': 'text-lg leading-none',
+  'interface-md': 'text-md leading-none',
+  interface: 'leading-none',
+  'interface-sm': 'text-sm leading-none',
 });
 
 export const TYPOGRAPHY_CLASSES = {

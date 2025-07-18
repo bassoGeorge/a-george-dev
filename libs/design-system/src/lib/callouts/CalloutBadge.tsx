@@ -1,5 +1,6 @@
 import { Icon } from '@phosphor-icons/react';
 import { InterfaceXl } from '../typography/typography-components';
+import { cn } from '../utils';
 
 type CalloutBadgeProps = {
   text: string;
@@ -16,10 +17,13 @@ export function CalloutBadge({
 }: CalloutBadgeProps) {
   const typeClasses = StyleClasses[type ?? 'info1'];
   return (
-    <div className={`${className ?? 'inline-block p-5'}`}>
+    <div className={cn('inline-block p-5', className)}>
       <div className="drop-shadow-normal">
         <div
-          className={`relative flex h-10 w-10 -rotate-12 flex-col items-center justify-center gap-1 before:absolute before:inset-0 before:-z-1 before:rotate-45 ${typeClasses}`}
+          className={cn(
+            'relative flex h-10 w-10 -rotate-12 flex-col items-center justify-center gap-1 before:absolute before:inset-0 before:-z-1 before:rotate-45',
+            typeClasses
+          )}
         >
           <Icon weight="bold" className="text-5xl" />
           <InterfaceXl className="max-w-[80%] text-center">{text}</InterfaceXl>

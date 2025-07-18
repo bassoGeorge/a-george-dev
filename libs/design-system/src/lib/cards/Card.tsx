@@ -3,6 +3,8 @@
  * Rectangular in shape
  */
 
+import { cn } from '../utils';
+
 export function Card({
   className,
   ...otherProps
@@ -10,7 +12,7 @@ export function Card({
   return (
     <div
       {...otherProps}
-      className={`mb-4 border-2 border-line shadow-normal ${className ?? ''}`}
+      className={cn('border-line mb-4 border-2 shadow-normal', className)}
     ></div>
   );
 }

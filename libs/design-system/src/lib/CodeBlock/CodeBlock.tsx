@@ -1,5 +1,6 @@
 import { Card } from '../cards/Card';
 import { useTheme } from '../theming/ThemeContext';
+import { cn } from '../utils';
 
 // @ts-ignore
 import SyntaxHighlighter from 'react-syntax-highlighter/dist/cjs/prism-async-light';
@@ -30,9 +31,7 @@ export function CodeBlock({
 
   return (
     <Card
-      className={`text-left ${className ?? ''} ${
-        fontSizeMap[fontSize ?? 'normal']
-      }`}
+      className={cn('text-left', className, fontSizeMap[fontSize ?? 'normal'])}
       {...otherProps}
     >
       <SyntaxHighlighter

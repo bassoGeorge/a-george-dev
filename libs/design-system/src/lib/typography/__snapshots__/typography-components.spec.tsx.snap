@@ -83,22 +83,22 @@ exports[`Typography should add add correct styling for interface types 1`] = `
   <div>
     <div>
       <span
-        class="font-interface leading-none text-2xl"
+        class="font-interface text-2xl leading-none"
       >
         Interface 2Xl
       </span>
       <span
-        class="font-interface leading-none text-xl"
+        class="font-interface text-xl leading-none"
       >
         Interface Xl
       </span>
       <span
-        class="font-interface leading-none text-lg"
+        class="font-interface text-lg leading-none"
       >
         Interface Lg
       </span>
       <span
-        class="font-interface leading-none text-md"
+        class="font-interface text-md leading-none"
       >
         Interface Md
       </span>
@@ -108,7 +108,7 @@ exports[`Typography should add add correct styling for interface types 1`] = `
         Interface
       </span>
       <span
-        class="font-interface leading-none text-sm"
+        class="font-interface text-sm leading-none"
       >
         Interface Sm
       </span>
