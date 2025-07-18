@@ -24,10 +24,7 @@
         "libs/reveal-framework/src/globals.ts"
       ],
       "@ageorgedev/talk-tailwind": ["libs/talk-tailwind/src/index.ts"],
-      "@ageorgedev/toolbelt": ["libs/toolbelt/src/index.ts"],
-      "@ageorgedev/workspace-extensions": [
-        "libs/workspace-extensions/src/index.ts"
-      ]
+      "@ageorgedev/toolbelt": ["libs/toolbelt/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp", "**/dist/**"]
