@@ -36,7 +36,7 @@ function SpaceBar({ className, name }: { className: string; name: string }) {
   return (
     <>
       <Interface>{name}</Interface>
-      <div className={`${className} bg-accent h-5`}></div>
+      <div className={`${className} h-5 bg-primary-foreground`}></div>
     </>
   );
 }

@@ -84,7 +84,7 @@ export function S09CssInJs() {
           A CSS-in-JS library that works well with Tailwind CSS...
         </Heading2>
         <Heading1
-          className="fragment mt-4 font-bold text-accent"
+          className="fragment mt-4 font-bold text-primary-foreground"
           data-fragment-index="0"
         >
           Vanilla Extract
@@ -93,7 +93,7 @@ export function S09CssInJs() {
           <a
             href="https://vanilla-extract.style"
             target="_blank"
-            className="text-alt-accent"
+            className="text-secondary-foreground"
             rel="noreferrer"
           >
             https://vanilla-extract.style

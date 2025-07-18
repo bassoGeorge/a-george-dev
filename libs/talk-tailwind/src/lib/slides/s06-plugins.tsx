@@ -82,7 +82,7 @@ export function S06Plugins() {
                 <a
                   href="https://tailwindcss.com/docs/plugins"
                   target="_blank"
-                  className="text-alt-accent"
+                  className="text-secondary-foreground"
                   rel="noreferrer"
                 >
                   https://tailwindcss.com/docs/plugins
@@ -149,7 +149,10 @@ export function S06Plugins() {
               <PBodyMd className="fragment" data-fragment-index="2">
                 If you in a MonoRepo and need to support multiple projects
               </PBodyMd>
-              <PBodyMd className="fragment text-accent" data-fragment-index="2">
+              <PBodyMd
+                className="fragment text-primary-foreground"
+                data-fragment-index="2"
+              >
                 Tailwind presets allow you to share entire tailwind
                 configurations including the plugins across projects easily
               </PBodyMd>

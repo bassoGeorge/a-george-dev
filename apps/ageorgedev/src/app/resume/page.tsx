@@ -242,7 +242,7 @@ export default function Resume() {
           </div>
         </section>
         <section className={styles.expGrid}>
-          <BodyLg className="text-rc-p-accent-500 justify-self-end font-bold tracking-wider">
+          <BodyLg className="justify-self-end font-bold tracking-wider text-primary-foreground">
             2016 - 2018
           </BodyLg>
           <Heading3 className="font-medium">Ignite Solutions</Heading3>
@@ -272,7 +272,7 @@ export default function Resume() {
           </div>
         </section>
         <section className={styles.expGrid}>
-          <BodyLg className="text-rc-p-accent-500 justify-self-end font-bold tracking-wider">
+          <BodyLg className="justify-self-end font-bold tracking-wider text-primary-foreground">
             mid 2015
           </BodyLg>
           <Heading3 className="font-medium">JLabs</Heading3>

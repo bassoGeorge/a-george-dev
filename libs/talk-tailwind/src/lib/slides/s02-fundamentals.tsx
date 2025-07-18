@@ -84,7 +84,10 @@ export function S02Fundamentals() {
               <PBody className="fragment" data-fragment-index="6">
                 Styles co-located with markup
               </PBody>
-              <PBody className="fragment text-accent" data-fragment-index="7">
+              <PBody
+                className="fragment text-primary-foreground"
+                data-fragment-index="7"
+              >
                 CSS skills required. It is just a one-to-one mapping of CSS
               </PBody>
             </>
@@ -151,7 +154,7 @@ export function S02Fundamentals() {
           <a
             href="https://tailwindcss.com"
             target="_blank"
-            className="text-alt-accent"
+            className="text-secondary-foreground"
             rel="noreferrer"
           >
             https://tailwindcss.com

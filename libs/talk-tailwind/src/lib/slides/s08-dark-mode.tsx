@@ -54,24 +54,24 @@ export function S08DarkMode() {
             </Interface2Xl>
             <div className="grid grid-cols-3 items-center justify-end gap-6">
               <PBodyXs>Parchment</PBodyXs>
-              <Swatch className="bg-rc-parchment-200" />
-              <Swatch className="bg-rc-parchment-500" />
+              <Swatch className="bg-(--s-parchment-200)" />
+              <Swatch className="bg-(--s-parchment-500)" />
 
               <PBodyXs>Timber</PBodyXs>
-              <Swatch className="bg-rc-timber-100" />
-              <Swatch className="bg-rc-timber-300" />
+              <Swatch className="bg-(--s-aztec-200)" />
+              <Swatch className="bg-(--s-aztec-500)" />
 
               <PBodyXs>Accent</PBodyXs>
-              <Swatch className="bg-rc-p-accent-300" />
-              <Swatch className="bg-rc-p-accent-500" />
+              <Swatch className="bg-(--s-lime-green-300)" />
+              <Swatch className="bg-(--s-lime-green-500)" />
 
               <PBodyXs>Neutral</PBodyXs>
-              <Swatch className="bg-neutral dark:bg-neutral-inverse" />
-              <Swatch className="bg-neutral-inverse dark:bg-neutral" />
+              <Swatch className="bg-(--s-warm-grey-800)" />
+              <Swatch className="bg-(--s-warm-grey-200)" />
             </div>
           </div>
           <div
-            className="fragment w-px self-stretch bg-line"
+            className="fragment bg-line w-px self-stretch"
             data-fragment-index="0"
           ></div>
           <div className="fragment" data-fragment-index="0">
@@ -85,23 +85,23 @@ export function S08DarkMode() {
 
             <div className="flex gap-6">
               <div>
-                <Swatch className="bg-rc-parchment-500" />
+                <Swatch className="bg-(--s-parchment-500)" />
                 <PBodyXs className="mt-2">Page far</PBodyXs>
               </div>
               <div>
-                <Swatch className="bg-rc-parchment-200" />
+                <Swatch className="bg-(--s-parchment-200)" />
                 <PBodyXs className="mt-2">Page near</PBodyXs>
               </div>
               <div>
-                <Swatch className="bg-rc-p-accent-500" />
+                <Swatch className="bg-(--s-lime-green-500)" />
                 <PBodyXs className="mt-2">Accent</PBodyXs>
               </div>
               <div>
-                <Swatch className="bg-neutral dark:bg-neutral-inverse" />
+                <Swatch className="bg-(--s-warm-grey-800)" />
                 <PBodyXs className="mt-2">Neutral text</PBodyXs>
               </div>
               <div>
-                <Swatch className="bg-neutral-inverse dark:bg-neutral" />
+                <Swatch className="bg-(--s-warm-grey-200)" />
                 <PBodyXs className="mt-2">Inverse text</PBodyXs>
               </div>
             </div>
@@ -116,23 +116,23 @@ export function S08DarkMode() {
 
             <div className="fragment flex gap-6" data-fragment-index="1">
               <div>
-                <Swatch className="bg-rc-timber-300" />
+                <Swatch className="bg-(--s-aztec-500)" />
                 <PBodyXs className="mt-2">Page far</PBodyXs>
               </div>
               <div>
-                <Swatch className="bg-rc-timber-100" />
+                <Swatch className="bg-(--s-aztec-200)" />
                 <PBodyXs className="mt-2">Page near</PBodyXs>
               </div>
               <div>
-                <Swatch className="bg-rc-p-accent-300" />
+                <Swatch className="bg-(--s-lime-green-300)" />
                 <PBodyXs className="mt-2">Accent</PBodyXs>
               </div>
               <div>
-                <Swatch className="bg-neutral-inverse dark:bg-neutral" />
+                <Swatch className="bg-(--s-warm-grey-200)" />
                 <PBodyXs className="mt-2">Neutral text</PBodyXs>
               </div>
               <div>
-                <Swatch className="bg-neutral dark:bg-neutral-inverse" />
+                <Swatch className="bg-(--s-warm-grey-800)" />
                 <PBodyXs className="mt-2">Inverse text</PBodyXs>
               </div>
             </div>
@@ -187,7 +187,7 @@ export function S08DarkMode() {
 
 function Swatch({ className }: { className?: string }) {
   return (
-    <div className={`${className} h-9 w-10 rounded border border-line`}></div>
+    <div className={`${className} border-line h-9 w-10 rounded border`}></div>
   );
 }
 
