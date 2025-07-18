@@ -34,7 +34,7 @@ export function S04BCognitiveLoad() {
           <ArrowRightIcon className="text-2xl text-primary-foreground" />
           <CodeBlock lang="html" text={imaginaryHTML}></CodeBlock>
         </div>
-        <PBodyLg className="text-danger">
+        <PBodyLg className="text-destructive-foreground">
           We are adding mental steps to the development process
         </PBodyLg>
         <PBodyLg>

@@ -44,7 +44,7 @@ const NoteConfigs: Record<
     Icon: LightningIcon,
   },
   danger: {
-    mainClasses: 'bg-danger-bg text-danger-fg',
+    mainClasses: 'bg-destructive-surface text-destructive-onsurface',
     iconClasses: '',
     Icon: WarningIcon,
   },

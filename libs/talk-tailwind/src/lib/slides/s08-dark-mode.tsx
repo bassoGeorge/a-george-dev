@@ -163,7 +163,7 @@ export function S08DarkMode() {
           </Heading2>
         }
       >
-        <PBodyLg className="text-danger italic">
+        <PBodyLg className="text-destructive-foreground italic">
           <WarningIcon className="-mt-2 inline-block" /> It allows all
           combinations!
         </PBodyLg>

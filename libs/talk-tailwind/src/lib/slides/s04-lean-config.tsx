@@ -33,7 +33,7 @@ export function S04LeanConfig() {
           right={
             <>
               <PBody>Allows adding onto the existing Tailwind values</PBody>
-              <PBody className="text-danger">
+              <PBody className="text-destructive-foreground">
                 Easy for devs to use non-compliant design
               </PBody>
               <PBody>Tailwind tends to have too many values</PBody>
@@ -265,5 +265,5 @@ function LSpaceBar({ className, name }: { className?: string; name: string }) {
 }
 
 function Bar({ className }: { className?: string }) {
-  return <div className={`${className} h-4 bg-primary-surface`}></div>;
+  return <div className={`${className} h-4 bg-primary-foreground`}></div>;
 }

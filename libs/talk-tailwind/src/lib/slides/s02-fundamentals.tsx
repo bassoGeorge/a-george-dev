@@ -78,7 +78,10 @@ export function S02Fundamentals() {
               <PBody className="fragment" data-fragment-index="4">
                 HTML becomes the authoring language
               </PBody>
-              <PBody className="fragment text-danger" data-fragment-index="5">
+              <PBody
+                className="fragment text-destructive-foreground"
+                data-fragment-index="5"
+              >
                 HTML overloaded with styling
               </PBody>
               <PBody className="fragment" data-fragment-index="6">

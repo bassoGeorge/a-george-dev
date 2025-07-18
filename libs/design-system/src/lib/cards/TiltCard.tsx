@@ -1,3 +1,4 @@
+import { cn } from '../utils';
 import styles from './TiltCard.module.css';
 
 export type TiltCardProps = {
@@ -29,7 +30,7 @@ export function TiltCard({
       className={`drop-shadow-normal ${skewClass} ${skewStrengthClass} ${interC} ${outerClassName ?? ''}`}
     >
       <div className={`bg-line ${styles.skewStyle} ${borderC}`}>
-        <div className={`bg-page-1 p-6 ${styles.skewStyle} ${className ?? ''}`}>
+        <div className={cn('bg-page-1 p-6', styles.skewStyle, className ?? '')}>
           {children}
         </div>
       </div>
