@@ -48,7 +48,9 @@ export function S03AntiPatterns() {
           The <em>@apply</em> directive is not a convenience construct. It has
           repurcussions
         </PBodyMd>
-        <PBodyMd className="font-bold text-accent">Use sparingly</PBodyMd>
+        <PBodyMd className="font-bold text-primary-foreground">
+          Use sparingly
+        </PBodyMd>
         <PBodyMd className="fragment">
           <PointSeperator />
           When writing complicated styles for psuedo selectors in one-off
@@ -67,7 +69,7 @@ export function S03AntiPatterns() {
       >
         <div className="flex items-start gap-6">
           <CodeBlock text={oneOffHtml} lang="html"></CodeBlock>
-          <ArrowRightIcon className="self-center text-2xl text-accent" />
+          <ArrowRightIcon className="self-center text-2xl text-primary-foreground" />
           <CodeBlock text={oneOffComputedCss} lang="css"></CodeBlock>
         </div>
 

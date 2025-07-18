@@ -4,6 +4,7 @@
   "sourceRoot": "apps/ageorgedev",
   "projectType": "application",
   "tags": [],
+  "implicitDependencies": ["foundation-styles"],
   "targets": {
     "test": {
       "executor": "@nx/jest:jest",

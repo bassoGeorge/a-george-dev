@@ -18,16 +18,12 @@
       "@ageorgedev/brand-components": ["libs/brand-components/src/index.ts"],
       "@ageorgedev/design-system": ["libs/design-system/src/index.ts"],
       "@ageorgedev/design-system/*": ["libs/design-system/src/*"],
-      "@ageorgedev/foundation-styles": ["libs/foundation-styles/src/index.ts"],
       "@ageorgedev/reveal-framework": ["libs/reveal-framework/src/index.ts"],
       "@ageorgedev/reveal-framework/globals": [
         "libs/reveal-framework/src/globals.ts"
       ],
       "@ageorgedev/talk-tailwind": ["libs/talk-tailwind/src/index.ts"],
-      "@ageorgedev/toolbelt": ["libs/toolbelt/src/index.ts"],
-      "@ageorgedev/workspace-extensions": [
-        "libs/workspace-extensions/src/index.ts"
-      ]
+      "@ageorgedev/toolbelt": ["libs/toolbelt/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp", "**/dist/**"]

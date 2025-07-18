@@ -1,7 +1,3 @@
 # brand-components
 
-This library was generated with [Nx](https://nx.dev).
-
-## Running unit tests
-
-Run `nx test brand-components` to execute the unit tests via Jest
+This library contains specific brand based icons that I wanted to keep separate from the main project

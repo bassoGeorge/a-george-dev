@@ -1,4 +1,4 @@
-import { StoryObj } from '@storybook/react';
+import { StoryObj } from '@storybook/react-vite';
 import { HTMLAttributes } from 'react';
 import { Body, BodyMd } from './typography/typography-components';
 
