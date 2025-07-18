@@ -1,7 +1,3 @@
 # design-system
 
-This library was generated with [Nx](https://nx.dev).
-
-## Running unit tests
-
-Run `nx test design-system` to execute the unit tests via Jest
+This library contains the whole of the design system. It has a dependency on the foundational-styles which contains the color system.

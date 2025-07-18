@@ -1,7 +1,3 @@
 # reveal-framework
 
-This library was generated with [Nx](https://nx.dev).
-
-## Running unit tests
-
-Run `nx test reveal-framework` to execute the unit tests via Jest
+Reveal is an old slides framework and wanted to keep the package and associated code separate

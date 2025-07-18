@@ -2,32 +2,10 @@
 
 ![Production](https://github.com/bassoGeorge/a-george-dev/actions/workflows/production.yml/badge.svg)
 ![Pull Request](https://github.com/bassoGeorge/a-george-dev/actions/workflows/pull-request.yml/badge.svg)
-[![Netlify Status](https://api.netlify.com/api/v1/badges/c27387d7-a9ff-478a-a01d-a5f9efaa29f4/deploy-status)](https://app.netlify.com/sites/polite-conkies-0a96bd/deploys)
 
-The one mono-repo for all my website and connected applications
+The one mono-repo for my website and connected applications.
 
-### Commands
+## Links
 
-#### Make a ts lib
-
-```shell
-nx g @ageorgedev/workspace-extensions:lib <name>
-```
-
-#### Make a React lib
-
-```shell
-nx g @ageorgedev/workspace-extensions:lib <name> --react
-```
-
-##### Additional steps
-
-1. Select No CSS and the vite bundler
-2. Update .eslintrc to pick up <root>/.estlintrc.ts.json
-3. Add the tailwind config and postcss config to the library
-
-#### Adding storybook
-
-```shell
-nx g @nx/storybook:configuration <name>
-```
+- [ageorge.dev](https://ageorge.dev)
+- [Project Board](https://github.com/users/bassoGeorge/projects/1/views/1)
