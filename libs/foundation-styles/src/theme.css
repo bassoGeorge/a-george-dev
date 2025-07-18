@@ -1,6 +1,6 @@
-@import './lib/tokens/typography.css';
-@import './lib/tokens/spacing.css';
-@import './lib/tokens/shadows.css';
-@import './lib/tokens/responsive.css';
+@import './lib/typography.css';
+@import './lib/colors.css';
 
-@import './lib/tokens/new-colors.css';
+@import './lib/spacing.css';
+@import './lib/shadows.css';
+@import './lib/responsive.css';
