@@ -4,29 +4,5 @@
   "sourceRoot": "libs/foundation-styles/src",
   "projectType": "library",
   "tags": ["scope:ds", "type:util"],
-  "targets": {
-    "build": {
-      "executor": "@nx/vite:build",
-      "outputs": ["{options.outputPath}"],
-      "defaultConfiguration": "production",
-      "options": {
-        "outputPath": "libs/foundation-styles/dist"
-      },
-      "configurations": {
-        "development": {
-          "mode": "development"
-        },
-        "production": {
-          "mode": "production"
-        }
-      }
-    },
-    "lint": {
-      "executor": "@nx/eslint:lint",
-      "outputs": ["{options.outputFile}"],
-      "options": {
-        "lintFilePatterns": ["libs/foundation-styles/**/*.ts"]
-      }
-    }
-  }
+  "targets": {}
 }

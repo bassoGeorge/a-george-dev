@@ -18,7 +18,6 @@
       "@ageorgedev/brand-components": ["libs/brand-components/src/index.ts"],
       "@ageorgedev/design-system": ["libs/design-system/src/index.ts"],
       "@ageorgedev/design-system/*": ["libs/design-system/src/*"],
-      "@ageorgedev/foundation-styles": ["libs/foundation-styles/src/index.ts"],
       "@ageorgedev/reveal-framework": ["libs/reveal-framework/src/index.ts"],
       "@ageorgedev/reveal-framework/globals": [
         "libs/reveal-framework/src/globals.ts"
