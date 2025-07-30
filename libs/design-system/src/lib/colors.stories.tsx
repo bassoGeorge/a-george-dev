@@ -1,6 +1,12 @@
 import { StoryObj } from '@storybook/react-vite';
-import { HTMLAttributes } from 'react';
-import { Body, BodyMd } from './typography/typography-components';
+import { HTMLAttributes, createContext, useContext } from 'react';
+import {
+  Body,
+  BodyLg,
+  BodyMd,
+  BodyXs,
+} from './typography/typography-components';
+import { cn } from './utils';
 
 export default {
   title: 'Foundation/Colors',
@@ -15,8 +21,7 @@ export const AnotherNewSystem: Story = {
       style={{ gridTemplateColumns: 'repeat(5, minmax(0, 1fr)' }}
     >
       <NSwatch className="bg-page-0">
-        <StandardText />
-        <ColoredText />
+        <TextSample />
       </NSwatch>
 
       <NSwatch className="bg-page-1">
@@ -132,6 +137,29 @@ export const AnotherNewSystem: Story = {
   ),
 };
 
+export const LightMode: Story = {
+  globals: { theme: 'light' },
+  render: () => (
+    <div className="grid grid-cols-5 gap-2">
+      <PageSample className="bg-page-0">
+        <TextSample a11yFailures={['warning-foreground']} />
+      </PageSample>
+      <PageSample className="bg-page-1">
+        <TextSample a11yFailures={['warning-foreground']} />
+      </PageSample>
+      <PageSample className="bg-page-2">
+        <TextSample a11yFailures={['warning-foreground']} />
+      </PageSample>
+      <PageSample className="bg-page-3">
+        <TextSample a11yFailures={['warning-foreground']} />
+      </PageSample>
+      <PageSample className="bg-page-4">
+        <TextSample a11yFailures={['warning-foreground']} />
+      </PageSample>
+    </div>
+  ),
+};
+
 function StandardText() {
   return (
     <>
@@ -141,6 +169,8 @@ function StandardText() {
       <p className="text-neutral-disabled" aria-disabled>
         Neutral Disabled
       </p>
+      <TextRow className="text-neutral-disabled" />
+      <TextRow className="text-neutral-disabled" />
     </>
   );
 }
@@ -188,6 +218,84 @@ function NSwatch({ className, children }: HTMLAttributes<HTMLDivElement>) {
       className={`${className} ${BodyMd.classes} grid place-items-center gap-1 p-4`}
     >
       {children}
+    </div>
+  );
+}
+
+function PageSample({
+  className,
+  children,
+  ...otherAttributes
+}: HTMLAttributes<HTMLDivElement>) {
+  const pageLabel = className.replace('bg-', '');
+  return (
+    <div className={cn(className, 'p-3')} {...otherAttributes}>
+      <BodyLg className="mb-3">surface: {pageLabel}</BodyLg>
+      {children}
+    </div>
+  );
+}
+
+function TextSample({ a11yFailures = [] }: { a11yFailures?: string[] }) {
+  return (
+    <A11yFailureContext.Provider value={a11yFailures}>
+      <div className="flex flex-col gap-5">
+        <TextSection>
+          <TextRow className="text-neutral-strong" />
+          <TextRow className="text-neutral" />
+          <TextRow className="text-neutral-subdued" />
+          <TextRow className="text-neutral-disabled" aria-disabled />
+        </TextSection>
+        <TextSection>
+          <TextRow className="text-primary-foreground" />
+          <TextRow className="text-primary-foreground-2" />
+          <TextRow className="text-primary-foreground-3" />
+        </TextSection>
+        <TextSection>
+          <TextRow className="text-secondary-foreground" />
+          <TextRow className="text-secondary-foreground-2" />
+          <TextRow className="text-secondary-foreground-3" />
+        </TextSection>
+        <TextSection>
+          <TextRow className="text-destructive-foreground" />
+          <TextRow className="text-destructive-foreground-2" />
+          <TextRow className="text-destructive-foreground-3" />
+        </TextSection>
+        <TextSection>
+          <TextRow className="text-warning-foreground" />
+          <TextRow className="text-warning-foreground-2" />
+          <TextRow className="text-warning-foreground-3" />
+        </TextSection>
+        <TextSection>
+          <TextRow className="text-info-foreground" />
+          <TextRow className="text-info-foreground-2" />
+          <TextRow className="text-info-foreground-3" />
+        </TextSection>
+      </div>
+    </A11yFailureContext.Provider>
+  );
+}
+
+const A11yFailureContext = createContext<string[]>([]);
+
+function TextSection({ children }: React.PropsWithChildren) {
+  return <section className="flex flex-col gap-2">{children}</section>;
+}
+
+function TextRow({
+  className,
+  ...attributes
+}: Omit<HTMLAttributes<HTMLParagraphElement>, 'children'>) {
+  const a11yFailures = useContext(A11yFailureContext);
+  const label = className.replace('text-', '');
+  return (
+    <div className="flex items-center gap-1">
+      <div className="w-4">
+        {a11yFailures.includes(label) && <BodyXs>❌</BodyXs>}
+      </div>
+      <BodyMd {...attributes} className={className}>
+        {label}
+      </BodyMd>
     </div>
   );
 }
