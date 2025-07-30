@@ -2,6 +2,7 @@ import {
   TiltCard,
   TiltCardProps,
   CalloutBadge,
+  cn,
 } from '@ageorgedev/design-system';
 import {
   BracketsAngleIcon,
@@ -25,9 +26,9 @@ export function ImportantNote(props: ImportantNoteProps) {
   const noteType = props.type ?? 'tip';
   const { iconClasses, mainClasses, Icon } = NoteConfigs[noteType];
   return (
-    <div className={props.className ?? ''}>
-      <TiltCard shape={props.shape} className={`${mainClasses} flex gap-2`}>
-        <Icon className={`${iconClasses} shrink-0 text-3xl`} />
+    <div className={props.className}>
+      <TiltCard shape={props.shape} className={cn(mainClasses, 'flex gap-2')}>
+        <Icon className={cn(iconClasses, 'shrink-0 text-3xl')} />
         <div className="text-left">{props.children}</div>
       </TiltCard>
     </div>
@@ -65,9 +66,10 @@ export function CalloutForPersonalOpinion() {
 export function PointSeperator({ className }: { className?: string }) {
   return (
     <BracketsAngleIcon
-      className={`mx-auto mt-2 mb-3 block text-xl text-primary-foreground large-desktop:mb-4 ${
-        className ?? ''
-      }`}
+      className={cn(
+        'mx-auto mt-2 mb-3 block text-xl text-primary-foreground large-desktop:mb-4',
+        className
+      )}
     />
   );
 }

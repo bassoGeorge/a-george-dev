@@ -3,6 +3,7 @@ import {
   BodyLg,
   BodySm,
   BodyXs,
+  cn,
   Heading3,
   Heading4,
   Heading5,
@@ -42,7 +43,7 @@ export default function Resume() {
   const socialLinksBlockClasses = 'flex flex-col gap-2';
   return (
     <main className={styles.page}>
-      <header className={`${styles.header} ${styles.paper}`}>
+      <header className={cn(styles.header, styles.paper)}>
         <NameLogo
           shadowDirection="left"
           className="-mb-4 self-end text-[4rem]"
@@ -50,12 +51,12 @@ export default function Resume() {
         <BodySm className="absolute top-[9.5rem] left-[13.75rem] mb-2 text-neutral-subdued italic">
           (He/Him)
         </BodySm>
-        <div className={`${socialLinksBlockClasses} mt-3`}>
+        <div className={cn(socialLinksBlockClasses, 'mt-3')}>
           <SocialLink type="email" full={true} />
           <SocialLink type="phone" full={true} />
         </div>
       </header>
-      <aside className={`${styles.aside} ${styles.paper}`}>
+      <aside className={cn(styles.aside, styles.paper)}>
         <section className="mr-1">
           <Heading4
             as={'h2'}
@@ -70,7 +71,7 @@ export default function Resume() {
             technical areas.
           </Body>
         </section>
-        <section className={`${socialLinksBlockClasses} -mt-2 -mr-6`}>
+        <section className={cn(socialLinksBlockClasses, '-mt-2 -mr-6')}>
           <SocialLink type="location" full={true} />
           <SocialLink type="github" full={true} />
           <SocialLink type="linkedin" full={true} />
@@ -141,7 +142,7 @@ export default function Resume() {
           </BodySm>
         </section>
       </aside>
-      <article className={`${styles.article} ${styles.paper}`}>
+      <article className={cn(styles.article, styles.paper)}>
         <section className={styles.expGrid}>
           <BodyLg className="justify-self-end font-bold tracking-wider text-primary-foreground">
             2018 - 2023

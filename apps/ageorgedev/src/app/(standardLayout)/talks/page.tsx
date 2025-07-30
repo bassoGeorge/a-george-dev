@@ -13,7 +13,7 @@ export default function TalksPage() {
       <Heading1 className="text-center font-bold text-neutral-strong">
         Talks
       </Heading1>
-      <div className={`mx-auto mt-6 flex max-w-5xl flex-col gap-3`}>
+      <div className="mx-auto mt-6 flex max-w-5xl flex-col gap-3">
         <Link href="/talks/tailwind">
           <TiltCard interactive={true} shape="trapRight" className="bg-page-2">
             <Heading2 className="text-neutral-strong">

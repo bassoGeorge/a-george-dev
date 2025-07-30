@@ -6,6 +6,7 @@ import {
   InterfaceXl,
   PBodyLg,
   PBodyXs,
+  cn,
 } from '@ageorgedev/design-system';
 import { CodeBlock } from '@ageorgedev/design-system';
 import {
@@ -187,7 +188,7 @@ export function S08DarkMode() {
 
 function Swatch({ className }: { className?: string }) {
   return (
-    <div className={`${className} border-line h-9 w-10 rounded border`}></div>
+    <div className={cn(className, 'border-line h-9 w-10 rounded border')}></div>
   );
 }
 

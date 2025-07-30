@@ -12,6 +12,7 @@ import {
   CalloutForPersonalOpinion,
   CalloutForVD,
 } from './slide-components';
+import { cn } from '@ageorgedev/design-system';
 
 type CalloutType = 'UX' | 'Advanced' | 'Opinion';
 
@@ -26,7 +27,12 @@ export function SlideTypeCenter(
     <section className={slideMainReset}>
       <TopLeftPosition {...props} />
       <div
-        className={`${slideCenterStyles} ${slideContentReset} ${slideWithoutFooterBottomMargin} ${slideMainGap}`}
+        className={cn(
+          slideCenterStyles,
+          slideContentReset,
+          slideWithoutFooterBottomMargin,
+          slideMainGap
+        )}
       >
         {props.children}
       </div>
@@ -43,10 +49,14 @@ export function SlideTypeRegular(
     <section className={slideMainReset}>
       <TopLeftPosition {...props} />
       <div
-        className={`${slideHeaderGrid} ${slideContentReset} ${slideWithoutFooterBottomMargin}`}
+        className={cn(
+          slideHeaderGrid,
+          slideContentReset,
+          slideWithoutFooterBottomMargin
+        )}
       >
         <header>{props.heading}</header>
-        <div className={`${slideCenterStyles} ${slideMainGap} self-start`}>
+        <div className={cn(slideCenterStyles, slideMainGap, 'self-start')}>
           {props.children}
         </div>
       </div>
