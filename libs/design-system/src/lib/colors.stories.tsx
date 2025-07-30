@@ -2,8 +2,9 @@ import { StoryObj } from '@storybook/react-vite';
 import { HTMLAttributes, createContext, useContext } from 'react';
 import {
   BodyMd,
+  BodyXl,
   BodyXs,
-  InterfaceXl,
+  InterfaceMd,
 } from './typography/typography-components';
 import { cn } from './utils';
 
@@ -117,12 +118,9 @@ function PageSample({
   children,
   ...otherAttributes
 }: HTMLAttributes<HTMLDivElement>) {
-  const pageLabel = className.replace('bg-', '');
   return (
     <div>
-      <InterfaceXl className="mb-3 block border-b-1 border-b-neutral-subdued pb-2">
-        surface: {pageLabel}
-      </InterfaceXl>
+      <BodyXl className="mb-3 pb-2">{className}</BodyXl>
       <div className={cn(className, 'p-3')} {...otherAttributes}>
         {children}
       </div>
@@ -134,6 +132,9 @@ function ColorSamples({ a11yFailures = [] }: { a11yFailures?: string[] }) {
   return (
     <A11yFailureContext.Provider value={a11yFailures}>
       <div className="flex flex-col gap-5">
+        <InterfaceMd className="block border-b-1 border-b-neutral-subdued">
+          Text on page
+        </InterfaceMd>
         <Section>
           <TextRow className="text-neutral-strong" />
           <TextRow className="text-neutral" />
@@ -165,6 +166,9 @@ function ColorSamples({ a11yFailures = [] }: { a11yFailures?: string[] }) {
           <TextRow className="text-destructive-foreground-2" />
           <TextRow className="text-destructive-foreground-3" />
         </Section>
+        <InterfaceMd className="block border-b-1 border-b-neutral-subdued">
+          Colored elements with foreground
+        </InterfaceMd>
         <SwatchSection>
           <Swatch className="bg-primary-surface-0 text-primary-onsurface-0" />
           <Swatch className="bg-primary-surface text-primary-onsurface" />
@@ -190,6 +194,16 @@ function ColorSamples({ a11yFailures = [] }: { a11yFailures?: string[] }) {
           <Swatch className="bg-destructive-surface text-destructive-onsurface" />
           <Swatch className="bg-destructive-surface-2 text-destructive-onsurface-2" />
         </SwatchSection>
+
+        <InterfaceMd className="block border-b-1 border-b-neutral-subdued">
+          Chart colors
+        </InterfaceMd>
+        <section className="mx-5 grid grid-cols-2 gap-2">
+          <Swatch className="bg-chart-1-surface text-chart-1-onsurface" />
+          <Swatch className="bg-chart-2-surface text-chart-2-onsurface" />
+          <Swatch className="bg-chart-3-surface text-chart-3-onsurface" />
+          <Swatch className="bg-chart-4-surface text-chart-4-onsurface" />
+        </section>
       </div>
     </A11yFailureContext.Provider>
   );

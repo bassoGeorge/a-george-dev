@@ -50,17 +50,6 @@
   --s-red-vivid-800: #8a041a;
   --s-red-vivid-900: #610316;
 
-  --s-pink-050: #ffe0f0;
-  --s-pink-100: #fab8d9;
-  --s-pink-200: #f191c1;
-  --s-pink-300: #e668a7;
-  --s-pink-400: #da4a91;
-  --s-pink-500: #c42d78;
-  --s-pink-600: #ad2167;
-  --s-pink-700: #9b1b5a;
-  --s-pink-800: #781244;
-  --s-pink-900: #5c0b33;
-
   --s-yellow-050: #fffaeb;
   --s-yellow-100: #fcefc7;
   --s-yellow-200: #f8e3a3;
@@ -82,6 +71,18 @@
   --s-light-blue-700: #1d6f98;
   --s-light-blue-800: #166086;
   --s-light-blue-900: #0b4f71;
+
+  --s-sea-base: #26b0a0;
+  --s-sea-light: #7ac8bc;
+  --s-sea-dark: #136c61;
+
+  --s-royal-base: #5b26b0;
+  --s-royal-light: #a697dc;
+  --s-royal-dark: #411982;
+
+  --s-plum-base: #b0267b;
+  --s-plum-light: #ce6fa1;
+  --s-plum-dark: #6c134a;
 }
 
 :root {
@@ -166,6 +167,19 @@
   --c-info-foreground: var(--s-light-blue-700);
   --c-info-foreground-2: var(--s-light-blue-800);
   --c-info-foreground-3: var(--s-light-blue-900);
+
+  /** Auxiliary chart colors */
+  --c-chart-1-surface: var(--s-lime-green-400);
+  --c-chart-1-onsurface: var(--c-neutral-strong);
+
+  --c-chart-2-surface: var(--s-plum-light);
+  --c-chart-2-onsurface: var(--c-neutral-strong);
+
+  --c-chart-3-surface: var(--s-sea-light);
+  --c-chart-3-onsurface: var(--c-neutral-strong);
+
+  --c-chart-4-surface: var(--s-royal-light);
+  --c-chart-4-onsurface: var(--c-neutral-strong);
 }
 
 :root.dark {
@@ -250,6 +264,19 @@
   --c-info-foreground: var(--s-light-blue-300);
   --c-info-foreground-2: var(--s-light-blue-200);
   --c-info-foreground-3: var(--s-light-blue-100);
+
+  /** Auxiliary chart colors */
+  --c-chart-1-surface: var(--s-lime-green-800);
+  --c-chart-1-onsurface: var(--c-neutral-strong);
+
+  --c-chart-2-surface: var(--s-plum-dark);
+  --c-chart-2-onsurface: var(--c-neutral-strong);
+
+  --c-chart-3-surface: var(--s-sea-dark);
+  --c-chart-3-onsurface: var(--c-neutral-strong);
+
+  --c-chart-4-surface: var(--s-royal-dark);
+  --c-chart-4-onsurface: var(--c-neutral-strong);
 }
 
 @theme inline {
@@ -336,6 +363,16 @@
   --color-info-foreground: var(--c-info-foreground);
   --color-info-foreground-2: var(--c-info-foreground-2);
   --color-info-foreground-3: var(--c-info-foreground-3);
+
+  /** Chart colors */
+  --color-chart-1-surface: var(--c-chart-1-surface);
+  --color-chart-1-onsurface: var(--c-chart-1-onsurface);
+  --color-chart-2-surface: var(--c-chart-2-surface);
+  --color-chart-2-onsurface: var(--c-chart-2-onsurface);
+  --color-chart-3-surface: var(--c-chart-3-surface);
+  --color-chart-3-onsurface: var(--c-chart-3-onsurface);
+  --color-chart-4-surface: var(--c-chart-4-surface);
+  --color-chart-4-onsurface: var(--c-chart-4-onsurface);
 
   /** Depercated **/
   --color-rc-shadow-1: rgb(0 0 0 / 0.1);
