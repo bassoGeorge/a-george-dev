@@ -1,5 +1,5 @@
 import { middleDivider, slideMainGap } from './deck-styles';
-import { cn } from '@ageorgedev/design-system';
+import { cn } from '@ageorgedev/toolbelt';
 
 export function SlideMediaRow({
   className,

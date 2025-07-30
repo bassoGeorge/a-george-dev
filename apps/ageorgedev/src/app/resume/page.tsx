@@ -3,13 +3,13 @@ import {
   BodyLg,
   BodySm,
   BodyXs,
-  cn,
   Heading3,
   Heading4,
   Heading5,
   Heading6,
   NameLogo,
 } from '@ageorgedev/design-system';
+import { cn } from '@ageorgedev/toolbelt';
 import { ArrowSquareOutIcon } from '@phosphor-icons/react/ssr';
 import { Fragment } from 'react';
 import { Skill, humanSkills, techSkills, toolSkills } from './Skill';

@@ -1,4 +1,4 @@
-import { cn } from '@ageorgedev/design-system';
+import { cn } from '@ageorgedev/toolbelt';
 import styles from './Skill.module.css';
 import { map } from 'ramda';
 

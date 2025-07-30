@@ -1,9 +1,9 @@
 import {
+  CalloutBadge,
   TiltCard,
   TiltCardProps,
-  CalloutBadge,
-  cn,
 } from '@ageorgedev/design-system';
+import { cn } from '@ageorgedev/toolbelt';
 import {
   BracketsAngleIcon,
   ExamIcon,

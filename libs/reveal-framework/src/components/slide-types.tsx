@@ -12,7 +12,7 @@ import {
   CalloutForPersonalOpinion,
   CalloutForVD,
 } from './slide-components';
-import { cn } from '@ageorgedev/design-system';
+import { cn } from '@ageorgedev/toolbelt';
 
 type CalloutType = 'UX' | 'Advanced' | 'Opinion';
 

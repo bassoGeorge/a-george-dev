@@ -7,7 +7,7 @@ import {
   Source_Code_Pro,
 } from 'next/font/google';
 import { Metadata } from 'next';
-import { cn } from '@ageorgedev/design-system';
+import { cn } from '@ageorgedev/toolbelt';
 
 const alegreyaSansSC = Alegreya_Sans_SC({
   weight: ['500', '800'],

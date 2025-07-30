@@ -1,4 +1,4 @@
-import { cn } from '@ageorgedev/design-system';
+import { cn } from '@ageorgedev/toolbelt';
 
 export function D02CssPipeline({
   className,

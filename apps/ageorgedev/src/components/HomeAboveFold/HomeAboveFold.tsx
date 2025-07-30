@@ -4,8 +4,8 @@ import {
   InterfaceXl,
   NameLogo,
   ThemeSwitcher,
-  cn,
 } from '@ageorgedev/design-system';
+import { cn } from '@ageorgedev/toolbelt';
 import { GithubLogoIcon, LinkedinLogoIcon } from '@phosphor-icons/react/ssr';
 import Link from 'next/link';
 import styles from './HomeAboveFold.module.css';
