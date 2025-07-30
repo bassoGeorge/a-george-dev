@@ -1,3 +1,4 @@
+import { cn } from '@ageorgedev/toolbelt';
 import { StoryObj } from '@storybook/react-vite';
 import { HTMLAttributes, createContext, useContext } from 'react';
 import {
@@ -6,7 +7,6 @@ import {
   BodyXs,
   InterfaceMd,
 } from './typography/typography-components';
-import { cn } from './utils';
 
 export default {
   title: 'Foundation/Colors',

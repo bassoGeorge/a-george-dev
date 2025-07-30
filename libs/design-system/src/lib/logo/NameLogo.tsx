@@ -1,3 +1,4 @@
+import { cn } from '@ageorgedev/toolbelt';
 import {
   bottomLeftShadow,
   bottomRightShadow,
@@ -7,7 +8,6 @@ import {
   logoWrapper,
   shadowColor,
 } from './styles';
-import { cn } from '../utils';
 
 export type NameLogoProps = {
   className?: string;

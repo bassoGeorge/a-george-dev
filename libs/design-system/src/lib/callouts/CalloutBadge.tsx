@@ -1,6 +1,6 @@
+import { cn } from '@ageorgedev/toolbelt';
 import { Icon } from '@phosphor-icons/react';
 import { InterfaceXl } from '../typography/typography-components';
-import { cn } from '../utils';
 
 type CalloutBadgeProps = {
   text: string;

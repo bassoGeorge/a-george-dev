@@ -1,4 +1,4 @@
-import { cn } from '../utils';
+import { cn } from '@ageorgedev/toolbelt';
 import styles from './TiltCard.module.css';
 
 export type TiltCardProps = {
