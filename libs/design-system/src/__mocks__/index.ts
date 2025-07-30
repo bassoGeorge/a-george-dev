@@ -12,4 +12,3 @@ export * from '../lib/theming/ThemeContext';
 export * from '../lib/theming/models';
 
 export * from '../lib/CodeBlock/CodeBlock';
-export * from '../lib/utils';
