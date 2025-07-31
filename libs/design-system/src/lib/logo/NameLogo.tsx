@@ -1,3 +1,4 @@
+import { cn } from '@ageorgedev/toolbelt';
 import {
   bottomLeftShadow,
   bottomRightShadow,
@@ -17,14 +18,18 @@ export function NameLogo({ className, shadowDirection }: NameLogoProps) {
   const shadowClass =
     shadowDirection === 'left' ? bottomLeftShadow : bottomRightShadow;
   return (
-    <div className={`${logoWrapper} ${className ?? ''} `}>
-      <h1
-        className={`${logoFont} ${shadowClass} ${shadowColor} ${firstNameColor}`}
-      >
+    <div className={cn(logoWrapper, className)}>
+      <h1 className={cn(logoFont, shadowClass, shadowColor, firstNameColor)}>
         Anish
       </h1>
       <h1
-        className={`${logoFont} ${shadowClass} ${shadowColor} ${lastNameColor} pl-[.5em]`}
+        className={cn(
+          logoFont,
+          shadowClass,
+          shadowColor,
+          lastNameColor,
+          'pl-[.5em]'
+        )}
       >
         George
       </h1>

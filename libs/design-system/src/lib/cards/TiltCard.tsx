@@ -1,4 +1,4 @@
-import { cn } from '../utils';
+import { cn } from '@ageorgedev/toolbelt';
 import styles from './TiltCard.module.css';
 
 export type TiltCardProps = {
@@ -27,10 +27,16 @@ export function TiltCard({
   return (
     <div
       {...htmlProps}
-      className={`drop-shadow-normal ${skewClass} ${skewStrengthClass} ${interC} ${outerClassName ?? ''}`}
+      className={cn(
+        'drop-shadow-normal',
+        skewClass,
+        skewStrengthClass,
+        interC,
+        outerClassName
+      )}
     >
-      <div className={`bg-line ${styles.skewStyle} ${borderC}`}>
-        <div className={cn('bg-page-1 p-6', styles.skewStyle, className ?? '')}>
+      <div className={cn('bg-line', styles.skewStyle, borderC)}>
+        <div className={cn('bg-page-1 p-6', styles.skewStyle, className)}>
           {children}
         </div>
       </div>

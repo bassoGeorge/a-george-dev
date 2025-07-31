@@ -1,4 +1,5 @@
 import { middleDivider, slideMainGap } from './deck-styles';
+import { cn } from '@ageorgedev/toolbelt';
 
 export function SlideMediaRow({
   className,
@@ -7,9 +8,11 @@ export function SlideMediaRow({
 }: React.HTMLProps<HTMLDivElement>) {
   return (
     <div
-      className={`flex h-[50vh] w-full justify-center ${slideMainGap} ${
-        className ?? ''
-      }`}
+      className={cn(
+        'flex h-[50vh] w-full justify-center',
+        slideMainGap,
+        className
+      )}
       {...otherProps}
     >
       {children}
@@ -36,11 +39,11 @@ export function ComparisonRow({
 } & Omit<React.HTMLProps<HTMLDivElement>, 'children'>) {
   return (
     <div
-      className={`${middleDivider} grid grid-cols-2 gap-x-8 ${className ?? ''}`}
+      className={cn(middleDivider, 'grid grid-cols-2 gap-x-8', className)}
       {...otherProps}
     >
-      <div className={`flex flex-col text-right ${slideMainGap}`}>{left}</div>
-      <div className={`flex flex-col text-left ${slideMainGap}`}>{right}</div>
+      <div className={cn('flex flex-col text-right', slideMainGap)}>{left}</div>
+      <div className={cn('flex flex-col text-left', slideMainGap)}>{right}</div>
     </div>
   );
 }

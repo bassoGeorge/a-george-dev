@@ -1,8 +1,6 @@
-import * as React from 'react';
+import { cn } from '@ageorgedev/toolbelt';
 import { Slot } from '@radix-ui/react-slot';
 import { cva, type VariantProps } from 'class-variance-authority';
-
-import { cn } from '../utils';
 import { Body, BodyLg, BodySm } from '../typography/typography-components';
 
 // TODO: I think it would be better to separate color and style? we may need, for example, a link styled destructive

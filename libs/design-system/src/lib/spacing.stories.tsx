@@ -1,3 +1,4 @@
+import { cn } from '@ageorgedev/toolbelt';
 import { StoryObj } from '@storybook/react-vite';
 import { Interface } from './typography/typography-components';
 
@@ -36,7 +37,7 @@ function SpaceBar({ className, name }: { className: string; name: string }) {
   return (
     <>
       <Interface>{name}</Interface>
-      <div className={`${className} h-5 bg-primary-foreground`}></div>
+      <div className={cn(className, 'h-5 bg-primary-foreground')}></div>
     </>
   );
 }

@@ -1,3 +1,5 @@
+import { cn } from '@ageorgedev/toolbelt';
+
 export function D02CssPipeline({
   className,
   ...otherProps
@@ -9,7 +11,7 @@ export function D02CssPipeline({
       viewBox="0 0 1210.7792766948696 609.1538368897282"
       // width="2421.5585533897392"
       // height="1218.3076737794563"
-      className={`w-full ${className ?? ''}`}
+      className={cn('w-full', className)}
       {...otherProps}
     >
       <g

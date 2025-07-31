@@ -1,4 +1,5 @@
 import {
+  CodeBlock,
   Heading1,
   Heading2,
   Heading3,
@@ -7,11 +8,11 @@ import {
   PBodyLg,
   PBodyXs,
 } from '@ageorgedev/design-system';
-import { CodeBlock } from '@ageorgedev/design-system';
 import {
   SlideTypeCenter,
   SlideTypeRegular,
 } from '@ageorgedev/reveal-framework';
+import { cn } from '@ageorgedev/toolbelt';
 import { WarningIcon } from '@phosphor-icons/react';
 
 export function S08DarkMode() {
@@ -187,7 +188,7 @@ export function S08DarkMode() {
 
 function Swatch({ className }: { className?: string }) {
   return (
-    <div className={`${className} border-line h-9 w-10 rounded border`}></div>
+    <div className={cn(className, 'border-line h-9 w-10 rounded border')}></div>
   );
 }
 

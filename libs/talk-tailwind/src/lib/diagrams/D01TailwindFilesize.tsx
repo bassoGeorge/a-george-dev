@@ -1,3 +1,5 @@
+import { cn } from '@ageorgedev/toolbelt';
+
 export function D01TailwindFilesize({
   className,
   ...otherProps
@@ -7,7 +9,7 @@ export function D01TailwindFilesize({
       version="1.1"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 699.9511638244294 446.1544495846092"
-      className={`w-full ${className ?? ''}`}
+      className={cn('w-full', className)}
       {...otherProps}
     >
       <g strokeLinecap="round">

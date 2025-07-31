@@ -1,3 +1,4 @@
+import { cn } from '@ageorgedev/toolbelt';
 import styles from './Skill.module.css';
 import { map } from 'ramda';
 
@@ -15,7 +16,10 @@ export function Skill(props: SkillProps) {
 
   return (
     <div
-      className={`${styleClasses} inline-block px-3 py-1 font-interface text-sm`}
+      className={cn(
+        styleClasses,
+        'inline-block px-3 py-1 font-interface text-sm'
+      )}
     >
       {props.name}
     </div>
