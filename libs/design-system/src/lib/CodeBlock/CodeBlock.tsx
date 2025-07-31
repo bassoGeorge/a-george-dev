@@ -1,8 +1,6 @@
 import { cn } from '@ageorgedev/toolbelt';
 import { Card } from '../cards/Card';
 import { useTheme } from '../theming/ThemeContext';
-
-// @ts-ignore
 import SyntaxHighlighter from 'react-syntax-highlighter/dist/cjs/prism-async-light';
 import {
   darcula as darkTheme,
@@ -51,7 +49,7 @@ const fontSizeMap: Record<Required<CodeBlockProps>['fontSize'], string> = {
   small: 'text-md large-desktop:text-lg',
 };
 
-function fixFont(theme: { [k: string]: { [y: string]: string } }) {
+function fixFont(theme: { [k: string]: React.CSSProperties }) {
   const styleKey1 = 'code[class*="language-"]';
   const styleKey2 = 'pre[class*="language-"]';
   return {
