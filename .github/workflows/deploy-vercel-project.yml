@@ -2,7 +2,7 @@ name: Deploy a.george.dev site
 on:
   workflow_call:
     inputs:
-      VERCEL_PROJECT_AGEORGEDEV:
+      VERCEL_PROJECT_NAME:
         required: true
         type: string
       production:
@@ -35,7 +35,7 @@ jobs:
           production: ${{ inputs.production }}
           staged: true
           VERCEL_ACCESS_TOKEN: ${{ secrets.VERCEL_ACCESS_TOKEN }}
-          VERCEL_PROJECT_NAME: ${{ inputs.VERCEL_PROJECT_AGEORGEDEV }}
+          VERCEL_PROJECT_NAME: ${{ inputs.VERCEL_PROJECT_NAME }}
       - name: 🧪 Run e2e
         uses: ./.github/actions/run-e2e
         with:
@@ -46,6 +46,6 @@ jobs:
         with:
           deploy_url: ${{ steps.deploy.outputs.deploy_url }}
           VERCEL_ACCESS_TOKEN: ${{ secrets.VERCEL_ACCESS_TOKEN }}
-          VERCEL_PROJECT_NAME: ${{ inputs.VERCEL_PROJECT_AGEORGEDEV }}
+          VERCEL_PROJECT_NAME: ${{ inputs.VERCEL_PROJECT_NAME }}
     outputs:
       deploy_url: ${{ steps.deploy.outputs.deploy_url }}
