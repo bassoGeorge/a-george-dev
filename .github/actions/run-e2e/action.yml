@@ -4,6 +4,9 @@ inputs:
   site_url:
     required: true
     description: 'Site url to run e2e tests against'
+  project:
+    required: true
+    description: 'nx project which runs the e2e'
 
 runs:
   using: 'composite'
@@ -12,4 +15,4 @@ runs:
       shell: bash
       env:
         SITE_URL: ${{ inputs.site_url }}
-      run: yarn nx e2e ageorgedev-e2e --baseUrl=$SITE_URL
+      run: yarn nx e2e ${{ inputs.project }} --baseUrl=$SITE_URL
