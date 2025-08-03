@@ -6,7 +6,7 @@ import type { StorybookConfig } from '@storybook/react-vite';
 const require = createRequire(import.meta.url);
 
 const fileGlob = 'src/lib/**/*.stories.@(js|jsx|ts|tsx|mdx)';
-const projects = ['atoms', 'foundation-styles'];
+const projects = ['foundation-styles'];
 
 const config: StorybookConfig = {
   stories: [
@@ -30,11 +30,14 @@ const config: StorybookConfig = {
     return mergeConfig(config, {
       resolve: {
         // Some weird bug with the storybook vite builder, so we need to alias the paths to the correct files instead of relying on the tsconfig
-        // only happens for stories within this project
         alias: {
           '@ageorgedev/foundation-styles': resolve(
             __dirname,
             '../../foundation-styles/src/index.ts'
+          ),
+          '@ageorgedev/toolbelt': resolve(
+            __dirname,
+            '../../toolbelt/src/index.ts'
           ),
         },
       },

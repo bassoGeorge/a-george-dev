@@ -29,7 +29,7 @@ export function removeFilesPlugin(): Plugin {
           specifier.includes('refractor/lang')
         ) {
           const lang = getLang(specifier);
-          return allowLang(lang);
+          return allowLang(lang) ? specifier : null;
         } else {
           return null;
         }
