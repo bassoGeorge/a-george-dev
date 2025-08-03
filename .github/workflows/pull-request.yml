@@ -18,14 +18,15 @@ jobs:
   Site_Preview:
     needs: [Run_Tests, Info]
     if: needs.Info.outputs.should_deploy_site == 'true' || needs.Info.outputs.should_run_e2e == 'true'
-    uses: ./.github/workflows/deploy-ageorgedev.yml
+    uses: ./.github/workflows/deploy-vercel-project.yml
     with:
-      VERCEL_PROJECT_AGEORGEDEV: ${{ vars.VERCEL_PROJECT_AGEORGEDEV }}
+      VERCEL_PROJECT_NAME: ${{ vars.VERCEL_PROJECT_AGEORGEDEV }}
       production: false
+      e2e_project: ageorgedev-e2e
     secrets:
       NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
       VERCEL_ACCESS_TOKEN: ${{ secrets.VERCEL_ACCESS_TOKEN }}
-  Save_Preview_URL:
+  Save_Site_Preview_URL:
     needs: [Site_Preview]
     runs-on: ubuntu-latest
     permissions:
@@ -40,4 +41,30 @@ jobs:
               owner: context.repo.owner,
               repo: context.repo.repo,
               body: 'Preview URL: ${{ needs.Site_Preview.outputs.deploy_url }}'
+            })
+  Design_System_Preview:
+    needs: [Run_Tests, Info]
+    if: needs.Info.outputs.should_deploy_design_system == 'true'
+    uses: ./.github/workflows/deploy-vercel-project.yml
+    with:
+      VERCEL_PROJECT_NAME: ${{ vars.VERCEL_PROJECT_DESIGN_SYSTEM }}
+      production: false
+    secrets:
+      NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
+      VERCEL_ACCESS_TOKEN: ${{ secrets.VERCEL_ACCESS_TOKEN }}
+  Save_Design_System_Preview_URL:
+    needs: [Design_System_Preview]
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+    steps:
+      - name: Add a comment to the PR
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: 'Design System Preview URL: ${{ needs.Design_System_Preview.outputs.deploy_url }}'
             })

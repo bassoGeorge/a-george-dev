@@ -17,22 +17,44 @@ jobs:
     secrets:
       NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
   # duplicating cause there is no clean way to conditionally put needs or else conditionally skip the run tests
-  Deploy_Hotfix:
+  Deploy_Hotfix_Site:
     needs: [Run_Tests, Info]
     if: ${{ needs.Info.outputs.should_deploy_site == 'true' && needs.Info.outputs.is_hotfix == 'true' }}
-    uses: ./.github/workflows/deploy-ageorgedev.yml
+    uses: ./.github/workflows/deploy-vercel-project.yml
     with:
-      VERCEL_PROJECT_AGEORGEDEV: ${{ vars.VERCEL_PROJECT_AGEORGEDEV }}
+      VERCEL_PROJECT_NAME: ${{ vars.VERCEL_PROJECT_AGEORGEDEV }}
+      production: true
+      e2e_project: ageorgedev-e2e
+    secrets:
+      NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
+      VERCEL_ACCESS_TOKEN: ${{ secrets.VERCEL_ACCESS_TOKEN }}
+  Deploy_Hotfix_Design_System:
+    needs: [Run_Tests, Info]
+    if: ${{ needs.Info.outputs.should_deploy_design_system == 'true' && needs.Info.outputs.is_hotfix == 'true' }}
+    uses: ./.github/workflows/deploy-vercel-project.yml
+    with:
+      VERCEL_PROJECT_NAME: ${{ vars.VERCEL_PROJECT_DESIGN_SYSTEM }}
       production: true
     secrets:
       NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
       VERCEL_ACCESS_TOKEN: ${{ secrets.VERCEL_ACCESS_TOKEN }}
-  Deploy:
+  Deploy_Site:
     needs: [Info]
     if: ${{ needs.Info.outputs.should_deploy_site == 'true' && needs.Info.outputs.is_hotfix == 'false' }}
-    uses: ./.github/workflows/deploy-ageorgedev.yml
+    uses: ./.github/workflows/deploy-vercel-project.yml
     with:
-      VERCEL_PROJECT_AGEORGEDEV: ${{ vars.VERCEL_PROJECT_AGEORGEDEV }}
+      VERCEL_PROJECT_NAME: ${{ vars.VERCEL_PROJECT_AGEORGEDEV }}
+      production: true
+      e2e_project: ageorgedev-e2e
+    secrets:
+      NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
+      VERCEL_ACCESS_TOKEN: ${{ secrets.VERCEL_ACCESS_TOKEN }}
+  Deploy_Design_System:
+    needs: [Info]
+    if: ${{ needs.Info.outputs.should_deploy_design_system == 'true' && needs.Info.outputs.is_hotfix == 'false' }}
+    uses: ./.github/workflows/deploy-vercel-project.yml
+    with:
+      VERCEL_PROJECT_NAME: ${{ vars.VERCEL_PROJECT_DESIGN_SYSTEM }}
       production: true
     secrets:
       NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}

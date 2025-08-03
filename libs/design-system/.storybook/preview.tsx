@@ -18,6 +18,13 @@ const preview: Preview = {
       defaultTheme: 'light',
     }),
   ],
+  parameters: {
+    options: {
+      storySort: {
+        order: ['Foundation', 'Atoms', 'Molecules', 'UI'],
+      },
+    },
+  },
 };
 
 export default preview;
