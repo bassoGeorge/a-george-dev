@@ -17,7 +17,7 @@ jobs:
     secrets:
       NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
   # duplicating cause there is no clean way to conditionally put needs or else conditionally skip the run tests
-  Deploy_Hotfix:
+  Deploy_Hotfix_Site:
     needs: [Run_Tests, Info]
     if: ${{ needs.Info.outputs.should_deploy_site == 'true' && needs.Info.outputs.is_hotfix == 'true' }}
     uses: ./.github/workflows/deploy-vercel-project.yml
@@ -29,7 +29,7 @@ jobs:
       NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
       VERCEL_ACCESS_TOKEN: ${{ secrets.VERCEL_ACCESS_TOKEN }}
   Deploy_Hotfix_Design_System:
-    needs: [Info]
+    needs: [Run_Tests, Info]
     if: ${{ needs.Info.outputs.should_deploy_design_system == 'true' && needs.Info.outputs.is_hotfix == 'true' }}
     uses: ./.github/workflows/deploy-vercel-project.yml
     with:
@@ -38,7 +38,7 @@ jobs:
     secrets:
       NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
       VERCEL_ACCESS_TOKEN: ${{ secrets.VERCEL_ACCESS_TOKEN }}
-  Deploy:
+  Deploy_Site:
     needs: [Info]
     if: ${{ needs.Info.outputs.should_deploy_site == 'true' && needs.Info.outputs.is_hotfix == 'false' }}
     uses: ./.github/workflows/deploy-vercel-project.yml

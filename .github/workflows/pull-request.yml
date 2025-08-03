@@ -22,10 +22,11 @@ jobs:
     with:
       VERCEL_PROJECT_NAME: ${{ vars.VERCEL_PROJECT_AGEORGEDEV }}
       production: false
+      e2e_project: ageorgedev-e2e
     secrets:
       NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
       VERCEL_ACCESS_TOKEN: ${{ secrets.VERCEL_ACCESS_TOKEN }}
-  Save_Preview_URL:
+  Save_Site_Preview_URL:
     needs: [Site_Preview]
     runs-on: ubuntu-latest
     permissions:
@@ -48,11 +49,10 @@ jobs:
     with:
       VERCEL_PROJECT_NAME: ${{ vars.VERCEL_PROJECT_DESIGN_SYSTEM }}
       production: false
-      e2e_project: ageorgedev-e2e
     secrets:
       NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
       VERCEL_ACCESS_TOKEN: ${{ secrets.VERCEL_ACCESS_TOKEN }}
-  Design_System_Preview_URL:
+  Save_Design_System_Preview_URL:
     needs: [Design_System_Preview]
     runs-on: ubuntu-latest
     permissions:
