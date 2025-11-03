@@ -48,7 +48,6 @@
     top: -5px;
     transform: skew(var(--n-skew-deg), var(--skew-deg));
     transform-origin: top left;
-    box-shadow: -4px 4px var(--color-rc-shadow-1);
     border-left: var(--spacing-medium-line) solid var(--color-line-dark);
   }
 
@@ -68,7 +67,6 @@
     right: -5px;
     transform: skew(0deg, var(--skew-deg)) scaleY(2);
     transform-origin: top right;
-    box-shadow: -4px -8px var(--color-rc-shadow-2);
     border-top: var(--spacing-thick-line) solid var(--color-line-dark);
   }
 }

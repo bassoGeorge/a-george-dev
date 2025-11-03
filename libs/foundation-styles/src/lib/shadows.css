@@ -20,30 +20,16 @@
   --shadow-far: 0 6px 12px var(--color-rc-shadow-3);
 }
 
-/* @utility elv-* {
-  filter: drop-shadow(--value(--drop-shadow-*));
-} */
-
-/* @utility elv-depressed-md {
-  box-shadow: inset 4px 8px rgb(0 0 0 / 0.6);
-
-}
-@utility elv-depressed-sm {
-  box-shadow: inset 2px 4px rgb(0 0 0 / 0.8);
-} */
-
 @utility elv-raised-sm {
   --elv-blur: 0;
+  --elv-offset-x: var(--spacing-0_5);
+  --elv-offset-y: var(--spacing-1);
   --elv-color: rgb(0 0 0 / 0.8);
-  /* filter: drop-shadow(2px 4px rgb(0 0 0 / 0.8)); */
-  /* transform: translateY(-2px); */
   filter: drop-shadow(
-    var(--spacing-0_5) var(--spacing-1) var(--elv-blur) var(--elv-color)
+    var(--elv-offset-x) var(--elv-offset-y) var(--elv-blur) var(--elv-color)
   );
+
   @apply -translate-y-0_5;
-  /* --sh-offset: 4px;
-  filter: drop-shadow(var(--sh-main-shadow) rgb(0 0 0 / 0.8));
-  transform: var(--sh-translate); */
 
   @variant dark {
     --elv-color: color-mix(in lch, var(--s-parchment-500), transparent 20%);
@@ -52,18 +38,17 @@
 }
 
 @utility elv-raised-md {
-  /* filter: drop-shadow(4px 8px rgb(0 0 0 / 0.6));
-  transform: translateY(-4px); */
-  /* --sh-offset: 8px;
-  filter: drop-shadow(var(--sh-main-shadow) rgb(0 0 0 / 0.6));
-  transform: var(--sh-translate); */
-
   --elv-blur: 0;
   --elv-color: rgb(0 0 0 / 0.6);
+  --elv-offset-x: var(--spacing-1);
+  --elv-offset-y: var(--spacing-2);
+
   filter: drop-shadow(
-    var(--spacing-1) var(--spacing-2) var(--elv-blur) var(--elv-color)
+    var(--elv-offset-x) var(--elv-offset-y) var(--elv-blur) var(--elv-color)
   );
+
   @apply -translate-y-1;
+
   @variant dark {
     --elv-color: color-mix(in lch, var(--s-parchment-500), transparent 30%);
     --elv-blur: 5px;
@@ -71,17 +56,13 @@
 }
 
 @utility elv-raised-lg {
-  /* filter: drop-shadow(6px 12px rgb(0 0 0 / 0.25)); */
-  /* transform: translateY(-6px); */
-  /* @apply -translate-y-2; */
-  /* --sh-offset: 16px;
-  filter: drop-shadow(var(--sh-main-shadow) rgb(0 0 0 / 0.25));
-  transform: var(--sh-translate); */
-
   --elv-blur: 0;
   --elv-color: rgb(0 0 0 / 0.25);
+  --elv-offset-x: var(--spacing-2);
+  --elv-offset-y: var(--spacing-3);
+
   filter: drop-shadow(
-    var(--spacing-2) var(--spacing-3) var(--elv-blur) var(--elv-color)
+    var(--elv-offset-x) var(--elv-offset-y) var(--elv-blur) var(--elv-color)
   );
   @apply -translate-y-2;
 
@@ -90,9 +71,3 @@
     --elv-blur: 5px;
   }
 }
-
-/* @utility elv-* {
-  --sh-offset: 8px;
-  --sh-main-shadow: calc(var(--sh-offset) / 2) var(--sh-offset);
-  --sh-translate: translateY(calc(-1 * calc(var(--sh-offset) / 2)));
-} */

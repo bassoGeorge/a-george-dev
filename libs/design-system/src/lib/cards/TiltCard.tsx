@@ -21,7 +21,7 @@ export function TiltCard({
 }: TiltCardProps) {
   const skewClass = shape ? styles[shape] : '';
   const skewStrengthClass = styles['skew-' + (skewStrength ?? 'medium')];
-  const interC = interactive ? styles.interactive : '';
+  const interC = interactive ? interactiveClasses : '';
   const borderC = borderClassMap[border ?? 'all'];
 
   return (
@@ -43,6 +43,9 @@ export function TiltCard({
     </div>
   );
 }
+
+const interactiveClasses =
+  'transition-all hover:elv-raised-lg active:elv-raised-sm';
 
 const borderClassMap: Record<Required<TiltCardProps>['border'], string> = {
   all: 'p-thick-line',

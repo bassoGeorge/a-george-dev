@@ -31,10 +31,11 @@ export function HomeAboveFold() {
         <NameLogo className={`text-[23vw] tablet:text-[11vw]`} />
       </section>
       <section
+        style={{ '--elv-offset-x': '-2px', '--elv-offset-y': '-0.25rem' }}
         className={cn(
           styles.paper,
           styles.subTextSection,
-          'phone-landscape-only:pb-3 relative flex flex-col justify-start tablet:justify-end tablet:p-6 tablet:pb-10'
+          'phone-landscape-only:pb-3 relative flex elv-raised-sm translate-y-0 flex-col justify-start tablet:justify-end tablet:p-6 tablet:pb-10'
         )}
       >
         <div className="phone-only:px-4 text-center tablet:text-right">
@@ -67,11 +68,12 @@ export function HomeAboveFold() {
         </div>
       </section>
       <section
+        style={{ '--elv-offset-y': '-0.5rem', '--elv-offset-x': '-0.25rem' }}
         className={cn(
           styles.paper,
           styles.conSection,
           InterfaceXl.classes,
-          'relative flex justify-center gap-3 p-4 pb-6 tablet:col-span-2 tablet:text-2xl'
+          'relative flex elv-raised-md translate-y-0 justify-center gap-3 p-4 pb-6 tablet:col-span-2 tablet:text-2xl'
         )}
       >
         <Link

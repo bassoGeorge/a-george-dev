@@ -47,7 +47,3 @@
   /** SP */
   --delta: var(--spacing-4);
 }
-
-.interactive {
-  @apply transition-all hover:elv-raised-lg active:elv-raised-sm;
-}
