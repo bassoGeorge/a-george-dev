@@ -49,13 +49,5 @@
 }
 
 .interactive {
-  @apply transition hover:drop-shadow-far active:drop-shadow-near;
-}
-
-.interactive:hover {
-  transform: translate(-2px, -4px);
-}
-
-.interactive:active {
-  transform: translate(2px, 4px);
+  @apply transition-all hover:elv-raised-lg active:elv-raised-sm;
 }
