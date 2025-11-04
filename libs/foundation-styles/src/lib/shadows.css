@@ -29,11 +29,17 @@
     var(--elv-offset-x) var(--elv-offset-y) var(--elv-blur) var(--elv-color)
   );
 
-  @apply -translate-y-0_5;
-
   @variant dark {
-    --elv-color: color-mix(in lch, var(--s-parchment-500), transparent 20%);
-    --elv-blur: 5px;
+    --elv-color: var(--c-primary-foreground);
+    filter: drop-shadow(
+        0px 2px 4px color-mix(in lch, var(--elv-color), transparent 60%)
+      )
+      drop-shadow(
+        0px 4px 5px color-mix(in lch, var(--elv-color), transparent 66%)
+      )
+      drop-shadow(
+        0px 1px 10px color-mix(in lch, var(--elv-color), transparent 68%)
+      );
   }
 }
 
@@ -47,11 +53,17 @@
     var(--elv-offset-x) var(--elv-offset-y) var(--elv-blur) var(--elv-color)
   );
 
-  @apply -translate-y-1;
-
   @variant dark {
-    --elv-color: color-mix(in lch, var(--s-parchment-500), transparent 30%);
-    --elv-blur: 5px;
+    --elv-color: var(--c-primary-foreground);
+    filter: drop-shadow(
+        0px 5px 5px color-mix(in lch, var(--elv-color), transparent 60%)
+      )
+      drop-shadow(
+        0px 8px 10px color-mix(in lch, var(--elv-color), transparent 66%)
+      )
+      drop-shadow(
+        0px 3px 14px color-mix(in lch, var(--elv-color), transparent 68%)
+      );
   }
 }
 
@@ -64,10 +76,23 @@
   filter: drop-shadow(
     var(--elv-offset-x) var(--elv-offset-y) var(--elv-blur) var(--elv-color)
   );
-  @apply -translate-y-2;
 
   @variant dark {
-    --elv-color: color-mix(in lch, var(--s-parchment-500), transparent 50%);
-    --elv-blur: 5px;
+    --elv-color: var(--c-primary-foreground);
+    filter: drop-shadow(
+        0px 8px 10px color-mix(in lch, var(--elv-color), transparent 60%)
+      )
+      drop-shadow(
+        0px 16px 24px color-mix(in lch, var(--elv-color), transparent 66%)
+      )
+      drop-shadow(
+        0px 6px 30px color-mix(in lch, var(--elv-color), transparent 68%)
+      );
+  }
+}
+
+@utility elv-alt-color {
+  @variant dark {
+    --elv-color: var(--c-chart-3-surface);
   }
 }

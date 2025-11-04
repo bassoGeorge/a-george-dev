@@ -45,7 +45,7 @@ export function TiltCard({
 }
 
 const interactiveClasses =
-  'transition-all hover:elv-raised-lg active:elv-raised-sm';
+  'transition-all hover:elv-raised-lg hover:-translate-y-2 active:elv-raised-sm';
 
 const borderClassMap: Record<Required<TiltCardProps>['border'], string> = {
   all: 'p-thick-line',

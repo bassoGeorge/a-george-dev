@@ -35,7 +35,7 @@ export function HomeAboveFold() {
         className={cn(
           styles.paper,
           styles.subTextSection,
-          'phone-landscape-only:pb-3 relative flex elv-raised-sm translate-y-0 flex-col justify-start tablet:justify-end tablet:p-6 tablet:pb-10'
+          'phone-landscape-only:pb-3 relative flex flex-col justify-start elv-raised-sm tablet:justify-end tablet:p-6 tablet:pb-10'
         )}
       >
         <div className="phone-only:px-4 text-center tablet:text-right">
@@ -73,7 +73,7 @@ export function HomeAboveFold() {
           styles.paper,
           styles.conSection,
           InterfaceXl.classes,
-          'relative flex elv-raised-md translate-y-0 justify-center gap-3 p-4 pb-6 tablet:col-span-2 tablet:text-2xl'
+          'relative flex justify-center gap-3 p-4 pb-6 elv-raised-md tablet:col-span-2 tablet:text-2xl'
         )}
       >
         <Link
