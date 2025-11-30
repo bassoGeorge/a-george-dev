@@ -18,9 +18,25 @@ export function HomeAboveFold() {
         'relative grid w-screen place-items-stretch overflow-hidden'
       )}
     >
-      <div className={'absolute top-3 right-3 z-10'}>
-        <ThemeSwitcher />
-      </div>
+      <section
+        className={cn(
+          styles.paper,
+          styles.conSection,
+          InterfaceXl.classes,
+          'relative flex justify-center gap-3 p-4 pb-6 before:elv-raised-md tablet:col-span-2 tablet:text-2xl'
+        )}
+      >
+        <Link
+          href="/talks"
+          className="focus:text-primary-foreground-0 transition-colors hover:text-primary-foreground"
+        >
+          Talks
+        </Link>
+
+        <div className={'absolute top-3 right-3 z-10'}>
+          <ThemeSwitcher />
+        </div>
+      </section>
 
       <section
         className={cn(
@@ -31,7 +47,7 @@ export function HomeAboveFold() {
         <NameLogo className={`text-[23vw] tablet:text-[11vw]`} />
       </section>
       <section
-        style={{ '--elv-offset-x': '-2px', '--elv-offset-y': '-0.25rem' }}
+        style={{ '--elv-offset-x': '-2px' }}
         className={cn(
           styles.paper,
           styles.subTextSection,
@@ -66,22 +82,6 @@ export function HomeAboveFold() {
             <LinkedinLogoIcon weight="duotone" />
           </a>
         </div>
-      </section>
-      <section
-        style={{ '--elv-offset-y': '-0.5rem', '--elv-offset-x': '-0.25rem' }}
-        className={cn(
-          styles.paper,
-          styles.conSection,
-          InterfaceXl.classes,
-          'relative flex justify-center gap-3 p-4 pb-6 elv-raised-md tablet:col-span-2 tablet:text-2xl'
-        )}
-      >
-        <Link
-          href="/talks"
-          className="focus:text-primary-foreground-0 transition-colors hover:text-primary-foreground"
-        >
-          Talks
-        </Link>
       </section>
     </main>
   );
