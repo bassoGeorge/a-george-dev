@@ -23,7 +23,7 @@ export function HomeAboveFold() {
           styles.paper,
           styles.conSection,
           InterfaceXl.classes,
-          'relative flex justify-center gap-3 p-4 pb-6 before:elv-raised-md tablet:col-span-2 tablet:text-2xl'
+          'relative flex justify-center gap-3 p-4 pt-6 elv-raised-md tablet:col-span-2 tablet:text-2xl'
         )}
       >
         <Link

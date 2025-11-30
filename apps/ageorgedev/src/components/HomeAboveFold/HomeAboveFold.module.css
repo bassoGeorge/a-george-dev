@@ -62,12 +62,16 @@
   --bg: var(--color-page-2);
   z-index: 2;
   background-color: transparent;
+  position: relative;
 
   &::before {
     --move-up: -30px;
-    transform: skew(0deg, var(--skew-deg)) scaleY(2) translateY(var(--move-up));
-    transform-origin: top right;
+    transform: skew(0deg, 2deg);
+    transform-origin: center;
     border-bottom: var(--spacing-thick-line) solid var(--color-neutral);
+    position: absolute;
+    height: 300px;
+    top: -200px;
 
     @variant tablet {
       --move-up: -20px;
