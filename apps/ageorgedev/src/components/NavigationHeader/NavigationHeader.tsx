@@ -7,15 +7,17 @@ import Link from 'next/link';
 
 export type NavigationHeaderProps = {
   noLinks?: boolean;
-  seemless?: boolean;
 };
 
 export default function NavigationHeader(props: NavigationHeaderProps) {
   const HomeLink = props.noLinks ? 'span' : Link;
-  const paddingClasses = 'px-3 py-4 bg-page-1';
-  const Wrapper = props.seemless ? 'div' : BoxMode;
   return (
-    <Wrapper className={paddingClasses}>
+    <TiltCard
+      shape="triUpperRight"
+      border="bottom"
+      outerClassName="relative z-50"
+      className="bg-page-1 px-3 py-4"
+    >
       <header className="flex items-center justify-between">
         <div>
           <HomeLink href="/">
@@ -26,19 +28,10 @@ export default function NavigationHeader(props: NavigationHeaderProps) {
           <ThemeSwitcher />
         </div>
       </header>
-    </Wrapper>
+    </TiltCard>
   );
 }
 
 function BoxMode({ className, children }: React.HTMLProps<HTMLDivElement>) {
-  return (
-    <TiltCard
-      shape="triUpperRight"
-      border="bottom"
-      className={className}
-      outerClassName="mb-4"
-    >
-      {children}
-    </TiltCard>
-  );
+  return <TiltCard className={className}>{children}</TiltCard>;
 }

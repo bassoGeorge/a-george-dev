@@ -5,7 +5,7 @@
   --n-skew-deg: calc(var(--skew-deg) * -1);
 
   grid-template-columns: 1fr;
-  grid-template-rows: max-content 3fr 2fr;
+  grid-template-rows: 3fr 2fr;
   color: var(--color-neutral);
 
   @supports (min-height: 100dvh) {
@@ -14,7 +14,7 @@
 
   @variant tablet {
     grid-template-columns: 4fr 3fr;
-    grid-template-rows: max-content 1fr;
+    grid-template-rows: 1fr;
   }
 
   @variant desktop {

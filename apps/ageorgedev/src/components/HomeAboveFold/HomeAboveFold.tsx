@@ -1,43 +1,16 @@
-import {
-  Heading3,
-  Heading4,
-  InterfaceXl,
-  NameLogo,
-  ThemeSwitcher,
-} from '@ageorgedev/design-system';
+import { Heading3, Heading4, NameLogo } from '@ageorgedev/design-system';
 import { cn } from '@ageorgedev/toolbelt';
 import { GithubLogoIcon, LinkedinLogoIcon } from '@phosphor-icons/react/ssr';
-import Link from 'next/link';
 import styles from './HomeAboveFold.module.css';
 
 export function HomeAboveFold() {
   return (
-    <main
+    <div
       className={cn(
         styles.container,
-        'relative grid w-screen place-items-stretch overflow-hidden'
+        'relative -mt-2 grid w-full place-items-stretch overflow-hidden'
       )}
     >
-      <section
-        className={cn(
-          styles.paper,
-          styles.conSection,
-          InterfaceXl.classes,
-          'relative flex justify-center gap-3 p-4 pt-6 elv-raised-md tablet:col-span-2 tablet:text-2xl'
-        )}
-      >
-        <Link
-          href="/talks"
-          className="focus:text-primary-foreground-0 transition-colors hover:text-primary-foreground"
-        >
-          Talks
-        </Link>
-
-        <div className={'absolute top-3 right-3 z-10'}>
-          <ThemeSwitcher />
-        </div>
-      </section>
-
       <section
         className={cn(
           styles.nameSection,
@@ -83,6 +56,6 @@ export function HomeAboveFold() {
           </a>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

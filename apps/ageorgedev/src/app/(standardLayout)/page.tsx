@@ -1,4 +1,4 @@
-import { HomeAboveFold } from '../components/HomeAboveFold/HomeAboveFold';
+import { HomeAboveFold } from '../../components/HomeAboveFold/HomeAboveFold';
 
 export default function Index() {
   /*
@@ -7,4 +7,5 @@ export default function Index() {
    * Note: The corresponding styles are in the ./index.css file.
    */
   return <HomeAboveFold />;
+  // return null;
 }
