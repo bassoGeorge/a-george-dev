@@ -49,7 +49,6 @@
     top: -5px;
     transform: skew(var(--n-skew-deg), var(--skew-deg));
     transform-origin: top left;
-    border-left: var(--spacing-medium-line) solid var(--color-neutral);
   }
 
   @variant tablet {
