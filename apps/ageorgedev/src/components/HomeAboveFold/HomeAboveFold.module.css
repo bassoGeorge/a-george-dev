@@ -5,11 +5,13 @@
   --n-skew-deg: calc(var(--skew-deg) * -1);
 
   grid-template-columns: 1fr;
-  grid-template-rows: 3fr 2fr;
+  grid-template-rows: 3fr 4fr;
   color: var(--color-neutral);
 
   @supports (min-height: 100dvh) {
-    min-height: 100dvh;
+    min-height: calc(
+      100dvh - 82px
+    ); /* TODO: 90px is the height of the menu-bar and 8px is the negative margin */
   }
 
   @variant tablet {

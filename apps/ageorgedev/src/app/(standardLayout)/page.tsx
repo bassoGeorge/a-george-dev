@@ -7,5 +7,4 @@ export default function Index() {
    * Note: The corresponding styles are in the ./index.css file.
    */
   return <HomeAboveFold />;
-  // return null;
 }

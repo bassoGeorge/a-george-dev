@@ -24,10 +24,11 @@ export function HomeAboveFold() {
         className={cn(
           styles.paper,
           styles.subTextSection,
-          'phone-landscape-only:pb-3 relative flex flex-col justify-start elv-raised-sm tablet:justify-end tablet:p-6 tablet:pb-10'
+          'p-4 tablet:justify-end tablet:p-6 desktop:pb-10',
+          'relative flex flex-col justify-start tablet:elv-raised-sm'
         )}
       >
-        <div className="phone-only:px-4 text-center tablet:text-right">
+        <div className="text-center tablet:text-right">
           <Heading3 className="font-bold text-secondary-foreground">
             Web Developer
           </Heading3>
