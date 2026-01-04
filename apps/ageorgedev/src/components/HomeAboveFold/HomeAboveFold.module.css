@@ -5,17 +5,18 @@
   --n-skew-deg: calc(var(--skew-deg) * -1);
 
   grid-template-columns: 1fr;
-  grid-template-rows: 3fr 2fr max-content;
+  grid-template-rows: 3fr 4fr;
   color: var(--color-neutral);
-  height: 100vh;
 
-  @supports (height: 100dvh) {
-    height: 100dvh;
+  @supports (min-height: 100dvh) {
+    min-height: calc(
+      100dvh - 82px
+    ); /* TODO: 90px is the height of the menu-bar and 8px is the negative margin */
   }
 
   @variant tablet {
     grid-template-columns: 4fr 3fr;
-    grid-template-rows: 1fr max-content;
+    grid-template-rows: 1fr;
   }
 
   @variant desktop {
@@ -48,8 +49,6 @@
     top: -5px;
     transform: skew(var(--n-skew-deg), var(--skew-deg));
     transform-origin: top left;
-    box-shadow: -4px 4px var(--color-rc-shadow-1);
-    border-left: var(--spacing-medium-line) solid var(--color-line-dark);
   }
 
   @variant tablet {
@@ -63,12 +62,24 @@
 .conSection {
   --bg: var(--color-page-2);
   z-index: 2;
+  background-color: transparent;
+  position: relative;
 
   &::before {
-    right: -5px;
-    transform: skew(0deg, var(--skew-deg)) scaleY(2);
-    transform-origin: top right;
-    box-shadow: -4px -8px var(--color-rc-shadow-2);
-    border-top: var(--spacing-thick-line) solid var(--color-line-dark);
+    --move-up: -30px;
+    transform: skew(0deg, 2deg);
+    transform-origin: center;
+    border-bottom: var(--spacing-thick-line) solid var(--color-neutral);
+    position: absolute;
+    height: 300px;
+    top: -200px;
+
+    @variant tablet {
+      --move-up: -20px;
+    }
+
+    @variant large-desktop {
+      --move-up: -10px;
+    }
   }
 }

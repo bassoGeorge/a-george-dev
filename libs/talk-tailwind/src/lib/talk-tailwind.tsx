@@ -21,9 +21,9 @@ export function TalkTailwind() {
 
   return (
     <IconContext.Provider value={{ weight: 'duotone', size: '1em' }}>
-      <div className="h-screen w-full">
+      <div className="h-[calc(100vh-90px)] w-full">
         <div className="reveal" ref={presentationRef}>
-          <div className="slides">
+          <div className="slides pt-4">
             <S01Intro />
             <S02Fundamentals />
             <S03AntiPatterns />

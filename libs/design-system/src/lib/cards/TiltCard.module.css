@@ -47,15 +47,3 @@
   /** SP */
   --delta: var(--spacing-4);
 }
-
-.interactive {
-  @apply transition hover:drop-shadow-far active:drop-shadow-near;
-}
-
-.interactive:hover {
-  transform: translate(-2px, -4px);
-}
-
-.interactive:active {
-  transform: translate(2px, 4px);
-}

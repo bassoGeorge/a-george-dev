@@ -1,27 +1,16 @@
-import {
-  Heading3,
-  Heading4,
-  InterfaceXl,
-  NameLogo,
-  ThemeSwitcher,
-} from '@ageorgedev/design-system';
+import { Heading3, Heading4, NameLogo } from '@ageorgedev/design-system';
 import { cn } from '@ageorgedev/toolbelt';
 import { GithubLogoIcon, LinkedinLogoIcon } from '@phosphor-icons/react/ssr';
-import Link from 'next/link';
 import styles from './HomeAboveFold.module.css';
 
 export function HomeAboveFold() {
   return (
-    <main
+    <div
       className={cn(
         styles.container,
-        'relative grid w-screen place-items-stretch overflow-hidden'
+        'relative -mt-2 grid w-full place-items-stretch overflow-hidden'
       )}
     >
-      <div className={'absolute top-3 right-3 z-10'}>
-        <ThemeSwitcher />
-      </div>
-
       <section
         className={cn(
           styles.nameSection,
@@ -31,13 +20,15 @@ export function HomeAboveFold() {
         <NameLogo className={`text-[23vw] tablet:text-[11vw]`} />
       </section>
       <section
+        style={{ '--elv-offset-x': '-2px' }}
         className={cn(
           styles.paper,
           styles.subTextSection,
-          'phone-landscape-only:pb-3 relative flex flex-col justify-start tablet:justify-end tablet:p-6 tablet:pb-10'
+          'p-4 tablet:justify-end tablet:p-6 desktop:pb-10',
+          'relative flex flex-col justify-start tablet:elv-raised-sm'
         )}
       >
-        <div className="phone-only:px-4 text-center tablet:text-right">
+        <div className="text-center tablet:text-right">
           <Heading3 className="font-bold text-secondary-foreground">
             Web Developer
           </Heading3>
@@ -66,21 +57,6 @@ export function HomeAboveFold() {
           </a>
         </div>
       </section>
-      <section
-        className={cn(
-          styles.paper,
-          styles.conSection,
-          InterfaceXl.classes,
-          'relative flex justify-center gap-3 p-4 pb-6 tablet:col-span-2 tablet:text-2xl'
-        )}
-      >
-        <Link
-          href="/talks"
-          className="focus:text-primary-foreground-0 transition-colors hover:text-primary-foreground"
-        >
-          Talks
-        </Link>
-      </section>
-    </main>
+    </div>
   );
 }

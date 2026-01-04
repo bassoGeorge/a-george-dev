@@ -19,3 +19,80 @@
   --shadow-normal: 0 4px 8px var(--color-rc-shadow-4);
   --shadow-far: 0 6px 12px var(--color-rc-shadow-3);
 }
+
+@utility elv-raised-sm {
+  --elv-blur: 0;
+  --elv-offset-x: var(--spacing-0_5);
+  --elv-offset-y: var(--spacing-1);
+  --elv-color: rgb(0 0 0 / 0.8);
+  filter: drop-shadow(
+    var(--elv-offset-x) var(--elv-offset-y) var(--elv-blur) var(--elv-color)
+  );
+
+  @variant dark {
+    --elv-color: var(--c-primary-foreground);
+    filter: drop-shadow(
+        0px 2px 4px color-mix(in lch, var(--elv-color), transparent 60%)
+      )
+      drop-shadow(
+        0px 4px 5px color-mix(in lch, var(--elv-color), transparent 66%)
+      )
+      drop-shadow(
+        0px 1px 10px color-mix(in lch, var(--elv-color), transparent 68%)
+      );
+  }
+}
+
+@utility elv-raised-md {
+  --elv-blur: 0;
+  --elv-color: rgb(0 0 0 / 0.6);
+  --elv-offset-x: var(--spacing-1);
+  --elv-offset-y: var(--spacing-2);
+
+  filter: drop-shadow(
+    var(--elv-offset-x) var(--elv-offset-y) var(--elv-blur) var(--elv-color)
+  );
+
+  @variant dark {
+    --elv-color: var(--c-primary-foreground);
+    filter: drop-shadow(
+        0px 5px 5px color-mix(in lch, var(--elv-color), transparent 60%)
+      )
+      drop-shadow(
+        0px 8px 10px color-mix(in lch, var(--elv-color), transparent 66%)
+      )
+      drop-shadow(
+        0px 3px 14px color-mix(in lch, var(--elv-color), transparent 68%)
+      );
+  }
+}
+
+@utility elv-raised-lg {
+  --elv-blur: 0;
+  --elv-color: rgb(0 0 0 / 0.25);
+  --elv-offset-x: var(--spacing-2);
+  --elv-offset-y: var(--spacing-3);
+
+  filter: drop-shadow(
+    var(--elv-offset-x) var(--elv-offset-y) var(--elv-blur) var(--elv-color)
+  );
+
+  @variant dark {
+    --elv-color: var(--c-primary-foreground);
+    filter: drop-shadow(
+        0px 8px 10px color-mix(in lch, var(--elv-color), transparent 60%)
+      )
+      drop-shadow(
+        0px 16px 24px color-mix(in lch, var(--elv-color), transparent 66%)
+      )
+      drop-shadow(
+        0px 6px 30px color-mix(in lch, var(--elv-color), transparent 68%)
+      );
+  }
+}
+
+@utility elv-alt-color {
+  @variant dark {
+    --elv-color: var(--c-chart-3-surface);
+  }
+}

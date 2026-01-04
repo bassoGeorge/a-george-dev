@@ -9,7 +9,7 @@ import Link from 'next/link';
 
 export default function TalksPage() {
   return (
-    <>
+    <div className="px-4 py-6">
       <Heading1 className="text-center font-bold text-neutral-strong">
         Talks
       </Heading1>
@@ -30,6 +30,6 @@ export default function TalksPage() {
           </TiltCard>
         </Link>
       </div>
-    </>
+    </div>
   );
 }

@@ -18,7 +18,7 @@ export function CalloutBadge({
   const typeClasses = StyleClasses[type ?? 'info1'];
   return (
     <div className={cn('inline-block p-5', className)}>
-      <div className="drop-shadow-normal">
+      <div className="elv-raised-md">
         <div
           className={cn(
             'relative flex h-10 w-10 -rotate-12 flex-col items-center justify-center gap-1 before:absolute before:inset-0 before:-z-1 before:rotate-45',
