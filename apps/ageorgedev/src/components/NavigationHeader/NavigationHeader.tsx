@@ -4,12 +4,8 @@ import {
   ThemeSwitcher,
   TiltCard,
 } from '@ageorgedev/design-system';
-import Link from 'next/link';
 import { cn } from '@ageorgedev/toolbelt';
-
-export type NavigationHeaderProps = {
-  noLinks?: boolean;
-};
+import Link from 'next/link';
 
 const links = [
   {
@@ -18,8 +14,7 @@ const links = [
   },
 ];
 
-export default function NavigationHeader(props: NavigationHeaderProps) {
-  const HomeLink = props.noLinks ? 'span' : Link;
+export default function NavigationHeader() {
   return (
     <TiltCard
       shape="triUpperRight"
@@ -29,9 +24,9 @@ export default function NavigationHeader(props: NavigationHeaderProps) {
     >
       <header className="flex items-center justify-between gap-4">
         <div>
-          <HomeLink href="/">
+          <Link href="/">
             <ShortNameLogo />
-          </HomeLink>
+          </Link>
         </div>
         <nav className="flex grow justify-end gap-2">
           {links.map((link) => (
@@ -53,8 +48,4 @@ export default function NavigationHeader(props: NavigationHeaderProps) {
       </header>
     </TiltCard>
   );
-}
-
-function BoxMode({ className, children }: React.HTMLProps<HTMLDivElement>) {
-  return <TiltCard className={className}>{children}</TiltCard>;
 }

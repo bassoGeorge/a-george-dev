@@ -8,7 +8,7 @@ describe('TiltCard', () => {
     render(<TiltCard>Card content</TiltCard>);
     const card = screen.getByText('Card content');
     expect(card).toBeInTheDocument();
-    expect(card.parentElement?.parentElement).toHaveClass('drop-shadow-normal');
+    expect(card.parentElement?.parentElement).toHaveClass('elv-raised-md');
     expect(card.parentElement?.parentElement).toHaveClass(
       styles['skew-medium']
     );
@@ -69,11 +69,11 @@ describe('TiltCard', () => {
     ).toHaveClass(styles['skew-large']);
   });
 
-  it('applies interactive class when interactive is true', () => {
+  it('applies interactive styles when interactive is true', () => {
     render(<TiltCard interactive>Card content</TiltCard>);
     expect(
       screen.getByText('Card content').parentElement?.parentElement
-    ).toHaveClass(styles.interactive);
+    ).toHaveClass('hover:elv-raised-lg');
   });
 
   it('applies different border styles', () => {
