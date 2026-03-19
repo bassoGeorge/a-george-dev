@@ -1,3 +1,4 @@
+// @Deprecated
 // This file HAS to be ESM .mjs. The remark plugins are all esm only
 
 import { composePlugins, withNx } from '@nx/next';

@@ -1,7 +1,7 @@
 {
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "jsx": "preserve",
+    "jsx": "react-jsx",
     "allowJs": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
@@ -15,7 +15,8 @@
       {
         "name": "next"
       }
-    ]
+    ],
+    "types": ["vite/client"]
   },
   "include": [
     "**/*.ts",
@@ -24,10 +25,11 @@
     "**/*.jsx",
     "../../apps/ageorgedev/.next/types/**/*.ts",
     "../../dist/apps/ageorgedev/.next/types/**/*.ts",
-    "next-env.d.ts",
+    "src/deprecated/next-env.d.ts",
     ".next/types/**/*.ts",
     "src/globals.d.ts",
-    "next.config.mjs"
+    "src/deprecated/next.config.mjs",
+    "vite.config.mts"
   ],
   "exclude": ["node_modules", "jest.config.ts", "**/*.spec.ts", "**/*.test.ts"]
 }

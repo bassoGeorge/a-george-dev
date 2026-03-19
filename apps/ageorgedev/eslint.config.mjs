@@ -5,6 +5,7 @@ import nx from '@nx/eslint-plugin';
 import { dirname } from 'path';
 import { fileURLToPath } from 'url';
 import baseConfig from '../../eslint.config.mjs';
+import { tanstackConfig } from '@tanstack/eslint-config';
 
 const compat = new FlatCompat({
   baseDirectory: dirname(fileURLToPath(import.meta.url)),
@@ -17,17 +18,18 @@ export default [
     ignores: [`**/.next/**/*`],
   },
   // ...fixupConfigRules(compat.extends('next')),
-  ...fixupConfigRules(
-    compat.config({
-      extends: ['next'],
-      settings: {
-        next: {
-          rootDir: 'apps/ageorgedev',
-        },
-      },
-    })
-  ),
-  ...fixupConfigRules(compat.extends('next/core-web-vitals')),
+  // ...fixupConfigRules(
+  //   compat.config({
+  //     extends: ['next'],
+  //     settings: {
+  //       next: {
+  //         rootDir: 'apps/ageorgedev',
+  //       },
+  //     },
+  //   })
+  // ),
+  // ...fixupConfigRules(compat.extends('next/core-web-vitals')),
   ...baseConfig,
+  ...tanstackConfig,
   ...nx.configs['flat/react-typescript'],
 ];
