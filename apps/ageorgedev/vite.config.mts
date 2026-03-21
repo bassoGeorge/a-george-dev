@@ -1,4 +1,4 @@
-import { defineConfig } from 'vite';
+import { defineConfig, searchForWorkspaceRoot } from 'vite';
 // import { devtools } from '@tanstack/devtools-vite';
 
 import { nxViteTsPaths } from '@nx/vite/plugins/nx-tsconfig-paths.plugin';
@@ -31,6 +31,13 @@ const config = defineConfig({
     }),
     viteReact(),
   ],
+  server: {
+    fs: {
+      allow: [
+        searchForWorkspaceRoot(process.cwd())
+      ]
+    }
+  }
 });
 
 export default config;

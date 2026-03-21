@@ -1,3 +1,9 @@
+/* maybe move this to typography.css? */
+@import '@fontsource-variable/alegreya';
+@import '@fontsource/alegreya-sans';
+@import '@fontsource/alegreya-sans-sc';
+@import '@fontsource-variable/source-code-pro';
+
 @import 'tailwindcss' source('../../../../');
 @import 'tw-animate-css';
 @import '@ageorgedev/foundation-styles/theme.css';

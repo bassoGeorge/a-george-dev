@@ -6,6 +6,7 @@
   "packageManager": "yarn@4.9.2",
   "scripts": {
     "dev": "nx dev ageorgedev",
+    "build": "nx build ageorgedev",
     "test": "nx run-many --target=test --passWithNoTests",
     "preinstall": "git config core.hooksPath .git-hooks",
     "affected-projects": "nx print-affected --select=projects",
@@ -88,6 +89,10 @@
     "apps/*"
   ],
   "dependencies": {
+    "@fontsource-variable/alegreya": "^5.2.8",
+    "@fontsource-variable/source-code-pro": "^5.2.7",
+    "@fontsource/alegreya-sans": "^5.2.8",
+    "@fontsource/alegreya-sans-sc": "^5.2.7",
     "@mdx-js/loader": "3.1.0",
     "@mdx-js/react": "3.1.0",
     "@next/mdx": "15.5.9",
