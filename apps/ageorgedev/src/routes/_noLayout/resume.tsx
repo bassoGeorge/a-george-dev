@@ -1,3 +1,4 @@
+import { createFileRoute } from '@tanstack/react-router'
 import {
   Body,
   BodyLg,
@@ -12,34 +13,16 @@ import {
 import { cn } from '@ageorgedev/toolbelt';
 import { ArrowSquareOutIcon } from '@phosphor-icons/react/ssr';
 import { Fragment } from 'react';
-import { Skill, humanSkills, techSkills, toolSkills } from './Skill';
-import { SocialLink } from './SocialLink';
-import styles from './page.module.css';
+import { Skill, humanSkills, techSkills, toolSkills } from '../../components/Resume/Skill';
+import { SocialLink } from '../../components/Resume/SocialLink';
+import styles from './resume.module.css';
 import './resume.global.css';
 
-const education: { period: string; institute: string; programme: string }[] = [
-  {
-    period: '2012-2015',
-    programme: 'Bachelors in Computer Application',
-    institute: 'Maharaja Surajmal Institute | New Delhi',
-  },
-  {
-    period: '2011-2012',
-    programme: 'Senior Secondary (Science)',
-    institute: 'Fr. Agnel School | New Delhi',
-  },
-  {
-    period: '2009-2010',
-    programme: 'Higher Secondary',
-    institute: 'Fr. Agnel School | New Delhi',
-  },
-];
+export const Route = createFileRoute('/_noLayout/resume')({
+  component: RouteComponent,
+})
 
-function Imp({ children }: React.PropsWithChildren) {
-  return <span className="text-secondary-foreground italic">{children}</span>;
-}
-
-export default function Resume() {
+function RouteComponent() {
   const socialLinksBlockClasses = 'flex flex-col gap-2';
   return (
     <main className={styles.page}>
@@ -294,4 +277,27 @@ export default function Resume() {
       </article>
     </main>
   );
+}
+
+
+const education: { period: string; institute: string; programme: string }[] = [
+  {
+    period: '2012-2015',
+    programme: 'Bachelors in Computer Application',
+    institute: 'Maharaja Surajmal Institute | New Delhi',
+  },
+  {
+    period: '2011-2012',
+    programme: 'Senior Secondary (Science)',
+    institute: 'Fr. Agnel School | New Delhi',
+  },
+  {
+    period: '2009-2010',
+    programme: 'Higher Secondary',
+    institute: 'Fr. Agnel School | New Delhi',
+  },
+];
+
+function Imp({ children }: React.PropsWithChildren) {
+  return <span className="text-secondary-foreground italic">{children}</span>;
 }

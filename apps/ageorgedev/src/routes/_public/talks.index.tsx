@@ -1,3 +1,4 @@
+import { createFileRoute, Link } from '@tanstack/react-router'
 import {
   Body,
   BodyXl,
@@ -5,16 +6,19 @@ import {
   Heading2,
   TiltCard,
 } from '@ageorgedev/design-system';
-import Link from 'next/link';
 
-export default function TalksPage() {
+export const Route = createFileRoute('/_public/talks/')({
+  component: RouteComponent,
+})
+
+function RouteComponent() {
   return (
     <div className="px-4 py-6">
       <Heading1 className="text-center font-bold text-neutral-strong">
         Talks
       </Heading1>
       <div className="mx-auto mt-6 flex max-w-5xl flex-col gap-3">
-        <Link href="/talks/tailwind">
+        <Link to="/talks/tailwind">
           <TiltCard interactive={true} shape="trapRight" className="bg-page-2">
             <Heading2 className="text-neutral-strong">
               Tailwind beyond Production

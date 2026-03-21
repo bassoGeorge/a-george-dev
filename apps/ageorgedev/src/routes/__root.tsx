@@ -1,11 +1,10 @@
-import { GlobalProviders } from '../app/GlobalProviders';
-import appCss from '../app/tailwind.css?url';
-
 import {
   HeadContent,
   Scripts,
   createRootRouteWithContext,
 } from '@tanstack/react-router';
+import appCss from '../tailwind.css?url';
+import { GlobalProviders } from '../components/GlobalProviders';
 // import type { QueryClient } from '@tanstack/react-query';
 
 type MyRouterContext = {

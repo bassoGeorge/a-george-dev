@@ -31,5 +31,5 @@
     "src/deprecated/next.config.mjs",
     "vite.config.mts"
   ],
-  "exclude": ["node_modules", "jest.config.ts", "**/*.spec.ts", "**/*.test.ts"]
+  "exclude": ["node_modules", "jest.config.ts", "**/*.spec.ts", "**/*.test.ts", "./deprecated/**/*"]
 }

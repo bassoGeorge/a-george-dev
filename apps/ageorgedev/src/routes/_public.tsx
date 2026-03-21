@@ -1,3 +1,4 @@
+import { createFileRoute, Link, Outlet } from '@tanstack/react-router';
 import {
   InterfaceXl,
   ShortNameLogo,
@@ -5,17 +6,23 @@ import {
   TiltCard,
 } from '@ageorgedev/design-system';
 import { cn } from '@ageorgedev/toolbelt';
-import Link from 'next/link';
+
+export const Route = createFileRoute('/_public')({
+  component: RouteComponent,
+});
 
 const links = [
   {
-    href: '/talks',
+    // todo
+    to: '/talks',
     label: 'Talks',
   },
 ];
 
-export default function NavigationHeader() {
+function RouteComponent() {
   return (
+    <>
+
     <TiltCard
       shape="triUpperRight"
       border="bottom"
@@ -24,15 +31,15 @@ export default function NavigationHeader() {
     >
       <header className="flex items-center justify-between gap-4">
         <div>
-          <Link href="/">
+          <Link to="/">
             <ShortNameLogo />
           </Link>
         </div>
         <nav className="flex grow justify-end gap-2">
           {links.map((link) => (
             <Link
-              key={link.href}
-              href={link.href}
+              key={link.to}
+              to={link.to}
               className={cn(
                 InterfaceXl.classes,
                 'focus:text-primary-foreground-0 transition-colors hover:text-primary-foreground'
@@ -47,5 +54,9 @@ export default function NavigationHeader() {
         </div>
       </header>
     </TiltCard>
+      <main>
+        <Outlet />
+      </main>
+    </>
   );
 }

@@ -4,7 +4,7 @@
 @import '@fontsource/alegreya-sans-sc';
 @import '@fontsource-variable/source-code-pro';
 
-@import 'tailwindcss' source('../../../../');
+@import 'tailwindcss' source('../../../');
 @import 'tw-animate-css';
 @import '@ageorgedev/foundation-styles/theme.css';
 

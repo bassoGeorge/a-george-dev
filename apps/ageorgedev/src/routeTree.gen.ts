@@ -9,50 +9,134 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as IndexRouteImport } from './routes/index'
+import { Route as PublicRouteImport } from './routes/_public'
+import { Route as PublicIndexRouteImport } from './routes/_public/index'
+import { Route as NoLayoutResumeRouteImport } from './routes/_noLayout/resume'
+import { Route as PublicTalksIndexRouteImport } from './routes/_public/talks.index'
+import { Route as PublicTalksTailwindRouteImport } from './routes/_public/talks.tailwind'
 
-const IndexRoute = IndexRouteImport.update({
+const PublicRoute = PublicRouteImport.update({
+  id: '/_public',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PublicIndexRoute = PublicIndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => PublicRoute,
+} as any)
+const NoLayoutResumeRoute = NoLayoutResumeRouteImport.update({
+  id: '/_noLayout/resume',
+  path: '/resume',
   getParentRoute: () => rootRouteImport,
+} as any)
+const PublicTalksIndexRoute = PublicTalksIndexRouteImport.update({
+  id: '/talks/',
+  path: '/talks/',
+  getParentRoute: () => PublicRoute,
+} as any)
+const PublicTalksTailwindRoute = PublicTalksTailwindRouteImport.update({
+  id: '/talks/tailwind',
+  path: '/talks/tailwind',
+  getParentRoute: () => PublicRoute,
 } as any)
 
 export interface FileRoutesByFullPath {
-  '/': typeof IndexRoute
+  '/': typeof PublicIndexRoute
+  '/resume': typeof NoLayoutResumeRoute
+  '/talks/tailwind': typeof PublicTalksTailwindRoute
+  '/talks/': typeof PublicTalksIndexRoute
 }
 export interface FileRoutesByTo {
-  '/': typeof IndexRoute
+  '/resume': typeof NoLayoutResumeRoute
+  '/': typeof PublicIndexRoute
+  '/talks/tailwind': typeof PublicTalksTailwindRoute
+  '/talks': typeof PublicTalksIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
-  '/': typeof IndexRoute
+  '/_public': typeof PublicRouteWithChildren
+  '/_noLayout/resume': typeof NoLayoutResumeRoute
+  '/_public/': typeof PublicIndexRoute
+  '/_public/talks/tailwind': typeof PublicTalksTailwindRoute
+  '/_public/talks/': typeof PublicTalksIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/resume' | '/talks/tailwind' | '/talks/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/resume' | '/' | '/talks/tailwind' | '/talks'
+  id:
+    | '__root__'
+    | '/_public'
+    | '/_noLayout/resume'
+    | '/_public/'
+    | '/_public/talks/tailwind'
+    | '/_public/talks/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
-  IndexRoute: typeof IndexRoute
+  PublicRoute: typeof PublicRouteWithChildren
+  NoLayoutResumeRoute: typeof NoLayoutResumeRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/': {
-      id: '/'
+    '/_public': {
+      id: '/_public'
+      path: ''
+      fullPath: '/'
+      preLoaderRoute: typeof PublicRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/_public/': {
+      id: '/_public/'
       path: '/'
       fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
+      preLoaderRoute: typeof PublicIndexRouteImport
+      parentRoute: typeof PublicRoute
+    }
+    '/_noLayout/resume': {
+      id: '/_noLayout/resume'
+      path: '/resume'
+      fullPath: '/resume'
+      preLoaderRoute: typeof NoLayoutResumeRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/_public/talks/': {
+      id: '/_public/talks/'
+      path: '/talks'
+      fullPath: '/talks/'
+      preLoaderRoute: typeof PublicTalksIndexRouteImport
+      parentRoute: typeof PublicRoute
+    }
+    '/_public/talks/tailwind': {
+      id: '/_public/talks/tailwind'
+      path: '/talks/tailwind'
+      fullPath: '/talks/tailwind'
+      preLoaderRoute: typeof PublicTalksTailwindRouteImport
+      parentRoute: typeof PublicRoute
     }
   }
 }
 
+interface PublicRouteChildren {
+  PublicIndexRoute: typeof PublicIndexRoute
+  PublicTalksTailwindRoute: typeof PublicTalksTailwindRoute
+  PublicTalksIndexRoute: typeof PublicTalksIndexRoute
+}
+
+const PublicRouteChildren: PublicRouteChildren = {
+  PublicIndexRoute: PublicIndexRoute,
+  PublicTalksTailwindRoute: PublicTalksTailwindRoute,
+  PublicTalksIndexRoute: PublicTalksIndexRoute,
+}
+
+const PublicRouteWithChildren =
+  PublicRoute._addFileChildren(PublicRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
-  IndexRoute: IndexRoute,
+  PublicRoute: PublicRouteWithChildren,
+  NoLayoutResumeRoute: NoLayoutResumeRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
