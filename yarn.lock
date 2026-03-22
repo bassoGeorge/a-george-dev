@@ -43,8 +43,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@ageorgedev/reveal-framework@workspace:libs/reveal-framework"
   dependencies:
+    "@revealjs/react": "npm:^0.2.0"
     "@types/reveal.js": "npm:^4.4.2"
-    reveal.js: "npm:^4.5.0"
+    reveal.js: "npm:6.0.0"
   languageName: unknown
   linkType: soft
 
@@ -5227,6 +5228,17 @@ __metadata:
     "@types/react":
       optional: true
   checksum: 10c0/5913aa0d760f505905779515e4b1f0f71a422350f077cc8d26d1aafe53c97f177fec0e6d7fbbb50d8b5e498aa9df9f707ca75ae3801540c283b26b0136138eef
+  languageName: node
+  linkType: hard
+
+"@revealjs/react@npm:^0.2.0":
+  version: 0.2.0
+  resolution: "@revealjs/react@npm:0.2.0"
+  peerDependencies:
+    react: ">=18"
+    react-dom: ">=18"
+    reveal.js: ">=5"
+  checksum: 10c0/3b811821cbff35937fcb1badca1c7d96d78efd39664d1ad22e541d8d2ec638e30d2e35a0c8c29e7c7de118e4c09276652fb3f934d5e3adcfdba43eac96f9db12
   languageName: node
   linkType: hard
 
@@ -20436,10 +20448,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"reveal.js@npm:^4.5.0":
-  version: 4.6.1
-  resolution: "reveal.js@npm:4.6.1"
-  checksum: 10c0/a7c870ada885d2b9d0d722f68707b6d1b5ac924dccc6c044b5a18b18b562fa84ff57742fa961e40c9a690468b714aa89397b13e709c88487fd7d626b6be3e4c6
+"reveal.js@npm:6.0.0":
+  version: 6.0.0
+  resolution: "reveal.js@npm:6.0.0"
+  checksum: 10c0/a85fe3606988b0a4c4891fdd9c0387c08b3b436a1594cb1df62d0fa31314421d8b97d2616150bb8c7605268f2d0e7b5cec5d4093d209444abb000a11276e7c94
   languageName: node
   linkType: hard
 
