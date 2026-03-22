@@ -13,10 +13,6 @@ const compat = new FlatCompat({
 });
 
 export default [
-  {
-    // for some reason, local path not working. need to investigate
-    ignores: [`**/.next/**/*`],
-  },
   // ...fixupConfigRules(compat.extends('next')),
   // ...fixupConfigRules(
   //   compat.config({

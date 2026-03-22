@@ -23,10 +23,7 @@
     "**/*.tsx",
     "**/*.js",
     "**/*.jsx",
-    "../../apps/ageorgedev/.next/types/**/*.ts",
-    "../../dist/apps/ageorgedev/.next/types/**/*.ts",
     "src/deprecated/next-env.d.ts",
-    ".next/types/**/*.ts",
     "src/globals.d.ts",
     "src/deprecated/next.config.mjs",
     "vite.config.mts"
