@@ -6,12 +6,13 @@ import {
   SlideMediaRow,
   SlideTypeCenter,
   SlideTypeRegular,
+  Presentation
 } from '@ageorgedev/reveal-framework';
 import { D01TailwindFilesize } from '../diagrams/D01TailwindFilesize';
 
 export function S02Fundamentals() {
   return (
-    <section>
+    <Presentation.Stack>
       <SlideTypeCenter>
         <Heading1 className="font-bold">Fundamentals of Tailwind</Heading1>
         <PBody>The quick version</PBody>
@@ -32,6 +33,7 @@ export function S02Fundamentals() {
         </div>
       </SlideTypeRegular>
 
+      {/* 
       <SlideTypeRegular
         heading={<Heading1>How does Tailwind compare?</Heading1>}
       >
@@ -164,8 +166,9 @@ export function S02Fundamentals() {
           </a>{' '}
           to learn more.
         </PBody>
-      </SlideTypeCenter>
-    </section>
+      </SlideTypeCenter> 
+      */}
+    </Presentation.Stack>
   );
 }
 

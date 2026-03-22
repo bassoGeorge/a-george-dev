@@ -6,7 +6,7 @@ import {
 } from '@ageorgedev/reveal-framework';
 import { IconContext } from '@phosphor-icons/react';
 import { S01Intro } from './slides/s01-intro';
-// import { S02Fundamentals } from './slides/s02-fundamentals';
+import { S02Fundamentals } from './slides/s02-fundamentals';
 // import { S03AntiPatterns } from './slides/s03-anti-patterns';
 // import { S04LeanConfig } from './slides/s04-lean-config';
 // import { S04BCognitiveLoad } from './slides/s04b-cognitive-load';
@@ -24,8 +24,8 @@ export function TalkTailwind() {
         <Presentation.Deck config={presentationConfig}>
           <div className="slides pt-4">
             <S01Intro />
-            {/* 
             <S02Fundamentals />
+            {/* 
             <S03AntiPatterns />
             <S04LeanConfig />
             <S04BCognitiveLoad />
