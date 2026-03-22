@@ -33,7 +33,6 @@ export function S02Fundamentals() {
         </div>
       </SlideTypeRegular>
 
-      {/* 
       <SlideTypeRegular
         heading={<Heading1>How does Tailwind compare?</Heading1>}
       >
@@ -167,7 +166,6 @@ export function S02Fundamentals() {
           to learn more.
         </PBody>
       </SlideTypeCenter> 
-      */}
     </Presentation.Stack>
   );
 }

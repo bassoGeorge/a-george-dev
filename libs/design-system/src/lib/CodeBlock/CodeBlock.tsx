@@ -1,11 +1,11 @@
 import { cn } from '@ageorgedev/toolbelt';
-import { Card } from '../cards/Card';
-import { useTheme } from '../theming/ThemeContext';
-import SyntaxHighlighter from 'react-syntax-highlighter/dist/cjs/prism-async-light';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import {
   darcula as darkTheme,
   solarizedlight as lightTheme,
-} from 'react-syntax-highlighter/dist/cjs/styles/prism';
+} from 'react-syntax-highlighter/dist/esm/styles/prism';
+import { Card } from '../cards/Card';
+import { useTheme } from '../theming/ThemeContext';
 
 type CodeBlockProps = {
   text: string;
