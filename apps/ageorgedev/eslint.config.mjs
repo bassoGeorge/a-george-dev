@@ -12,6 +12,10 @@ const compat = new FlatCompat({
   recommendedConfig: js.configs.recommended,
 });
 
+// console.log("[debug] eslint setup: base", baseConfig.find((c) => c.name === "typescript-eslint/base").plugins['@typescript-eslint']);
+console.log("[debug] eslint setup: tanstack", tanstackConfig.find((c) => c.name === "tanstack/javascript"));
+delete tanstackConfig.find((c) => c.name === "tanstack/javascript").plugins['@typescript-eslint']
+
 export default [
   // ...fixupConfigRules(compat.extends('next')),
   // ...fixupConfigRules(
