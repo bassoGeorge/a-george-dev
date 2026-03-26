@@ -9,5 +9,6 @@ export * from './lib/theming/ThemeSwitcher';
 export * from './lib/theming/ThemeProvider';
 export * from './lib/theming/ThemeContext';
 export * from './lib/theming/models';
+export * from './lib/theming/theme-init-script';
 
 export * from './lib/CodeBlock/CodeBlock';

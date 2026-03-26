@@ -5,6 +5,7 @@ import {
 } from '@tanstack/react-router';
 import appCss from '../tailwind.css?url';
 import { GlobalProviders } from '../components/GlobalProviders';
+import { THEME_INIT_SCRIPT } from '@ageorgedev/design-system';
 // import type { QueryClient } from '@tanstack/react-query';
 
 type MyRouterContext = {
@@ -39,7 +40,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning className="dark">
       <head>
-        {/* <script dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }} /> */}
+        <script dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }} />
         <HeadContent />
       </head>
       <body>

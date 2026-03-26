@@ -1,117 +1,80 @@
-'use client';
-
-import { useCallback, useEffect, useReducer } from 'react';
+import { PropsWithChildren, useCallback, useEffect, useState } from 'react';
 import { Theme } from './models';
-import { initialThemeState, themeReducer } from './theme-state';
 import { ThemeContext } from './ThemeContext';
 
-export type ThemeProviderProps = React.PropsWithChildren<{
-  startingTheme?: Theme;
-}>;
+/** TODO: 
+ * 1. Make the switcher button do auto as well 
+ * 2. Improve the logic */
+export function ThemeProvider({ children }: PropsWithChildren) {
+  const [mode, setMode] = useState<ThemeMode>('auto');
+  const [resolvedTheme, setResolvedTheme] = useState<Theme>('dark');
 
-/** Provider */
-export function ThemeProvider({
-  children,
-  startingTheme = 'dark',
-}: ThemeProviderProps) {
-  const [{ theme }, dispatch] = useReducer(themeReducer, {
-    ...initialThemeState,
-    theme: startingTheme,
-  });
-
-  // Listen to the browser theme change, can also be directly used on the queryList
-  const mediaChangeListener = useCallback(
-    (e: MediaQueryListEvent | MediaQueryList) => {
-      dispatch({
-        type: 'setBySystem',
-        theme: e.matches ? 'dark' : 'light',
-      });
-    },
-    []
-  );
-
-  /** Listen to browser theme changes */
   useEffect(() => {
-    const mediaQueryList = window.matchMedia('(prefers-color-scheme: dark)');
+    const initialMode = getInitialMode();
+    setMode(initialMode);
+    setResolvedTheme(applyThemeMode(initialMode));
+  }, []);
 
-    // Initial value
-    mediaChangeListener(mediaQueryList);
-
-    // future changes
-    mediaQueryList.addEventListener('change', mediaChangeListener);
-    return () => {
-      mediaQueryList.removeEventListener('change', mediaChangeListener);
+  /** Sync auto mode */
+  useEffect(() => {
+    if (mode !== 'auto') {
+      return;
+    }
+    const media = window.matchMedia('(prefers-color-scheme: dark)');
+    const onChange = () => {
+      setResolvedTheme(applyThemeMode('auto'));
     };
-  }, [mediaChangeListener]);
 
-  /** Set the user theme from local storage if present */
-  useEffect(() => {
-    const existingTheme = getThemeFromStorage();
-    if (existingTheme) {
-      dispatch({
-        type: 'setByUser',
-        theme: existingTheme,
-      });
-    }
-  }, []);
+    media.addEventListener('change', onChange);
+    return () => {
+      media.removeEventListener('change', onChange);
+    };
+  }, [mode]);
 
-  /** User action to set the next theme, saves to local storage */
   const manuallySetTheme = useCallback<ThemeContext['setTheme']>((newTheme) => {
-    dispatch({
-      type: 'setByUser',
-      theme: newTheme,
-    });
-    setThemeInStorage(newTheme);
+    setMode(newTheme);
+    setResolvedTheme(applyThemeMode(newTheme));
+    window.localStorage.setItem(STORAGE_THEME_KEY, newTheme);
   }, []);
-
-  // Synchronises the theme state with the classlist of the <html> element
-  useEffect(() => {
-    const classList = document.documentElement.classList;
-
-    switch (theme) {
-      case 'light':
-        safeRemoveClass(classList, 'dark');
-        safeAddClass(classList, 'light');
-        break;
-      case 'dark':
-        safeRemoveClass(classList, 'light');
-        safeAddClass(classList, 'dark');
-        break;
-    }
-  }, [theme]);
 
   return (
-    <ThemeContext.Provider value={{ theme, setTheme: manuallySetTheme }}>
+    <ThemeContext.Provider
+      value={{ theme: resolvedTheme, setTheme: manuallySetTheme }}
+    >
       {children}
     </ThemeContext.Provider>
   );
 }
 
-/** Some helper functions */
-function safeRemoveClass(classList: DOMTokenList, className: string) {
-  if (classList.contains(className)) {
-    classList.remove(className);
-  }
-}
-
-function safeAddClass(classList: DOMTokenList, className: string) {
-  if (!classList.contains(className)) {
-    classList.add(className);
-  }
-}
-
-/** Storage stuff */
+type ThemeMode = Theme | 'auto';
 const STORAGE_THEME_KEY = 'theme';
 
-function getThemeFromStorage(): Theme | null {
-  const userPreference = sessionStorage.getItem(STORAGE_THEME_KEY);
-  if (userPreference) {
-    return userPreference === 'dark' ? 'dark' : 'light';
-  } else {
-    return null;
+function getInitialMode(): ThemeMode {
+  if (typeof window === 'undefined') {
+    return 'auto';
   }
+
+  const stored = window.localStorage.getItem(STORAGE_THEME_KEY);
+  if (stored === 'light' || stored === 'dark' || stored === 'auto') {
+    return stored;
+  }
+
+  return 'auto';
 }
 
-function setThemeInStorage(theme: Theme) {
-  sessionStorage.setItem(STORAGE_THEME_KEY, theme);
+function applyThemeMode(mode: ThemeMode): Theme {
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const resolved = mode === 'auto' ? (prefersDark ? 'dark' : 'light') : mode;
+
+  document.documentElement.classList.remove('light', 'dark');
+  document.documentElement.classList.add(resolved);
+
+  if (mode === 'auto') {
+    document.documentElement.removeAttribute('data-theme');
+  } else {
+    document.documentElement.setAttribute('data-theme', mode);
+  }
+
+  document.documentElement.style.colorScheme = resolved;
+  return resolved;
 }
