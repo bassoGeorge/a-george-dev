@@ -8,6 +8,8 @@ export default [
       'dist/**/*',
       '**/vite.config.*.timestamp*',
       '**/vitest.config.*.timestamp*',
+      '**/jest.config.ts',
+      '**/postcss.config.js'
     ],
   },
   ...nx.configs['flat/base'],
@@ -71,6 +73,12 @@ export default [
         },
       ],
       '@typescript-eslint/ban-ts-comment': 'off',
+      '@typescript-eslint/array-type': [
+        'error',
+        {
+          default: 'array-simple'
+        }
+      ]
     },
   },
   {
