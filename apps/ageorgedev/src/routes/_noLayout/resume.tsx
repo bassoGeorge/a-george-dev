@@ -1,4 +1,4 @@
-import { createFileRoute } from '@tanstack/react-router'
+import { createFileRoute } from '@tanstack/react-router';
 import {
   Body,
   BodyLg,
@@ -13,14 +13,19 @@ import {
 import { cn } from '@ageorgedev/toolbelt';
 import { ArrowSquareOutIcon } from '@phosphor-icons/react/ssr';
 import { Fragment } from 'react';
-import { Skill, humanSkills, techSkills, toolSkills } from '../../components/Resume/Skill';
+import {
+  Skill,
+  humanSkills,
+  techSkills,
+  toolSkills,
+} from '../../components/Resume/Skill';
 import { SocialLink } from '../../components/Resume/SocialLink';
 import styles from './resume.module.css';
 import './resume.global.css';
 
 export const Route = createFileRoute('/_noLayout/resume')({
   component: RouteComponent,
-})
+});
 
 function RouteComponent() {
   const socialLinksBlockClasses = 'flex flex-col gap-2';
@@ -31,7 +36,7 @@ function RouteComponent() {
           shadowDirection="left"
           className="-mb-4 self-end text-[4rem]"
         />
-        <BodySm className="absolute top-[9.5rem] left-[13.75rem] mb-2 text-neutral-subdued italic">
+        <BodySm className="text-neutral-subdued absolute left-[13.75rem] top-[9.5rem] mb-2 italic">
           (He/Him)
         </BodySm>
         <div className={cn(socialLinksBlockClasses, 'mt-3')}>
@@ -43,7 +48,7 @@ function RouteComponent() {
         <section className="mr-1">
           <Heading4
             as={'h2'}
-            className="font-medium text-secondary-foreground italic"
+            className="text-secondary-foreground font-medium italic"
           >
             Frontend Architect
           </Heading4>
@@ -54,7 +59,7 @@ function RouteComponent() {
             technical areas.
           </Body>
         </section>
-        <section className={cn(socialLinksBlockClasses, '-mt-2 -mr-6')}>
+        <section className={cn(socialLinksBlockClasses, '-mr-6 -mt-2')}>
           <SocialLink type="location" full={true} />
           <SocialLink type="github" full={true} />
           <SocialLink type="linkedin" full={true} />
@@ -68,12 +73,12 @@ function RouteComponent() {
               <Skill key={index} {...props} />
             ))}
           </div>
-          <div className="mt-2 -mr-4 flex flex-wrap gap-2">
+          <div className="-mr-4 mt-2 flex flex-wrap gap-2">
             {techSkills.map((props, index) => (
               <Skill key={index} {...props} />
             ))}
           </div>
-          <div className="mt-2 -mr-7 flex flex-wrap gap-2">
+          <div className="-mr-7 mt-2 flex flex-wrap gap-2">
             {humanSkills.map((props, index) => (
               <Skill key={index} {...props} />
             ))}
@@ -92,7 +97,7 @@ function RouteComponent() {
               Demystifying Function Sub-typing
               <ArrowSquareOutIcon
                 weight="duotone"
-                className="relative -top-px ml-2 inline text-primary-foreground"
+                className="text-primary-foreground relative -top-px ml-2 inline"
               />
             </BodySm>
             <BodyXs className="text-neutral-subdued">
@@ -119,7 +124,7 @@ function RouteComponent() {
           </div>
         </section>
         <section className="-mr-6">
-          <BodySm className="font-thin text-neutral italic">
+          <BodySm className="text-neutral font-thin italic">
             I built this resume using HTML / CSS and it follows my new design
             language.
           </BodySm>
@@ -127,27 +132,27 @@ function RouteComponent() {
       </aside>
       <article className={cn(styles.article, styles.paper)}>
         <section className={styles.expGrid}>
-          <BodyLg className="justify-self-end font-bold tracking-wider text-primary-foreground">
+          <BodyLg className="text-primary-foreground justify-self-end font-bold tracking-wider">
             2018 - 2023
           </BodyLg>
           <Heading3 className="font-medium">Thoughtworks</Heading3>
           <div className="self-start justify-self-end text-right">
-            <p className="font-interface text-md leading-[1.2rem] text-neutral-subdued">
+            <p className="font-interface text-md text-neutral-subdued leading-[1.2rem]">
               Lead UI Developer
             </p>
-            <p className="-mt-1 pb-1 text-xs leading-[1.2rem] text-neutral-subdued">
+            <p className="text-neutral-subdued -mt-1 pb-1 text-xs leading-[1.2rem]">
               2021
             </p>
-            <p className="font-interface text-xs leading-[1.2rem] text-neutral-subdued">
+            <p className="font-interface text-neutral-subdued text-xs leading-[1.2rem]">
               Senior UI Developer
             </p>
-            <p className="-mt-1 pb-1 text-xs leading-[1.2rem] text-neutral-subdued">
+            <p className="text-neutral-subdued -mt-1 pb-1 text-xs leading-[1.2rem]">
               2019
             </p>
-            <p className="font-interface text-xs leading-[1.2rem] text-neutral-subdued">
+            <p className="font-interface text-neutral-subdued text-xs leading-[1.2rem]">
               UI Developer
             </p>
-            <p className="-mt-1 pb-1 text-xs leading-[1.2rem] text-neutral-subdued">
+            <p className="text-neutral-subdued -mt-1 pb-1 text-xs leading-[1.2rem]">
               2018
             </p>
           </div>
@@ -226,12 +231,12 @@ function RouteComponent() {
           </div>
         </section>
         <section className={styles.expGrid}>
-          <BodyLg className="justify-self-end font-bold tracking-wider text-primary-foreground">
+          <BodyLg className="text-primary-foreground justify-self-end font-bold tracking-wider">
             2016 - 2018
           </BodyLg>
           <Heading3 className="font-medium">Ignite Solutions</Heading3>
           <div className="self-start justify-self-end text-right">
-            <p className="font-interface text-md leading-[1.2rem] text-neutral-subdued">
+            <p className="font-interface text-md text-neutral-subdued leading-[1.2rem]">
               Full Stack
               <br />
               Developer
@@ -256,12 +261,12 @@ function RouteComponent() {
           </div>
         </section>
         <section className={styles.expGrid}>
-          <BodyLg className="justify-self-end font-bold tracking-wider text-primary-foreground">
+          <BodyLg className="text-primary-foreground justify-self-end font-bold tracking-wider">
             mid 2015
           </BodyLg>
           <Heading3 className="font-medium">JLabs</Heading3>
           <div className="self-start justify-self-end text-right">
-            <p className="font-interface text-md leading-[1.2rem] text-neutral-subdued">
+            <p className="font-interface text-md text-neutral-subdued leading-[1.2rem]">
               Developer
             </p>
           </div>
@@ -279,8 +284,11 @@ function RouteComponent() {
   );
 }
 
-
-const education: { period: string; institute: string; programme: string }[] = [
+const education: Array<{
+  period: string;
+  institute: string;
+  programme: string;
+}> = [
   {
     period: '2012-2015',
     programme: 'Bachelors in Computer Application',

@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from '@tanstack/react-router'
+import { Link, createFileRoute } from '@tanstack/react-router';
 import {
   Body,
   BodyXl,
@@ -9,12 +9,12 @@ import {
 
 export const Route = createFileRoute('/_public/talks/')({
   component: RouteComponent,
-})
+});
 
 function RouteComponent() {
   return (
     <div className="px-4 py-6">
-      <Heading1 className="text-center font-bold text-neutral-strong">
+      <Heading1 className="text-neutral-strong text-center font-bold">
         Talks
       </Heading1>
       <div className="mx-auto mt-6 flex max-w-5xl flex-col gap-3">
@@ -28,7 +28,7 @@ function RouteComponent() {
               Tailwind CSS. Managing scale, complexity and copy-paste-ability.
             </BodyXl>
 
-            <Body className="mt-5 text-right text-neutral-subdued">
+            <Body className="text-neutral-subdued mt-5 text-right">
               <em>Unfold UI | Thoughtworks | 2023</em>
             </Body>
           </TiltCard>

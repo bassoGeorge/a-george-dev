@@ -5,7 +5,7 @@ type PostShort = {
 };
 
 export async function getPosts(): Promise<PostShort[]> {
-  return [
+  return Promise.resolve([
     {
       title: 'Testing',
       description: 'Blah',
@@ -16,5 +16,5 @@ export async function getPosts(): Promise<PostShort[]> {
       description: 'Blah2',
       slug: 'serenity',
     },
-  ];
+  ]);
 }

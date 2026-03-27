@@ -1,10 +1,10 @@
-import type { MDXComponents } from 'mdx/types';
 import {
   Heading1,
   Heading2,
   Heading3,
   Heading4,
 } from '@ageorgedev/design-system';
+import type { MDXComponents } from 'mdx/types';
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {

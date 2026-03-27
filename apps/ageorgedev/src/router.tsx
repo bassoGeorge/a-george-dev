@@ -1,7 +1,4 @@
-import {
-  createRouter as createTanStackRouter,
-  ScrollRestoration,
-} from '@tanstack/react-router';
+import { createRouter as createTanStackRouter } from '@tanstack/react-router';
 import { routeTree } from './routeTree.gen';
 
 // import { getContext } from './integrations/tanstack-query/root-provider';
