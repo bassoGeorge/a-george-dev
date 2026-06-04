@@ -1,33 +1,22 @@
-import { fixupConfigRules } from '@eslint/compat';
-import { FlatCompat } from '@eslint/eslintrc';
-import js from '@eslint/js';
 import nx from '@nx/eslint-plugin';
-import { dirname } from 'path';
-import { fileURLToPath } from 'url';
+import { tanstackConfig } from '@tanstack/eslint-config';
 import baseConfig from '../../eslint.config.mjs';
 
-const compat = new FlatCompat({
-  baseDirectory: dirname(fileURLToPath(import.meta.url)),
-  recommendedConfig: js.configs.recommended,
-});
+// TODO: additional typescript rules here should apply globally, not just for this
+
+// console.log("[debug] eslint setup: base", baseConfig.find((c) => c.name === "typescript-eslint/base").plugins['@typescript-eslint']);
+// console.log("[debug] eslint setup: tanstack", tanstackConfig.find((c) => c.name === "tanstack/javascript").rules);
+// delete tanstackConfig.find((c) => c.name === "tanstack/javascript").plugins['@typescript-eslint']
+
+// Since tanstack config redefines typescript plugin, we fix it by assigning it the same as default
+tanstackConfig.find((c) => c.name === 'tanstack/javascript').plugins[
+  '@typescript-eslint'
+] = baseConfig.find((c) => c.name === 'typescript-eslint/base').plugins[
+  '@typescript-eslint'
+];
 
 export default [
-  {
-    // for some reason, local path not working. need to investigate
-    ignores: [`**/.next/**/*`],
-  },
-  // ...fixupConfigRules(compat.extends('next')),
-  ...fixupConfigRules(
-    compat.config({
-      extends: ['next'],
-      settings: {
-        next: {
-          rootDir: 'apps/ageorgedev',
-        },
-      },
-    })
-  ),
-  ...fixupConfigRules(compat.extends('next/core-web-vitals')),
-  ...baseConfig,
+  ...tanstackConfig,
+  ...baseConfig, // our configs rul over tanstacks
   ...nx.configs['flat/react-typescript'],
 ];

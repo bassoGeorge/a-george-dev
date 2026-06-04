@@ -1,5 +1,6 @@
 import '@testing-library/jest-dom';
 import { act, render } from '@testing-library/react';
+import { ThemeContext } from '../theming/ThemeContext';
 import { ThemeProvider } from '../theming/ThemeProvider';
 import { Theme } from '../theming/models';
 import { CodeBlock } from './CodeBlock';
@@ -8,7 +9,18 @@ jest.mock('../theming/ThemeProvider');
 
 async function setupTestSubject(ui: React.ReactElement, theme: Theme = 'dark') {
   return act(() =>
-    render(<ThemeProvider startingTheme={theme}>{ui}</ThemeProvider>)
+    render(
+      <ThemeContext.Provider
+        value={{
+          theme,
+          setTheme: () => {
+            /* */
+          },
+        }}
+      >
+        {ui}
+      </ThemeContext.Provider>
+    )
   );
 }
 

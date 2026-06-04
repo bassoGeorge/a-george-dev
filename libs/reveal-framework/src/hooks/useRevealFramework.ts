@@ -1,7 +1,8 @@
 import { RefObject, useEffect, useRef } from 'react';
+import { RevealApi } from 'reveal.js';
 
 export function useRevealFramework(elementRef: RefObject<HTMLElement | null>) {
-  const revealInstance = useRef<Reveal.Api | null>(null);
+  const revealInstance = useRef<RevealApi | null>(null);
   useEffect(() => {
     (async () => {
       if (!elementRef.current) return;

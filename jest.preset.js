@@ -3,5 +3,5 @@ const path = require('path');
 
 module.exports = {
   ...nxPreset,
-  setupFilesAfterEnv: [path.join(__dirname, '/jest-setup.ts')],
+  setupFilesAfterEnv: [path.join(__dirname, '/jest-setup.tsx')],
 };

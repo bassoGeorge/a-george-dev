@@ -15,11 +15,13 @@ import {
   PointSeperator,
   SlideTypeCenter,
   SlideTypeRegular,
+  Presentation
 } from '@ageorgedev/reveal-framework';
+
 
 export function S01Intro() {
   return (
-    <section>
+    <Presentation.Stack>
       <SlideTypeCenter>
         <Heading1 className="font-bold">
           Beyond prototyping with{' '}
@@ -122,6 +124,6 @@ export function S01Intro() {
         <PBody>Dark mode</PBody>
         <PBody>CSS-in-JS</PBody>
       </SlideTypeCenter>
-    </section>
+    </Presentation.Stack>
   );
 }

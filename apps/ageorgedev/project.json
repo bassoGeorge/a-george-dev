@@ -19,6 +19,20 @@
       "options": {
         "lintFilePatterns": ["apps/ageorgedev/**/*.{ts,tsx,js,jsx}"]
       }
+    },
+    "dev": {
+      "executor": "@nx/vite:dev-server",
+      "options": {
+        "buildTarget": "ageorgedev:build",
+        "port": 3000
+      }
+    },
+    "build": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "vite build",
+        "cwd": "apps/ageorgedev"
+      }
     }
   }
 }

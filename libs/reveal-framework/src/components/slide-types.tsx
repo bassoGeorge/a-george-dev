@@ -1,18 +1,19 @@
+import { cn } from '@ageorgedev/toolbelt';
+import { Slide } from '@revealjs/react';
 import React from 'react';
 import {
   slideCenterStyles,
   slideContentReset,
+  slideHeaderGrid,
   slideMainGap,
   slideMainReset,
   slideWithoutFooterBottomMargin,
-  slideHeaderGrid,
 } from './deck-styles';
 import {
   CalloutForAdvancedTopic,
   CalloutForPersonalOpinion,
   CalloutForVD,
 } from './slide-components';
-import { cn } from '@ageorgedev/toolbelt';
 
 type CalloutType = 'UX' | 'Advanced' | 'Opinion';
 
@@ -24,7 +25,7 @@ export function SlideTypeCenter(
   props: React.PropsWithChildren<SlideWithCallout>
 ) {
   return (
-    <section className={slideMainReset}>
+    <Slide className={slideMainReset}>
       <TopLeftPosition {...props} />
       <div
         className={cn(
@@ -36,7 +37,7 @@ export function SlideTypeCenter(
       >
         {props.children}
       </div>
-    </section>
+    </Slide>
   );
 }
 
@@ -46,7 +47,7 @@ export function SlideTypeRegular(
   >
 ) {
   return (
-    <section className={slideMainReset}>
+    <Slide className={slideMainReset}>
       <TopLeftPosition {...props} />
       <div
         className={cn(
@@ -60,7 +61,7 @@ export function SlideTypeRegular(
           {props.children}
         </div>
       </div>
-    </section>
+    </Slide>
   );
 }
 
@@ -72,7 +73,7 @@ function TopLeftPosition({
     c ? CalloutMap[c] : React.Fragment
   );
   return (
-    <div className="absolute top-0 left-6 flex gap-5">
+    <div className="absolute left-6 top-0 flex gap-5">
       {calloutComponents.map((Comp, i) => (
         <Comp key={i} />
       ))}
