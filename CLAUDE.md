@@ -10,25 +10,25 @@ Personal website mono-repo for [ageorge.dev](https://ageorge.dev), built with Nx
 
 ```bash
 # Development
-yarn dev                          # Start ageorgedev app (port 3000)
-yarn storybook                    # Start design-system Storybook (port 4400)
-yarn decap-server                 # Start local CMS server
+yarn dev                                # Start ageorgedev app (port 3000)
+yarn storybook                          # Start design-system Storybook (port 4400)
+yarn decap-server                       # Start local CMS server
 
 # Build
-yarn build                        # Build ageorgedev app
-yarn nx build toolbelt                 # Build toolbelt lib (only buildable lib)
+yarn build                              # Build ageorgedev app
+yarn nx build toolbelt                  # Build toolbelt lib (only buildable lib)
 
 # Testing
-yarn test                         # Run all tests
-yarn nx test toolbelt                  # Run tests for a specific project
+yarn test                               # Run all tests
+yarn nx test toolbelt                   # Run tests for a specific project
 yarn nx test toolbelt --testFile=libs/toolbelt/src/lib/ramda-additions.spec.ts  # Single test file
 
 # Linting
-yarn nx lint ageorgedev                # Lint a specific project
-yarn nx run-many --target=lint         # Lint all projects
+yarn nx lint ageorgedev                 # Lint a specific project
+yarn nx run-many --target=lint          # Lint all projects
 
 # E2E
-yarn nx e2e ageorgedev-e2e             # Run Cypress e2e tests
+yarn nx e2e ageorgedev-e2e              # Run Cypress e2e tests
 
 # Add shadcn components (outputs to design-system lib)
 yarn shadcn add <component>

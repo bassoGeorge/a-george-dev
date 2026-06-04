@@ -32,7 +32,7 @@
     "src/globals.d.ts",
     "src/deprecated/next.config.mjs",
     "vite.config.mts",
-    "postcss.config.cjs"
+    "postcss.config.js"
   ],
   "exclude": [
     "node_modules",
