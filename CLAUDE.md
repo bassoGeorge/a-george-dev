@@ -16,19 +16,19 @@ yarn decap-server                 # Start local CMS server
 
 # Build
 yarn build                        # Build ageorgedev app
-nx build toolbelt                 # Build toolbelt lib (only buildable lib)
+yarn nx build toolbelt                 # Build toolbelt lib (only buildable lib)
 
 # Testing
 yarn test                         # Run all tests
-nx test toolbelt                  # Run tests for a specific project
-nx test toolbelt --testFile=libs/toolbelt/src/lib/ramda-additions.spec.ts  # Single test file
+yarn nx test toolbelt                  # Run tests for a specific project
+yarn nx test toolbelt --testFile=libs/toolbelt/src/lib/ramda-additions.spec.ts  # Single test file
 
 # Linting
-nx lint ageorgedev                # Lint a specific project
-nx run-many --target=lint         # Lint all projects
+yarn nx lint ageorgedev                # Lint a specific project
+yarn nx run-many --target=lint         # Lint all projects
 
 # E2E
-nx e2e ageorgedev-e2e             # Run Cypress e2e tests
+yarn nx e2e ageorgedev-e2e             # Run Cypress e2e tests
 
 # Add shadcn components (outputs to design-system lib)
 yarn shadcn add <component>

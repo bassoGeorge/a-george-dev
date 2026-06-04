@@ -2,6 +2,11 @@
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "jsx": "react-jsx",
+    "moduleResolution": "Bundler",
+    "module": "ESNext",
+    "target": "ES2022",
+    "skipLibCheck": true,
+    "strictNullChecks": true,
     "allowJs": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
@@ -26,7 +31,14 @@
     "src/deprecated/next-env.d.ts",
     "src/globals.d.ts",
     "src/deprecated/next.config.mjs",
-    "vite.config.mts"
+    "vite.config.mts",
+    "postcss.config.cjs"
   ],
-  "exclude": ["node_modules", "jest.config.ts", "**/*.spec.ts", "**/*.test.ts", "./deprecated/**/*"]
+  "exclude": [
+    "node_modules",
+    "jest.config.ts",
+    "**/*.spec.ts",
+    "**/*.test.ts",
+    "./deprecated/**/*"
+  ]
 }

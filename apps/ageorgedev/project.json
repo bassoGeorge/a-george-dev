@@ -28,9 +28,10 @@
       }
     },
     "build": {
-      "executor": "@nx/vite:build",
+      "executor": "nx:run-commands",
       "options": {
-        "outputPath": "dist/apps/ageorgedev"
+        "command": "vite build",
+        "cwd": "apps/ageorgedev"
       }
     }
   }
