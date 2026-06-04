@@ -10,3 +10,11 @@ The one mono-repo for my website and connected applications.
 - [ageorge.dev](https://ageorge.dev)
 - [Storybook](https://design.ageorge.dev)
 - [Project Board](https://github.com/users/bassoGeorge/projects/1/views/1)
+
+### Changelog
+
+- Moved to Tanstack Start
+
+### Todo
+
+- Re-implement the markdown blog
