@@ -8,5 +8,13 @@
       "import": "./dist/index.mjs",
       "require": "./dist/index.js"
     }
+  },
+  "dependencies": {
+    "@ageorgedev/brand-components": "*",
+    "@ageorgedev/design-system": "*",
+    "@ageorgedev/reveal-framework": "*",
+    "@ageorgedev/toolbelt": "*",
+    "@phosphor-icons/react": "2.1.10",
+    "react": "19.1.0"
   }
 }

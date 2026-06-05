@@ -65,6 +65,7 @@
     "jiti": "2.4.2",
     "jsdom": "22.1.0",
     "jsonc-eslint-parser": "^2.1.0",
+    "knip": "^6.15.0",
     "nx": "21.2.4",
     "postcss": "^8.5.15",
     "postcss-nesting": "^12.1.5",

@@ -10,6 +10,14 @@
     }
   },
   "dependencies": {
-    "@radix-ui/react-slot": "^1.2.3"
+    "@ageorgedev/toolbelt": "*",
+    "@phosphor-icons/react": "2.1.10",
+    "@radix-ui/react-slot": "^1.2.3",
+    "ramda": "^0.28.0",
+    "react": "19.1.0",
+    "react-syntax-highlighter": "16.1.1"
+  },
+  "devDependencies": {
+    "@types/react-syntax-highlighter": "^15.5.13"
   }
 }

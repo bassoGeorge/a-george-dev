@@ -10,7 +10,11 @@
     }
   },
   "dependencies": {
+    "@ageorgedev/design-system": "*",
+    "@ageorgedev/toolbelt": "*",
+    "@phosphor-icons/react": "2.1.10",
     "@revealjs/react": "^0.2.0",
+    "react": "19.1.0",
     "reveal.js": "6.0.0"
   },
   "devDependencies": {
