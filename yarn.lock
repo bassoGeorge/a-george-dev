@@ -58,10 +58,15 @@ __metadata:
     "@ageorgedev/toolbelt": "npm:*"
     "@phosphor-icons/react": "npm:2.1.10"
     "@radix-ui/react-slot": "npm:^1.2.3"
+    "@storybook/addon-a11y": "npm:^9.0.17"
+    "@storybook/addon-themes": "npm:9.0.17"
+    "@storybook/react-vite": "npm:9.0.17"
     "@types/react-syntax-highlighter": "npm:^15.5.13"
+    eslint-plugin-storybook: "npm:9.0.17"
     ramda: "npm:^0.28.0"
     react: "npm:19.1.0"
     react-syntax-highlighter: "npm:16.1.1"
+    storybook: "npm:^10.4.2"
   languageName: unknown
   linkType: soft
 

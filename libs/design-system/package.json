@@ -3,6 +3,13 @@
   "version": "0.0.1",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "vite build",
+    "lint": "eslint",
+    "build-storybook": "storybook build",
+    "dev-storybook": "storybook dev",
+    "test": "jest"
+  },
   "exports": {
     ".": {
       "import": "./dist/index.mjs",
@@ -15,9 +22,14 @@
     "@radix-ui/react-slot": "^1.2.3",
     "ramda": "^0.28.0",
     "react": "19.1.0",
-    "react-syntax-highlighter": "16.1.1"
+    "react-syntax-highlighter": "16.1.1",
+    "storybook": "^10.4.2"
   },
   "devDependencies": {
-    "@types/react-syntax-highlighter": "^15.5.13"
+    "@storybook/addon-a11y": "^9.0.17",
+    "@storybook/addon-themes": "9.0.17",
+    "@storybook/react-vite": "9.0.17",
+    "@types/react-syntax-highlighter": "^15.5.13",
+    "eslint-plugin-storybook": "9.0.17"
   }
 }
