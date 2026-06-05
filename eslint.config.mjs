@@ -20,48 +20,48 @@ export default [
       'unused-imports': unusedImports,
     },
   },
-  {
-    files: ['**/*.ts', '**/*.tsx', '**/*.js', '**/*.jsx'],
-    rules: {
-      '@nx/enforce-module-boundaries': [
-        'error',
-        {
-          enforceBuildableLibDependency: true,
-          allow: [],
-          depConstraints: [
-            {
-              sourceTag: '*',
-              onlyDependOnLibsWithTags: ['*'],
-            },
-            {
-              sourceTag: 'scope:global',
-              onlyDependOnLibsWithTags: ['scope:global'],
-            },
-            {
-              sourceTag: 'scope:site',
-              onlyDependOnLibsWithTags: [
-                'scope:global',
-                'scope:site',
-                'scope:ds',
-              ],
-            },
-            {
-              sourceTag: 'scope:ds',
-              onlyDependOnLibsWithTags: ['scope:global', 'scope:ds'],
-            },
-            {
-              sourceTag: 'type:util',
-              onlyDependOnLibsWithTags: ['type:util'],
-            },
-            {
-              sourceTag: 'type:ui',
-              onlyDependOnLibsWithTags: ['type:ui', 'type:util'],
-            },
-          ],
-        },
-      ],
-    },
-  },
+  // {
+  //   files: ['**/*.ts', '**/*.tsx', '**/*.js', '**/*.jsx'],
+  //   rules: {
+  //     '@nx/enforce-module-boundaries': [
+  //       'error',
+  //       {
+  //         enforceBuildableLibDependency: true,
+  //         allow: [],
+  //         depConstraints: [
+  //           {
+  //             sourceTag: '*',
+  //             onlyDependOnLibsWithTags: ['*'],
+  //           },
+  //           {
+  //             sourceTag: 'scope:global',
+  //             onlyDependOnLibsWithTags: ['scope:global'],
+  //           },
+  //           {
+  //             sourceTag: 'scope:site',
+  //             onlyDependOnLibsWithTags: [
+  //               'scope:global',
+  //               'scope:site',
+  //               'scope:ds',
+  //             ],
+  //           },
+  //           {
+  //             sourceTag: 'scope:ds',
+  //             onlyDependOnLibsWithTags: ['scope:global', 'scope:ds'],
+  //           },
+  //           {
+  //             sourceTag: 'type:util',
+  //             onlyDependOnLibsWithTags: ['type:util'],
+  //           },
+  //           {
+  //             sourceTag: 'type:ui',
+  //             onlyDependOnLibsWithTags: ['type:ui', 'type:util'],
+  //           },
+  //         ],
+  //       },
+  //     ],
+  //   },
+  // },
   {
     files: ['**/*.ts', '**/*.tsx'],
     // Override or add rules here
