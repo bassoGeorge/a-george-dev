@@ -2,6 +2,9 @@
   "name": "@ageorgedev/ageorgedev",
   "version": "0.0.1",
   "type": "module",
+  "scripts": {
+    "build": "vite build"
+  },
   "dependencies": {
     "@ageorgedev/design-system": "*",
     "@ageorgedev/foundation-styles": "*",

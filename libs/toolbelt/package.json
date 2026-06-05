@@ -4,6 +4,9 @@
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "sideEffects": false,
+  "scripts": {
+    "build": "vite build"
+  },
   "exports": {
     ".": {
       "import": "./dist/index.mjs",
