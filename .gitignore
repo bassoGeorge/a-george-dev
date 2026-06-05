@@ -47,7 +47,7 @@ apps/**/.cache
 .netlify
 
 apps/**/generated-src
-libs/**/generated-src
+packages/**/generated-src
 
 # environment files
 *.env

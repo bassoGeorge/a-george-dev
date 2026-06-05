@@ -1,4 +1,4 @@
-import { cn } from '@ageorgedev/toolbelt';
+import { cn } from 'packages/toolbelt/src';
 import { Slot } from '@radix-ui/react-slot';
 import { cva, type VariantProps } from 'class-variance-authority';
 import { Body, BodyLg, BodySm } from '../typography/typography-components';

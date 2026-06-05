@@ -1,4 +1,4 @@
-import { cn } from '@ageorgedev/toolbelt';
+import { cn } from 'packages/toolbelt/src';
 import { Heading3 } from '../typography/typography-components';
 import { firstNameColor, lastNameColor } from './styles';
 

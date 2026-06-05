@@ -3,7 +3,7 @@
  * Rectangular in shape
  */
 
-import { cn } from '@ageorgedev/toolbelt';
+import { cn } from 'packages/toolbelt/src';
 
 export function Card({
   className,

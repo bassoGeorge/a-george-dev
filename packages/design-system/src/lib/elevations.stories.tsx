@@ -1,4 +1,4 @@
-import { cn } from '@ageorgedev/toolbelt';
+import { cn } from 'packages/toolbelt/src';
 import { StoryObj } from '@storybook/react-vite';
 import { HTMLAttributes } from 'react';
 import { BodyMd } from './typography/typography-components';

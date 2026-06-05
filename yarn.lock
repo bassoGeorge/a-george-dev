@@ -45,15 +45,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@ageorgedev/brand-components@npm:*, @ageorgedev/brand-components@workspace:libs/brand-components":
+"@ageorgedev/brand-components@npm:*, @ageorgedev/brand-components@workspace:packages/brand-components":
   version: 0.0.0-use.local
-  resolution: "@ageorgedev/brand-components@workspace:libs/brand-components"
+  resolution: "@ageorgedev/brand-components@workspace:packages/brand-components"
   languageName: unknown
   linkType: soft
 
-"@ageorgedev/design-system@npm:*, @ageorgedev/design-system@workspace:libs/design-system":
+"@ageorgedev/design-system@npm:*, @ageorgedev/design-system@workspace:packages/design-system":
   version: 0.0.0-use.local
-  resolution: "@ageorgedev/design-system@workspace:libs/design-system"
+  resolution: "@ageorgedev/design-system@workspace:packages/design-system"
   dependencies:
     "@ageorgedev/toolbelt": "npm:*"
     "@phosphor-icons/react": "npm:2.1.10"
@@ -70,15 +70,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@ageorgedev/foundation-styles@npm:*, @ageorgedev/foundation-styles@workspace:libs/foundation-styles":
+"@ageorgedev/foundation-styles@npm:*, @ageorgedev/foundation-styles@workspace:packages/foundation-styles":
   version: 0.0.0-use.local
-  resolution: "@ageorgedev/foundation-styles@workspace:libs/foundation-styles"
+  resolution: "@ageorgedev/foundation-styles@workspace:packages/foundation-styles"
   languageName: unknown
   linkType: soft
 
-"@ageorgedev/reveal-framework@npm:*, @ageorgedev/reveal-framework@workspace:libs/reveal-framework":
+"@ageorgedev/reveal-framework@npm:*, @ageorgedev/reveal-framework@workspace:packages/reveal-framework":
   version: 0.0.0-use.local
-  resolution: "@ageorgedev/reveal-framework@workspace:libs/reveal-framework"
+  resolution: "@ageorgedev/reveal-framework@workspace:packages/reveal-framework"
   dependencies:
     "@ageorgedev/design-system": "npm:*"
     "@ageorgedev/toolbelt": "npm:*"
@@ -90,9 +90,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@ageorgedev/talk-tailwind@npm:*, @ageorgedev/talk-tailwind@workspace:libs/talk-tailwind":
+"@ageorgedev/talk-tailwind@npm:*, @ageorgedev/talk-tailwind@workspace:packages/talk-tailwind":
   version: 0.0.0-use.local
-  resolution: "@ageorgedev/talk-tailwind@workspace:libs/talk-tailwind"
+  resolution: "@ageorgedev/talk-tailwind@workspace:packages/talk-tailwind"
   dependencies:
     "@ageorgedev/brand-components": "npm:*"
     "@ageorgedev/design-system": "npm:*"
@@ -103,9 +103,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@ageorgedev/toolbelt@npm:*, @ageorgedev/toolbelt@workspace:libs/toolbelt":
+"@ageorgedev/toolbelt@npm:*, @ageorgedev/toolbelt@workspace:packages/toolbelt":
   version: 0.0.0-use.local
-  resolution: "@ageorgedev/toolbelt@workspace:libs/toolbelt"
+  resolution: "@ageorgedev/toolbelt@workspace:packages/toolbelt"
   dependencies:
     "@types/ramda": "npm:^0.28.23"
     clsx: "npm:^2.1.1"

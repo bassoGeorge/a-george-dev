@@ -1,4 +1,4 @@
-import { cn } from '@ageorgedev/toolbelt';
+import { cn } from 'packages/toolbelt/src';
 import { Icon } from '@phosphor-icons/react';
 import { InterfaceXl } from '../typography/typography-components';
 
