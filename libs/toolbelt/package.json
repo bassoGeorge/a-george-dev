@@ -6,7 +6,8 @@
   "sideEffects": false,
   "scripts": {
     "build": "vite build",
-    "test": "jest"
+    "test": "jest",
+    "lint": "eslint"
   },
   "exports": {
     ".": {
