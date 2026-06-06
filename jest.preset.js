@@ -1,7 +1,6 @@
-const nxPreset = require('@nx/jest/preset').default
+// const nxPreset = require('@nx/jest/preset').default
 const path = require('node:path')
 
 module.exports = {
-  ...nxPreset,
   setupFilesAfterEnv: [path.join(__dirname, '/jest-setup.tsx')],
 }
