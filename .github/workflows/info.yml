@@ -47,14 +47,11 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - name: 🔧 Derive appropriate SHAs for base and head for `nx affected` commands
-        id: setSHAs
-        uses: nrwl/nx-set-shas@v4
       - name: 📦 Install dependencies
         uses: ./.github/actions/install-dependencies
       - name: 🔧 List affected projects
         id: affected_projects
-        run: echo "affected_projects=$(yarn nx show projects --affected --json)" >> "$GITHUB_OUTPUT"
+        run: echo "affected_projects=$(yarn turbo query affected --packages | jq '[.data.affectedPackages.items[].name | select(. != "//")]')" >> "$GITHUB_OUTPUT"
       - name: Source validations on affected projects
         run: yarn nx affected --target validate
       - name: 🔍 Debug
@@ -63,6 +60,4 @@ jobs:
           echo "affected projects: ${{ steps.affected_projects.outputs.affected_projects }}"
     outputs:
       is_hotfix: ${{ steps.is_hotfix.outputs.is_hotfix }}
-      affected_base: ${{ steps.setSHAs.outputs.base }}
-      affected_head: ${{ steps.setSHAs.outputs.head }}
       affected_projects: ${{ steps.affected_projects.outputs.affected_projects }}

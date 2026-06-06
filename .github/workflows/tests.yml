@@ -2,8 +2,8 @@ name: 🧪 Tests
 on:
   workflow_call:
     inputs:
-      affected_projects:
-        required: true
+      command_arg:
+        required: false
         type: string
 jobs:
   Test:
@@ -14,4 +14,4 @@ jobs:
       - name: 📦 Install dependencies
         uses: ./.github/actions/install-dependencies
       - name: ⚡ Run Unit Tests for given projects
-        run: echo '${{ inputs.affected_projects }}' | jq -r '.[]' | xargs yarn nx run-many --target=test --passWithNoTests --projects
+        run: yarn turbo test ${{ inputs.command_arg }} -- --passWithNoTests
