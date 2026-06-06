@@ -1,4 +1,4 @@
-import { cn } from 'packages/toolbelt/src'
+import { cn } from '@ageorgedev/toolbelt'
 import {
   bottomLeftShadow,
   bottomRightShadow,

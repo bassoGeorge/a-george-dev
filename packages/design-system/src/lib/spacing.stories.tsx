@@ -1,4 +1,4 @@
-import { cn } from 'packages/toolbelt/src'
+import { cn } from '@ageorgedev/toolbelt'
 import { StoryObj } from '@storybook/react-vite'
 import { Interface } from './typography/typography-components'
 

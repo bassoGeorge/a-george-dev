@@ -1,4 +1,4 @@
-import { cn } from 'packages/toolbelt/src'
+import { cn } from '@ageorgedev/toolbelt'
 import { test } from 'ramda'
 import { TYPOGRAPHY_CLASSES, TypographyVariant } from './core-type-classes'
 

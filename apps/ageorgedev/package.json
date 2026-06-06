@@ -3,7 +3,8 @@
   "version": "0.0.1",
   "type": "module",
   "scripts": {
-    "build": "vite build"
+    "build": "vite build",
+    "dev": "vite dev --port 3000"
   },
   "dependencies": {
     "@ageorgedev/design-system": "*",
