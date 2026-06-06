@@ -1,6 +1,6 @@
 'use client'
 import { createContext, useContext } from 'react'
-import { Theme } from './models'
+import type { Theme } from './models'
 
 export type ThemeContext = {
   theme: Theme

@@ -1,8 +1,8 @@
 import { createRequire } from 'node:module'
-import { join, resolve, dirname } from 'path'
-import { mergeConfig } from 'vite'
-import type { StorybookConfig } from '@storybook/react-vite'
 import { fileURLToPath } from 'node:url'
+import type { StorybookConfig } from '@storybook/react-vite'
+import { dirname, join, resolve } from 'path'
+import { mergeConfig } from 'vite'
 
 const fileGlob = 'src/lib/**/*.stories.@(js|jsx|ts|tsx|mdx)'
 const projects = ['foundation-styles']

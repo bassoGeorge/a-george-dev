@@ -1,4 +1,3 @@
-import { Link, Outlet, createFileRoute } from '@tanstack/react-router'
 import {
   InterfaceXl,
   ShortNameLogo,
@@ -6,6 +5,7 @@ import {
   TiltCard,
 } from '@ageorgedev/design-system'
 import { cn } from '@ageorgedev/toolbelt'
+import { createFileRoute, Link, Outlet } from '@tanstack/react-router'
 
 export const Route = createFileRoute('/_public')({
   component: RouteComponent,

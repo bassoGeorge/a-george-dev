@@ -1,4 +1,3 @@
-import { Link, createFileRoute } from '@tanstack/react-router'
 import {
   Body,
   BodyXl,
@@ -6,6 +5,7 @@ import {
   Heading2,
   TiltCard,
 } from '@ageorgedev/design-system'
+import { createFileRoute, Link } from '@tanstack/react-router'
 
 export const Route = createFileRoute('/_public/talks/')({
   component: RouteComponent,

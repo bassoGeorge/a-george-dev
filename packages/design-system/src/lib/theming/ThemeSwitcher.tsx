@@ -1,7 +1,7 @@
 'use client'
 
-import { useCallback } from 'react'
 import { MoonIcon, SunIcon } from '@phosphor-icons/react/ssr'
+import { useCallback } from 'react'
 import { useTheme } from './ThemeContext'
 
 export function ThemeSwitcher() {

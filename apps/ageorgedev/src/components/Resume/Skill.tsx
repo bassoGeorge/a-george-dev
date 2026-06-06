@@ -31,19 +31,19 @@ type SkillClassMap = Record<SkillLevel, string>
 const primaryAccentColorClasses: SkillClassMap = {
   3: 'bg-primary-surface text-primary-onsurface',
   4: 'bg-primary-surface-2 text-primary-onsurface-2',
-  5: styles.highSkill + ' bg-primary-surface-2 text-primary-onsurface-2', // TODO
+  5: `${styles.highSkill} bg-primary-surface-2 text-primary-onsurface-2`, // TODO
 }
 
 const secondaryAccentColorClasses: SkillClassMap = {
   3: 'bg-secondary-surface text-secondary-onsurface',
   4: 'bg-secondary-surface-2 text-secondary-onsurface-2',
-  5: styles.highSkill + ' bg-secondary-surface-2 text-secondary-onsurface-2',
+  5: `${styles.highSkill} bg-secondary-surface-2 text-secondary-onsurface-2`,
 }
 
 const levelClassesForHuman: SkillClassMap = {
   3: 'bg-primary-surface text-primary-onsurface',
   4: 'bg-primary-surface-2 text-primary-onsurface-2',
-  5: styles.highSkill + ' bg-primary-surface-2 text-primary-onsurface-2', // TODO
+  5: `${styles.highSkill} bg-primary-surface-2 text-primary-onsurface-2`, // TODO
 }
 
 const levelClasses: Record<SkillType, SkillClassMap> = {

@@ -1,4 +1,3 @@
-import { createFileRoute } from '@tanstack/react-router'
 import {
   Body,
   BodyLg,
@@ -12,10 +11,11 @@ import {
 } from '@ageorgedev/design-system'
 import { cn } from '@ageorgedev/toolbelt'
 import { ArrowSquareOutIcon } from '@phosphor-icons/react/ssr'
+import { createFileRoute } from '@tanstack/react-router'
 import { Fragment } from 'react'
 import {
-  Skill,
   humanSkills,
+  Skill,
   techSkills,
   toolSkills,
 } from '../../components/Resume/Skill'

@@ -1,6 +1,6 @@
 import { cn } from '@ageorgedev/toolbelt'
 import { test } from 'ramda'
-import { TYPOGRAPHY_CLASSES, TypographyVariant } from './core-type-classes'
+import { TYPOGRAPHY_CLASSES, type TypographyVariant } from './core-type-classes'
 
 export type TextTag =
   | 'h1'

@@ -1,5 +1,5 @@
 import { compose, head, includes, last, split } from 'ramda'
-import { Plugin } from 'vite'
+import type { Plugin } from 'vite'
 
 const languagesToAllow = [
   'typescript',

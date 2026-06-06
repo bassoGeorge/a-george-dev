@@ -1,11 +1,11 @@
 import {
+  CodeBlock,
   Heading1,
   Heading2,
   Heading3,
   PBody,
   PBodyMd,
 } from '@ageorgedev/design-system'
-import { CodeBlock } from '@ageorgedev/design-system'
 import {
   ImportantNote,
   PointSeperator,

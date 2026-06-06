@@ -1,8 +1,8 @@
 import '@testing-library/jest-dom'
 import { act, render } from '@testing-library/react'
+import type { Theme } from '../theming/models'
 import { ThemeContext } from '../theming/ThemeContext'
 import { ThemeProvider } from '../theming/ThemeProvider'
-import { Theme } from '../theming/models'
 import { CodeBlock } from './CodeBlock'
 
 jest.mock('../theming/ThemeProvider')

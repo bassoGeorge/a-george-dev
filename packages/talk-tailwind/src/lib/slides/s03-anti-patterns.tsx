@@ -1,5 +1,10 @@
-import { Heading1, Heading2, PBody, PBodyMd } from '@ageorgedev/design-system'
-import { CodeBlock } from '@ageorgedev/design-system'
+import {
+  CodeBlock,
+  Heading1,
+  Heading2,
+  PBody,
+  PBodyMd,
+} from '@ageorgedev/design-system'
 import {
   PointSeperator,
   SlideTypeCenter,

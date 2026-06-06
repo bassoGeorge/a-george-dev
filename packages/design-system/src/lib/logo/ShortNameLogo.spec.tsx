@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom'
 import { render, screen } from '@testing-library/react'
-import { ShortNameLogo } from './ShortNameLogo'
 import { Heading3 } from '../typography/typography-components'
+import { ShortNameLogo } from './ShortNameLogo'
 import { firstNameColor, lastNameColor } from './styles'
 
 describe('ShortNameLogo', () => {

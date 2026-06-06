@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom'
 import { render, screen } from '@testing-library/react'
-import { Text, TextBuilder } from './Text'
 import { TYPOGRAPHY_CLASSES } from './core-type-classes'
+import { Text, TextBuilder } from './Text'
 
 describe('Text', () => {
   it('renders with default tag based on variant', () => {

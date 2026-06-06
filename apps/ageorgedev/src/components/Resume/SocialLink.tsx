@@ -1,4 +1,5 @@
 import { BodySm } from '@ageorgedev/design-system'
+import type { Icon } from '@phosphor-icons/react'
 import {
   EnvelopeIcon,
   GithubLogoIcon,
@@ -7,7 +8,6 @@ import {
   MapPinIcon,
   PhoneIcon,
 } from '@phosphor-icons/react/ssr'
-import type { Icon } from '@phosphor-icons/react'
 
 type SocialLinkType =
   | 'github'

@@ -13,9 +13,9 @@ import {
   CalloutForPersonalOpinion,
   CalloutForVD,
   PointSeperator,
+  Presentation,
   SlideTypeCenter,
   SlideTypeRegular,
-  Presentation,
 } from '@ageorgedev/reveal-framework'
 
 export function S01Intro() {

@@ -1,12 +1,17 @@
-import { Heading1, Heading3, PBody, PBodyMd } from '@ageorgedev/design-system'
-import { CodeBlock } from '@ageorgedev/design-system'
+import {
+  CodeBlock,
+  Heading1,
+  Heading3,
+  PBody,
+  PBodyMd,
+} from '@ageorgedev/design-system'
 import {
   ComparisonRow,
   ImportantNote,
+  Presentation,
   SlideMediaRow,
   SlideTypeCenter,
   SlideTypeRegular,
-  Presentation,
 } from '@ageorgedev/reveal-framework'
 import { D01TailwindFilesize } from '../diagrams/D01TailwindFilesize'
 

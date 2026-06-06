@@ -1,21 +1,21 @@
-import { Meta, StoryObj } from '@storybook/react-vite'
-import { CalloutBadge } from './CalloutBadge'
 import {
   AddressBookIcon,
   AirplaneInFlightIcon,
-  PenNibIcon,
-  SealWarningIcon,
-  SkullIcon,
   BellIcon,
   BookIcon,
   CameraIcon,
   CoffeeIcon,
   HeartIcon,
   LightningIcon,
+  PenNibIcon,
+  SealWarningIcon,
+  SkullIcon,
   StarIcon,
   TrophyIcon,
   UserIcon,
 } from '@phosphor-icons/react/ssr'
+import type { Meta, StoryObj } from '@storybook/react-vite'
+import { CalloutBadge } from './CalloutBadge'
 
 export default {
   title: 'Atoms/Callout Badge',

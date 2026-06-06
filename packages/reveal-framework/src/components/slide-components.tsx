@@ -1,13 +1,13 @@
 import {
   CalloutBadge,
   TiltCard,
-  TiltCardProps,
+  type TiltCardProps,
 } from '@ageorgedev/design-system'
 import { cn } from '@ageorgedev/toolbelt'
 import {
   BracketsAngleIcon,
   ExamIcon,
-  Icon,
+  type Icon,
   LightningIcon,
   MegaphoneIcon,
   PenNibIcon,

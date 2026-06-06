@@ -1,6 +1,6 @@
 import { cn } from '@ageorgedev/toolbelt'
-import { StoryObj } from '@storybook/react-vite'
-import { HTMLAttributes, createContext, useContext } from 'react'
+import type { StoryObj } from '@storybook/react-vite'
+import { createContext, type HTMLAttributes, useContext } from 'react'
 import {
   BodyMd,
   BodyXl,

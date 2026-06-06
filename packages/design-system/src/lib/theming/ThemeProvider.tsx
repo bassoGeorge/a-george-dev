@@ -1,5 +1,5 @@
-import { PropsWithChildren, useCallback, useEffect, useState } from 'react'
-import { Theme } from './models'
+import { type PropsWithChildren, useCallback, useEffect, useState } from 'react'
+import type { Theme } from './models'
 import { ThemeContext } from './ThemeContext'
 
 /** TODO:

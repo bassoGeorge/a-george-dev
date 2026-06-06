@@ -1,23 +1,23 @@
 import { render } from '@testing-library/react'
 import {
+  Body,
+  BodyLg,
+  BodyMd,
+  BodySm,
+  BodyXl,
+  BodyXs,
   Heading1,
   Heading2,
   Heading3,
   Heading4,
   Heading5,
   Heading6,
-  BodyXl,
-  BodyLg,
-  BodyMd,
-  Body,
-  BodySm,
-  BodyXs,
+  Interface,
   Interface2Xl,
-  InterfaceXl,
   InterfaceLg,
   InterfaceMd,
-  Interface,
   InterfaceSm,
+  InterfaceXl,
 } from './typography-components'
 
 describe('Typography', () => {

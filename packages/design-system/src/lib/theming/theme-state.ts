@@ -1,4 +1,4 @@
-import { Theme } from './models'
+import type { Theme } from './models'
 
 export type ThemeState = {
   theme: Theme

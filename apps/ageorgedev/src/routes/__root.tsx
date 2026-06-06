@@ -1,11 +1,12 @@
 import { THEME_INIT_SCRIPT } from '@ageorgedev/design-system'
 import {
+  createRootRouteWithContext,
   HeadContent,
   Scripts,
-  createRootRouteWithContext,
 } from '@tanstack/react-router'
 import { GlobalProviders } from '../components/GlobalProviders'
 import appCss from '../tailwind.css?url'
+
 // import type { QueryClient } from '@tanstack/react-query';
 
 type MyRouterContext = {

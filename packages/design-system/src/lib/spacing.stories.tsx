@@ -1,5 +1,5 @@
 import { cn } from '@ageorgedev/toolbelt'
-import { StoryObj } from '@storybook/react-vite'
+import type { StoryObj } from '@storybook/react-vite'
 import { Interface } from './typography/typography-components'
 
 export default {

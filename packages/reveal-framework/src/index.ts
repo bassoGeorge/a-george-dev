@@ -1,6 +1,8 @@
-export * from './hooks/useRevealFramework'
+export * from './components/slide-components'
 export * from './components/slide-layout-builders'
 export * from './components/slide-types'
-export * from './components/slide-components'
+export * from './hooks/useRevealFramework'
+
 import * as Presentation from '@revealjs/react'
+
 export { Presentation }
