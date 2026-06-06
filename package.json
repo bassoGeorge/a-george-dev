@@ -5,17 +5,18 @@
   "private": true,
   "packageManager": "yarn@4.14.1",
   "scripts": {
-    "dev": "turbo dev --filter=@ageorgedev/ageorgedev",
-    "build": "nx build ageorgedev",
-    "test": "nx run-many --target=test --passWithNoTests",
+    "dev": "turbo @ageorgedev/ageorgedev#dev",
+    "build": "turbo @ageorgedev/ageorgedev#build",
+    "test": "turbo test -- --passWithNoTests",
     "preinstall": "git config core.hooksPath .git-hooks",
     "affected-projects": "nx print-affected --select=projects",
     "clean-dist": "rm -rf dist && find ./libs -type d -name dist -exec rm -rf {} + && find ./apps -type d -name dist -exec rm -rf {} +",
-    "storybook": "nx storybook design-system",
+    "storybook": "turbo @ageoregdev/design-system#storybook",
     "decap-server": "npx decap-server",
     "shadcn": "yarn dlx shadcn",
     "format-and-lint": "biome check .",
-    "format-and-lint:fix": "biome check . --write"
+    "format-and-lint:fix": "biome check . --write",
+    "lint:ci": "biome ci ."
   },
   "devDependencies": {
     "@babel/core": "^7.26.10",

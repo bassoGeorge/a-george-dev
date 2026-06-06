@@ -17,6 +17,9 @@
       "cache": false,
       "persistent": true
     },
+    "e2e": {
+      "cache": false
+    },
     "//#format-and-lint": {},
     "//#format-and-lint:fix": {
       "cache": false
