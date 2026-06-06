@@ -1,15 +1,15 @@
-import { Link, createFileRoute } from '@tanstack/react-router';
 import {
   Body,
   BodyXl,
   Heading1,
   Heading2,
   TiltCard,
-} from '@ageorgedev/design-system';
+} from '@ageorgedev/design-system'
+import { createFileRoute, Link } from '@tanstack/react-router'
 
 export const Route = createFileRoute('/_public/talks/')({
   component: RouteComponent,
-});
+})
 
 function RouteComponent() {
   return (
@@ -35,5 +35,5 @@ function RouteComponent() {
         </Link>
       </div>
     </div>
-  );
+  )
 }

@@ -2,6 +2,7 @@
 
 # compiled output
 dist
+storybook-static
 tmp
 /out-tsc
 
@@ -46,7 +47,7 @@ apps/**/.cache
 .netlify
 
 apps/**/generated-src
-libs/**/generated-src
+packages/**/generated-src
 
 # environment files
 *.env
@@ -73,3 +74,6 @@ vite.config.*.timestamp*
 vitest.config.*.timestamp*
 .cursor/rules/nx-rules.mdc
 .github/instructions/nx.instructions.md
+
+
+.turbo

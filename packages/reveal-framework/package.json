@@ -1,0 +1,26 @@
+{
+  "name": "@ageorgedev/reveal-framework",
+  "version": "0.0.1",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "vite build"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    }
+  },
+  "dependencies": {
+    "@ageorgedev/design-system": "*",
+    "@ageorgedev/toolbelt": "*",
+    "@phosphor-icons/react": "2.1.10",
+    "@revealjs/react": "^0.2.0",
+    "react": "19.1.0",
+    "reveal.js": "6.0.0"
+  },
+  "devDependencies": {
+    "@types/reveal.js": "^4.4.2"
+  }
+}

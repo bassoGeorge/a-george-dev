@@ -2,21 +2,16 @@ name: 🧪 Tests
 on:
   workflow_call:
     inputs:
-      affected_projects:
-        required: true
+      command_arg:
+        required: false
         type: string
-    secrets:
-      NX_CLOUD_ACCESS_TOKEN:
-        required: true
 jobs:
   Test:
     runs-on: ubuntu-latest
     steps:
       - name: ⬇️ Check out repository code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
       - name: 📦 Install dependencies
         uses: ./.github/actions/install-dependencies
-        with:
-          NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
       - name: ⚡ Run Unit Tests for given projects
-        run: echo '${{ inputs.affected_projects }}' | jq -r '.[]' | xargs yarn nx run-many --target=test --passWithNoTests --projects
+        run: yarn turbo test ${{ inputs.command_arg }} -- --passWithNoTests

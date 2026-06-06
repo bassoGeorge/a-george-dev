@@ -3,19 +3,15 @@
 # This makes sure that if any simple command (straightforward commands not under any expression) fails,
 # The whole script immediately fails
 set -e
-export NX_TUI=false
 
-# Step 0: Remember all the files that are not staged for this commit, comes in later
+# # Step 0: Remember all the files that are not staged for this commit, comes in later
 UNSTAGED_FILES=$(git diff --name-only)
 
-# Step 1: Run the linting of affected files. Just fix automatically if possible
-yarn nx affected:lint --uncommitted --fix
+# # Step 1: Run the linting and formatting of staged files, fix as possible
+yarn exec biome check --no-errors-on-unmatched --staged --write --error-on-warnings
 
-# Step 2: Run the formatter
-yarn nx format:write --uncommitted
-
-# Step 1.cleanup: We need to stage the files that the lint fixed. For that, we do a diff with the original unstaged
-# and add those files
+# # Step 2.cleanup: We need to stage the files that the lint fixed. For that, we do a diff with the original unstaged
+# # and add those files
 UNSTAGED_FILES_AFTER_LINT=$(git diff --name-only)
 FILES_TO_BE_ADDED=$(echo "$UNSTAGED_FILES\n$UNSTAGED_FILES_AFTER_LINT" | sort | uniq -u)
 echo $FILES_TO_BE_ADDED | xargs git add

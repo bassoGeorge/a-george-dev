@@ -1,13 +1,10 @@
-import { defineConfig, searchForWorkspaceRoot } from 'vite';
-// import { devtools } from '@tanstack/devtools-vite';
-
-import { nxViteTsPaths } from '@nx/vite/plugins/nx-tsconfig-paths.plugin';
-import { tanstackStart } from '@tanstack/react-start/plugin/vite';
-import * as path from 'path';
-import dts from 'vite-plugin-dts';
-
-import tailwindcss from '@tailwindcss/vite';
-import viteReact from '@vitejs/plugin-react';
+import * as path from 'node:path'
+import { nxViteTsPaths } from '@nx/vite/plugins/nx-tsconfig-paths.plugin'
+import tailwindcss from '@tailwindcss/vite'
+import { tanstackStart } from '@tanstack/react-start/plugin/vite'
+import viteReact from '@vitejs/plugin-react'
+import { defineConfig, searchForWorkspaceRoot } from 'vite'
+import dts from 'vite-plugin-dts'
 
 const config = defineConfig({
   root: __dirname,
@@ -54,6 +51,6 @@ const config = defineConfig({
       allow: [searchForWorkspaceRoot(process.cwd())],
     },
   },
-});
+})
 
-export default config;
+export default config

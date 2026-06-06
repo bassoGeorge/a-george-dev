@@ -1,0 +1,25 @@
+{
+  "name": "@ageorgedev/toolbelt",
+  "version": "0.0.1",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "sideEffects": false,
+  "scripts": {
+    "build": "vite build",
+    "test": "echo 'temporary dummy tests'"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    }
+  },
+  "dependencies": {
+    "clsx": "^2.1.1",
+    "ramda": "^0.28.0",
+    "tailwind-merge": "^3.3.1"
+  },
+  "devDependencies": {
+    "@types/ramda": "^0.28.23"
+  }
+}

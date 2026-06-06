@@ -14,8 +14,6 @@ on:
     secrets:
       VERCEL_ACCESS_TOKEN:
         required: true
-      NX_CLOUD_ACCESS_TOKEN:
-        required: true
     outputs:
       deploy_url:
         description: 'URL of the deployed site'
@@ -26,11 +24,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: ⬇️ Check out repository code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
       - name: 📦 Install dependencies
         uses: ./.github/actions/install-dependencies
-        with:
-          NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
       - name: 🚀 Deploy site
         uses: ./.github/actions/deploy-to-vercel
         id: deploy

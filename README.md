@@ -18,3 +18,4 @@ The one mono-repo for my website and connected applications.
 ### Todo
 
 - Re-implement the markdown blog
+- Re-do githooks

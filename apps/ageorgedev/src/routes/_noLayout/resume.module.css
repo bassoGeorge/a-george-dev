@@ -17,8 +17,8 @@
   grid-template-columns: minmax(0, 3fr) minmax(0, 8fr);
   grid-template-rows: max-content 1fr;
   grid-template-areas:
-    'header header'
-    'aside article';
+    "header header"
+    "aside article";
   overflow: hidden;
   print-color-adjust: exact;
 }

@@ -21,7 +21,7 @@ yarn nx build toolbelt                  # Build toolbelt lib (only buildable lib
 # Testing
 yarn test                               # Run all tests
 yarn nx test toolbelt                   # Run tests for a specific project
-yarn nx test toolbelt --testFile=libs/toolbelt/src/lib/ramda-additions.spec.ts  # Single test file
+yarn nx test toolbelt --testFile=packages/toolbelt/src/lib/ramda-additions.spec.ts  # Single test file
 
 # Linting
 yarn nx lint ageorgedev                 # Lint a specific project
@@ -42,12 +42,12 @@ This is an Nx monorepo with Yarn v4 workspaces:
 
 - **`apps/ageorgedev`** — Main website, TanStack Start (SSG mode), served on Vercel
 - **`apps/ageorgedev-e2e`** — Cypress e2e tests for the main site
-- **`libs/design-system`** — React UI component library; Storybook at design.ageorge.dev; tagged `scope:ds, type:ui`
-- **`libs/brand-components`** — Higher-level branded components (talks, presentations); tagged `scope:site`
-- **`libs/toolbelt`** — Shared utilities (`cn`, ramda extensions); the only buildable lib; tagged `scope:global, type:util`
-- **`libs/foundation-styles`** — Raw CSS design tokens (typography, colors, spacing, shadows); imported as implicit dependency by design-system and ageorgedev
-- **`libs/reveal-framework`** — Presentation framework integration
-- **`libs/talk-tailwind`** — Content lib for the "Tailwind" talk
+- **`packages/design-system`** — React UI component library; Storybook at design.ageorge.dev; tagged `scope:ds, type:ui`
+- **`packages/brand-components`** — Higher-level branded components (talks, presentations); tagged `scope:site`
+- **`packages/toolbelt`** — Shared utilities (`cn`, ramda extensions); the only buildable lib; tagged `scope:global, type:util`
+- **`packages/foundation-styles`** — Raw CSS design tokens (typography, colors, spacing, shadows); imported as implicit dependency by design-system and ageorgedev
+- **`packages/reveal-framework`** — Presentation framework integration
+- **`packages/talk-tailwind`** — Content lib for the "Tailwind" talk
 
 ### Module Boundary Rules (enforced by ESLint)
 
@@ -73,13 +73,13 @@ Routes are auto-generated into `routeTree.gen.ts` by the Vite plugin — never e
 
 ### Theming
 
-Dark/light theme is managed in `libs/design-system`:
+Dark/light theme is managed in `packages/design-system`:
 
 - `THEME_INIT_SCRIPT` — Inline script injected in `<head>` to avoid flash (reads `localStorage.theme`)
 - `ThemeProvider` / `ThemeContext` — React context for runtime theme switching
 - `ThemeSwitcher` — UI toggle component
 
-CSS design tokens live in `libs/foundation-styles/src/theme.css` and sub-files. Tailwind v4 CSS-first config is used (no `tailwind.config.js`).
+CSS design tokens live in `packages/foundation-styles/src/theme.css` and sub-files. Tailwind v4 CSS-first config is used (no `tailwind.config.js`).
 
 ### Shadcn Components
 
@@ -95,11 +95,11 @@ CSS design tokens live in `libs/foundation-styles/src/theme.css` and sub-files. 
 ### Key Path Aliases
 
 ```
-@ageorgedev/design-system   → libs/design-system/src/index.ts
-@ageorgedev/toolbelt        → libs/toolbelt/src/index.ts
-@ageorgedev/brand-components → libs/brand-components/src/index.ts
-@ageorgedev/reveal-framework → libs/reveal-framework/src/index.ts
-@ageorgedev/talk-tailwind   → libs/talk-tailwind/src/index.ts
+@ageorgedev/design-system   → packages/design-system/src/index.ts
+@ageorgedev/toolbelt        → packages/toolbelt/src/index.ts
+@ageorgedev/brand-components → packages/brand-components/src/index.ts
+@ageorgedev/reveal-framework → packages/reveal-framework/src/index.ts
+@ageorgedev/talk-tailwind   → packages/talk-tailwind/src/index.ts
 ```
 
 ### Content
