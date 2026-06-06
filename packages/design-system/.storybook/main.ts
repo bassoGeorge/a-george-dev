@@ -1,7 +1,7 @@
 import { createRequire } from 'node:module'
+import { dirname, join, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import type { StorybookConfig } from '@storybook/react-vite'
-import { dirname, join, resolve } from 'path'
 import { mergeConfig } from 'vite'
 
 const fileGlob = 'src/lib/**/*.stories.@(js|jsx|ts|tsx|mdx)'
@@ -54,6 +54,6 @@ export default config
 // Check https://storybook.js.org/docs/react/builders/vite#configuration
 // and https://nx.dev/packages/storybook/documents/custom-builder-configs
 
-function getAbsolutePath(value: string): any {
+function getAbsolutePath(value: string): string {
   return dirname(require.resolve(join(value, 'package.json')))
 }

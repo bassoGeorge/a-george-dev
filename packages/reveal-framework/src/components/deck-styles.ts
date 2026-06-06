@@ -9,7 +9,6 @@ export const slideContentReset = 'h-full'
 
 export const slideCenterStyles = `flex flex-col justify-center items-center`
 
-export const slideHeaderGrid =
-  'grid place-items-center gap-6 large-desktop:gap-7 ' + styles.slideHeaderGrid
+export const slideHeaderGrid = `grid place-items-center gap-6 large-desktop:gap-7 ${styles.slideHeaderGrid}`
 
 export const middleDivider = styles.middleDivider

@@ -75,6 +75,7 @@ function TopLeftPosition({
   return (
     <div className="absolute left-6 top-0 flex gap-5">
       {calloutComponents.map((Comp, i) => (
+        // biome-ignore lint/suspicious/noArrayIndexKey: Won't change, not important
         <Comp key={i} />
       ))}
     </div>

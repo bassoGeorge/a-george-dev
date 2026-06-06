@@ -12,6 +12,7 @@ export function D01TailwindFilesize({
       className={cn('w-full', className)}
       {...otherProps}
     >
+      <title>File size trend</title>
       <g strokeLinecap="round">
         <g transform="translate(74.72344970703125 400.8256959225) rotate(0 -0.2662047158519272 -195.18054735249507)">
           <path

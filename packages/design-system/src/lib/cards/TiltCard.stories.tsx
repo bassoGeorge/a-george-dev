@@ -107,9 +107,13 @@ export const WithCustomContent: Story = {
       <div className="space-y-4">
         <h3 className="text-xl font-bold">Card Title</h3>
         <p>
-          This is a card with custom content including a title and paragraph.
+          This is a card witlint/a11y/useButtonTypeh custom content including a
+          title and paragraph.
         </p>
-        <button className="bg-blue-500 text-white rounded px-4 py-2">
+        <button
+          type="button"
+          className="bg-blue-500 text-white rounded px-4 py-2"
+        >
           Click Me
         </button>
       </div>

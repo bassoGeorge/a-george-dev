@@ -25,7 +25,7 @@ export function removeFilesPlugin(): Plugin {
       order: 'pre',
       handler(specifier) {
         if (
-          typeof specifier == 'string' &&
+          typeof specifier === 'string' &&
           specifier.includes('refractor/lang')
         ) {
           const lang = getLang(specifier)

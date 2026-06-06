@@ -69,18 +69,18 @@ function RouteComponent() {
             Skills
           </Heading6>
           <div className="-mr-2 flex flex-wrap gap-2">
-            {toolSkills.map((props, index) => (
-              <Skill key={index} {...props} />
+            {toolSkills.map((props) => (
+              <Skill key={props.name} {...props} />
             ))}
           </div>
           <div className="-mr-4 mt-2 flex flex-wrap gap-2">
-            {techSkills.map((props, index) => (
-              <Skill key={index} {...props} />
+            {techSkills.map((props) => (
+              <Skill key={props.name} {...props} />
             ))}
           </div>
           <div className="-mr-7 mt-2 flex flex-wrap gap-2">
-            {humanSkills.map((props, index) => (
-              <Skill key={index} {...props} />
+            {humanSkills.map((props) => (
+              <Skill key={props.name} {...props} />
             ))}
           </div>
         </section>

@@ -22,9 +22,9 @@ const buttonVariants = cva(
         link: 'text-primary-foreground underline-offset-4 hover:underline',
       },
       size: {
-        default: Body.classes + ' px-4 py-2 has-[>svg]:px-3', // TODO: check all classes against svgs
-        sm: BodySm.classes + ' px-3 py-1 gap-1.5 has-[>svg]:px-2.5',
-        lg: BodyLg.classes + ' px-6 py-3 has-[>svg]:px-4',
+        default: `${Body.classes} px-4 py-2 has-[>svg]:px-3`, // TODO: check all classes against svgs
+        sm: `${BodySm.classes} px-3 py-1 gap-1.5 has-[>svg]:px-2.5`,
+        lg: `${BodyLg.classes} px-6 py-3 has-[>svg]:px-4`,
         icon: 'size-9', // TODO
       },
     },

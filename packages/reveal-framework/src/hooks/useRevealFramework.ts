@@ -3,6 +3,7 @@ import type { RevealApi } from 'reveal.js'
 
 export function useRevealFramework(elementRef: RefObject<HTMLElement | null>) {
   const revealInstance = useRef<RevealApi | null>(null)
+  // biome-ignore lint/correctness/useExhaustiveDependencies: thats how it works
   useEffect(() => {
     ;(async () => {
       if (!elementRef.current) return

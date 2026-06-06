@@ -14,6 +14,7 @@ export function D02CssPipeline({
       className={cn('w-full', className)}
       {...otherProps}
     >
+      <title>Css Html</title>
       <g
         strokeLinecap="round"
         transform="translate(10 248.7864348513158) rotate(0 99.5 77.5)"

@@ -1,8 +1,8 @@
+import * as path from 'node:path'
 import { nxViteTsPaths } from '@nx/vite/plugins/nx-tsconfig-paths.plugin'
 import tailwindcss from '@tailwindcss/vite'
 import { tanstackStart } from '@tanstack/react-start/plugin/vite'
 import viteReact from '@vitejs/plugin-react'
-import * as path from 'path'
 import { defineConfig, searchForWorkspaceRoot } from 'vite'
 import dts from 'vite-plugin-dts'
 

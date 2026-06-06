@@ -11,6 +11,7 @@ export function TwLogo(props: React.SVGProps<SVGSVGElement>) {
       viewBox="0 0 408.8 65.5"
       {...props}
     >
+      <title>ThoughtWorks</title>
       <g>
         <polygon className={bar} points="27.2,0 0,53.4 12.6,53.4 39.9,0" />
         <g>

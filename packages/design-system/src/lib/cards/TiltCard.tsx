@@ -20,7 +20,7 @@ export function TiltCard({
   ...htmlProps
 }: TiltCardProps) {
   const skewClass = shape ? styles[shape] : ''
-  const skewStrengthClass = styles['skew-' + (skewStrength ?? 'medium')]
+  const skewStrengthClass = styles[`skew-${skewStrength ?? 'medium'}`]
   const interC = interactive ? interactiveClasses : ''
   const borderC = borderClassMap[border ?? 'all']
 

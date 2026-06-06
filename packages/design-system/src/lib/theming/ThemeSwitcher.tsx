@@ -14,6 +14,7 @@ export function ThemeSwitcher() {
 
   return (
     <button
+      type="button"
       className={
         'p-3 text-2xl leading-none text-neutral-subdued transition-colors hover:text-primary-foreground'
       }
