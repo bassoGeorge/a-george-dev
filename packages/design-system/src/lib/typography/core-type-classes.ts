@@ -1,10 +1,10 @@
-import { mapObjIndexed } from 'ramda';
+import { mapObjIndexed } from 'ramda'
 
-const headingFont = 'font-heading';
-const bodyFont = 'font-body';
-const interfaceFont = 'font-interface';
+const headingFont = 'font-heading'
+const bodyFont = 'font-body'
+const interfaceFont = 'font-interface'
 
-const withFont = (font: string) => (v: string) => `${font} ${v}`;
+const withFont = (font: string) => (v: string) => `${font} ${v}`
 
 const headingClasses = mapObjIndexed(withFont(headingFont), {
   h1: 'text-4xl tablet:text-5xl desktop:text-6xl',
@@ -13,7 +13,7 @@ const headingClasses = mapObjIndexed(withFont(headingFont), {
   h4: 'text-xl tablet:text-2xl desktop:text-3xl',
   h5: 'text-lg tablet:text-xl desktop:text-2xl',
   h6: 'text-md tablet:text-lg desktop:text-xl',
-});
+})
 
 const bodyClasses = mapObjIndexed(withFont(bodyFont), {
   'body-xl': 'text-xl',
@@ -22,7 +22,7 @@ const bodyClasses = mapObjIndexed(withFont(bodyFont), {
   body: 'text-base',
   'body-sm': 'text-sm',
   'body-xs': 'text-xs',
-});
+})
 
 const presentationBodyClasses = mapObjIndexed(withFont(bodyFont), {
   'p-body-lg': 'text-4xl',
@@ -30,7 +30,7 @@ const presentationBodyClasses = mapObjIndexed(withFont(bodyFont), {
   'p-body': 'text-2xl',
   'p-body-sm': 'text-xl',
   'p-body-xs': 'text-lg',
-});
+})
 
 // TODO: cn will remove leading-none if added before the font-size class. Refactor this file to work correctly with cn
 const interfaceClasses = mapObjIndexed(withFont(interfaceFont), {
@@ -40,13 +40,13 @@ const interfaceClasses = mapObjIndexed(withFont(interfaceFont), {
   'interface-md': 'text-md leading-none',
   interface: 'leading-none',
   'interface-sm': 'text-sm leading-none',
-});
+})
 
 export const TYPOGRAPHY_CLASSES = {
   ...headingClasses,
   ...bodyClasses,
   ...interfaceClasses,
   ...presentationBodyClasses,
-};
+}
 
-export type TypographyVariant = keyof typeof TYPOGRAPHY_CLASSES;
+export type TypographyVariant = keyof typeof TYPOGRAPHY_CLASSES

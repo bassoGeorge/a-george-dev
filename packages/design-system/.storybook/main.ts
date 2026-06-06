@@ -1,15 +1,15 @@
-import { createRequire } from 'node:module';
-import { join, resolve, dirname } from 'path';
-import { mergeConfig } from 'vite';
-import type { StorybookConfig } from '@storybook/react-vite';
-import { fileURLToPath } from 'node:url';
+import { createRequire } from 'node:module'
+import { join, resolve, dirname } from 'path'
+import { mergeConfig } from 'vite'
+import type { StorybookConfig } from '@storybook/react-vite'
+import { fileURLToPath } from 'node:url'
 
-const fileGlob = 'src/lib/**/*.stories.@(js|jsx|ts|tsx|mdx)';
-const projects = ['foundation-styles'];
+const fileGlob = 'src/lib/**/*.stories.@(js|jsx|ts|tsx|mdx)'
+const projects = ['foundation-styles']
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-const require = createRequire(import.meta.url);
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = dirname(__filename)
+const require = createRequire(import.meta.url)
 
 const config: StorybookConfig = {
   stories: [
@@ -44,16 +44,16 @@ const config: StorybookConfig = {
           ),
         },
       },
-    });
+    })
   },
-};
+}
 
-export default config;
+export default config
 
 // To customize your Vite configuration you can use the viteFinal field.
 // Check https://storybook.js.org/docs/react/builders/vite#configuration
 // and https://nx.dev/packages/storybook/documents/custom-builder-configs
 
 function getAbsolutePath(value: string): any {
-  return dirname(require.resolve(join(value, 'package.json')));
+  return dirname(require.resolve(join(value, 'package.json')))
 }

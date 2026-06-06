@@ -1,4 +1,4 @@
-import { bar, text } from './styles';
+import { bar, text } from './styles'
 
 export function TwLogo(props: React.SVGProps<SVGSVGElement>) {
   return (
@@ -102,5 +102,5 @@ export function TwLogo(props: React.SVGProps<SVGSVGElement>) {
         </g>
       </g>
     </svg>
-  );
+  )
 }

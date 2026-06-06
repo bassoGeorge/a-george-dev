@@ -10,7 +10,8 @@
 
   @supports (min-height: 100dvh) {
     min-height: calc(
-      100dvh - 82px
+      100dvh -
+      82px
     ); /* TODO: 90px is the height of the menu-bar and 8px is the negative margin */
   }
 
@@ -33,7 +34,7 @@
   background-color: var(--bg);
 
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     background: var(--bg);
     inset: 0;
@@ -54,7 +55,7 @@
   @variant tablet {
     --bg: var(--color-page-1);
     &::before {
-      content: '';
+      content: "";
     }
   }
 }

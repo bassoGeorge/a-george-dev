@@ -86,10 +86,7 @@
     "vite-plugin-eslint": "^1.8.1",
     "vite-tsconfig-paths": "4.2.0"
   },
-  "workspaces": [
-    "packages/*",
-    "apps/*"
-  ],
+  "workspaces": ["packages/*", "apps/*"],
   "dependencies": {
     "@fontsource-variable/alegreya": "^5.2.8",
     "@fontsource-variable/source-code-pro": "^5.2.7",

@@ -1,13 +1,13 @@
-import { cn } from 'packages/toolbelt/src';
-import styles from './TiltCard.module.css';
+import { cn } from 'packages/toolbelt/src'
+import styles from './TiltCard.module.css'
 
 export type TiltCardProps = {
-  outerClassName?: string;
-  shape?: 'trapRight' | 'trapLeft' | 'triUpperRight' | 'triUpperLeft';
-  interactive?: boolean;
-  skewStrength?: 'small' | 'medium' | 'large';
-  border?: 'all' | 'bottom' | 'none';
-} & React.HTMLProps<HTMLDivElement>;
+  outerClassName?: string
+  shape?: 'trapRight' | 'trapLeft' | 'triUpperRight' | 'triUpperLeft'
+  interactive?: boolean
+  skewStrength?: 'small' | 'medium' | 'large'
+  border?: 'all' | 'bottom' | 'none'
+} & React.HTMLProps<HTMLDivElement>
 
 export function TiltCard({
   children,
@@ -19,10 +19,10 @@ export function TiltCard({
   border,
   ...htmlProps
 }: TiltCardProps) {
-  const skewClass = shape ? styles[shape] : '';
-  const skewStrengthClass = styles['skew-' + (skewStrength ?? 'medium')];
-  const interC = interactive ? interactiveClasses : '';
-  const borderC = borderClassMap[border ?? 'all'];
+  const skewClass = shape ? styles[shape] : ''
+  const skewStrengthClass = styles['skew-' + (skewStrength ?? 'medium')]
+  const interC = interactive ? interactiveClasses : ''
+  const borderC = borderClassMap[border ?? 'all']
 
   return (
     <div
@@ -41,14 +41,14 @@ export function TiltCard({
         </div>
       </div>
     </div>
-  );
+  )
 }
 
 const interactiveClasses =
-  'transition-all hover:elv-raised-lg hover:-translate-y-2 active:elv-raised-sm';
+  'transition-all hover:elv-raised-lg hover:-translate-y-2 active:elv-raised-sm'
 
 const borderClassMap: Record<Required<TiltCardProps>['border'], string> = {
   all: 'p-thick-line',
   bottom: 'pb-thick-line',
   none: '',
-};
+}

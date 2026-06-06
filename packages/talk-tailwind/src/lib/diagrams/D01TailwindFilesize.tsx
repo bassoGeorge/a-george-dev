@@ -1,4 +1,4 @@
-import { cn } from '@ageorgedev/toolbelt';
+import { cn } from '@ageorgedev/toolbelt'
 
 export function D01TailwindFilesize({
   className,
@@ -102,5 +102,5 @@ export function D01TailwindFilesize({
         </text>
       </g>
     </svg>
-  );
+  )
 }

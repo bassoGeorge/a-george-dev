@@ -1,5 +1,5 @@
-import { Meta, StoryObj } from '@storybook/react-vite';
-import { CalloutBadge } from './CalloutBadge';
+import { Meta, StoryObj } from '@storybook/react-vite'
+import { CalloutBadge } from './CalloutBadge'
 import {
   AddressBookIcon,
   AirplaneInFlightIcon,
@@ -15,7 +15,7 @@ import {
   StarIcon,
   TrophyIcon,
   UserIcon,
-} from '@phosphor-icons/react/ssr';
+} from '@phosphor-icons/react/ssr'
 
 export default {
   title: 'Atoms/Callout Badge',
@@ -64,9 +64,9 @@ export default {
       },
     },
   },
-} satisfies Meta<typeof CalloutBadge>;
+} satisfies Meta<typeof CalloutBadge>
 
-type Story = StoryObj<typeof CalloutBadge>;
+type Story = StoryObj<typeof CalloutBadge>
 
 export const Default: Story = {
   args: {
@@ -74,7 +74,7 @@ export const Default: Story = {
     icon: AddressBookIcon,
     text: 'Default Badge',
   },
-};
+}
 
 export const Info1: Story = {
   args: {
@@ -82,7 +82,7 @@ export const Info1: Story = {
     icon: AddressBookIcon,
     text: 'Info 1 Badge',
   },
-};
+}
 
 export const Info2: Story = {
   args: {
@@ -90,7 +90,7 @@ export const Info2: Story = {
     icon: AirplaneInFlightIcon,
     text: 'Info 2 Badge',
   },
-};
+}
 
 export const Info3: Story = {
   args: {
@@ -98,7 +98,7 @@ export const Info3: Story = {
     icon: SealWarningIcon,
     text: 'Info 3 Badge',
   },
-};
+}
 
 export const Danger: Story = {
   args: {
@@ -106,7 +106,7 @@ export const Danger: Story = {
     icon: SkullIcon,
     text: 'Danger Badge',
   },
-};
+}
 
 export const Neutral: Story = {
   args: {
@@ -114,7 +114,7 @@ export const Neutral: Story = {
     icon: PenNibIcon,
     text: 'Neutral Badge',
   },
-};
+}
 
 export const WithDifferentIcons: Story = {
   render: () => (
@@ -126,7 +126,7 @@ export const WithDifferentIcons: Story = {
       <CalloutBadge type="neutral" icon={CoffeeIcon} text="Break" />
     </div>
   ),
-};
+}
 
 export const WithLongText: Story = {
   args: {
@@ -134,7 +134,7 @@ export const WithLongText: Story = {
     icon: HeartIcon,
     text: 'This is a callout badge with a longer text that might wrap',
   },
-};
+}
 
 export const WithCustomSize: Story = {
   args: {
@@ -143,7 +143,7 @@ export const WithCustomSize: Story = {
     text: 'Custom Size',
     className: 'p-8',
   },
-};
+}
 
 export const InteractiveExample: Story = {
   args: {
@@ -151,4 +151,4 @@ export const InteractiveExample: Story = {
     icon: TrophyIcon,
     text: 'Try changing the type, icon, and text!',
   },
-};
+}

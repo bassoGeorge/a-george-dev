@@ -1,13 +1,13 @@
-import { cn } from 'packages/toolbelt/src';
-import { StoryObj } from '@storybook/react-vite';
-import { HTMLAttributes } from 'react';
-import { BodyMd } from './typography/typography-components';
+import { cn } from 'packages/toolbelt/src'
+import { StoryObj } from '@storybook/react-vite'
+import { HTMLAttributes } from 'react'
+import { BodyMd } from './typography/typography-components'
 
 export default {
   title: 'Foundation/Elevations',
-};
+}
 
-type Story = StoryObj;
+type Story = StoryObj
 
 export const Elevations: Story = {
   render: () => (
@@ -25,7 +25,7 @@ export const Elevations: Story = {
       </section>
     </div>
   ),
-};
+}
 
 function Box({ className, ...otherProps }: HTMLAttributes<HTMLDivElement>) {
   return (
@@ -45,5 +45,5 @@ function Box({ className, ...otherProps }: HTMLAttributes<HTMLDivElement>) {
         ))}
       </BodyMd>
     </div>
-  );
+  )
 }

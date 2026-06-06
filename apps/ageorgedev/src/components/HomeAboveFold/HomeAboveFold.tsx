@@ -1,7 +1,7 @@
-import { Heading3, Heading4, NameLogo } from '@ageorgedev/design-system';
-import { cn } from '@ageorgedev/toolbelt';
-import { GithubLogoIcon, LinkedinLogoIcon } from '@phosphor-icons/react/ssr';
-import styles from './HomeAboveFold.module.css';
+import { Heading3, Heading4, NameLogo } from '@ageorgedev/design-system'
+import { cn } from '@ageorgedev/toolbelt'
+import { GithubLogoIcon, LinkedinLogoIcon } from '@phosphor-icons/react/ssr'
+import styles from './HomeAboveFold.module.css'
 
 export function HomeAboveFold() {
   return (
@@ -58,5 +58,5 @@ export function HomeAboveFold() {
         </div>
       </section>
     </div>
-  );
+  )
 }

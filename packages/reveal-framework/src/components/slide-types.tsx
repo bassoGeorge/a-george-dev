@@ -1,6 +1,6 @@
-import { cn } from '@ageorgedev/toolbelt';
-import { Slide } from '@revealjs/react';
-import React from 'react';
+import { cn } from '@ageorgedev/toolbelt'
+import { Slide } from '@revealjs/react'
+import React from 'react'
 import {
   slideCenterStyles,
   slideContentReset,
@@ -8,18 +8,18 @@ import {
   slideMainGap,
   slideMainReset,
   slideWithoutFooterBottomMargin,
-} from './deck-styles';
+} from './deck-styles'
 import {
   CalloutForAdvancedTopic,
   CalloutForPersonalOpinion,
   CalloutForVD,
-} from './slide-components';
+} from './slide-components'
 
-type CalloutType = 'UX' | 'Advanced' | 'Opinion';
+type CalloutType = 'UX' | 'Advanced' | 'Opinion'
 
 type SlideWithCallout = {
-  callout?: CalloutType | CalloutType[];
-};
+  callout?: CalloutType | CalloutType[]
+}
 
 export function SlideTypeCenter(
   props: React.PropsWithChildren<SlideWithCallout>
@@ -38,7 +38,7 @@ export function SlideTypeCenter(
         {props.children}
       </div>
     </Slide>
-  );
+  )
 }
 
 export function SlideTypeRegular(
@@ -62,27 +62,27 @@ export function SlideTypeRegular(
         </div>
       </div>
     </Slide>
-  );
+  )
 }
 
 function TopLeftPosition({
   callout,
 }: React.PropsWithChildren<SlideWithCallout>) {
-  const calloutTypes = Array.isArray(callout) ? callout : [callout];
+  const calloutTypes = Array.isArray(callout) ? callout : [callout]
   const calloutComponents = calloutTypes.map((c) =>
     c ? CalloutMap[c] : React.Fragment
-  );
+  )
   return (
     <div className="absolute left-6 top-0 flex gap-5">
       {calloutComponents.map((Comp, i) => (
         <Comp key={i} />
       ))}
     </div>
-  );
+  )
 }
 
 const CalloutMap = {
   UX: CalloutForVD,
   Advanced: CalloutForAdvancedTopic,
   Opinion: CalloutForPersonalOpinion,
-};
+}

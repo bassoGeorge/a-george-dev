@@ -1,4 +1,4 @@
-import { cn } from '@ageorgedev/toolbelt';
+import { cn } from '@ageorgedev/toolbelt'
 
 export function D02CssPipeline({
   className,
@@ -185,5 +185,5 @@ export function D02CssPipeline({
       </g>
       <mask></mask>
     </svg>
-  );
+  )
 }

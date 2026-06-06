@@ -1,7 +1,7 @@
-import './storybook.css';
-import { withThemeByClassName } from '@storybook/addon-themes';
-import type { Preview } from '@storybook/react-vite';
-import { ThemeProvider } from '../src/lib/theming/ThemeProvider';
+import './storybook.css'
+import { withThemeByClassName } from '@storybook/addon-themes'
+import type { Preview } from '@storybook/react-vite'
+import { ThemeProvider } from '../src/lib/theming/ThemeProvider'
 
 const preview: Preview = {
   decorators: [
@@ -25,6 +25,6 @@ const preview: Preview = {
       },
     },
   },
-};
+}
 
-export default preview;
+export default preview

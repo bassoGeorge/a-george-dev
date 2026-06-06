@@ -1,1 +1,1 @@
-export * from './lib/talk-tailwind';
+export * from './lib/talk-tailwind'

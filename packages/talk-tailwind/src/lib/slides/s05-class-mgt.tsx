@@ -4,13 +4,13 @@ import {
   Heading3,
   Interface2Xl,
   PBody,
-} from '@ageorgedev/design-system';
-import { CodeBlock } from '@ageorgedev/design-system';
+} from '@ageorgedev/design-system'
+import { CodeBlock } from '@ageorgedev/design-system'
 import {
   ComparisonRow,
   SlideTypeCenter,
   SlideTypeRegular,
-} from '@ageorgedev/reveal-framework';
+} from '@ageorgedev/reveal-framework'
 
 export function S05ClassManagement() {
   return (
@@ -90,7 +90,7 @@ export function S05ClassManagement() {
         </div>
       </SlideTypeRegular>
     </section>
-  );
+  )
 }
 
 // Code blocks
@@ -104,7 +104,7 @@ const MoreStyles = cls("shadow-sm px-2", otherStyles);
 const Variants = {
   primary: 'bg-primary-300 hover:bg-primary-400',
   secondary: 'bg-secondary-200 hover:text-white'
-}`;
+}`
 
 const reactComponent = `export function Card({ 
   className, ...otherProps
@@ -117,16 +117,16 @@ const reactComponent = `export function Card({
       \${className ?? ''}\`}
     />
   );
-}`;
+}`
 const angularComponent = `@Directive({
   selector: '[appCard]',
 })
 export class CardDirective {
   @HostBinding('class') classes 
     = 'shadow border-gray border-2 mb-4';
-}`;
+}`
 
-const angularComponentExample = `<section class='bg-grey' appCard>Notes</section>`;
+const angularComponentExample = `<section class='bg-grey' appCard>Notes</section>`
 
 const advancedComponent = `type Heading1Props = React.PropsWithChildren &
   React.HTMLAttributes<HTMLHeadingElement>;
@@ -143,7 +143,7 @@ function Heading1({
   );
 }
 
-Heading1.classes = 'text-2xl font-bold md:text-3xl';`;
+Heading1.classes = 'text-2xl font-bold md:text-3xl';`
 
 const advancedComponentUsage = `<Heading1>Hello There</Heading1>
 
@@ -152,7 +152,7 @@ const advancedComponentUsage = `<Heading1>Hello There</Heading1>
 
   <p>A section with common styling</p>
   <span>Pretty nifty</p>
-</section>`;
+</section>`
 
 const fullTailwindWithoutComponents = `<div className="max-w-sm rounded overflow-hidden shadow-lg">
   <img className="w-full" src="http://dummy.com/img.jpeg" alt="User Avatar" />
@@ -175,7 +175,7 @@ const fullTailwindWithoutComponents = `<div className="max-w-sm rounded overflow
       UI/UX Designer
     </span>
   </div>
-</div>`;
+</div>`
 
 const fixedTailwindWithComponents = `<Card>
   <img className="w-full" src="http://dummy.com/img.jpeg" alt="User Avatar" />
@@ -197,4 +197,4 @@ const fixedTailwindWithComponents = `<Card>
     </SkillBadge>
     <SkillBadge>Photographer</SkillBadge>
   </div>
-</Card>`;
+</Card>`

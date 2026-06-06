@@ -7,7 +7,7 @@ import {
   PBody,
   PBodyLg,
   PBodyMd,
-} from '@ageorgedev/design-system';
+} from '@ageorgedev/design-system'
 import {
   CalloutForAdvancedTopic,
   CalloutForPersonalOpinion,
@@ -15,9 +15,8 @@ import {
   PointSeperator,
   SlideTypeCenter,
   SlideTypeRegular,
-  Presentation
-} from '@ageorgedev/reveal-framework';
-
+  Presentation,
+} from '@ageorgedev/reveal-framework'
 
 export function S01Intro() {
   return (
@@ -125,5 +124,5 @@ export function S01Intro() {
         <PBody>CSS-in-JS</PBody>
       </SlideTypeCenter>
     </Presentation.Stack>
-  );
+  )
 }

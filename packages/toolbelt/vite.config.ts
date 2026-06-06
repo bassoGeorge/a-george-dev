@@ -1,7 +1,7 @@
-import { defineConfig } from 'vite';
+import { defineConfig } from 'vite'
 
-import * as path from 'path';
-import dts from 'vite-plugin-dts';
+import * as path from 'path'
+import dts from 'vite-plugin-dts'
 
 export default defineConfig({
   root: __dirname,
@@ -31,4 +31,4 @@ export default defineConfig({
       external: [],
     },
   },
-});
+})

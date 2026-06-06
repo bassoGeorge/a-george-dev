@@ -1,5 +1,5 @@
-import { ThemeProvider } from '@ageorgedev/design-system';
+import { ThemeProvider } from '@ageorgedev/design-system'
 
 export function GlobalProviders({ children }: React.PropsWithChildren) {
-  return <ThemeProvider>{children}</ThemeProvider>;
+  return <ThemeProvider>{children}</ThemeProvider>
 }

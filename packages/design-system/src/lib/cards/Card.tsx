@@ -3,7 +3,7 @@
  * Rectangular in shape
  */
 
-import { cn } from 'packages/toolbelt/src';
+import { cn } from 'packages/toolbelt/src'
 
 export function Card({
   className,
@@ -14,5 +14,5 @@ export function Card({
       {...otherProps}
       className={cn('border-line mb-4 border-2 shadow-normal', className)}
     ></div>
-  );
+  )
 }

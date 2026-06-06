@@ -15,10 +15,14 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@ageorgedev/brand-components": ["packages/brand-components/src/index.ts"],
+      "@ageorgedev/brand-components": [
+        "packages/brand-components/src/index.ts"
+      ],
       "@ageorgedev/design-system": ["packages/design-system/src/index.ts"],
       "@ageorgedev/design-system/*": ["packages/design-system/src/*"],
-      "@ageorgedev/reveal-framework": ["packages/reveal-framework/src/index.ts"],
+      "@ageorgedev/reveal-framework": [
+        "packages/reveal-framework/src/index.ts"
+      ],
       "@ageorgedev/reveal-framework/globals": [
         "packages/reveal-framework/src/globals.ts"
       ],

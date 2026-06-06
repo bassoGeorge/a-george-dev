@@ -8,4 +8,4 @@ export default {
     'postcss-nesting': {},
     '@tailwindcss/postcss': {},
   },
-};
+}

@@ -1,6 +1,6 @@
-import nx from '@nx/eslint-plugin';
-import { tanstackConfig } from '@tanstack/eslint-config';
-import baseConfig from '../../eslint.config.mjs';
+import nx from '@nx/eslint-plugin'
+import { tanstackConfig } from '@tanstack/eslint-config'
+import baseConfig from '../../eslint.config.mjs'
 
 // TODO: additional typescript rules here should apply globally, not just for this
 
@@ -13,10 +13,10 @@ tanstackConfig.find((c) => c.name === 'tanstack/javascript').plugins[
   '@typescript-eslint'
 ] = baseConfig.find((c) => c.name === 'typescript-eslint/base').plugins[
   '@typescript-eslint'
-];
+]
 
 export default [
   ...tanstackConfig,
   ...baseConfig, // our configs rul over tanstacks
   ...nx.configs['flat/react-typescript'],
-];
+]

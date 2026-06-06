@@ -3,7 +3,7 @@
 .middleDivider {
   position: relative;
   &::after {
-    content: '';
+    content: "";
     position: absolute;
     left: calc(50% - 1px);
     top: 0;

@@ -1,4 +1,4 @@
-import { createFileRoute } from '@tanstack/react-router';
+import { createFileRoute } from '@tanstack/react-router'
 import {
   Body,
   BodyLg,
@@ -9,26 +9,26 @@ import {
   Heading5,
   Heading6,
   NameLogo,
-} from '@ageorgedev/design-system';
-import { cn } from '@ageorgedev/toolbelt';
-import { ArrowSquareOutIcon } from '@phosphor-icons/react/ssr';
-import { Fragment } from 'react';
+} from '@ageorgedev/design-system'
+import { cn } from '@ageorgedev/toolbelt'
+import { ArrowSquareOutIcon } from '@phosphor-icons/react/ssr'
+import { Fragment } from 'react'
 import {
   Skill,
   humanSkills,
   techSkills,
   toolSkills,
-} from '../../components/Resume/Skill';
-import { SocialLink } from '../../components/Resume/SocialLink';
-import styles from './resume.module.css';
-import './resume.global.css';
+} from '../../components/Resume/Skill'
+import { SocialLink } from '../../components/Resume/SocialLink'
+import styles from './resume.module.css'
+import './resume.global.css'
 
 export const Route = createFileRoute('/_noLayout/resume')({
   component: RouteComponent,
-});
+})
 
 function RouteComponent() {
-  const socialLinksBlockClasses = 'flex flex-col gap-2';
+  const socialLinksBlockClasses = 'flex flex-col gap-2'
   return (
     <main className={styles.page}>
       <header className={cn(styles.header, styles.paper)}>
@@ -281,13 +281,13 @@ function RouteComponent() {
         </section>
       </article>
     </main>
-  );
+  )
 }
 
 const education: Array<{
-  period: string;
-  institute: string;
-  programme: string;
+  period: string
+  institute: string
+  programme: string
 }> = [
   {
     period: '2012-2015',
@@ -304,8 +304,8 @@ const education: Array<{
     programme: 'Higher Secondary',
     institute: 'Fr. Agnel School | New Delhi',
   },
-];
+]
 
 function Imp({ children }: React.PropsWithChildren) {
-  return <span className="text-secondary-foreground italic">{children}</span>;
+  return <span className="text-secondary-foreground italic">{children}</span>
 }

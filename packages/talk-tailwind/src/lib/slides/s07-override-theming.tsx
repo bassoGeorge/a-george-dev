@@ -4,14 +4,14 @@ import {
   Heading3,
   PBody,
   PBodyMd,
-} from '@ageorgedev/design-system';
-import { CodeBlock } from '@ageorgedev/design-system';
+} from '@ageorgedev/design-system'
+import { CodeBlock } from '@ageorgedev/design-system'
 import {
   ComparisonRow,
   ImportantNote,
   SlideTypeCenter,
   SlideTypeRegular,
-} from '@ageorgedev/reveal-framework';
+} from '@ageorgedev/reveal-framework'
 
 export function S07OverrideTheming() {
   return (
@@ -132,7 +132,7 @@ export function S07OverrideTheming() {
         ></CodeBlock>
       </SlideTypeRegular>
     </section>
-  );
+  )
 }
 
 const plainColorsConfig = `/* tailwind.config.js */
@@ -152,7 +152,7 @@ export default {
       }
     }
   },
-};`;
+};`
 
 const colorVarsRoot = `/* styles.css */
 @layer base {
@@ -161,7 +161,7 @@ const colorVarsRoot = `/* styles.css */
     --color-primary-base: hsl(321 12% 29%);
     --color-primary-dark: hsl(119 22% 44%);
   }
-}`;
+}`
 
 const colorVarsUsage = `/* tailwind.config.js */
 
@@ -180,23 +180,23 @@ export default {
       }
     }
   },
-};`;
+};`
 
 const colorVarsWithDefaults = `primary: {
   DEFAULT: "var(--color-primary-base, hsl(321 12% 29%))",
   light: "var(--color-primary-light, hsl(321 12% 48%))",
   dark: "var(--color-primary-dark, hsl(119 22% 44%))",
-}`;
+}`
 
-const tailwindColorOpacityModifiers = `<div class='bg-primary-dark/30 text-neutral/60'>...</div>`;
+const tailwindColorOpacityModifiers = `<div class='bg-primary-dark/30 text-neutral/60'>...</div>`
 
 const colorVarsRootChannels = `:root {
   --color-primary-base: 207 49% 65%;
-}`;
+}`
 
 const colorVarsWithDefaultsChannels = `primary: {
   DEFAULT: "hsl( var(--color-primary-base) / <alpha-value>)",
-}`;
+}`
 
 const modernHslSyntax = `.selector {
   /* hsl(<hue> <saturation> <lightness>) */
@@ -204,4 +204,4 @@ const modernHslSyntax = `.selector {
 
   /* hsl(<hue> <saturation> <lightness> / <alpha-value>) */
   background: hsl(205 30% 90% / .4)
-}`;
+}`

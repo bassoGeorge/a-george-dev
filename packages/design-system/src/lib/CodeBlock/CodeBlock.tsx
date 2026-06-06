@@ -1,20 +1,20 @@
-import { cn } from 'packages/toolbelt/src';
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { cn } from 'packages/toolbelt/src'
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import {
   darcula as darkTheme,
   solarizedlight as lightTheme,
-} from 'react-syntax-highlighter/dist/esm/styles/prism';
-import { Card } from '../cards/Card';
-import { useTheme } from '../theming/ThemeContext';
+} from 'react-syntax-highlighter/dist/esm/styles/prism'
+import { Card } from '../cards/Card'
+import { useTheme } from '../theming/ThemeContext'
 
 type CodeBlockProps = {
-  text: string;
-  lang?: 'typescript' | 'html' | 'css' | 'jsx' | 'tsx' | 'javascript';
-  fontSize?: 'normal' | 'small' | 'large';
-} & React.HTMLProps<HTMLDivElement>;
+  text: string
+  lang?: 'typescript' | 'html' | 'css' | 'jsx' | 'tsx' | 'javascript'
+  fontSize?: 'normal' | 'small' | 'large'
+} & React.HTMLProps<HTMLDivElement>
 
-const fixedLightTheme = fixFont(lightTheme);
-const fixedDarkTheme = fixFont(darkTheme);
+const fixedLightTheme = fixFont(lightTheme)
+const fixedDarkTheme = fixFont(darkTheme)
 
 export function CodeBlock({
   lang,
@@ -23,8 +23,8 @@ export function CodeBlock({
   className,
   ...otherProps
 }: CodeBlockProps) {
-  const { theme } = useTheme();
-  const codeTheme = theme === 'light' ? fixedLightTheme : fixedDarkTheme;
+  const { theme } = useTheme()
+  const codeTheme = theme === 'light' ? fixedLightTheme : fixedDarkTheme
 
   return (
     <Card
@@ -40,18 +40,18 @@ export function CodeBlock({
         {text}
       </SyntaxHighlighter>
     </Card>
-  );
+  )
 }
 
 const fontSizeMap: Record<Required<CodeBlockProps>['fontSize'], string> = {
   large: 'text-xl large-desktop:text-2xl',
   normal: 'text-lg large-desktop:text-xl',
   small: 'text-md large-desktop:text-lg',
-};
+}
 
 function fixFont(theme: { [k: string]: React.CSSProperties }) {
-  const styleKey1 = 'code[class*="language-"]';
-  const styleKey2 = 'pre[class*="language-"]';
+  const styleKey1 = 'code[class*="language-"]'
+  const styleKey2 = 'pre[class*="language-"]'
   return {
     ...theme,
     [styleKey1]: {
@@ -62,5 +62,5 @@ function fixFont(theme: { [k: string]: React.CSSProperties }) {
       ...theme[styleKey2],
       fontFamily: '"Source Code Pro", monospace',
     },
-  };
+  }
 }

@@ -1,15 +1,15 @@
-import { Link, Outlet, createFileRoute } from '@tanstack/react-router';
+import { Link, Outlet, createFileRoute } from '@tanstack/react-router'
 import {
   InterfaceXl,
   ShortNameLogo,
   ThemeSwitcher,
   TiltCard,
-} from '@ageorgedev/design-system';
-import { cn } from '@ageorgedev/toolbelt';
+} from '@ageorgedev/design-system'
+import { cn } from '@ageorgedev/toolbelt'
 
 export const Route = createFileRoute('/_public')({
   component: RouteComponent,
-});
+})
 
 const links = [
   {
@@ -17,7 +17,7 @@ const links = [
     to: '/talks',
     label: 'Talks',
   },
-];
+]
 
 function RouteComponent() {
   return (
@@ -57,5 +57,5 @@ function RouteComponent() {
         <Outlet />
       </main>
     </>
-  );
+  )
 }

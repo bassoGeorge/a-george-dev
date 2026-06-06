@@ -1,11 +1,11 @@
-import { Heading1, Heading2, PBody, PBodyMd } from '@ageorgedev/design-system';
-import { CodeBlock } from '@ageorgedev/design-system';
+import { Heading1, Heading2, PBody, PBodyMd } from '@ageorgedev/design-system'
+import { CodeBlock } from '@ageorgedev/design-system'
 import {
   PointSeperator,
   SlideTypeCenter,
   SlideTypeRegular,
-} from '@ageorgedev/reveal-framework';
-import { ArrowRightIcon } from '@phosphor-icons/react';
+} from '@ageorgedev/reveal-framework'
+import { ArrowRightIcon } from '@phosphor-icons/react'
 
 export function S03AntiPatterns() {
   return (
@@ -85,7 +85,7 @@ export function S03AntiPatterns() {
         ></CodeBlock>
       </SlideTypeRegular>
     </section>
-  );
+  )
 }
 
 // Code blocks
@@ -99,7 +99,7 @@ const applyAntiPatternSourceStyles = `/* style.css */
 
 .my-btn:hover {
   @apply bg-blue-900;
-}`;
+}`
 
 const applyAntiPatternSourceComputedStyles = `/* dist/style.css */
 
@@ -120,21 +120,21 @@ const applyAntiPatternSourceComputedStyles = `/* dist/style.css */
 .my-btn:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(30 58 138 / var(--tw-bg-opacity));
-}`;
+}`
 
 const applyAntiPatternHtml = `<!-- view.html -->
 
-<button class="my-btn">Click Me!</button>`;
+<button class="my-btn">Click Me!</button>`
 
 const oneOffHtml = `<div>
   <i class="fa-solid fa-magnifying-glass mt-[3px]"></i>
   <span>Search</span>
-</div>`;
+</div>`
 
 const oneOffComputedCss = `.mt-\\[3px\\] {
   margin-top: 3px;
-}`;
+}`
 
 const oneOffBadHtml = `<div class="shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)]">
   Oh my god, my eyes!!
-</div>`;
+</div>`

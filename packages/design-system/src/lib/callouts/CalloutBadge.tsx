@@ -1,13 +1,13 @@
-import { cn } from 'packages/toolbelt/src';
-import { Icon } from '@phosphor-icons/react';
-import { InterfaceXl } from '../typography/typography-components';
+import { cn } from 'packages/toolbelt/src'
+import { Icon } from '@phosphor-icons/react'
+import { InterfaceXl } from '../typography/typography-components'
 
 type CalloutBadgeProps = {
-  text: string;
-  icon: Icon;
-  className?: string;
-  type?: CalloutType;
-};
+  text: string
+  icon: Icon
+  className?: string
+  type?: CalloutType
+}
 
 export function CalloutBadge({
   text,
@@ -15,7 +15,7 @@ export function CalloutBadge({
   type,
   className,
 }: CalloutBadgeProps) {
-  const typeClasses = StyleClasses[type ?? 'info1'];
+  const typeClasses = StyleClasses[type ?? 'info1']
   return (
     <div className={cn('inline-block p-5', className)}>
       <div className="elv-raised-md">
@@ -30,10 +30,10 @@ export function CalloutBadge({
         </div>
       </div>
     </div>
-  );
+  )
 }
 
-type CalloutType = 'info1' | 'info2' | 'info3' | 'danger' | 'neutral';
+type CalloutType = 'info1' | 'info2' | 'info3' | 'danger' | 'neutral'
 
 const StyleClasses: Record<CalloutType, string> = {
   info1: 'before:bg-primary-surface-2 text-primary-onsurface-2',
@@ -41,4 +41,4 @@ const StyleClasses: Record<CalloutType, string> = {
   info3: 'before:bg-primary-surface-0 text-primary-onsurface-0',
   neutral: 'before:bg-info-surface text-info-onsurface', // TODO
   danger: 'before:bg-destructive-surface text-destructive-onsurface',
-};
+}

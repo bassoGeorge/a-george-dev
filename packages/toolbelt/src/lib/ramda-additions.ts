@@ -1,6 +1,6 @@
-import { compose, curryN, fromPairs, map, toPairs } from 'ramda';
+import { compose, curryN, fromPairs, map, toPairs } from 'ramda'
 
-type KeyT = string;
+type KeyT = string
 
 function _mapKeys<S>(
   mapper: (key: KeyT) => string,
@@ -10,6 +10,6 @@ function _mapKeys<S>(
     fromPairs,
     map(([key, value]: [KeyT, S]) => [mapper(key), value] as const),
     toPairs
-  )(obj);
+  )(obj)
 }
-export const mapKeys = curryN(2, _mapKeys);
+export const mapKeys = curryN(2, _mapKeys)

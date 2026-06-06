@@ -5,12 +5,12 @@ import {
   PBody,
   PBodyLg,
   PBodyMd,
-} from '@ageorgedev/design-system';
+} from '@ageorgedev/design-system'
 import {
   PointSeperator,
   SlideTypeCenter,
   SlideTypeRegular,
-} from '@ageorgedev/reveal-framework';
+} from '@ageorgedev/reveal-framework'
 
 export function S10Outro() {
   return (
@@ -58,5 +58,5 @@ export function S10Outro() {
         </PBodyLg>
       </SlideTypeCenter>
     </section>
-  );
+  )
 }

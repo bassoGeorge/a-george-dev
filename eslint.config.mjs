@@ -1,5 +1,5 @@
-import nx from '@nx/eslint-plugin';
-import unusedImports from 'eslint-plugin-unused-imports';
+import nx from '@nx/eslint-plugin'
+import unusedImports from 'eslint-plugin-unused-imports'
 
 export default [
   {
@@ -9,7 +9,7 @@ export default [
       '**/vite.config.*.timestamp*',
       '**/vitest.config.*.timestamp*',
       '**/jest.config.ts',
-      '**/postcss.config.js'
+      '**/postcss.config.js',
     ],
   },
   ...nx.configs['flat/base'],
@@ -76,9 +76,9 @@ export default [
       '@typescript-eslint/array-type': [
         'error',
         {
-          default: 'array-simple'
-        }
-      ]
+          default: 'array-simple',
+        },
+      ],
     },
   },
   {
@@ -104,4 +104,4 @@ export default [
       parser: await import('jsonc-eslint-parser'),
     },
   },
-];
+]

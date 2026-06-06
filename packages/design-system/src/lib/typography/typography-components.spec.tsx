@@ -1,4 +1,4 @@
-import { render } from '@testing-library/react';
+import { render } from '@testing-library/react'
 import {
   Heading1,
   Heading2,
@@ -18,7 +18,7 @@ import {
   InterfaceMd,
   Interface,
   InterfaceSm,
-} from './typography-components';
+} from './typography-components'
 
 describe('Typography', () => {
   it('should add add correct styling for heading types', async () => {
@@ -31,10 +31,10 @@ describe('Typography', () => {
         <Heading5>Heading 5</Heading5>
         <Heading6>Heading 6</Heading6>
       </div>
-    );
+    )
 
-    expect(baseElement).toMatchSnapshot();
-  });
+    expect(baseElement).toMatchSnapshot()
+  })
 
   it('should add add correct styling for body types', async () => {
     const { baseElement } = await render(
@@ -46,10 +46,10 @@ describe('Typography', () => {
         <BodySm>Body Sm</BodySm>
         <BodyXs>Body Xs</BodyXs>
       </div>
-    );
+    )
 
-    expect(baseElement).toMatchSnapshot();
-  });
+    expect(baseElement).toMatchSnapshot()
+  })
 
   it('should add add correct styling for interface types', async () => {
     const { baseElement } = await render(
@@ -61,8 +61,8 @@ describe('Typography', () => {
         <Interface>Interface</Interface>
         <InterfaceSm>Interface Sm</InterfaceSm>
       </div>
-    );
+    )
 
-    expect(baseElement).toMatchSnapshot();
-  });
-});
+    expect(baseElement).toMatchSnapshot()
+  })
+})

@@ -1,5 +1,5 @@
-import { middleDivider, slideMainGap } from './deck-styles';
-import { cn } from '@ageorgedev/toolbelt';
+import { middleDivider, slideMainGap } from './deck-styles'
+import { cn } from '@ageorgedev/toolbelt'
 
 export function SlideMediaRow({
   className,
@@ -17,7 +17,7 @@ export function SlideMediaRow({
     >
       {children}
     </div>
-  );
+  )
 }
 
 export function DeckFooter(props: React.PropsWithChildren) {
@@ -25,7 +25,7 @@ export function DeckFooter(props: React.PropsWithChildren) {
     <footer className="absolute bottom-6 flex h-6 w-full items-center justify-center gap-4 large-desktop:h-7">
       {props.children}
     </footer>
-  );
+  )
 }
 
 export function ComparisonRow({
@@ -34,8 +34,8 @@ export function ComparisonRow({
   right,
   ...otherProps
 }: {
-  left: React.ReactNode;
-  right: React.ReactNode;
+  left: React.ReactNode
+  right: React.ReactNode
 } & Omit<React.HTMLProps<HTMLDivElement>, 'children'>) {
   return (
     <div
@@ -45,5 +45,5 @@ export function ComparisonRow({
       <div className={cn('flex flex-col text-right', slideMainGap)}>{left}</div>
       <div className={cn('flex flex-col text-left', slideMainGap)}>{right}</div>
     </div>
-  );
+  )
 }

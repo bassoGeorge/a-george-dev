@@ -1,5 +1,5 @@
-import { compose, head, includes, last, split } from 'ramda';
-import { Plugin } from 'vite';
+import { compose, head, includes, last, split } from 'ramda'
+import { Plugin } from 'vite'
 
 const languagesToAllow = [
   'typescript',
@@ -8,14 +8,14 @@ const languagesToAllow = [
   'jsx',
   'css',
   'sass',
-];
+]
 
 const getLang = compose(head, split('.'), last, split('/')) as (
   path: string
-) => string;
+) => string
 
 const allowLang = (lang: string) =>
-  includes(lang, languagesToAllow) ? null : false;
+  includes(lang, languagesToAllow) ? null : false
 
 export function removeFilesPlugin(): Plugin {
   return {
@@ -28,12 +28,12 @@ export function removeFilesPlugin(): Plugin {
           typeof specifier == 'string' &&
           specifier.includes('refractor/lang')
         ) {
-          const lang = getLang(specifier);
-          return allowLang(lang) ? specifier : null;
+          const lang = getLang(specifier)
+          return allowLang(lang) ? specifier : null
         } else {
-          return null;
+          return null
         }
       },
     },
-  };
+  }
 }
