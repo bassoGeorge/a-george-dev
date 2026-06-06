@@ -54,7 +54,6 @@
     "babel-jest": "^30.4.1",
     "cypress": "14.4.0",
     "eslint": "^9.8.0",
-    "eslint-config-prettier": "10.1.5",
     "eslint-plugin-cypress": "^3.2.0",
     "eslint-plugin-import": "2.31.0",
     "eslint-plugin-jsx-a11y": "6.10.1",
@@ -72,8 +71,6 @@
     "nx": "21.2.4",
     "postcss": "^8.5.15",
     "postcss-nesting": "^12.1.5",
-    "prettier": "3",
-    "prettier-plugin-tailwindcss": "^0.6.12",
     "sass": "^1.55.0",
     "tailwindcss": "^4.1.8",
     "ts-jest": "29.1.0",
@@ -86,7 +83,10 @@
     "vite-plugin-eslint": "^1.8.1",
     "vite-tsconfig-paths": "4.2.0"
   },
-  "workspaces": ["packages/*", "apps/*"],
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
   "dependencies": {
     "@fontsource-variable/alegreya": "^5.2.8",
     "@fontsource-variable/source-code-pro": "^5.2.7",
