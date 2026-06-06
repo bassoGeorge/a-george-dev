@@ -1,4 +1,3 @@
-// const nxPreset = require('@nx/jest/preset').default
 const path = require('node:path')
 
 module.exports = {
