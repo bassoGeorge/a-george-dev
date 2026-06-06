@@ -13,11 +13,14 @@
     "clean-dist": "rm -rf dist && find ./libs -type d -name dist -exec rm -rf {} + && find ./apps -type d -name dist -exec rm -rf {} +",
     "storybook": "nx storybook design-system",
     "decap-server": "npx decap-server",
-    "shadcn": "yarn dlx shadcn"
+    "shadcn": "yarn dlx shadcn",
+    "format-and-lint": "biome check .",
+    "format-and-lint:fix": "biome check . --write"
   },
   "devDependencies": {
     "@babel/core": "^7.26.10",
     "@babel/preset-react": "^7.29.7",
+    "@biomejs/biome": "2.4.16",
     "@eslint/compat": "^1.3.0",
     "@eslint/eslintrc": "^2.1.1",
     "@eslint/js": "~8.57.0",
