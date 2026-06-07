@@ -11,7 +11,13 @@
   },
   "exports": {
     ".": {
+      "local-dev": "./src/index.ts",
       "import": "./dist/index.js"
+    },
+    "./*": {
+      "local-dev": "./src/*.ts",
+      "import": "./dist/*.js",
+      "types": "./dist/*.d.ts"
     }
   },
   "dependencies": {
