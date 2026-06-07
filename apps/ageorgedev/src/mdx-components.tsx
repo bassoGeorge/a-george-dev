@@ -3,7 +3,7 @@ import {
   Heading2,
   Heading3,
   Heading4,
-} from '@ageorgedev/design-system'
+} from '@ageorgedev/design-system/typography/typography-components'
 import type { MDXComponents } from 'mdx/types'
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {

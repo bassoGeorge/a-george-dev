@@ -1,5 +1,5 @@
 import { TwLogo } from '@ageorgedev/brand-components'
-import { BodyXl } from '@ageorgedev/design-system'
+import { BodyXl } from '@ageorgedev/design-system/typography/typography-components'
 import { DeckFooter, Presentation } from '@ageorgedev/reveal-framework'
 import { IconContext } from '@phosphor-icons/react'
 import { S01Intro } from './slides/s01-intro'

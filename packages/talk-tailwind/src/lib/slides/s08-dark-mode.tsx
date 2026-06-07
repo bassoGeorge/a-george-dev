@@ -1,5 +1,5 @@
+import { CodeBlock } from '@ageorgedev/design-system/CodeBlock/CodeBlock'
 import {
-  CodeBlock,
   Heading1,
   Heading2,
   Heading3,
@@ -7,7 +7,7 @@ import {
   InterfaceXl,
   PBodyLg,
   PBodyXs,
-} from '@ageorgedev/design-system'
+} from '@ageorgedev/design-system/typography/typography-components'
 import { SlideTypeCenter, SlideTypeRegular } from '@ageorgedev/reveal-framework'
 import { cn } from '@ageorgedev/toolbelt/cn'
 import { WarningIcon } from '@phosphor-icons/react'

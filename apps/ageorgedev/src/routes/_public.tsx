@@ -1,9 +1,7 @@
-import {
-  InterfaceXl,
-  ShortNameLogo,
-  ThemeSwitcher,
-  TiltCard,
-} from '@ageorgedev/design-system'
+import { TiltCard } from '@ageorgedev/design-system/cards/TiltCard'
+import { ShortNameLogo } from '@ageorgedev/design-system/logo/ShortNameLogo'
+import { ThemeSwitcher } from '@ageorgedev/design-system/theming/ThemeSwitcher'
+import { InterfaceXl } from '@ageorgedev/design-system/typography/typography-components'
 import { cn } from '@ageorgedev/toolbelt/cn'
 import { createFileRoute, Link, Outlet } from '@tanstack/react-router'
 

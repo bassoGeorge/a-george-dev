@@ -1,11 +1,11 @@
+import { CodeBlock } from '@ageorgedev/design-system/CodeBlock/CodeBlock'
 import {
-  CodeBlock,
   Heading1,
   Heading2,
   Heading3,
   Interface2Xl,
   PBody,
-} from '@ageorgedev/design-system'
+} from '@ageorgedev/design-system/typography/typography-components'
 import {
   ComparisonRow,
   SlideTypeCenter,

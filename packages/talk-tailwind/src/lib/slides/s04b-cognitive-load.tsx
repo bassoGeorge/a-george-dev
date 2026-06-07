@@ -1,12 +1,12 @@
+import { CodeBlock } from '@ageorgedev/design-system/CodeBlock/CodeBlock'
 import {
-  CodeBlock,
   Heading1,
   Heading2,
   Heading3,
   PBody,
   PBodyLg,
   PBodyMd,
-} from '@ageorgedev/design-system'
+} from '@ageorgedev/design-system/typography/typography-components'
 import { SlideTypeCenter, SlideTypeRegular } from '@ageorgedev/reveal-framework'
 import { ArrowRightIcon } from '@phosphor-icons/react'
 

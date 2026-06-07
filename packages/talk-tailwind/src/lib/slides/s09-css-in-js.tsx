@@ -5,7 +5,7 @@ import {
   Heading3,
   PBody,
   PBodyMd,
-} from '@ageorgedev/design-system'
+} from '@ageorgedev/design-system/typography/typography-components'
 import {
   ImportantNote,
   PointSeperator,

@@ -1,4 +1,4 @@
-import { BodySm } from '@ageorgedev/design-system'
+import { BodySm } from '@ageorgedev/design-system/typography/typography-components'
 import type { Icon } from '@phosphor-icons/react'
 import {
   EnvelopeIcon,

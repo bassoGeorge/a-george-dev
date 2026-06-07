@@ -5,7 +5,7 @@ import {
   PBody,
   PBodyLg,
   PBodyMd,
-} from '@ageorgedev/design-system'
+} from '@ageorgedev/design-system/typography/typography-components'
 import {
   PointSeperator,
   SlideTypeCenter,

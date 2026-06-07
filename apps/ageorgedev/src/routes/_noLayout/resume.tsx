@@ -1,3 +1,4 @@
+import { NameLogo } from '@ageorgedev/design-system/logo/NameLogo'
 import {
   Body,
   BodyLg,
@@ -7,8 +8,7 @@ import {
   Heading4,
   Heading5,
   Heading6,
-  NameLogo,
-} from '@ageorgedev/design-system'
+} from '@ageorgedev/design-system/typography/typography-components'
 import { cn } from '@ageorgedev/toolbelt/cn'
 import { ArrowSquareOutIcon } from '@phosphor-icons/react/ssr'
 import { createFileRoute } from '@tanstack/react-router'

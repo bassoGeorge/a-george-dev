@@ -10,10 +10,6 @@
     "test": "echo 'temporary dummy tests'"
   },
   "exports": {
-    ".": {
-      "local-dev": "./src/index.ts",
-      "import": "./dist/index.js"
-    },
     "./*": {
       "local-dev": "./src/*.ts",
       "import": "./dist/*.js",

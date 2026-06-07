@@ -1,10 +1,10 @@
+import { CodeBlock } from '@ageorgedev/design-system/CodeBlock/CodeBlock'
 import {
-  CodeBlock,
   Heading1,
   Heading3,
   PBody,
   PBodyMd,
-} from '@ageorgedev/design-system'
+} from '@ageorgedev/design-system/typography/typography-components'
 import {
   ComparisonRow,
   ImportantNote,

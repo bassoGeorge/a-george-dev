@@ -1,13 +1,13 @@
+import { NameLogo } from '@ageorgedev/design-system/logo/NameLogo'
 import {
   Heading1,
   Heading2,
   Heading3,
   Heading4,
-  NameLogo,
   PBody,
   PBodyLg,
   PBodyMd,
-} from '@ageorgedev/design-system'
+} from '@ageorgedev/design-system/typography/typography-components'
 import {
   CalloutForAdvancedTopic,
   CalloutForPersonalOpinion,
