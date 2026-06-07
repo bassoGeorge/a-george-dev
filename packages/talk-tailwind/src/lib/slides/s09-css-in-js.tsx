@@ -1,5 +1,5 @@
+import { CodeBlock } from '@ageorgedev/design-system/CodeBlock/CodeBlock'
 import {
-  CodeBlock,
   Heading1,
   Heading2,
   Heading3,
