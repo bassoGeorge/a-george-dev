@@ -7,9 +7,9 @@
     "incremental": false,
     "isolatedModules": true,
     "lib": ["ES2022", "DOM", "DOM.Iterable"],
-    "module": "nodenext",
+    "module": "esnext",
     "moduleDetection": "force",
-    "moduleResolution": "nodenext",
+    "moduleResolution": "bundler",
     "strict": true,
     "target": "es2022",
     "skipLibCheck": true

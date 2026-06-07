@@ -35,7 +35,7 @@
   --delta: 0;
 }
 
-.skew-light {
+.skew-small {
   --delta: var(--spacing-1);
 }
 
@@ -43,7 +43,7 @@
   --delta: var(--spacing-2);
 }
 
-.skew-heavy {
+.skew-large {
   /** SP */
   --delta: var(--spacing-4);
 }
