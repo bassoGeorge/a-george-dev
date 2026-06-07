@@ -1,4 +1,3 @@
-import * as path from 'node:path'
 import tailwindcss from '@tailwindcss/vite'
 import { tanstackStart } from '@tanstack/react-start/plugin/vite'
 import viteReact from '@vitejs/plugin-react'
@@ -9,10 +8,7 @@ const config = defineConfig({
   root: __dirname,
   cacheDir: '../../node_modules/.vite/ageorgedev',
   plugins: [
-    dts({
-      entryRoot: 'src',
-      tsconfigPath: path.join(__dirname, 'tsconfig.json'),
-    }),
+    dts(),
     tailwindcss(),
     tanstackStart({
       prerender: {
