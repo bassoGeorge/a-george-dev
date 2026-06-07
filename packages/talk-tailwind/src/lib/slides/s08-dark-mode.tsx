@@ -9,7 +9,7 @@ import {
   PBodyXs,
 } from '@ageorgedev/design-system'
 import { SlideTypeCenter, SlideTypeRegular } from '@ageorgedev/reveal-framework'
-import { cn } from '@ageorgedev/toolbelt'
+import { cn } from '@ageorgedev/toolbelt/cn'
 import { WarningIcon } from '@phosphor-icons/react'
 
 export function S08DarkMode() {

@@ -5,14 +5,14 @@
   "types": "./dist/index.d.ts",
   "sideEffects": false,
   "scripts": {
-    "build": "tsc",
+    "build": "rm -rf ./dist && tsc",
     "check-types": "tsc --noEmit",
     "test": "echo 'temporary dummy tests'"
   },
   "exports": {
-    ".": {
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.js"
+    "./*": {
+      "import": "./dist/*.js",
+      "types": "./dist/*.d.ts"
     }
   },
   "dependencies": {

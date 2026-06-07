@@ -1,4 +1,4 @@
-import { cn } from '@ageorgedev/toolbelt'
+import { cn } from '@ageorgedev/toolbelt/cn'
 import { map } from 'ramda'
 import styles from './Skill.module.css'
 

@@ -1,4 +1,4 @@
-import { cn } from '@ageorgedev/toolbelt'
+import { cn } from '@ageorgedev/toolbelt/cn'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import {
   darcula as darkTheme,

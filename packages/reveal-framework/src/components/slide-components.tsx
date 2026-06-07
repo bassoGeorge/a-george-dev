@@ -3,7 +3,7 @@ import {
   TiltCard,
   type TiltCardProps,
 } from '@ageorgedev/design-system'
-import { cn } from '@ageorgedev/toolbelt'
+import { cn } from '@ageorgedev/toolbelt/cn'
 import {
   BracketsAngleIcon,
   ExamIcon,

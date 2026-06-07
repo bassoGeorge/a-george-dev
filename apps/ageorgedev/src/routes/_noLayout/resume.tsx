@@ -9,7 +9,7 @@ import {
   Heading6,
   NameLogo,
 } from '@ageorgedev/design-system'
-import { cn } from '@ageorgedev/toolbelt'
+import { cn } from '@ageorgedev/toolbelt/cn'
 import { ArrowSquareOutIcon } from '@phosphor-icons/react/ssr'
 import { createFileRoute } from '@tanstack/react-router'
 import { Fragment } from 'react'
