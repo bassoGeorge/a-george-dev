@@ -1,5 +1,4 @@
 import * as path from 'node:path'
-import { nxViteTsPaths } from '@nx/vite/plugins/nx-tsconfig-paths.plugin'
 import tailwindcss from '@tailwindcss/vite'
 import { tanstackStart } from '@tanstack/react-start/plugin/vite'
 import viteReact from '@vitejs/plugin-react'
@@ -10,8 +9,6 @@ const config = defineConfig({
   root: __dirname,
   cacheDir: '../../node_modules/.vite/ageorgedev',
   plugins: [
-    // devtools(),
-    nxViteTsPaths(),
     dts({
       entryRoot: 'src',
       tsconfigPath: path.join(__dirname, 'tsconfig.json'),
