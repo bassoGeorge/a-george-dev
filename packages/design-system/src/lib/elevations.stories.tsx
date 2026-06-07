@@ -37,7 +37,7 @@ function Box({ className, ...otherProps }: HTMLAttributes<HTMLDivElement>) {
       )}
     >
       <BodyMd>
-        {className.split(' ').map((s) => (
+        {className?.split(' ')?.map((s) => (
           <>
             {s}
             <br />

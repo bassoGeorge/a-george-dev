@@ -86,7 +86,7 @@ function TextRow({
   ...attributes
 }: Omit<HTMLAttributes<HTMLParagraphElement>, 'children'>) {
   const a11yFailures = useContext(A11yFailureContext)
-  const label = className.replace('text-', '')
+  const label = className?.replace('text-', '') ?? ''
   return (
     <div className="flex items-center">
       <div className="w-5">
@@ -100,9 +100,9 @@ function TextRow({
 }
 
 function Swatch({ className }: HTMLAttributes<HTMLDivElement>) {
-  const classes = className.split(' ')
-  const bgClass = classes.find((c) => c.startsWith('bg-'))
-  const fgClass = classes.find((c) => c.startsWith('text-'))
+  const classes = className?.split(' ')
+  const bgClass = classes?.find((c) => c.startsWith('bg-'))
+  const fgClass = classes?.find((c) => c.startsWith('text-'))
 
   return (
     <div

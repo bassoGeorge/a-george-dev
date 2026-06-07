@@ -73,6 +73,7 @@ __metadata:
     react: "npm:19.1.0"
     react-syntax-highlighter: "npm:16.1.1"
     storybook: "npm:^10.4.2"
+    typescript-plugin-css-modules: "npm:^5.2.0"
   languageName: unknown
   linkType: soft
 
