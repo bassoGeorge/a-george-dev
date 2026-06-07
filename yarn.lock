@@ -106,10 +106,18 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@ageorgedev/toolbelt@workspace:packages/toolbelt"
   dependencies:
+    "@ageorgedev/ts-config": "npm:*"
     "@types/ramda": "npm:^0.28.23"
     clsx: "npm:^2.1.1"
     ramda: "npm:^0.28.0"
     tailwind-merge: "npm:^3.3.1"
+    typescript: "npm:5.8.3"
+  languageName: unknown
+  linkType: soft
+
+"@ageorgedev/ts-config@npm:*, @ageorgedev/ts-config@workspace:packages/ts-config":
+  version: 0.0.0-use.local
+  resolution: "@ageorgedev/ts-config@workspace:packages/ts-config"
   languageName: unknown
   linkType: soft
 
@@ -4997,10 +5005,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/mdx@npm:^2.0.0, @types/mdx@npm:^2.0.13":
+"@types/mdx@npm:^2.0.0":
   version: 2.0.13
   resolution: "@types/mdx@npm:2.0.13"
   checksum: 10c0/5edf1099505ac568da55f9ae8a93e7e314e8cbc13d3445d0be61b75941226b005e1390d9b95caecf5dcb00c9d1bab2f1f60f6ff9876dc091a48b547495007720
+  languageName: node
+  linkType: hard
+
+"@types/mdx@npm:^2.0.13":
+  version: 2.0.14
+  resolution: "@types/mdx@npm:2.0.14"
+  checksum: 10c0/f1e3873c1e36e2685fb99222bf81a23c55a8e2edf49d0c45cabf2c875b0ae814cd6050cce5770ff1c6881ac747d2ad33731e1de32139b04cf181d8d7e1943ff4
   languageName: node
   linkType: hard
 
