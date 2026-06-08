@@ -4,7 +4,7 @@
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "scripts": {
-    "build": "rm -rf ./dist && tsc && cpx 'src/**/*.css' dist",
+    "build": "rm -rf ./dist && tsc && cpx \"src/**/*.css\" dist",
     "build-storybook": "storybook build",
     "dev-storybook": "storybook dev",
     "test": "echo 'temporary dummy tests'"

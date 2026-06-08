@@ -1,1 +1,1 @@
-export * from './lib/TwLogo/TwLogo'
+export * from './TwLogo/TwLogo'

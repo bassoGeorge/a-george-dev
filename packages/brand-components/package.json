@@ -4,12 +4,13 @@
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "scripts": {
-    "build": "rm -rf ./dist && tsc"
+    "build": "rm -rf ./dist && tsc && cpx \"src/**/*.css\" dist"
   },
   "exports": {
     ".": {
       "local-dev": "./src/index.ts",
-      "import": "./dist/index.js"
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
     }
   }
 }
