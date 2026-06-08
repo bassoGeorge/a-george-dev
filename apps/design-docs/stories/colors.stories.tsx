@@ -1,12 +1,12 @@
-import { cn } from '@ageorgedev/toolbelt/cn'
-import type { StoryObj } from '@storybook/react-vite'
-import { createContext, type HTMLAttributes, useContext } from 'react'
 import {
   BodyMd,
   BodyXl,
   BodyXs,
   InterfaceMd,
-} from './typography/typography-components'
+} from '@ageorgedev/design-system/typography/typography-components'
+import { cn } from '@ageorgedev/toolbelt/cn'
+import type { StoryObj } from '@storybook/react-vite'
+import { createContext, type HTMLAttributes, useContext } from 'react'
 
 export default {
   title: 'Foundation/Colors',

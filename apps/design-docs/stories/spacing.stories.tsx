@@ -1,6 +1,6 @@
+import { Interface } from '@ageorgedev/design-system/typography/typography-components'
 import { cn } from '@ageorgedev/toolbelt/cn'
 import type { StoryObj } from '@storybook/react-vite'
-import { Interface } from './typography/typography-components'
 
 export default {
   title: 'Foundation/Spacing',

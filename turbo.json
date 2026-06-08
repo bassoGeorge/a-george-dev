@@ -7,8 +7,8 @@
     },
     "test": {},
     "lint": {},
-    "build-storybook": {},
-    "dev-storybook": {},
+    "build:storybook": {},
+    "dev:storybook": {},
     "vaidate": {},
     "pre-build": {
       "dependsOn": ["^build"]

@@ -1,0 +1,11 @@
+{
+  "name": "@ageorgedev/design-docs",
+  "version": "0.0.1",
+  "scripts": {
+    "dev:storybook": "storybook dev -p 6006",
+    "build:storybook": "storybook build"
+  },
+  "devDependencies": {
+    "@ageorgedev/design-system": "*"
+  }
+}

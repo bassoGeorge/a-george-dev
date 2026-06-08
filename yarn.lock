@@ -58,6 +58,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@ageorgedev/design-docs@workspace:apps/design-docs":
+  version: 0.0.0-use.local
+  resolution: "@ageorgedev/design-docs@workspace:apps/design-docs"
+  dependencies:
+    "@ageorgedev/design-system": "npm:*"
+  languageName: unknown
+  linkType: soft
+
 "@ageorgedev/design-system@npm:*, @ageorgedev/design-system@workspace:packages/design-system":
   version: 0.0.0-use.local
   resolution: "@ageorgedev/design-system@workspace:packages/design-system"
