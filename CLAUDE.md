@@ -4,31 +4,30 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Overview
 
-Personal website mono-repo for [ageorge.dev](https://ageorge.dev), built with Nx, React 19, TanStack Start (SSG), and Tailwind CSS v4. The design system is separately deployed at [design.ageorge.dev](https://design.ageorge.dev) via Storybook.
+Personal website mono-repo for [ageorge.dev](https://ageorge.dev), built with Turborepo, React 19, TanStack Start (SSG), and Tailwind CSS v4. The design system is separately deployed at [design.ageorge.dev](https://design.ageorge.dev) via Storybook (`apps/design-docs`).
 
 ## Commands
 
 ```bash
 # Development
 yarn dev                                # Start ageorgedev app (port 3000)
-yarn storybook                          # Start design-system Storybook (port 4400)
+yarn storybook                          # Start design-docs Storybook
 yarn decap-server                       # Start local CMS server
 
 # Build
 yarn build                              # Build ageorgedev app
-yarn nx build toolbelt                  # Build toolbelt lib (only buildable lib)
+yarn turbo build --filter=@ageorgedev/toolbelt  # Build a specific package
 
 # Testing
-yarn test                               # Run all tests
-yarn nx test toolbelt                   # Run tests for a specific project
-yarn nx test toolbelt --testFile=packages/toolbelt/src/lib/ramda-additions.spec.ts  # Single test file
+yarn test                               # Run all tests (via Turborepo)
+yarn turbo test --filter=@ageorgedev/toolbelt   # Run tests for a specific package
 
-# Linting
-yarn nx lint ageorgedev                 # Lint a specific project
-yarn nx run-many --target=lint          # Lint all projects
+# Linting / Formatting (Biome)
+yarn format-and-lint                    # Check all files
+yarn format-and-lint:fix                # Auto-fix issues
 
 # E2E
-yarn nx e2e ageorgedev-e2e              # Run Cypress e2e tests
+yarn turbo e2e --filter=@ageorgedev/ageorgedev-e2e  # Run Cypress e2e tests
 
 # Add shadcn components (outputs to design-system lib)
 yarn shadcn add <component>
@@ -38,26 +37,18 @@ yarn shadcn add <component>
 
 ### Workspace Structure
 
-This is an Nx monorepo with Yarn v4 workspaces:
+This is a Turborepo monorepo with Yarn v4 workspaces:
 
 - **`apps/ageorgedev`** — Main website, TanStack Start (SSG mode), served on Vercel
 - **`apps/ageorgedev-e2e`** — Cypress e2e tests for the main site
-- **`packages/design-system`** — React UI component library; Storybook at design.ageorge.dev; tagged `scope:ds, type:ui`
-- **`packages/brand-components`** — Higher-level branded components (talks, presentations); tagged `scope:site`
-- **`packages/toolbelt`** — Shared utilities (`cn`, ramda extensions); the only buildable lib; tagged `scope:global, type:util`
-- **`packages/foundation-styles`** — Raw CSS design tokens (typography, colors, spacing, shadows); imported as implicit dependency by design-system and ageorgedev
+- **`apps/design-docs`** — Storybook app for the design system; deployed at design.ageorge.dev
+- **`packages/design-system`** — React UI component library
+- **`packages/brand-components`** — Higher-level branded components (talks, presentations)
+- **`packages/toolbelt`** — Shared utilities (`cn`, ramda extensions)
+- **`packages/foundation-styles`** — Raw CSS design tokens (typography, colors, spacing, shadows); imported by design-system and ageorgedev
+- **`packages/ts-config`** — Shared TypeScript configurations (`base.json`, `react.json`)
 - **`packages/reveal-framework`** — Presentation framework integration
 - **`packages/talk-tailwind`** — Content lib for the "Tailwind" talk
-
-### Module Boundary Rules (enforced by ESLint)
-
-```
-scope:global   → scope:global only
-scope:ds       → scope:global, scope:ds
-scope:site     → scope:global, scope:site, scope:ds
-type:util      → type:util only
-type:ui        → type:ui, type:util
-```
 
 ### Routing
 
@@ -87,10 +78,11 @@ CSS design tokens live in `packages/foundation-styles/src/theme.css` and sub-fil
 
 ### Build & Deploy
 
-- **CI**: GitHub Actions; Nx Cloud for affected-project detection
-- **Hosting**: Vercel (main site + Storybook deployed as separate projects)
+- **CI**: GitHub Actions; Turborepo for task orchestration and caching (GitHub Actions workflows pending update)
+- **Hosting**: Vercel (main site + design-docs/Storybook deployed as separate projects)
 - **PR workflow**: Runs lint+test on affected projects, deploys preview URLs
 - **Production**: Deploys on push to `main`; hotfix branches bypass test gates
+- **Linting**: Biome (replaces ESLint) — run `yarn format-and-lint` locally, `yarn lint:ci` in CI
 
 ### Key Path Aliases
 
