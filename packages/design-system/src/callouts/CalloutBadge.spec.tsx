@@ -1,6 +1,6 @@
-import '@testing-library/jest-dom'
 import { InfoIcon } from '@phosphor-icons/react'
 import { render, screen } from '@testing-library/react'
+import { describe, expect, it } from 'vitest'
 import { CalloutBadge } from './CalloutBadge'
 
 describe('CalloutBadge', () => {

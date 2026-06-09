@@ -1,3 +1,4 @@
+import { describe, expect, it } from 'vitest'
 import { mapKeys } from './ramda-additions'
 
 describe('mapKeys', () => {

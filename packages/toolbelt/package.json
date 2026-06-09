@@ -6,7 +6,7 @@
   "scripts": {
     "build": "rm -rf ./dist && tsc",
     "check-types": "tsc --noEmit",
-    "test": "echo 'temporary dummy tests'"
+    "test": "vitest run"
   },
   "exports": {
     "./*": {
@@ -23,6 +23,8 @@
   "devDependencies": {
     "@ageorgedev/ts-config": "*",
     "@types/ramda": "^0.28.23",
-    "typescript": "5.8.3"
+    "@vitest/ui": "^4.1.8",
+    "typescript": "5.8.3",
+    "vitest": "^4.1.8"
   }
 }

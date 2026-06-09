@@ -1,5 +1,5 @@
-import '@testing-library/jest-dom'
 import { render, screen } from '@testing-library/react'
+import { describe, expect, it } from 'vitest'
 import { TiltCard } from './TiltCard'
 import styles from './TiltCard.module.css'
 

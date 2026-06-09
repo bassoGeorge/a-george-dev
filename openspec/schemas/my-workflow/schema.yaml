@@ -8,7 +8,7 @@ artifacts:
     template: proposal.md
     instruction: >
       Create the proposal document that establishes WHY this change is needed.
-
+      Use /grill-me to clearly understand user requirements without any gaps.
 
       Sections:
 
@@ -26,10 +26,7 @@ artifacts:
 
 
       IMPORTANT: The Capabilities section is critical. It creates the contract
-      between
-
-      proposal and specs phases. Research existing specs before filling this in.
-
+      between proposal and specs phases. Research existing specs before filling this in.
       Each capability listed here will need a corresponding spec file.
 
 
