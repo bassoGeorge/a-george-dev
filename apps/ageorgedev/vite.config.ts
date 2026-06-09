@@ -1,11 +1,11 @@
+import process from 'node:process'
 import tailwindcss from '@tailwindcss/vite'
 import { tanstackStart } from '@tanstack/react-start/plugin/vite'
-import viteReact from '@vitejs/plugin-react'
+import react from '@vitejs/plugin-react'
 import { defineConfig, searchForWorkspaceRoot } from 'vite'
 import dts from 'vite-plugin-dts'
 
 const config = defineConfig({
-  root: __dirname,
   cacheDir: '../../node_modules/.vite/ageorgedev',
   plugins: [
     dts(),
@@ -37,7 +37,7 @@ const config = defineConfig({
       //   enabled: true,
       // },
     }),
-    viteReact(),
+    react(),
   ],
   server: {
     fs: {

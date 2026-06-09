@@ -1,8 +1,7 @@
 {
   "name": "@ageorgedev/design-system",
   "version": "0.0.1",
-  "main": "./dist/index.js",
-  "types": "./dist/index.d.ts",
+  "type": "module",
   "scripts": {
     "build": "rm -rf ./dist && tsc && cpx \"src/**/*.css\" dist",
     "test": "echo 'temporary dummy tests'"
@@ -24,9 +23,6 @@
     "storybook": "^10.4.2"
   },
   "devDependencies": {
-    "@storybook/addon-a11y": "^9.0.17",
-    "@storybook/addon-themes": "9.0.17",
-    "@storybook/react-vite": "9.0.17",
     "@types/react-syntax-highlighter": "^15.5.13",
     "cpx2": "^9.0.0",
     "typescript": "5.8.3",

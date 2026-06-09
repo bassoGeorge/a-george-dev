@@ -1,7 +1,7 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig",
   "extends": "./base.json",
-  "files": ["./react-globals.d.ts"],
+  "files": ["./css-modules.d.ts", "./react-globals.d.ts"],
   "compilerOptions": {
     "jsx": "react-jsx",
     "plugins": [{ "name": "typescript-plugin-css-modules" }],
