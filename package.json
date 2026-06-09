@@ -15,7 +15,9 @@
     "shadcn": "yarn dlx shadcn",
     "format-and-lint": "biome check .",
     "format-and-lint:fix": "biome check . --write",
-    "lint:ci": "biome ci ."
+    "lint:ci": "biome ci .",
+    "affected": "yarn turbo query affected --packages | jq -c '[.data.affectedPackages.items[].name | select(. != \"//\")]'",
+    "wip": "yarn turbo query affected --packages | jq '[.data.affectedPackages.items[] | select(.path | contains(\"apps/\")) | select(.name  | endswith(\"-e2e\") | not)]'"
   },
   "devDependencies": {
     "@babel/core": "^7.26.10",
