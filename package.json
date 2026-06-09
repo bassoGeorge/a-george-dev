@@ -16,7 +16,7 @@
     "format-and-lint": "biome check .",
     "format-and-lint:fix": "biome check . --write",
     "lint:ci": "biome ci .",
-    "affected:apps": "yarn turbo query affected --packages | jq '[.data.affectedPackages.items[] | select(.path | contains(\"apps/\")) | select(.name  | endswith(\"-e2e\") | not)]'"
+    "affected:apps": "yarn turbo query affected --packages | jq -c '[.data.affectedPackages.items[] | select(.path | contains(\"apps/\")) | select(.name  | endswith(\"-e2e\") | not) | .name ]'"
   },
   "devDependencies": {
     "@babel/core": "^7.26.10",
