@@ -63,6 +63,7 @@ __metadata:
   resolution: "@ageorgedev/design-docs@workspace:apps/design-docs"
   dependencies:
     "@ageorgedev/design-system": "npm:*"
+    "@ageorgedev/foundation-styles": "npm:*"
     "@storybook/addon-a11y": "npm:^9.0.17"
     "@storybook/addon-themes": "npm:9.0.17"
     "@storybook/react-vite": "npm:9.0.17"
