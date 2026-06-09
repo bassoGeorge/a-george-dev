@@ -1,10 +1,10 @@
+import { TiltCard } from '@ageorgedev/design-system/cards/TiltCard'
 import {
   Body,
   BodyXl,
   Heading1,
   Heading2,
-  TiltCard,
-} from '@ageorgedev/design-system'
+} from '@ageorgedev/design-system/typography/typography-components'
 import { createFileRoute, Link } from '@tanstack/react-router'
 
 export const Route = createFileRoute('/_public/talks/')({

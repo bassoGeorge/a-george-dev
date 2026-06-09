@@ -1,0 +1,11 @@
+{
+  "name": "@ageorgedev/ts-config",
+  "version": "0.0.1",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "typescript-plugin-css-modules": "^5.2.0"
+  }
+}

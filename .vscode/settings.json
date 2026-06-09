@@ -7,5 +7,6 @@
     "*.css": "tailwindcss"
   },
   "editor.defaultFormatter": "biomejs.biome",
-  "nxConsole.generateAiAgentRules": true
+  "nxConsole.generateAiAgentRules": true,
+  "typescript.tsdk": "node_modules/typescript/lib"
 }

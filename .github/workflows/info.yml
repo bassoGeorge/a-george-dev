@@ -27,33 +27,36 @@ on:
         value: ${{ contains(jobs.Info.outputs.affected_projects, '@ageorgedev/ageorgedev') }}
       should_deploy_design_system:
         description: 'Whether to deploy the design-system storybook'
-        value: ${{ contains(fromJSON(jobs.Info.outputs.affected_projects), '@ageorgedev/design-system')}}
+        value: ${{ contains(fromJSON(jobs.Info.outputs.affected_projects), '@ageorgedev/design-docs')}}
 
 jobs:
   Info:
     runs-on: ubuntu-latest
     steps:
-      - name: 🔍 Check whether this commit is part of any PR
-        uses: octokit/request-action@v2.x
-        id: comm_check
-        with:
-          route: GET /repos/${{ github.repository }}/commits/${{ github.sha }}/pulls
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: 🔍 Is it a hotfix then?
-        id: is_hotfix
-        run: echo "is_hotfix=${{ fromJSON(steps.comm_check.outputs.data)[0] == null }}" >> "$GITHUB_OUTPUT"
       - name: ⬇️ Check out repository code
         uses: actions/checkout@v6
         with:
           fetch-depth: 0
-      - name: Fetch main branch
-        run: git fetch origin main
+      - name: 🔍 Is it a hotfix?
+        id: is_hotfix
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          pr_count=$(gh api \
+            "/repos/${{ github.repository }}/commits/${{ github.sha }}/pulls" \
+            --jq 'length')
+          if [ "$pr_count" -eq 0 ]; then
+            echo "is_hotfix=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "is_hotfix=false" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Setup Turbo
+        uses: ./.github/actions/setup-turbo
       - name: 📦 Install dependencies
         uses: ./.github/actions/install-dependencies
       - name: 🔧 List affected projects
         id: affected_projects
-        run: echo "affected_projects=$(yarn turbo query affected --packages | jq -c '[.data.affectedPackages.items[].name | select(. != "//")]')" >> "$GITHUB_OUTPUT"
+        run: echo "affected_projects=$(yarn affected:apps)" >> "$GITHUB_OUTPUT"
       - name: 🔍 Debug
         run: |
           echo "Is hotfix: ${{ steps.is_hotfix.outputs.is_hotfix }}"

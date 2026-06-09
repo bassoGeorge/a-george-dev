@@ -1,15 +1,20 @@
 {
   "name": "@ageorgedev/reveal-framework",
   "version": "0.0.1",
-  "main": "./dist/index.js",
-  "types": "./dist/index.d.ts",
+  "type": "module",
   "scripts": {
-    "build": "vite build"
+    "build": "rm -rf ./dist && tsc && cpx \"src/**/*.css\" dist"
   },
   "exports": {
     ".": {
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.js"
+      "local-dev": "./src/index.ts",
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./globals": {
+      "local-dev": "./src/globals.ts",
+      "import": "./dist/globals.js",
+      "types": "./dist/globals.d.ts"
     }
   },
   "dependencies": {

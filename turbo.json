@@ -7,8 +7,11 @@
     },
     "test": {},
     "lint": {},
-    "build-storybook": {},
-    "dev-storybook": {},
+    "build:storybook": {
+      "dependsOn": ["^build"],
+      "outputs": ["storybook-static"]
+    },
+    "dev:storybook": {},
     "vaidate": {},
     "pre-build": {
       "dependsOn": ["^build"]

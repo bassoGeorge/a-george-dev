@@ -1,4 +1,4 @@
-import { THEME_INIT_SCRIPT } from '@ageorgedev/design-system'
+import { THEME_INIT_SCRIPT } from '@ageorgedev/design-system/theming/theme-init-script'
 import {
   createRootRouteWithContext,
   HeadContent,

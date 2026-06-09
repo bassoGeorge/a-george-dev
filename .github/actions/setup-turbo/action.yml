@@ -1,0 +1,41 @@
+name: Set Turbo SCM environment
+description: >
+  Sets TURBO_SCM_BASE and TURBO_SCM_HEAD correctly for both push and
+  pull_request events so that turbo --affected diffs the right range.
+
+outputs:
+  base:
+    description: The base commit SHA being diffed against
+    value: ${{ steps.resolve.outputs.base }}
+  head:
+    description: The head commit SHA being diffed against
+    value: ${{ steps.resolve.outputs.head }}
+
+runs:
+  using: composite
+  steps:
+    - name: Resolve SCM range
+      id: resolve
+      shell: bash
+      run: |
+        if [ "${{ github.event_name }}" = "pull_request" ]; then
+          BASE="${{ github.event.pull_request.base.sha }}"
+          HEAD="${{ github.sha }}"
+        else
+          # push to main — diff against the previous commit
+          BASE="${{ github.event.before }}"
+          HEAD="${{ github.sha }}"
+
+          # event.before is all-zeros on a branch's first push
+          if [ "$BASE" = "0000000000000000000000000000000000000000" ]; then
+            BASE="${{ github.sha }}~1"
+          fi
+        fi
+
+        echo "base=$BASE" >> "$GITHUB_OUTPUT"
+        echo "head=$HEAD" >> "$GITHUB_OUTPUT"
+
+        echo "TURBO_SCM_BASE=$BASE" >> "$GITHUB_ENV"
+        echo "TURBO_SCM_HEAD=$HEAD" >> "$GITHUB_ENV"
+
+        echo "Turbo SCM range: $BASE..$HEAD"
