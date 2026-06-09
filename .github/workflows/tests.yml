@@ -11,6 +11,10 @@ jobs:
     steps:
       - name: ⬇️ Check out repository code
         uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+      - name: Setup Turbo
+        uses: ./.github/actions/setup-turbo
       - name: 📦 Install dependencies
         uses: ./.github/actions/install-dependencies
       - name: ⚡ Run Unit Tests for given projects
