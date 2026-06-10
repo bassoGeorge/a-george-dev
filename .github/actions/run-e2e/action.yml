@@ -1,5 +1,5 @@
 name: Run e2e
-description: Run cypress e2e tests against site url
+description: Run playwright e2e tests against site url
 inputs:
   site_url:
     required: true
@@ -11,8 +11,11 @@ inputs:
 runs:
   using: 'composite'
   steps:
-    - name: ⚡ Run cypress against deployed application
+    - name: 🎭 Install Playwright browsers
+      shell: bash
+      run: npx playwright install --with-deps chromium
+    - name: ⚡ Run playwright against deployed application
       shell: bash
       env:
-        SITE_URL: ${{ inputs.site_url }}
-      run: yarn turbo e2e --filter=${{ inputs.project }} -- --baseUrl=$SITE_URL
+        BASE_URL: ${{ inputs.site_url }}
+      run: yarn turbo e2e --filter=${{ inputs.project }}

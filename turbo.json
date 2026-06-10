@@ -25,7 +25,8 @@
       "persistent": true
     },
     "e2e": {
-      "cache": false
+      "cache": false,
+      "passThroughEnv": ["BASE_URL"]
     },
     "//#format-and-lint": {},
     "//#format-and-lint:fix": {
