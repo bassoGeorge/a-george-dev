@@ -75,6 +75,8 @@ jobs:
       - name: 🔍 Debug
         run: |
           echo "affected projects: ${{ steps.affected_projects.outputs.affected_projects }}"
+          echo "pr matrix: ${{ steps.pr_deploy_matrix.outputs.pr_deploy_matrix }}"
+          echo "prod matrix: ${{ steps.production_deploy_matrix.outputs.production_deploy_matrix }}"
     outputs:
       affected_projects: ${{ steps.affected_projects.outputs.affected_projects }}
       production_deploy_matrix: ${{ steps.production_deploy_matrix.outputs.production_deploy_matrix }}
