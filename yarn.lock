@@ -32,6 +32,7 @@ __metadata:
   resolution: "@ageorgedev/ageorgedev@workspace:apps/ageorgedev"
   dependencies:
     "@ageorgedev/design-system": "workspace:*"
+    "@ageorgedev/dnd-character-sheet": "workspace:*"
     "@ageorgedev/foundation-styles": "workspace:*"
     "@ageorgedev/reveal-framework": "workspace:*"
     "@ageorgedev/talk-tailwind": "workspace:*"
@@ -145,7 +146,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@ageorgedev/dnd-character-sheet@workspace:packages/dnd-character-sheet":
+"@ageorgedev/dnd-character-sheet@workspace:*, @ageorgedev/dnd-character-sheet@workspace:packages/dnd-character-sheet":
   version: 0.0.0-use.local
   resolution: "@ageorgedev/dnd-character-sheet@workspace:packages/dnd-character-sheet"
   dependencies:

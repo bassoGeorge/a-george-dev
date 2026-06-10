@@ -1,6 +1,3 @@
-// Styles — consuming apps import '@dnd-tooling/character-sheet/dist/style.css'
-import './styles/index.css'
-
 // Assembled character sheets
 export { ExampleSheet } from './characters/example'
 

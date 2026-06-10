@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@ageorgedev/design-system": "workspace:*",
+    "@ageorgedev/dnd-character-sheet": "workspace:*",
     "@ageorgedev/foundation-styles": "workspace:*",
     "@ageorgedev/reveal-framework": "workspace:*",
     "@ageorgedev/talk-tailwind": "workspace:*",

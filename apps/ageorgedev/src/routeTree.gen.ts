@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as PublicRouteImport } from './routes/_public'
 import { Route as PublicIndexRouteImport } from './routes/_public/index'
 import { Route as NoLayoutResumeRouteImport } from './routes/_noLayout/resume'
+import { Route as NoLayoutCharTestRouteImport } from './routes/_noLayout/char-test'
 import { Route as PublicTalksIndexRouteImport } from './routes/_public/talks.index'
 import { Route as PublicTalksTailwindRouteImport } from './routes/_public/talks.tailwind'
 
@@ -29,6 +30,11 @@ const NoLayoutResumeRoute = NoLayoutResumeRouteImport.update({
   path: '/resume',
   getParentRoute: () => rootRouteImport,
 } as any)
+const NoLayoutCharTestRoute = NoLayoutCharTestRouteImport.update({
+  id: '/_noLayout/char-test',
+  path: '/char-test',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PublicTalksIndexRoute = PublicTalksIndexRouteImport.update({
   id: '/talks/',
   path: '/talks/',
@@ -42,11 +48,13 @@ const PublicTalksTailwindRoute = PublicTalksTailwindRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof PublicIndexRoute
+  '/char-test': typeof NoLayoutCharTestRoute
   '/resume': typeof NoLayoutResumeRoute
   '/talks/tailwind': typeof PublicTalksTailwindRoute
   '/talks/': typeof PublicTalksIndexRoute
 }
 export interface FileRoutesByTo {
+  '/char-test': typeof NoLayoutCharTestRoute
   '/resume': typeof NoLayoutResumeRoute
   '/': typeof PublicIndexRoute
   '/talks/tailwind': typeof PublicTalksTailwindRoute
@@ -55,6 +63,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/_public': typeof PublicRouteWithChildren
+  '/_noLayout/char-test': typeof NoLayoutCharTestRoute
   '/_noLayout/resume': typeof NoLayoutResumeRoute
   '/_public/': typeof PublicIndexRoute
   '/_public/talks/tailwind': typeof PublicTalksTailwindRoute
@@ -62,12 +71,13 @@ export interface FileRoutesById {
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/resume' | '/talks/tailwind' | '/talks/'
+  fullPaths: '/' | '/char-test' | '/resume' | '/talks/tailwind' | '/talks/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/resume' | '/' | '/talks/tailwind' | '/talks'
+  to: '/char-test' | '/resume' | '/' | '/talks/tailwind' | '/talks'
   id:
     | '__root__'
     | '/_public'
+    | '/_noLayout/char-test'
     | '/_noLayout/resume'
     | '/_public/'
     | '/_public/talks/tailwind'
@@ -76,6 +86,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   PublicRoute: typeof PublicRouteWithChildren
+  NoLayoutCharTestRoute: typeof NoLayoutCharTestRoute
   NoLayoutResumeRoute: typeof NoLayoutResumeRoute
 }
 
@@ -100,6 +111,13 @@ declare module '@tanstack/react-router' {
       path: '/resume'
       fullPath: '/resume'
       preLoaderRoute: typeof NoLayoutResumeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/_noLayout/char-test': {
+      id: '/_noLayout/char-test'
+      path: '/char-test'
+      fullPath: '/char-test'
+      preLoaderRoute: typeof NoLayoutCharTestRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/_public/talks/': {
@@ -136,6 +154,7 @@ const PublicRouteWithChildren =
 
 const rootRouteChildren: RootRouteChildren = {
   PublicRoute: PublicRouteWithChildren,
+  NoLayoutCharTestRoute: NoLayoutCharTestRoute,
   NoLayoutResumeRoute: NoLayoutResumeRoute,
 }
 export const routeTree = rootRouteImport
