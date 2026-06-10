@@ -7,9 +7,11 @@ artifacts:
     description: Initial proposal document outlining the change
     template: proposal.md
     instruction: >
-      Create the proposal document that establishes WHY this change is needed.
-      Use /grill-me to clearly understand user requirements without any gaps.
+      Invoke the grll-me skill to run an interactive grilling session before writing proposal.md. 
+      The grilling session will help identify gaps in understanding and clarify requirements.
+      Once the grilling has reached shared understanding, write proposal.md following the instructions below.
 
+      The proposal is a WHAT document, describing what the change is and the impact.
       Sections:
 
       - **Why**: 1-2 sentences on the problem or opportunity. What problem does
