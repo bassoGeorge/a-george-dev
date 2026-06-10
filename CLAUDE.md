@@ -40,7 +40,7 @@ yarn shadcn add <component>
 This is a Turborepo monorepo with Yarn v4 workspaces:
 
 - **`apps/ageorgedev`** — Main website, TanStack Start (SSG mode), served on Vercel
-- **`apps/ageorgedev-e2e`** — Cypress e2e tests for the main site
+- **`apps/ageorgedev-e2e`** — Playwright e2e tests for the main site
 - **`apps/design-docs`** — Storybook app for the design system; deployed at design.ageorge.dev
 - **`packages/design-system`** — React UI component library
 - **`packages/brand-components`** — Higher-level branded components (talks, presentations)
