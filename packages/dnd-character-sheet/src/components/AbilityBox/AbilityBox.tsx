@@ -79,7 +79,7 @@ export function AbilityBox({ ability }: AbilityBoxProps) {
     >
       <PanelTitle className="px-3 py-1.5">{ABILITY_LABELS[ability]}</PanelTitle>
       <div className="flex justify-center items-center py-2 gap-1">
-        <div className="w-14 h-14 rounded-full border-2 border-destructive-surface-2 flex items-center justify-center">
+        <div className="w-8 h-8 rounded-full border-2 border-destructive-surface-2 flex items-center justify-center">
           <BigNumber className="text-neutral-strong">
             {formatMod(mod)}
           </BigNumber>

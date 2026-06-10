@@ -22,6 +22,7 @@
 
 .panelRoot {
   clip-path: var(--pth);
+  @apply bg-page-4;
 }
 
 .scoopedTopLeft {
