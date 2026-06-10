@@ -3,7 +3,8 @@
   "version": "0.0.1",
   "type": "module",
   "scripts": {
-    "build": "rm -rf ./dist && tsc && cpx \"src/**/*.css\" dist"
+    "build": "rm -rf ./dist && tsc && cpx \"src/**/*.css\" dist",
+    "test": "vitest run"
   },
   "exports": {
     ".": {
@@ -16,7 +17,13 @@
     "react-dom": "19.1.0"
   },
   "devDependencies": {
+    "@ageorgedev/testing-config": "workspace:*",
+    "@testing-library/jest-dom": "6.9.1",
+    "@testing-library/react": "16.3.2",
+    "@types/react": "19.2.17",
+    "@vitejs/plugin-react": "6.0.2",
     "cpx2": "9.0.0",
-    "typescript": "5.8.3"
+    "typescript": "5.8.3",
+    "vitest": "4.1.8"
   }
 }
