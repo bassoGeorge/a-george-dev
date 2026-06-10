@@ -2,21 +2,25 @@
   "$schema": "./node_modules/turbo/schema.json",
   "tasks": {
     "build": {
-      "dependsOn": ["^build", "pre-build"],
+      "dependsOn": ["^build"],
       "outputs": ["dist/**"]
     },
-    "test": {},
+    "test": {
+      "dependsOn": ["^build"]
+    },
     "lint": {},
     "build:storybook": {
       "dependsOn": ["^build"],
       "outputs": ["storybook-static"]
     },
-    "dev:storybook": {},
-    "vaidate": {},
-    "pre-build": {
-      "dependsOn": ["^build"]
+    "dev:storybook": {
+      "dependsOn": ["^build"],
+      "cache": false,
+      "persistent": true
     },
+    "vaidate": {},
     "dev": {
+      "dependsOn": ["^build"],
       "cache": false,
       "persistent": true
     },

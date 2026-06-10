@@ -8,7 +8,6 @@
   },
   "exports": {
     "./*": {
-      "local-dev": "./src/*.ts",
       "import": "./dist/*.js",
       "types": "./dist/*.d.ts"
     }

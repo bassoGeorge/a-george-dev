@@ -12,7 +12,6 @@
     "moduleResolution": "bundler",
     "strict": true,
     "target": "es2022",
-    "skipLibCheck": true,
-    "customConditions": ["local-dev"]
+    "skipLibCheck": true
   }
 }

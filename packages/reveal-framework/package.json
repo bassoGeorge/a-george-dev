@@ -7,12 +7,10 @@
   },
   "exports": {
     ".": {
-      "local-dev": "./src/index.ts",
       "import": "./dist/index.js",
       "types": "./dist/index.d.ts"
     },
     "./globals": {
-      "local-dev": "./src/globals.ts",
       "import": "./dist/globals.js",
       "types": "./dist/globals.d.ts"
     }

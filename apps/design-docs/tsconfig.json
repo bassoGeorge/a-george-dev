@@ -1,15 +1,7 @@
 {
   "extends": "@ageorgedev/ts-config/react.json",
   "include": ["stories"],
-  "exclude": [
-    "node_modules",
-    "dist",
-    "storybook-static",
-    "**/*.spec.ts",
-    "**/*.test.ts",
-    "**/*.spec.tsx",
-    "**/*.spec.tsx"
-  ],
+  "exclude": ["node_modules", "dist", "storybook-static"],
   "compilerOptions": {
     "outDir": "dist"
   }
