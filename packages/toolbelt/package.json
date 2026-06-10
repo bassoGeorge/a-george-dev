@@ -21,7 +21,7 @@
     "tailwind-merge": "^3.3.1"
   },
   "devDependencies": {
-    "@ageorgedev/ts-config": "*",
+    "@ageorgedev/ts-config": "workspace:*",
     "@types/ramda": "^0.28.23",
     "@vitest/ui": "^4.1.8",
     "typescript": "5.8.3",

@@ -13,10 +13,10 @@
     }
   },
   "dependencies": {
-    "@ageorgedev/brand-components": "*",
-    "@ageorgedev/design-system": "*",
-    "@ageorgedev/reveal-framework": "*",
-    "@ageorgedev/toolbelt": "*",
+    "@ageorgedev/brand-components": "workspace:*",
+    "@ageorgedev/design-system": "workspace:*",
+    "@ageorgedev/reveal-framework": "workspace:*",
+    "@ageorgedev/toolbelt": "workspace:*",
     "@phosphor-icons/react": "2.1.10",
     "react": "19.1.0"
   }

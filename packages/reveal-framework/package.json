@@ -18,8 +18,8 @@
     }
   },
   "dependencies": {
-    "@ageorgedev/design-system": "*",
-    "@ageorgedev/toolbelt": "*",
+    "@ageorgedev/design-system": "workspace:*",
+    "@ageorgedev/toolbelt": "workspace:*",
     "@phosphor-icons/react": "2.1.10",
     "@revealjs/react": "^0.2.0",
     "react": "19.1.0",

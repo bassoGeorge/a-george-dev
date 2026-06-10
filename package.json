@@ -31,14 +31,14 @@
     "@swc/helpers": "0.5.17",
     "@types/node": "18.16.9",
     "@types/ramda": "^0.28.23",
-    "@types/react": "19.1.8",
-    "@types/react-dom": "19.1.6",
-    "@vitejs/plugin-react": "^5.1.4",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^6.0.2",
     "autoprefixer": "^10.4.13",
     "cpx2": "^9.0.0",
     "cypress": "14.4.0",
     "jiti": "2.4.2",
-    "jsdom": "22.1.0",
+    "jsdom": "^29.1.1",
     "knip": "^6.15.0",
     "postcss": "^8.5.15",
     "postcss-nesting": "^12.1.5",
@@ -93,7 +93,7 @@
     "yarn": "4.14.1"
   },
   "resolutions": {
-    "@types/react": "19.1.8",
-    "@types/react-dom": "19.1.6"
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3"
   }
 }

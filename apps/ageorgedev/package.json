@@ -7,11 +7,11 @@
     "dev": "vite dev --port 3000"
   },
   "dependencies": {
-    "@ageorgedev/design-system": "*",
-    "@ageorgedev/foundation-styles": "*",
-    "@ageorgedev/reveal-framework": "*",
-    "@ageorgedev/talk-tailwind": "*",
-    "@ageorgedev/toolbelt": "*",
+    "@ageorgedev/design-system": "workspace:*",
+    "@ageorgedev/foundation-styles": "workspace:*",
+    "@ageorgedev/reveal-framework": "workspace:*",
+    "@ageorgedev/talk-tailwind": "workspace:*",
+    "@ageorgedev/toolbelt": "workspace:*",
     "@fontsource-variable/alegreya": "^5.2.8",
     "@fontsource-variable/source-code-pro": "^5.2.7",
     "@fontsource/alegreya-sans": "^5.2.8",
