@@ -15,7 +15,7 @@
     "cpx2": "9.0.0",
     "postcss": "8.5.15",
     "postcss-nesting": "12.1.5",
-    "storybook": "10.4.2",
+    "storybook": "9.0.17",
     "typescript": "5.8.3",
     "vite": "8.0.16"
   }
