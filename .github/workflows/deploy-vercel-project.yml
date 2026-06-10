@@ -26,8 +26,6 @@ on:
 jobs:
   Deploy:
     runs-on: ubuntu-latest
-    permissions:
-      pull-requests: write
     steps:
       - name: ⬇️ Check out repository code
         uses: actions/checkout@v6
