@@ -54,7 +54,7 @@ jobs:
           VERCEL_PROJECT_NAME: ${{ inputs.VERCEL_PROJECT_NAME }}
       - name: 💬 Post preview URL comment
         if: ${{ inputs.pull_request_number != '' }}
-        uses: actions/github-script@v7
+        uses: actions/github-script@v8
         with:
           script: |
             github.rest.issues.createComment({
