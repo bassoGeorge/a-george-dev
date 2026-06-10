@@ -19,44 +19,47 @@ export function BackstoryBlock() {
       </PanelTitle>
       <div className="p-3 flex flex-col gap-2">
         {PERSONALITY_FIELDS.map(({ key, label }) => (
-          <div key={key} className="border border-sheet-border rounded p-2">
-            <p className="text-xs font-bold uppercase tracking-wider text-gray-500 mb-1">
+          <div
+            key={key}
+            className="border border-[var(--s-parchment-400)] rounded p-2"
+          >
+            <p className="text-xs font-bold uppercase tracking-wider text-neutral-subdued mb-1">
               {label}
             </p>
-            <p className="text-xs text-sheet-dark leading-relaxed">
+            <p className="text-xs text-neutral-strong leading-relaxed">
               {character.personality[key]}
             </p>
           </div>
         ))}
 
         {character.backstory && (
-          <div className="border border-sheet-border rounded p-2">
-            <p className="text-xs font-bold uppercase tracking-wider text-gray-500 mb-1">
+          <div className="border border-[var(--s-parchment-400)] rounded p-2">
+            <p className="text-xs font-bold uppercase tracking-wider text-neutral-subdued mb-1">
               Backstory
             </p>
-            <p className="text-xs text-sheet-dark leading-relaxed">
+            <p className="text-xs text-neutral-strong leading-relaxed">
               {character.backstory}
             </p>
           </div>
         )}
 
         {character.notes && (
-          <div className="border border-sheet-border rounded p-2">
-            <p className="text-xs font-bold uppercase tracking-wider text-gray-500 mb-1">
+          <div className="border border-[var(--s-parchment-400)] rounded p-2">
+            <p className="text-xs font-bold uppercase tracking-wider text-neutral-subdued mb-1">
               Notes
             </p>
-            <p className="text-xs text-sheet-dark leading-relaxed">
+            <p className="text-xs text-neutral-strong leading-relaxed">
               {character.notes}
             </p>
           </div>
         )}
 
         {character.languages.length > 0 && (
-          <div className="border border-sheet-border rounded p-2">
-            <p className="text-xs font-bold uppercase tracking-wider text-gray-500 mb-1">
+          <div className="border border-[var(--s-parchment-400)] rounded p-2">
+            <p className="text-xs font-bold uppercase tracking-wider text-neutral-subdued mb-1">
               Languages
             </p>
-            <p className="text-xs text-sheet-dark leading-relaxed">
+            <p className="text-xs text-neutral-strong leading-relaxed">
               {character.languages.join(', ')}
             </p>
           </div>

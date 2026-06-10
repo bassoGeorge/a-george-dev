@@ -28,29 +28,29 @@ export function SpellcastingHeader() {
     : []
 
   return (
-    <div className="px-3 py-2 border-b border-sheet-border">
+    <div className="px-3 py-2 border-b border-[var(--s-parchment-400)]">
       <div className="flex gap-4 items-center mb-2">
         <div className="flex flex-col items-center">
-          <span className="text-xs uppercase tracking-wider text-gray-500">
+          <span className="text-xs uppercase tracking-wider text-neutral-subdued">
             Ability
           </span>
-          <span className="text-sm font-bold text-sheet-dark">
+          <span className="text-sm font-bold text-neutral-strong">
             {abilityLabel}
           </span>
         </div>
         <div className="flex flex-col items-center">
-          <span className="text-xs uppercase tracking-wider text-gray-500">
+          <span className="text-xs uppercase tracking-wider text-neutral-subdued">
             Save DC
           </span>
-          <span className="text-sm font-bold text-sheet-dark">
+          <span className="text-sm font-bold text-neutral-strong">
             {derived.spellSaveDC ?? '—'}
           </span>
         </div>
         <div className="flex flex-col items-center">
-          <span className="text-xs uppercase tracking-wider text-gray-500">
+          <span className="text-xs uppercase tracking-wider text-neutral-subdued">
             Spell Attack
           </span>
-          <span className="text-sm font-bold text-sheet-dark">
+          <span className="text-sm font-bold text-neutral-strong">
             {derived.spellAttackBonus != null
               ? formatBonus(derived.spellAttackBonus)
               : '—'}
@@ -60,12 +60,12 @@ export function SpellcastingHeader() {
 
       {slotLevels.length > 0 && (
         <div className="flex items-center gap-3 flex-wrap">
-          <span className="text-xs font-bold uppercase tracking-wider text-gray-500 w-10">
+          <span className="text-xs font-bold uppercase tracking-wider text-neutral-subdued w-10">
             Slots
           </span>
           {slotLevels.map(([level, count]) => (
             <div key={level} className="flex items-center gap-1">
-              <span className="text-xs text-gray-500 w-3 text-right">
+              <span className="text-xs text-neutral-subdued w-3 text-right">
                 {level}:
               </span>
               <div className="flex gap-0.5">
@@ -80,11 +80,11 @@ export function SpellcastingHeader() {
 
       {spellcasting.pactMagic && (
         <div className="flex items-center gap-3 flex-wrap mt-1">
-          <span className="text-xs font-bold uppercase tracking-wider text-gray-500 w-10">
+          <span className="text-xs font-bold uppercase tracking-wider text-neutral-subdued w-10">
             Pact
           </span>
           <div className="flex items-center gap-1">
-            <span className="text-xs text-gray-500 w-3 text-right">
+            <span className="text-xs text-neutral-subdued w-3 text-right">
               {spellcasting.pactMagic.level}:
             </span>
             <div className="flex gap-0.5">

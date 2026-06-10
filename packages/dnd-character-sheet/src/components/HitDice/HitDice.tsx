@@ -7,17 +7,17 @@ export function HitDice() {
 
   return (
     <div
-      className={`${styles.panel} bg-white rounded-lg shadow-md border border-sheet-border overflow-hidden`}
+      className={`${styles.panel} bg-white rounded-lg shadow-md border border-[var(--s-parchment-400)] overflow-hidden`}
     >
-      <h2 className="bg-sheet-red text-white text-xs font-bold uppercase tracking-widest px-3 py-1.5 text-center">
+      <h2 className="bg-destructive-surface-2 text-destructive-onsurface-2 text-xs font-bold uppercase tracking-widest px-3 py-1.5 text-center">
         Hit Dice
       </h2>
       <div className="flex flex-col items-center py-3">
-        <span className="text-2xl font-bold text-sheet-dark">
+        <span className="text-2xl font-bold text-neutral-strong">
           {hitDice.total}
           {hitDice.dieType}
         </span>
-        <span className="text-xs text-gray-500 uppercase tracking-wide mt-0.5">
+        <span className="text-xs text-neutral-subdued uppercase tracking-wide mt-0.5">
           Total
         </span>
       </div>

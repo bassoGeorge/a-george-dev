@@ -39,7 +39,7 @@ function LevelBlock() {
   const { character } = useCharacter()
 
   return (
-    <div className="align-self-stretch flex flex-col gap-1 border-[3px] border-gray-500 bg-white items-center py-3 px-6 rounded-full my-2">
+    <div className="align-self-stretch flex flex-col gap-1 border-[3px] border-neutral-subdued bg-white items-center py-3 px-6 rounded-full my-2">
       <BigNumber>{character.level}</BigNumber>
       <LabelUnder className="text-center">Level</LabelUnder>
       <div className="flex-1"></div>

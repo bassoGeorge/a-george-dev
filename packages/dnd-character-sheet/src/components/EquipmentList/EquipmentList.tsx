@@ -8,23 +8,25 @@ export function EquipmentList() {
 
   return (
     <div
-      className={`${styles.panel} bg-white rounded-lg shadow-md border border-sheet-border overflow-hidden`}
+      className={`${styles.panel} bg-white rounded-lg shadow-md border border-[var(--s-parchment-400)] overflow-hidden`}
     >
-      <h2 className="bg-sheet-red text-white text-xs font-bold uppercase tracking-widest px-3 py-1.5 text-center">
+      <h2 className="bg-destructive-surface-2 text-destructive-onsurface-2 text-xs font-bold uppercase tracking-widest px-3 py-1.5 text-center">
         Equipment
       </h2>
 
-      <div className="p-3 border-b border-sheet-border">
-        <p className="text-xs font-bold uppercase tracking-wider text-gray-500 mb-1.5">
+      <div className="p-3 border-b border-[var(--s-parchment-400)]">
+        <p className="text-xs font-bold uppercase tracking-wider text-neutral-subdued mb-1.5">
           Currency
         </p>
         <div className="flex gap-3">
           {CURRENCY.map((denom) => (
             <div key={denom} className="flex flex-col items-center">
-              <span className="text-sm font-bold text-sheet-dark">
+              <span className="text-sm font-bold text-neutral-strong">
                 {character.currency[denom]}
               </span>
-              <span className="text-xs uppercase text-gray-400">{denom}</span>
+              <span className="text-xs uppercase text-neutral-subdued">
+                {denom}
+              </span>
             </div>
           ))}
         </div>
@@ -34,9 +36,9 @@ export function EquipmentList() {
         {character.equipment.map((item, i) => (
           <li
             key={i}
-            className="text-xs text-sheet-dark flex items-start gap-1.5"
+            className="text-xs text-neutral-strong flex items-start gap-1.5"
           >
-            <span className="text-sheet-border mt-0.5">•</span>
+            <span className="text-[var(--s-parchment-400)] mt-0.5">•</span>
             <span>{item}</span>
           </li>
         ))}

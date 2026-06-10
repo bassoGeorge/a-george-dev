@@ -13,18 +13,21 @@ export function PersonalityBlock() {
 
   return (
     <div
-      className={`${styles.panel} bg-white rounded-lg shadow-md border border-sheet-border overflow-hidden`}
+      className={`${styles.panel} bg-white rounded-lg shadow-md border border-[var(--s-parchment-400)] overflow-hidden`}
     >
-      <h2 className="bg-sheet-red text-white text-xs font-bold uppercase tracking-widest px-3 py-1.5 text-center">
+      <h2 className="bg-destructive-surface-2 text-destructive-onsurface-2 text-xs font-bold uppercase tracking-widest px-3 py-1.5 text-center">
         Personality
       </h2>
       <div className="p-3 flex flex-col gap-2">
         {FIELDS.map(({ key, label }) => (
-          <div key={key} className="border border-sheet-border rounded p-2">
-            <p className="text-xs font-bold uppercase tracking-wider text-gray-500 mb-1">
+          <div
+            key={key}
+            className="border border-[var(--s-parchment-400)] rounded p-2"
+          >
+            <p className="text-xs font-bold uppercase tracking-wider text-neutral-subdued mb-1">
               {label}
             </p>
-            <p className="text-xs text-sheet-dark leading-relaxed">
+            <p className="text-xs text-neutral-strong leading-relaxed">
               {character.personality[key]}
             </p>
           </div>

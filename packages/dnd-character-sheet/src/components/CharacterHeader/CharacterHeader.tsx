@@ -6,10 +6,10 @@ export function CharacterHeader() {
 
   return (
     <div
-      className={`${styles.panel} bg-sheet-red rounded-lg shadow-lg overflow-hidden mb-4`}
+      className={`${styles.panel} bg-destructive-surface-2 rounded-lg shadow-lg overflow-hidden mb-4`}
     >
       <div className="px-6 py-4">
-        <h1 className="text-3xl font-bold text-white tracking-wide">
+        <h1 className="text-3xl font-bold text-destructive-onsurface-2 tracking-wide">
           {character.name}
         </h1>
         <div className="flex flex-wrap gap-4 mt-2">
@@ -41,10 +41,12 @@ function Field({
 }) {
   return (
     <div className="flex flex-col">
-      <span className="text-xs uppercase tracking-widest text-red-200 font-semibold">
+      <span className="text-xs uppercase tracking-widest text-destructive-foreground font-semibold">
         {label}
       </span>
-      <span className="text-sm font-semibold text-white">{children}</span>
+      <span className="text-sm font-semibold text-destructive-onsurface-2">
+        {children}
+      </span>
     </div>
   )
 }

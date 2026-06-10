@@ -20,9 +20,9 @@ export function SavingThrows() {
 
   return (
     <div
-      className={`${styles.panel} bg-white rounded-lg shadow-md border border-sheet-border overflow-hidden`}
+      className={`${styles.panel} bg-white rounded-lg shadow-md border border-[var(--s-parchment-400)] overflow-hidden`}
     >
-      <h2 className="bg-sheet-red text-white text-xs font-bold uppercase tracking-widest px-3 py-1.5 text-center">
+      <h2 className="bg-destructive-surface-2 text-destructive-onsurface-2 text-xs font-bold uppercase tracking-widest px-3 py-1.5 text-center">
         Saving Throws
       </h2>
       <div className="flex flex-col gap-0.5 p-2">
@@ -34,14 +34,14 @@ export function SavingThrows() {
               <span
                 className={`w-3 h-3 rounded-full border flex-shrink-0 ${
                   isProficient
-                    ? 'bg-sheet-red border-sheet-red'
-                    : 'bg-white border-gray-400'
+                    ? 'bg-destructive-surface-2 border-destructive-surface-2'
+                    : 'bg-white border-neutral-disabled'
                 }`}
               />
-              <span className="text-xs font-semibold text-sheet-red w-7 text-right">
+              <span className="text-xs font-semibold text-destructive-foreground-3 w-7 text-right">
                 {formatMod(total)}
               </span>
-              <span className="text-xs text-sheet-dark">{label}</span>
+              <span className="text-xs text-neutral-strong">{label}</span>
             </div>
           )
         })}

@@ -12,13 +12,15 @@ export function ClassFeatures() {
         {character.features.map((feature, i) => (
           <div
             key={i}
-            className="break-inside-avoid mb-3 border border-sheet-border rounded p-2"
+            className="break-inside-avoid mb-3 border border-[var(--s-parchment-400)] rounded p-2"
           >
-            <p className="text-xs font-bold text-sheet-dark leading-tight">
+            <p className="text-xs font-bold text-neutral-strong leading-tight">
               {feature.name}
             </p>
-            <p className="text-xs text-gray-500 mb-1">{feature.source}</p>
-            <p className="text-xs text-sheet-dark leading-relaxed">
+            <p className="text-xs text-neutral-subdued mb-1">
+              {feature.source}
+            </p>
+            <p className="text-xs text-neutral-strong leading-relaxed">
               {feature.description}
             </p>
           </div>

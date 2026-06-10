@@ -32,9 +32,9 @@ export function SkillList() {
 
   return (
     <div
-      className={`${styles.panel} bg-white rounded-lg shadow-md border border-sheet-border overflow-hidden`}
+      className={`${styles.panel} bg-white rounded-lg shadow-md border border-[var(--s-parchment-400)] overflow-hidden`}
     >
-      <h2 className="bg-sheet-red text-white text-xs font-bold uppercase tracking-widest px-3 py-1.5 text-center">
+      <h2 className="bg-destructive-surface-2 text-destructive-onsurface-2 text-xs font-bold uppercase tracking-widest px-3 py-1.5 text-center">
         Skills
       </h2>
       <div className="flex flex-col gap-0.5 p-2">
@@ -48,29 +48,31 @@ export function SkillList() {
               <span
                 className={`w-3 h-3 rounded-full border flex-shrink-0 ${
                   hasExpertise
-                    ? 'bg-sheet-dark border-sheet-dark'
+                    ? 'bg-neutral-strong border-neutral-strong'
                     : isProficient
-                      ? 'bg-sheet-red border-sheet-red'
-                      : 'bg-white border-gray-400'
+                      ? 'bg-destructive-surface-2 border-destructive-surface-2'
+                      : 'bg-white border-neutral-disabled'
                 }`}
                 title={
                   hasExpertise ? 'Expertise' : isProficient ? 'Proficient' : ''
                 }
               />
-              <span className="text-xs font-semibold text-sheet-red w-7 text-right flex-shrink-0">
+              <span className="text-xs font-semibold text-destructive-foreground-3 w-7 text-right flex-shrink-0">
                 {formatMod(total)}
               </span>
-              <span className="text-xs text-sheet-dark flex-1">{label}</span>
-              <span className="text-xs text-gray-400 w-7 text-right">
+              <span className="text-xs text-neutral-strong flex-1">
+                {label}
+              </span>
+              <span className="text-xs text-neutral-subdued w-7 text-right">
                 {ability}
               </span>
             </div>
           )
         })}
       </div>
-      <div className="border-t border-sheet-border px-3 py-1.5 flex items-center justify-between">
-        <span className="text-xs text-gray-500">Passive Perception</span>
-        <span className="text-xs font-bold text-sheet-dark">
+      <div className="border-t border-[var(--s-parchment-400)] px-3 py-1.5 flex items-center justify-between">
+        <span className="text-xs text-neutral-subdued">Passive Perception</span>
+        <span className="text-xs font-bold text-neutral-strong">
           {derived.passivePerception}
         </span>
       </div>

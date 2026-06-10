@@ -21,9 +21,9 @@ export function AbilityScores() {
 
   return (
     <div
-      className={`${styles.panel} bg-white rounded-lg shadow-md border border-sheet-border overflow-hidden`}
+      className={`${styles.panel} bg-white rounded-lg shadow-md border border-[var(--s-parchment-400)] overflow-hidden`}
     >
-      <h2 className="bg-sheet-red text-white text-xs font-bold uppercase tracking-widest px-3 py-1.5 text-center">
+      <h2 className="bg-destructive-surface-2 text-destructive-onsurface-2 text-xs font-bold uppercase tracking-widest px-3 py-1.5 text-center">
         Ability Scores
       </h2>
       <div className="flex flex-col gap-1 p-2">
@@ -33,15 +33,15 @@ export function AbilityScores() {
           return (
             <div
               key={key}
-              className="flex items-center justify-between border border-sheet-border rounded px-2 py-1"
+              className="flex items-center justify-between border border-[var(--s-parchment-400)] rounded px-2 py-1"
             >
-              <span className="text-xs font-bold text-sheet-dark tracking-wider w-8">
+              <span className="text-xs font-bold text-neutral-strong tracking-wider w-8">
                 {abbr}
               </span>
-              <span className="text-lg font-bold text-sheet-dark w-8 text-center">
+              <span className="text-lg font-bold text-neutral-strong w-8 text-center">
                 {score}
               </span>
-              <span className="text-sm font-semibold text-sheet-red w-8 text-right">
+              <span className="text-sm font-semibold text-destructive-foreground-3 w-8 text-right">
                 {formatMod(mod)}
               </span>
             </div>

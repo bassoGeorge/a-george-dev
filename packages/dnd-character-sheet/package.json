@@ -9,8 +9,7 @@
     ".": {
       "import": "./dist/index.js",
       "types": "./dist/index.d.ts"
-    },
-    "./dist/styles/tokens.css": "./dist/styles/tokens.css"
+    }
   },
   "files": ["dist"],
   "scripts": {

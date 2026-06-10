@@ -1,7 +1,7 @@
 @reference "@ageorgedev/foundation-styles/theme.css";
 
 .panelWrapper {
-  @apply bg-gray-500;
+  @apply bg-neutral-subdued;
 
   --border-thickness: 3px;
   --rad: 14px;

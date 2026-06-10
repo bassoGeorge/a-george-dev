@@ -39,7 +39,7 @@ export function AttackList() {
       <div className="overflow-x-auto">
         <table className="w-full text-xs">
           <thead>
-            <tr className="bg-sheet-parchment border-b border-sheet-border">
+            <tr className="bg-page-0 border-b border-[var(--s-parchment-400)]">
               <Th>Name</Th>
               <Th>Bonus</Th>
               <Th>Damage</Th>
@@ -62,12 +62,12 @@ export function AttackList() {
               return (
                 <tr
                   key={i}
-                  className="border-b border-sheet-border last:border-0 hover:bg-sheet-parchment/50"
+                  className="border-b border-[var(--s-parchment-400)] last:border-0 hover:bg-page-0/50"
                 >
-                  <Td className="font-semibold text-sheet-dark">
+                  <Td className="font-semibold text-neutral-strong">
                     {attack.name}
                   </Td>
-                  <Td className="font-bold text-sheet-red text-center">
+                  <Td className="font-bold text-destructive-foreground-3 text-center">
                     {bonus}
                   </Td>
                   <Td>{formatDamage(attack.damage, abilityMod)}</Td>
@@ -85,7 +85,7 @@ export function AttackList() {
 
 function Th({ children }: { children: React.ReactNode }) {
   return (
-    <th className="px-3 py-1.5 text-left font-bold uppercase tracking-wider text-gray-500">
+    <th className="px-3 py-1.5 text-left font-bold uppercase tracking-wider text-neutral-subdued">
       {children}
     </th>
   )

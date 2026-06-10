@@ -6,26 +6,26 @@ export function FeatureList() {
 
   return (
     <div
-      className={`${styles.panel} bg-white rounded-lg shadow-md border border-sheet-border overflow-hidden`}
+      className={`${styles.panel} bg-white rounded-lg shadow-md border border-[var(--s-parchment-400)] overflow-hidden`}
     >
-      <h2 className="bg-sheet-red text-white text-xs font-bold uppercase tracking-widest px-3 py-1.5 text-center">
+      <h2 className="bg-destructive-surface-2 text-destructive-onsurface-2 text-xs font-bold uppercase tracking-widest px-3 py-1.5 text-center">
         Features &amp; Traits
       </h2>
       <div className="p-3 flex flex-col gap-3">
         {character.features.map((feature, i) => (
           <div
             key={i}
-            className="border-b border-sheet-border/50 pb-2 last:border-0 last:pb-0"
+            className="border-b border-[var(--s-parchment-400)]/50 pb-2 last:border-0 last:pb-0"
           >
             <div className="flex items-baseline justify-between gap-2 mb-0.5">
-              <span className="text-sm font-bold text-sheet-dark">
+              <span className="text-sm font-bold text-neutral-strong">
                 {feature.name}
               </span>
-              <span className="text-xs text-gray-400 italic flex-shrink-0">
+              <span className="text-xs text-neutral-subdued italic flex-shrink-0">
                 {feature.source}
               </span>
             </div>
-            <p className="text-xs text-gray-600 leading-relaxed">
+            <p className="text-xs text-neutral-subdued leading-relaxed">
               {feature.description}
             </p>
           </div>

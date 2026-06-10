@@ -11,9 +11,9 @@ export function CombatStats() {
 
   return (
     <div
-      className={`${styles.panel} bg-white rounded-lg shadow-md border border-sheet-border overflow-hidden`}
+      className={`${styles.panel} bg-white rounded-lg shadow-md border border-[var(--s-parchment-400)] overflow-hidden`}
     >
-      <h2 className="bg-sheet-red text-white text-xs font-bold uppercase tracking-widest px-3 py-1.5 text-center">
+      <h2 className="bg-destructive-surface-2 text-destructive-onsurface-2 text-xs font-bold uppercase tracking-widest px-3 py-1.5 text-center">
         Combat
       </h2>
       <div className="p-3 grid grid-cols-3 gap-2">
@@ -21,8 +21,8 @@ export function CombatStats() {
         <Stat label="Initiative">{formatMod(derived.initiative)}</Stat>
         <Stat label="Speed">{character.speed} ft</Stat>
       </div>
-      <div className="border-t border-sheet-border p-3">
-        <p className="text-xs font-bold uppercase tracking-wider text-gray-500 mb-1 text-center">
+      <div className="border-t border-[var(--s-parchment-400)] p-3">
+        <p className="text-xs font-bold uppercase tracking-wider text-neutral-subdued mb-1 text-center">
           Hit Points
         </p>
         <div className="flex justify-center gap-4">
@@ -47,9 +47,9 @@ function Stat({
   children: React.ReactNode
 }) {
   return (
-    <div className="flex flex-col items-center border border-sheet-border rounded py-1.5 px-2">
-      <span className="text-xl font-bold text-sheet-dark">{children}</span>
-      <span className="text-xs text-gray-500 uppercase tracking-wide text-center leading-tight mt-0.5">
+    <div className="flex flex-col items-center border border-[var(--s-parchment-400)] rounded py-1.5 px-2">
+      <span className="text-xl font-bold text-neutral-strong">{children}</span>
+      <span className="text-xs text-neutral-subdued uppercase tracking-wide text-center leading-tight mt-0.5">
         {label}
       </span>
     </div>

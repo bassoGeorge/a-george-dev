@@ -11,8 +11,8 @@ export function SpellLevelSection({ level, spells }: SpellLevelSectionProps) {
 
   return (
     <div>
-      <div className="bg-sheet-parchment border-y border-sheet-border px-3 py-0.5">
-        <span className="text-xs font-bold uppercase tracking-widest text-sheet-dark">
+      <div className="bg-page-0 border-y border-[var(--s-parchment-400)] px-3 py-0.5">
+        <span className="text-xs font-bold uppercase tracking-widest text-neutral-strong">
           {label}
         </span>
       </div>
