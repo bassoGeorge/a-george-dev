@@ -16,15 +16,15 @@
     }
   },
   "dependencies": {
-    "clsx": "^2.1.1",
-    "ramda": "^0.28.0",
-    "tailwind-merge": "^3.3.1"
+    "clsx": "2.1.1",
+    "ramda": "0.28.0",
+    "tailwind-merge": "3.3.1"
   },
   "devDependencies": {
     "@ageorgedev/ts-config": "workspace:*",
-    "@types/ramda": "^0.28.23",
-    "@vitest/ui": "^4.1.8",
+    "@types/ramda": "0.28.23",
+    "@vitest/ui": "4.1.8",
     "typescript": "5.8.3",
-    "vitest": "^4.1.8"
+    "vitest": "4.1.8"
   }
 }

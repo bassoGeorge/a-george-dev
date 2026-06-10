@@ -4,5 +4,9 @@
   "type": "module",
   "exports": {
     "./theme.css": "./src/theme.css"
+  },
+  "devDependencies": {
+    "postcss": "8.5.15",
+    "postcss-nesting": "12.1.5"
   }
 }
