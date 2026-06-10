@@ -37,6 +37,7 @@ __metadata:
     "@ageorgedev/reveal-framework": "workspace:*"
     "@ageorgedev/talk-tailwind": "workspace:*"
     "@ageorgedev/toolbelt": "workspace:*"
+    "@ageorgedev/ts-config": "workspace:*"
     "@fontsource-variable/alegreya": "npm:5.2.8"
     "@fontsource-variable/source-code-pro": "npm:5.2.7"
     "@fontsource/alegreya-sans": "npm:5.2.8"
