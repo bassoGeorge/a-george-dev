@@ -5,7 +5,7 @@ import {
   Scripts,
 } from '@tanstack/react-router'
 import { GlobalProviders } from '../components/GlobalProviders'
-import appCss from '../tailwind.css?url'
+import appCss from '../styles.css?url'
 
 // import type { QueryClient } from '@tanstack/react-query';
 

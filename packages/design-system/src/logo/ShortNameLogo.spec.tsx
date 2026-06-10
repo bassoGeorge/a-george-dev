@@ -1,5 +1,5 @@
-import '@testing-library/jest-dom'
 import { render, screen } from '@testing-library/react'
+import { describe, expect, it } from 'vitest'
 import { Heading3 } from '../typography/typography-components'
 import { ShortNameLogo } from './ShortNameLogo'
 import { firstNameColor, lastNameColor } from './styles'

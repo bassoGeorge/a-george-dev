@@ -1,11 +1,11 @@
-import '@testing-library/jest-dom'
 import { act, render } from '@testing-library/react'
+import { describe, expect, it, vi } from 'vitest'
 import type { Theme } from '../theming/models'
 import { ThemeContext } from '../theming/ThemeContext'
 import { ThemeProvider } from '../theming/ThemeProvider'
 import { CodeBlock } from './CodeBlock'
 
-jest.mock('../theming/ThemeProvider')
+vi.mock('../theming/ThemeProvider')
 
 async function setupTestSubject(ui: React.ReactElement, theme: Theme = 'dark') {
   return act(() =>

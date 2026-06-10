@@ -5,12 +5,26 @@
     "dev:storybook": "storybook dev -p 6006",
     "build:storybook": "storybook build"
   },
+  "dependencies": {
+    "@ageorgedev/design-system": "workspace:*",
+    "@ageorgedev/foundation-styles": "workspace:*",
+    "@storybook/addon-a11y": "10.4.3",
+    "@storybook/addon-themes": "10.4.3",
+    "@storybook/react-vite": "10.4.3",
+    "storybook": "10.4.3"
+  },
   "devDependencies": {
-    "@ageorgedev/design-system": "*",
-    "@ageorgedev/foundation-styles": "*",
-    "@storybook/addon-a11y": "^9.0.17",
-    "@storybook/addon-themes": "9.0.17",
-    "@storybook/react-vite": "9.0.17",
-    "cpx2": "^9.0.0"
+    "@fontsource-variable/alegreya": "5.2.8",
+    "@fontsource-variable/source-code-pro": "5.2.7",
+    "@fontsource/alegreya-sans": "5.2.8",
+    "@fontsource/alegreya-sans-sc": "5.2.7",
+    "@tailwindcss/postcss": "4.1.10",
+    "@vitejs/plugin-react": "6.0.2",
+    "cpx2": "9.0.0",
+    "postcss": "8.5.15",
+    "postcss-nesting": "12.1.5",
+    "tailwindcss": "4.1.8",
+    "typescript": "5.8.3",
+    "vite": "8.0.16"
   }
 }

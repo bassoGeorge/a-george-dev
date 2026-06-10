@@ -1,14 +1,7 @@
 {
   "extends": "@ageorgedev/ts-config/react.json",
   "include": ["src"],
-  "exclude": [
-    "node_modules",
-    "dist",
-    "**/*.spec.ts",
-    "**/*.test.ts",
-    "**/*.spec.tsx",
-    "**/*.spec.tsx"
-  ],
+  "exclude": ["node_modules", "dist"],
   "compilerOptions": {
     "outDir": "dist"
   }
