@@ -2,10 +2,9 @@
   "name": "@ageorgedev/ageorgedev-e2e",
   "version": "0.0.1",
   "scripts": {
-    "e2e": "echo 'All good, skipping e2e till we set up playwright'"
+    "e2e": "playwright test"
   },
   "devDependencies": {
-    "@testing-library/cypress": "9.0.0",
-    "cypress": "14.4.0"
+    "@playwright/test": "1.60.0"
   }
 }
