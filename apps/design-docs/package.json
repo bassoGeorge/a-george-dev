@@ -8,9 +8,15 @@
   "devDependencies": {
     "@ageorgedev/design-system": "workspace:*",
     "@ageorgedev/foundation-styles": "workspace:*",
-    "@storybook/addon-a11y": "^9.0.17",
+    "@storybook/addon-a11y": "9.0.17",
     "@storybook/addon-themes": "9.0.17",
     "@storybook/react-vite": "9.0.17",
-    "cpx2": "^9.0.0"
+    "@vitejs/plugin-react": "6.0.2",
+    "cpx2": "9.0.0",
+    "postcss": "8.5.15",
+    "postcss-nesting": "12.1.5",
+    "storybook": "10.4.2",
+    "typescript": "5.8.3",
+    "vite": "8.0.16"
   }
 }
