@@ -75,6 +75,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@ageorgedev/design-system@workspace:packages/design-system"
   dependencies:
+    "@ageorgedev/testing-config": "npm:*"
     "@ageorgedev/toolbelt": "npm:*"
     "@phosphor-icons/react": "npm:2.1.10"
     "@radix-ui/react-slot": "npm:^1.2.3"
@@ -129,6 +130,12 @@ __metadata:
     "@ageorgedev/toolbelt": "npm:*"
     "@phosphor-icons/react": "npm:2.1.10"
     react: "npm:19.1.0"
+  languageName: unknown
+  linkType: soft
+
+"@ageorgedev/testing-config@npm:*, @ageorgedev/testing-config@workspace:packages/testing-config":
+  version: 0.0.0-use.local
+  resolution: "@ageorgedev/testing-config@workspace:packages/testing-config"
   languageName: unknown
   linkType: soft
 
