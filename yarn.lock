@@ -35,6 +35,7 @@ __metadata:
     "@ageorgedev/foundation-styles": "workspace:*"
     "@ageorgedev/reveal-framework": "workspace:*"
     "@ageorgedev/talk-tailwind": "workspace:*"
+    "@ageorgedev/testing-config": "workspace:*"
     "@ageorgedev/toolbelt": "workspace:*"
     "@ageorgedev/ts-config": "workspace:*"
     "@fontsource-variable/alegreya": "npm:5.2.8"
@@ -48,6 +49,8 @@ __metadata:
     "@tailwindcss/vite": "npm:4.2.1"
     "@tanstack/react-router": "npm:1.170.11"
     "@tanstack/react-start": "npm:1.168.19"
+    "@testing-library/jest-dom": "npm:6.9.1"
+    "@testing-library/react": "npm:16.3.2"
     "@types/mdx": "npm:2.0.13"
     "@types/node": "npm:18.16.9"
     "@types/react": "npm:19.2.17"
@@ -65,6 +68,7 @@ __metadata:
     typescript: "npm:5.8.3"
     vite: "npm:8.0.16"
     vite-plugin-dts: "npm:4.5.4"
+    vitest: "npm:4.1.8"
   languageName: unknown
   linkType: soft
 
@@ -72,8 +76,14 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@ageorgedev/brand-components@workspace:packages/brand-components"
   dependencies:
+    "@ageorgedev/testing-config": "workspace:*"
+    "@testing-library/jest-dom": "npm:6.9.1"
+    "@testing-library/react": "npm:16.3.2"
+    "@types/react": "npm:19.2.17"
+    "@vitejs/plugin-react": "npm:6.0.2"
     cpx2: "npm:9.0.0"
     typescript: "npm:5.8.3"
+    vitest: "npm:4.1.8"
   peerDependencies:
     react: 19.1.0
     react-dom: 19.1.0
@@ -155,13 +165,19 @@ __metadata:
   resolution: "@ageorgedev/reveal-framework@workspace:packages/reveal-framework"
   dependencies:
     "@ageorgedev/design-system": "workspace:*"
+    "@ageorgedev/testing-config": "workspace:*"
     "@ageorgedev/toolbelt": "workspace:*"
     "@phosphor-icons/react": "npm:2.1.10"
     "@revealjs/react": "npm:0.2.0"
+    "@testing-library/jest-dom": "npm:6.9.1"
+    "@testing-library/react": "npm:16.3.2"
+    "@types/react": "npm:19.2.17"
     "@types/reveal.js": "npm:4.4.2"
+    "@vitejs/plugin-react": "npm:6.0.2"
     cpx2: "npm:9.0.0"
     reveal.js: "npm:6.0.0"
     typescript: "npm:5.8.3"
+    vitest: "npm:4.1.8"
   peerDependencies:
     react: 19.1.0
     react-dom: 19.1.0
