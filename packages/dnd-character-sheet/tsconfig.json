@@ -1,0 +1,10 @@
+{
+  "extends": "@ageorgedev/ts-config/react.json",
+  "compilerOptions": {
+    "outDir": "./dist",
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true
+  },
+  "include": ["src"]
+}

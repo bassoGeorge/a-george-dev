@@ -1,0 +1,12 @@
+.panel {
+  page-break-inside: avoid;
+}
+
+@media print {
+  .panel {
+    box-shadow: none;
+    background: #333 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}

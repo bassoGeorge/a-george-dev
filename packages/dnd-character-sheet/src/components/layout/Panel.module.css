@@ -1,0 +1,61 @@
+@reference "@ageorgedev/foundation-styles/theme.css";
+
+.panelWrapper {
+  @apply bg-gray-500;
+
+  --border-thickness: 3px;
+  --rad: 14px;
+  --sweep: var(--rad) var(--rad);
+
+  --pth: shape(
+    from left center,
+    var(--tl-corner),
+    var(--tr-corner),
+    var(--br-corner),
+    var(--bl-corner),
+    close
+  );
+
+  padding: var(--border-thickness);
+  clip-path: var(--pth);
+}
+
+.panelRoot {
+  clip-path: var(--pth);
+}
+
+.scoopedTopLeft {
+  --tl-corner: vline to var(--rad), arc to var(--rad) 0% of var(--sweep) ccw;
+}
+
+.regularTopLeft {
+  --tl-corner: vline to 0%;
+}
+
+.scoopedTopRight {
+  --tr-corner:
+    hline to calc(100% - var(--rad)), arc to 100% var(--rad) of var(--sweep) ccw;
+}
+
+.regularTopRight {
+  --tr-corner: hline to 100%;
+}
+
+.scoopedBottomRight {
+  --br-corner:
+    vline to calc(100% - var(--rad)),
+    arc to calc(100% - var(--rad)) 100% of var(--sweep) ccw;
+}
+
+.regularBottomRight {
+  --br-corner: vline to 100%;
+}
+
+.scoopedBottomLeft {
+  --bl-corner:
+    hline to var(--rad), arc to 0% calc(100% - var(--rad)) of var(--sweep) ccw;
+}
+
+.regularBottomLeft {
+  --bl-corner: hline to 0%;
+}

@@ -1,0 +1,1 @@
+export { SpellcastingBlock } from './SpellcastingBlock'

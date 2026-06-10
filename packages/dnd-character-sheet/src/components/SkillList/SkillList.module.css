@@ -1,0 +1,10 @@
+.panel {
+  page-break-inside: avoid;
+}
+
+@media print {
+  .panel {
+    box-shadow: none;
+    border: 1px solid #999;
+  }
+}

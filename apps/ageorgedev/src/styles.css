@@ -1,7 +1,9 @@
 @import "@ageorgedev/foundation-styles/tailwind.css";
+@import "@ageorgedev/dnd-character-sheet/dist/styles/tokens.css";
 
 @source "../";
 @source "../../../packages/design-system/src";
 @source "../../../packages/brand-components/src";
 @source "../../../packages/reveal-framework/src";
 @source "../../../packages/talk-tailwind/src";
+@source "../../../packages/dnd-character-sheet/src";
