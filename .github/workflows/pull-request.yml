@@ -13,6 +13,7 @@ jobs:
       command_arg: --affected
   Deploy:
     needs: [Run_Tests, Info]
+    if: needs.Info.outputs.pr_deploy_matrix != '[]'
     permissions:
       pull-requests: write
     strategy:

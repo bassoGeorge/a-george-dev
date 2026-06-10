@@ -11,6 +11,7 @@ jobs:
     uses: ./.github/workflows/tests.yml
   Deploy:
     needs: [Run_Tests, Info]
+    if: needs.Info.outputs.production_deploy_matrix != '[]'
     strategy:
       matrix:
         project: ${{ fromJSON(needs.Info.outputs.production_deploy_matrix) }}
