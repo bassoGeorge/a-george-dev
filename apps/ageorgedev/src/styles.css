@@ -1,0 +1,7 @@
+@import "@ageorgedev/foundation-styles/tailwind.css";
+
+@source "../";
+@source "../../../packages/design-system/src";
+@source "../../../packages/brand-components/src";
+@source "../../../packages/reveal-framework/src";
+@source "../../../packages/talk-tailwind/src";

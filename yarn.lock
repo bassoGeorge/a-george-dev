@@ -86,14 +86,20 @@ __metadata:
   dependencies:
     "@ageorgedev/design-system": "workspace:*"
     "@ageorgedev/foundation-styles": "workspace:*"
+    "@fontsource-variable/alegreya": "npm:5.2.8"
+    "@fontsource-variable/source-code-pro": "npm:5.2.7"
+    "@fontsource/alegreya-sans": "npm:5.2.8"
+    "@fontsource/alegreya-sans-sc": "npm:5.2.7"
     "@storybook/addon-a11y": "npm:10.4.3"
     "@storybook/addon-themes": "npm:10.4.3"
     "@storybook/react-vite": "npm:10.4.3"
+    "@tailwindcss/postcss": "npm:4.1.10"
     "@vitejs/plugin-react": "npm:6.0.2"
     cpx2: "npm:9.0.0"
     postcss: "npm:8.5.15"
     postcss-nesting: "npm:12.1.5"
     storybook: "npm:10.4.3"
+    tailwindcss: "npm:4.1.8"
     typescript: "npm:5.8.3"
     vite: "npm:8.0.16"
   languageName: unknown
@@ -132,9 +138,15 @@ __metadata:
 "@ageorgedev/foundation-styles@workspace:*, @ageorgedev/foundation-styles@workspace:packages/foundation-styles":
   version: 0.0.0-use.local
   resolution: "@ageorgedev/foundation-styles@workspace:packages/foundation-styles"
-  dependencies:
-    postcss: "npm:8.5.15"
-    postcss-nesting: "npm:12.1.5"
+  peerDependencies:
+    "@fontsource-variable/alegreya": 5.2.8
+    "@fontsource-variable/source-code-pro": 5.2.7
+    "@fontsource/alegreya-sans": 5.2.8
+    "@fontsource/alegreya-sans-sc": 5.2.7
+    "@tailwindcss/postcss": 4.1.10
+    postcss: 8.5.15
+    postcss-nesting: 12.1.5
+    tailwindcss: 4.1.8
   languageName: unknown
   linkType: soft
 
