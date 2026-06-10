@@ -2,15 +2,6 @@ name: Info
 on:
   workflow_call:
     outputs:
-      is_hotfix:
-        description: 'Whether the current commit is unique to this branch or has been a part of PR. For Main push'
-        value: ${{ jobs.Info.outputs.is_hotfix }}
-      affected_base:
-        description: 'Base sha for nx:affected'
-        value: ${{ jobs.Info.outputs.affected_base }}
-      affected_head:
-        description: 'Head sha for nx:affected'
-        value: ${{ jobs.Info.outputs.affected_head }}
       affected_projects:
         description: 'JSON array of affected projects'
         value: ${{ jobs.Info.outputs.affected_projects }}
@@ -19,15 +10,16 @@ on:
         value: ${{ contains(fromJSON(jobs.Info.outputs.affected_projects), '@ageorgedev/ageorgedev-e2e') }}
       should_deploy_site:
         description: 'Whether to deploy the site'
-        # site should be deployed only if 'ageorgedev' is in the arry, so using array contains
         value: ${{ contains(fromJSON(jobs.Info.outputs.affected_projects), '@ageorgedev/ageorgedev') }}
-      should_preview_site:
-        description: 'Whether to run the site preview workflow'
-        # preview should be build if array contains either ageorgedev or ageorgedev-e2e, so using simple substring search
-        value: ${{ contains(jobs.Info.outputs.affected_projects, '@ageorgedev/ageorgedev') }}
       should_deploy_design_system:
         description: 'Whether to deploy the design-system storybook'
         value: ${{ contains(fromJSON(jobs.Info.outputs.affected_projects), '@ageorgedev/design-docs')}}
+      production_deploy_matrix:
+        description: 'JSON array of projects to deploy to production'
+        value: ${{ jobs.Info.outputs.production_deploy_matrix }}
+      pr_deploy_matrix:
+        description: 'JSON array of projects to deploy for PR previews'
+        value: ${{ jobs.Info.outputs.pr_deploy_matrix }}
 
 jobs:
   Info:
@@ -37,19 +29,6 @@ jobs:
         uses: actions/checkout@v6
         with:
           fetch-depth: 0
-      - name: 🔍 Is it a hotfix?
-        id: is_hotfix
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          pr_count=$(gh api \
-            "/repos/${{ github.repository }}/commits/${{ github.sha }}/pulls" \
-            --jq 'length')
-          if [ "$pr_count" -eq 0 ]; then
-            echo "is_hotfix=true" >> "$GITHUB_OUTPUT"
-          else
-            echo "is_hotfix=false" >> "$GITHUB_OUTPUT"
-          fi
       - name: Setup Turbo
         uses: ./.github/actions/setup-turbo
       - name: 📦 Install dependencies
@@ -57,10 +36,48 @@ jobs:
       - name: 🔧 List affected projects
         id: affected_projects
         run: echo "affected_projects=$(yarn affected:apps)" >> "$GITHUB_OUTPUT"
+      - name: Compute production deploy matrix
+        id: production_deploy_matrix
+        env:
+          AFFECTED: ${{ steps.affected_projects.outputs.affected_projects }}
+          SITE_PROJECT: ${{ vars.VERCEL_PROJECT_AGEORGEDEV }}
+          DESIGN_PROJECT: ${{ vars.VERCEL_PROJECT_DESIGN_SYSTEM }}
+        run: |
+          matrix=$(echo "$AFFECTED" | jq -c '
+            . as $p |
+            [] |
+            if ($p | contains(["@ageorgedev/ageorgedev"])) then
+              . + [{"vercel_project_name": env.SITE_PROJECT, "e2e_project": "@ageorgedev/ageorgedev-e2e"}]
+            else . end |
+            if ($p | contains(["@ageorgedev/design-docs"])) then
+              . + [{"vercel_project_name": env.DESIGN_PROJECT}]
+            else . end
+          ')
+          echo "production_deploy_matrix=$matrix" >> "$GITHUB_OUTPUT"
+      - name: Compute PR deploy matrix
+        id: pr_deploy_matrix
+        env:
+          AFFECTED: ${{ steps.affected_projects.outputs.affected_projects }}
+          SITE_PROJECT: ${{ vars.VERCEL_PROJECT_AGEORGEDEV }}
+          DESIGN_PROJECT: ${{ vars.VERCEL_PROJECT_DESIGN_SYSTEM }}
+        run: |
+          matrix=$(echo "$AFFECTED" | jq -c '
+            . as $p |
+            [] |
+            if (($p | contains(["@ageorgedev/ageorgedev"])) or ($p | contains(["@ageorgedev/ageorgedev-e2e"]))) then
+              . + [{"vercel_project_name": env.SITE_PROJECT, "e2e_project": "@ageorgedev/ageorgedev-e2e"}]
+            else . end |
+            if ($p | contains(["@ageorgedev/design-docs"])) then
+              . + [{"vercel_project_name": env.DESIGN_PROJECT}]
+            else . end
+          ')
+          echo "pr_deploy_matrix=$matrix" >> "$GITHUB_OUTPUT"
       - name: 🔍 Debug
         run: |
-          echo "Is hotfix: ${{ steps.is_hotfix.outputs.is_hotfix }}"
           echo "affected projects: ${{ steps.affected_projects.outputs.affected_projects }}"
+          echo "pr matrix: ${{ steps.pr_deploy_matrix.outputs.pr_deploy_matrix }}"
+          echo "prod matrix: ${{ steps.production_deploy_matrix.outputs.production_deploy_matrix }}"
     outputs:
-      is_hotfix: ${{ steps.is_hotfix.outputs.is_hotfix }}
       affected_projects: ${{ steps.affected_projects.outputs.affected_projects }}
+      production_deploy_matrix: ${{ steps.production_deploy_matrix.outputs.production_deploy_matrix }}
+      pr_deploy_matrix: ${{ steps.pr_deploy_matrix.outputs.pr_deploy_matrix }}

@@ -8,44 +8,17 @@ jobs:
     uses: ./.github/workflows/info.yml
   Run_Tests:
     needs: [Info]
-    if: ${{ needs.Info.outputs.is_hotfix == 'true' }}
     uses: ./.github/workflows/tests.yml
-  # duplicating cause there is no clean way to conditionally put needs or else conditionally skip the run tests
-  Deploy_Hotfix_Site:
+  Deploy:
     needs: [Run_Tests, Info]
-    if: ${{ needs.Info.outputs.should_deploy_site == 'true' && needs.Info.outputs.is_hotfix == 'true' }}
+    if: needs.Info.outputs.production_deploy_matrix != '[]'
+    strategy:
+      matrix:
+        project: ${{ fromJSON(needs.Info.outputs.production_deploy_matrix) }}
     uses: ./.github/workflows/deploy-vercel-project.yml
     with:
-      VERCEL_PROJECT_NAME: ${{ vars.VERCEL_PROJECT_AGEORGEDEV }}
+      VERCEL_PROJECT_NAME: ${{ matrix.project.vercel_project_name }}
       production: true
-      e2e_project: '@ageorgedev/ageorgedev-e2e'
-    secrets:
-      VERCEL_ACCESS_TOKEN: ${{ secrets.VERCEL_ACCESS_TOKEN }}
-  Deploy_Hotfix_Design_System:
-    needs: [Run_Tests, Info]
-    if: ${{ needs.Info.outputs.should_deploy_design_system == 'true' && needs.Info.outputs.is_hotfix == 'true' }}
-    uses: ./.github/workflows/deploy-vercel-project.yml
-    with:
-      VERCEL_PROJECT_NAME: ${{ vars.VERCEL_PROJECT_DESIGN_SYSTEM }}
-      production: true
-    secrets:
-      VERCEL_ACCESS_TOKEN: ${{ secrets.VERCEL_ACCESS_TOKEN }}
-  Deploy_Site:
-    needs: [Info]
-    if: ${{ needs.Info.outputs.should_deploy_site == 'true' && needs.Info.outputs.is_hotfix == 'false' }}
-    uses: ./.github/workflows/deploy-vercel-project.yml
-    with:
-      VERCEL_PROJECT_NAME: ${{ vars.VERCEL_PROJECT_AGEORGEDEV }}
-      production: true
-      e2e_project: '@ageorgedev/ageorgedev-e2e'
-    secrets:
-      VERCEL_ACCESS_TOKEN: ${{ secrets.VERCEL_ACCESS_TOKEN }}
-  Deploy_Design_System:
-    needs: [Info]
-    if: ${{ needs.Info.outputs.should_deploy_design_system == 'true' && needs.Info.outputs.is_hotfix == 'false' }}
-    uses: ./.github/workflows/deploy-vercel-project.yml
-    with:
-      VERCEL_PROJECT_NAME: ${{ vars.VERCEL_PROJECT_DESIGN_SYSTEM }}
-      production: true
+      e2e_project: ${{ matrix.project.e2e_project || '' }}
     secrets:
       VERCEL_ACCESS_TOKEN: ${{ secrets.VERCEL_ACCESS_TOKEN }}
