@@ -7,7 +7,7 @@ artifacts:
     description: Initial proposal document outlining the change
     template: proposal.md
     instruction: >
-      Invoke the grll-me skill to run an interactive grilling session before writing proposal.md. 
+      MUST Invoke the grll-me skill to run an interactive grilling session before writing proposal.md. 
       The grilling session will help identify gaps in understanding and clarify requirements.
       Once the grilling has reached shared understanding, write proposal.md following the instructions below.
 
