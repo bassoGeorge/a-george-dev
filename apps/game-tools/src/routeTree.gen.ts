@@ -9,69 +9,117 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as IndexRouteImport } from './routes/index'
-import { Route as NoLayoutDndCharactersExampleRouteImport } from './routes/_noLayout/dnd/characters/example'
+import { Route as PublicRouteImport } from './routes/_public'
+import { Route as PublicIndexRouteImport } from './routes/_public/index'
+import { Route as PublicDndCharactersIndexRouteImport } from './routes/_public/dnd/characters/index'
+import { Route as PublicDndCharactersExampleRouteImport } from './routes/_public/dnd/characters/example'
 
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
+const PublicRoute = PublicRouteImport.update({
+  id: '/_public',
   getParentRoute: () => rootRouteImport,
 } as any)
-const NoLayoutDndCharactersExampleRoute =
-  NoLayoutDndCharactersExampleRouteImport.update({
-    id: '/_noLayout/dnd/characters/example',
+const PublicIndexRoute = PublicIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => PublicRoute,
+} as any)
+const PublicDndCharactersIndexRoute =
+  PublicDndCharactersIndexRouteImport.update({
+    id: '/dnd/characters/',
+    path: '/dnd/characters/',
+    getParentRoute: () => PublicRoute,
+  } as any)
+const PublicDndCharactersExampleRoute =
+  PublicDndCharactersExampleRouteImport.update({
+    id: '/dnd/characters/example',
     path: '/dnd/characters/example',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => PublicRoute,
   } as any)
 
 export interface FileRoutesByFullPath {
-  '/': typeof IndexRoute
-  '/dnd/characters/example': typeof NoLayoutDndCharactersExampleRoute
+  '/': typeof PublicIndexRoute
+  '/dnd/characters/example': typeof PublicDndCharactersExampleRoute
+  '/dnd/characters/': typeof PublicDndCharactersIndexRoute
 }
 export interface FileRoutesByTo {
-  '/': typeof IndexRoute
-  '/dnd/characters/example': typeof NoLayoutDndCharactersExampleRoute
+  '/': typeof PublicIndexRoute
+  '/dnd/characters/example': typeof PublicDndCharactersExampleRoute
+  '/dnd/characters': typeof PublicDndCharactersIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
-  '/': typeof IndexRoute
-  '/_noLayout/dnd/characters/example': typeof NoLayoutDndCharactersExampleRoute
+  '/_public': typeof PublicRouteWithChildren
+  '/_public/': typeof PublicIndexRoute
+  '/_public/dnd/characters/example': typeof PublicDndCharactersExampleRoute
+  '/_public/dnd/characters/': typeof PublicDndCharactersIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/dnd/characters/example'
+  fullPaths: '/' | '/dnd/characters/example' | '/dnd/characters/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/dnd/characters/example'
-  id: '__root__' | '/' | '/_noLayout/dnd/characters/example'
+  to: '/' | '/dnd/characters/example' | '/dnd/characters'
+  id:
+    | '__root__'
+    | '/_public'
+    | '/_public/'
+    | '/_public/dnd/characters/example'
+    | '/_public/dnd/characters/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
-  IndexRoute: typeof IndexRoute
-  NoLayoutDndCharactersExampleRoute: typeof NoLayoutDndCharactersExampleRoute
+  PublicRoute: typeof PublicRouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/': {
-      id: '/'
-      path: '/'
+    '/_public': {
+      id: '/_public'
+      path: ''
       fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
+      preLoaderRoute: typeof PublicRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/_noLayout/dnd/characters/example': {
-      id: '/_noLayout/dnd/characters/example'
+    '/_public/': {
+      id: '/_public/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof PublicIndexRouteImport
+      parentRoute: typeof PublicRoute
+    }
+    '/_public/dnd/characters/': {
+      id: '/_public/dnd/characters/'
+      path: '/dnd/characters'
+      fullPath: '/dnd/characters/'
+      preLoaderRoute: typeof PublicDndCharactersIndexRouteImport
+      parentRoute: typeof PublicRoute
+    }
+    '/_public/dnd/characters/example': {
+      id: '/_public/dnd/characters/example'
       path: '/dnd/characters/example'
       fullPath: '/dnd/characters/example'
-      preLoaderRoute: typeof NoLayoutDndCharactersExampleRouteImport
-      parentRoute: typeof rootRouteImport
+      preLoaderRoute: typeof PublicDndCharactersExampleRouteImport
+      parentRoute: typeof PublicRoute
     }
   }
 }
 
+interface PublicRouteChildren {
+  PublicIndexRoute: typeof PublicIndexRoute
+  PublicDndCharactersExampleRoute: typeof PublicDndCharactersExampleRoute
+  PublicDndCharactersIndexRoute: typeof PublicDndCharactersIndexRoute
+}
+
+const PublicRouteChildren: PublicRouteChildren = {
+  PublicIndexRoute: PublicIndexRoute,
+  PublicDndCharactersExampleRoute: PublicDndCharactersExampleRoute,
+  PublicDndCharactersIndexRoute: PublicDndCharactersIndexRoute,
+}
+
+const PublicRouteWithChildren =
+  PublicRoute._addFileChildren(PublicRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
-  IndexRoute: IndexRoute,
-  NoLayoutDndCharactersExampleRoute: NoLayoutDndCharactersExampleRoute,
+  PublicRoute: PublicRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

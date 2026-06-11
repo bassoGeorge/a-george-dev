@@ -1,11 +1,4 @@
-## Requirements
-
-### Requirement: Character sheet route exists at /dnd/characters/example
-The app SHALL serve a route at `/dnd/characters/example` that renders the `ExampleSheet` component from `@ageorgedev/dnd-character-sheet`.
-
-#### Scenario: Route is accessible
-- **WHEN** a user navigates to `/dnd/characters/example`
-- **THEN** the page renders the example character sheet without errors
+## MODIFIED Requirements
 
 ### Requirement: Character sheet route has no navigation shell
 The route SHALL render with a navigation header supplied by the `_public` layout, but that header SHALL be hidden during printing via `print:hidden` so only the character sheet content appears on a printed page.
