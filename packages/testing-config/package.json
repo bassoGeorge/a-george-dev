@@ -20,5 +20,8 @@
     "vitest": {
       "optional": true
     }
+  },
+  "devDependencies": {
+    "concurrently": "10.0.3"
   }
 }

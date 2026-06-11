@@ -12,6 +12,7 @@
     "moduleResolution": "bundler",
     "strict": true,
     "target": "es2022",
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "preserveWatchOutput": true
   }
 }

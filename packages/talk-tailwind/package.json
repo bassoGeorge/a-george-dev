@@ -3,7 +3,9 @@
   "version": "0.0.1",
   "type": "module",
   "scripts": {
-    "build": "rm -rf ./dist && tsc && cpx \"src/**/*.css\" dist"
+    "clean": "rm -rf ./dist",
+    "build": "tsc && cpx \"src/**/*.css\" dist",
+    "dev": "concurrently 'tsc --watch' 'cpx \"src/**/*.css\" dist --watch' "
   },
   "exports": {
     ".": {
@@ -23,6 +25,7 @@
     "react-dom": "19.1.0"
   },
   "devDependencies": {
+    "concurrently": "10.0.3",
     "cpx2": "9.0.0",
     "typescript": "5.8.3"
   }
