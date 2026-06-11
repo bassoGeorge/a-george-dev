@@ -4,9 +4,9 @@ export function PanelTitle({
   children,
   className,
   ...props
-}: React.HTMLAttributes<HTMLLabelElement>) {
+}: React.HTMLAttributes<HTMLHeadingElement>) {
   return (
-    <label
+    <h3
       className={cn(
         'uppercase text-center block font-interface text-sm font-bold',
         className
@@ -14,6 +14,6 @@ export function PanelTitle({
       {...props}
     >
       {children}
-    </label>
+    </h3>
   )
 }

@@ -15,9 +15,9 @@ export function Feats() {
             No feats
           </p>
         ) : (
-          feats.map((feat, i) => (
+          feats.map((feat) => (
             <div
-              key={i}
+              key={feat.name}
               className="border border-[var(--s-parchment-400)] rounded p-2"
             >
               <p className="text-xs font-bold text-neutral-strong leading-tight">

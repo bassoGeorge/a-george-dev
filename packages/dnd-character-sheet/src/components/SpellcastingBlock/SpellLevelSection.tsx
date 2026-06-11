@@ -24,8 +24,12 @@ export function SpellLevelSection({ level, spells }: SpellLevelSectionProps) {
               : 'grid grid-cols-[3fr_1fr_1fr_1fr_2fr_2fr]'
           }
         >
-          {spells.map((spell, i) => (
-            <SpellRow key={i} spell={spell} showPrepared={level !== 0} />
+          {spells.map((spell) => (
+            <SpellRow
+              key={`spell ${spell.name} ${spell.level}`}
+              spell={spell}
+              showPrepared={level !== 0}
+            />
           ))}
         </div>
       )}

@@ -12,9 +12,9 @@ export function FeatureList() {
         Features &amp; Traits
       </h2>
       <div className="p-3 flex flex-col gap-3">
-        {character.features.map((feature, i) => (
+        {character.features.map((feature) => (
           <div
-            key={i}
+            key={feature.name}
             className="border-b border-[var(--s-parchment-400)]/50 pb-2 last:border-0 last:pb-0"
           >
             <div className="flex items-baseline justify-between gap-2 mb-0.5">

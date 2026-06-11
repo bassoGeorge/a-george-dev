@@ -15,9 +15,9 @@ export function SpeciesTraits() {
             No species traits
           </p>
         ) : (
-          traits.map((trait, i) => (
+          traits.map((trait) => (
             <div
-              key={i}
+              key={trait.name}
               className="border border-[var(--s-parchment-400)] rounded p-2"
             >
               <p className="text-xs font-bold text-neutral-strong leading-tight">

@@ -57,6 +57,8 @@ function Row({
       <div className="flex gap-1.5">
         {checks.map((checked, i) => (
           <button
+            type="button"
+            // biome-ignore lint/suspicious/noArrayIndexKey: not important
             key={i}
             onClick={() => onToggle(i)}
             className={`w-5 h-5 rounded-full border-2 transition-colors ${

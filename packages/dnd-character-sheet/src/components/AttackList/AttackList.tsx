@@ -48,7 +48,7 @@ export function AttackList() {
             </tr>
           </thead>
           <tbody>
-            {character.attacks.map((attack, i) => {
+            {character.attacks.map((attack) => {
               const abilityMod =
                 attack.abilityKey === 'STR'
                   ? derived.abilityModifiers.strength
@@ -61,7 +61,7 @@ export function AttackList() {
 
               return (
                 <tr
-                  key={i}
+                  key={`attack ${attack.name}`}
                   className="border-b border-[var(--s-parchment-400)] last:border-0 hover:bg-page-0/50"
                 >
                   <Td className="font-semibold text-neutral-strong">

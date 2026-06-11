@@ -36,9 +36,9 @@ export function EquipmentBlock() {
       </div>
 
       <ul className="p-3 flex flex-col gap-0.5">
-        {character.equipment.map((item, i) => (
+        {character.equipment.map((item) => (
           <li
-            key={i}
+            key={item}
             className="text-xs text-neutral-strong flex items-start gap-1.5"
           >
             <span className="text-[var(--s-parchment-400)] mt-0.5">•</span>
