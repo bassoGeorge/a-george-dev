@@ -9,7 +9,7 @@
     "build": "turbo @ageorgedev/ageorgedev#build",
     "test": "turbo test -- --passWithNoTests",
     "preinstall": "git config core.hooksPath .git-hooks",
-    "clean-dist": "rm -rf dist && find ./libs -type d -name dist -exec rm -rf {} + && find ./apps -type d -name dist -exec rm -rf {} +",
+    "clean-dist": "rm -rf dist && find ./packages -type d -name dist -exec rm -rf {} + && find ./apps -type d -name dist -exec rm -rf {} +",
     "storybook": "turbo @ageorgedev/design-docs#dev:storybook",
     "decap-server": "npx decap-server",
     "shadcn": "yarn dlx shadcn",
