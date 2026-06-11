@@ -33,7 +33,6 @@ __metadata:
   resolution: "@ageorgedev/ageorgedev@workspace:apps/ageorgedev"
   dependencies:
     "@ageorgedev/design-system": "workspace:*"
-    "@ageorgedev/dnd-character-sheet": "workspace:*"
     "@ageorgedev/foundation-styles": "workspace:*"
     "@ageorgedev/reveal-framework": "workspace:*"
     "@ageorgedev/talk-tailwind": "workspace:*"
@@ -182,6 +181,30 @@ __metadata:
     postcss: 8.5.15
     postcss-nesting: 12.1.5
     tailwindcss: 4.1.8
+  languageName: unknown
+  linkType: soft
+
+"@ageorgedev/game-tools@workspace:apps/game-tools":
+  version: 0.0.0-use.local
+  resolution: "@ageorgedev/game-tools@workspace:apps/game-tools"
+  dependencies:
+    "@ageorgedev/design-system": "workspace:*"
+    "@ageorgedev/dnd-character-sheet": "workspace:*"
+    "@ageorgedev/foundation-styles": "workspace:*"
+    "@ageorgedev/toolbelt": "workspace:*"
+    "@ageorgedev/ts-config": "workspace:*"
+    "@tailwindcss/vite": "npm:4.2.1"
+    "@tanstack/react-router": "npm:1.170.11"
+    "@tanstack/react-start": "npm:1.168.19"
+    "@types/node": "npm:18.16.9"
+    "@types/react": "npm:19.2.17"
+    "@types/react-dom": "npm:19.2.3"
+    "@vitejs/plugin-react": "npm:6.0.2"
+    react: "npm:19.1.0"
+    react-dom: "npm:19.1.0"
+    tailwindcss: "npm:4.1.8"
+    typescript: "npm:5.8.3"
+    vite: "npm:8.0.16"
   languageName: unknown
   linkType: soft
 
