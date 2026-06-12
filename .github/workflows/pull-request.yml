@@ -53,9 +53,8 @@ jobs:
 
             if (entries.length === 0) return;
 
-            const lines = entries.map(e => `- **${e.label}**: ${e.url}`).join('\n');
             const marker = '<!-- pr-deploy-urls -->';
-            const body = `${marker}\n## Preview deployments\n\n${lines}`;
+            const outdatedMarker = '<!-- pr-deploy-urls-outdated -->';
 
             const { data: comments } = await github.rest.issues.listComments({
               owner: context.repo.owner,
@@ -69,13 +68,14 @@ jobs:
                 owner: context.repo.owner,
                 repo: context.repo.repo,
                 comment_id: existing.id,
-                body,
-              });
-            } else {
-              await github.rest.issues.createComment({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                issue_number: context.payload.pull_request.number,
-                body,
+                body: existing.body.replace(marker, outdatedMarker).replace('## Preview deployments', '~~Outdated~~\n\n## Preview deployments'),
               });
             }
+
+            const lines = entries.map(e => `- **${e.label}**: ${e.url}`).join('\n');
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.payload.pull_request.number,
+              body: `${marker}\n## Preview deployments\n\n${lines}`,
+            });

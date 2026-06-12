@@ -13,20 +13,22 @@ jobs:
         id: list-urls
         with:
           script: |
-            // Fetch all comments on the current issue
             const { data: comments } = await github.rest.issues.listComments({
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
             });
 
-            // Find and log comments with the format "Preview URL: <url>"
-            const previewUrls = comments
-              .map(comment => {
-                const match = comment.body.match(/Preview URL: (https?:\/\/\S+)/);
-                return match ? match[1] : null;
-              })
-              .filter(url => url !== null);
+            const previewComments = comments.filter(c =>
+              c.body.includes('<!-- pr-deploy-urls -->') ||
+              c.body.includes('<!-- pr-deploy-urls-outdated -->')
+            );
+
+            const previewUrls = [...new Set(
+              previewComments.flatMap(c =>
+                [...c.body.matchAll(/- \*\*[^*]+\*\*: (https?:\/\/\S+)/g)].map(m => m[1])
+              )
+            )];
 
             console.log("Preview URLs found:", previewUrls);
             return previewUrls
