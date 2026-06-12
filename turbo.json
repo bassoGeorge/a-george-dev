@@ -21,7 +21,7 @@
     },
     "test": {
       "dependsOn": ["^build"],
-      "inputs": ["src/**/*.spec.tsx", "src/**/*.spec.ts"]
+      "inputs": ["src/**/*.spec.tsx", "src/**/*.spec.ts", "vitest.config.ts"]
     },
     "dev": {
       "cache": false,

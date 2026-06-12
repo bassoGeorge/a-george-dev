@@ -6,7 +6,7 @@
   "packageManager": "yarn@4.14.1",
   "scripts": {
     "dev": "turbo dev --filter=\"@ageorgedev/ageorgedev...\"",
-    "dev:game-tools": "turbo dev --filter=\"@ageorgedev/game-tools...\"", 
+    "dev:game-tools": "turbo dev --filter=\"@ageorgedev/game-tools...\"",
     "build": "turbo @ageorgedev/ageorgedev#build",
     "build:game-tools": "turbo @ageorgedev/game-tools#build",
     "build:design-docs": "turbo @ageorgedev/design-docs#build:storybook",
