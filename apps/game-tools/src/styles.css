@@ -3,3 +3,9 @@
 @source "../";
 @source "../../../packages/design-system/src";
 @source "../../../packages/dnd-character-sheet/src";
+
+@media print {
+  html {
+    font-size: 9pt;
+  }
+}
