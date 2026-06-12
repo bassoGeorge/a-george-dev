@@ -47,7 +47,7 @@ jobs:
             const dir = 'deploy-urls';
             const entries = fs.existsSync(dir)
               ? fs.readdirSync(dir)
-                  .filter(f => f.endsWith('.json'))
+                  .filter(f => f.startsWith('deploy-url-') && f.endsWith('.json'))
                   .map(f => JSON.parse(fs.readFileSync(path.join(dir, f), 'utf8')))
               : [];
 

@@ -55,13 +55,13 @@ jobs:
       - name: 📤 Upload deploy URL artifact
         if: ${{ always() && inputs.label != '' && !inputs.production }}
         run: |
-          echo '{"label":"${{ inputs.label }}","url":"${{ steps.deploy.outputs.deploy_url }}"}' > deploy-url.json
+          echo '{"label":"${{ inputs.label }}","url":"${{ steps.deploy.outputs.deploy_url }}"}' > deploy-url-${{ inputs.VERCEL_PROJECT_NAME }}.json
         shell: bash
       - name: Upload artifact
         if: ${{ always() && inputs.label != '' && !inputs.production }}
         uses: actions/upload-artifact@v7
         with:
           name: deploy-url-${{ github.run_id }}-${{ inputs.VERCEL_PROJECT_NAME }}
-          path: deploy-url.json
+          path: deploy-url-${{ inputs.VERCEL_PROJECT_NAME }}.json
     outputs:
       deploy_url: ${{ steps.deploy.outputs.deploy_url }}
