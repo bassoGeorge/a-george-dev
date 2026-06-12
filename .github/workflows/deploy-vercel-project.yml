@@ -11,7 +11,7 @@ on:
       e2e_project:
         required: false
         type: string
-      pull_request_number:
+      label:
         required: false
         type: string
         default: ''
@@ -52,16 +52,16 @@ jobs:
           deploy_url: ${{ steps.deploy.outputs.deploy_url }}
           VERCEL_ACCESS_TOKEN: ${{ secrets.VERCEL_ACCESS_TOKEN }}
           VERCEL_PROJECT_NAME: ${{ inputs.VERCEL_PROJECT_NAME }}
-      - name: 💬 Post preview URL comment
-        if: ${{ inputs.pull_request_number != '' }}
-        uses: actions/github-script@v8
+      - name: 📤 Upload deploy URL artifact
+        if: ${{ always() && inputs.label != '' && !inputs.production }}
+        run: |
+          echo '{"label":"${{ inputs.label }}","url":"${{ steps.deploy.outputs.deploy_url }}"}' > deploy-url-${{ inputs.VERCEL_PROJECT_NAME }}.json
+        shell: bash
+      - name: Upload artifact
+        if: ${{ always() && inputs.label != '' && !inputs.production }}
+        uses: actions/upload-artifact@v7
         with:
-          script: |
-            github.rest.issues.createComment({
-              issue_number: ${{ inputs.pull_request_number }},
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: 'Preview URL: ${{ steps.deploy.outputs.deploy_url }}'
-            })
+          name: deploy-url-${{ github.run_id }}-${{ inputs.VERCEL_PROJECT_NAME }}
+          path: deploy-url-${{ inputs.VERCEL_PROJECT_NAME }}.json
     outputs:
       deploy_url: ${{ steps.deploy.outputs.deploy_url }}

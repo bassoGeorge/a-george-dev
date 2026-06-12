@@ -1,0 +1,32 @@
+{
+  "name": "@ageorgedev/dnd-character-sheet",
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "clean": "rm -rf ./dist",
+    "build": "tsc && cpx \"src/**/*.css\" dist",
+    "dev": "concurrently 'tsc --watch' 'cpx \"src/**/*.css\" dist --watch'"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": ["dist"],
+  "peerDependencies": {
+    "react": "^18.0.0 || ^19.0.0",
+    "react-dom": "^18.0.0 || ^19.0.0"
+  },
+  "devDependencies": {
+    "@ageorgedev/ts-config": "workspace:*",
+    "@types/react": "19.2.17",
+    "@types/react-dom": "19.2.3",
+    "concurrently": "10.0.3",
+    "cpx2": "9.0.0",
+    "typescript": "5.8.3"
+  },
+  "dependencies": {
+    "@ageorgedev/toolbelt": "workspace:*"
+  }
+}

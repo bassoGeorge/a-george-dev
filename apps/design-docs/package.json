@@ -20,6 +20,7 @@
     "@fontsource/alegreya-sans-sc": "5.2.7",
     "@tailwindcss/postcss": "4.1.10",
     "@vitejs/plugin-react": "6.0.2",
+    "concurrently": "10.0.3",
     "cpx2": "9.0.0",
     "postcss": "8.5.15",
     "postcss-nesting": "12.1.5",

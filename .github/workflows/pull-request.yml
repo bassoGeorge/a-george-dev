@@ -14,8 +14,6 @@ jobs:
   Deploy:
     needs: [Run_Tests, Info]
     if: needs.Info.outputs.pr_deploy_matrix != '[]'
-    permissions:
-      pull-requests: write
     strategy:
       matrix:
         project: ${{ fromJSON(needs.Info.outputs.pr_deploy_matrix) }}
@@ -24,6 +22,60 @@ jobs:
       VERCEL_PROJECT_NAME: ${{ matrix.project.vercel_project_name }}
       production: false
       e2e_project: ${{ matrix.project.e2e_project || '' }}
-      pull_request_number: ${{ github.event.pull_request.number }}
+      label: ${{ matrix.project.label }}
     secrets:
       VERCEL_ACCESS_TOKEN: ${{ secrets.VERCEL_ACCESS_TOKEN }}
+  Finish:
+    needs: [Deploy, Info]
+    if: always() && needs.Deploy.result != 'skipped'
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+    steps:
+      - name: 📥 Download deploy URL artifacts
+        uses: actions/download-artifact@v7
+        with:
+          pattern: deploy-url-${{ github.run_id }}-*
+          merge-multiple: true
+          path: deploy-urls
+      - name: 💬 Post consolidated preview comment
+        uses: actions/github-script@v8
+        with:
+          script: |
+            const fs = require('fs');
+            const path = require('path');
+            const dir = 'deploy-urls';
+            const entries = fs.existsSync(dir)
+              ? fs.readdirSync(dir)
+                  .filter(f => f.startsWith('deploy-url-') && f.endsWith('.json'))
+                  .map(f => JSON.parse(fs.readFileSync(path.join(dir, f), 'utf8')))
+              : [];
+
+            if (entries.length === 0) return;
+
+            const marker = '<!-- pr-deploy-urls -->';
+            const outdatedMarker = '<!-- pr-deploy-urls-outdated -->';
+
+            const { data: comments } = await github.rest.issues.listComments({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.payload.pull_request.number,
+            });
+
+            const existing = comments.find(c => c.body.includes(marker));
+            if (existing) {
+              await github.rest.issues.updateComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                comment_id: existing.id,
+                body: existing.body.replace(marker, outdatedMarker).replace('## Preview deployments', '~~Outdated~~\n\n## Preview deployments'),
+              });
+            }
+
+            const lines = entries.map(e => `- **${e.label}**: ${e.url}`).join('\n');
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.payload.pull_request.number,
+              body: `${marker}\n## Preview deployments\n\n${lines}`,
+            });

@@ -1,0 +1,36 @@
+import { useCharacter } from '../CharacterSheet'
+import styles from './FeatureList.module.css'
+
+export function FeatureList() {
+  const { character } = useCharacter()
+
+  return (
+    <div
+      className={`${styles.panel} bg-white rounded-lg shadow-md border border-[var(--s-parchment-400)] overflow-hidden`}
+    >
+      <h2 className="bg-destructive-surface-2 text-destructive-onsurface-2 text-xs font-bold uppercase tracking-widest px-3 py-1.5 text-center">
+        Features &amp; Traits
+      </h2>
+      <div className="p-3 flex flex-col gap-3">
+        {character.features.map((feature) => (
+          <div
+            key={feature.name}
+            className="border-b border-[var(--s-parchment-400)]/50 pb-2 last:border-0 last:pb-0"
+          >
+            <div className="flex items-baseline justify-between gap-2 mb-0.5">
+              <span className="text-sm font-bold text-neutral-strong">
+                {feature.name}
+              </span>
+              <span className="text-xs text-neutral-subdued italic flex-shrink-0">
+                {feature.source}
+              </span>
+            </div>
+            <p className="text-xs text-neutral-subdued leading-relaxed">
+              {feature.description}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  )
+}

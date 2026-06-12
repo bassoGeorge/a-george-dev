@@ -1,0 +1,35 @@
+{
+  "name": "@ageorgedev/game-tools",
+  "version": "0.0.1",
+  "type": "module",
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite dev --port 3001",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@ageorgedev/design-system": "workspace:*",
+    "@ageorgedev/dnd-character-sheet": "workspace:*",
+    "@ageorgedev/foundation-styles": "workspace:*",
+    "@ageorgedev/toolbelt": "workspace:*",
+    "@tanstack/react-router": "1.170.11",
+    "@tanstack/react-start": "1.168.19",
+    "react": "19.1.0",
+    "react-dom": "19.1.0"
+  },
+  "devDependencies": {
+    "@ageorgedev/ts-config": "workspace:*",
+    "@tailwindcss/vite": "4.2.1",
+    "@testing-library/jest-dom": "6.9.1",
+    "@testing-library/react": "16.3.2",
+    "@types/node": "18.16.9",
+    "@types/react": "19.2.17",
+    "@types/react-dom": "19.2.3",
+    "@vitejs/plugin-react": "6.0.2",
+    "tailwindcss": "4.1.8",
+    "typescript": "5.8.3",
+    "vite": "8.0.16",
+    "vite-plugin-dts": "4.5.4",
+    "vitest": "4.1.8"
+  }
+}
