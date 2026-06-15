@@ -6,8 +6,8 @@
     "dev": "tsx src/index.tsx"
   },
   "dependencies": {
-    "ink": "^7.0.3",
-    "react": "19.1.0"
+    "ink": "7.0.3",
+    "react": "19.2.7"
   },
   "devDependencies": {
     "@ageorgedev/ts-config": "workspace:*",

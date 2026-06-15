@@ -37,8 +37,6 @@
       "cache": false,
       "passThroughEnv": ["BASE_URL"]
     },
-    "lint": {},
-    "vaidate": {},
     "//#format-and-lint": {},
     "//#format-and-lint:fix": {
       "cache": false

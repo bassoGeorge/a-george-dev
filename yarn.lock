@@ -61,8 +61,8 @@ __metadata:
     postcss: "npm:8.5.15"
     postcss-nesting: "npm:12.1.5"
     ramda: "npm:0.28.0"
-    react: "npm:19.1.0"
-    react-dom: "npm:19.1.0"
+    react: "npm:19.2.7"
+    react-dom: "npm:19.2.7"
     remark-frontmatter: "npm:5.0.0"
     remark-mdx-frontmatter: "npm:5.2.0"
     tailwindcss: "npm:4.1.8"
@@ -88,8 +88,8 @@ __metadata:
     typescript: "npm:5.8.3"
     vitest: "npm:4.1.8"
   peerDependencies:
-    react: 19.1.0
-    react-dom: 19.1.0
+    react: 19.2.7
+    react-dom: 19.2.7
   languageName: unknown
   linkType: soft
 
@@ -145,8 +145,8 @@ __metadata:
     vite: "npm:8.0.16"
     vitest: "npm:4.1.8"
   peerDependencies:
-    react: 19.1.0
-    react-dom: 19.1.0
+    react: 19.2.7
+    react-dom: 19.2.7
   languageName: unknown
   linkType: soft
 
@@ -162,8 +162,8 @@ __metadata:
     cpx2: "npm:9.0.0"
     typescript: "npm:5.8.3"
   peerDependencies:
-    react: ^18.0.0 || ^19.0.0
-    react-dom: ^18.0.0 || ^19.0.0
+    react: 19.2.7
+    react-dom: 19.2.7
   languageName: unknown
   linkType: soft
 
@@ -174,8 +174,8 @@ __metadata:
     "@ageorgedev/ts-config": "workspace:*"
     "@types/node": "npm:18.16.9"
     "@types/react": "npm:19.2.17"
-    ink: "npm:^7.0.3"
-    react: "npm:19.1.0"
+    ink: "npm:7.0.3"
+    react: "npm:19.2.7"
     tsx: "npm:^4.22.3"
     typescript: "npm:5.8.3"
   languageName: unknown
@@ -216,8 +216,8 @@ __metadata:
     "@types/react": "npm:19.2.17"
     "@types/react-dom": "npm:19.2.3"
     "@vitejs/plugin-react": "npm:6.0.2"
-    react: "npm:19.1.0"
-    react-dom: "npm:19.1.0"
+    react: "npm:19.2.7"
+    react-dom: "npm:19.2.7"
     tailwindcss: "npm:4.1.8"
     typescript: "npm:5.8.3"
     vite: "npm:8.0.16"
@@ -246,8 +246,8 @@ __metadata:
     typescript: "npm:5.8.3"
     vitest: "npm:4.1.8"
   peerDependencies:
-    react: 19.1.0
-    react-dom: 19.1.0
+    react: 19.2.7
+    react-dom: 19.2.7
   languageName: unknown
   linkType: soft
 
@@ -264,8 +264,8 @@ __metadata:
     cpx2: "npm:9.0.0"
     typescript: "npm:5.8.3"
   peerDependencies:
-    react: 19.1.0
-    react-dom: 19.1.0
+    react: 19.2.7
+    react-dom: 19.2.7
   languageName: unknown
   linkType: soft
 
@@ -6109,9 +6109,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ink@npm:^7.0.3":
-  version: 7.0.6
-  resolution: "ink@npm:7.0.6"
+"ink@npm:7.0.3":
+  version: 7.0.3
+  resolution: "ink@npm:7.0.3"
   dependencies:
     "@alcalzone/ansi-tokenize": "npm:^0.3.0"
     ansi-escapes: "npm:^7.3.0"
@@ -6147,7 +6147,7 @@ __metadata:
       optional: true
     react-devtools-core:
       optional: true
-  checksum: 10c0/cfcdd9800a0fdcfa59ff9a0964cf986eaf8207d14db05426a6fafe6b4fc447ca003667fc63ac3fdd8613c6b9fb5e7ce0b0284058d1a6c6b29f617d6b09f0eb99
+  checksum: 10c0/8d92957d8d40ea729d702b9e57bae355531b1bcf9b8f62096796e2aa67681cea52eccad64fdb56171f2f3c0746d1fd73aa79306b5ca60fb2a97ae374ac80834f
   languageName: node
   linkType: hard
 
@@ -8494,14 +8494,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-dom@npm:19.1.0":
-  version: 19.1.0
-  resolution: "react-dom@npm:19.1.0"
+"react-dom@npm:19.2.7":
+  version: 19.2.7
+  resolution: "react-dom@npm:19.2.7"
   dependencies:
-    scheduler: "npm:^0.26.0"
+    scheduler: "npm:^0.27.0"
   peerDependencies:
-    react: ^19.1.0
-  checksum: 10c0/3e26e89bb6c67c9a6aa86cb888c7a7f8258f2e347a6d2a15299c17eb16e04c19194e3452bc3255bd34000a61e45e2cb51e46292392340432f133e5a5d2dfb5fc
+    react: ^19.2.7
+  checksum: 10c0/970ff600f6e80d47d39e2f226f12f226173b3cba3382efc97c5f0cd663de9af38c7a4c11c213fb936094faeac83060d660247accaa96b752180d5b951b9cfecb
   languageName: node
   linkType: hard
 
@@ -8539,10 +8539,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react@npm:19.1.0":
-  version: 19.1.0
-  resolution: "react@npm:19.1.0"
-  checksum: 10c0/530fb9a62237d54137a13d2cfb67a7db6a2156faed43eecc423f4713d9b20c6f2728b026b45e28fcd72e8eadb9e9ed4b089e99f5e295d2f0ad3134251bdd3698
+"react@npm:19.2.7":
+  version: 19.2.7
+  resolution: "react@npm:19.2.7"
+  checksum: 10c0/0bd0e2f1bbd4ba97561c6597bf8a5fec05e6476fe61e165c1065598d16668efc6715205599c94d3ddd49d36cb0f21cbf1b9bcc18ee840b805ce222c3e8d558ac
   languageName: node
   linkType: hard
 
@@ -8904,13 +8904,6 @@ __metadata:
   dependencies:
     xmlchars: "npm:^2.2.0"
   checksum: 10c0/3847b839f060ef3476eb8623d099aa502ad658f5c40fd60c105ebce86d244389b0d76fcae30f4d0c728d7705ceb2f7e9b34bb54717b6a7dbedaf5dad2d9a4b74
-  languageName: node
-  linkType: hard
-
-"scheduler@npm:^0.26.0":
-  version: 0.26.0
-  resolution: "scheduler@npm:0.26.0"
-  checksum: 10c0/5b8d5bfddaae3513410eda54f2268e98a376a429931921a81b5c3a2873aab7ca4d775a8caac5498f8cbc7d0daeab947cf923dbd8e215d61671f9f4e392d34356
   languageName: node
   linkType: hard
 
