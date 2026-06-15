@@ -73,18 +73,18 @@ export function AbilityBox({ ability }: AbilityBoxProps) {
 
   return (
     <Panel
-      className={`overflow-hidden`}
+      className={`overflow-hidden px-0 pb-0`}
       topLeftCorner="scooped"
       topRightCorner="scooped"
     >
-      <PanelTitle className="px-3 py-1.5">{ABILITY_LABELS[ability]}</PanelTitle>
+      <PanelTitle>{ABILITY_LABELS[ability]}</PanelTitle>
       <div className="flex justify-center items-center py-2 gap-1">
-        <div className="w-8 h-8 rounded-full border-2 border-destructive-surface-2 flex items-center justify-center">
-          <BigNumber className="text-neutral-strong">
-            {formatMod(mod)}
-          </BigNumber>
+        <div className="size-8 rounded-full border-2 flex items-center justify-center bg-page-4">
+          <BigNumber className="text-3xl">{formatMod(mod)}</BigNumber>
         </div>
-        <span className="text-md text-neutral-subdued">{score}</span>
+        <div className="text-lg text-neutral-subdued w-7 py-2 text-center border-1 -ml-3 -z-1">
+          {score}
+        </div>
       </div>
       <SkillGrid>
         <SkillRow checkedState={isSaveProficient} modifier={savingThrow}>
@@ -114,7 +114,7 @@ export function AbilityBox({ ability }: AbilityBoxProps) {
 }
 function SkillGrid({ children }: React.PropsWithChildren) {
   return (
-    <div className="grid grid-cols-[max-content_1fr_4fr] items-baseline gap-x-1.5 px-2 py-2 border-t">
+    <div className="grid grid-cols-[max-content_3ch_max-content] items-baseline gap-x-1 pl-2 pr-1 py-2 border-t">
       {children}
     </div>
   )
@@ -131,10 +131,8 @@ function SkillRow({
   return (
     <>
       <CircleCheck checked={checkedState} className="self-center" />
-      <span className="text-md text-destructive-foreground-3 text-right">
-        {formatMod(modifier)}
-      </span>
-      <span className="text-xs text-neutral-strong">{children}</span>
+      <span className="text-md text-right">{formatMod(modifier)}</span>
+      <span className="text-xs">{children}</span>
     </>
   )
 }

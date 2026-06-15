@@ -11,7 +11,7 @@ export const exampleWizard: Character = {
   experiencePoints: 23000,
 
   abilities: {
-    strength: 8,
+    strength: 6,
     dexterity: 14,
     constitution: 14,
     intelligence: 18,
@@ -87,7 +87,7 @@ export const exampleWizard: Character = {
     'Quarterstaffs',
     'Light Crossbows',
   ],
-  toolProficiencies: [],
+  toolProficiencies: ["Calligrapher's Supplies"],
   languages: ['Common', 'Elvish', 'Draconic', 'Sylvan'],
 
   personality: {

@@ -4,5 +4,10 @@ export function BigNumber({
   className,
   ...props
 }: React.HTMLAttributes<HTMLSpanElement>) {
-  return <span className={cn('text-4xl', className)} {...props} />
+  return (
+    <span
+      className={cn('text-4xl leading-none lining-nums', className)}
+      {...props}
+    />
+  )
 }
