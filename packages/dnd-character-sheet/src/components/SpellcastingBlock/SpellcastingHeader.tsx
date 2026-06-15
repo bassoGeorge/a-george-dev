@@ -1,6 +1,6 @@
 // biome-ignore-all lint/suspicious/noArrayIndexKey: Not important
 import { useCharacter } from '../CharacterSheet'
-import { CircleCheck } from '../layout/CircleCheck'
+import { CircleCheck } from '../layout/checkables'
 
 const ABILITY_LABELS: Record<string, string> = {
   strength: 'Strength',

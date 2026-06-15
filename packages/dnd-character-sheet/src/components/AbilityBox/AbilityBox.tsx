@@ -1,8 +1,8 @@
 import type { AbilityName, SkillName } from '../../types/character'
 import { useCharacter } from '../CharacterSheet'
 import { BigNumber } from '../layout/BigNumber'
-import { CircleCheck } from '../layout/CircleCheck'
-import type { CheckedState } from '../layout/checkStyles'
+import type { CheckedState } from '../layout/checkables'
+import { CircleCheck } from '../layout/checkables'
 import { Panel } from '../layout/Panel'
 import { PanelTitle } from '../layout/PanelTitle'
 

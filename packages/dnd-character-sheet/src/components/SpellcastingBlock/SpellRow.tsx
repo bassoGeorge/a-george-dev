@@ -1,5 +1,5 @@
 import type { AbilityName, Spell } from '../../types/character'
-import { CircleCheck } from '../layout/CircleCheck'
+import { CircleCheck } from '../layout/checkables'
 
 const ABILITY_SHORT: Record<AbilityName, string> = {
   strength: 'STR',

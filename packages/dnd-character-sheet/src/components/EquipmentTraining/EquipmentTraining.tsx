@@ -1,6 +1,6 @@
 import { cn } from '@ageorgedev/toolbelt/cn'
 import { useCharacter } from '../CharacterSheet'
-import { DiamondCheck } from '../layout/DiamondCheck'
+import { DiamondCheck } from '../layout/checkables'
 import { Panel } from '../layout/Panel'
 import { PanelTitle } from '../layout/PanelTitle'
 import { HorizontalSubPanel } from '../layout/SubPanel'
