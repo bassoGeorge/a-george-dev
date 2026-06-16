@@ -1,4 +1,4 @@
-import type { Ability } from '@ageorgedev/dnd-character-sheet'
+import type { Ability } from '@ageorgedev/dnd-character-sheet/models'
 
 export type HitDiceType = 'd6' | 'd8' | 'd10' | 'd12'
 

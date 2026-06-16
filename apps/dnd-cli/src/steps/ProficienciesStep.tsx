@@ -2,7 +2,7 @@ import {
   ABILITY_DETAILS,
   ALL_ABILITIES,
   Skill,
-} from '@ageorgedev/dnd-character-sheet'
+} from '@ageorgedev/dnd-character-sheet/models'
 import { Box, Text, useInput } from 'ink'
 import { useState } from 'react'
 

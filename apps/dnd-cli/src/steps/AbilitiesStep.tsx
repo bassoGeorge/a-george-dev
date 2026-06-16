@@ -1,4 +1,4 @@
-import { Ability } from '@ageorgedev/dnd-character-sheet'
+import { Ability } from '@ageorgedev/dnd-character-sheet/models'
 import { Box, Text, useInput } from 'ink'
 import { useState } from 'react'
 import { DEFAULTS } from '../lib/defaults.js'

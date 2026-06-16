@@ -1,6 +1,7 @@
 {
   "name": "@ageorgedev/dnd-character-sheet",
   "version": "0.1.0",
+  "type": "module",
   "scripts": {
     "clean": "rm -rf ./dist",
     "build": "tsc && cpx \"src/**/*.css\" dist",
@@ -10,6 +11,10 @@
     ".": {
       "import": "./dist/index.js",
       "types": "./dist/index.d.ts"
+    },
+    "./models": {
+      "import": "./dist/lib/models/index.js",
+      "types": "./dist/lib/models/index.d.ts"
     }
   },
   "peerDependencies": {
