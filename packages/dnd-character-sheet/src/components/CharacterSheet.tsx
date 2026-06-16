@@ -1,5 +1,5 @@
 import { createContext, useContext, useMemo } from 'react'
-import { calculateStats } from '../lib/calculate'
+import { calculateStats } from '../lib/calculate-derived-stats'
 import type { DerivedStats } from '../lib/derived-stats.types'
 import type { Character } from '../lib/models/character'
 

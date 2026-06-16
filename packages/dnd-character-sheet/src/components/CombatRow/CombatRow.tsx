@@ -16,10 +16,7 @@ function StatCell({
   return (
     <Panel outerClasses="flex-1" className="flex flex-col items-center py-2">
       <PanelTitle>{label}</PanelTitle>
-      <span className="text-2xl">{children}</span>
-      {/* <span className="text-xs uppercase tracking-wider text-gray-500 mt-0.5">
-        {label}
-      </span> */}
+      <span className="text-xl">{children}</span>
     </Panel>
   )
 }

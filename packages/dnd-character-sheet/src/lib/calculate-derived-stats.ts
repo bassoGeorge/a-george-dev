@@ -1,35 +1,8 @@
+import type { AbilityName } from './models/abilities'
+import { AllAbilities } from './models/abilities'
 import type { Character } from './models/character'
 import type { DerivedStats } from './models/derived-stats'
-
-const ABILITY_NAMES = [
-  'strength',
-  'dexterity',
-  'constitution',
-  'intelligence',
-  'wisdom',
-  'charisma',
-] as const
-
-const SKILL_ABILITY_MAP = {
-  acrobatics: 'dexterity',
-  animalHandling: 'wisdom',
-  arcana: 'intelligence',
-  athletics: 'strength',
-  deception: 'charisma',
-  history: 'intelligence',
-  insight: 'wisdom',
-  intimidation: 'charisma',
-  investigation: 'intelligence',
-  medicine: 'wisdom',
-  nature: 'intelligence',
-  perception: 'wisdom',
-  performance: 'charisma',
-  persuasion: 'charisma',
-  religion: 'intelligence',
-  sleightOfHand: 'dexterity',
-  stealth: 'dexterity',
-  survival: 'wisdom',
-} as const
+import { AbilitySkillGrouping } from './models/skills'
 
 function abilityModifier(score: number): number {
   return Math.floor((score - 10) / 2)
@@ -47,31 +20,30 @@ export function calculateStats(character: Character): DerivedStats {
   const profBonus = proficiencyBonus(character.level)
 
   const abilityModifiers = Object.fromEntries(
-    ABILITY_NAMES.map((name) => [
+    AllAbilities.map((name) => [
       name,
       abilityModifier(character.abilities[name]),
     ])
   ) as DerivedStats['abilityModifiers']
 
   const savingThrows = Object.fromEntries(
-    ABILITY_NAMES.map((name) => {
+    AllAbilities.map((name) => {
       const isProficient = character.savingThrowProficiencies.includes(name)
       return [name, abilityModifiers[name] + (isProficient ? profBonus : 0)]
     })
   ) as DerivedStats['savingThrows']
 
   const skills = Object.fromEntries(
-    (
-      Object.keys(SKILL_ABILITY_MAP) as Array<keyof typeof SKILL_ABILITY_MAP>
-    ).map((skill) => {
-      const ability = SKILL_ABILITY_MAP[skill]
-      const isProficient = character.skillProficiencies.includes(skill)
-      const hasExpertise = character.skillExpertise.includes(skill)
-      const bonus =
-        abilityModifiers[ability] +
-        (isProficient ? profBonus : 0) +
-        (hasExpertise ? profBonus : 0)
-      return [skill, bonus]
+    Object.entries(AbilitySkillGrouping).flatMap(([ability, skills]) => {
+      return skills.map((skill) => {
+        const isProficient = character.skillProficiencies.includes(skill)
+        const hasExpertise = character.skillExpertise.includes(skill)
+        const bonus =
+          abilityModifiers[ability as AbilityName] +
+          (isProficient ? profBonus : 0) +
+          (hasExpertise ? profBonus : 0)
+        return [skill, bonus] as const
+      })
     })
   ) as DerivedStats['skills']
 
