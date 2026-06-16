@@ -1,4 +1,4 @@
-import type { AbilityName } from '../../types/character'
+import type { AbilityName } from '../../lib/models/abilities'
 import { useCharacter } from '../CharacterSheet'
 import styles from './AbilityScores.module.css'
 

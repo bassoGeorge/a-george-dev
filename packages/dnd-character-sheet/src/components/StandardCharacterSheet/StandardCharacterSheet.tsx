@@ -1,4 +1,4 @@
-import type { Character } from '../../types/character'
+import type { Character } from '../../lib/models/character'
 import { AbilityBox } from '../AbilityBox/AbilityBox'
 import { AttackList } from '../AttackList/AttackList'
 import { BackstoryBlock } from '../BackstoryBlock/BackstoryBlock'

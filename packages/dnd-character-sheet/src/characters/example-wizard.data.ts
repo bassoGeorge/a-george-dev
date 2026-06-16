@@ -1,4 +1,4 @@
-import type { Character } from '../types/character'
+import type { Character } from '../lib/models/character'
 
 export const exampleWizard: Character = {
   name: 'Seraphina Ashveil',

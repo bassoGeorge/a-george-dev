@@ -1,4 +1,5 @@
-import type { AbilityName, Spell } from '../../types/character'
+import type { AbilityName } from '../../lib/models/abilities'
+import type { Spell } from '../../lib/models/character'
 import { CircleCheck } from '../layout/checkables'
 
 const ABILITY_SHORT: Record<AbilityName, string> = {

@@ -1,5 +1,5 @@
-import type { Character } from '../types/character'
-import type { DerivedStats } from '../types/derived'
+import type { Character } from './models/character'
+import type { DerivedStats } from './models/derived-stats'
 
 const ABILITY_NAMES = [
   'strength',

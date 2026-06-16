@@ -1,5 +1,5 @@
-import type { Attack, AttackDamage } from '../../types/character'
-import type { DerivedStats } from '../../types/derived'
+import type { Attack, AttackDamage } from '../../lib/models/attacks'
+import type { DerivedStats } from '../../lib/models/derived-stats'
 import { useCharacter } from '../CharacterSheet'
 import { DiamondCheck } from '../layout/checkables'
 import { Panel } from '../layout/Panel'

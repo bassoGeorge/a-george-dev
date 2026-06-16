@@ -1,4 +1,5 @@
-import type { AbilityName, SkillName } from './character'
+import type { AbilityName } from './abilities'
+import type { SkillName } from './skills'
 
 export interface DerivedStats {
   abilityModifiers: Record<AbilityName, number>

@@ -1,4 +1,4 @@
-import type { SkillName } from '../../types/character'
+import type { SkillName } from '../../lib/models/skills'
 import { useCharacter } from '../CharacterSheet'
 import styles from './SkillList.module.css'
 

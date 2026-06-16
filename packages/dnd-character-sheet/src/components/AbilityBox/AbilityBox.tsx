@@ -1,4 +1,5 @@
-import type { AbilityName, SkillName } from '../../types/character'
+import type { AbilityName } from '../../lib/models/abilities'
+import type { SkillName } from '../../lib/models/skills'
 import { useCharacter } from '../CharacterSheet'
 import { BigNumber } from '../layout/BigNumber'
 import type { CheckedState } from '../layout/checkables'
