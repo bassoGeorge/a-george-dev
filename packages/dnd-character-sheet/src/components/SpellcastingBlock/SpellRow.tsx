@@ -1,15 +1,5 @@
-import type { AbilityName } from '../../lib/models/abilities'
-import type { Spell } from '../../lib/models/character'
+import type { Spell } from '../../lib/models/spellcasting'
 import { CircleCheck } from '../layout/checkables'
-
-const ABILITY_SHORT: Record<AbilityName, string> = {
-  strength: 'STR',
-  dexterity: 'DEX',
-  constitution: 'CON',
-  intelligence: 'INT',
-  wisdom: 'WIS',
-  charisma: 'CHA',
-}
 
 function ComponentFlags({ spell }: { spell: Spell }) {
   const { components } = spell
@@ -70,7 +60,7 @@ export function SpellRow({ spell, showPrepared }: SpellRowProps) {
           {spell.alwaysPrepared && <Badge>★</Badge>}
           {spell.freeUses != null && <Badge>free×{spell.freeUses}</Badge>}
           {spell.alternativeAbility && (
-            <Badge>{ABILITY_SHORT[spell.alternativeAbility]}</Badge>
+            <Badge>{spell.alternativeAbility}</Badge>
           )}
         </div>
       </div>

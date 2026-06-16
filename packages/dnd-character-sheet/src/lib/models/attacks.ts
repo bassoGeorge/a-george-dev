@@ -1,4 +1,4 @@
-import type { AbilityName } from './abilities'
+import type { Ability } from './abilities'
 
 export type Attack = {
   name: string
@@ -12,18 +12,18 @@ export type Attack = {
 
 export type SpellWithSave = {
   kind: 'spell-with-save'
-  ability?: AbilityName
-  saveAbility: AbilityName
+  ability?: Ability
+  saveAbility: Ability
 }
 
 export type SpellWithAttack = {
   kind: 'spell-with-attack'
-  ability?: AbilityName
+  ability?: Ability
 }
 
 export type WeaponAttack = {
   kind: 'weapon'
-  ability: Extract<AbilityName, 'strength' | 'dexterity'>
+  ability: typeof Ability.Strength | typeof Ability.Dexterity
 }
 
 export type AttackDamage = {

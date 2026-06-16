@@ -1,5 +1,4 @@
-import type { AbilityName } from './models/abilities'
-import { AllAbilities } from './models/abilities'
+import { Ability, ALL_ABILITIES } from './models/abilities'
 import type { Character } from './models/character'
 import type { DerivedStats } from './models/derived-stats'
 import { AbilitySkillGrouping } from './models/skills'
@@ -20,14 +19,14 @@ export function calculateStats(character: Character): DerivedStats {
   const profBonus = proficiencyBonus(character.level)
 
   const abilityModifiers = Object.fromEntries(
-    AllAbilities.map((name) => [
+    ALL_ABILITIES.map((name) => [
       name,
       abilityModifier(character.abilities[name]),
     ])
   ) as DerivedStats['abilityModifiers']
 
   const savingThrows = Object.fromEntries(
-    AllAbilities.map((name) => {
+    ALL_ABILITIES.map((name) => {
       const isProficient = character.savingThrowProficiencies.includes(name)
       return [name, abilityModifiers[name] + (isProficient ? profBonus : 0)]
     })
@@ -39,7 +38,7 @@ export function calculateStats(character: Character): DerivedStats {
         const isProficient = character.skillProficiencies.includes(skill)
         const hasExpertise = character.skillExpertise.includes(skill)
         const bonus =
-          abilityModifiers[ability as AbilityName] +
+          abilityModifiers[ability as Ability] +
           (isProficient ? profBonus : 0) +
           (hasExpertise ? profBonus : 0)
         return [skill, bonus] as const
@@ -47,7 +46,7 @@ export function calculateStats(character: Character): DerivedStats {
     })
   ) as DerivedStats['skills']
 
-  const initiative = abilityModifiers.dexterity
+  const initiative = abilityModifiers[Ability.Dexterity]
 
   const passivePerception = 10 + skills.perception
 

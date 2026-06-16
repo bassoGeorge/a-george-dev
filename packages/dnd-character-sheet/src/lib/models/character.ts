@@ -1,4 +1,4 @@
-import type { AbilityName } from './abilities'
+import type { Ability } from './abilities'
 import type { Attack } from './attacks'
 import type { Feature } from './feature'
 import type { SkillName } from './skills'
@@ -16,10 +16,10 @@ export interface Character {
   experiencePoints: number
 
   // Ability scores
-  abilities: Record<AbilityName, number>
+  abilities: Record<Ability, number>
 
   // Proficiencies
-  savingThrowProficiencies: AbilityName[]
+  savingThrowProficiencies: Ability[]
   skillProficiencies: SkillName[]
   skillExpertise: SkillName[]
 

@@ -1,4 +1,4 @@
-import type { AbilityName } from './abilities'
+import { Ability } from './abilities'
 
 export type SkillName =
   | 'acrobatics'
@@ -20,11 +20,28 @@ export type SkillName =
   | 'stealth'
   | 'survival'
 
-export const AbilitySkillGrouping: Record<AbilityName, SkillName[]> = {
-  strength: ['athletics'],
-  dexterity: ['acrobatics', 'sleightOfHand', 'stealth'],
-  constitution: [],
-  intelligence: ['arcana', 'history', 'investigation', 'nature', 'religion'],
-  wisdom: ['animalHandling', 'insight', 'medicine', 'perception', 'survival'],
-  charisma: ['deception', 'intimidation', 'performance', 'persuasion'],
+export const AbilitySkillGrouping: Record<Ability, SkillName[]> = {
+  [Ability.Strength]: ['athletics'],
+  [Ability.Dexterity]: ['acrobatics', 'sleightOfHand', 'stealth'],
+  [Ability.Constitution]: [],
+  [Ability.Intelligence]: [
+    'arcana',
+    'history',
+    'investigation',
+    'nature',
+    'religion',
+  ],
+  [Ability.Wisdom]: [
+    'animalHandling',
+    'insight',
+    'medicine',
+    'perception',
+    'survival',
+  ],
+  [Ability.Charisma]: [
+    'deception',
+    'intimidation',
+    'performance',
+    'persuasion',
+  ],
 }

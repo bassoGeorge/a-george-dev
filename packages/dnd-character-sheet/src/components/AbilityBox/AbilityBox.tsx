@@ -1,4 +1,4 @@
-import type { AbilityName } from '../../lib/models/abilities'
+import { Ability } from '../../lib/models/abilities'
 import type { SkillName } from '../../lib/models/skills'
 import { useCharacter } from '../CharacterSheet'
 import { BigNumber } from '../layout/BigNumber'
@@ -7,45 +7,44 @@ import { CircleCheck } from '../layout/checkables'
 import { Panel } from '../layout/Panel'
 import { PanelTitle } from '../layout/PanelTitle'
 
-const ABILITY_LABELS: Record<AbilityName, string> = {
-  strength: 'Strength',
-  dexterity: 'Dexterity',
-  constitution: 'Constitution',
-  intelligence: 'Intelligence',
-  wisdom: 'Wisdom',
-  charisma: 'Charisma',
+const ABILITY_LABELS: Record<Ability, string> = {
+  [Ability.Strength]: 'Strength',
+  [Ability.Dexterity]: 'Dexterity',
+  [Ability.Constitution]: 'Constitution',
+  [Ability.Intelligence]: 'Intelligence',
+  [Ability.Wisdom]: 'Wisdom',
+  [Ability.Charisma]: 'Charisma',
 }
 
-const ABILITY_SKILLS: Record<AbilityName, { key: SkillName; label: string }[]> =
-  {
-    strength: [{ key: 'athletics', label: 'Athletics' }],
-    dexterity: [
-      { key: 'acrobatics', label: 'Acrobatics' },
-      { key: 'sleightOfHand', label: 'Sleight of Hand' },
-      { key: 'stealth', label: 'Stealth' },
-    ],
-    constitution: [],
-    intelligence: [
-      { key: 'arcana', label: 'Arcana' },
-      { key: 'history', label: 'History' },
-      { key: 'investigation', label: 'Investigation' },
-      { key: 'nature', label: 'Nature' },
-      { key: 'religion', label: 'Religion' },
-    ],
-    wisdom: [
-      { key: 'animalHandling', label: 'Animal Handling' },
-      { key: 'insight', label: 'Insight' },
-      { key: 'medicine', label: 'Medicine' },
-      { key: 'perception', label: 'Perception' },
-      { key: 'survival', label: 'Survival' },
-    ],
-    charisma: [
-      { key: 'deception', label: 'Deception' },
-      { key: 'intimidation', label: 'Intimidation' },
-      { key: 'performance', label: 'Performance' },
-      { key: 'persuasion', label: 'Persuasion' },
-    ],
-  }
+const ABILITY_SKILLS: Record<Ability, { key: SkillName; label: string }[]> = {
+  [Ability.Strength]: [{ key: 'athletics', label: 'Athletics' }],
+  [Ability.Dexterity]: [
+    { key: 'acrobatics', label: 'Acrobatics' },
+    { key: 'sleightOfHand', label: 'Sleight of Hand' },
+    { key: 'stealth', label: 'Stealth' },
+  ],
+  [Ability.Constitution]: [],
+  [Ability.Intelligence]: [
+    { key: 'arcana', label: 'Arcana' },
+    { key: 'history', label: 'History' },
+    { key: 'investigation', label: 'Investigation' },
+    { key: 'nature', label: 'Nature' },
+    { key: 'religion', label: 'Religion' },
+  ],
+  [Ability.Wisdom]: [
+    { key: 'animalHandling', label: 'Animal Handling' },
+    { key: 'insight', label: 'Insight' },
+    { key: 'medicine', label: 'Medicine' },
+    { key: 'perception', label: 'Perception' },
+    { key: 'survival', label: 'Survival' },
+  ],
+  [Ability.Charisma]: [
+    { key: 'deception', label: 'Deception' },
+    { key: 'intimidation', label: 'Intimidation' },
+    { key: 'performance', label: 'Performance' },
+    { key: 'persuasion', label: 'Persuasion' },
+  ],
+}
 
 function formatMod(mod: number): string {
   return mod >= 0 ? `+${mod}` : `${mod}`
@@ -61,7 +60,7 @@ function proficiencyState(
 }
 
 interface AbilityBoxProps {
-  ability: AbilityName
+  ability: Ability
 }
 
 export function AbilityBox({ ability }: AbilityBoxProps) {

@@ -1,4 +1,4 @@
-import type { AbilityName } from './abilities'
+import type { Ability } from './abilities'
 
 type SpellSchool =
   | 'Abjuration'
@@ -28,12 +28,12 @@ export interface Spell {
   ritual?: boolean
   freeUses?: number
   alwaysPrepared?: boolean
-  alternativeAbility?: AbilityName
+  alternativeAbility?: Ability
   notes?: string
 }
 
 export interface Spellcasting {
-  ability: AbilityName
+  ability: Ability
   slots?: Partial<Record<1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9, number>>
   pactMagic?: { level: number; slots: number }
   spells: Spell[]

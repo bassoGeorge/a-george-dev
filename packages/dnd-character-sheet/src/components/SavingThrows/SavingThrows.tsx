@@ -1,14 +1,14 @@
-import type { AbilityName } from '../../lib/models/abilities'
+import { Ability } from '../../lib/models/abilities'
 import { useCharacter } from '../CharacterSheet'
 import styles from './SavingThrows.module.css'
 
-const ABILITIES: { key: AbilityName; label: string }[] = [
-  { key: 'strength', label: 'Strength' },
-  { key: 'dexterity', label: 'Dexterity' },
-  { key: 'constitution', label: 'Constitution' },
-  { key: 'intelligence', label: 'Intelligence' },
-  { key: 'wisdom', label: 'Wisdom' },
-  { key: 'charisma', label: 'Charisma' },
+const ABILITIES: { key: Ability; label: string }[] = [
+  { key: Ability.Strength, label: 'Strength' },
+  { key: Ability.Dexterity, label: 'Dexterity' },
+  { key: Ability.Constitution, label: 'Constitution' },
+  { key: Ability.Intelligence, label: 'Intelligence' },
+  { key: Ability.Wisdom, label: 'Wisdom' },
+  { key: Ability.Charisma, label: 'Charisma' },
 ]
 
 function formatMod(mod: number): string {
