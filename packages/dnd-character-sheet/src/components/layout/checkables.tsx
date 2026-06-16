@@ -4,12 +4,12 @@ export type CheckableProps = {
   checked?: CheckedState
 } & React.HTMLAttributes<HTMLSpanElement>
 
-export function CircleCheck(props: CheckableProps) {
-  return <BaseCheck {...props} className="rounded-full" />
+export function CircleCheck({ className, ...props }: CheckableProps) {
+  return <BaseCheck {...props} className={cn('rounded-full', className)} />
 }
 
-export function DiamondCheck(props: CheckableProps) {
-  return <BaseCheck {...props} className="rotate-45" />
+export function DiamondCheck({ className, ...props }: CheckableProps) {
+  return <BaseCheck {...props} className={cn('rotate-45', className)} />
 }
 
 function BaseCheck({ checked = false, className, ...props }: CheckableProps) {
