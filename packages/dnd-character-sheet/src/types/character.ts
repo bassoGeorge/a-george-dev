@@ -32,13 +32,30 @@ export interface AttackDamage {
   disableModifier?: boolean
 }
 
-export interface Attack {
+export type Attack = {
   name: string
-  ability: AbilityName
   damage: AttackDamage[]
   masteryProperty?: string
-  attackBonusOverride?: number
+  attackBonusMod?: number
+  damageMod?: number
+  notProficient?: boolean
   notes?: string
+} & (WeaponAttack | SpellWithAttack | SpellWithSave)
+
+type WeaponAttack = {
+  kind: 'weapon'
+  ability: Extract<AbilityName, 'strength' | 'dexterity'>
+}
+
+type SpellWithAttack = {
+  kind: 'spell-with-attack'
+  ability?: AbilityName
+}
+
+type SpellWithSave = {
+  kind: 'spell-with-save'
+  ability?: AbilityName
+  saveAbility: AbilityName
 }
 
 export interface Feature {

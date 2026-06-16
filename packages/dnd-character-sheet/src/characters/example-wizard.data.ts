@@ -38,14 +38,25 @@ export const exampleWizard: Character = {
   attacks: [
     {
       name: 'Quarterstaff',
+      kind: 'weapon',
       ability: 'strength',
-      damage: [{ dice: '1d6', type: 'Bludgeoning' }],
+      damage: [
+        { dice: '1d6', type: 'Bludgeoning' },
+        { dice: '1d4', type: 'Necroic', disableModifier: true },
+      ],
       masteryProperty: 'Slow',
     },
     {
       name: 'Fire Bolt',
-      ability: 'intelligence',
+      kind: 'spell-with-attack',
       damage: [{ dice: '1d10', type: 'Fire' }],
+    },
+    {
+      name: 'Dissonant Whispers',
+      kind: 'spell-with-save',
+      ability: 'charisma',
+      saveAbility: 'wisdom',
+      damage: [{ dice: '3d6', type: 'Psychic' }],
     },
   ],
 

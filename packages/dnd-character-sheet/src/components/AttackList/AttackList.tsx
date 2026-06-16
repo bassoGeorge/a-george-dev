@@ -1,33 +1,9 @@
 import type { Attack, AttackDamage } from '../../types/character'
+import type { DerivedStats } from '../../types/derived'
 import { useCharacter } from '../CharacterSheet'
 import { DiamondCheck } from '../layout/checkables'
 import { Panel } from '../layout/Panel'
 import { PanelTitle } from '../layout/PanelTitle'
-
-function formatBonus(n: number): string {
-  return n >= 0 ? `+${n}` : `${n}`
-}
-
-function formatDamage(entries: AttackDamage[], mod: number): string {
-  return entries
-    .map((entry, i) => {
-      if (i === 0) {
-        const suffix = entry.disableModifier ? '' : formatBonus(mod)
-        return `${entry.dice}${suffix} ${entry.type}`
-      }
-      return `+ ${entry.dice} ${entry.type}`
-    })
-    .join(' ')
-}
-
-function calcAttackBonus(
-  attack: Attack,
-  abilityMod: number,
-  profBonus: number
-): string {
-  const base = abilityMod + profBonus + (attack.attackBonusOverride ?? 0)
-  return formatBonus(base)
-}
 
 export function AttackList() {
   const { character, derived } = useCharacter()
@@ -50,11 +26,9 @@ export function AttackList() {
           </thead>
           <tbody className="divide-y">
             {character.attacks.map((attack) => {
-              const abilityMod = derived.abilityModifiers[attack.ability]
-              const bonus = calcAttackBonus(
+              const { bonusText, damageBonus } = calcAttackBonus(
                 attack,
-                abilityMod,
-                derived.proficiencyBonus
+                derived
               )
 
               return (
@@ -65,8 +39,8 @@ export function AttackList() {
                   <Td className="font-semibold text-neutral-strong">
                     {attack.name}
                   </Td>
-                  <Td>{bonus}</Td>
-                  <Td>{formatDamage(attack.damage, abilityMod)}</Td>
+                  <Td>{bonusText}</Td>
+                  <Td>{formatDamage(attack.damage, damageBonus)}</Td>
                   {attack.masteryProperty ? (
                     <Td>
                       <DiamondCheck /> &nbsp; {attack.masteryProperty}
@@ -101,4 +75,61 @@ function Td({
   className?: string
 }) {
   return <td className={`px-3 py-1.5 ${className}`}>{children}</td>
+}
+
+function calcAttackBonus(
+  attack: Attack,
+  derived: DerivedStats
+): { bonusText: string; damageBonus: number } {
+  switch (attack.kind) {
+    case 'weapon': {
+      const abilityMod = derived.abilityModifiers[attack.ability]
+      const profBonus = attack.notProficient ? 0 : derived.proficiencyBonus
+      const base = abilityMod + profBonus + (attack.attackBonusMod ?? 0)
+      return {
+        bonusText: formatBonus(base),
+        damageBonus: abilityMod + (attack.attackBonusMod ?? 0),
+      }
+    }
+
+    case 'spell-with-attack': {
+      let spellAttackBonus = derived.spellAttackBonus ?? 0
+      if (attack.ability) {
+        const abilityMod = derived.abilityModifiers[attack.ability]
+        const profBonus = attack.notProficient ? 0 : derived.proficiencyBonus
+        spellAttackBonus = abilityMod + profBonus
+      }
+      const totalAttackBonus = spellAttackBonus + (attack.attackBonusMod ?? 0)
+      return {
+        bonusText: formatBonus(totalAttackBonus),
+        damageBonus: 0 + (attack.attackBonusMod ?? 0),
+      }
+    }
+
+    case 'spell-with-save': {
+      let spellSaveDC = derived.spellSaveDC ?? 0
+      if (attack.ability) {
+        const abilityMod = derived.abilityModifiers[attack.ability]
+        const profBonus = attack.notProficient ? 0 : derived.proficiencyBonus
+        spellSaveDC = 8 + abilityMod + profBonus
+      }
+      return {
+        bonusText: `${attack.saveAbility} save, DC ${spellSaveDC}`,
+        damageBonus: 0 + (attack.attackBonusMod ?? 0),
+      }
+    }
+  }
+}
+
+function formatDamage(entries: AttackDamage[], mod: number): string {
+  return entries
+    .map((entry) => {
+      const suffix = entry.disableModifier ? '' : formatBonus(mod)
+      return `${entry.dice}${suffix} ${entry.type}`
+    })
+    .join(' + ')
+}
+
+function formatBonus(n: number): string {
+  return n === 0 ? '' : n > 0 ? `+${n}` : `${n}`
 }
