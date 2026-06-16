@@ -1,3 +1,4 @@
+import { Ability } from '../../lib/models/abilities'
 import type { Character } from '../../lib/models/character'
 import { AbilityBox } from '../AbilityBox/AbilityBox'
 import { AttackList } from '../AttackList/AttackList'
@@ -29,15 +30,15 @@ export function StandardCharacterSheet({ data }: Props) {
             <div className="grid grid-cols-2 gap-2">
               <div className="flex flex-col gap-2">
                 <ProficiencyBlock />
-                <AbilityBox ability="strength" />
-                <AbilityBox ability="dexterity" />
-                <AbilityBox ability="constitution" />
+                <AbilityBox ability={Ability.Strength} />
+                <AbilityBox ability={Ability.Dexterity} />
+                <AbilityBox ability={Ability.Constitution} />
                 <HeroicInspiration />
               </div>
               <div className="flex flex-col gap-2">
-                <AbilityBox ability="intelligence" />
-                <AbilityBox ability="wisdom" />
-                <AbilityBox ability="charisma" />
+                <AbilityBox ability={Ability.Intelligence} />
+                <AbilityBox ability={Ability.Wisdom} />
+                <AbilityBox ability={Ability.Charisma} />
               </div>
             </div>
             <EquipmentTraining />

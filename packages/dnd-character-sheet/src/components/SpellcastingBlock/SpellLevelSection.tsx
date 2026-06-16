@@ -1,4 +1,4 @@
-import type { Spell } from '../../lib/models/character'
+import type { Spell } from '../../lib/models/spellcasting'
 import { SpellRow } from './SpellRow'
 
 interface SpellLevelSectionProps {

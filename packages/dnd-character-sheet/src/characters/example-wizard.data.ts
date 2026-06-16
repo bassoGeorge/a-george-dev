@@ -1,3 +1,4 @@
+import { Ability } from '../lib/models/abilities'
 import type { Character } from '../lib/models/character'
 
 export const exampleWizard: Character = {
@@ -11,15 +12,15 @@ export const exampleWizard: Character = {
   experiencePoints: 23000,
 
   abilities: {
-    strength: 6,
-    dexterity: 14,
-    constitution: 14,
-    intelligence: 18,
-    wisdom: 12,
-    charisma: 10,
+    [Ability.Strength]: 6,
+    [Ability.Dexterity]: 14,
+    [Ability.Constitution]: 14,
+    [Ability.Intelligence]: 18,
+    [Ability.Wisdom]: 12,
+    [Ability.Charisma]: 10,
   },
 
-  savingThrowProficiencies: ['intelligence', 'wisdom'],
+  savingThrowProficiencies: [Ability.Intelligence, Ability.Wisdom],
   skillProficiencies: ['arcana', 'history', 'investigation', 'perception'],
   skillExpertise: ['arcana'],
 
@@ -39,7 +40,7 @@ export const exampleWizard: Character = {
     {
       name: 'Quarterstaff',
       kind: 'weapon',
-      ability: 'strength',
+      ability: Ability.Strength,
       damage: [
         { dice: '1d6', type: 'Bludgeoning' },
         { dice: '1d4', type: 'Necroic', disableModifier: true },
@@ -54,8 +55,8 @@ export const exampleWizard: Character = {
     {
       name: 'Dissonant Whispers',
       kind: 'spell-with-save',
-      ability: 'charisma',
-      saveAbility: 'wisdom',
+      ability: Ability.Charisma,
+      saveAbility: Ability.Wisdom,
       damage: [{ dice: '3d6', type: 'Psychic' }],
     },
   ],
@@ -121,7 +122,7 @@ export const exampleWizard: Character = {
     "Seraphina studied at the Arcane Academy for fifteen years before striking out on her own to research the ancient Ashveil bloodline's connection to the Weave.",
 
   spellcasting: {
-    ability: 'intelligence',
+    ability: Ability.Intelligence,
     slots: {
       1: 4,
       2: 3,
@@ -238,7 +239,7 @@ export const exampleWizard: Character = {
         duration: 'Concentration, up to 1 minute',
         concentration: true,
         components: { verbal: true, somatic: true, materialConsumed: false },
-        alternativeAbility: 'charisma',
+        alternativeAbility: Ability.Charisma,
         freeUses: 1,
         notes:
           'Free use from Amulet of the Planes. When not using the amulet, uses Intelligence.',
