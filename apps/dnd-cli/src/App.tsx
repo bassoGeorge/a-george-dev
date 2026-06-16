@@ -1,7 +1,6 @@
 /** biome-ignore-all lint/style/noNonNullAssertion: not important at the moment */
 import { Box, Text, useApp } from 'ink'
 import { useState } from 'react'
-import type { AbilityValues } from './steps/AbilitiesStep.js'
 import { AbilitiesStep } from './steps/AbilitiesStep.js'
 import type { CombatValues } from './steps/CombatStep.js'
 import { CombatStep } from './steps/CombatStep.js'
@@ -10,7 +9,7 @@ import type { IdentityValues } from './steps/IdentityStep.js'
 import { IdentityStep } from './steps/IdentityStep.js'
 import type { ProficiencyValues } from './steps/ProficienciesStep.js'
 import { ProficienciesStep } from './steps/ProficienciesStep.js'
-import type { WizardState } from './types.js'
+import type { AbilityValues, WizardState } from './types.js'
 
 type StepId = 'identity' | 'abilities' | 'combat' | 'proficiencies' | 'filename'
 

@@ -1,63 +1,16 @@
+import {
+  ABILITY_DETAILS,
+  ALL_ABILITIES,
+  Skill,
+} from '@ageorgedev/dnd-character-sheet'
 import { Box, Text, useInput } from 'ink'
 import { useState } from 'react'
 
-const SAVING_THROWS = [
-  'strength',
-  'dexterity',
-  'constitution',
-  'intelligence',
-  'wisdom',
-  'charisma',
-] as const
-const SAVING_THROW_LABELS: Record<string, string> = {
-  strength: 'Strength',
-  dexterity: 'Dexterity',
-  constitution: 'Constitution',
-  intelligence: 'Intelligence',
-  wisdom: 'Wisdom',
-  charisma: 'Charisma',
-}
+const SAVING_THROW_LABELS = Object.fromEntries(
+  ALL_ABILITIES.map((ability) => [ability, ABILITY_DETAILS[ability].label])
+)
 
-const SKILLS = [
-  'acrobatics',
-  'animalHandling',
-  'arcana',
-  'athletics',
-  'deception',
-  'history',
-  'insight',
-  'intimidation',
-  'investigation',
-  'medicine',
-  'nature',
-  'perception',
-  'performance',
-  'persuasion',
-  'religion',
-  'sleightOfHand',
-  'stealth',
-  'survival',
-] as const
-const SKILL_LABELS: Record<string, string> = {
-  acrobatics: 'Acrobatics',
-  animalHandling: 'Animal Handling',
-  arcana: 'Arcana',
-  athletics: 'Athletics',
-  deception: 'Deception',
-  history: 'History',
-  insight: 'Insight',
-  intimidation: 'Intimidation',
-  investigation: 'Investigation',
-  medicine: 'Medicine',
-  nature: 'Nature',
-  perception: 'Perception',
-  performance: 'Performance',
-  persuasion: 'Persuasion',
-  religion: 'Religion',
-  sleightOfHand: 'Sleight of Hand',
-  stealth: 'Stealth',
-  survival: 'Survival',
-}
+const AllSkills = Object.keys(Skill)
 
 export interface ProficiencyValues {
   savingThrowProficiencies: string[]
@@ -77,8 +30,8 @@ export function ProficienciesStep({
   const [selectedSkills, setSelectedSkills] = useState<Set<string>>(new Set())
 
   const isST = phase === 'saving-throws'
-  const list = isST ? SAVING_THROWS : SKILLS
-  const labels = isST ? SAVING_THROW_LABELS : SKILL_LABELS
+  const list = isST ? ALL_ABILITIES : AllSkills
+  const labels = (isST ? SAVING_THROW_LABELS : Skill) as Record<string, string>
   const selected = isST ? selectedST : selectedSkills
   const setSelected = isST
     ? (fn: (s: Set<string>) => Set<string>) => setSelectedST(fn)

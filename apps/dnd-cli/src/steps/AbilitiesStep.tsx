@@ -1,23 +1,16 @@
+import { Ability } from '@ageorgedev/dnd-character-sheet'
 import { Box, Text, useInput } from 'ink'
 import { useState } from 'react'
 import { DEFAULTS } from '../lib/defaults.js'
+import type { AbilityValues } from '../types.js'
 
-export interface AbilityValues {
-  strength: number
-  dexterity: number
-  constitution: number
-  intelligence: number
-  wisdom: number
-  charisma: number
-}
-
-const FIELDS: Array<{ key: keyof AbilityValues; label: string }> = [
-  { key: 'strength', label: 'Strength     (STR)' },
-  { key: 'dexterity', label: 'Dexterity    (DEX)' },
-  { key: 'constitution', label: 'Constitution (CON)' },
-  { key: 'intelligence', label: 'Intelligence (INT)' },
-  { key: 'wisdom', label: 'Wisdom       (WIS)' },
-  { key: 'charisma', label: 'Charisma     (CHA)' },
+const FIELDS: Array<{ key: Ability; label: string }> = [
+  { key: Ability.Strength, label: 'Strength     (STR)' },
+  { key: Ability.Dexterity, label: 'Dexterity    (DEX)' },
+  { key: Ability.Constitution, label: 'Constitution (CON)' },
+  { key: Ability.Intelligence, label: 'Intelligence (INT)' },
+  { key: Ability.Wisdom, label: 'Wisdom       (WIS)' },
+  { key: Ability.Charisma, label: 'Charisma     (CHA)' },
 ]
 
 const LABEL_WIDTH = 22

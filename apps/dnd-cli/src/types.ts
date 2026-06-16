@@ -1,3 +1,5 @@
+import type { Ability } from '@ageorgedev/dnd-character-sheet'
+
 export type HitDiceType = 'd6' | 'd8' | 'd10' | 'd12'
 
 export interface WizardState {
@@ -8,14 +10,7 @@ export interface WizardState {
   species: string
   background: string
   experiencePoints: number
-  abilities: {
-    strength: number
-    dexterity: number
-    constitution: number
-    intelligence: number
-    wisdom: number
-    charisma: number
-  }
+  abilities: AbilityValues
   armorClass: number
   speed: number
   hitPointsMax: number
@@ -23,4 +18,8 @@ export interface WizardState {
   savingThrowProficiencies: string[]
   skillProficiencies: string[]
   filename: string
+}
+
+export type AbilityValues = {
+  [key in Ability]: number
 }
