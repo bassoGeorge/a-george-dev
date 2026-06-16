@@ -1,3 +1,4 @@
+import { Ability } from '@ageorgedev/dnd-character-sheet/models'
 import type { WizardState } from '../types.js'
 
 function toExportName(name: string): string {
@@ -14,7 +15,11 @@ function toExportName(name: string): string {
     .join('')
 }
 
-function formatStringArray(items: string[]): string {
+function formatSkillArray(items: string[]): string {
+  if (items.length === 0) return '[]'
+  return `[${items.map((s) => `Skill.${s}`).join(', ')}]`
+}
+function formatAbilityArray(items: string[]): string {
   if (items.length === 0) return '[]'
   return `[${items.map((s) => `"${s}"`).join(', ')}]`
 }
@@ -25,7 +30,8 @@ export function generateFile(state: WizardState): string {
     ? `\n  subclass: "${state.subclass}",`
     : ''
 
-  return `import type { Character } from "../types/character";
+  return `import type { Character } from '../lib/models/character';
+  import type { Skill } from '../lib/models/skills';
 
 export const ${exportName}: Character = {
   name: "${state.name}",
@@ -36,16 +42,16 @@ export const ${exportName}: Character = {
   experiencePoints: ${state.experiencePoints},
 
   abilities: {
-    strength: ${state.abilities.strength},
-    dexterity: ${state.abilities.dexterity},
-    constitution: ${state.abilities.constitution},
-    intelligence: ${state.abilities.intelligence},
-    wisdom: ${state.abilities.wisdom},
-    charisma: ${state.abilities.charisma},
+    [Ability.Strength]: ${state.abilities[Ability.Strength]},
+    [Ability.Dexterity]: ${state.abilities[Ability.Dexterity]},
+    [Ability.Constitution]: ${state.abilities[Ability.Constitution]},
+    [Ability.Intelligence]: ${state.abilities[Ability.Intelligence]},
+    [Ability.Wisdom]: ${state.abilities[Ability.Wisdom]},
+    [Ability.Charisma]: ${state.abilities[Ability.Charisma]},
   },
 
-  savingThrowProficiencies: ${formatStringArray(state.savingThrowProficiencies)},
-  skillProficiencies: ${formatStringArray(state.skillProficiencies)},
+  savingThrowProficiencies: ${formatAbilityArray(state.savingThrowProficiencies)},
+  skillProficiencies: ${formatSkillArray(state.skillProficiencies)},
   skillExpertise: [],
 
   armorClass: ${state.armorClass},
