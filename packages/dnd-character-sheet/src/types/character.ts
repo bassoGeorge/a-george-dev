@@ -34,7 +34,7 @@ export interface AttackDamage {
 
 export interface Attack {
   name: string
-  abilityKey: 'STR' | 'DEX'
+  ability: AbilityName
   damage: AttackDamage[]
   masteryProperty?: string
   attackBonusOverride?: number

@@ -37,9 +37,15 @@ export const exampleWizard: Character = {
 
   attacks: [
     {
-      name: 'Quarterstqaff',
-      abilityKey: 'STR',
+      name: 'Quarterstaff',
+      ability: 'strength',
       damage: [{ dice: '1d6', type: 'Bludgeoning' }],
+      masteryProperty: 'Slow',
+    },
+    {
+      name: 'Fire Bolt',
+      ability: 'intelligence',
+      damage: [{ dice: '1d10', type: 'Fire' }],
     },
   ],
 

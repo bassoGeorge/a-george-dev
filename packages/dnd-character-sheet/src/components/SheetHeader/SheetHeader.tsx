@@ -2,10 +2,10 @@ import { cn } from '@ageorgedev/toolbelt/cn'
 import { useCharacter } from '../CharacterSheet'
 import { BigNumber } from '../layout/BigNumber'
 import { DiamondCheck } from '../layout/checkables'
+import { VerticalDivider } from '../layout/dividers'
 import { Panel } from '../layout/Panel'
 import { PanelTitle } from '../layout/PanelTitle'
 import { VerticalSubPanel } from '../layout/SubPanel'
-import { VerticalDivider } from '../layout/VerticalDivider'
 
 export function SheetHeader() {
   return (
