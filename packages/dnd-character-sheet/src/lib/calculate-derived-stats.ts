@@ -1,7 +1,7 @@
 import { Ability, ALL_ABILITIES } from './models/abilities'
 import type { Character } from './models/character'
 import type { DerivedStats } from './models/derived-stats'
-import { AbilitySkillGrouping } from './models/skills'
+import { AbilitySkillGrouping, Skill } from './models/skills'
 
 function abilityModifier(score: number): number {
   return Math.floor((score - 10) / 2)
@@ -48,7 +48,7 @@ export function calculateStats(character: Character): DerivedStats {
 
   const initiative = abilityModifiers[Ability.Dexterity]
 
-  const passivePerception = 10 + skills.perception
+  const passivePerception = 10 + skills[Skill.Perception]
 
   const spellcasting = character.spellcasting
     ? {

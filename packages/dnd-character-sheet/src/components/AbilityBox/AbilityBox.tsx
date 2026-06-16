@@ -1,41 +1,11 @@
-import { ABILITY_DETAILS, Ability } from '../../lib/models/abilities'
-import type { SkillName } from '../../lib/models/skills'
+import { ABILITY_DETAILS, type Ability } from '../../lib/models/abilities'
+import { AbilitySkillGrouping } from '../../lib/models/skills'
 import { useCharacter } from '../CharacterSheet'
 import { BigNumber } from '../layout/BigNumber'
 import type { CheckedState } from '../layout/checkables'
 import { CircleCheck } from '../layout/checkables'
 import { Panel } from '../layout/Panel'
 import { PanelTitle } from '../layout/PanelTitle'
-
-const ABILITY_SKILLS: Record<Ability, { key: SkillName; label: string }[]> = {
-  [Ability.Strength]: [{ key: 'athletics', label: 'Athletics' }],
-  [Ability.Dexterity]: [
-    { key: 'acrobatics', label: 'Acrobatics' },
-    { key: 'sleightOfHand', label: 'Sleight of Hand' },
-    { key: 'stealth', label: 'Stealth' },
-  ],
-  [Ability.Constitution]: [],
-  [Ability.Intelligence]: [
-    { key: 'arcana', label: 'Arcana' },
-    { key: 'history', label: 'History' },
-    { key: 'investigation', label: 'Investigation' },
-    { key: 'nature', label: 'Nature' },
-    { key: 'religion', label: 'Religion' },
-  ],
-  [Ability.Wisdom]: [
-    { key: 'animalHandling', label: 'Animal Handling' },
-    { key: 'insight', label: 'Insight' },
-    { key: 'medicine', label: 'Medicine' },
-    { key: 'perception', label: 'Perception' },
-    { key: 'survival', label: 'Survival' },
-  ],
-  [Ability.Charisma]: [
-    { key: 'deception', label: 'Deception' },
-    { key: 'intimidation', label: 'Intimidation' },
-    { key: 'performance', label: 'Performance' },
-    { key: 'persuasion', label: 'Persuasion' },
-  ],
-}
 
 function formatMod(mod: number): string {
   return mod >= 0 ? `+${mod}` : `${mod}`
@@ -60,7 +30,7 @@ export function AbilityBox({ ability }: AbilityBoxProps) {
   const mod = derived.abilityModifiers[ability]
   const savingThrow = derived.savingThrows[ability]
   const isSaveProficient = character.savingThrowProficiencies.includes(ability)
-  const skills = ABILITY_SKILLS[ability]
+  const skills = AbilitySkillGrouping[ability]
 
   return (
     <Panel
@@ -84,17 +54,17 @@ export function AbilityBox({ ability }: AbilityBoxProps) {
       </SkillGrid>
       {!!skills.length && (
         <SkillGrid>
-          {skills.map(({ key, label }) => {
-            const isProficient = character.skillProficiencies.includes(key)
-            const hasExpertise = character.skillExpertise.includes(key)
-            const total = derived.skills[key]
+          {skills.map((skill) => {
+            const isProficient = character.skillProficiencies.includes(skill)
+            const hasExpertise = character.skillExpertise.includes(skill)
+            const total = derived.skills[skill]
             return (
               <SkillRow
-                key={key}
+                key={skill}
                 checkedState={proficiencyState(isProficient, hasExpertise)}
                 modifier={total}
               >
-                {label}
+                {skill}
               </SkillRow>
             )
           })}

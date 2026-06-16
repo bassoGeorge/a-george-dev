@@ -1,5 +1,6 @@
 import { Ability } from '../lib/models/abilities'
 import type { Character } from '../lib/models/character'
+import { Skill } from '../lib/models/skills'
 
 export const exampleWizard: Character = {
   name: 'Seraphina Ashveil',
@@ -21,8 +22,13 @@ export const exampleWizard: Character = {
   },
 
   savingThrowProficiencies: [Ability.Intelligence, Ability.Wisdom],
-  skillProficiencies: ['arcana', 'history', 'investigation', 'perception'],
-  skillExpertise: ['arcana'],
+  skillProficiencies: [
+    Skill.Arcana,
+    Skill.History,
+    Skill.Investigation,
+    Skill.Perception,
+  ],
+  skillExpertise: [Skill.Arcana],
 
   armorClass: 13,
   speed: 30,

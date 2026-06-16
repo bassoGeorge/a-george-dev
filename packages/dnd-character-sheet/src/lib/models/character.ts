@@ -1,7 +1,7 @@
 import type { Ability } from './abilities'
 import type { Attack } from './attacks'
 import type { Feature } from './feature'
-import type { SkillName } from './skills'
+import type { Skill } from './skills'
 import type { Spellcasting } from './spellcasting'
 
 export interface Character {
@@ -20,8 +20,8 @@ export interface Character {
 
   // Proficiencies
   savingThrowProficiencies: Ability[]
-  skillProficiencies: SkillName[]
-  skillExpertise: SkillName[]
+  skillProficiencies: Skill[]
+  skillExpertise: Skill[]
 
   // Combat
   armorClass: number

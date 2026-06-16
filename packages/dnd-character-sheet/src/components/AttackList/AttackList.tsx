@@ -1,3 +1,4 @@
+import { ABILITY_DETAILS } from '../../lib/models/abilities'
 import type { Attack, AttackDamage } from '../../lib/models/attacks'
 import type { DerivedStats } from '../../lib/models/derived-stats'
 import { useCharacter } from '../CharacterSheet'
@@ -114,7 +115,7 @@ function calcAttackBonus(
         spellSaveDC = 8 + abilityMod + profBonus
       }
       return {
-        bonusText: `${attack.saveAbility} save, DC ${spellSaveDC}`,
+        bonusText: `${ABILITY_DETAILS[attack.saveAbility].shortName} save, DC ${spellSaveDC}`,
         damageBonus: 0 + (attack.attackBonusMod ?? 0),
       }
     }

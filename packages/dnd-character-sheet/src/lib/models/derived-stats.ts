@@ -1,11 +1,11 @@
 import type { Ability } from './abilities'
-import type { SkillName } from './skills'
+import type { Skill } from './skills'
 
 export interface DerivedStats {
   abilityModifiers: Record<Ability, number>
   proficiencyBonus: number
   savingThrows: Record<Ability, number>
-  skills: Record<SkillName, number>
+  skills: Record<Skill, number>
   passivePerception: number
   initiative: number
   spellSaveDC?: number

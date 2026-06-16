@@ -1,47 +1,50 @@
 import { Ability } from './abilities'
 
-export type SkillName =
-  | 'acrobatics'
-  | 'animalHandling'
-  | 'arcana'
-  | 'athletics'
-  | 'deception'
-  | 'history'
-  | 'insight'
-  | 'intimidation'
-  | 'investigation'
-  | 'medicine'
-  | 'nature'
-  | 'perception'
-  | 'performance'
-  | 'persuasion'
-  | 'religion'
-  | 'sleightOfHand'
-  | 'stealth'
-  | 'survival'
+export const Skill = {
+  Acrobatics: 'Acrobatics',
+  AnimalHandling: 'Animal Handling',
+  Arcana: 'Arcana',
+  Athletics: 'Athletics',
+  Deception: 'Deception',
+  History: 'History',
+  Insight: 'Insight',
+  Intimidation: 'Intimidation',
+  Investigation: 'Investigation',
+  Medicine: 'Medicine',
+  Nature: 'Nature',
+  Perception: 'Perception',
+  Performance: 'Performance',
+  Persuasion: 'Persuasion',
+  Religion: 'Religion',
+  SleightOfHand: 'Sleight of Hand',
+  Stealth: 'Stealth',
+  Survival: 'Survival',
+} as const
 
-export const AbilitySkillGrouping: Record<Ability, SkillName[]> = {
-  [Ability.Strength]: ['athletics'],
-  [Ability.Dexterity]: ['acrobatics', 'sleightOfHand', 'stealth'],
+export type Skill = (typeof Skill)[keyof typeof Skill]
+
+export const AbilitySkillGrouping: Record<Ability, Skill[]> = {
+  [Ability.Strength]: [Skill.Athletics],
+  [Ability.Dexterity]: [Skill.Acrobatics, Skill.SleightOfHand, Skill.Stealth],
   [Ability.Constitution]: [],
   [Ability.Intelligence]: [
-    'arcana',
-    'history',
-    'investigation',
-    'nature',
-    'religion',
+    Skill.Arcana,
+    Skill.History,
+    Skill.Investigation,
+    Skill.Nature,
+    Skill.Religion,
   ],
   [Ability.Wisdom]: [
-    'animalHandling',
-    'insight',
-    'medicine',
-    'perception',
-    'survival',
+    Skill.AnimalHandling,
+    Skill.Insight,
+    Skill.Medicine,
+    Skill.Perception,
+    Skill.Survival,
   ],
   [Ability.Charisma]: [
-    'deception',
-    'intimidation',
-    'performance',
-    'persuasion',
+    Skill.Deception,
+    Skill.Intimidation,
+    Skill.Performance,
+    Skill.Persuasion,
   ],
 }
