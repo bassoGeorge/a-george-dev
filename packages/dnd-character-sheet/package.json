@@ -1,7 +1,6 @@
 {
   "name": "@ageorgedev/dnd-character-sheet",
   "version": "0.1.0",
-  "type": "module",
   "scripts": {
     "clean": "rm -rf ./dist",
     "build": "tsc && cpx \"src/**/*.css\" dist",
@@ -13,7 +12,6 @@
       "types": "./dist/index.d.ts"
     }
   },
-  "files": ["dist"],
   "peerDependencies": {
     "react": "19.2.7",
     "react-dom": "19.2.7"

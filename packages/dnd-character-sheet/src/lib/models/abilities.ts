@@ -1,14 +1,3 @@
-export const AllAbilities = [
-  'strength',
-  'dexterity',
-  'constitution',
-  'intelligence',
-  'wisdom',
-  'charisma',
-] as const
-
-export type Dep_AbilityName = (typeof AllAbilities)[number]
-
 export const Ability = {
   Strength: 'STR',
   Dexterity: 'DEX',
@@ -28,3 +17,15 @@ export const ALL_ABILITIES: Ability[] = [
   Ability.Wisdom,
   Ability.Charisma,
 ]
+
+export const ABILITY_DETAILS: Record<
+  Ability,
+  { label: string; shortName: string }
+> = {
+  [Ability.Strength]: { label: 'Strength', shortName: 'Str.' },
+  [Ability.Dexterity]: { label: 'Dexterity', shortName: 'Dex.' },
+  [Ability.Constitution]: { label: 'Constitution', shortName: 'Con.' },
+  [Ability.Intelligence]: { label: 'Intelligence', shortName: 'Int.' },
+  [Ability.Wisdom]: { label: 'Wisdom', shortName: 'Wis.' },
+  [Ability.Charisma]: { label: 'Charisma', shortName: 'Cha.' },
+}
