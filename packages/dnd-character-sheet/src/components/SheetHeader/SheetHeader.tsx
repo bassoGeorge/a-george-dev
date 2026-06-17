@@ -28,9 +28,13 @@ function NameBlock() {
     >
       <h1 className="col-span-2 text-3xl">{character.name}</h1>
       <NameField label="Background">{character.background}</NameField>
-      <NameField label="Class">{character.class}</NameField>
+      <NameField label="Class">
+        {joinItems(character.classes, 'class')}
+      </NameField>
       <NameField label="Species">{character.species}</NameField>
-      <NameField label="Subclass">{character.subclass}</NameField>
+      <NameField label="Subclass">
+        {joinItems(character.classes, 'subclass')}
+      </NameField>
     </Panel>
   );
 }
@@ -40,7 +44,9 @@ function LevelBlock() {
 
   return (
     <div className="align-self-stretch flex flex-col gap-1 border-[3px] border-neutral-subdued bg-white items-center py-3 px-6 rounded-full my-2 bg-page-4">
-      <BigNumber>{character.level}</BigNumber>
+      <BigNumber>
+        {character.classes.reduce((total, cls) => total + cls.level, 0)}
+      </BigNumber>
       <LabelUnder className="text-center">Level</LabelUnder>
       <div className="flex-1"></div>
       <LabelUnder className="text-center w-full">Xp</LabelUnder>
@@ -156,4 +162,14 @@ function BasicLabel({
       {children}
     </div>
   );
+}
+
+function joinItems<
+  T extends Record<string, string | number | undefined>,
+  K extends keyof T,
+>(items: T[], key: K) {
+  return items
+    .map((item) => item[key])
+    .filter((value) => value != null)
+    .join(' / ');
 }

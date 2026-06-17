@@ -8,6 +8,7 @@ export interface DerivedStats {
   skills: Record<Skill, number>;
   passivePerception: number;
   initiative: number;
+  characterLevel: number;
   spellSaveDC?: number;
   spellAttackBonus?: number;
 }

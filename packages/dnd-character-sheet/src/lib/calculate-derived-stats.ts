@@ -16,7 +16,11 @@ function proficiencyBonus(level: number): number {
 }
 
 export function calculateStats(character: Character): DerivedStats {
-  const profBonus = proficiencyBonus(character.level);
+  const characterLevel = character.classes.reduce(
+    (sum, cls) => sum + cls.level,
+    0
+  );
+  const profBonus = proficiencyBonus(characterLevel);
 
   const abilityModifiers = Object.fromEntries(
     ALL_ABILITIES.map((name) => [
@@ -66,6 +70,7 @@ export function calculateStats(character: Character): DerivedStats {
     skills,
     initiative,
     passivePerception,
+    characterLevel,
     ...spellcasting,
   };
 }

@@ -7,11 +7,15 @@ import type { Spellcasting } from './spellcasting';
 export interface Character {
   // Identity
   name: string;
-  class: string;
-  subclass?: string;
-  level: number;
   species: string;
   background: string;
+
+  classes: {
+    class: string;
+    subclass?: string;
+    level: number;
+  }[];
+
   alignment?: string;
   experiencePoints: number;
 

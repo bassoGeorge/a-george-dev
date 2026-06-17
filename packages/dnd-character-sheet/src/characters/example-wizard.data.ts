@@ -4,9 +4,19 @@ import { Skill } from '../lib/models/skills';
 
 export const exampleWizard: Character = {
   name: 'Seraphina Ashveil',
-  class: 'Wizard / Warlock',
-  subclass: 'School of Evocation / The Archfey',
-  level: 7,
+  classes: [
+    {
+      class: 'Wizard',
+      subclass: 'School of Evocation',
+      level: 4,
+    },
+    {
+      class: 'Warlock',
+      subclass: 'The Archfey',
+      level: 3,
+    },
+  ],
+
   species: 'High Elf',
   background: 'Sage',
   alignment: 'Neutral Good',
