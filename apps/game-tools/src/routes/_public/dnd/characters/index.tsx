@@ -17,6 +17,13 @@ function RouteComponent() {
           Wizard / Warlock · Level 7
         </p>
       </Link>
+      <Link
+        to="/dnd/characters/omarin-kenate"
+        className="block border border-border rounded-lg p-4 hover:bg-accent transition-colors w-fit"
+      >
+        <p className="font-medium">Omarin Kenate</p>
+        <p className="text-sm text-muted-foreground mt-1">Fighter 3 / Monk 2</p>
+      </Link>
     </div>
   );
 }

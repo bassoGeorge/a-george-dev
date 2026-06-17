@@ -17,9 +17,11 @@ export function ClassFeatures() {
             <p className="text-xs font-bold text-neutral-strong leading-tight">
               {feature.name}
             </p>
-            <p className="text-xs text-neutral-subdued mb-1">
-              {feature.source}
-            </p>
+            {feature.source && (
+              <p className="text-xs text-neutral-subdued mb-1">
+                {feature.source}
+              </p>
+            )}
             <p className="text-xs text-neutral-strong leading-relaxed">
               {feature.description}
             </p>

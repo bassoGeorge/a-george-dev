@@ -12,6 +12,7 @@ import { Feats } from '../Feats/Feats';
 import { HeroicInspiration } from '../HeroicInspiration/HeroicInspiration';
 import { Page } from '../layout/Page';
 import { ProficiencyBlock } from '../ProficiencyBlock/ProficiencyBlock';
+import { Resources } from '../Resources/Resources';
 import { SheetHeader } from '../SheetHeader/SheetHeader';
 import { SpeciesTraits } from '../SpeciesTraits/SpeciesTraits';
 import { SpellcastingBlock } from '../SpellcastingBlock';
@@ -47,6 +48,7 @@ export function StandardCharacterSheet({ data }: Props) {
           <div className="col-span-2 flex flex-col gap-4">
             <CombatRow />
             <AttackList />
+            <Resources />
             <ClassFeatures />
             <div className="grid grid-cols-2 gap-4">
               <SpeciesTraits />

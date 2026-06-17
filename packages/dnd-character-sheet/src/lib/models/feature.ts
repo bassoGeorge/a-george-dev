@@ -2,8 +2,10 @@ import type { Ability } from './abilities';
 
 export interface Feature {
   name: string;
-  source: string;
+  source?: string;
   description: string;
+
+  duration?: 'Action' | 'Bonus Action';
 
   // Either it uses a resource
   cost?: Cost;
@@ -36,7 +38,7 @@ type ResourceCount = {
     }
   | {
       kind: 'fixed';
-      count: number;
+      value: number;
     }
 );
 
@@ -44,7 +46,7 @@ type Cost = string;
 
 type Refresh =
   | {
-      kind: 'short-rest' | 'long-rest';
+      kind: 'short-rest' | 'long-rest' | 'any-rest';
     }
   | {
       kind: 'short-and-long-rest';
