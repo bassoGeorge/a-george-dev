@@ -1,7 +1,7 @@
-import tailwindcss from '@tailwindcss/vite'
-import { tanstackStart } from '@tanstack/react-start/plugin/vite'
-import react from '@vitejs/plugin-react'
-import { defineConfig, searchForWorkspaceRoot } from 'vite'
+import tailwindcss from '@tailwindcss/vite';
+import { tanstackStart } from '@tanstack/react-start/plugin/vite';
+import react from '@vitejs/plugin-react';
+import { defineConfig, searchForWorkspaceRoot } from 'vite';
 
 const config = defineConfig({
   cacheDir: '../../node_modules/.vite/game-tools',
@@ -20,6 +20,6 @@ const config = defineConfig({
       allow: [searchForWorkspaceRoot(process.cwd())],
     },
   },
-})
+});
 
-export default config
+export default config;

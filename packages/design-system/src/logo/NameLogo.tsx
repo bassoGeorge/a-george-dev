@@ -1,4 +1,4 @@
-import { cn } from '@ageorgedev/toolbelt/cn'
+import { cn } from '@ageorgedev/toolbelt/cn';
 import {
   bottomLeftShadow,
   bottomRightShadow,
@@ -7,16 +7,16 @@ import {
   logoFont,
   logoWrapper,
   shadowColor,
-} from './styles'
+} from './styles';
 
 export type NameLogoProps = {
-  className?: string
-  shadowDirection?: 'left' | 'right'
-}
+  className?: string;
+  shadowDirection?: 'left' | 'right';
+};
 
 export function NameLogo({ className, shadowDirection }: NameLogoProps) {
   const shadowClass =
-    shadowDirection === 'left' ? bottomLeftShadow : bottomRightShadow
+    shadowDirection === 'left' ? bottomLeftShadow : bottomRightShadow;
   return (
     <div className={cn(logoWrapper, className)}>
       <h1 className={cn(logoFont, shadowClass, shadowColor, firstNameColor)}>
@@ -34,5 +34,5 @@ export function NameLogo({ className, shadowDirection }: NameLogoProps) {
         George
       </h1>
     </div>
-  )
+  );
 }

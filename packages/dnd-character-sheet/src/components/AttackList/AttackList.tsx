@@ -1,15 +1,15 @@
-import { ABILITY_DETAILS } from '../../lib/models/abilities'
-import type { Attack, AttackDamage } from '../../lib/models/attacks'
-import type { DerivedStats } from '../../lib/models/derived-stats'
-import { useCharacter } from '../CharacterSheet'
-import { DiamondCheck } from '../layout/checkables'
-import { Panel } from '../layout/Panel'
-import { PanelTitle } from '../layout/PanelTitle'
+import { ABILITY_DETAILS } from '../../lib/models/abilities';
+import type { Attack, AttackDamage } from '../../lib/models/attacks';
+import type { DerivedStats } from '../../lib/models/derived-stats';
+import { useCharacter } from '../CharacterSheet';
+import { DiamondCheck } from '../layout/checkables';
+import { Panel } from '../layout/Panel';
+import { PanelTitle } from '../layout/PanelTitle';
 
 export function AttackList() {
-  const { character, derived } = useCharacter()
+  const { character, derived } = useCharacter();
 
-  if (character.attacks.length === 0) return null
+  if (character.attacks.length === 0) return null;
 
   return (
     <Panel>
@@ -30,7 +30,7 @@ export function AttackList() {
               const { bonusText, damageBonus } = calcAttackBonus(
                 attack,
                 derived
-              )
+              );
 
               return (
                 <tr
@@ -51,13 +51,13 @@ export function AttackList() {
                   )}
                   <Td>{attack.notes ?? '—'}</Td>
                 </tr>
-              )
+              );
             })}
           </tbody>
         </table>
       </div>
     </Panel>
-  )
+  );
 }
 
 function Th({ children }: { children: React.ReactNode }) {
@@ -65,17 +65,17 @@ function Th({ children }: { children: React.ReactNode }) {
     <th className="px-3 py-1.5 text-left font-bold tracking-wider text-neutral-subdued">
       {children}
     </th>
-  )
+  );
 }
 
 function Td({
   children,
   className = '',
 }: {
-  children: React.ReactNode
-  className?: string
+  children: React.ReactNode;
+  className?: string;
 }) {
-  return <td className={`px-3 py-1.5 ${className}`}>{children}</td>
+  return <td className={`px-3 py-1.5 ${className}`}>{children}</td>;
 }
 
 function calcAttackBonus(
@@ -84,40 +84,40 @@ function calcAttackBonus(
 ): { bonusText: string; damageBonus: number } {
   switch (attack.kind) {
     case 'weapon': {
-      const abilityMod = derived.abilityModifiers[attack.ability]
-      const profBonus = attack.notProficient ? 0 : derived.proficiencyBonus
-      const base = abilityMod + profBonus + (attack.attackBonusMod ?? 0)
+      const abilityMod = derived.abilityModifiers[attack.ability];
+      const profBonus = attack.notProficient ? 0 : derived.proficiencyBonus;
+      const base = abilityMod + profBonus + (attack.attackBonusMod ?? 0);
       return {
         bonusText: formatBonus(base),
         damageBonus: abilityMod + (attack.attackBonusMod ?? 0),
-      }
+      };
     }
 
     case 'spell-with-attack': {
-      let spellAttackBonus = derived.spellAttackBonus ?? 0
+      let spellAttackBonus = derived.spellAttackBonus ?? 0;
       if (attack.ability) {
-        const abilityMod = derived.abilityModifiers[attack.ability]
-        const profBonus = attack.notProficient ? 0 : derived.proficiencyBonus
-        spellAttackBonus = abilityMod + profBonus
+        const abilityMod = derived.abilityModifiers[attack.ability];
+        const profBonus = attack.notProficient ? 0 : derived.proficiencyBonus;
+        spellAttackBonus = abilityMod + profBonus;
       }
-      const totalAttackBonus = spellAttackBonus + (attack.attackBonusMod ?? 0)
+      const totalAttackBonus = spellAttackBonus + (attack.attackBonusMod ?? 0);
       return {
         bonusText: formatBonus(totalAttackBonus),
         damageBonus: 0 + (attack.attackBonusMod ?? 0),
-      }
+      };
     }
 
     case 'spell-with-save': {
-      let spellSaveDC = derived.spellSaveDC ?? 0
+      let spellSaveDC = derived.spellSaveDC ?? 0;
       if (attack.ability) {
-        const abilityMod = derived.abilityModifiers[attack.ability]
-        const profBonus = attack.notProficient ? 0 : derived.proficiencyBonus
-        spellSaveDC = 8 + abilityMod + profBonus
+        const abilityMod = derived.abilityModifiers[attack.ability];
+        const profBonus = attack.notProficient ? 0 : derived.proficiencyBonus;
+        spellSaveDC = 8 + abilityMod + profBonus;
       }
       return {
         bonusText: `${ABILITY_DETAILS[attack.saveAbility].shortName} save, DC ${spellSaveDC}`,
         damageBonus: 0 + (attack.attackBonusMod ?? 0),
-      }
+      };
     }
   }
 }
@@ -125,12 +125,12 @@ function calcAttackBonus(
 function formatDamage(entries: AttackDamage[], mod: number): string {
   return entries
     .map((entry) => {
-      const suffix = entry.disableModifier ? '' : formatBonus(mod)
-      return `${entry.dice}${suffix} ${entry.type}`
+      const suffix = entry.disableModifier ? '' : formatBonus(mod);
+      return `${entry.dice}${suffix} ${entry.type}`;
     })
-    .join(' + ')
+    .join(' + ');
 }
 
 function formatBonus(n: number): string {
-  return n === 0 ? '' : n > 0 ? `+${n}` : `${n}`
+  return n === 0 ? '' : n > 0 ? `+${n}` : `${n}`;
 }

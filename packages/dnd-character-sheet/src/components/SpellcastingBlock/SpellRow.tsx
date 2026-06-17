@@ -1,21 +1,23 @@
-import { ABILITY_DETAILS } from '../../lib/models/abilities'
-import type { Spell } from '../../lib/models/spellcasting'
-import { CircleCheck } from '../layout/checkables'
+import { ABILITY_DETAILS } from '../../lib/models/abilities';
+import type { Spell } from '../../lib/models/spellcasting';
+import { CircleCheck } from '../layout/checkables';
 
 function ComponentFlags({ spell }: { spell: Spell }) {
-  const { components } = spell
-  if (!components) return null
-  const flags: string[] = []
-  if (components.verbal) flags.push('V')
-  if (components.somatic) flags.push('S')
-  if (components.materialConsumed) flags.push('M*')
+  const { components } = spell;
+  if (!components) return null;
+  const flags: string[] = [];
+  if (components.verbal) flags.push('V');
+  if (components.somatic) flags.push('S');
+  if (components.materialConsumed) flags.push('M*');
   else if (
     'materialConsumed' in components &&
     components.materialConsumed === false
   )
-    flags.push('M')
-  if (flags.length === 0) return null
-  return <span className="text-neutral-subdued text-xs">{flags.join(' ')}</span>
+    flags.push('M');
+  if (flags.length === 0) return null;
+  return (
+    <span className="text-neutral-subdued text-xs">{flags.join(' ')}</span>
+  );
 }
 
 function Badge({ children }: { children: React.ReactNode }) {
@@ -23,12 +25,12 @@ function Badge({ children }: { children: React.ReactNode }) {
     <span className="inline-flex items-center rounded px-1 py-0.5 text-[10px] font-semibold bg-page-0 border border-[var(--s-parchment-400)] text-neutral-strong leading-none">
       {children}
     </span>
-  )
+  );
 }
 
 interface SpellRowProps {
-  spell: Spell
-  showPrepared: boolean
+  spell: Spell;
+  showPrepared: boolean;
 }
 
 export function SpellRow({ spell, showPrepared }: SpellRowProps) {
@@ -66,5 +68,5 @@ export function SpellRow({ spell, showPrepared }: SpellRowProps) {
         </div>
       </div>
     </>
-  )
+  );
 }

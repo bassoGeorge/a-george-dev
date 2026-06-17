@@ -1,6 +1,6 @@
-import { Ability } from '../lib/models/abilities'
-import type { Character } from '../lib/models/character'
-import { Skill } from '../lib/models/skills'
+import { Ability } from '../lib/models/abilities';
+import type { Character } from '../lib/models/character';
+import { Skill } from '../lib/models/skills';
 
 export const exampleWizard: Character = {
   name: 'Seraphina Ashveil',
@@ -252,4 +252,4 @@ export const exampleWizard: Character = {
       },
     ],
   },
-}
+};

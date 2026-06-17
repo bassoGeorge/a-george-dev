@@ -1,18 +1,18 @@
-import { cn } from '@ageorgedev/toolbelt/cn'
-import { useCharacter } from '../CharacterSheet'
-import { DiamondCheck } from '../layout/checkables'
-import { Panel } from '../layout/Panel'
-import { PanelTitle } from '../layout/PanelTitle'
+import { cn } from '@ageorgedev/toolbelt/cn';
+import { useCharacter } from '../CharacterSheet';
+import { DiamondCheck } from '../layout/checkables';
+import { Panel } from '../layout/Panel';
+import { PanelTitle } from '../layout/PanelTitle';
 
 const ARMOR_TYPES: { key: string; label: string }[] = [
   { key: 'Light armor', label: 'Light' },
   { key: 'Medium armor', label: 'Medium' },
   { key: 'Heavy armor', label: 'Heavy' },
   { key: 'Shields', label: 'Shields' },
-]
+];
 
 export function EquipmentTraining() {
-  const { character } = useCharacter()
+  const { character } = useCharacter();
 
   return (
     <Panel className={`overflow-hidden flex flex-col divide-y`}>
@@ -22,13 +22,13 @@ export function EquipmentTraining() {
       <div className="py-3 flex flex-row gap-2">
         <SectionTitle className="w-min mr-1">Armor Training</SectionTitle>
         {ARMOR_TYPES.map(({ key, label }) => {
-          const trained = character.armorProficiencies.includes(key)
+          const trained = character.armorProficiencies.includes(key);
           return (
             <div key={key} className="flex items-center gap-1">
               <DiamondCheck checked={trained} />
               <span className="text-xs">{label}</span>
             </div>
-          )
+          );
         })}
       </div>
 
@@ -42,7 +42,7 @@ export function EquipmentTraining() {
         <p className="text-xs">{character.toolProficiencies.join(', ')}</p>
       </div>
     </Panel>
-  )
+  );
 }
 
 function SectionTitle({
@@ -57,5 +57,5 @@ function SectionTitle({
         className
       )}
     />
-  )
+  );
 }

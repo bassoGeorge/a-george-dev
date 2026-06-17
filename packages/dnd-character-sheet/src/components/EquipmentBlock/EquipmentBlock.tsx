@@ -1,6 +1,6 @@
-import { useCharacter } from '../CharacterSheet'
-import { Panel } from '../layout/Panel'
-import { PanelTitle } from '../layout/PanelTitle'
+import { useCharacter } from '../CharacterSheet';
+import { Panel } from '../layout/Panel';
+import { PanelTitle } from '../layout/PanelTitle';
 
 const CURRENCY = [
   { key: 'pp', label: 'PP' },
@@ -8,10 +8,10 @@ const CURRENCY = [
   { key: 'ep', label: 'EP' },
   { key: 'sp', label: 'SP' },
   { key: 'cp', label: 'CP' },
-] as const
+] as const;
 
 export function EquipmentBlock() {
-  const { character } = useCharacter()
+  const { character } = useCharacter();
 
   return (
     <Panel className={`overflow-hidden`}>
@@ -47,5 +47,5 @@ export function EquipmentBlock() {
         ))}
       </ul>
     </Panel>
-  )
+  );
 }

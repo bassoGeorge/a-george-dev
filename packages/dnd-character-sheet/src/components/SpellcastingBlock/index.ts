@@ -1,1 +1,1 @@
-export { SpellcastingBlock } from './SpellcastingBlock'
+export { SpellcastingBlock } from './SpellcastingBlock';

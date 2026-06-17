@@ -1,10 +1,10 @@
-import { useCharacter } from '../CharacterSheet'
-import { Panel } from '../layout/Panel'
-import { PanelTitle } from '../layout/PanelTitle'
+import { useCharacter } from '../CharacterSheet';
+import { Panel } from '../layout/Panel';
+import { PanelTitle } from '../layout/PanelTitle';
 
 export function SpeciesTraits() {
-  const { character } = useCharacter()
-  const traits = character.speciesTraits ?? []
+  const { character } = useCharacter();
+  const traits = character.speciesTraits ?? [];
 
   return (
     <Panel className={`overflow-hidden`}>
@@ -34,5 +34,5 @@ export function SpeciesTraits() {
         )}
       </div>
     </Panel>
-  )
+  );
 }

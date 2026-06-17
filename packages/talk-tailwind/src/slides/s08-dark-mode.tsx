@@ -1,4 +1,4 @@
-import { CodeBlock } from '@ageorgedev/design-system/CodeBlock/CodeBlock'
+import { CodeBlock } from '@ageorgedev/design-system/CodeBlock/CodeBlock';
 import {
   Heading1,
   Heading2,
@@ -7,10 +7,13 @@ import {
   InterfaceXl,
   PBodyLg,
   PBodyXs,
-} from '@ageorgedev/design-system/typography/typography-components'
-import { SlideTypeCenter, SlideTypeRegular } from '@ageorgedev/reveal-framework'
-import { cn } from '@ageorgedev/toolbelt/cn'
-import { WarningIcon } from '@phosphor-icons/react'
+} from '@ageorgedev/design-system/typography/typography-components';
+import {
+  SlideTypeCenter,
+  SlideTypeRegular,
+} from '@ageorgedev/reveal-framework';
+import { cn } from '@ageorgedev/toolbelt/cn';
+import { WarningIcon } from '@phosphor-icons/react';
 
 export function S08DarkMode() {
   return (
@@ -180,13 +183,13 @@ export function S08DarkMode() {
         </Heading2>
       </SlideTypeCenter>
     </section>
-  )
+  );
 }
 
 function Swatch({ className }: { className?: string }) {
   return (
     <div className={cn(className, 'border-line h-9 w-10 rounded border')}></div>
-  )
+  );
 }
 
 // Code blocks
@@ -194,15 +197,15 @@ const darkModeConfig = `/* tailwind.config.js */
 export default {
   darkMode: 'class'
   // ... rest of the config
-}`
+}`;
 
 const darkModeHtml = `<html class="dark">
 <!-- ... -->
-</html>`
+</html>`;
 
 const darkModeBasicUsage = `<button class="bg-primary-100 dark:bg-primary-800 dark:text-white">
   Click me
-</button>`
+</button>`;
 
 const rawColorsRoot = `:root {
   --rc-parchment-500: hsl(39 100% 89%);
@@ -213,21 +216,21 @@ const rawColorsRoot = `:root {
 
   --rc-d-neutral-500: hsl(189 67% 6%);
   --rc-l-neutral-500: hsl(45 100% 99%);
-}`
+}`;
 
 const contextualColorsRootLight = `:root {
   --page-far: var(--rc-parchment-500);
   --accent: var(--rc-p-accent-500);
   --neutral: var(--rc-d-neutral-500);
   --neutral-inverse: var(--rc-l-neutral-500);
-}`
+}`;
 
 const contextualColorsRootDark = `:root.dark {
   --page-far: var(--rc-timber-300);
   --accent: var(--rc-p-accent-300);
   --neutral: var(--rc-l-neutral-500);
   --neutral-inverse: var(--rc-d-neutral-500);
-}`
+}`;
 
 const contextualColorsTailwindConfig = `/* tailwind.config.js */
 
@@ -240,13 +243,13 @@ export default {
       //... others
     }
   }
-}`
+}`;
 
 const contextualColorsUsage = `<section class="bg-page-far text-neutral">
   <button class="bg-accent">Click me</button>
-</section>`
+</section>`;
 
 const contextualColorsProblem = `<button class="text-page-far">Click me</button>
 <div class="bg-neutral">
   <!-- other stuff -->
-</div>`
+</div>`;

@@ -1,5 +1,5 @@
-import { cn } from '@ageorgedev/toolbelt/cn'
-import styles from './Page.module.css'
+import { cn } from '@ageorgedev/toolbelt/cn';
+import styles from './Page.module.css';
 
 export function Page({ children }: React.PropsWithChildren) {
   return (
@@ -8,5 +8,5 @@ export function Page({ children }: React.PropsWithChildren) {
         {children}
       </div>
     </div>
-  )
+  );
 }

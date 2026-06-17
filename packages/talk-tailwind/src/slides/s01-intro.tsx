@@ -1,4 +1,4 @@
-import { NameLogo } from '@ageorgedev/design-system/logo/NameLogo'
+import { NameLogo } from '@ageorgedev/design-system/logo/NameLogo';
 import {
   Heading1,
   Heading2,
@@ -7,7 +7,7 @@ import {
   PBody,
   PBodyLg,
   PBodyMd,
-} from '@ageorgedev/design-system/typography/typography-components'
+} from '@ageorgedev/design-system/typography/typography-components';
 import {
   CalloutForAdvancedTopic,
   CalloutForPersonalOpinion,
@@ -16,7 +16,7 @@ import {
   Presentation,
   SlideTypeCenter,
   SlideTypeRegular,
-} from '@ageorgedev/reveal-framework'
+} from '@ageorgedev/reveal-framework';
 
 export function S01Intro() {
   return (
@@ -124,5 +124,5 @@ export function S01Intro() {
         <PBody>CSS-in-JS</PBody>
       </SlideTypeCenter>
     </Presentation.Stack>
-  )
+  );
 }

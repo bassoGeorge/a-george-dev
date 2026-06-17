@@ -1,11 +1,11 @@
-import { cn } from '@ageorgedev/toolbelt/cn'
-import { useCharacter } from '../CharacterSheet'
-import { BigNumber } from '../layout/BigNumber'
-import { DiamondCheck } from '../layout/checkables'
-import { VerticalDivider } from '../layout/dividers'
-import { Panel } from '../layout/Panel'
-import { PanelTitle } from '../layout/PanelTitle'
-import { VerticalSubPanel } from '../layout/SubPanel'
+import { cn } from '@ageorgedev/toolbelt/cn';
+import { useCharacter } from '../CharacterSheet';
+import { BigNumber } from '../layout/BigNumber';
+import { DiamondCheck } from '../layout/checkables';
+import { VerticalDivider } from '../layout/dividers';
+import { Panel } from '../layout/Panel';
+import { PanelTitle } from '../layout/PanelTitle';
+import { VerticalSubPanel } from '../layout/SubPanel';
 
 export function SheetHeader() {
   return (
@@ -15,11 +15,11 @@ export function SheetHeader() {
       <ArmorBlock />
       <HealthAndDeathBlock />
     </div>
-  )
+  );
 }
 
 function NameBlock() {
-  const { character } = useCharacter()
+  const { character } = useCharacter();
   return (
     <Panel
       outerClasses="flex-1"
@@ -32,11 +32,11 @@ function NameBlock() {
       <NameField label="Species">{character.species}</NameField>
       <NameField label="Subclass">{character.subclass}</NameField>
     </Panel>
-  )
+  );
 }
 
 function LevelBlock() {
-  const { character } = useCharacter()
+  const { character } = useCharacter();
 
   return (
     <div className="align-self-stretch flex flex-col gap-1 border-[3px] border-neutral-subdued bg-white items-center py-3 px-6 rounded-full my-2 bg-page-4">
@@ -45,11 +45,11 @@ function LevelBlock() {
       <div className="flex-1"></div>
       <LabelUnder className="text-center w-full">Xp</LabelUnder>
     </div>
-  )
+  );
 }
 
 function ArmorBlock() {
-  const { character } = useCharacter()
+  const { character } = useCharacter();
 
   return (
     <Panel
@@ -67,11 +67,11 @@ function ArmorBlock() {
       <BasicLabel className="mb-1">Shield</BasicLabel>
       <DiamondCheck />
     </Panel>
-  )
+  );
 }
 
 function HealthAndDeathBlock() {
-  const { character } = useCharacter()
+  const { character } = useCharacter();
   return (
     <Panel className="flex p-0" topRightCorner="scooped">
       <VerticalSubPanel className="py-2 px-3 grid grid-rows-[max-content_1fr] grid-cols-[1fr_max-content_1fr] gap-2 items-end">
@@ -119,7 +119,7 @@ function HealthAndDeathBlock() {
         </div>
       </VerticalSubPanel>
     </Panel>
-  )
+  );
 }
 
 /** Smaller utils */
@@ -128,22 +128,22 @@ function NameField({
   label,
   children,
 }: {
-  label: string
-  children: React.ReactNode
+  label: string;
+  children: React.ReactNode;
 }) {
   return (
     <div className="flex flex-col">
       <span className="text-md font-semibold">{children}</span>
       <LabelUnder>{label}</LabelUnder>
     </div>
-  )
+  );
 }
 
 function LabelUnder({
   className,
   ...props
 }: React.HTMLAttributes<HTMLDivElement>) {
-  return <BasicLabel className={cn(className, 'border-t')} {...props} />
+  return <BasicLabel className={cn(className, 'border-t')} {...props} />;
 }
 
 function BasicLabel({
@@ -155,5 +155,5 @@ function BasicLabel({
     <div className={cn('text-xs uppercase', className)} {...props}>
       {children}
     </div>
-  )
+  );
 }

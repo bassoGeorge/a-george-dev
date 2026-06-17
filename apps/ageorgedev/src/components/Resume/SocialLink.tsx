@@ -1,5 +1,5 @@
-import { BodySm } from '@ageorgedev/design-system/typography/typography-components'
-import type { Icon } from '@phosphor-icons/react'
+import { BodySm } from '@ageorgedev/design-system/typography/typography-components';
+import type { Icon } from '@phosphor-icons/react';
 import {
   EnvelopeIcon,
   GithubLogoIcon,
@@ -7,7 +7,7 @@ import {
   LinkedinLogoIcon,
   MapPinIcon,
   PhoneIcon,
-} from '@phosphor-icons/react/ssr'
+} from '@phosphor-icons/react/ssr';
 
 type SocialLinkType =
   | 'github'
@@ -15,17 +15,17 @@ type SocialLinkType =
   | 'email'
   | 'web'
   | 'phone'
-  | 'location'
+  | 'location';
 
 type SocialLinkProps = {
-  type: SocialLinkType
-  full?: boolean
-}
+  type: SocialLinkType;
+  full?: boolean;
+};
 
 export function SocialLink({ type, full }: SocialLinkProps) {
-  const link = LINKS[type]
-  const displayLink = DISPLAY_LINKS[type] ?? link
-  const Icon = ICONS[type]
+  const link = LINKS[type];
+  const displayLink = DISPLAY_LINKS[type] ?? link;
+  const Icon = ICONS[type];
   return (
     <a
       href={link}
@@ -36,11 +36,11 @@ export function SocialLink({ type, full }: SocialLinkProps) {
       <Icon weight="duotone" className="text-primary-foreground-3" />
       {full && <BodySm as="span">{displayLink}</BodySm>}
     </a>
-  )
+  );
 }
 
-const email = 'anishgeorgehb@gmail.com'
-const phone = '+91-999999'
+const email = 'anishgeorgehb@gmail.com';
+const phone = '+91-999999';
 
 const LINKS: Record<SocialLinkType, string> = {
   github: 'https://github.com/bassoGeorge',
@@ -49,13 +49,13 @@ const LINKS: Record<SocialLinkType, string> = {
   web: 'https://ageorge.dev',
   phone: `tel:${phone}`,
   location: 'https://goo.gl/maps/Q7mUm5VQ5ZuLGV4v7',
-}
+};
 
 const DISPLAY_LINKS: Partial<Record<SocialLinkType, string>> = {
   email,
   phone,
   location: 'Bengaluru, India',
-}
+};
 
 const ICONS: Record<SocialLinkType, Icon> = {
   github: GithubLogoIcon,
@@ -64,4 +64,4 @@ const ICONS: Record<SocialLinkType, Icon> = {
   web: GlobeIcon,
   phone: PhoneIcon,
   location: MapPinIcon,
-}
+};

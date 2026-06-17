@@ -1,28 +1,28 @@
-import { useCharacter } from '../CharacterSheet'
-import { Panel } from '../layout/Panel'
-import { PanelTitle } from '../layout/PanelTitle'
+import { useCharacter } from '../CharacterSheet';
+import { Panel } from '../layout/Panel';
+import { PanelTitle } from '../layout/PanelTitle';
 
 function formatMod(mod: number): string {
-  return mod >= 0 ? `+${mod}` : `${mod}`
+  return mod >= 0 ? `+${mod}` : `${mod}`;
 }
 
 function StatCell({
   label,
   children,
 }: {
-  label: string
-  children: React.ReactNode
+  label: string;
+  children: React.ReactNode;
 }) {
   return (
     <Panel outerClasses="flex-1" className="flex flex-col items-center py-2">
       <PanelTitle>{label}</PanelTitle>
       <span className="text-xl">{children}</span>
     </Panel>
-  )
+  );
 }
 
 export function CombatRow() {
-  const { character, derived } = useCharacter()
+  const { character, derived } = useCharacter();
 
   return (
     <div className={`flex gap-2`}>
@@ -33,5 +33,5 @@ export function CombatRow() {
         {derived.passivePerception}
       </StatCell>
     </div>
-  )
+  );
 }

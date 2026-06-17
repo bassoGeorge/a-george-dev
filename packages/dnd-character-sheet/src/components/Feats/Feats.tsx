@@ -1,10 +1,10 @@
-import { useCharacter } from '../CharacterSheet'
-import { Panel } from '../layout/Panel'
-import { PanelTitle } from '../layout/PanelTitle'
+import { useCharacter } from '../CharacterSheet';
+import { Panel } from '../layout/Panel';
+import { PanelTitle } from '../layout/PanelTitle';
 
 export function Feats() {
-  const { character } = useCharacter()
-  const feats = character.feats ?? []
+  const { character } = useCharacter();
+  const feats = character.feats ?? [];
 
   return (
     <Panel className={`overflow-hidden`}>
@@ -34,5 +34,5 @@ export function Feats() {
         )}
       </div>
     </Panel>
-  )
+  );
 }

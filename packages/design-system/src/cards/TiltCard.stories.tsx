@@ -1,5 +1,5 @@
-import type { Meta, StoryObj } from '@storybook/react-vite'
-import { TiltCard } from './TiltCard'
+import type { Meta, StoryObj } from '@storybook/react-vite';
+import { TiltCard } from './TiltCard';
 
 export default {
   title: 'Atoms/Tilt Card',
@@ -21,9 +21,9 @@ export default {
       control: 'boolean',
     },
   },
-} satisfies Meta<typeof TiltCard>
+} satisfies Meta<typeof TiltCard>;
 
-type Story = StoryObj<typeof TiltCard>
+type Story = StoryObj<typeof TiltCard>;
 
 export const Default: Story = {
   args: {
@@ -33,7 +33,7 @@ export const Default: Story = {
     border: 'all',
     children: 'Default Tilt Card',
   },
-}
+};
 
 export const TrapLeft: Story = {
   args: {
@@ -41,7 +41,7 @@ export const TrapLeft: Story = {
     interactive: true,
     children: 'Trap Left Shape',
   },
-}
+};
 
 export const TriUpperRight: Story = {
   args: {
@@ -49,7 +49,7 @@ export const TriUpperRight: Story = {
     interactive: true,
     children: 'Triangle Upper Right Shape',
   },
-}
+};
 
 export const TriUpperLeft: Story = {
   args: {
@@ -57,7 +57,7 @@ export const TriUpperLeft: Story = {
     interactive: true,
     children: 'Triangle Upper Left Shape',
   },
-}
+};
 
 export const SmallSkew: Story = {
   args: {
@@ -65,7 +65,7 @@ export const SmallSkew: Story = {
     skewStrength: 'small',
     children: 'Small Skew Strength',
   },
-}
+};
 
 export const LargeSkew: Story = {
   args: {
@@ -73,7 +73,7 @@ export const LargeSkew: Story = {
     skewStrength: 'large',
     children: 'Large Skew Strength',
   },
-}
+};
 
 export const BottomBorderOnly: Story = {
   args: {
@@ -81,7 +81,7 @@ export const BottomBorderOnly: Story = {
     border: 'bottom',
     children: 'Bottom Border Only',
   },
-}
+};
 
 export const NoBorder: Story = {
   args: {
@@ -89,7 +89,7 @@ export const NoBorder: Story = {
     border: 'none',
     children: 'No Border',
   },
-}
+};
 
 export const NonInteractive: Story = {
   args: {
@@ -97,7 +97,7 @@ export const NonInteractive: Story = {
     interactive: false,
     children: 'Non-Interactive Card',
   },
-}
+};
 
 export const WithCustomContent: Story = {
   args: {
@@ -119,4 +119,4 @@ export const WithCustomContent: Story = {
       </div>
     ),
   },
-}
+};

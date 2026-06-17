@@ -1,18 +1,18 @@
-import { TwLogo } from '@ageorgedev/brand-components'
-import { BodyXl } from '@ageorgedev/design-system/typography/typography-components'
-import { DeckFooter, Presentation } from '@ageorgedev/reveal-framework'
-import { IconContext } from '@phosphor-icons/react'
-import { S01Intro } from './slides/s01-intro'
-import { S02Fundamentals } from './slides/s02-fundamentals'
-import { S03AntiPatterns } from './slides/s03-anti-patterns'
-import { S04LeanConfig } from './slides/s04-lean-config'
-import { S04BCognitiveLoad } from './slides/s04b-cognitive-load'
-import { S05ClassManagement } from './slides/s05-class-mgt'
-import { S06Plugins } from './slides/s06-plugins'
-import { S07OverrideTheming } from './slides/s07-override-theming'
-import { S08DarkMode } from './slides/s08-dark-mode'
-import { S09CssInJs } from './slides/s09-css-in-js'
-import { S10Outro } from './slides/s10-outro'
+import { TwLogo } from '@ageorgedev/brand-components';
+import { BodyXl } from '@ageorgedev/design-system/typography/typography-components';
+import { DeckFooter, Presentation } from '@ageorgedev/reveal-framework';
+import { IconContext } from '@phosphor-icons/react';
+import { S01Intro } from './slides/s01-intro';
+import { S02Fundamentals } from './slides/s02-fundamentals';
+import { S03AntiPatterns } from './slides/s03-anti-patterns';
+import { S04LeanConfig } from './slides/s04-lean-config';
+import { S04BCognitiveLoad } from './slides/s04b-cognitive-load';
+import { S05ClassManagement } from './slides/s05-class-mgt';
+import { S06Plugins } from './slides/s06-plugins';
+import { S07OverrideTheming } from './slides/s07-override-theming';
+import { S08DarkMode } from './slides/s08-dark-mode';
+import { S09CssInJs } from './slides/s09-css-in-js';
+import { S10Outro } from './slides/s10-outro';
 
 export function TalkTailwind() {
   return (
@@ -42,7 +42,7 @@ export function TalkTailwind() {
         </Presentation.Deck>
       </div>
     </IconContext.Provider>
-  )
+  );
 }
 
 const presentationConfig: Presentation.DeckProps['config'] = {
@@ -51,6 +51,6 @@ const presentationConfig: Presentation.DeckProps['config'] = {
   controlsTutorial: false,
   disableLayout: true,
   transition: 'fade',
-}
+};
 
-export default TalkTailwind
+export default TalkTailwind;

@@ -1,13 +1,13 @@
-import type { Spell } from '../../lib/models/spellcasting'
-import { SpellRow } from './SpellRow'
+import type { Spell } from '../../lib/models/spellcasting';
+import { SpellRow } from './SpellRow';
 
 interface SpellLevelSectionProps {
-  level: number
-  spells: Spell[]
+  level: number;
+  spells: Spell[];
 }
 
 export function SpellLevelSection({ level, spells }: SpellLevelSectionProps) {
-  const label = level === 0 ? 'Cantrips' : `Level ${level}`
+  const label = level === 0 ? 'Cantrips' : `Level ${level}`;
 
   return (
     <div>
@@ -34,5 +34,5 @@ export function SpellLevelSection({ level, spells }: SpellLevelSectionProps) {
         </div>
       )}
     </div>
-  )
+  );
 }

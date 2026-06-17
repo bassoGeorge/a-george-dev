@@ -1,30 +1,30 @@
-'use client'
-import { useEffect, useState } from 'react'
-import type { Theme } from '../models'
-import { ThemeContext } from '../ThemeContext'
+'use client';
+import { useEffect, useState } from 'react';
+import type { Theme } from '../models';
+import { ThemeContext } from '../ThemeContext';
 
 export function ThemeProvider({
   children,
   startingTheme = 'dark',
 }: React.PropsWithChildren<{ startingTheme?: Theme }>) {
-  const [theme, setThemeState] = useState<Theme>(startingTheme)
+  const [theme, setThemeState] = useState<Theme>(startingTheme);
 
   // Attach theme to <html> class
   useEffect(() => {
-    const classList = document.documentElement.classList
-    classList.remove('light', 'dark')
+    const classList = document.documentElement.classList;
+    classList.remove('light', 'dark');
     if (theme === 'dark') {
-      classList.add(theme)
+      classList.add(theme);
     }
-  }, [theme])
+  }, [theme]);
 
   const setTheme = (newTheme: Theme) => {
-    setThemeState(newTheme)
-  }
+    setThemeState(newTheme);
+  };
 
   return (
     <ThemeContext.Provider value={{ theme, setTheme }}>
       {children}
     </ThemeContext.Provider>
-  )
+  );
 }

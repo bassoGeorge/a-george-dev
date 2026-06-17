@@ -1,5 +1,5 @@
-import type { Meta, StoryObj } from '@storybook/react-vite'
-import { NameLogo } from './NameLogo'
+import type { Meta, StoryObj } from '@storybook/react-vite';
+import { NameLogo } from './NameLogo';
 
 export default {
   component: NameLogo,
@@ -13,44 +13,44 @@ export default {
       control: 'text',
     },
   },
-} satisfies Meta<typeof NameLogo>
+} satisfies Meta<typeof NameLogo>;
 
-type Story = StoryObj<typeof NameLogo>
+type Story = StoryObj<typeof NameLogo>;
 
 export const Default: Story = {
   args: {
     className: 'text-[100px]',
     shadowDirection: 'right',
   },
-}
+};
 
 export const Small: Story = {
   args: {
     className: 'text-[50px]',
     shadowDirection: 'right',
   },
-}
+};
 
 export const Large: Story = {
   args: {
     className: 'text-[150px]',
     shadowDirection: 'right',
   },
-}
+};
 
 export const LeftShadow: Story = {
   args: {
     className: 'text-[100px]',
     shadowDirection: 'left',
   },
-}
+};
 
 export const CustomSize: Story = {
   args: {
     className: 'text-[75px]',
     shadowDirection: 'right',
   },
-}
+};
 
 export const WithCustomBackground: Story = {
   render: () => (
@@ -58,4 +58,4 @@ export const WithCustomBackground: Story = {
       <NameLogo className="text-[100px]" shadowDirection="right" />
     </div>
   ),
-}
+};

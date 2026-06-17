@@ -1,4 +1,4 @@
-import { cn } from '@ageorgedev/toolbelt/cn'
+import { cn } from '@ageorgedev/toolbelt/cn';
 
 export function PanelTitle({
   children,
@@ -15,5 +15,5 @@ export function PanelTitle({
     >
       {children}
     </h3>
-  )
+  );
 }

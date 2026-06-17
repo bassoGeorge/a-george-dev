@@ -1,4 +1,4 @@
-import { cn } from '@ageorgedev/toolbelt/cn'
+import { cn } from '@ageorgedev/toolbelt/cn';
 
 export function BigNumber({
   className,
@@ -9,5 +9,5 @@ export function BigNumber({
       className={cn('text-4xl leading-none lining-nums', className)}
       {...props}
     />
-  )
+  );
 }

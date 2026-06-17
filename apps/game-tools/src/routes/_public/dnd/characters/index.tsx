@@ -1,8 +1,8 @@
-import { createFileRoute, Link } from '@tanstack/react-router'
+import { createFileRoute, Link } from '@tanstack/react-router';
 
 export const Route = createFileRoute('/_public/dnd/characters/')({
   component: RouteComponent,
-})
+});
 
 function RouteComponent() {
   return (
@@ -18,5 +18,5 @@ function RouteComponent() {
         </p>
       </Link>
     </div>
-  )
+  );
 }

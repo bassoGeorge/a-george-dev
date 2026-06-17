@@ -1,23 +1,23 @@
-import { Ability } from '../../lib/models/abilities'
-import type { Character } from '../../lib/models/character'
-import { AbilityBox } from '../AbilityBox/AbilityBox'
-import { AttackList } from '../AttackList/AttackList'
-import { BackstoryBlock } from '../BackstoryBlock/BackstoryBlock'
-import { CharacterSheet } from '../CharacterSheet'
-import { ClassFeatures } from '../ClassFeatures/ClassFeatures'
-import { CombatRow } from '../CombatRow/CombatRow'
-import { EquipmentBlock } from '../EquipmentBlock/EquipmentBlock'
-import { EquipmentTraining } from '../EquipmentTraining/EquipmentTraining'
-import { Feats } from '../Feats/Feats'
-import { HeroicInspiration } from '../HeroicInspiration/HeroicInspiration'
-import { Page } from '../layout/Page'
-import { ProficiencyBlock } from '../ProficiencyBlock/ProficiencyBlock'
-import { SheetHeader } from '../SheetHeader/SheetHeader'
-import { SpeciesTraits } from '../SpeciesTraits/SpeciesTraits'
-import { SpellcastingBlock } from '../SpellcastingBlock'
+import { Ability } from '../../lib/models/abilities';
+import type { Character } from '../../lib/models/character';
+import { AbilityBox } from '../AbilityBox/AbilityBox';
+import { AttackList } from '../AttackList/AttackList';
+import { BackstoryBlock } from '../BackstoryBlock/BackstoryBlock';
+import { CharacterSheet } from '../CharacterSheet';
+import { ClassFeatures } from '../ClassFeatures/ClassFeatures';
+import { CombatRow } from '../CombatRow/CombatRow';
+import { EquipmentBlock } from '../EquipmentBlock/EquipmentBlock';
+import { EquipmentTraining } from '../EquipmentTraining/EquipmentTraining';
+import { Feats } from '../Feats/Feats';
+import { HeroicInspiration } from '../HeroicInspiration/HeroicInspiration';
+import { Page } from '../layout/Page';
+import { ProficiencyBlock } from '../ProficiencyBlock/ProficiencyBlock';
+import { SheetHeader } from '../SheetHeader/SheetHeader';
+import { SpeciesTraits } from '../SpeciesTraits/SpeciesTraits';
+import { SpellcastingBlock } from '../SpellcastingBlock';
 
 interface Props {
-  data: Character
+  data: Character;
 }
 
 export function StandardCharacterSheet({ data }: Props) {
@@ -68,5 +68,5 @@ export function StandardCharacterSheet({ data }: Props) {
         </div>
       </Page>
     </CharacterSheet>
-  )
+  );
 }

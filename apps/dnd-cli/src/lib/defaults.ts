@@ -1,4 +1,4 @@
-import type { HitDiceType } from '../types.js'
+import type { HitDiceType } from '../types.js';
 
 export const DEFAULTS = {
   level: 1,
@@ -7,4 +7,4 @@ export const DEFAULTS = {
   armorClass: 10,
   speed: 30,
   hitDiceType: 'd10' as HitDiceType,
-} as const
+} as const;

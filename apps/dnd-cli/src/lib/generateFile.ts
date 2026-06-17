@@ -1,5 +1,5 @@
-import { Ability } from '@ageorgedev/dnd-character-sheet/models'
-import type { WizardState } from '../types.js'
+import { Ability } from '@ageorgedev/dnd-character-sheet/models';
+import type { WizardState } from '../types.js';
 
 function toExportName(name: string): string {
   return name
@@ -7,28 +7,28 @@ function toExportName(name: string): string {
     .split(/\s+/)
     .filter(Boolean)
     .map((word, i) => {
-      const clean = word.replace(/[^a-zA-Z0-9]/g, '')
-      if (!clean) return ''
-      if (i === 0) return clean.charAt(0).toLowerCase() + clean.slice(1)
-      return clean.charAt(0).toUpperCase() + clean.slice(1).toLowerCase()
+      const clean = word.replace(/[^a-zA-Z0-9]/g, '');
+      if (!clean) return '';
+      if (i === 0) return clean.charAt(0).toLowerCase() + clean.slice(1);
+      return clean.charAt(0).toUpperCase() + clean.slice(1).toLowerCase();
     })
-    .join('')
+    .join('');
 }
 
 function formatSkillArray(items: string[]): string {
-  if (items.length === 0) return '[]'
-  return `[${items.map((s) => `Skill.${s}`).join(', ')}]`
+  if (items.length === 0) return '[]';
+  return `[${items.map((s) => `Skill.${s}`).join(', ')}]`;
 }
 function formatAbilityArray(items: string[]): string {
-  if (items.length === 0) return '[]'
-  return `[${items.map((s) => `"${s}"`).join(', ')}]`
+  if (items.length === 0) return '[]';
+  return `[${items.map((s) => `"${s}"`).join(', ')}]`;
 }
 
 export function generateFile(state: WizardState): string {
-  const exportName = toExportName(state.name) || 'character'
+  const exportName = toExportName(state.name) || 'character';
   const subclassLine = state.subclass
     ? `\n  subclass: "${state.subclass}",`
-    : ''
+    : '';
 
   return `import type { Character } from '../lib/models/character';
   import type { Skill } from '../lib/models/skills';
@@ -79,5 +79,5 @@ export const ${exportName}: Character = {
   currency: { cp: 0, sp: 0, ep: 0, gp: 0, pp: 0 },
   features: [],
 };
-`
+`;
 }

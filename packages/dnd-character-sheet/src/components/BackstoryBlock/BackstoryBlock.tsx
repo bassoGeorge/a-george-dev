@@ -1,16 +1,16 @@
-import { useCharacter } from '../CharacterSheet'
-import { Panel } from '../layout/Panel'
-import { PanelTitle } from '../layout/PanelTitle'
+import { useCharacter } from '../CharacterSheet';
+import { Panel } from '../layout/Panel';
+import { PanelTitle } from '../layout/PanelTitle';
 
 const PERSONALITY_FIELDS = [
   { key: 'traits', label: 'Personality Traits' },
   { key: 'ideals', label: 'Ideals' },
   { key: 'bonds', label: 'Bonds' },
   { key: 'flaws', label: 'Flaws' },
-] as const
+] as const;
 
 export function BackstoryBlock() {
-  const { character } = useCharacter()
+  const { character } = useCharacter();
 
   return (
     <Panel className={`overflow-hidden`}>
@@ -66,5 +66,5 @@ export function BackstoryBlock() {
         )}
       </div>
     </Panel>
-  )
+  );
 }

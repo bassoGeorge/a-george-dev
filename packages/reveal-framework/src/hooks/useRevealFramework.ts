@@ -1,29 +1,29 @@
-import { type RefObject, useEffect, useRef } from 'react'
-import type { RevealApi } from 'reveal.js'
+import { type RefObject, useEffect, useRef } from 'react';
+import type { RevealApi } from 'reveal.js';
 
 export function useRevealFramework(elementRef: RefObject<HTMLElement | null>) {
-  const revealInstance = useRef<RevealApi | null>(null)
+  const revealInstance = useRef<RevealApi | null>(null);
   // biome-ignore lint/correctness/useExhaustiveDependencies: thats how it works
   useEffect(() => {
-    ;(async () => {
-      if (!elementRef.current) return
+    (async () => {
+      if (!elementRef.current) return;
 
-      const Reveal = (await import('reveal.js')).default
+      const Reveal = (await import('reveal.js')).default;
       const deck = new Reveal(elementRef.current, {
         embedded: true,
         keyboardCondition: 'focused',
         controlsTutorial: false,
         disableLayout: true,
         transition: 'fade',
-      })
+      });
 
       deck.initialize().then((_) => {
         // Hack for dev
         // deck.slide(6, 1);
-        revealInstance.current = deck
-      })
-    })()
-  }, [])
+        revealInstance.current = deck;
+      });
+    })();
+  }, []);
 
-  return [revealInstance] as const
+  return [revealInstance] as const;
 }

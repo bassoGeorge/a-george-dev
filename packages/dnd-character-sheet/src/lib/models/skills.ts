@@ -1,4 +1,4 @@
-import { Ability } from './abilities'
+import { Ability } from './abilities';
 
 export const Skill = {
   Acrobatics: 'Acrobatics',
@@ -19,9 +19,9 @@ export const Skill = {
   SleightOfHand: 'Sleight of Hand',
   Stealth: 'Stealth',
   Survival: 'Survival',
-} as const
+} as const;
 
-export type Skill = (typeof Skill)[keyof typeof Skill]
+export type Skill = (typeof Skill)[keyof typeof Skill];
 
 export const AbilitySkillGrouping: Record<Ability, Skill[]> = {
   [Ability.Strength]: [Skill.Athletics],
@@ -47,4 +47,4 @@ export const AbilitySkillGrouping: Record<Ability, Skill[]> = {
     Skill.Performance,
     Skill.Persuasion,
   ],
-}
+};

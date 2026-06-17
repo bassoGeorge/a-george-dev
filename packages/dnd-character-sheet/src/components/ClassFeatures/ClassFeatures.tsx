@@ -1,9 +1,9 @@
-import { useCharacter } from '../CharacterSheet'
-import { Panel } from '../layout/Panel'
-import { PanelTitle } from '../layout/PanelTitle'
+import { useCharacter } from '../CharacterSheet';
+import { Panel } from '../layout/Panel';
+import { PanelTitle } from '../layout/PanelTitle';
 
 export function ClassFeatures() {
-  const { character } = useCharacter()
+  const { character } = useCharacter();
 
   return (
     <Panel outerClasses="flex-1" className={`overflow-hidden`}>
@@ -27,5 +27,5 @@ export function ClassFeatures() {
         ))}
       </div>
     </Panel>
-  )
+  );
 }

@@ -1,11 +1,11 @@
-import { NameLogo } from '@ageorgedev/design-system/logo/NameLogo'
+import { NameLogo } from '@ageorgedev/design-system/logo/NameLogo';
 import {
   Heading3,
   Heading4,
-} from '@ageorgedev/design-system/typography/typography-components'
-import { cn } from '@ageorgedev/toolbelt/cn'
-import { GithubLogoIcon, LinkedinLogoIcon } from '@phosphor-icons/react/ssr'
-import styles from './HomeAboveFold.module.css'
+} from '@ageorgedev/design-system/typography/typography-components';
+import { cn } from '@ageorgedev/toolbelt/cn';
+import { GithubLogoIcon, LinkedinLogoIcon } from '@phosphor-icons/react/ssr';
+import styles from './HomeAboveFold.module.css';
 
 export function HomeAboveFold() {
   return (
@@ -62,5 +62,5 @@ export function HomeAboveFold() {
         </div>
       </section>
     </div>
-  )
+  );
 }

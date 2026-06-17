@@ -1,9 +1,9 @@
-import process from 'node:process'
-import tailwindcss from '@tailwindcss/vite'
-import { tanstackStart } from '@tanstack/react-start/plugin/vite'
-import react from '@vitejs/plugin-react'
-import { defineConfig, searchForWorkspaceRoot } from 'vite'
-import dts from 'vite-plugin-dts'
+import process from 'node:process';
+import tailwindcss from '@tailwindcss/vite';
+import { tanstackStart } from '@tanstack/react-start/plugin/vite';
+import react from '@vitejs/plugin-react';
+import { defineConfig, searchForWorkspaceRoot } from 'vite';
+import dts from 'vite-plugin-dts';
 
 const config = defineConfig({
   cacheDir: '../../node_modules/.vite/ageorgedev',
@@ -44,6 +44,6 @@ const config = defineConfig({
       allow: [searchForWorkspaceRoot(process.cwd())],
     },
   },
-})
+});
 
-export default config
+export default config;

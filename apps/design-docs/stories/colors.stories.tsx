@@ -3,16 +3,16 @@ import {
   BodyXl,
   BodyXs,
   InterfaceMd,
-} from '@ageorgedev/design-system/typography/typography-components'
-import { cn } from '@ageorgedev/toolbelt/cn'
-import type { StoryObj } from '@storybook/react-vite'
-import { createContext, type HTMLAttributes, useContext } from 'react'
+} from '@ageorgedev/design-system/typography/typography-components';
+import { cn } from '@ageorgedev/toolbelt/cn';
+import type { StoryObj } from '@storybook/react-vite';
+import { createContext, type HTMLAttributes, useContext } from 'react';
 
 export default {
   title: 'Foundation/Colors',
-}
+};
 
-type Story = StoryObj
+type Story = StoryObj;
 
 export const LightTheme: Story = {
   globals: { theme: 'light' },
@@ -35,7 +35,7 @@ export const LightTheme: Story = {
       </PageSample>
     </Layout>
   ),
-}
+};
 
 export const DarkTheme: Story = {
   globals: { theme: 'dark' },
@@ -58,35 +58,35 @@ export const DarkTheme: Story = {
       </PageSample>
     </Layout>
   ),
-}
+};
 
 function Layout({ children }: React.PropsWithChildren) {
   return (
     <div className="grid gap-4 tablet:grid-cols-2 tablet-landscape:grid-cols-3 large-desktop:grid-cols-5">
       {children}
     </div>
-  )
+  );
 }
 
 function Section({ className, ...attributes }: HTMLAttributes<HTMLDivElement>) {
   return (
     <section className={cn('flex flex-col gap-2', className)} {...attributes} />
-  )
+  );
 }
 
 function SwatchSection({
   className,
   ...props
 }: HTMLAttributes<HTMLDivElement>) {
-  return <Section className={cn('mx-5', className)} {...props} />
+  return <Section className={cn('mx-5', className)} {...props} />;
 }
 
 function TextRow({
   className,
   ...attributes
 }: Omit<HTMLAttributes<HTMLParagraphElement>, 'children'>) {
-  const a11yFailures = useContext(A11yFailureContext)
-  const label = className?.replace('text-', '') ?? ''
+  const a11yFailures = useContext(A11yFailureContext);
+  const label = className?.replace('text-', '') ?? '';
   return (
     <div className="flex items-center">
       <div className="w-5">
@@ -96,13 +96,13 @@ function TextRow({
         {className}
       </BodyMd>
     </div>
-  )
+  );
 }
 
 function Swatch({ className }: HTMLAttributes<HTMLDivElement>) {
-  const classes = className?.split(' ')
-  const bgClass = classes?.find((c) => c.startsWith('bg-'))
-  const fgClass = classes?.find((c) => c.startsWith('text-'))
+  const classes = className?.split(' ');
+  const bgClass = classes?.find((c) => c.startsWith('bg-'));
+  const fgClass = classes?.find((c) => c.startsWith('text-'));
 
   return (
     <div
@@ -110,7 +110,7 @@ function Swatch({ className }: HTMLAttributes<HTMLDivElement>) {
     >
       {bgClass} <br /> {fgClass}
     </div>
-  )
+  );
 }
 
 function PageSample({
@@ -125,7 +125,7 @@ function PageSample({
         {children}
       </div>
     </div>
-  )
+  );
 }
 
 function ColorSamples({ a11yFailures = [] }: { a11yFailures?: string[] }) {
@@ -206,7 +206,7 @@ function ColorSamples({ a11yFailures = [] }: { a11yFailures?: string[] }) {
         </section>
       </div>
     </A11yFailureContext.Provider>
-  )
+  );
 }
 
-const A11yFailureContext = createContext<string[]>([])
+const A11yFailureContext = createContext<string[]>([]);

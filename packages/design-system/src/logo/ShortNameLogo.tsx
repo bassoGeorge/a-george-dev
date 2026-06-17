@@ -1,6 +1,6 @@
-import { cn } from '@ageorgedev/toolbelt/cn'
-import { Heading3 } from '../typography/typography-components'
-import { firstNameColor, lastNameColor } from './styles'
+import { cn } from '@ageorgedev/toolbelt/cn';
+import { Heading3 } from '../typography/typography-components';
+import { firstNameColor, lastNameColor } from './styles';
 
 export function ShortNameLogo() {
   return (
@@ -8,5 +8,5 @@ export function ShortNameLogo() {
       <span className={firstNameColor}>A</span>
       <span className={cn(lastNameColor, 'text-[0.85em]')}>G</span>
     </span>
-  )
+  );
 }

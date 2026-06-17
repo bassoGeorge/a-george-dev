@@ -1,6 +1,6 @@
 // biome-ignore-all lint/suspicious/noArrayIndexKey: Not important
-import { useCharacter } from '../CharacterSheet'
-import { CircleCheck } from '../layout/checkables'
+import { useCharacter } from '../CharacterSheet';
+import { CircleCheck } from '../layout/checkables';
 
 const ABILITY_LABELS: Record<string, string> = {
   strength: 'Strength',
@@ -9,24 +9,24 @@ const ABILITY_LABELS: Record<string, string> = {
   intelligence: 'Intelligence',
   wisdom: 'Wisdom',
   charisma: 'Charisma',
-}
+};
 
 function formatBonus(n: number): string {
-  return n >= 0 ? `+${n}` : `${n}`
+  return n >= 0 ? `+${n}` : `${n}`;
 }
 
 export function SpellcastingHeader() {
-  const { character, derived } = useCharacter()
-  const { spellcasting } = character
-  if (!spellcasting) return null
+  const { character, derived } = useCharacter();
+  const { spellcasting } = character;
+  if (!spellcasting) return null;
 
   const abilityLabel =
-    ABILITY_LABELS[spellcasting.ability] ?? spellcasting.ability
+    ABILITY_LABELS[spellcasting.ability] ?? spellcasting.ability;
   const slotLevels = spellcasting.slots
     ? (Object.entries(spellcasting.slots) as [string, number][]).sort(
         ([a], [b]) => Number(a) - Number(b)
       )
-    : []
+    : [];
 
   return (
     <div className="px-3 py-2 border-b border-[var(--s-parchment-400)]">
@@ -97,5 +97,5 @@ export function SpellcastingHeader() {
         </div>
       )}
     </div>
-  )
+  );
 }
