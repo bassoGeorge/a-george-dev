@@ -121,8 +121,8 @@ function getRefreshText(refresh: Resource['refresh']) {
     case 'long-rest':
       return 'Long Rest';
 
-    // case 'short-rest':
-    //   return 'Short Rest';
+    case 'short-rest':
+      return 'Short Rest';
 
     case 'short-and-long-rest':
       return `${refresh.numberOfRefreshesOnShortRest} / Short Rest, all on Long Rest`;
