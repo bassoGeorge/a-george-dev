@@ -1,3 +1,4 @@
+import { cn } from '@ageorgedev/toolbelt/cn';
 import { ABILITY_DETAILS } from '../../lib/models/abilities';
 import type { Attack, AttackDamage } from '../../lib/models/attacks';
 import type { DerivedStats } from '../../lib/models/derived-stats';
@@ -19,7 +20,7 @@ export function AttackList() {
           <thead>
             <tr className="border-b-2">
               <Th>Name</Th>
-              <Th>Attack Bonus / DC</Th>
+              <Th>Atk Bonus / DC</Th>
               <Th>Damage & Type</Th>
               <Th>Mastery</Th>
               <Th>Notes</Th>
@@ -49,7 +50,7 @@ export function AttackList() {
                   ) : (
                     <Td>—</Td>
                   )}
-                  <Td>{attack.notes ?? '—'}</Td>
+                  <Td className="text-xs">{attack.notes ?? '—'}</Td>
                 </tr>
               );
             })}
@@ -62,7 +63,7 @@ export function AttackList() {
 
 function Th({ children }: { children: React.ReactNode }) {
   return (
-    <th className="px-3 py-1.5 text-left font-bold tracking-wider text-neutral-subdued">
+    <th className="px-3 py-1.5 text-left font-bold tracking-wider text-neutral-subdued text-sm">
       {children}
     </th>
   );
@@ -75,7 +76,7 @@ function Td({
   children: React.ReactNode;
   className?: string;
 }) {
-  return <td className={`px-3 py-1.5 ${className}`}>{children}</td>;
+  return <td className={cn('px-3 py-1.5', className)}>{children}</td>;
 }
 
 function calcAttackBonus(

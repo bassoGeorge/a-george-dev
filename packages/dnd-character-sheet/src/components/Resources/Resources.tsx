@@ -26,13 +26,20 @@ export function Resources() {
   return (
     <Panel>
       <PanelTitle>Resources</PanelTitle>
-      <div className="columns-2 gap-3">
+      <div className="columns-2 gap-4 mt-2">
         {resources.map((r) => (
-          <div key={r.name}>
-            <span>{r.name}</span>&nbsp;
-            {Array.from({ length: r.value }, (_, i) => (
-              <CircleCheck key={i} />
-            ))}
+          <div key={r.name} className="flex items-center text-sm gap-1">
+            <span className="font-bold">{r.name}</span>
+            <em className="text-neutral-subdued text-xs">{r.refresh}</em>
+            <div className="flex-1 border-b border-dotted border-neutral-subdued"></div>
+            {r.display === 'dots' ? (
+              Array.from({ length: r.value }, (_, i) => <CircleCheck key={i} />)
+            ) : (
+              <>
+                <div className="self-stretch border-b border-neutral-subdued w-6"></div>
+                <span className="text-base">/ {r.value}</span>
+              </>
+            )}
           </div>
         ))}
       </div>
@@ -54,7 +61,7 @@ type ResourceDisplay = {
   value: number;
   name: string;
   display: 'dots' | 'numeric';
-  refresh: Resource['refresh'];
+  refresh: string;
 };
 
 function resourceDigester(character: Character, stats: DerivedStats) {
@@ -62,7 +69,7 @@ function resourceDigester(character: Character, stats: DerivedStats) {
     const base = {
       name: resource.name,
       display: resource.count.display ?? 'dots',
-      refresh: resource.refresh,
+      refresh: `[${getRefreshText(resource.refresh)}]`,
     };
 
     const config = resource.count;
@@ -104,4 +111,20 @@ function resourceDigester(character: Character, stats: DerivedStats) {
       }
     }
   };
+}
+
+function getRefreshText(refresh: Resource['refresh']) {
+  switch (refresh.kind) {
+    case 'any-rest':
+      return 'Any Rest';
+
+    case 'long-rest':
+      return 'Long Rest';
+
+    // case 'short-rest':
+    //   return 'Short Rest';
+
+    case 'short-and-long-rest':
+      return `${refresh.numberOfRefreshesOnShortRest} / Short Rest, all on Long Rest`;
+  }
 }

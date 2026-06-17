@@ -23,11 +23,17 @@
   },
   "linter": {
     "enabled": true,
+    "domains": {
+      "types": "recommended"
+    },
     "rules": {
       "recommended": true,
       "suspicious": {
         "noDuplicateProperties": "off",
         "noDuplicateCustomProperties": "off"
+      },
+      "nursery": {
+        "useExhaustiveSwitchCases": "on"
       }
     }
   },
