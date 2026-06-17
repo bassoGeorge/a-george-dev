@@ -1,7 +1,7 @@
 import { createContext, useContext, useMemo } from 'react'
-import { calculateStats } from '../lib/calculate'
-import type { Character } from '../types/character'
-import type { DerivedStats } from '../types/derived'
+import { calculateStats } from '../lib/calculate-derived-stats'
+import type { Character } from '../lib/models/character'
+import type { DerivedStats } from '../lib/models/derived-stats'
 
 interface CharacterContextValue {
   character: Character

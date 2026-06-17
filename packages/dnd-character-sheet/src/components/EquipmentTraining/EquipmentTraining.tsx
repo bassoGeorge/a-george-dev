@@ -1,5 +1,6 @@
+import { cn } from '@ageorgedev/toolbelt/cn'
 import { useCharacter } from '../CharacterSheet'
-import { DiamondCheck } from '../layout/DiamondCheck'
+import { DiamondCheck } from '../layout/checkables'
 import { Panel } from '../layout/Panel'
 import { PanelTitle } from '../layout/PanelTitle'
 
@@ -14,44 +15,47 @@ export function EquipmentTraining() {
   const { character } = useCharacter()
 
   return (
-    <Panel className={`overflow-hidden`}>
-      <PanelTitle className="px-3 py-1.5">Equipment Training</PanelTitle>
-      <div className="p-3 flex flex-col gap-2">
-        <div>
-          <p className="text-xs font-bold uppercase tracking-wider text-neutral-subdued mb-1.5">
-            Armor
-          </p>
-          <div className="flex flex-row gap-3">
-            {ARMOR_TYPES.map(({ key, label }) => {
-              const trained = character.armorProficiencies.includes(key)
-              return (
-                <div key={key} className="flex items-center gap-1.5">
-                  <DiamondCheck checked={trained} />
-                  <span className="text-xs text-neutral-strong">{label}</span>
-                </div>
-              )
-            })}
-          </div>
-        </div>
+    <Panel className={`overflow-hidden flex flex-col divide-y`}>
+      <PanelTitle className="pb-2">
+        Equipment Training & Proficiencies
+      </PanelTitle>
+      <div className="py-3 flex flex-row gap-2">
+        <SectionTitle className="w-min mr-1">Armor Training</SectionTitle>
+        {ARMOR_TYPES.map(({ key, label }) => {
+          const trained = character.armorProficiencies.includes(key)
+          return (
+            <div key={key} className="flex items-center gap-1">
+              <DiamondCheck checked={trained} />
+              <span className="text-xs">{label}</span>
+            </div>
+          )
+        })}
+      </div>
 
-        <div className="border-t border-[var(--s-parchment-400)] pt-2">
-          <p className="text-xs font-bold uppercase tracking-wider text-neutral-subdued mb-1">
-            Weapons
-          </p>
-          <p className="text-xs text-neutral-strong leading-relaxed">
-            {character.weaponProficiencies.join(', ')}
-          </p>
-        </div>
+      <div className="py-3">
+        <SectionTitle>Weapons</SectionTitle>
+        <p className="text-xs">{character.weaponProficiencies.join(', ')}</p>
+      </div>
 
-        <div className="border-t border-[var(--s-parchment-400)] pt-2">
-          <p className="text-xs font-bold uppercase tracking-wider text-neutral-subdued mb-1">
-            Tools
-          </p>
-          <p className="text-xs text-neutral-strong leading-relaxed">
-            {character.toolProficiencies.join(', ')}
-          </p>
-        </div>
+      <div className="py-3">
+        <SectionTitle>Tools</SectionTitle>
+        <p className="text-xs">{character.toolProficiencies.join(', ')}</p>
       </div>
     </Panel>
+  )
+}
+
+function SectionTitle({
+  className,
+  ...props
+}: React.HtmlHTMLAttributes<HTMLParagraphElement>) {
+  return (
+    <p
+      {...props}
+      className={cn(
+        'text-xs font-bold font-interface text-neutral-subdued',
+        className
+      )}
+    />
   )
 }

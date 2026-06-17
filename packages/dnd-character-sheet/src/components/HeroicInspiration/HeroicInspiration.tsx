@@ -1,4 +1,4 @@
-import { DiamondCheck } from '../layout/DiamondCheck'
+import { DiamondCheck } from '../layout/checkables'
 import { Panel } from '../layout/Panel'
 import { PanelTitle } from '../layout/PanelTitle'
 

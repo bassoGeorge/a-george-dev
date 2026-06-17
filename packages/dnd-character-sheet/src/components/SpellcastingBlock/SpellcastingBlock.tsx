@@ -1,4 +1,4 @@
-import type { Spell } from '../../types/character'
+import type { Spell } from '../../lib/models/spellcasting'
 import { useCharacter } from '../CharacterSheet'
 import { Panel } from '../layout/Panel'
 import { PanelTitle } from '../layout/PanelTitle'

@@ -47,7 +47,7 @@ export function Panel({
         className={cn(
           styles.panelRoot,
           cornerStyles,
-          'bg-white h-full',
+          'h-full px-3 py-2 bg-page-4',
           className
         )}
       />

@@ -1,11 +1,11 @@
 import { cn } from '@ageorgedev/toolbelt/cn'
 import { useCharacter } from '../CharacterSheet'
 import { BigNumber } from '../layout/BigNumber'
-import { DiamondCheck } from '../layout/DiamondCheck'
+import { DiamondCheck } from '../layout/checkables'
+import { VerticalDivider } from '../layout/dividers'
 import { Panel } from '../layout/Panel'
 import { PanelTitle } from '../layout/PanelTitle'
-import { SubPanel } from '../layout/SubPanel'
-import { VerticalDivider } from '../layout/VerticalDivider'
+import { VerticalSubPanel } from '../layout/SubPanel'
 
 export function SheetHeader() {
   return (
@@ -24,7 +24,7 @@ function NameBlock() {
     <Panel
       outerClasses="flex-1"
       topLeftCorner="scooped"
-      className="grid grid-cols-[2fr_5fr] py-2 pr-3 pl-5 gap-y-3 gap-x-2"
+      className="grid grid-cols-[2fr_5fr] pr-3 pl-5 gap-y-3 gap-x-2"
     >
       <h1 className="col-span-2 text-3xl">{character.name}</h1>
       <NameField label="Background">{character.background}</NameField>
@@ -53,7 +53,7 @@ function ArmorBlock() {
 
   return (
     <Panel
-      className="px-3 py-2 items-center flex flex-col"
+      className="items-center flex flex-col"
       bottomLeftCorner="scooped"
       bottomRightCorner="scooped"
     >
@@ -73,8 +73,8 @@ function ArmorBlock() {
 function HealthAndDeathBlock() {
   const { character } = useCharacter()
   return (
-    <Panel className="flex" topRightCorner="scooped">
-      <SubPanel className="py-2 px-3 grid grid-rows-[max-content_1fr] grid-cols-[1fr_max-content_1fr] gap-2 items-end">
+    <Panel className="flex p-0" topRightCorner="scooped">
+      <VerticalSubPanel className="py-2 px-3 grid grid-rows-[max-content_1fr] grid-cols-[1fr_max-content_1fr] gap-2 items-end">
         <PanelTitle className="col-span-3">Hit Points</PanelTitle>
         <LabelUnder>Current</LabelUnder>
         <VerticalDivider />
@@ -83,8 +83,8 @@ function HealthAndDeathBlock() {
           <span className="text-md">{character.hitPoints.maximum}</span>
           <LabelUnder>Max</LabelUnder>
         </div>
-      </SubPanel>
-      <SubPanel className="py-2 px-3 grid grid-rows-[max-content_1fr] grid-cols-1 gap-2 items-end">
+      </VerticalSubPanel>
+      <VerticalSubPanel className="py-2 px-3 grid grid-rows-[max-content_1fr] grid-cols-1 gap-2 items-end">
         <PanelTitle>Hit Dice</PanelTitle>
         <div>
           <LabelUnder className="mb-2">Spent</LabelUnder>
@@ -94,8 +94,8 @@ function HealthAndDeathBlock() {
           </span>
           <LabelUnder>Max</LabelUnder>
         </div>
-      </SubPanel>
-      <SubPanel className="py-2 px-3 flex flex-col justify-between w-25">
+      </VerticalSubPanel>
+      <VerticalSubPanel className="py-2 px-3 flex flex-col justify-between w-25">
         <PanelTitle className="text-left">
           Death
           <br />
@@ -117,7 +117,7 @@ function HealthAndDeathBlock() {
           </div>
           <BasicLabel>Failures</BasicLabel>
         </div>
-      </SubPanel>
+      </VerticalSubPanel>
     </Panel>
   )
 }

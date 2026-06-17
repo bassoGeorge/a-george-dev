@@ -11,12 +11,15 @@
     ".": {
       "import": "./dist/index.js",
       "types": "./dist/index.d.ts"
+    },
+    "./models": {
+      "import": "./dist/lib/models/index.js",
+      "types": "./dist/lib/models/index.d.ts"
     }
   },
-  "files": ["dist"],
   "peerDependencies": {
-    "react": "^18.0.0 || ^19.0.0",
-    "react-dom": "^18.0.0 || ^19.0.0"
+    "react": "19.2.7",
+    "react-dom": "19.2.7"
   },
   "devDependencies": {
     "@ageorgedev/ts-config": "workspace:*",

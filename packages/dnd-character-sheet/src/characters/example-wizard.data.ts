@@ -1,4 +1,6 @@
-import type { Character } from '../types/character'
+import { Ability } from '../lib/models/abilities'
+import type { Character } from '../lib/models/character'
+import { Skill } from '../lib/models/skills'
 
 export const exampleWizard: Character = {
   name: 'Seraphina Ashveil',
@@ -11,17 +13,22 @@ export const exampleWizard: Character = {
   experiencePoints: 23000,
 
   abilities: {
-    strength: 8,
-    dexterity: 14,
-    constitution: 14,
-    intelligence: 18,
-    wisdom: 12,
-    charisma: 10,
+    [Ability.Strength]: 6,
+    [Ability.Dexterity]: 14,
+    [Ability.Constitution]: 14,
+    [Ability.Intelligence]: 18,
+    [Ability.Wisdom]: 12,
+    [Ability.Charisma]: 10,
   },
 
-  savingThrowProficiencies: ['intelligence', 'wisdom'],
-  skillProficiencies: ['arcana', 'history', 'investigation', 'perception'],
-  skillExpertise: ['arcana'],
+  savingThrowProficiencies: [Ability.Intelligence, Ability.Wisdom],
+  skillProficiencies: [
+    Skill.Arcana,
+    Skill.History,
+    Skill.Investigation,
+    Skill.Perception,
+  ],
+  skillExpertise: [Skill.Arcana],
 
   armorClass: 13,
   speed: 30,
@@ -37,9 +44,26 @@ export const exampleWizard: Character = {
 
   attacks: [
     {
-      name: 'Quarterstqaff',
-      abilityKey: 'STR',
-      damage: [{ dice: '1d6', type: 'Bludgeoning' }],
+      name: 'Quarterstaff',
+      kind: 'weapon',
+      ability: Ability.Strength,
+      damage: [
+        { dice: '1d6', type: 'Bludgeoning' },
+        { dice: '1d4', type: 'Necroic', disableModifier: true },
+      ],
+      masteryProperty: 'Slow',
+    },
+    {
+      name: 'Fire Bolt',
+      kind: 'spell-with-attack',
+      damage: [{ dice: '1d10', type: 'Fire' }],
+    },
+    {
+      name: 'Dissonant Whispers',
+      kind: 'spell-with-save',
+      ability: Ability.Charisma,
+      saveAbility: Ability.Wisdom,
+      damage: [{ dice: '3d6', type: 'Psychic' }],
     },
   ],
 
@@ -87,7 +111,7 @@ export const exampleWizard: Character = {
     'Quarterstaffs',
     'Light Crossbows',
   ],
-  toolProficiencies: [],
+  toolProficiencies: ["Calligrapher's Supplies"],
   languages: ['Common', 'Elvish', 'Draconic', 'Sylvan'],
 
   personality: {
@@ -104,7 +128,7 @@ export const exampleWizard: Character = {
     "Seraphina studied at the Arcane Academy for fifteen years before striking out on her own to research the ancient Ashveil bloodline's connection to the Weave.",
 
   spellcasting: {
-    ability: 'intelligence',
+    ability: Ability.Intelligence,
     slots: {
       1: 4,
       2: 3,
@@ -221,7 +245,7 @@ export const exampleWizard: Character = {
         duration: 'Concentration, up to 1 minute',
         concentration: true,
         components: { verbal: true, somatic: true, materialConsumed: false },
-        alternativeAbility: 'charisma',
+        alternativeAbility: Ability.Charisma,
         freeUses: 1,
         notes:
           'Free use from Amulet of the Planes. When not using the amulet, uses Intelligence.',

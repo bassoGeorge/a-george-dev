@@ -1,5 +1,9 @@
 @reference "@ageorgedev/foundation-styles/theme.css";
 
-.subPanel + .subPanel {
-  @apply border-l-[3px] border-neutral-subdued;
+.vSubPanel + .vSubPanel {
+  @apply border-l-[2px] border-neutral-subdued;
+}
+
+.hSubPanel + .hSubPanel {
+  @apply border-t-[2px] border-neutral-subdued;
 }
