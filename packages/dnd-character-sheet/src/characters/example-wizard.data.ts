@@ -6,8 +6,8 @@ export const exampleWizard: Character = {
   name: 'Seraphina Ashveil',
   classes: [
     {
-      class: 'Wizard',
-      subclass: 'School of Evocation',
+      class: 'Sorcerer',
+      subclass: 'Wild Magic',
       level: 4,
     },
     {
@@ -93,6 +93,23 @@ export const exampleWizard: Character = {
   },
 
   features: [
+    {
+      name: 'Font of Magic',
+      source: 'Sorcerer 2',
+      description:
+        'You can use a bonus action to convert sorcery points into spell slots, or vice versa.',
+      resource: {
+        name: 'Sorcery Points',
+        count: {
+          kind: 'class-level',
+          class: 'Sorcerer',
+          multiplier: 1,
+        },
+        refresh: {
+          kind: 'long-rest',
+        },
+      },
+    },
     {
       name: 'Arcane Recovery',
       source: 'Wizard 1',

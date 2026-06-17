@@ -31,6 +31,7 @@ type ResourceCount = {
   | {
       kind: 'ability';
       ability: Ability;
+      min?: number;
       multiplier?: number;
     }
   | {
