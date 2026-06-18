@@ -1,10 +1,7 @@
+import { formatMod } from '../../lib/utils';
 import { useCharacter } from '../CharacterSheet';
 import { Panel } from '../layout/Panel';
 import { PanelTitle } from '../layout/PanelTitle';
-
-function formatMod(mod: number): string {
-  return mod >= 0 ? `+${mod}` : `${mod}`;
-}
 
 function StatCell({
   label,

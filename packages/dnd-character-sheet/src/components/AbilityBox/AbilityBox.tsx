@@ -1,15 +1,12 @@
 import { ABILITY_DETAILS, type Ability } from '../../lib/models/abilities';
 import { AbilitySkillGrouping } from '../../lib/models/skills';
+import { formatMod } from '../../lib/utils';
 import { useCharacter } from '../CharacterSheet';
 import { BigNumber } from '../layout/BigNumber';
 import type { CheckedState } from '../layout/checkables';
 import { CircleCheck } from '../layout/checkables';
 import { Panel } from '../layout/Panel';
 import { PanelTitle } from '../layout/PanelTitle';
-
-function formatMod(mod: number): string {
-  return mod >= 0 ? `+${mod}` : `${mod}`;
-}
 
 function proficiencyState(
   isProficient: boolean,

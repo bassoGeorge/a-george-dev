@@ -4,7 +4,7 @@ import type { Character } from '../../lib/models/character';
 import type { DerivedStats } from '../../lib/models/derived-stats';
 import type { Feature } from '../../lib/models/feature';
 import { useCharacter } from '../CharacterSheet';
-import { CircleCheck } from '../layout/checkables';
+import { EmptyCheckList } from '../layout/checkables';
 import { Panel } from '../layout/Panel';
 import { PanelTitle } from '../layout/PanelTitle';
 
@@ -33,7 +33,8 @@ export function Resources() {
             <em className="text-neutral-subdued text-xs">{r.refresh}</em>
             <div className="flex-1 border-b border-dotted border-neutral-subdued"></div>
             {r.display === 'dots' ? (
-              Array.from({ length: r.value }, (_, i) => <CircleCheck key={i} />)
+              // Array.from({ length: r.value }, (_, i) => <CircleCheck key={i} />)
+              <EmptyCheckList count={r.value} />
             ) : (
               <>
                 <div className="self-stretch border-b border-neutral-subdued w-6"></div>

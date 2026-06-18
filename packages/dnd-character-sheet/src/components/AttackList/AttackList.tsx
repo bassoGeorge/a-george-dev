@@ -2,6 +2,7 @@ import { cn } from '@ageorgedev/toolbelt/cn';
 import { ABILITY_DETAILS } from '../../lib/models/abilities';
 import type { Attack, AttackDamage } from '../../lib/models/attacks';
 import type { DerivedStats } from '../../lib/models/derived-stats';
+import { formatModIgnoreZero } from '../../lib/utils';
 import { useCharacter } from '../CharacterSheet';
 import { DiamondCheck } from '../layout/checkables';
 import { Panel } from '../layout/Panel';
@@ -94,7 +95,7 @@ function calcAttackBonus(
       const profBonus = attack.notProficient ? 0 : derived.proficiencyBonus;
       const base = abilityMod + profBonus + (attack.attackBonusMod ?? 0);
       return {
-        bonusText: formatBonus(base),
+        bonusText: formatModIgnoreZero(base),
         damageBonus: abilityMod + (attack.attackBonusMod ?? 0),
       };
     }
@@ -108,7 +109,7 @@ function calcAttackBonus(
       }
       const totalAttackBonus = spellAttackBonus + (attack.attackBonusMod ?? 0);
       return {
-        bonusText: formatBonus(totalAttackBonus),
+        bonusText: formatModIgnoreZero(totalAttackBonus),
         damageBonus: 0 + (attack.attackBonusMod ?? 0),
       };
     }
@@ -131,12 +132,8 @@ function calcAttackBonus(
 function formatDamage(entries: AttackDamage[], mod: number): string {
   return entries
     .map((entry) => {
-      const suffix = entry.disableModifier ? '' : formatBonus(mod);
+      const suffix = entry.disableModifier ? '' : formatModIgnoreZero(mod);
       return `${entry.dice}${suffix} ${entry.type}`;
     })
     .join(' + ');
-}
-
-function formatBonus(n: number): string {
-  return n === 0 ? '' : n > 0 ? `+${n}` : `${n}`;
 }

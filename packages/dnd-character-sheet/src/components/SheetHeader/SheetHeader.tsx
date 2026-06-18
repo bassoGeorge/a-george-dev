@@ -1,8 +1,8 @@
-import { cn } from '@ageorgedev/toolbelt/cn';
 import { useCharacter } from '../CharacterSheet';
 import { BigNumber } from '../layout/BigNumber';
-import { DiamondCheck } from '../layout/checkables';
+import { DiamondCheck, EmptyCheckList } from '../layout/checkables';
 import { VerticalDivider } from '../layout/dividers';
+import { BasicLabel, LabelUnder } from '../layout/labels';
 import { Panel } from '../layout/Panel';
 import { PanelTitle } from '../layout/PanelTitle';
 import { VerticalSubPanel } from '../layout/SubPanel';
@@ -107,19 +107,11 @@ function HealthAndDeathBlock() {
           Saves
         </PanelTitle>
         <div>
-          <div className="flex gap-2 mb-1">
-            <DiamondCheck />
-            <DiamondCheck />
-            <DiamondCheck />
-          </div>
+          <EmptyCheckList count={3} kind="diamond" className="mb-1" />
           <BasicLabel>Successes</BasicLabel>
         </div>
         <div>
-          <div className="flex gap-2 mb-1">
-            <DiamondCheck />
-            <DiamondCheck />
-            <DiamondCheck />
-          </div>
+          <EmptyCheckList count={3} kind="diamond" className="mb-1" />
           <BasicLabel>Failures</BasicLabel>
         </div>
       </VerticalSubPanel>
@@ -140,25 +132,6 @@ function NameField({
     <div className="flex flex-col">
       <span className="text-md font-semibold">{children}</span>
       <LabelUnder>{label}</LabelUnder>
-    </div>
-  );
-}
-
-function LabelUnder({
-  className,
-  ...props
-}: React.HTMLAttributes<HTMLDivElement>) {
-  return <BasicLabel className={cn(className, 'border-t')} {...props} />;
-}
-
-function BasicLabel({
-  children,
-  className,
-  ...props
-}: React.HTMLAttributes<HTMLDivElement>) {
-  return (
-    <div className={cn('text-xs uppercase', className)} {...props}>
-      {children}
     </div>
   );
 }
