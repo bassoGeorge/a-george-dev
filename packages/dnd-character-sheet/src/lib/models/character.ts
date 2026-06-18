@@ -1,5 +1,6 @@
 import type { Ability } from './abilities';
 import type { Attack } from './attacks';
+import type { CharacterClass } from './character-classes';
 import type { Feature } from './feature';
 import type { Skill } from './skills';
 import type { Spellcasting } from './spellcasting';
@@ -11,7 +12,7 @@ export interface Character {
   background: string;
 
   classes: {
-    class: string;
+    name: CharacterClass;
     subclass?: string;
     level: number;
   }[];
@@ -34,12 +35,6 @@ export interface Character {
     maximum: number;
     current?: number;
     temporary?: number;
-  };
-
-  // Hit dice
-  hitDice: {
-    dieType: 'd6' | 'd8' | 'd10' | 'd12';
-    total: number;
   };
 
   // Attacks

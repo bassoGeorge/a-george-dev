@@ -1,6 +1,7 @@
 import {
   Ability,
   type Character,
+  CharacterClass,
   Skill,
   StandardCharacterSheet,
 } from '@ageorgedev/dnd-character-sheet';
@@ -21,11 +22,11 @@ const OmarinData: Character = {
   size: 'Medium',
   classes: [
     {
-      class: 'Monk',
+      name: CharacterClass.Monk,
       level: 2,
     },
     {
-      class: 'Fighter',
+      name: CharacterClass.Fighter,
       level: 3,
       subclass: 'Battle master',
     },
@@ -52,10 +53,6 @@ const OmarinData: Character = {
   speed: 40,
   hitPoints: {
     maximum: 52,
-  },
-  hitDice: {
-    dieType: 'd8',
-    total: 5,
   },
   attacks: [
     {

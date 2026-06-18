@@ -29,7 +29,7 @@ function NameBlock() {
       <h1 className="col-span-2 text-3xl">{character.name}</h1>
       <NameField label="Background">{character.background}</NameField>
       <NameField label="Class">
-        {joinItems(character.classes, 'class')}
+        {joinItems(character.classes, 'name')}
       </NameField>
       <NameField label="Species">{character.species}</NameField>
       <NameField label="Subclass">
@@ -77,7 +77,7 @@ function ArmorBlock() {
 }
 
 function HealthAndDeathBlock() {
-  const { character } = useCharacter();
+  const { character, derived } = useCharacter();
   return (
     <Panel className="flex p-0" topRightCorner="scooped">
       <VerticalSubPanel className="py-2 px-3 grid grid-rows-[max-content_1fr] grid-cols-[1fr_max-content_1fr] gap-2 items-end">
@@ -95,8 +95,7 @@ function HealthAndDeathBlock() {
         <div>
           <LabelUnder className="mb-2">Spent</LabelUnder>
           <span className="text-md">
-            {character.hitDice.total}
-            {character.hitDice.dieType}
+            {derived.hitDice.map((d) => `${d.count}${d.dice}`).join(' + ')}
           </span>
           <LabelUnder>Max</LabelUnder>
         </div>

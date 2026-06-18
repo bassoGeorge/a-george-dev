@@ -6,12 +6,12 @@ export const exampleWizard: Character = {
   name: 'Seraphina Ashveil',
   classes: [
     {
-      class: 'Sorcerer',
+      name: 'Sorcerer',
       subclass: 'Wild Magic',
       level: 4,
     },
     {
-      class: 'Warlock',
+      name: 'Warlock',
       subclass: 'The Archfey',
       level: 3,
     },
@@ -45,11 +45,6 @@ export const exampleWizard: Character = {
   hitPoints: {
     maximum: 45,
     current: 45,
-  },
-
-  hitDice: {
-    dieType: 'd6',
-    total: 7,
   },
 
   attacks: [

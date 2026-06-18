@@ -9,6 +9,7 @@ export interface DerivedStats {
   passivePerception: number;
   initiative: number;
   characterLevel: number;
+  hitDice: { dice: string; count: number }[];
   spellSaveDC?: number;
   spellAttackBonus?: number;
 }

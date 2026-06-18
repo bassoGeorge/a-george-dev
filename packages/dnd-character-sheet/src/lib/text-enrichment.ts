@@ -10,7 +10,7 @@ export function enrichCharacterData(
   const dataValues = {
     level: {
       total: stats.characterLevel,
-      ...Object.fromEntries(character.classes.map((c) => [c.class, c.level])),
+      ...Object.fromEntries(character.classes.map((c) => [c.name, c.level])),
     },
   };
 

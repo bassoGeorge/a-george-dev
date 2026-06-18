@@ -32,6 +32,7 @@
   },
   "dependencies": {
     "@ageorgedev/toolbelt": "workspace:*",
-    "mustache": "4.2.0"
+    "mustache": "4.2.0",
+    "ramda": "0.32.0"
   }
 }

@@ -1,3 +1,5 @@
+import { groupBy, map, mapObjIndexed, pipe, reduce, toPairs } from 'ramda';
+import { HIT_DICE_TABLE } from './character-class-constants';
 import { Ability, ALL_ABILITIES } from './models/abilities';
 import type { Character } from './models/character';
 import type { DerivedStats } from './models/derived-stats';
@@ -63,6 +65,8 @@ export function calculateStats(character: Character): DerivedStats {
       }
     : {};
 
+  const hitDice = computeHitDice(character.classes);
+
   return {
     abilityModifiers,
     proficiencyBonus: profBonus,
@@ -71,6 +75,25 @@ export function calculateStats(character: Character): DerivedStats {
     initiative,
     passivePerception,
     characterLevel,
+    hitDice,
     ...spellcasting,
   };
 }
+
+// function hitDice(charClasses: Character['classes']) {
+//   return charClasses.map(({ name, level }) => ({
+//     count: level,
+//     dice: HIT_DICE_TABLE[name]
+//   }))
+// }
+
+const computeHitDice = pipe(
+  map((config: Character['classes'][number]) => ({
+    count: config.level,
+    dice: HIT_DICE_TABLE[config.name],
+  })),
+  groupBy(({ dice }) => dice),
+  mapObjIndexed(reduce((acc, { count }) => count + acc, 0)),
+  toPairs<number>,
+  map(([dice, count]) => ({ dice, count }))
+);

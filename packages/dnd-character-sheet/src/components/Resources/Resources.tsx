@@ -89,7 +89,7 @@ function resourceDigester(character: Character, stats: DerivedStats) {
       }
 
       case 'class-level': {
-        const cls = character.classes.find((c) => c.class === config.class);
+        const cls = character.classes.find((c) => c.name === config.class);
         if (!cls) {
           console.warn(
             `Resource ${resource.name} depends on class ${config.class} which the character doesn't have.`
