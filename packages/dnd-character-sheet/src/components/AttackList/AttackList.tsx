@@ -13,14 +13,14 @@ export function AttackList() {
   if (character.attacks.length === 0) return null;
 
   return (
-    <Panel>
+    <Panel bottomLeftCorner="scooped" bottomRightCorner="scooped">
       <PanelTitle className="mb-2">Weapons & Damage Cantrips</PanelTitle>
       <div className="mt-3">
         <table className="w-full">
           <thead>
             <tr className="border-b-2">
               <Th>Name</Th>
-              <Th>Atk Bonus / DC</Th>
+              <Th>Atk / DC</Th>
               <Th>Damage & Type</Th>
               <Th>Mastery</Th>
               <Th>Notes</Th>
@@ -45,12 +45,13 @@ export function AttackList() {
                   <Td>{formatDamage(attack.damage, damageBonus)}</Td>
                   {attack.masteryProperty ? (
                     <Td>
-                      <DiamondCheck /> &nbsp; {attack.masteryProperty}
+                      <DiamondCheck className="align-[-.1em]" /> &nbsp;{' '}
+                      {attack.masteryProperty}
                     </Td>
                   ) : (
-                    <Td>—</Td>
+                    <Td></Td>
                   )}
-                  <Td className="text-xs">{attack.notes ?? '—'}</Td>
+                  <Td className="text-xs">{attack.notes}</Td>
                 </tr>
               );
             })}
@@ -61,22 +62,26 @@ export function AttackList() {
   );
 }
 
-function Th({ children }: { children: React.ReactNode }) {
+function Th({
+  className,
+  ...props
+}: React.ThHTMLAttributes<HTMLTableCellElement>) {
   return (
-    <th className="px-3 py-1.5 text-left font-bold tracking-wider text-neutral-subdued text-sm">
-      {children}
-    </th>
+    <th
+      {...props}
+      className={cn(
+        'px-1 py-1.5 text-left font-bold tracking-wider uppercase text-neutral-subdued text-xs',
+        className
+      )}
+    />
   );
 }
 
 function Td({
-  children,
-  className = '',
-}: {
-  children: React.ReactNode;
-  className?: string;
-}) {
-  return <td className={cn('px-3 py-1.5', className)}>{children}</td>;
+  className,
+  ...props
+}: React.TdHTMLAttributes<HTMLTableCellElement>) {
+  return <td {...props} className={cn('px-1 py-1.5', className)} />;
 }
 
 function calcAttackBonus(

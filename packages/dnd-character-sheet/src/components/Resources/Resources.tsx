@@ -24,7 +24,7 @@ export function Resources() {
   }
 
   return (
-    <Panel>
+    <Panel topLeftCorner="scooped" topRightCorner="scooped">
       <PanelTitle>Resources</PanelTitle>
       <div className="columns-2 gap-4 mt-2">
         {resources.map((r) => (

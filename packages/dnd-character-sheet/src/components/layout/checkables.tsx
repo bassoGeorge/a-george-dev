@@ -9,7 +9,7 @@ export function CircleCheck({ className, ...props }: CheckableProps) {
 }
 
 export function DiamondCheck({ className, ...props }: CheckableProps) {
-  return <BaseCheck {...props} className={cn('rotate-45', className)} />;
+  return <BaseCheck {...props} className={cn('rotate-45 size-3', className)} />;
 }
 
 function BaseCheck({ checked = false, className, ...props }: CheckableProps) {
@@ -18,7 +18,7 @@ function BaseCheck({ checked = false, className, ...props }: CheckableProps) {
     <span
       {...props}
       className={cn(
-        'size-3.5 border flex-shrink-0 inline-block',
+        'size-3 border flex-shrink-0 flex-grow-0 inline-block',
         fill,
         className
       )}
