@@ -232,4 +232,35 @@ const OmarinData: Character = {
         'When making the extra attack of the Light property, you can add the modifier to the damage',
     },
   ],
+
+  spellcasting: {
+    ability: Ability.Wisdom,
+    spells: [
+      {
+        name: 'Faerie Fire',
+        level: 1,
+        castingTime: 'Action',
+        range: '60ft',
+        duration: '1min',
+        concentration: true,
+        alwaysPrepared: true,
+        freeUses: 1,
+      },
+      {
+        name: 'Darkness',
+        level: 2,
+        castingTime: 'Action',
+        range: '60ft',
+        duration: '10min',
+        concentration: true,
+        alwaysPrepared: true,
+        freeUses: 1,
+        notes: '15ft Sphere',
+      },
+    ],
+    slots: {
+      1: 0,
+      2: 0,
+    },
+  },
 };
