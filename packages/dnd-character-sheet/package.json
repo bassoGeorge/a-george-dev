@@ -23,6 +23,7 @@
   },
   "devDependencies": {
     "@ageorgedev/ts-config": "workspace:*",
+    "@types/mustache": "^4",
     "@types/react": "19.2.17",
     "@types/react-dom": "19.2.3",
     "concurrently": "10.0.3",
@@ -30,6 +31,7 @@
     "typescript": "5.8.3"
   },
   "dependencies": {
-    "@ageorgedev/toolbelt": "workspace:*"
+    "@ageorgedev/toolbelt": "workspace:*",
+    "mustache": "4.2.0"
   }
 }
