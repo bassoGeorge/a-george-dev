@@ -31,14 +31,14 @@ export function StandardCharacterSheet({ data }: Props) {
         <div className="grid grid-cols-3 gap-4 flex-1">
           <div className="col-span-1 flex flex-col gap-4">
             <div className="grid grid-cols-2 gap-2">
-              <div className="flex flex-col gap-2">
+              <div className="flex flex-col gap-2 justify-between">
                 <ProficiencyBlock />
                 <AbilityBox ability={Ability.Strength} />
                 <AbilityBox ability={Ability.Dexterity} />
                 <AbilityBox ability={Ability.Constitution} />
                 <HeroicInspiration />
               </div>
-              <div className="flex flex-col gap-2">
+              <div className="flex flex-col gap-2 justify-between">
                 <AbilityBox ability={Ability.Intelligence} />
                 <AbilityBox ability={Ability.Wisdom} />
                 <AbilityBox ability={Ability.Charisma} />

@@ -15,7 +15,7 @@ export function EquipmentTraining() {
   const { character } = useCharacter();
 
   return (
-    <Panel className={`overflow-hidden flex flex-col divide-y`}>
+    <Panel outerClasses="flex-1" className={`flex flex-col divide-y`}>
       <PanelTitle className="pb-2">
         Equipment Training & Proficiencies
       </PanelTitle>
@@ -34,12 +34,12 @@ export function EquipmentTraining() {
 
       <div className="py-3">
         <SectionTitle>Weapons</SectionTitle>
-        <p className="text-xs">{character.weaponProficiencies.join(', ')}</p>
+        <p className="text-sm">{character.weaponProficiencies.join(', ')}</p>
       </div>
 
       <div className="py-3">
         <SectionTitle>Tools</SectionTitle>
-        <p className="text-xs">{character.toolProficiencies.join(', ')}</p>
+        <p className="text-sm">{character.toolProficiencies.join(', ')}</p>
       </div>
     </Panel>
   );

@@ -11,7 +11,7 @@ export function Page({
       <div
         className={cn(
           styles.PageInner,
-          'max-w-[2048px] mx-auto px-6 font-heading flex flex-col',
+          'max-w-[2048px] mx-auto px-6 font-heading flex flex-col min-h-[100vh]',
           className
         )}
         {...props}

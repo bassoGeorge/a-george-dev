@@ -13,7 +13,7 @@ export function ProficiencyBlock() {
       bottomLeftCorner="scooped"
     >
       <PanelTitle>Proficiency Bonus</PanelTitle>
-      <div className="flex items-center justify-center py-4">
+      <div className="flex items-center justify-center py-3">
         <BigNumber>+{derived.proficiencyBonus}</BigNumber>
       </div>
     </Panel>
