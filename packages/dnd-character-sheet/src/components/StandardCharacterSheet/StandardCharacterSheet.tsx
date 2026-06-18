@@ -4,17 +4,17 @@ import { AbilityBox } from '../AbilityBox/AbilityBox';
 import { AttackList } from '../AttackList/AttackList';
 import { BackstoryBlock } from '../BackstoryBlock/BackstoryBlock';
 import { CharacterSheet } from '../CharacterSheet';
-import { ClassFeatures } from '../ClassFeatures/ClassFeatures';
 import { CombatRow } from '../CombatRow/CombatRow';
 import { EquipmentBlock } from '../EquipmentBlock/EquipmentBlock';
 import { EquipmentTraining } from '../EquipmentTraining/EquipmentTraining';
-import { Feats } from '../Feats/Feats';
+import { ClassFeatures } from '../feature-blocks/ClassFeatures';
+import { Feats } from '../feature-blocks/Feats';
+import { SpeciesTraits } from '../feature-blocks/SpeciesTraits';
 import { HeroicInspiration } from '../HeroicInspiration/HeroicInspiration';
 import { Page } from '../layout/Page';
 import { ProficiencyBlock } from '../ProficiencyBlock/ProficiencyBlock';
 import { Resources } from '../Resources/Resources';
 import { SheetHeader } from '../SheetHeader/SheetHeader';
-import { SpeciesTraits } from '../SpeciesTraits/SpeciesTraits';
 import { SpellcastingBlock } from '../SpellcastingBlock';
 
 interface Props {

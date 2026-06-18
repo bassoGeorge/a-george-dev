@@ -170,7 +170,7 @@ const OmarinData: Character = {
       description:
         'You learn manuevers that are fueled by Superiority Dice. Your Superiority Dice is a D8',
       resource: {
-        name: 'Superiority Dice',
+        name: 'Superiority Dice (d8)',
         count: { kind: 'fixed', value: 4 },
         refresh: { kind: 'any-rest' },
       },
