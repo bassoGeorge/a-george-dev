@@ -1,10 +1,21 @@
 import { cn } from '@ageorgedev/toolbelt/cn';
 import styles from './Page.module.css';
 
-export function Page({ children }: React.PropsWithChildren) {
+export function Page({
+  children,
+  className,
+  ...props
+}: React.HTMLAttributes<HTMLDivElement>) {
   return (
-    <div className={cn(styles.Page, 'bg-page-0 min-h-[100vh]')}>
-      <div className="max-w-[2048] mx-auto p-6 font-heading flex flex-col">
+    <div className={cn(styles.PageOuter, 'bg-page-0')}>
+      <div
+        className={cn(
+          styles.PageInner,
+          'max-w-[2048px] mx-auto px-6 font-heading flex flex-col',
+          className
+        )}
+        {...props}
+      >
         {children}
       </div>
     </div>

@@ -24,9 +24,11 @@ interface Props {
 export function StandardCharacterSheet({ data }: Props) {
   return (
     <CharacterSheet data={data}>
-      <Page>
+      <Page className="gap-6 pt-6">
+        {' '}
+        {/** Should not be margin here, for print reasons */}
         <SheetHeader />
-        <div className="grid grid-cols-3 gap-4 mt-6">
+        <div className="grid grid-cols-3 gap-4 flex-1">
           <div className="col-span-1 flex flex-col gap-4">
             <div className="grid grid-cols-2 gap-2">
               <div className="flex flex-col gap-2">
