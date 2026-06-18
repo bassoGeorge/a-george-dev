@@ -195,4 +195,41 @@ const OmarinData: Character = {
       },
     },
   ],
+  speciesTraits: [
+    {
+      name: 'Darkvision',
+      description: '120ft',
+    },
+    {
+      name: 'Fey Ancestry',
+      description:
+        'You have Advantage on saving throws you make to avoid or end the Charmed condition',
+    },
+    {
+      name: 'Keen Sense',
+      description: 'Proficiency in Perception skill',
+    },
+    {
+      name: 'Trance',
+      description:
+        "You don't need sleep and magic can't put you to sleep. You can finish a Long Rest in 4 hourse if you spend that time in a trance like state",
+    },
+    {
+      name: 'Elven Lineage',
+      description:
+        'You know the Faerie Fire, and Darkness spells. You can cast them once without a spell slot. Refresh on Long Rest. Wisdom is your spell-casting ability for this',
+    },
+  ],
+  feats: [
+    {
+      name: 'Tough',
+      description:
+        'Whenever you gain character levels, your Hit Point maximum increases by an additional 2 points',
+    },
+    {
+      name: 'Two-Weapon Fighting',
+      description:
+        'When making the extra attack of the Light property, you can add the modifier to the damage',
+    },
+  ],
 };
