@@ -1,10 +1,14 @@
 import { cn } from '@ageorgedev/toolbelt/cn';
 import { useMemo } from 'react';
-import { ABILITY_DETAILS } from '../../lib/models';
+import { ABILITY_DETAILS, type Spell } from '../../lib/models';
 import { formatMod } from '../../lib/utils';
 import { useCharacter } from '../CharacterSheet';
 import { BigNumber } from '../layout/BigNumber';
-import { EmptyCheckList } from '../layout/checkables';
+import {
+  CircleCheck,
+  DiamondCheck,
+  EmptyCheckList,
+} from '../layout/checkables';
 import { HorizontalDivider } from '../layout/dividers';
 import { LabelUnder } from '../layout/labels';
 import { Panel, type PanelProps } from '../layout/Panel';
@@ -12,9 +16,12 @@ import { PanelTitle } from '../layout/PanelTitle';
 
 export function SpellcastingBlock() {
   return (
-    <div className="flex gap-3 items-end">
-      <SpellAbilityPanel />
-      <SpellSlotsPanel />
+    <div className="flex flex-col gap-3 h-full">
+      <div className="flex gap-3 items-end">
+        <SpellAbilityPanel />
+        <SpellSlotsPanel />
+      </div>
+      <SpellListAsTable />
     </div>
   );
 }
@@ -58,8 +65,9 @@ function SpellAbilityPanel(props: PanelProps) {
 }
 
 function SpellSlotsPanel(props: PanelProps) {
-  const { character } = useCharacter();
-  const { spellcasting } = character;
+  const {
+    character: { spellcasting },
+  } = useCharacter();
 
   const allSlots = useMemo(() => {
     const spellSlots = spellcasting?.slots
@@ -132,45 +140,144 @@ function SpellSlotsPanel(props: PanelProps) {
   );
 }
 
-// export function SpellcastingBlock() {
-//   const { character } = useCharacter();
-//   const { spellcasting } = character;
-//   if (!spellcasting) return null;
+function SpellListAsTable() {
+  const {
+    character: { spellcasting },
+  } = useCharacter();
 
-//   // Collect all levels that have spells or defined slots
-//   const spellsByLevel = new Map<number, Spell[]>();
+  const totalRows = 38; // Eyeballed for typical a4 size
+  const emptyRows = totalRows - (spellcasting?.spells.length ?? 0);
 
-//   for (const spell of spellcasting.spells) {
-//     const bucket = spellsByLevel.get(spell.level) ?? [];
-//     bucket.push(spell);
-//     spellsByLevel.set(spell.level, bucket);
-//   }
+  return (
+    <Panel outerClasses="flex-1">
+      <PanelTitle>Spells</PanelTitle>
+      <HorizontalDivider className="mt-2 my-3" />
+      <table className="w-full">
+        <thead>
+          <tr>
+            <Th>Prep</Th>
+            <Th>Level</Th>
+            <Th>&nbsp; Name</Th>
+            <Th>Casting Time</Th>
+            <Th>Range</Th>
+            <Th>Duration</Th>
+            <Th>Concentration, Ritual & Material consumed</Th>
+            <Th>Notes</Th>
+          </tr>
+        </thead>
+        <tbody>
+          {spellcasting?.spells.map((spell) => (
+            <SpellTableRow spell={spell} key={spell.name} />
+          ))}
+          {Array.from({ length: emptyRows }, (_, i) => (
+            // biome-ignore lint/suspicious/noArrayIndexKey: not required for this
+            <EmptyRow key={i} />
+          ))}
+        </tbody>
+      </table>
+    </Panel>
+  );
+}
 
-//   // Ensure levels with slots but no spells still appear
-//   if (spellcasting.slots) {
-//     for (const levelStr of Object.keys(spellcasting.slots)) {
-//       const level = Number(levelStr);
-//       if (!spellsByLevel.has(level)) {
-//         spellsByLevel.set(level, []);
-//       }
-//     }
-//   }
+function EmptyRow() {
+  return (
+    <tr className="border-b border-b-neutral-disabled">
+      <Td className="border-l-0" />
+      <Td className="text-sm">&nbsp;</Td> {/* Adds the text height required */}
+      <Td />
+      <Td />
+      <Td />
+      <Td />
+      <Td className="w-[16ch]">
+        <span className="inline-block mr-2">
+          <DiamondCheck /> C
+        </span>
+        <span className="inline-block mr-2">
+          <DiamondCheck /> R
+        </span>
+        <span className="inline-block">
+          <DiamondCheck /> M
+        </span>
+      </Td>
+      <Td className="border-r-0" />
+    </tr>
+  );
+}
 
-//   const sortedLevels = [...spellsByLevel.keys()].sort((a, b) => a - b);
+function SpellTableRow({ spell }: { spell: Spell }) {
+  return (
+    <tr className="border-b border-b-neutral-disabled">
+      <Td className="w-[3ch] border-l-0">
+        {spell.alwaysPrepared ? (
+          <span className="italic text-neutral-subdued font-interface">AP</span>
+        ) : (
+          <CircleCheck className="align-[-.1em]" />
+        )}
+      </Td>
+      <Td className="w-[2ch] text-sm">{spell.level}</Td>
+      <Td>
+        <div className="flex justify-between align-baseline">
+          <span className="text-sm">{spell.name}</span>
 
-//   return (
-//     <Panel className={`overflow-hidden`}>
-//       <PanelTitle className="px-3 py-1.5">Spellcasting</PanelTitle>
-//       <SpellcastingHeader />
-//       <div>
-//         {sortedLevels.map((level) => (
-//           <SpellLevelSection
-//             key={level}
-//             level={level}
-//             spells={spellsByLevel.get(level) ?? []}
-//           />
-//         ))}
-//       </div>
-//     </Panel>
-//   );
-// }
+          {!!spell.freeUses && (
+            <span>
+              <em className="text-neutral-subdued">free x{spell.freeUses}</em>{' '}
+              <EmptyCheckList
+                className="align-[-.2em]"
+                count={spell.freeUses}
+              />{' '}
+              &nbsp;
+            </span>
+          )}
+        </div>
+      </Td>
+      <Td className="w-[10ch]">{spell.castingTime}</Td>
+      <Td className="w-[8ch]">{spell.range}</Td>
+      <Td className="w-[8ch]">{spell.duration}</Td>
+      <Td className="w-[18ch]">
+        <span className="inline-block mr-2">
+          <DiamondCheck checked={spell.concentration} /> C
+        </span>
+        <span className="inline-block mr-2">
+          <DiamondCheck checked={spell.ritual} /> R
+        </span>
+        <span className="inline-block">
+          <DiamondCheck /> M
+        </span>
+      </Td>
+      {/* TODO: components */}
+      {/* TODO: Alternative ability */}
+      <Td className="border-r-0">{spell.notes}</Td>
+    </tr>
+  );
+}
+
+function Th({
+  className,
+  ...props
+}: React.ThHTMLAttributes<HTMLTableCellElement>) {
+  return (
+    <th
+      {...props}
+      className={cn(
+        'text-xs font-interface text-neutral-subdued text-left pb-2 leading-3',
+        className
+      )}
+    />
+  );
+}
+
+function Td({
+  className,
+  ...props
+}: React.ThHTMLAttributes<HTMLTableCellElement>) {
+  return (
+    <td
+      {...props}
+      className={cn(
+        'border-x border-neutral-disabled px-2 py-1 text-xs',
+        className
+      )}
+    />
+  );
+}

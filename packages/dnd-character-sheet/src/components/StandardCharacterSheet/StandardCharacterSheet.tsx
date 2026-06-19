@@ -61,7 +61,7 @@ export function StandardCharacterSheet({ data }: Props) {
       </Page>
 
       <Page>
-        <div className="grid grid-cols-3 gap-4 mt-4">
+        <div className="grid grid-cols-3 gap-4 mt-4 flex-1">
           <div className="col-span-2">
             {data.spellcasting && <SpellcastingBlock />}
           </div>

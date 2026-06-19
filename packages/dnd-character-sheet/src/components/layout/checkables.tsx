@@ -9,7 +9,12 @@ export function CircleCheck({ className, ...props }: CheckableProps) {
 }
 
 export function DiamondCheck({ className, ...props }: CheckableProps) {
-  return <BaseCheck {...props} className={cn('rotate-45 size-3', className)} />;
+  return (
+    <BaseCheck
+      {...props}
+      className={cn('rotate-45 size-2.5 mx-0.5', className)}
+    />
+  );
 }
 
 function BaseCheck({ checked = false, className, ...props }: CheckableProps) {
@@ -44,10 +49,9 @@ export function EmptyCheckList({
   kind?: 'circle' | 'diamond';
 }) {
   const Comp = kind === 'circle' ? CircleCheck : DiamondCheck;
-  const gapClass = kind === 'circle' ? 'gap-1' : 'gap-2'; // Diamonds need a bit more space for visually same space
 
   return (
-    <div className={cn('inline-flex', gapClass, className)} {...props}>
+    <div className={cn('inline-flex gap-1', className)} {...props}>
       {Array.from({ length: count }, (_, i) => (
         // biome-ignore lint/suspicious/noArrayIndexKey: Empty checkboxes, will be fine
         <Comp key={i} />
