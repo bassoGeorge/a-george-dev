@@ -235,10 +235,6 @@ const OmarinData: Character = {
 
   spellcasting: {
     ability: Ability.Wisdom,
-    pactMagic: {
-      level: 3,
-      slots: 2,
-    },
     spells: [
       {
         name: 'Faerie Fire',
@@ -262,16 +258,8 @@ const OmarinData: Character = {
         notes: '15ft Sphere',
       },
     ],
-    slots: {
-      1: 4,
-      2: 3,
-      3: 3,
-      4: 3,
-      5: 3,
-      6: 2,
-      7: 2,
-      8: 1,
-      9: 1,
-    },
+    slots: {},
+    numberOfCantrips: 0,
+    numberOfPreparedSpells: 0,
   },
 };
