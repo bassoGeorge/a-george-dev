@@ -9,6 +9,7 @@
 @media print {
   .PageInner {
     @apply py-6;
-    min-height: 100vh;
+    height: 100vh;
+    overflow: hidden;
   }
 }

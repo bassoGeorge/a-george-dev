@@ -15,7 +15,7 @@ import { Page } from '../layout/Page';
 import { ProficiencyBlock } from '../ProficiencyBlock/ProficiencyBlock';
 import { Resources } from '../Resources/Resources';
 import { SheetHeader } from '../SheetHeader/SheetHeader';
-import { SpellcastingBlock } from '../SpellcastingBlock';
+import { SpellcastingBlock } from '../SpellcastingBlock/SpellcastingBlock';
 
 interface Props {
   data: Character;
@@ -62,7 +62,7 @@ export function StandardCharacterSheet({ data }: Props) {
 
       <Page>
         <div className="grid grid-cols-3 gap-4 mt-4 flex-1">
-          <div className="col-span-2">
+          <div className="col-span-2 h-full">
             {data.spellcasting && <SpellcastingBlock />}
           </div>
           <div className="flex flex-col gap-4">
