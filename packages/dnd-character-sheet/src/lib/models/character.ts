@@ -18,7 +18,7 @@ export interface Character {
   }[];
 
   alignment?: string;
-  experiencePoints: number;
+  experiencePoints?: number;
 
   // Ability scores
   abilities: Record<Ability, number>;
@@ -42,13 +42,6 @@ export interface Character {
 
   // Equipment
   equipment: string[];
-  currency: {
-    cp: number;
-    sp: number;
-    ep: number;
-    gp: number;
-    pp: number;
-  };
 
   // Features
   features: Feature[];

@@ -93,14 +93,7 @@ const OmarinData: Character = {
       notes: 'Ammo (80/20, Bolt), Loading, 2-handed',
     },
   ],
-  equipment: [],
-  currency: {
-    cp: 0,
-    sp: 0,
-    ep: 0,
-    gp: 0,
-    pp: 0,
-  },
+  equipment: ['Bedroll, Backpack, Lantern', 'Flasks of oil (x4)'],
   armorProficiencies: ['Light armor', 'Medium armor', 'Shields'],
   weaponProficiencies: [
     'Simple',

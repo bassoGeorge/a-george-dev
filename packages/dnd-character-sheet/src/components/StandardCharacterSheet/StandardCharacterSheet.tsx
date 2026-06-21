@@ -3,14 +3,15 @@ import type { Character } from '../../lib/models/character';
 import { AbilityBox } from '../AbilityBox/AbilityBox';
 import { AttackList } from '../AttackList/AttackList';
 import { CharacterSheet } from '../CharacterSheet';
+import { CoinBlock } from '../CoinBlock/CoinBlock';
 import { CombatRow } from '../CombatRow/CombatRow';
-import { EquipmentBlock } from '../EquipmentBlock/EquipmentBlock';
 import { EquipmentTraining } from '../EquipmentTraining/EquipmentTraining';
 import { ClassFeatures } from '../feature-blocks/ClassFeatures';
 import { Feats } from '../feature-blocks/Feats';
 import { SpeciesTraits } from '../feature-blocks/SpeciesTraits';
 import { GenericPanel } from '../GenericPanel/GenericPanel';
 import { HeroicInspiration } from '../HeroicInspiration/HeroicInspiration';
+import { Inventory } from '../Inventory/Inventory';
 import { Page } from '../layout/Page';
 import { ProficiencyBlock } from '../ProficiencyBlock/ProficiencyBlock';
 import { Resources } from '../Resources/Resources';
@@ -76,7 +77,8 @@ export function StandardCharacterSheet({ data }: Props) {
               htmlContent={data.backstory ?? ''}
               outerClasses="min-h-[15em]"
             />
-            <EquipmentBlock />
+            <Inventory outerClasses="flex-1" />
+            <CoinBlock />
           </div>
         </div>
       </Page>

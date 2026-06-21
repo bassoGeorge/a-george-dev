@@ -41,6 +41,11 @@ export function EquipmentTraining() {
         <SectionTitle>Tools</SectionTitle>
         <p className="text-sm">{character.toolProficiencies.join(', ')}</p>
       </div>
+
+      <div className="py-3">
+        <SectionTitle>Languages</SectionTitle>
+        <p className="text-sm">{character.languages.join(', ') || 'Common'}</p>
+      </div>
     </Panel>
   );
 }
