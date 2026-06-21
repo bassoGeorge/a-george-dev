@@ -119,7 +119,7 @@ const OmarinData: Character = {
     {
       name: 'Martial Arts',
       description:
-        'On using only monk weapons, wearing no armor, and holding no shield, you gain the following benefits. 1) Unarmed strikes as Bonus Actions 2) Can use Dex. modifier for attacks and damage rolls; 1d6 instead of normal damage -- for unarmed strikes and Monk weapons',
+        'On using only monk weapons, wearing no armor, and holding no shield, you gain the following benefits. <ol><li>Unarmed strikes as Bonus Actions</li><li>Can use Dex. modifier for attacks and damage rolls; 1d6 instead of normal damage -- for unarmed strikes and Monk weapons</li></ol>',
     },
     {
       name: 'Unarmored Defence + Movement',

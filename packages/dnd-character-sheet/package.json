@@ -32,6 +32,7 @@
   },
   "dependencies": {
     "@ageorgedev/toolbelt": "workspace:*",
+    "dompurify": "3.4.11",
     "mustache": "4.2.0",
     "ramda": "0.32.0"
   }
