@@ -62,12 +62,13 @@ export function StandardCharacterSheet({ data }: Props) {
       </Page>
 
       <Page>
-        <div className="grid grid-cols-3 gap-4 mt-4 flex-1">
-          <div className="col-span-2 h-full">
+        <div className="grid grid-cols-7 gap-4 mt-4 flex-1">
+          <div className="col-span-5 h-full">
             {data.spellcasting && <SpellcastingBlock />}
           </div>
-          <div className="flex flex-col gap-4">
+          <div className="col-span-2 flex flex-col gap-4">
             <GenericPanel
+              topRightCorner="scooped"
               heading="Appearance"
               htmlContent={data.appearance ?? ''}
               outerClasses="min-h-[12em]"
@@ -78,7 +79,7 @@ export function StandardCharacterSheet({ data }: Props) {
               outerClasses="min-h-[15em]"
             />
             <Inventory outerClasses="flex-1" />
-            <CoinBlock />
+            <CoinBlock bottomRightCorner="scooped" />
           </div>
         </div>
       </Page>
