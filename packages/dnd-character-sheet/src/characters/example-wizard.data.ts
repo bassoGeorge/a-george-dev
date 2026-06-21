@@ -136,16 +136,6 @@ export const exampleWizard: Character = {
   toolProficiencies: ["Calligrapher's Supplies"],
   languages: ['Common', 'Elvish', 'Draconic', 'Sylvan'],
 
-  personality: {
-    traits:
-      'I use polysyllabic words that convey the impression of great erudition.',
-    ideals:
-      'Knowledge. The path to power and self-improvement is through knowledge.',
-    bonds:
-      "My life's work is a series of tomes related to the history of magic.",
-    flaws: 'I overlook obvious solutions in favour of complicated ones.',
-  },
-
   backstory:
     "Seraphina studied at the Arcane Academy for fifteen years before striking out on her own to research the ancient Ashveil bloodline's connection to the Weave.",
 

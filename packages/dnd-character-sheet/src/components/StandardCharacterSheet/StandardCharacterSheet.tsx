@@ -2,7 +2,6 @@ import { Ability } from '../../lib/models/abilities';
 import type { Character } from '../../lib/models/character';
 import { AbilityBox } from '../AbilityBox/AbilityBox';
 import { AttackList } from '../AttackList/AttackList';
-import { BackstoryBlock } from '../BackstoryBlock/BackstoryBlock';
 import { CharacterSheet } from '../CharacterSheet';
 import { CombatRow } from '../CombatRow/CombatRow';
 import { EquipmentBlock } from '../EquipmentBlock/EquipmentBlock';
@@ -10,6 +9,7 @@ import { EquipmentTraining } from '../EquipmentTraining/EquipmentTraining';
 import { ClassFeatures } from '../feature-blocks/ClassFeatures';
 import { Feats } from '../feature-blocks/Feats';
 import { SpeciesTraits } from '../feature-blocks/SpeciesTraits';
+import { GenericPanel } from '../GenericPanel/GenericPanel';
 import { HeroicInspiration } from '../HeroicInspiration/HeroicInspiration';
 import { Page } from '../layout/Page';
 import { ProficiencyBlock } from '../ProficiencyBlock/ProficiencyBlock';
@@ -66,7 +66,16 @@ export function StandardCharacterSheet({ data }: Props) {
             {data.spellcasting && <SpellcastingBlock />}
           </div>
           <div className="flex flex-col gap-4">
-            <BackstoryBlock />
+            <GenericPanel
+              heading="Appearance"
+              htmlContent={data.appearance ?? ''}
+              outerClasses="min-h-[12em]"
+            />
+            <GenericPanel
+              heading="Backstory & Personality"
+              htmlContent={data.backstory ?? ''}
+              outerClasses="min-h-[15em]"
+            />
             <EquipmentBlock />
           </div>
         </div>

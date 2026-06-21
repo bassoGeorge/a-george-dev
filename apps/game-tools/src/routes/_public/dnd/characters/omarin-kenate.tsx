@@ -109,12 +109,6 @@ const OmarinData: Character = {
   ],
   toolProficiencies: ["Tinker's Tools", "Carpenter's Tools"],
   languages: [],
-  personality: {
-    traits: '',
-    ideals: '',
-    bonds: '',
-    flaws: '',
-  },
   features: [
     {
       name: 'Martial Arts',
@@ -262,4 +256,9 @@ const OmarinData: Character = {
     numberOfCantrips: 0,
     numberOfPreparedSpells: 0,
   },
+
+  backstory: `
+  <p>This is the story of Omarin</p>
+  <p><strong>Early years</strong> Had a lot of fun</p>
+  `,
 };

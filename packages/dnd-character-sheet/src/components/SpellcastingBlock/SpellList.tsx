@@ -22,7 +22,7 @@ export function SpellList() {
   return (
     <Panel outerClasses="flex-1 h-full" className="overflow-hidden">
       <PanelTitle>Spells</PanelTitle>
-      <HorizontalDivider className="mt-2 my-3" />
+      <HorizontalDivider className="mt-1 mb-3" />
       <table className="w-full">
         <thead>
           <tr>

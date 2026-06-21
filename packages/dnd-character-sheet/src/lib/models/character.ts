@@ -64,17 +64,9 @@ export interface Character {
   toolProficiencies: string[];
   languages: string[];
 
-  // Personality
-  personality: {
-    traits: string;
-    ideals: string;
-    bonds: string;
-    flaws: string;
-  };
-
   // Freeform
   backstory?: string;
-  notes?: string;
+  appearance?: string;
 
   // Spellcasting
   spellcasting?: Spellcasting;
