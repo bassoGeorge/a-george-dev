@@ -33,7 +33,7 @@ jobs:
           AFFECTED: ${{ steps.affected_projects.outputs.affected_projects }}
           SITE_PROJECT: ${{ vars.VERCEL_PROJECT_AGEORGEDEV }}
           DESIGN_PROJECT: ${{ vars.VERCEL_PROJECT_DESIGN_SYSTEM }}
-          GAME_TOOLS_RPOJECT: ${{ vars.VERCEL_PROJECT_GAME_TOOLS }}
+          GAME_TOOLS_PROJECT: ${{ vars.VERCEL_PROJECT_GAME_TOOLS }}
         run: |
           matrix=$(echo "$AFFECTED" | jq -c '
             . as $p |
@@ -55,7 +55,7 @@ jobs:
           AFFECTED: ${{ steps.affected_projects.outputs.affected_projects }}
           SITE_PROJECT: ${{ vars.VERCEL_PROJECT_AGEORGEDEV }}
           DESIGN_PROJECT: ${{ vars.VERCEL_PROJECT_DESIGN_SYSTEM }}
-          GAME_TOOLS_RPOJECT: ${{ vars.VERCEL_PROJECT_GAME_TOOLS }}
+          GAME_TOOLS_PROJECT: ${{ vars.VERCEL_PROJECT_GAME_TOOLS }}
         run: |
           matrix=$(echo "$AFFECTED" | jq -c '
             . as $p |
