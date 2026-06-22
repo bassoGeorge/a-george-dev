@@ -79,13 +79,6 @@ export const exampleWizard: Character = {
     'Dagger',
     'Robes',
   ],
-  currency: {
-    cp: 0,
-    sp: 0,
-    ep: 0,
-    gp: 120,
-    pp: 0,
-  },
 
   features: [
     {

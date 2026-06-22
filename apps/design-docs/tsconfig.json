@@ -3,6 +3,7 @@
   "include": ["stories"],
   "exclude": ["node_modules", "dist", "storybook-static"],
   "compilerOptions": {
+    "rootDir": "./stories",
     "outDir": "dist"
   }
 }
