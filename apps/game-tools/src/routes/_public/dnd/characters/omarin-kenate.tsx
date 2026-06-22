@@ -251,7 +251,11 @@ const OmarinData: Character = {
 export const Route = createFileRoute('/_public/dnd/characters/omarin-kenate')({
   component: RouteComponent,
   staticData: {
-    name: OmarinData.name,
+    character: {
+      name: OmarinData.name,
+      level: OmarinData.classes.reduce((acc, { level }) => acc + level, 0),
+      description: 'Drow battle master with inner peace',
+    },
   },
 });
 

@@ -15,26 +15,39 @@ function RouteComponent() {
 
   const allCharacters = useMemo(() => {
     const currentId = currentRouteMatch.routeId;
-    return Object.values(router.routesById).filter(
-      (o) => o.id.startsWith(currentId) && o.id !== currentId
-    ) as RouteType[];
+    return (
+      Object.values(router.routesById).filter(
+        (o) => o.id.startsWith(currentId) && o.id !== currentId
+      ) as RouteType[]
+    ).filter((r) => r.options.staticData?.character);
   }, [router.routesById, currentRouteMatch.routeId]);
 
   return (
     <div className="p-8">
-      <h1 className="text-2xl font-bold mb-8">Characters</h1>
+      <h1 className="text-2xl font-bold mb-8 text-center">Characters</h1>
 
-      {allCharacters.map(({ Link, ...r }) => (
-        <Link
-          key={r.originalIndex}
-          className="block border border-border rounded-lg p-4 hover:bg-accent transition-colors w-fit"
-        >
-          <p className="font-medium">
-            {r.options.staticData?.name ?? 'Character NAME'}
-          </p>
-          <p className="text-sm text-muted-foreground mt-1">TODO</p>
-        </Link>
-      ))}
+      <div className="flex flex-col items-center gap-3 text-center">
+        {allCharacters.map(({ Link, ...r }) => {
+          const characterInfo = r.options.staticData?.character;
+          if (!characterInfo) {
+            return null;
+          }
+
+          return (
+            <Link
+              key={r.originalIndex}
+              className="block border border-border rounded-lg p-4 hover:bg-accent transition-colors w-fit bg-page-1 hover:bg-page-2"
+            >
+              <p className="font-bold text-neutral-strong text-md">
+                {characterInfo.name}
+              </p>
+              <p className="text text-neutral-subdued mt-1">
+                Level {characterInfo.level} - {characterInfo.description}
+              </p>
+            </Link>
+          );
+        })}
+      </div>
     </div>
   );
 }

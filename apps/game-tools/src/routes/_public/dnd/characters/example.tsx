@@ -4,7 +4,11 @@ import { createFileRoute } from '@tanstack/react-router';
 export const Route = createFileRoute('/_public/dnd/characters/example')({
   component: RouteComponent,
   staticData: {
-    name: 'Example',
+    character: {
+      name: 'Seraphina Ashveil',
+      description: 'Just an example wizard',
+      level: 7,
+    },
   },
 });
 
