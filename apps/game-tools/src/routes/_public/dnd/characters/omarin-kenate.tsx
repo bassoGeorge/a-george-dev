@@ -7,14 +7,6 @@ import {
 } from '@ageorgedev/dnd-character-sheet';
 import { createFileRoute } from '@tanstack/react-router';
 
-export const Route = createFileRoute('/_public/dnd/characters/omarin-kenate')({
-  component: RouteComponent,
-});
-
-function RouteComponent() {
-  return <StandardCharacterSheet data={OmarinData} />;
-}
-
 const OmarinData: Character = {
   name: 'Omarin Kenate',
   species: 'Drow Elf',
@@ -255,3 +247,14 @@ const OmarinData: Character = {
   <p><strong>Early years</strong> Had a lot of fun</p>
   `,
 };
+
+export const Route = createFileRoute('/_public/dnd/characters/omarin-kenate')({
+  component: RouteComponent,
+  staticData: {
+    name: OmarinData.name,
+  },
+});
+
+function RouteComponent() {
+  return <StandardCharacterSheet data={OmarinData} />;
+}
