@@ -1,5 +1,5 @@
-import type { Meta, StoryObj } from '@storybook/react-vite'
-import { Text } from './Text'
+import type { Meta, StoryObj } from '@storybook/react-vite';
+import { Text } from './Text';
 import {
   Body,
   BodyLg,
@@ -24,7 +24,7 @@ import {
   PBodyMd,
   PBodySm,
   PBodyXs,
-} from './typography-components'
+} from './typography-components';
 
 export default {
   title: 'Atoms/Typography',
@@ -63,9 +63,9 @@ export default {
       options: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'span', 'div'],
     },
   },
-} satisfies Meta<typeof Text>
+} satisfies Meta<typeof Text>;
 
-type Story = StoryObj<typeof Text>
+type Story = StoryObj<typeof Text>;
 
 export const Headings: Story = {
   render: () => (
@@ -78,7 +78,7 @@ export const Headings: Story = {
       <Heading6>Heading Level 6</Heading6>
     </div>
   ),
-}
+};
 
 export const BodyText: Story = {
   render: () => (
@@ -91,7 +91,7 @@ export const BodyText: Story = {
       <BodyXs>Body Extra Small Text</BodyXs>
     </div>
   ),
-}
+};
 
 export const InterfaceText: Story = {
   render: () => (
@@ -116,7 +116,7 @@ export const InterfaceText: Story = {
       </div>
     </div>
   ),
-}
+};
 
 export const ParagraphText: Story = {
   render: () => (
@@ -147,7 +147,7 @@ export const ParagraphText: Story = {
       </PBodyXs>
     </div>
   ),
-}
+};
 
 export const TextWithCustomTag: Story = {
   render: () => (
@@ -169,7 +169,7 @@ export const TextWithCustomTag: Story = {
       </div>
     </div>
   ),
-}
+};
 
 export const InteractiveExample: Story = {
   args: {
@@ -177,4 +177,4 @@ export const InteractiveExample: Story = {
     children:
       'This is an interactive example. Try changing the variant and tag!',
   },
-}
+};

@@ -1,10 +1,10 @@
-import { useCharacter } from '../CharacterSheet'
-import { BigNumber } from '../layout/BigNumber'
-import { Panel } from '../layout/Panel'
-import { PanelTitle } from '../layout/PanelTitle'
+import { useCharacter } from '../CharacterSheet';
+import { BigNumber } from '../layout/BigNumber';
+import { Panel } from '../layout/Panel';
+import { PanelTitle } from '../layout/PanelTitle';
 
 export function ProficiencyBlock() {
-  const { derived } = useCharacter()
+  const { derived } = useCharacter();
 
   return (
     <Panel
@@ -13,9 +13,9 @@ export function ProficiencyBlock() {
       bottomLeftCorner="scooped"
     >
       <PanelTitle>Proficiency Bonus</PanelTitle>
-      <div className="flex items-center justify-center py-4">
+      <div className="flex items-center justify-center py-3">
         <BigNumber>+{derived.proficiencyBonus}</BigNumber>
       </div>
     </Panel>
-  )
+  );
 }

@@ -1,11 +1,11 @@
-import { cn } from '@ageorgedev/toolbelt/cn'
-import { useCharacter } from '../CharacterSheet'
-import { BigNumber } from '../layout/BigNumber'
-import { DiamondCheck } from '../layout/checkables'
-import { VerticalDivider } from '../layout/dividers'
-import { Panel } from '../layout/Panel'
-import { PanelTitle } from '../layout/PanelTitle'
-import { VerticalSubPanel } from '../layout/SubPanel'
+import { useCharacter } from '../CharacterSheet';
+import { BigNumber } from '../layout/BigNumber';
+import { DiamondCheck, EmptyCheckList } from '../layout/checkables';
+import { VerticalDivider } from '../layout/dividers';
+import { BasicLabel, LabelUnder } from '../layout/labels';
+import { Panel } from '../layout/Panel';
+import { PanelTitle } from '../layout/PanelTitle';
+import { VerticalSubPanel } from '../layout/SubPanel';
 
 export function SheetHeader() {
   return (
@@ -15,11 +15,11 @@ export function SheetHeader() {
       <ArmorBlock />
       <HealthAndDeathBlock />
     </div>
-  )
+  );
 }
 
 function NameBlock() {
-  const { character } = useCharacter()
+  const { character } = useCharacter();
   return (
     <Panel
       outerClasses="flex-1"
@@ -28,28 +28,34 @@ function NameBlock() {
     >
       <h1 className="col-span-2 text-3xl">{character.name}</h1>
       <NameField label="Background">{character.background}</NameField>
-      <NameField label="Class">{character.class}</NameField>
+      <NameField label="Class">
+        {joinItems(character.classes, 'name')}
+      </NameField>
       <NameField label="Species">{character.species}</NameField>
-      <NameField label="Subclass">{character.subclass}</NameField>
+      <NameField label="Subclass">
+        {joinItems(character.classes, 'subclass')}
+      </NameField>
     </Panel>
-  )
+  );
 }
 
 function LevelBlock() {
-  const { character } = useCharacter()
+  const { character } = useCharacter();
 
   return (
     <div className="align-self-stretch flex flex-col gap-1 border-[3px] border-neutral-subdued bg-white items-center py-3 px-6 rounded-full my-2 bg-page-4">
-      <BigNumber>{character.level}</BigNumber>
+      <BigNumber>
+        {character.classes.reduce((total, cls) => total + cls.level, 0)}
+      </BigNumber>
       <LabelUnder className="text-center">Level</LabelUnder>
       <div className="flex-1"></div>
       <LabelUnder className="text-center w-full">Xp</LabelUnder>
     </div>
-  )
+  );
 }
 
 function ArmorBlock() {
-  const { character } = useCharacter()
+  const { character } = useCharacter();
 
   return (
     <Panel
@@ -67,11 +73,11 @@ function ArmorBlock() {
       <BasicLabel className="mb-1">Shield</BasicLabel>
       <DiamondCheck />
     </Panel>
-  )
+  );
 }
 
 function HealthAndDeathBlock() {
-  const { character } = useCharacter()
+  const { character, derived } = useCharacter();
   return (
     <Panel className="flex p-0" topRightCorner="scooped">
       <VerticalSubPanel className="py-2 px-3 grid grid-rows-[max-content_1fr] grid-cols-[1fr_max-content_1fr] gap-2 items-end">
@@ -89,8 +95,7 @@ function HealthAndDeathBlock() {
         <div>
           <LabelUnder className="mb-2">Spent</LabelUnder>
           <span className="text-md">
-            {character.hitDice.total}
-            {character.hitDice.dieType}
+            {derived.hitDice.map((d) => `${d.count}${d.dice}`).join(' + ')}
           </span>
           <LabelUnder>Max</LabelUnder>
         </div>
@@ -102,24 +107,16 @@ function HealthAndDeathBlock() {
           Saves
         </PanelTitle>
         <div>
-          <div className="flex gap-2 mb-1">
-            <DiamondCheck />
-            <DiamondCheck />
-            <DiamondCheck />
-          </div>
+          <EmptyCheckList count={3} kind="diamond" className="mb-1" />
           <BasicLabel>Successes</BasicLabel>
         </div>
         <div>
-          <div className="flex gap-2 mb-1">
-            <DiamondCheck />
-            <DiamondCheck />
-            <DiamondCheck />
-          </div>
+          <EmptyCheckList count={3} kind="diamond" className="mb-1" />
           <BasicLabel>Failures</BasicLabel>
         </div>
       </VerticalSubPanel>
     </Panel>
-  )
+  );
 }
 
 /** Smaller utils */
@@ -128,32 +125,23 @@ function NameField({
   label,
   children,
 }: {
-  label: string
-  children: React.ReactNode
+  label: string;
+  children: React.ReactNode;
 }) {
   return (
     <div className="flex flex-col">
       <span className="text-md font-semibold">{children}</span>
       <LabelUnder>{label}</LabelUnder>
     </div>
-  )
+  );
 }
 
-function LabelUnder({
-  className,
-  ...props
-}: React.HTMLAttributes<HTMLDivElement>) {
-  return <BasicLabel className={cn(className, 'border-t')} {...props} />
-}
-
-function BasicLabel({
-  children,
-  className,
-  ...props
-}: React.HTMLAttributes<HTMLDivElement>) {
-  return (
-    <div className={cn('text-xs uppercase', className)} {...props}>
-      {children}
-    </div>
-  )
+function joinItems<
+  T extends Record<string, string | number | undefined>,
+  K extends keyof T,
+>(items: T[], key: K) {
+  return items
+    .map((item) => item[key])
+    .filter((value) => value != null)
+    .join(' / ');
 }

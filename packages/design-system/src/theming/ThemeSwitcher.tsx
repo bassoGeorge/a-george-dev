@@ -1,16 +1,16 @@
-'use client'
+'use client';
 
-import { MoonIcon, SunIcon } from '@phosphor-icons/react/ssr'
-import { useCallback } from 'react'
-import { useTheme } from './ThemeContext'
+import { MoonIcon, SunIcon } from '@phosphor-icons/react/ssr';
+import { useCallback } from 'react';
+import { useTheme } from './ThemeContext';
 
 export function ThemeSwitcher() {
-  const { theme, setTheme } = useTheme()
-  const nextTheme = theme === 'dark' ? 'light' : 'dark'
+  const { theme, setTheme } = useTheme();
+  const nextTheme = theme === 'dark' ? 'light' : 'dark';
 
   const switchTheme = useCallback(() => {
-    setTheme(nextTheme)
-  }, [nextTheme, setTheme])
+    setTheme(nextTheme);
+  }, [nextTheme, setTheme]);
 
   return (
     <button
@@ -27,5 +27,5 @@ export function ThemeSwitcher() {
         <MoonIcon weight="duotone" />
       )}
     </button>
-  )
+  );
 }

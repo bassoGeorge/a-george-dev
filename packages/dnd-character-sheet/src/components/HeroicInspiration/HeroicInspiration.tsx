@@ -1,6 +1,6 @@
-import { DiamondCheck } from '../layout/checkables'
-import { Panel } from '../layout/Panel'
-import { PanelTitle } from '../layout/PanelTitle'
+import { DiamondCheck } from '../layout/checkables';
+import { Panel } from '../layout/Panel';
+import { PanelTitle } from '../layout/PanelTitle';
 
 export function HeroicInspiration() {
   return (
@@ -14,5 +14,5 @@ export function HeroicInspiration() {
         <DiamondCheck />
       </div>
     </Panel>
-  )
+  );
 }

@@ -1,5 +1,5 @@
 {
-  "$schema": "https://biomejs.dev/schemas/2.4.16/schema.json",
+  "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
   "vcs": { "enabled": true, "clientKind": "git", "useIgnoreFile": true },
   "files": { "includes": ["**", "!!**/dist", "!package.json"] },
   "formatter": {
@@ -23,11 +23,17 @@
   },
   "linter": {
     "enabled": true,
+    "domains": {
+      "types": "recommended"
+    },
     "rules": {
       "recommended": true,
       "suspicious": {
         "noDuplicateProperties": "off",
         "noDuplicateCustomProperties": "off"
+      },
+      "nursery": {
+        "useExhaustiveSwitchCases": "on"
       }
     }
   },
@@ -36,12 +42,8 @@
       "jsxQuoteStyle": "double",
       "quoteProperties": "asNeeded",
       "trailingCommas": "es5",
-      "semicolons": "asNeeded",
-      "arrowParentheses": "always",
       "bracketSameLine": false,
-      "quoteStyle": "single",
-      "attributePosition": "auto",
-      "bracketSpacing": true
+      "quoteStyle": "single"
     }
   },
   "html": {

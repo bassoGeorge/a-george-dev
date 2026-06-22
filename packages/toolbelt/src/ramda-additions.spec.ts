@@ -1,5 +1,5 @@
-import { describe, expect, it } from 'vitest'
-import { mapKeys } from './ramda-additions'
+import { describe, expect, it } from 'vitest';
+import { mapKeys } from './ramda-additions';
 
 describe('mapKeys', () => {
   it('works directly', () => {
@@ -8,11 +8,11 @@ describe('mapKeys', () => {
         name__test: 'test',
         age__test: 10,
       }
-    )
-  })
+    );
+  });
 
   it('works in curried format', () => {
-    const pref = mapKeys((k) => `test--${k}`)
+    const pref = mapKeys((k) => `test--${k}`);
     expect(
       pref({
         a: {
@@ -25,6 +25,6 @@ describe('mapKeys', () => {
         name: 'test',
       },
       'test--b': 'something',
-    })
-  })
-})
+    });
+  });
+});

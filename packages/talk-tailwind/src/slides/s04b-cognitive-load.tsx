@@ -1,4 +1,4 @@
-import { CodeBlock } from '@ageorgedev/design-system/CodeBlock/CodeBlock'
+import { CodeBlock } from '@ageorgedev/design-system/CodeBlock/CodeBlock';
 import {
   Heading1,
   Heading2,
@@ -6,9 +6,12 @@ import {
   PBody,
   PBodyLg,
   PBodyMd,
-} from '@ageorgedev/design-system/typography/typography-components'
-import { SlideTypeCenter, SlideTypeRegular } from '@ageorgedev/reveal-framework'
-import { ArrowRightIcon } from '@phosphor-icons/react'
+} from '@ageorgedev/design-system/typography/typography-components';
+import {
+  SlideTypeCenter,
+  SlideTypeRegular,
+} from '@ageorgedev/reveal-framework';
+import { ArrowRightIcon } from '@phosphor-icons/react';
 
 export function S04BCognitiveLoad() {
   return (
@@ -69,7 +72,7 @@ export function S04BCognitiveLoad() {
         <PBodyMd>Over time, devs adapt to it, but the cost is present</PBodyMd>
       </SlideTypeCenter>
     </section>
-  )
+  );
 }
 
 const imaginaryCSS = `.imaginary-selector {
@@ -82,9 +85,9 @@ const imaginaryCSS = `.imaginary-selector {
   display: flex;
   justify-content: center;
 
-}`
+}`;
 
 const imaginaryHTML = `<div class="text-primary-200 font-bold underline p-2 
   border border-primary-200 flex items-center">
   <!-- -->
-</div>`
+</div>`;

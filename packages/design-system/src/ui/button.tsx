@@ -1,7 +1,7 @@
-import { cn } from '@ageorgedev/toolbelt/cn'
-import { Slot } from '@radix-ui/react-slot'
-import { cva, type VariantProps } from 'class-variance-authority'
-import { Body, BodyLg, BodySm } from '../typography/typography-components'
+import { cn } from '@ageorgedev/toolbelt/cn';
+import { Slot } from '@radix-ui/react-slot';
+import { cva, type VariantProps } from 'class-variance-authority';
+import { Body, BodyLg, BodySm } from '../typography/typography-components';
 
 // TODO: I think it would be better to separate color and style? we may need, for example, a link styled destructive
 const buttonVariants = cva(
@@ -33,7 +33,7 @@ const buttonVariants = cva(
       size: 'default',
     },
   }
-)
+);
 
 function Button({
   className,
@@ -43,9 +43,9 @@ function Button({
   ...props
 }: React.ComponentProps<'button'> &
   VariantProps<typeof buttonVariants> & {
-    asChild?: boolean
+    asChild?: boolean;
   }) {
-  const Comp = asChild ? Slot : 'button'
+  const Comp = asChild ? Slot : 'button';
 
   return (
     <Comp
@@ -53,7 +53,7 @@ function Button({
       className={cn(buttonVariants({ variant, size, className }))}
       {...props}
     />
-  )
+  );
 }
 
-export { Button, buttonVariants }
+export { Button, buttonVariants };

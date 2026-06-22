@@ -1,54 +1,60 @@
-import { Ability, ALL_ABILITIES } from './models/abilities'
-import type { Character } from './models/character'
-import type { DerivedStats } from './models/derived-stats'
-import { AbilitySkillGrouping, Skill } from './models/skills'
+import { groupBy, map, mapObjIndexed, pipe, reduce, toPairs } from 'ramda';
+import { HIT_DICE_TABLE } from './character-class-constants';
+import { Ability, ALL_ABILITIES } from './models/abilities';
+import type { Character } from './models/character';
+import type { DerivedStats } from './models/derived-stats';
+import { AbilitySkillGrouping, Skill } from './models/skills';
 
 function abilityModifier(score: number): number {
-  return Math.floor((score - 10) / 2)
+  return Math.floor((score - 10) / 2);
 }
 
 function proficiencyBonus(level: number): number {
-  if (level <= 4) return 2
-  if (level <= 8) return 3
-  if (level <= 12) return 4
-  if (level <= 16) return 5
-  return 6
+  if (level <= 4) return 2;
+  if (level <= 8) return 3;
+  if (level <= 12) return 4;
+  if (level <= 16) return 5;
+  return 6;
 }
 
 export function calculateStats(character: Character): DerivedStats {
-  const profBonus = proficiencyBonus(character.level)
+  const characterLevel = character.classes.reduce(
+    (sum, cls) => sum + cls.level,
+    0
+  );
+  const profBonus = proficiencyBonus(characterLevel);
 
   const abilityModifiers = Object.fromEntries(
     ALL_ABILITIES.map((name) => [
       name,
       abilityModifier(character.abilities[name]),
     ])
-  ) as DerivedStats['abilityModifiers']
+  ) as DerivedStats['abilityModifiers'];
 
   const savingThrows = Object.fromEntries(
     ALL_ABILITIES.map((name) => {
-      const isProficient = character.savingThrowProficiencies.includes(name)
-      return [name, abilityModifiers[name] + (isProficient ? profBonus : 0)]
+      const isProficient = character.savingThrowProficiencies.includes(name);
+      return [name, abilityModifiers[name] + (isProficient ? profBonus : 0)];
     })
-  ) as DerivedStats['savingThrows']
+  ) as DerivedStats['savingThrows'];
 
   const skills = Object.fromEntries(
     Object.entries(AbilitySkillGrouping).flatMap(([ability, skills]) => {
       return skills.map((skill) => {
-        const isProficient = character.skillProficiencies.includes(skill)
-        const hasExpertise = character.skillExpertise.includes(skill)
+        const isProficient = character.skillProficiencies.includes(skill);
+        const hasExpertise = character.skillExpertise.includes(skill);
         const bonus =
           abilityModifiers[ability as Ability] +
           (isProficient ? profBonus : 0) +
-          (hasExpertise ? profBonus : 0)
-        return [skill, bonus] as const
-      })
+          (hasExpertise ? profBonus : 0);
+        return [skill, bonus] as const;
+      });
     })
-  ) as DerivedStats['skills']
+  ) as DerivedStats['skills'];
 
-  const initiative = abilityModifiers[Ability.Dexterity]
+  const initiative = abilityModifiers[Ability.Dexterity];
 
-  const passivePerception = 10 + skills[Skill.Perception]
+  const passivePerception = 10 + skills[Skill.Perception];
 
   const spellcasting = character.spellcasting
     ? {
@@ -57,7 +63,9 @@ export function calculateStats(character: Character): DerivedStats {
         spellAttackBonus:
           profBonus + abilityModifiers[character.spellcasting.ability],
       }
-    : {}
+    : {};
+
+  const hitDice = computeHitDice(character.classes);
 
   return {
     abilityModifiers,
@@ -66,6 +74,26 @@ export function calculateStats(character: Character): DerivedStats {
     skills,
     initiative,
     passivePerception,
+    characterLevel,
+    hitDice,
     ...spellcasting,
-  }
+  };
 }
+
+// function hitDice(charClasses: Character['classes']) {
+//   return charClasses.map(({ name, level }) => ({
+//     count: level,
+//     dice: HIT_DICE_TABLE[name]
+//   }))
+// }
+
+const computeHitDice = pipe(
+  map((config: Character['classes'][number]) => ({
+    count: config.level,
+    dice: HIT_DICE_TABLE[config.name],
+  })),
+  groupBy(({ dice }) => dice),
+  mapObjIndexed(reduce((acc, { count }) => count + acc, 0)),
+  toPairs<number>,
+  map(([dice, count]) => ({ dice, count }))
+);

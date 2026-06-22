@@ -1,36 +1,33 @@
-import { ABILITY_DETAILS, type Ability } from '../../lib/models/abilities'
-import { AbilitySkillGrouping } from '../../lib/models/skills'
-import { useCharacter } from '../CharacterSheet'
-import { BigNumber } from '../layout/BigNumber'
-import type { CheckedState } from '../layout/checkables'
-import { CircleCheck } from '../layout/checkables'
-import { Panel } from '../layout/Panel'
-import { PanelTitle } from '../layout/PanelTitle'
-
-function formatMod(mod: number): string {
-  return mod >= 0 ? `+${mod}` : `${mod}`
-}
+import { ABILITY_DETAILS, type Ability } from '../../lib/models/abilities';
+import { AbilitySkillGrouping } from '../../lib/models/skills';
+import { formatMod } from '../../lib/utils';
+import { useCharacter } from '../CharacterSheet';
+import { BigNumber } from '../layout/BigNumber';
+import type { CheckedState } from '../layout/checkables';
+import { CircleCheck } from '../layout/checkables';
+import { Panel } from '../layout/Panel';
+import { PanelTitle } from '../layout/PanelTitle';
 
 function proficiencyState(
   isProficient: boolean,
   hasExpertise: boolean
 ): CheckedState {
-  if (hasExpertise) return 'special'
-  if (isProficient) return true
-  return false
+  if (hasExpertise) return 'special';
+  if (isProficient) return true;
+  return false;
 }
 
 interface AbilityBoxProps {
-  ability: Ability
+  ability: Ability;
 }
 
 export function AbilityBox({ ability }: AbilityBoxProps) {
-  const { character, derived } = useCharacter()
-  const score = character.abilities[ability]
-  const mod = derived.abilityModifiers[ability]
-  const savingThrow = derived.savingThrows[ability]
-  const isSaveProficient = character.savingThrowProficiencies.includes(ability)
-  const skills = AbilitySkillGrouping[ability]
+  const { character, derived } = useCharacter();
+  const score = character.abilities[ability];
+  const mod = derived.abilityModifiers[ability];
+  const savingThrow = derived.savingThrows[ability];
+  const isSaveProficient = character.savingThrowProficiencies.includes(ability);
+  const skills = AbilitySkillGrouping[ability];
 
   return (
     <Panel
@@ -55,9 +52,9 @@ export function AbilityBox({ ability }: AbilityBoxProps) {
       {!!skills.length && (
         <SkillGrid>
           {skills.map((skill) => {
-            const isProficient = character.skillProficiencies.includes(skill)
-            const hasExpertise = character.skillExpertise.includes(skill)
-            const total = derived.skills[skill]
+            const isProficient = character.skillProficiencies.includes(skill);
+            const hasExpertise = character.skillExpertise.includes(skill);
+            const total = derived.skills[skill];
             return (
               <SkillRow
                 key={skill}
@@ -66,19 +63,19 @@ export function AbilityBox({ ability }: AbilityBoxProps) {
               >
                 {skill}
               </SkillRow>
-            )
+            );
           })}
         </SkillGrid>
       )}
     </Panel>
-  )
+  );
 }
 function SkillGrid({ children }: React.PropsWithChildren) {
   return (
     <div className="grid grid-cols-[max-content_3ch_max-content] items-baseline gap-x-1 pl-2 pr-1 py-2 border-t">
       {children}
     </div>
-  )
+  );
 }
 
 function SkillRow({
@@ -86,8 +83,8 @@ function SkillRow({
   modifier,
   children,
 }: React.PropsWithChildren<{
-  checkedState: CheckedState
-  modifier: number
+  checkedState: CheckedState;
+  modifier: number;
 }>) {
   return (
     <>
@@ -95,5 +92,5 @@ function SkillRow({
       <span className="text-md text-right">{formatMod(modifier)}</span>
       <span className="text-xs">{children}</span>
     </>
-  )
+  );
 }

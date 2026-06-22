@@ -9,5 +9,20 @@
   "editor.defaultFormatter": "biomejs.biome",
   "nxConsole.generateAiAgentRules": true,
   "js/ts.preferences.preferTypeOnlyAutoImports": true,
-  "js/ts.tsdk.path": "node_modules/typescript/lib"
+  "js/ts.tsdk.path": "node_modules/typescript/lib",
+  "workbench.colorCustomizations": {
+    "commandCenter.border": "#e7e7e799",
+    "sash.hoverBorder": "#8f491a",
+    "statusBar.background": "#643312",
+    "statusBar.foreground": "#e7e7e7",
+    "statusBarItem.hoverBackground": "#8f491a",
+    "statusBarItem.remoteBackground": "#643312",
+    "statusBarItem.remoteForeground": "#e7e7e7",
+    "tab.activeBorder": "#8f491a",
+    "titleBar.activeBackground": "#643312",
+    "titleBar.activeForeground": "#e7e7e7",
+    "titleBar.inactiveBackground": "#64331299",
+    "titleBar.inactiveForeground": "#e7e7e799"
+  },
+  "peacock.color": "#643312"
 }

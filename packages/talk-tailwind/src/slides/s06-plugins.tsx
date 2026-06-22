@@ -1,17 +1,17 @@
-import { CodeBlock } from '@ageorgedev/design-system/CodeBlock/CodeBlock'
+import { CodeBlock } from '@ageorgedev/design-system/CodeBlock/CodeBlock';
 import {
   Heading1,
   Heading2,
   Heading3,
   PBody,
   PBodyMd,
-} from '@ageorgedev/design-system/typography/typography-components'
+} from '@ageorgedev/design-system/typography/typography-components';
 import {
   ComparisonRow,
   ImportantNote,
   SlideTypeCenter,
   SlideTypeRegular,
-} from '@ageorgedev/reveal-framework'
+} from '@ageorgedev/reveal-framework';
 
 export function S06Plugins() {
   return (
@@ -161,7 +161,7 @@ export function S06Plugins() {
         ></ComparisonRow>
       </SlideTypeRegular>
     </section>
-  )
+  );
 }
 
 const basicPluginInstallation = `/* tailwind.config.js */
@@ -174,7 +174,7 @@ module.exports = {
       // Add your custom styles here
     }),
   ]
-}`
+}`;
 
 const typographyPlugin = `plugin(({ addBase, theme }) => {
   addBase({
@@ -195,11 +195,11 @@ const typographyPlugin = `plugin(({ addBase, theme }) => {
       textTransform: 'uppercase',
     }
   })
-})`
+})`;
 
 const typographyUsage = `<span class="typo-h2 lg:typo-h1">
   Some content
-</span>`
+</span>`;
 
 const ngInvalidPlugin = `plugin(({ addVariant }) => {
   // Overwrite the default invalid:* modifier to support angular classes
@@ -209,9 +209,9 @@ const ngInvalidPlugin = `plugin(({ addVariant }) => {
   addVariant('group-invalid', [':merge(.group).ng-invalid.ng-touched &', ':merge(.group):invalid &']);
   addVariant('peer-invalid', [':merge(.peer).ng-invalid.ng-touched ~ &', ':merge(.peer):invalid ~ &']);
 });
-`
+`;
 
-const ngInvalidPluginUsage = `<app-custom-form-control class="invalid:ring-red-500" ></app-custom-form-control>`
+const ngInvalidPluginUsage = `<app-custom-form-control class="invalid:ring-red-500" ></app-custom-form-control>`;
 
 const layerStylesCss = `@tailwind base;
 @tailwind components;
@@ -235,14 +235,14 @@ const layerStylesCss = `@tailwind base;
 
   .area-header { grid-area: header; }
   .area-main { grid-area: main; }
-}`
+}`;
 
 const layerStylesHtml = `<section class="grid layout-master-stacked lg:layout-master">
   <header class="area-header">header</header>
   <section class="area-main">main</section>
   <aside class="area-sidebar">sidebar</aside>
   <footer class="area-footer">footer</footer>
-</section>`
+</section>`;
 
 const matchComponentsPlugin = `const gridPlugin = plugin(({ matchComponents, theme }) => {
   matchComponents(
@@ -256,7 +256,7 @@ const matchComponentsPlugin = `const gridPlugin = plugin(({ matchComponents, the
     },
     { values: theme("layouts") }
   );
-});`
+});`;
 
 const matchComponentsLayout = `plugins: [gridPlugin],
 theme: {
@@ -277,4 +277,4 @@ theme: {
       ],
     },
   },
-},`
+},`;

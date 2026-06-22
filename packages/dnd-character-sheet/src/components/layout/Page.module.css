@@ -1,5 +1,15 @@
+@reference "@ageorgedev/foundation-styles/theme.css";
+
 @media print {
-  .Page {
+  .PageOuter {
     break-inside: avoid;
+  }
+}
+
+@media print {
+  .PageInner {
+    @apply py-6;
+    height: 100vh;
+    overflow: hidden;
   }
 }

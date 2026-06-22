@@ -1,18 +1,18 @@
-import { cn } from '@ageorgedev/toolbelt/cn'
-import { map } from 'ramda'
-import styles from './Skill.module.css'
+import { cn } from '@ageorgedev/toolbelt/cn';
+import { map } from 'ramda';
+import styles from './Skill.module.css';
 
-type SkillType = 'tool' | 'technique' | 'human'
-type SkillLevel = 3 | 4 | 5
+type SkillType = 'tool' | 'technique' | 'human';
+type SkillLevel = 3 | 4 | 5;
 
 type SkillProps = {
-  name: string
-  type: SkillType
-  level: SkillLevel
-}
+  name: string;
+  type: SkillType;
+  level: SkillLevel;
+};
 
 export function Skill(props: SkillProps) {
-  const styleClasses = levelClasses[props.type][props.level]
+  const styleClasses = levelClasses[props.type][props.level];
 
   return (
     <div
@@ -23,34 +23,34 @@ export function Skill(props: SkillProps) {
     >
       {props.name}
     </div>
-  )
+  );
 }
 
-type SkillClassMap = Record<SkillLevel, string>
+type SkillClassMap = Record<SkillLevel, string>;
 
 const primaryAccentColorClasses: SkillClassMap = {
   3: 'bg-primary-surface text-primary-onsurface',
   4: 'bg-primary-surface-2 text-primary-onsurface-2',
   5: `${styles.highSkill} bg-primary-surface-2 text-primary-onsurface-2`, // TODO
-}
+};
 
 const secondaryAccentColorClasses: SkillClassMap = {
   3: 'bg-secondary-surface text-secondary-onsurface',
   4: 'bg-secondary-surface-2 text-secondary-onsurface-2',
   5: `${styles.highSkill} bg-secondary-surface-2 text-secondary-onsurface-2`,
-}
+};
 
 const levelClassesForHuman: SkillClassMap = {
   3: 'bg-primary-surface text-primary-onsurface',
   4: 'bg-primary-surface-2 text-primary-onsurface-2',
   5: `${styles.highSkill} bg-primary-surface-2 text-primary-onsurface-2`, // TODO
-}
+};
 
 const levelClasses: Record<SkillType, SkillClassMap> = {
   tool: primaryAccentColorClasses,
   technique: secondaryAccentColorClasses,
   human: levelClassesForHuman,
-}
+};
 
 const skillMapper =
   (type: SkillType) =>
@@ -58,7 +58,7 @@ const skillMapper =
     name,
     level,
     type,
-  })
+  });
 
 export const toolSkills: SkillProps[] = map(skillMapper('tool'), [
   ['React', 5],
@@ -73,7 +73,7 @@ export const toolSkills: SkillProps[] = map(skillMapper('tool'), [
   ['AgGrid', 3],
   ['Node', 4],
   ['Ramda', 4],
-])
+]);
 
 export const techSkills: SkillProps[] = map(skillMapper('technique'), [
   ['Performance', 4],
@@ -89,7 +89,7 @@ export const techSkills: SkillProps[] = map(skillMapper('technique'), [
   ['Functional programming', 5],
   ['Accessibility', 4],
   ['CSS animations', 5],
-])
+]);
 
 export const humanSkills: SkillProps[] = map(skillMapper('human'), [
   ['Mentoring', 4],
@@ -100,10 +100,10 @@ export const humanSkills: SkillProps[] = map(skillMapper('human'), [
   ['Leadership', 3],
   ['Stakeholder management', 5],
   ['Training', 5],
-])
+]);
 
 export const AllSkills: SkillProps[] = [
   ...toolSkills,
   ...techSkills,
   ...humanSkills,
-]
+];

@@ -1,18 +1,18 @@
-import { THEME_INIT_SCRIPT } from '@ageorgedev/design-system/theming/theme-init-script'
+import { THEME_INIT_SCRIPT } from '@ageorgedev/design-system/theming/theme-init-script';
 import {
   createRootRouteWithContext,
   HeadContent,
   Scripts,
-} from '@tanstack/react-router'
-import { GlobalProviders } from '../components/GlobalProviders'
-import appCss from '../styles.css?url'
+} from '@tanstack/react-router';
+import { GlobalProviders } from '../components/GlobalProviders';
+import appCss from '../styles.css?url';
 
 // import type { QueryClient } from '@tanstack/react-query';
 
 type MyRouterContext = {
   // queryClient?: QueryClient;
-  temp?: string
-}
+  temp?: string;
+};
 
 export const Route = createRootRouteWithContext<MyRouterContext>()({
   head: () => ({
@@ -36,7 +36,7 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
     ],
   }),
   shellComponent: RootDocument,
-})
+});
 
 function RootDocument({ children }: { children: React.ReactNode }) {
   return (
@@ -67,5 +67,5 @@ function RootDocument({ children }: { children: React.ReactNode }) {
         <Scripts />
       </body>
     </html>
-  )
+  );
 }

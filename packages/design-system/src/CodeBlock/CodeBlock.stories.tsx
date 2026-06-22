@@ -1,5 +1,5 @@
-import type { Meta, StoryObj } from '@storybook/react-vite'
-import { CodeBlock } from './CodeBlock'
+import type { Meta, StoryObj } from '@storybook/react-vite';
+import { CodeBlock } from './CodeBlock';
 
 export default {
   title: 'Molecules/CodeBlock',
@@ -17,9 +17,9 @@ export default {
       control: 'text',
     },
   },
-} satisfies Meta<typeof CodeBlock>
+} satisfies Meta<typeof CodeBlock>;
 
-type Story = StoryObj<typeof CodeBlock>
+type Story = StoryObj<typeof CodeBlock>;
 
 const typescriptExample = `interface User {
   id: string;
@@ -30,7 +30,7 @@ const typescriptExample = `interface User {
 
 function greetUser(user: User): string {
   return \`Hello \${user.name}!\`;
-}`
+}`;
 
 const htmlExample = `<!DOCTYPE html>
 <html lang="en">
@@ -42,7 +42,7 @@ const htmlExample = `<!DOCTYPE html>
   <h1>Welcome</h1>
   <p>This is an example HTML page.</p>
 </body>
-</html>`
+</html>`;
 
 const cssExample = `.container {
   display: flex;
@@ -57,7 +57,7 @@ const cssExample = `.container {
   border-radius: 0.25rem;
   background-color: #007bff;
   color: white;
-}`
+}`;
 
 const jsxExample = `function Button({ text, onClick }) {
   return (
@@ -68,7 +68,7 @@ const jsxExample = `function Button({ text, onClick }) {
       {text}
     </button>
   );
-}`
+}`;
 
 export const TypeScript: Story = {
   args: {
@@ -76,7 +76,7 @@ export const TypeScript: Story = {
     text: typescriptExample,
     fontSize: 'normal',
   },
-}
+};
 
 export const HTML: Story = {
   args: {
@@ -84,7 +84,7 @@ export const HTML: Story = {
     text: htmlExample,
     fontSize: 'normal',
   },
-}
+};
 
 export const CSS: Story = {
   args: {
@@ -92,7 +92,7 @@ export const CSS: Story = {
     text: cssExample,
     fontSize: 'normal',
   },
-}
+};
 
 export const JSX: Story = {
   args: {
@@ -100,7 +100,7 @@ export const JSX: Story = {
     text: jsxExample,
     fontSize: 'normal',
   },
-}
+};
 
 export const SmallFont: Story = {
   args: {
@@ -108,7 +108,7 @@ export const SmallFont: Story = {
     text: typescriptExample,
     fontSize: 'small',
   },
-}
+};
 
 export const LargeFont: Story = {
   args: {
@@ -116,7 +116,7 @@ export const LargeFont: Story = {
     text: typescriptExample,
     fontSize: 'large',
   },
-}
+};
 
 export const WithCustomClassName: Story = {
   args: {
@@ -124,7 +124,7 @@ export const WithCustomClassName: Story = {
     text: typescriptExample,
     className: 'max-w-2xl',
   },
-}
+};
 
 export const InteractiveExample: Story = {
   args: {
@@ -132,4 +132,4 @@ export const InteractiveExample: Story = {
     text: '// Try changing the language, font size, and code!',
     fontSize: 'normal',
   },
-}
+};

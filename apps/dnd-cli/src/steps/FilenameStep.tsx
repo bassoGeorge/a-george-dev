@@ -1,36 +1,36 @@
-import { Box, Text, useInput } from 'ink'
-import { useState } from 'react'
+import { Box, Text, useInput } from 'ink';
+import { useState } from 'react';
 
 export interface FilenameValues {
-  filename: string
+  filename: string;
 }
 
 export function FilenameStep({
   defaultFilename,
   onComplete,
 }: {
-  defaultFilename: string
-  onComplete: (values: FilenameValues) => void
+  defaultFilename: string;
+  onComplete: (values: FilenameValues) => void;
 }) {
-  const [buffer, setBuffer] = useState(defaultFilename)
-  const [error, setError] = useState('')
+  const [buffer, setBuffer] = useState(defaultFilename);
+  const [error, setError] = useState('');
 
   useInput((input, key) => {
     if (key.return) {
-      const filename = buffer.trim() || defaultFilename
+      const filename = buffer.trim() || defaultFilename;
       if (!filename) {
-        setError('Filename is required')
-        return
+        setError('Filename is required');
+        return;
       }
-      onComplete({ filename })
+      onComplete({ filename });
     } else if (key.backspace || key.delete) {
-      setBuffer((b) => b.slice(0, -1))
-      setError('')
+      setBuffer((b) => b.slice(0, -1));
+      setError('');
     } else if (input && !key.ctrl && !key.meta) {
-      setBuffer((b) => b + input)
-      setError('')
+      setBuffer((b) => b + input);
+      setError('');
     }
-  })
+  });
 
   return (
     <Box flexDirection="column">
@@ -54,5 +54,5 @@ export function FilenameStep({
         <Text dimColor> Enter to write the file</Text>
       )}
     </Box>
-  )
+  );
 }

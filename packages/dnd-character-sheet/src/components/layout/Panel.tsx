@@ -1,17 +1,17 @@
-import { cn } from '@ageorgedev/toolbelt/cn'
-import { useMemo } from 'react'
-import styles from './Panel.module.css'
+import { cn } from '@ageorgedev/toolbelt/cn';
+import { useMemo } from 'react';
+import styles from './Panel.module.css';
 
-type Corner = 'scooped' | 'regular'
+type Corner = 'scooped' | 'regular';
 
 export type PanelProps = {
-  outerClasses?: string
+  outerClasses?: string;
 
-  topLeftCorner?: Corner
-  topRightCorner?: Corner
-  bottomRightCorner?: Corner
-  bottomLeftCorner?: Corner
-} & React.HTMLAttributes<HTMLDivElement>
+  topLeftCorner?: Corner;
+  topRightCorner?: Corner;
+  bottomRightCorner?: Corner;
+  bottomLeftCorner?: Corner;
+} & React.HTMLAttributes<HTMLDivElement>;
 
 export function Panel({
   topLeftCorner = 'regular',
@@ -38,7 +38,7 @@ export function Panel({
         : styles.regularBottomLeft,
     ],
     [topLeftCorner, topRightCorner, bottomRightCorner, bottomLeftCorner]
-  )
+  );
 
   return (
     <div className={cn(styles.panelWrapper, cornerStyles, outerClasses)}>
@@ -52,5 +52,5 @@ export function Panel({
         )}
       />
     </div>
-  )
+  );
 }

@@ -1,24 +1,24 @@
-import { Box, Text, useInput } from 'ink'
-import { useState } from 'react'
-import { DEFAULTS } from '../lib/defaults.js'
+import { Box, Text, useInput } from 'ink';
+import { useState } from 'react';
+import { DEFAULTS } from '../lib/defaults.js';
 
 export interface IdentityValues {
-  name: string
-  characterClass: string
-  subclass: string
-  level: number
-  species: string
-  background: string
-  experiencePoints: number
+  name: string;
+  characterClass: string;
+  subclass: string;
+  level: number;
+  species: string;
+  background: string;
+  experiencePoints: number;
 }
 
 interface FieldDef {
-  key: keyof IdentityValues
-  label: string
-  hint: string
-  defaultValue: string
-  required: boolean
-  numeric: boolean
+  key: keyof IdentityValues;
+  label: string;
+  hint: string;
+  defaultValue: string;
+  required: boolean;
+  numeric: boolean;
 }
 
 const FIELDS: FieldDef[] = [
@@ -78,48 +78,48 @@ const FIELDS: FieldDef[] = [
     required: true,
     numeric: true,
   },
-]
+];
 
-const LABEL_WIDTH = 24
+const LABEL_WIDTH = 24;
 
 export function IdentityStep({
   onComplete,
 }: {
-  onComplete: (values: IdentityValues) => void
+  onComplete: (values: IdentityValues) => void;
 }) {
-  const [fieldIndex, setFieldIndex] = useState(0)
-  const [collected, setCollected] = useState<Partial<IdentityValues>>({})
-  const [buffer, setBuffer] = useState(FIELDS[0].defaultValue)
-  const [error, setError] = useState('')
+  const [fieldIndex, setFieldIndex] = useState(0);
+  const [collected, setCollected] = useState<Partial<IdentityValues>>({});
+  const [buffer, setBuffer] = useState(FIELDS[0].defaultValue);
+  const [error, setError] = useState('');
 
-  const current = FIELDS[fieldIndex]
+  const current = FIELDS[fieldIndex];
 
   useInput((input, key) => {
     if (key.return) {
-      const raw = buffer.trim() !== '' ? buffer.trim() : current.defaultValue
+      const raw = buffer.trim() !== '' ? buffer.trim() : current.defaultValue;
       if (current.required && !raw) {
-        setError('Required')
-        return
+        setError('Required');
+        return;
       }
-      const value = current.numeric ? parseInt(raw || '0', 10) : raw
-      const next = { ...collected, [current.key]: value }
+      const value = current.numeric ? parseInt(raw || '0', 10) : raw;
+      const next = { ...collected, [current.key]: value };
 
       if (fieldIndex < FIELDS.length - 1) {
-        setCollected(next)
-        setBuffer(FIELDS[fieldIndex + 1].defaultValue)
-        setFieldIndex((i) => i + 1)
-        setError('')
+        setCollected(next);
+        setBuffer(FIELDS[fieldIndex + 1].defaultValue);
+        setFieldIndex((i) => i + 1);
+        setError('');
       } else {
-        onComplete(next as IdentityValues)
+        onComplete(next as IdentityValues);
       }
     } else if (key.backspace || key.delete) {
-      setBuffer((b) => b.slice(0, -1))
-      setError('')
+      setBuffer((b) => b.slice(0, -1));
+      setError('');
     } else if (input && !key.ctrl && !key.meta) {
-      setBuffer((b) => b + input)
-      setError('')
+      setBuffer((b) => b + input);
+      setError('');
     }
-  })
+  });
 
   return (
     <Box flexDirection="column">
@@ -146,5 +146,5 @@ export function IdentityStep({
         <Text dimColor> Enter to confirm</Text>
       )}
     </Box>
-  )
+  );
 }

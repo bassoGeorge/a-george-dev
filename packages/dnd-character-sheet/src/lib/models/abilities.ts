@@ -5,9 +5,9 @@ export const Ability = {
   Intelligence: 'INT',
   Wisdom: 'WIS',
   Charisma: 'CHA',
-} as const
+} as const;
 
-export type Ability = (typeof Ability)[keyof typeof Ability]
+export type Ability = (typeof Ability)[keyof typeof Ability];
 
 export const ALL_ABILITIES: Ability[] = [
   Ability.Strength,
@@ -16,7 +16,7 @@ export const ALL_ABILITIES: Ability[] = [
   Ability.Intelligence,
   Ability.Wisdom,
   Ability.Charisma,
-]
+];
 
 export const ABILITY_DETAILS: Record<
   Ability,
@@ -28,4 +28,4 @@ export const ABILITY_DETAILS: Record<
   [Ability.Intelligence]: { label: 'Intelligence', shortName: 'Int.' },
   [Ability.Wisdom]: { label: 'Wisdom', shortName: 'Wis.' },
   [Ability.Charisma]: { label: 'Charisma', shortName: 'Cha.' },
-}
+};

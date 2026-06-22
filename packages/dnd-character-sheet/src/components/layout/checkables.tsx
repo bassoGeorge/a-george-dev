@@ -1,35 +1,61 @@
-import { cn } from '@ageorgedev/toolbelt/cn'
+import { cn } from '@ageorgedev/toolbelt/cn';
 
 export type CheckableProps = {
-  checked?: CheckedState
-} & React.HTMLAttributes<HTMLSpanElement>
+  checked?: CheckedState;
+} & React.HTMLAttributes<HTMLSpanElement>;
 
 export function CircleCheck({ className, ...props }: CheckableProps) {
-  return <BaseCheck {...props} className={cn('rounded-full', className)} />
+  return <BaseCheck {...props} className={cn('rounded-full', className)} />;
 }
 
 export function DiamondCheck({ className, ...props }: CheckableProps) {
-  return <BaseCheck {...props} className={cn('rotate-45', className)} />
+  return (
+    <BaseCheck
+      {...props}
+      className={cn('rotate-45 size-2.5 mx-0.5', className)}
+    />
+  );
 }
 
 function BaseCheck({ checked = false, className, ...props }: CheckableProps) {
-  const fill = CHECK_FILL[String(checked) as keyof typeof CHECK_FILL]
+  const fill = CHECK_FILL[String(checked) as keyof typeof CHECK_FILL];
   return (
     <span
       {...props}
       className={cn(
-        'size-3.5 border flex-shrink-0 inline-block',
+        'size-3 border flex-shrink-0 flex-grow-0 inline-block',
         fill,
         className
       )}
     />
-  )
+  );
 }
 
-export type CheckedState = boolean | 'special' | undefined
+export type CheckedState = boolean | 'special' | undefined;
 
 const CHECK_FILL: Record<'true' | 'false' | 'special', string> = {
   true: 'bg-primary-surface border-primary-foreground',
   special: 'bg-secondary-surface-2 border-secondary-foreground',
   false: '',
+};
+
+export function EmptyCheckList({
+  className,
+  count,
+  kind = 'circle',
+  ...props
+}: React.HtmlHTMLAttributes<HTMLDivElement> & {
+  count: number;
+  kind?: 'circle' | 'diamond';
+}) {
+  const Comp = kind === 'circle' ? CircleCheck : DiamondCheck;
+
+  return (
+    <div className={cn('inline-flex gap-1', className)} {...props}>
+      {Array.from({ length: count }, (_, i) => (
+        // biome-ignore lint/suspicious/noArrayIndexKey: Empty checkboxes, will be fine
+        <Comp key={i} />
+      ))}
+    </div>
+  );
 }

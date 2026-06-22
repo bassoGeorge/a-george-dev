@@ -1,12 +1,12 @@
-import { Interface } from '@ageorgedev/design-system/typography/typography-components'
-import { cn } from '@ageorgedev/toolbelt/cn'
-import type { StoryObj } from '@storybook/react-vite'
+import { Interface } from '@ageorgedev/design-system/typography/typography-components';
+import { cn } from '@ageorgedev/toolbelt/cn';
+import type { StoryObj } from '@storybook/react-vite';
 
 export default {
   title: 'Foundation/Spacing',
-}
+};
 
-type Story = StoryObj
+type Story = StoryObj;
 
 const SPACING_VALUES: Array<[string, string, string]> = [
   ['w-0', '0', '0'],
@@ -31,7 +31,7 @@ const SPACING_VALUES: Array<[string, string, string]> = [
   ['w-thin-line', 'thin-line', '1px'],
   ['w-medium-line', 'medium-line', '2px'],
   ['w-thick-line', 'thick-line', '4px'],
-]
+];
 
 function SpaceBar({ className, name }: { className: string; name: string }) {
   return (
@@ -39,7 +39,7 @@ function SpaceBar({ className, name }: { className: string; name: string }) {
       <Interface>{name}</Interface>
       <div className={cn(className, 'h-5 bg-primary-foreground')}></div>
     </>
-  )
+  );
 }
 
 export const SpacingScale: Story = {
@@ -57,4 +57,4 @@ export const SpacingScale: Story = {
       ))}
     </div>
   ),
-}
+};

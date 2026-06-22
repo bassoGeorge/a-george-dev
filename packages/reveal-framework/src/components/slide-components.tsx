@@ -1,9 +1,9 @@
-import { CalloutBadge } from '@ageorgedev/design-system/callouts/CalloutBadge'
+import { CalloutBadge } from '@ageorgedev/design-system/callouts/CalloutBadge';
 import {
   TiltCard,
   type TiltCardProps,
-} from '@ageorgedev/design-system/cards/TiltCard'
-import { cn } from '@ageorgedev/toolbelt/cn'
+} from '@ageorgedev/design-system/cards/TiltCard';
+import { cn } from '@ageorgedev/toolbelt/cn';
 import {
   BracketsAngleIcon,
   ExamIcon,
@@ -12,19 +12,19 @@ import {
   MegaphoneIcon,
   PenNibIcon,
   WarningIcon,
-} from '@phosphor-icons/react'
+} from '@phosphor-icons/react';
 
 type ImportantNoteProps = React.PropsWithChildren<{
-  shape?: TiltCardProps['shape']
-  className?: string
-  type?: NoteType
-}>
+  shape?: TiltCardProps['shape'];
+  className?: string;
+  type?: NoteType;
+}>;
 
-type NoteType = 'tip' | 'danger'
+type NoteType = 'tip' | 'danger';
 
 export function ImportantNote(props: ImportantNoteProps) {
-  const noteType = props.type ?? 'tip'
-  const { iconClasses, mainClasses, Icon } = NoteConfigs[noteType]
+  const noteType = props.type ?? 'tip';
+  const { iconClasses, mainClasses, Icon } = NoteConfigs[noteType];
   return (
     <div className={props.className}>
       <TiltCard shape={props.shape} className={cn(mainClasses, 'flex gap-2')}>
@@ -32,7 +32,7 @@ export function ImportantNote(props: ImportantNoteProps) {
         <div className="text-left">{props.children}</div>
       </TiltCard>
     </div>
-  )
+  );
 }
 
 const NoteConfigs: Record<
@@ -49,18 +49,18 @@ const NoteConfigs: Record<
     iconClasses: '',
     Icon: WarningIcon,
   },
-}
+};
 
 export function CalloutForVD() {
-  return <CalloutBadge type="neutral" icon={PenNibIcon} text={'UI/UX'} />
+  return <CalloutBadge type="neutral" icon={PenNibIcon} text={'UI/UX'} />;
 }
 
 export function CalloutForAdvancedTopic() {
-  return <CalloutBadge type="danger" icon={ExamIcon} text={'Advanced'} />
+  return <CalloutBadge type="danger" icon={ExamIcon} text={'Advanced'} />;
 }
 
 export function CalloutForPersonalOpinion() {
-  return <CalloutBadge type="info1" icon={MegaphoneIcon} text={'Opinion'} />
+  return <CalloutBadge type="info1" icon={MegaphoneIcon} text={'Opinion'} />;
 }
 
 export function PointSeperator({ className }: { className?: string }) {
@@ -71,5 +71,5 @@ export function PointSeperator({ className }: { className?: string }) {
         className
       )}
     />
-  )
+  );
 }

@@ -29,6 +29,6 @@ const config = {
       packages: ['**'],
     },
   ],
-}
+};
 
-module.exports = config
+module.exports = config;

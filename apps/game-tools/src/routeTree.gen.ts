@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as PublicRouteImport } from './routes/_public'
 import { Route as PublicIndexRouteImport } from './routes/_public/index'
 import { Route as PublicDndCharactersIndexRouteImport } from './routes/_public/dnd/characters/index'
+import { Route as PublicDndCharactersOmarinKenateRouteImport } from './routes/_public/dnd/characters/omarin-kenate'
 import { Route as PublicDndCharactersExampleRouteImport } from './routes/_public/dnd/characters/example'
 
 const PublicRoute = PublicRouteImport.update({
@@ -29,6 +30,12 @@ const PublicDndCharactersIndexRoute =
     path: '/dnd/characters/',
     getParentRoute: () => PublicRoute,
   } as any)
+const PublicDndCharactersOmarinKenateRoute =
+  PublicDndCharactersOmarinKenateRouteImport.update({
+    id: '/dnd/characters/omarin-kenate',
+    path: '/dnd/characters/omarin-kenate',
+    getParentRoute: () => PublicRoute,
+  } as any)
 const PublicDndCharactersExampleRoute =
   PublicDndCharactersExampleRouteImport.update({
     id: '/dnd/characters/example',
@@ -39,11 +46,13 @@ const PublicDndCharactersExampleRoute =
 export interface FileRoutesByFullPath {
   '/': typeof PublicIndexRoute
   '/dnd/characters/example': typeof PublicDndCharactersExampleRoute
+  '/dnd/characters/omarin-kenate': typeof PublicDndCharactersOmarinKenateRoute
   '/dnd/characters/': typeof PublicDndCharactersIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof PublicIndexRoute
   '/dnd/characters/example': typeof PublicDndCharactersExampleRoute
+  '/dnd/characters/omarin-kenate': typeof PublicDndCharactersOmarinKenateRoute
   '/dnd/characters': typeof PublicDndCharactersIndexRoute
 }
 export interface FileRoutesById {
@@ -51,18 +60,28 @@ export interface FileRoutesById {
   '/_public': typeof PublicRouteWithChildren
   '/_public/': typeof PublicIndexRoute
   '/_public/dnd/characters/example': typeof PublicDndCharactersExampleRoute
+  '/_public/dnd/characters/omarin-kenate': typeof PublicDndCharactersOmarinKenateRoute
   '/_public/dnd/characters/': typeof PublicDndCharactersIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/dnd/characters/example' | '/dnd/characters/'
+  fullPaths:
+    | '/'
+    | '/dnd/characters/example'
+    | '/dnd/characters/omarin-kenate'
+    | '/dnd/characters/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/dnd/characters/example' | '/dnd/characters'
+  to:
+    | '/'
+    | '/dnd/characters/example'
+    | '/dnd/characters/omarin-kenate'
+    | '/dnd/characters'
   id:
     | '__root__'
     | '/_public'
     | '/_public/'
     | '/_public/dnd/characters/example'
+    | '/_public/dnd/characters/omarin-kenate'
     | '/_public/dnd/characters/'
   fileRoutesById: FileRoutesById
 }
@@ -93,6 +112,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PublicDndCharactersIndexRouteImport
       parentRoute: typeof PublicRoute
     }
+    '/_public/dnd/characters/omarin-kenate': {
+      id: '/_public/dnd/characters/omarin-kenate'
+      path: '/dnd/characters/omarin-kenate'
+      fullPath: '/dnd/characters/omarin-kenate'
+      preLoaderRoute: typeof PublicDndCharactersOmarinKenateRouteImport
+      parentRoute: typeof PublicRoute
+    }
     '/_public/dnd/characters/example': {
       id: '/_public/dnd/characters/example'
       path: '/dnd/characters/example'
@@ -106,12 +132,14 @@ declare module '@tanstack/react-router' {
 interface PublicRouteChildren {
   PublicIndexRoute: typeof PublicIndexRoute
   PublicDndCharactersExampleRoute: typeof PublicDndCharactersExampleRoute
+  PublicDndCharactersOmarinKenateRoute: typeof PublicDndCharactersOmarinKenateRoute
   PublicDndCharactersIndexRoute: typeof PublicDndCharactersIndexRoute
 }
 
 const PublicRouteChildren: PublicRouteChildren = {
   PublicIndexRoute: PublicIndexRoute,
   PublicDndCharactersExampleRoute: PublicDndCharactersExampleRoute,
+  PublicDndCharactersOmarinKenateRoute: PublicDndCharactersOmarinKenateRoute,
   PublicDndCharactersIndexRoute: PublicDndCharactersIndexRoute,
 }
 

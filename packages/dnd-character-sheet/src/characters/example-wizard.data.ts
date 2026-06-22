@@ -1,12 +1,22 @@
-import { Ability } from '../lib/models/abilities'
-import type { Character } from '../lib/models/character'
-import { Skill } from '../lib/models/skills'
+import { Ability } from '../lib/models/abilities';
+import type { Character } from '../lib/models/character';
+import { Skill } from '../lib/models/skills';
 
 export const exampleWizard: Character = {
   name: 'Seraphina Ashveil',
-  class: 'Wizard / Warlock',
-  subclass: 'School of Evocation / The Archfey',
-  level: 7,
+  classes: [
+    {
+      name: 'Sorcerer',
+      subclass: 'Wild Magic',
+      level: 4,
+    },
+    {
+      name: 'Warlock',
+      subclass: 'The Archfey',
+      level: 3,
+    },
+  ],
+
   species: 'High Elf',
   background: 'Sage',
   alignment: 'Neutral Good',
@@ -35,11 +45,6 @@ export const exampleWizard: Character = {
   hitPoints: {
     maximum: 45,
     current: 45,
-  },
-
-  hitDice: {
-    dieType: 'd6',
-    total: 7,
   },
 
   attacks: [
@@ -74,15 +79,25 @@ export const exampleWizard: Character = {
     'Dagger',
     'Robes',
   ],
-  currency: {
-    cp: 0,
-    sp: 0,
-    ep: 0,
-    gp: 120,
-    pp: 0,
-  },
 
   features: [
+    {
+      name: 'Font of Magic',
+      source: 'Sorcerer 2',
+      description:
+        'You can use a bonus action to convert sorcery points into spell slots, or vice versa.',
+      resource: {
+        name: 'Sorcery Points',
+        count: {
+          kind: 'class-level',
+          class: 'Sorcerer',
+          multiplier: 1,
+        },
+        refresh: {
+          kind: 'long-rest',
+        },
+      },
+    },
     {
       name: 'Arcane Recovery',
       source: 'Wizard 1',
@@ -114,16 +129,6 @@ export const exampleWizard: Character = {
   toolProficiencies: ["Calligrapher's Supplies"],
   languages: ['Common', 'Elvish', 'Draconic', 'Sylvan'],
 
-  personality: {
-    traits:
-      'I use polysyllabic words that convey the impression of great erudition.',
-    ideals:
-      'Knowledge. The path to power and self-improvement is through knowledge.',
-    bonds:
-      "My life's work is a series of tomes related to the history of magic.",
-    flaws: 'I overlook obvious solutions in favour of complicated ones.',
-  },
-
   backstory:
     "Seraphina studied at the Arcane Academy for fifteen years before striking out on her own to research the ancient Ashveil bloodline's connection to the Weave.",
 
@@ -142,7 +147,7 @@ export const exampleWizard: Character = {
         name: 'Fire Bolt',
         level: 0,
         school: 'Evocation',
-        castingTime: '1 action',
+        castingTime: 'Action',
         range: '120 ft',
         duration: 'Instantaneous',
         components: { verbal: true, somatic: true },
@@ -151,7 +156,7 @@ export const exampleWizard: Character = {
         name: 'Mage Hand',
         level: 0,
         school: 'Conjuration',
-        castingTime: '1 action',
+        castingTime: 'Action',
         range: '30 ft',
         duration: '1 minute',
         components: { verbal: true, somatic: true },
@@ -160,7 +165,7 @@ export const exampleWizard: Character = {
         name: 'Prestidigitation',
         level: 0,
         school: 'Transmutation',
-        castingTime: '1 action',
+        castingTime: 'Action',
         range: '10 ft',
         duration: 'Up to 1 hour',
         components: { verbal: true, somatic: true },
@@ -170,9 +175,9 @@ export const exampleWizard: Character = {
         name: 'Detect Magic',
         level: 1,
         school: 'Divination',
-        castingTime: '1 action',
+        castingTime: 'Action',
         range: 'Self',
-        duration: 'Concentration, up to 10 minutes',
+        duration: '10 minutes',
         concentration: true,
         ritual: true,
         components: { verbal: true, somatic: true },
@@ -182,7 +187,7 @@ export const exampleWizard: Character = {
         name: 'Magic Missile',
         level: 1,
         school: 'Evocation',
-        castingTime: '1 action',
+        castingTime: 'Action',
         range: '120 ft',
         duration: 'Instantaneous',
         components: { verbal: true, somatic: true },
@@ -191,7 +196,7 @@ export const exampleWizard: Character = {
         name: 'Shield',
         level: 1,
         school: 'Abjuration',
-        castingTime: '1 reaction',
+        castingTime: 'Reaction',
         range: 'Self',
         duration: '1 round',
         components: { verbal: true, somatic: true },
@@ -200,7 +205,7 @@ export const exampleWizard: Character = {
         name: 'Misty Step',
         level: 2,
         school: 'Conjuration',
-        castingTime: '1 bonus action',
+        castingTime: 'Bonus Action',
         range: 'Self',
         duration: 'Instantaneous',
         components: { verbal: true },
@@ -209,7 +214,7 @@ export const exampleWizard: Character = {
         name: 'Scorching Ray',
         level: 2,
         school: 'Evocation',
-        castingTime: '1 action',
+        castingTime: 'Action',
         range: '120 ft',
         duration: 'Instantaneous',
         components: { verbal: true, somatic: true },
@@ -218,9 +223,9 @@ export const exampleWizard: Character = {
         name: 'Hypnotic Pattern',
         level: 3,
         school: 'Illusion',
-        castingTime: '1 action',
+        castingTime: 'Action',
         range: '120 ft',
-        duration: 'Concentration, up to 1 minute',
+        duration: '1 minute',
         concentration: true,
         components: { verbal: false, somatic: true, materialConsumed: false },
         notes:
@@ -230,7 +235,7 @@ export const exampleWizard: Character = {
         name: 'Fireball',
         level: 3,
         school: 'Evocation',
-        castingTime: '1 action',
+        castingTime: 'Action',
         range: '150 ft',
         duration: 'Instantaneous',
         components: { verbal: true, somatic: true, materialConsumed: true },
@@ -240,9 +245,9 @@ export const exampleWizard: Character = {
         name: 'Banishment',
         level: 4,
         school: 'Abjuration',
-        castingTime: '1 action',
+        castingTime: 'Action',
         range: '60 ft',
-        duration: 'Concentration, up to 1 minute',
+        duration: '1 minute',
         concentration: true,
         components: { verbal: true, somatic: true, materialConsumed: false },
         alternativeAbility: Ability.Charisma,
@@ -252,4 +257,4 @@ export const exampleWizard: Character = {
       },
     ],
   },
-}
+};

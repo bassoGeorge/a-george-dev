@@ -1,10 +1,10 @@
-import { CodeBlock } from '@ageorgedev/design-system/CodeBlock/CodeBlock'
+import { CodeBlock } from '@ageorgedev/design-system/CodeBlock/CodeBlock';
 import {
   Heading1,
   Heading3,
   PBody,
   PBodyMd,
-} from '@ageorgedev/design-system/typography/typography-components'
+} from '@ageorgedev/design-system/typography/typography-components';
 import {
   ComparisonRow,
   ImportantNote,
@@ -12,8 +12,8 @@ import {
   SlideMediaRow,
   SlideTypeCenter,
   SlideTypeRegular,
-} from '@ageorgedev/reveal-framework'
-import { D01TailwindFilesize } from '../diagrams/D01TailwindFilesize'
+} from '@ageorgedev/reveal-framework';
+import { D01TailwindFilesize } from '../diagrams/D01TailwindFilesize';
 
 export function S02Fundamentals() {
   return (
@@ -172,7 +172,7 @@ export function S02Fundamentals() {
         </PBody>
       </SlideTypeCenter>
     </Presentation.Stack>
-  )
+  );
 }
 
 // Code snippets
@@ -180,12 +180,12 @@ export function S02Fundamentals() {
 const simpleButtonTraditional = `<button class="btn btn-primary">
   Cick Me!
 </button>
-`
+`;
 
 const simpleButtonTailwind = `<button class="text-white text-lg bg-blue hover:bg-grey
     rounded px-2 mb-2">
   Click Me!
-</button>`
+</button>`;
 
 const simpleButtonComputedStyles = `.text-white { color: white; }
 
@@ -206,7 +206,7 @@ const simpleButtonComputedStyles = `.text-white { color: white; }
 
 .mb-2 {
   margin-bottom: 0.5rem;
-}`
+}`;
 
 const tailwindConfigFile = `// tailwind.config.js
 
@@ -229,7 +229,7 @@ export default {
       massive: "70px",
     },
   },
-}`
+}`;
 
 const configDerivedHtml = `<!-- view.html -->
 
@@ -237,18 +237,18 @@ const configDerivedHtml = `<!-- view.html -->
 <button class="p-3">Click Me!</button>
 
 <!-- p-10 and bg-blue are not valid classes, ignored -->
-<button class="p-10 bg-blue">Another button</button>`
+<button class="p-10 bg-blue">Another button</button>`;
 
 const exampleHtml = `<!-- view.html -->
 
 <h1 class="mb-large text-purple">Hello world!</h1>
-<button class="p-3">Click Me!</button>`
+<button class="p-3">Click Me!</button>`;
 
 const sourceStyleFile = `/* styles.css */
 
 @tailwind base;
 @tailwind components;
-@tailwind utilities;`
+@tailwind utilities;`;
 
 const computedStyleFile = `/* dist/styles.css */
 
@@ -262,4 +262,4 @@ const computedStyleFile = `/* dist/styles.css */
 .text-purple {
   --tw-text-opacity: 1;
   color: rgb(63 60 187 / var(--tw-text-opacity));
-}`
+}`;

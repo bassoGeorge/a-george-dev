@@ -1,19 +1,19 @@
-import { CodeBlock } from '@ageorgedev/design-system/CodeBlock/CodeBlock'
+import { CodeBlock } from '@ageorgedev/design-system/CodeBlock/CodeBlock';
 import {
   Heading1,
   Heading2,
   Heading3,
   PBody,
   PBodyMd,
-} from '@ageorgedev/design-system/typography/typography-components'
+} from '@ageorgedev/design-system/typography/typography-components';
 import {
   ImportantNote,
   PointSeperator,
   SlideMediaRow,
   SlideTypeCenter,
   SlideTypeRegular,
-} from '@ageorgedev/reveal-framework'
-import { D02CssPipeline } from '../diagrams/D02CssPipeline'
+} from '@ageorgedev/reveal-framework';
+import { D02CssPipeline } from '../diagrams/D02CssPipeline';
 
 export function S09CssInJs() {
   return (
@@ -101,7 +101,7 @@ export function S09CssInJs() {
         </PBodyMd>
       </SlideTypeCenter>
     </section>
-  )
+  );
 }
 
 // Code blocks
@@ -115,4 +115,4 @@ fullConfig.theme.width[4]
 // => '1rem'
 
 fullConfig.theme.screens.md
-// => '768px'`
+// => '768px'`;

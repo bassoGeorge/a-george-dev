@@ -1,15 +1,15 @@
-import { TiltCard } from '@ageorgedev/design-system/cards/TiltCard'
+import { TiltCard } from '@ageorgedev/design-system/cards/TiltCard';
 import {
   Body,
   BodyXl,
   Heading1,
   Heading2,
-} from '@ageorgedev/design-system/typography/typography-components'
-import { createFileRoute, Link } from '@tanstack/react-router'
+} from '@ageorgedev/design-system/typography/typography-components';
+import { createFileRoute, Link } from '@tanstack/react-router';
 
 export const Route = createFileRoute('/_public/talks/')({
   component: RouteComponent,
-})
+});
 
 function RouteComponent() {
   return (
@@ -35,5 +35,5 @@ function RouteComponent() {
         </Link>
       </div>
     </div>
-  )
+  );
 }

@@ -1,16 +1,16 @@
-import { CodeBlock } from '@ageorgedev/design-system/CodeBlock/CodeBlock'
+import { CodeBlock } from '@ageorgedev/design-system/CodeBlock/CodeBlock';
 import {
   Heading1,
   Heading2,
   Heading3,
   Interface,
   PBody,
-} from '@ageorgedev/design-system/typography/typography-components'
+} from '@ageorgedev/design-system/typography/typography-components';
 import {
   ComparisonRow,
   SlideTypeCenter,
   SlideTypeRegular,
-} from '@ageorgedev/reveal-framework'
+} from '@ageorgedev/reveal-framework';
 
 export function S04LeanConfig() {
   return (
@@ -199,7 +199,7 @@ export function S04LeanConfig() {
         ></ComparisonRow>
       </SlideTypeRegular>
     </section>
-  )
+  );
 }
 
 // Code blocks
@@ -216,7 +216,7 @@ export default {
       },
     },
   },
-};`
+};`;
 
 const overridingConfig = `/* tailwind.config.js */
 
@@ -233,7 +233,7 @@ export default {
     // ... non-specified sets picked up
     // from tailwind defaults
   },
-};`
+};`;
 
 const removingCorePlugins = `/* tailwind.config.js */
 
@@ -244,7 +244,7 @@ export default {
     zIndex: false,    // we don't mess with z-index
     animation: false  // will be custom anyway
   },
-};`
+};`;
 
 function RSpaceBar({ className, name }: { className?: string; name: string }) {
   return (
@@ -252,7 +252,7 @@ function RSpaceBar({ className, name }: { className?: string; name: string }) {
       <Interface>{name}</Interface>
       <Bar className={className} />
     </>
-  )
+  );
 }
 
 function LSpaceBar({ className, name }: { className?: string; name: string }) {
@@ -261,9 +261,9 @@ function LSpaceBar({ className, name }: { className?: string; name: string }) {
       <Bar className={className} />
       <Interface>{name}</Interface>
     </>
-  )
+  );
 }
 
 function Bar({ className }: { className?: string }) {
-  return <div className={`${className} h-4 bg-primary-foreground`}></div>
+  return <div className={`${className} h-4 bg-primary-foreground`}></div>;
 }
