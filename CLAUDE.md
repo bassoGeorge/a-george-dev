@@ -17,9 +17,6 @@ yarn decap-server                                # Start local CMS server
 # game-tools runs separately
 yarn turbo dev --filter=@ageorgedev/game-tools   # Start game-tools app (port 3001)
 
-# dnd-cli runs standalone
-yarn dev   # from apps/dnd-cli — launches the Ink character creation wizard
-
 # Build
 yarn build                                       # Build ageorgedev app
 yarn turbo build --filter=@ageorgedev/toolbelt   # Build a specific package
@@ -50,7 +47,6 @@ Turborepo monorepo with Yarn v4 workspaces:
 - **`apps/ageorgedev-e2e`** — Playwright e2e tests for the main site
 - **`apps/design-docs`** — Storybook app for the design system; deployed at design.ageorge.dev
 - **`apps/game-tools`** — D&D character sheet viewer and game tooling; TanStack Start, port 3001
-- **`apps/dnd-cli`** — Ink terminal wizard for creating character `.data.ts` files
 
 **Packages**
 - **`packages/design-system`** — React UI component library
