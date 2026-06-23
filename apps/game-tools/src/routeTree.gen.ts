@@ -12,8 +12,9 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as PublicRouteImport } from './routes/_public'
 import { Route as PublicIndexRouteImport } from './routes/_public/index'
 import { Route as PublicDndCharactersIndexRouteImport } from './routes/_public/dnd/characters/index'
-import { Route as PublicDndCharactersOmarinKenateRouteImport } from './routes/_public/dnd/characters/omarin-kenate'
-import { Route as PublicDndCharactersExampleRouteImport } from './routes/_public/dnd/characters/example'
+import { Route as PublicDndCharactersSheetRouteImport } from './routes/_public/dnd/characters/_sheet'
+import { Route as PublicDndCharactersSheetOmarinKenateRouteImport } from './routes/_public/dnd/characters/_sheet/omarin-kenate'
+import { Route as PublicDndCharactersSheetExampleRouteImport } from './routes/_public/dnd/characters/_sheet/example'
 
 const PublicRoute = PublicRouteImport.update({
   id: '/_public',
@@ -30,59 +31,69 @@ const PublicDndCharactersIndexRoute =
     path: '/dnd/characters/',
     getParentRoute: () => PublicRoute,
   } as any)
-const PublicDndCharactersOmarinKenateRoute =
-  PublicDndCharactersOmarinKenateRouteImport.update({
-    id: '/dnd/characters/omarin-kenate',
-    path: '/dnd/characters/omarin-kenate',
+const PublicDndCharactersSheetRoute =
+  PublicDndCharactersSheetRouteImport.update({
+    id: '/dnd/characters/_sheet',
+    path: '/dnd/characters',
     getParentRoute: () => PublicRoute,
   } as any)
-const PublicDndCharactersExampleRoute =
-  PublicDndCharactersExampleRouteImport.update({
-    id: '/dnd/characters/example',
-    path: '/dnd/characters/example',
-    getParentRoute: () => PublicRoute,
+const PublicDndCharactersSheetOmarinKenateRoute =
+  PublicDndCharactersSheetOmarinKenateRouteImport.update({
+    id: '/omarin-kenate',
+    path: '/omarin-kenate',
+    getParentRoute: () => PublicDndCharactersSheetRoute,
+  } as any)
+const PublicDndCharactersSheetExampleRoute =
+  PublicDndCharactersSheetExampleRouteImport.update({
+    id: '/example',
+    path: '/example',
+    getParentRoute: () => PublicDndCharactersSheetRoute,
   } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof PublicIndexRoute
-  '/dnd/characters/example': typeof PublicDndCharactersExampleRoute
-  '/dnd/characters/omarin-kenate': typeof PublicDndCharactersOmarinKenateRoute
+  '/dnd/characters': typeof PublicDndCharactersSheetRouteWithChildren
   '/dnd/characters/': typeof PublicDndCharactersIndexRoute
+  '/dnd/characters/example': typeof PublicDndCharactersSheetExampleRoute
+  '/dnd/characters/omarin-kenate': typeof PublicDndCharactersSheetOmarinKenateRoute
 }
 export interface FileRoutesByTo {
   '/': typeof PublicIndexRoute
-  '/dnd/characters/example': typeof PublicDndCharactersExampleRoute
-  '/dnd/characters/omarin-kenate': typeof PublicDndCharactersOmarinKenateRoute
   '/dnd/characters': typeof PublicDndCharactersIndexRoute
+  '/dnd/characters/example': typeof PublicDndCharactersSheetExampleRoute
+  '/dnd/characters/omarin-kenate': typeof PublicDndCharactersSheetOmarinKenateRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/_public': typeof PublicRouteWithChildren
   '/_public/': typeof PublicIndexRoute
-  '/_public/dnd/characters/example': typeof PublicDndCharactersExampleRoute
-  '/_public/dnd/characters/omarin-kenate': typeof PublicDndCharactersOmarinKenateRoute
+  '/_public/dnd/characters/_sheet': typeof PublicDndCharactersSheetRouteWithChildren
   '/_public/dnd/characters/': typeof PublicDndCharactersIndexRoute
+  '/_public/dnd/characters/_sheet/example': typeof PublicDndCharactersSheetExampleRoute
+  '/_public/dnd/characters/_sheet/omarin-kenate': typeof PublicDndCharactersSheetOmarinKenateRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/dnd/characters'
+    | '/dnd/characters/'
     | '/dnd/characters/example'
     | '/dnd/characters/omarin-kenate'
-    | '/dnd/characters/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/dnd/characters'
     | '/dnd/characters/example'
     | '/dnd/characters/omarin-kenate'
-    | '/dnd/characters'
   id:
     | '__root__'
     | '/_public'
     | '/_public/'
-    | '/_public/dnd/characters/example'
-    | '/_public/dnd/characters/omarin-kenate'
+    | '/_public/dnd/characters/_sheet'
     | '/_public/dnd/characters/'
+    | '/_public/dnd/characters/_sheet/example'
+    | '/_public/dnd/characters/_sheet/omarin-kenate'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -112,34 +123,56 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PublicDndCharactersIndexRouteImport
       parentRoute: typeof PublicRoute
     }
-    '/_public/dnd/characters/omarin-kenate': {
-      id: '/_public/dnd/characters/omarin-kenate'
-      path: '/dnd/characters/omarin-kenate'
-      fullPath: '/dnd/characters/omarin-kenate'
-      preLoaderRoute: typeof PublicDndCharactersOmarinKenateRouteImport
+    '/_public/dnd/characters/_sheet': {
+      id: '/_public/dnd/characters/_sheet'
+      path: '/dnd/characters'
+      fullPath: '/dnd/characters'
+      preLoaderRoute: typeof PublicDndCharactersSheetRouteImport
       parentRoute: typeof PublicRoute
     }
-    '/_public/dnd/characters/example': {
-      id: '/_public/dnd/characters/example'
-      path: '/dnd/characters/example'
+    '/_public/dnd/characters/_sheet/omarin-kenate': {
+      id: '/_public/dnd/characters/_sheet/omarin-kenate'
+      path: '/omarin-kenate'
+      fullPath: '/dnd/characters/omarin-kenate'
+      preLoaderRoute: typeof PublicDndCharactersSheetOmarinKenateRouteImport
+      parentRoute: typeof PublicDndCharactersSheetRoute
+    }
+    '/_public/dnd/characters/_sheet/example': {
+      id: '/_public/dnd/characters/_sheet/example'
+      path: '/example'
       fullPath: '/dnd/characters/example'
-      preLoaderRoute: typeof PublicDndCharactersExampleRouteImport
-      parentRoute: typeof PublicRoute
+      preLoaderRoute: typeof PublicDndCharactersSheetExampleRouteImport
+      parentRoute: typeof PublicDndCharactersSheetRoute
     }
   }
 }
 
+interface PublicDndCharactersSheetRouteChildren {
+  PublicDndCharactersSheetExampleRoute: typeof PublicDndCharactersSheetExampleRoute
+  PublicDndCharactersSheetOmarinKenateRoute: typeof PublicDndCharactersSheetOmarinKenateRoute
+}
+
+const PublicDndCharactersSheetRouteChildren: PublicDndCharactersSheetRouteChildren =
+  {
+    PublicDndCharactersSheetExampleRoute: PublicDndCharactersSheetExampleRoute,
+    PublicDndCharactersSheetOmarinKenateRoute:
+      PublicDndCharactersSheetOmarinKenateRoute,
+  }
+
+const PublicDndCharactersSheetRouteWithChildren =
+  PublicDndCharactersSheetRoute._addFileChildren(
+    PublicDndCharactersSheetRouteChildren,
+  )
+
 interface PublicRouteChildren {
   PublicIndexRoute: typeof PublicIndexRoute
-  PublicDndCharactersExampleRoute: typeof PublicDndCharactersExampleRoute
-  PublicDndCharactersOmarinKenateRoute: typeof PublicDndCharactersOmarinKenateRoute
+  PublicDndCharactersSheetRoute: typeof PublicDndCharactersSheetRouteWithChildren
   PublicDndCharactersIndexRoute: typeof PublicDndCharactersIndexRoute
 }
 
 const PublicRouteChildren: PublicRouteChildren = {
   PublicIndexRoute: PublicIndexRoute,
-  PublicDndCharactersExampleRoute: PublicDndCharactersExampleRoute,
-  PublicDndCharactersOmarinKenateRoute: PublicDndCharactersOmarinKenateRoute,
+  PublicDndCharactersSheetRoute: PublicDndCharactersSheetRouteWithChildren,
   PublicDndCharactersIndexRoute: PublicDndCharactersIndexRoute,
 }
 

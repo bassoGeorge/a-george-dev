@@ -212,6 +212,7 @@ __metadata:
     "@ageorgedev/foundation-styles": "workspace:*"
     "@ageorgedev/toolbelt": "workspace:*"
     "@ageorgedev/ts-config": "workspace:*"
+    "@phosphor-icons/react": "npm:2.1.10"
     "@tailwindcss/vite": "npm:4.2.1"
     "@tanstack/react-router": "npm:1.170.11"
     "@tanstack/react-start": "npm:1.168.19"
