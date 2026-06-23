@@ -125,7 +125,7 @@ const OmarinData: Character = {
     },
     {
       name: 'Second Wind',
-      duration: 'Bonus Action',
+      castingTime: 'Bonus Action',
       // TODO: Fighter level
       description: 'Regain Hit Points equal to 1d10+{{level.Fighter}}',
       cost: '1 Second Wind charge',

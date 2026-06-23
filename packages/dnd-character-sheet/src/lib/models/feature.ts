@@ -1,11 +1,12 @@
 import type { Ability } from './abilities';
+import type { Skill } from './skills';
 
 export interface Feature {
   name: string;
   source?: string;
   description: string;
 
-  duration?: 'Action' | 'Bonus Action';
+  castingTime?: 'Action' | 'Bonus Action';
 
   // Either it uses a resource
   cost?: Cost;
@@ -16,6 +17,26 @@ export interface Feature {
     count: ResourceCount;
     refresh: Refresh;
   };
+
+  skillMod?:
+    | {
+        kind: 'static-additions';
+        mods: { skill: Skill; modifier: number }[];
+      }
+    | {
+        kind: 'function';
+        mod: ({
+          skill,
+          currentBonus,
+          isProficient,
+          hasExpertise,
+        }: {
+          skill: Skill;
+          currentBonus: number;
+          isProficient: boolean;
+          hasExpertise: boolean;
+        }) => number;
+      };
 }
 
 type ResourceCount = {

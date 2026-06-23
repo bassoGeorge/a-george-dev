@@ -3,6 +3,7 @@ import { HIT_DICE_TABLE } from './character-class-constants';
 import { Ability, ALL_ABILITIES } from './models/abilities';
 import type { Character } from './models/character';
 import type { DerivedStats } from './models/derived-stats';
+import type { Feature } from './models/feature';
 import { AbilitySkillGrouping, Skill } from './models/skills';
 
 function abilityModifier(score: number): number {
@@ -38,6 +39,8 @@ export function calculateStats(character: Character): DerivedStats {
     })
   ) as DerivedStats['savingThrows'];
 
+  const allSkillMods = gatherAllSkillMods(character);
+
   const skills = Object.fromEntries(
     Object.entries(AbilitySkillGrouping).flatMap(([ability, skills]) => {
       return skills.map((skill) => {
@@ -47,7 +50,15 @@ export function calculateStats(character: Character): DerivedStats {
           abilityModifiers[ability as Ability] +
           (isProficient ? profBonus : 0) +
           (hasExpertise ? profBonus : 0);
-        return [skill, bonus] as const;
+
+        const finalBonus = finaliseSkillBonus({
+          skill,
+          isProficient,
+          hasExpertise,
+          currentBonus: bonus,
+          allSkillMods,
+        });
+        return [skill, finalBonus] as const;
       });
     })
   ) as DerivedStats['skills'];
@@ -97,3 +108,37 @@ const computeHitDice = pipe(
   toPairs<number>,
   map(([dice, count]) => ({ dice, count }))
 );
+
+function gatherAllSkillMods(character: Character) {
+  return [
+    ...character.features,
+    ...(character.speciesTraits ?? []),
+    ...(character.feats ?? []),
+  ]
+    .map((f) => f.skillMod)
+    .filter(Boolean) as NonNullable<Feature['skillMod']>[];
+}
+
+function finaliseSkillBonus(options: {
+  skill: Skill;
+  isProficient: boolean;
+  hasExpertise: boolean;
+  currentBonus: number;
+  allSkillMods: NonNullable<Feature['skillMod']>[];
+}) {
+  return reduce(
+    (current, mod) => {
+      if (mod.kind === 'static-additions') {
+        const foundItem = mod.mods.find((m) => m.skill === options.skill);
+        if (foundItem) {
+          return current + foundItem.modifier;
+        }
+      } else if (mod.kind === 'function') {
+        return mod.mod(options);
+      }
+      return current;
+    },
+    options.currentBonus,
+    options.allSkillMods
+  );
+}

@@ -77,7 +77,42 @@ const ZoynariData: Character = {
     },
   ],
   equipment: [],
-  features: [],
+  features: [
+    {
+      name: 'Divine Order: Thaumaturge',
+      description:
+        '<ol><li>You gain 1 additional cantrip</li><li>Bonus +3 to Arcana & Religion checks (already considered in this sheet)</li></ol>',
+      skillMod: {
+        kind: 'static-additions',
+        mods: [
+          { skill: Skill.Arcana, modifier: 3 },
+          { skill: Skill.Religion, modifier: 3 },
+        ],
+      },
+    },
+    {
+      name: 'Channel Divinity',
+      description: 'Divine magic to power your effects',
+      resource: {
+        name: 'Channel Divinity',
+        count: {
+          kind: 'fixed',
+          value: 2,
+        },
+        refresh: {
+          kind: 'short-and-long-rest',
+          numberOfRefreshesOnShortRest: 1,
+        },
+      },
+    },
+    {
+      name: 'Divine Spark',
+      cost: '1 Channel Divinity',
+      castingTime: 'Action',
+      description:
+        '<em>Choose 1 target in 30ft range</em>. Roll 1d8+3. The target either: Regains Hit points equal to roll OR makes a CON save, taking rolled damage of either Necrotic or Radiant on failure, half as much on success.',
+    },
+  ],
   armorProficiencies: ['Light armor', 'Medium armor', 'Shields'],
   weaponProficiencies: ['Simple weapons'],
   toolProficiencies: ['Herbalism Kit'],
