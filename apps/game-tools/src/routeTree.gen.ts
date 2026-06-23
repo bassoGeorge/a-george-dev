@@ -13,6 +13,7 @@ import { Route as PublicRouteImport } from './routes/_public'
 import { Route as PublicIndexRouteImport } from './routes/_public/index'
 import { Route as PublicDndCharactersIndexRouteImport } from './routes/_public/dnd/characters/index'
 import { Route as PublicDndCharactersSheetRouteImport } from './routes/_public/dnd/characters/_sheet'
+import { Route as PublicDndCharactersSheetZoynariRouteImport } from './routes/_public/dnd/characters/_sheet/zoynari'
 import { Route as PublicDndCharactersSheetOmarinKenateRouteImport } from './routes/_public/dnd/characters/_sheet/omarin-kenate'
 import { Route as PublicDndCharactersSheetExampleRouteImport } from './routes/_public/dnd/characters/_sheet/example'
 
@@ -37,6 +38,12 @@ const PublicDndCharactersSheetRoute =
     path: '/dnd/characters',
     getParentRoute: () => PublicRoute,
   } as any)
+const PublicDndCharactersSheetZoynariRoute =
+  PublicDndCharactersSheetZoynariRouteImport.update({
+    id: '/zoynari',
+    path: '/zoynari',
+    getParentRoute: () => PublicDndCharactersSheetRoute,
+  } as any)
 const PublicDndCharactersSheetOmarinKenateRoute =
   PublicDndCharactersSheetOmarinKenateRouteImport.update({
     id: '/omarin-kenate',
@@ -56,12 +63,14 @@ export interface FileRoutesByFullPath {
   '/dnd/characters/': typeof PublicDndCharactersIndexRoute
   '/dnd/characters/example': typeof PublicDndCharactersSheetExampleRoute
   '/dnd/characters/omarin-kenate': typeof PublicDndCharactersSheetOmarinKenateRoute
+  '/dnd/characters/zoynari': typeof PublicDndCharactersSheetZoynariRoute
 }
 export interface FileRoutesByTo {
   '/': typeof PublicIndexRoute
   '/dnd/characters': typeof PublicDndCharactersIndexRoute
   '/dnd/characters/example': typeof PublicDndCharactersSheetExampleRoute
   '/dnd/characters/omarin-kenate': typeof PublicDndCharactersSheetOmarinKenateRoute
+  '/dnd/characters/zoynari': typeof PublicDndCharactersSheetZoynariRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -71,6 +80,7 @@ export interface FileRoutesById {
   '/_public/dnd/characters/': typeof PublicDndCharactersIndexRoute
   '/_public/dnd/characters/_sheet/example': typeof PublicDndCharactersSheetExampleRoute
   '/_public/dnd/characters/_sheet/omarin-kenate': typeof PublicDndCharactersSheetOmarinKenateRoute
+  '/_public/dnd/characters/_sheet/zoynari': typeof PublicDndCharactersSheetZoynariRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -80,12 +90,14 @@ export interface FileRouteTypes {
     | '/dnd/characters/'
     | '/dnd/characters/example'
     | '/dnd/characters/omarin-kenate'
+    | '/dnd/characters/zoynari'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/dnd/characters'
     | '/dnd/characters/example'
     | '/dnd/characters/omarin-kenate'
+    | '/dnd/characters/zoynari'
   id:
     | '__root__'
     | '/_public'
@@ -94,6 +106,7 @@ export interface FileRouteTypes {
     | '/_public/dnd/characters/'
     | '/_public/dnd/characters/_sheet/example'
     | '/_public/dnd/characters/_sheet/omarin-kenate'
+    | '/_public/dnd/characters/_sheet/zoynari'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -130,6 +143,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PublicDndCharactersSheetRouteImport
       parentRoute: typeof PublicRoute
     }
+    '/_public/dnd/characters/_sheet/zoynari': {
+      id: '/_public/dnd/characters/_sheet/zoynari'
+      path: '/zoynari'
+      fullPath: '/dnd/characters/zoynari'
+      preLoaderRoute: typeof PublicDndCharactersSheetZoynariRouteImport
+      parentRoute: typeof PublicDndCharactersSheetRoute
+    }
     '/_public/dnd/characters/_sheet/omarin-kenate': {
       id: '/_public/dnd/characters/_sheet/omarin-kenate'
       path: '/omarin-kenate'
@@ -150,6 +170,7 @@ declare module '@tanstack/react-router' {
 interface PublicDndCharactersSheetRouteChildren {
   PublicDndCharactersSheetExampleRoute: typeof PublicDndCharactersSheetExampleRoute
   PublicDndCharactersSheetOmarinKenateRoute: typeof PublicDndCharactersSheetOmarinKenateRoute
+  PublicDndCharactersSheetZoynariRoute: typeof PublicDndCharactersSheetZoynariRoute
 }
 
 const PublicDndCharactersSheetRouteChildren: PublicDndCharactersSheetRouteChildren =
@@ -157,6 +178,7 @@ const PublicDndCharactersSheetRouteChildren: PublicDndCharactersSheetRouteChildr
     PublicDndCharactersSheetExampleRoute: PublicDndCharactersSheetExampleRoute,
     PublicDndCharactersSheetOmarinKenateRoute:
       PublicDndCharactersSheetOmarinKenateRoute,
+    PublicDndCharactersSheetZoynariRoute: PublicDndCharactersSheetZoynariRoute,
   }
 
 const PublicDndCharactersSheetRouteWithChildren =
