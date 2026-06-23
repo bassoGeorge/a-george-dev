@@ -248,7 +248,9 @@ const OmarinData: Character = {
   `,
 };
 
-export const Route = createFileRoute('/_public/dnd/characters/omarin-kenate')({
+export const Route = createFileRoute(
+  '/_public/dnd/characters/_sheet/omarin-kenate'
+)({
   component: RouteComponent,
   staticData: {
     character: {

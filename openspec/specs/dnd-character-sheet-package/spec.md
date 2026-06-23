@@ -34,10 +34,10 @@ The package's `tsconfig.json` SHALL extend `@ageorgedev/ts-config/react.json` an
 - **THEN** `extends` points to `@ageorgedev/ts-config/react.json`
 
 ### Requirement: Tailwind classes are scanned by the consumer app
-The consumer app (`apps/ageorgedev`) SHALL scan `packages/dnd-character-sheet/src` for Tailwind utility classes via a `@source` directive, consistent with how other packages are scanned.
+The consumer app (`apps/game-tools`) SHALL scan `packages/dnd-character-sheet/src` for Tailwind utility classes via a `@source` directive, consistent with how other packages are scanned.
 
 #### Scenario: Tailwind utilities from character-sheet are available in the app
-- **WHEN** `apps/ageorgedev/src/styles.css` includes `@source "../../../packages/dnd-character-sheet/src"`
+- **WHEN** `apps/game-tools/src/styles.css` includes `@source "../../../packages/dnd-character-sheet/src"`
 - **THEN** the Tailwind build includes utilities used in the package's source files
 
 ### Requirement: Package-scoped design tokens are defined locally
@@ -79,3 +79,33 @@ The package SHALL export all components, types, and utilities that were present 
 #### Scenario: Public exports are accessible
 - **WHEN** a consumer imports from `@ageorgedev/dnd-character-sheet`
 - **THEN** all previously exported symbols (CharacterSheet, StandardCharacterSheet, component primitives, types, calculateStats) are available
+
+### Requirement: Resources component renders class feature resource pools
+The package SHALL include a `Resources` component that reads resource metadata from a character's features (via a `resource` field on `Feature`) and renders each resource as a checkable pool with a label and count.
+
+#### Scenario: Character with resource features
+- **WHEN** a character has features with `resource` metadata
+- **THEN** the `Resources` component renders one entry per resource showing its name and available uses as checkboxes
+- **THEN** the component is visible on the rendered character sheet
+
+#### Scenario: Character with no resource features
+- **WHEN** a character has no features that declare a `resource`
+- **THEN** the `Resources` component renders nothing (returns null)
+
+### Requirement: Feature text supports Mustache template substitution
+The package SHALL enrich feature, feat, and species trait descriptions at render time using Mustache templating. Templates have access to character level data (`{{level.total}}`, `{{level.<ClassName>}}`).
+
+#### Scenario: Feature description with level placeholder
+- **WHEN** a feature's `description` contains `{{level.total}}`
+- **THEN** the rendered description shows the character's total level as a number
+
+#### Scenario: Feature description with class-level placeholder
+- **WHEN** a feature's `description` contains `{{level.Monk}}`
+- **THEN** the rendered description shows the character's Monk class level
+
+### Requirement: Derived stats include hit dice per class
+The `calculateDerivedStats` function SHALL compute hit dice for each character class, mapping each class to its canonical die size (d6–d12) and including the class level as the dice count.
+
+#### Scenario: Hit dice are calculated
+- **WHEN** `calculateDerivedStats` is called for a character with one or more classes
+- **THEN** `derivedStats.hitDice` contains one entry per class with `count` equal to the class level and `dice` equal to the class's hit die size
