@@ -125,7 +125,7 @@ const ZoynariData: Character = {
       cost: '1 Channel Divinity',
       castingTime: 'Action',
       description:
-        'Emit light in a 30ft sphere originating at yourself. Dispels any magical darkness. Each creature of your choice in range makes a Con. saving throw, taking 2d10+{{level.Cleric}} Radiant damage, or half as much on success.',
+        'Emit light in a 30ft sphere originating at yourself. Dispels any magical darkness. Each creature of your choice in range makes a Con. saving throw, taking 2d10+<%= level.Cleric %> Radiant damage, or half as much on success.',
     },
     {
       name: 'Warding flare',
@@ -157,7 +157,7 @@ const ZoynariData: Character = {
     {
       name: 'Mind Link',
       description:
-        'You have telepathy within range of {{level.total * 10}}ft. When using this trait to speak telepathically to a creature, you can take a Magic action to give that creature the ability to speak telepathically with you for 1hr, or until you take a Magic action to end the effect.',
+        'You have telepathy within range of <%= level.total * 10 %>ft. When using this trait to speak telepathically to a creature, you can take a Magic action to give that creature the ability to speak telepathically with you for 1hr, or until you take a Magic action to end the effect.',
     },
   ],
   armorProficiencies: ['Light armor', 'Medium armor', 'Shields'],

@@ -127,7 +127,7 @@ const OmarinData: Character = {
       name: 'Second Wind',
       castingTime: 'Bonus Action',
       // TODO: Fighter level
-      description: 'Regain Hit Points equal to 1d10+{{level.Fighter}}',
+      description: 'Regain Hit Points equal to 1d10+<%= level.Fighter %>',
       cost: '1 Second Wind charge',
       resource: {
         name: 'Second Wind',
@@ -166,7 +166,7 @@ const OmarinData: Character = {
     {
       name: 'Uncanny Metabolism',
       description:
-        'On rolling Initiative, regain all expended Focus Points, and regain 1d6+{{level.Monk}} HP',
+        'On rolling Initiative, regain all expended Focus Points, and regain 1d6+<%= level.Monk %> HP',
       resource: {
         name: 'Uncanny Metabolism',
         count: { kind: 'fixed', value: 1 },
