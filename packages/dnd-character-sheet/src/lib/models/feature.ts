@@ -6,7 +6,7 @@ export interface Feature {
   source?: string;
   description: string;
 
-  castingTime?: 'Action' | 'Bonus Action';
+  castingTime?: 'Action' | 'Bonus Action' | 'Reaction';
 
   // Either it uses a resource
   cost?: Cost;
