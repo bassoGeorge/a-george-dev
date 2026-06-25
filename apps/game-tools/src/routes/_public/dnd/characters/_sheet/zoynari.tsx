@@ -310,5 +310,10 @@ export const Route = createFileRoute('/_public/dnd/characters/_sheet/zoynari')({
 });
 
 function RouteComponent() {
-  return <StandardCharacterSheet data={ZoynariData} />;
+  return (
+    <StandardCharacterSheet
+      data={ZoynariData}
+      visualAdjustments={{ inventoryRows: 16 }}
+    />
+  );
 }

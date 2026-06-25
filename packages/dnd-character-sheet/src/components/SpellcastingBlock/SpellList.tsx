@@ -10,14 +10,15 @@ import {
 import { HorizontalDivider } from '../layout/dividers';
 import { Panel } from '../layout/Panel';
 import { PanelTitle } from '../layout/PanelTitle';
+import { useVisualAdjustments } from '../VisualAdjustmentsContext';
 
 export function SpellList() {
   const {
     character: { spellcasting },
   } = useCharacter();
 
-  const totalRows = 30; // problematic, does not work all the time. if we don't find a css solution, might have to prop drill from StandardCharacter sheet
-  const emptyRows = totalRows - (spellcasting?.spells.length ?? 0);
+  const { spellRows } = useVisualAdjustments();
+  const emptyRows = spellRows - (spellcasting?.spells.length ?? 0);
 
   return (
     <Panel outerClasses="flex-1 h-full" className="overflow-hidden">
