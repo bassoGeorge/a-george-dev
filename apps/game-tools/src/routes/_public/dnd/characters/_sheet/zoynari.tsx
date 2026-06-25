@@ -144,6 +144,11 @@ const ZoynariData: Character = {
         },
       },
     },
+    {
+      name: 'Changing prepared spells',
+      description:
+        'Can change prepared spells after a Long Rest. Use cleric list.', // TODO should ideally be in the spellcasting sheet
+    },
   ],
   speciesTraits: [
     {
@@ -159,6 +164,22 @@ const ZoynariData: Character = {
       description:
         'You have telepathy within range of <%= level.total * 10 %>ft. When using this trait to speak telepathically to a creature, you can take a Magic action to give that creature the ability to speak telepathically with you for 1hr, or until you take a Magic action to end the effect.',
     },
+    {
+      name: 'Severed from dreams',
+      description:
+        "You can't be the target of the <em>Dream</em> spell. Also, <span class='underline'>when you finish a Long Rest, you gain proficiency in one skill of your choice.</span> This proficiency lasts until you finish another Long Rest.",
+    },
+  ],
+  feats: [
+    {
+      name: 'Healer',
+      description: `
+      <ol>
+        <li><strong>Battle Medic</strong>: Expend 1 use of Healer's Kit to tend to a creature within 5ft (Utilise action). Creature can expend their 1 hit dice that you roll. Creature regains roll + your Proficiency Bonus.</li>
+        <li><strong>Healing Rerolls</strong>: Whenever you roll a die to determine Hit Points you restore with a spell or the above Battle Medic ability, you can reroll the die if it rolls a 1 and use the new roll.</li>
+      </ol>
+      `,
+    },
   ],
   armorProficiencies: ['Light armor', 'Medium armor', 'Shields'],
   weaponProficiencies: ['Simple weapons'],
@@ -166,13 +187,101 @@ const ZoynariData: Character = {
   languages: ['Common', 'Quori'],
   spellcasting: {
     ability: Ability.Wisdom,
-    spells: [],
     numberOfCantrips: 4,
     numberOfPreparedSpells: 6,
     slots: {
       1: 4,
       2: 2,
     },
+    spells: [
+      {
+        name: 'Guidance',
+        level: 0,
+        range: 'Touch',
+        duration: '1min',
+        concentration: true,
+      },
+      {
+        name: 'Sacred Flame',
+        level: 0,
+        range: '60ft',
+        notes: 'Dex. save, 1d8 Radiant',
+      },
+      {
+        name: 'Thaumaturgy',
+        level: 0,
+        range: '30ft',
+      },
+      {
+        name: 'Toll the Dead',
+        level: 0,
+        range: '60ft',
+        notes: 'Wis. save',
+      },
+      {
+        name: 'Burning Hands',
+        level: 1,
+        range: 'Self',
+        alwaysPrepared: true,
+      },
+      {
+        name: 'Faerie Fire',
+        level: 1,
+        range: '60ft',
+        alwaysPrepared: true,
+      },
+      {
+        name: 'Scorching Ray',
+        level: 2,
+        range: '120ft',
+        alwaysPrepared: true,
+      },
+      {
+        name: 'See Invisibility',
+        level: 2,
+        range: 'Self',
+        alwaysPrepared: true,
+      },
+      {
+        name: 'Bless',
+        level: 1,
+        range: '30ft',
+        concentration: true,
+      },
+      {
+        name: 'Cure Wounds',
+        level: 1,
+        range: 'Touch',
+        notes: '2d8+3 healing',
+      },
+      {
+        name: 'Healing Word',
+        level: 1,
+        castingTime: 'Bonus Action',
+        range: '60ft',
+        notes: '2d4+3 healing',
+      },
+      {
+        name: 'Shield of Faith',
+        level: 1,
+        range: '60ft',
+        duration: '10min',
+        concentration: true,
+      },
+      {
+        name: 'Guiding Bolt',
+        level: 1,
+        range: '120ft',
+        notes: 'ranged attack, 4d6 Radiant',
+      },
+      {
+        name: 'Locate Object',
+        level: 2,
+        range: 'Self',
+        duration: '10min',
+        concentration: true,
+      },
+    ],
   },
 };
 

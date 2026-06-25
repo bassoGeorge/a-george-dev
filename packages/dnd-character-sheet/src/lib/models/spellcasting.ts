@@ -19,9 +19,9 @@ interface SpellComponents {
 export interface Spell {
   name: string;
   level: number;
-  castingTime: string;
-  range: string;
-  duration: string;
+  range?: string;
+  castingTime?: string;
+  duration?: string;
   school?: SpellSchool;
   components?: SpellComponents;
   concentration?: boolean;

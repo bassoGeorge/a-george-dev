@@ -69,13 +69,13 @@ export function SpellRow({ spell }: { spell: Spell }) {
   ].filter(Boolean);
 
   const castingTimeText = (() => {
-    switch (spell.castingTime.toLowerCase()) {
+    switch ((spell.castingTime ?? 'Action').toLowerCase()) {
       case 'action':
         return 'Action';
       case 'bonus action':
         return 'Bonus';
       default:
-        return spell.duration;
+        return spell.castingTime;
     }
   })();
 
@@ -98,6 +98,8 @@ export function SpellRow({ spell }: { spell: Spell }) {
       <Td className="w-[3ch] border-l-0">
         {spell.alwaysPrepared ? (
           <span className="italic text-neutral-subdued font-interface">AP</span>
+        ) : spell.level === 0 ? (
+          <span />
         ) : (
           <CircleCheck className="align-[-.1em]" />
         )}
@@ -111,8 +113,8 @@ export function SpellRow({ spell }: { spell: Spell }) {
         </div>
       </Td>
       <Td className="w-[10ch]">{castingTimeText}</Td>
-      <Td className="w-[8ch]">{spell.range}</Td>
-      <Td className="w-[8ch]">{spell.duration}</Td>
+      <Td className="w-[8ch]">{spell.range ?? 'Self'}</Td>
+      <Td className="w-[8ch]">{spell.duration ?? 'Instant'}</Td>
       <CRMcell
         c={spell.concentration}
         r={spell.ritual}
