@@ -76,7 +76,13 @@ const ZoynariData: Character = {
       notes: 'If target is missing any HP, use 1d12 instead',
     },
   ],
-  equipment: [],
+  equipment: [
+    "Bedroll, Backpack, Blanket, Book (philosophy), Lamp, Traveller's clothes, Holy water, Rope, Tinderbox, Herbalism Kit",
+    "Healer's Kit (use) = 10",
+    'Oil flasks = 3',
+    'Chain shirt, Shield, Mace',
+    'Holy Symbol (spellcasting focus)',
+  ],
   features: [
     {
       name: 'Divine Order: Thaumaturge',
@@ -283,6 +289,13 @@ const ZoynariData: Character = {
       },
     ],
   },
+  appearance: `
+  Kalashtar are a union of humanity and spirits from the plane of dreams. Often seen as wise, spiritual people. You have symmetric, slightly angular features and your eyes often glow when you are focused or express strong emotions.
+  `,
+  backstory: `
+  <p><strong>Hermit</strong>: You spent years in seclusion, meditation to bring change within, as the first step in your faith -- <em>Path of Light.</em> The next step, is to bring light into the world, using courage and compassion to banish the darkness in the people around you.</p>
+  <p><strong>Quirks</strong>: You discuss things with your quori spirit (the dream spirit that's bonded with your bloodline)
+  `,
 };
 
 export const Route = createFileRoute('/_public/dnd/characters/_sheet/zoynari')({
