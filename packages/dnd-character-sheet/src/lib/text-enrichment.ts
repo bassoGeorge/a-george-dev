@@ -7,14 +7,7 @@ export function enrichCharacterData(
   character: Character,
   stats: DerivedStats
 ): Character {
-  const dataValues = {
-    level: {
-      total: stats.characterLevel,
-      ...Object.fromEntries(character.classes.map((c) => [c.name, c.level])),
-    },
-  };
-
-  const enricher = (str: string) => ejs.render(str, dataValues);
+  const enricher = (str: string) => ejs.render(str, { ...stats });
   const enrichFeature = (f: Feature): Feature => ({
     ...f,
     description: enricher(f.description),

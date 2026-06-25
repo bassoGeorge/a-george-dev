@@ -181,7 +181,7 @@ const ZoynariData: Character = {
       name: 'Healer',
       description: `
       <ol>
-        <li><strong>Battle Medic</strong>: Expend 1 use of Healer's Kit to tend to a creature within 5ft (Utilise action). Creature can expend their 1 hit dice that you roll. Creature regains roll + your Proficiency Bonus.</li>
+        <li><strong>Battle Medic</strong>: Expend 1 use of Healer's Kit to tend to a creature within 5ft (Utilise action). Creature can expend their 1 hit dice that you roll. Creature regains roll + <%= proficiencyBonus %> Hit Points.</li>
         <li><strong>Healing Rerolls</strong>: Whenever you roll a die to determine Hit Points you restore with a spell or the above Battle Medic ability, you can reroll the die if it rolls a 1 and use the new roll.</li>
       </ol>
       `,

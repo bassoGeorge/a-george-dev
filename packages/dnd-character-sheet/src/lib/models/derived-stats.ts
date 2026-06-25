@@ -8,7 +8,7 @@ export interface DerivedStats {
   skills: Record<Skill, number>;
   passivePerception: number;
   initiative: number;
-  characterLevel: number;
+  level: { total: number } & Record<string, number>;
   hitDice: { dice: string; count: number }[];
   spellSaveDC?: number;
   spellAttackBonus?: number;
