@@ -24,7 +24,7 @@ interface AbilityBoxProps {
 export function AbilityBox({ ability }: AbilityBoxProps) {
   const { character, derived } = useCharacter();
   const score = character.abilities[ability];
-  const mod = derived.abilityModifiers[ability];
+  const abilityMod = derived.abilityModifiers[ability];
   const savingThrow = derived.savingThrows[ability];
   const isSaveProficient = character.savingThrowProficiencies.includes(ability);
   const skills = AbilitySkillGrouping[ability];
@@ -38,15 +38,19 @@ export function AbilityBox({ ability }: AbilityBoxProps) {
       <PanelTitle>{ABILITY_DETAILS[ability].label}</PanelTitle>
       <div className="flex justify-center items-center py-2 gap-1">
         <div className="size-8 rounded-full border-2 flex items-center justify-center bg-page-4">
-          <BigNumber className="text-3xl">{formatMod(mod)}</BigNumber>
+          <BigNumber className="text-3xl">{formatMod(abilityMod)}</BigNumber>
         </div>
         <div className="text-lg text-neutral-subdued w-7 py-2 text-center border-1 -ml-3 -z-1">
           {score}
         </div>
       </div>
       <SkillGrid>
-        <SkillRow checkedState={isSaveProficient} modifier={savingThrow}>
-          Saving Throw
+        <SkillRow
+          checkedState={isSaveProficient}
+          skillModifier={savingThrow}
+          abilityModifier={abilityMod}
+        >
+          <b>Saving Throw</b>
         </SkillRow>
       </SkillGrid>
       {!!skills.length && (
@@ -59,7 +63,8 @@ export function AbilityBox({ ability }: AbilityBoxProps) {
               <SkillRow
                 key={skill}
                 checkedState={proficiencyState(isProficient, hasExpertise)}
-                modifier={total}
+                skillModifier={total}
+                abilityModifier={abilityMod}
               >
                 {skill}
               </SkillRow>
@@ -80,16 +85,22 @@ function SkillGrid({ children }: React.PropsWithChildren) {
 
 function SkillRow({
   checkedState,
-  modifier,
+  skillModifier,
+  abilityModifier,
   children,
 }: React.PropsWithChildren<{
   checkedState: CheckedState;
-  modifier: number;
+  skillModifier: number;
+  abilityModifier: number;
 }>) {
+  const modifierDisplayed =
+    skillModifier === abilityModifier ? '\u00a0' : formatMod(skillModifier);
   return (
     <>
       <CircleCheck checked={checkedState} className="self-center" />
-      <span className="text-md text-right">{formatMod(modifier)}</span>
+      <span className="text-md text-right border-b border-b-neutral-disabled">
+        {modifierDisplayed}
+      </span>
       <span className="text-xs">{children}</span>
     </>
   );

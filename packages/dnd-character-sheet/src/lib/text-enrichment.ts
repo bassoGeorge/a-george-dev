@@ -1,4 +1,4 @@
-import Mustache from 'mustache';
+import ejs from 'ejs';
 import type { Character } from './models';
 import type { DerivedStats } from './models/derived-stats';
 import type { Feature } from './models/feature';
@@ -14,7 +14,7 @@ export function enrichCharacterData(
     },
   };
 
-  const enricher = (str: string) => Mustache.render(str, dataValues);
+  const enricher = (str: string) => ejs.render(str, dataValues);
   const enrichFeature = (f: Feature): Feature => ({
     ...f,
     description: enricher(f.description),

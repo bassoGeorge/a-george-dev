@@ -92,16 +92,26 @@ The package SHALL include a `Resources` component that reads resource metadata f
 - **WHEN** a character has no features that declare a `resource`
 - **THEN** the `Resources` component renders nothing (returns null)
 
-### Requirement: Feature text supports Mustache template substitution
-The package SHALL enrich feature, feat, and species trait descriptions at render time using Mustache templating. Templates have access to character level data (`{{level.total}}`, `{{level.<ClassName>}}`).
+### Requirement: Feature text supports EJS template substitution
+The package SHALL enrich feature, feat, and species trait descriptions at render time using EJS templating. Templates have access to character level data (`<%= level.total %>`, `<%= level.<ClassName> %>`) and support full JavaScript expressions, conditionals, and loops.
 
 #### Scenario: Feature description with level placeholder
-- **WHEN** a feature's `description` contains `{{level.total}}`
+- **WHEN** a feature's `description` contains `<%= level.total %>`
 - **THEN** the rendered description shows the character's total level as a number
 
 #### Scenario: Feature description with class-level placeholder
-- **WHEN** a feature's `description` contains `{{level.Monk}}`
+- **WHEN** a feature's `description` contains `<%= level.Monk %>`
 - **THEN** the rendered description shows the character's Monk class level
+
+#### Scenario: Feature description with arithmetic expression
+- **WHEN** a feature's `description` contains `<%= level.total * 10 %>`
+- **THEN** the rendered description shows the computed numeric result
+
+## REMOVED Requirements
+
+### Requirement: Feature text supports Mustache template substitution
+**Reason**: Replaced by EJS template rendering, which supports full JavaScript expressions that Mustache cannot evaluate.
+**Migration**: Replace `{{variable}}` syntax with `<%= variable %>` in all description strings.
 
 ### Requirement: Derived stats include hit dice per class
 The `calculateDerivedStats` function SHALL compute hit dice for each character class, mapping each class to its canonical die size (d6–d12) and including the class level as the dice count.

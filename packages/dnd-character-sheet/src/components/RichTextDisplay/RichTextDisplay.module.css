@@ -3,3 +3,7 @@
 .Container ol {
   @apply list-decimal list-inside;
 }
+
+.Container p + p {
+  @apply mt-2;
+}
