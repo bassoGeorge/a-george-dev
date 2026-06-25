@@ -1,4 +1,5 @@
 import { Ability } from '../lib/models/abilities';
+import { ArmorProficiency } from '../lib/models/armor-proficiency';
 import type { Character } from '../lib/models/character';
 import { Skill } from '../lib/models/skills';
 
@@ -54,7 +55,7 @@ export const exampleWizard: Character = {
       ability: Ability.Strength,
       damage: [
         { dice: '1d6', type: 'Bludgeoning' },
-        { dice: '1d4', type: 'Necroic', disableModifier: true },
+        { dice: '1d4', type: 'Necrotic', disableModifier: true },
       ],
       masteryProperty: 'Slow',
     },
@@ -118,7 +119,7 @@ export const exampleWizard: Character = {
     },
   ],
 
-  armorProficiencies: ['Light armor'],
+  armorProficiencies: [ArmorProficiency.LightArmor],
   weaponProficiencies: [
     'Daggers',
     'Darts',

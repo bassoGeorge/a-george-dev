@@ -1,7 +1,9 @@
 import type { Ability } from './abilities';
+import type { ArmorProficiency } from './armor-proficiency';
 import type { Attack } from './attacks';
 import type { CharacterClass } from './character-classes';
 import type { Feature } from './feature';
+import type { Size } from './size';
 import type { Skill } from './skills';
 import type { Spellcasting } from './spellcasting';
 
@@ -49,10 +51,10 @@ export interface Character {
   feats?: Feature[];
 
   // Size
-  size?: string;
+  size?: Size;
 
   // Proficiency text lists
-  armorProficiencies: string[];
+  armorProficiencies: ArmorProficiency[];
   weaponProficiencies: string[];
   toolProficiencies: string[];
   languages: string[];

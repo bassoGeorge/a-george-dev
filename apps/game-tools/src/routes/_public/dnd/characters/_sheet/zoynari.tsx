@@ -1,5 +1,6 @@
 import {
   Ability,
+  ArmorProficiency,
   type Character,
   CharacterClass,
   Skill,
@@ -187,7 +188,11 @@ const ZoynariData: Character = {
       `,
     },
   ],
-  armorProficiencies: ['Light armor', 'Medium armor', 'Shields'],
+  armorProficiencies: [
+    ArmorProficiency.LightArmor,
+    ArmorProficiency.MediumArmor,
+    ArmorProficiency.Shield,
+  ],
   weaponProficiencies: ['Simple weapons'],
   toolProficiencies: ['Herbalism Kit'],
   languages: ['Common', 'Quori'],

@@ -1,5 +1,6 @@
 import {
   Ability,
+  ArmorProficiency,
   type Character,
   CharacterClass,
   Skill,
@@ -86,7 +87,11 @@ const OmarinData: Character = {
     },
   ],
   equipment: ['Bedroll, Backpack, Lantern', 'Flasks of oil (x4)'],
-  armorProficiencies: ['Light armor', 'Medium armor', 'Shields'],
+  armorProficiencies: [
+    ArmorProficiency.LightArmor,
+    ArmorProficiency.MediumArmor,
+    ArmorProficiency.Shield,
+  ],
   weaponProficiencies: [
     'Simple',
     'Martial',

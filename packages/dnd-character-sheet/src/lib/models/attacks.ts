@@ -1,4 +1,5 @@
 import type { Ability } from './abilities';
+import type { DamageType } from './damage-type';
 
 export type Attack = {
   name: string;
@@ -28,6 +29,6 @@ export type WeaponAttack = {
 
 export type AttackDamage = {
   dice: string;
-  type: string;
+  type: DamageType;
   disableModifier?: boolean;
 };

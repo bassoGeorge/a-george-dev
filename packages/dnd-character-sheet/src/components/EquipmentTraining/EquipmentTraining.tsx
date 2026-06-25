@@ -1,14 +1,15 @@
 import { cn } from '@ageorgedev/toolbelt/cn';
+import { ArmorProficiency } from '../../lib/models/armor-proficiency';
 import { useCharacter } from '../CharacterSheet';
 import { DiamondCheck } from '../layout/checkables';
 import { Panel } from '../layout/Panel';
 import { PanelTitle } from '../layout/PanelTitle';
 
-const ARMOR_TYPES: { key: string; label: string }[] = [
-  { key: 'Light armor', label: 'Light' },
-  { key: 'Medium armor', label: 'Medium' },
-  { key: 'Heavy armor', label: 'Heavy' },
-  { key: 'Shields', label: 'Shields' },
+const ARMOR_TYPES: { key: ArmorProficiency; label: string }[] = [
+  { key: ArmorProficiency.LightArmor, label: 'Light' },
+  { key: ArmorProficiency.MediumArmor, label: 'Medium' },
+  { key: ArmorProficiency.HeavyArmor, label: 'Heavy' },
+  { key: ArmorProficiency.Shield, label: 'Shields' },
 ];
 
 export function EquipmentTraining() {
