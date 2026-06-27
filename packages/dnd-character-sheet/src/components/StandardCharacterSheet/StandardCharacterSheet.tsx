@@ -17,72 +17,89 @@ import { ProficiencyBlock } from '../ProficiencyBlock/ProficiencyBlock';
 import { Resources } from '../Resources/Resources';
 import { SheetHeader } from '../SheetHeader/SheetHeader';
 import { SpellcastingBlock } from '../SpellcastingBlock/SpellcastingBlock';
+import {
+  DEFAULT_VISUAL_ADUSTMENTS,
+  VisualAdjustmentsContext,
+} from '../VisualAdjustmentsContext';
+
+interface VisualAdjustments {
+  spellRows?: number;
+  inventoryRows?: number;
+}
 
 interface Props {
   data: Character;
+  visualAdjustments?: VisualAdjustments;
 }
 
-export function StandardCharacterSheet({ data }: Props) {
+export function StandardCharacterSheet({ data, visualAdjustments }: Props) {
+  const adjustments = {
+    ...DEFAULT_VISUAL_ADUSTMENTS,
+    ...visualAdjustments,
+  };
+
   return (
-    <CharacterSheet data={data}>
-      <Page className="gap-6 pt-6">
-        {' '}
-        {/** Should not be margin here, for print reasons */}
-        <SheetHeader />
-        <div className="grid grid-cols-3 gap-4 flex-1">
-          <div className="col-span-1 flex flex-col gap-4">
-            <div className="grid grid-cols-2 gap-2">
-              <div className="flex flex-col gap-2 justify-between">
-                <ProficiencyBlock />
-                <AbilityBox ability={Ability.Strength} />
-                <AbilityBox ability={Ability.Dexterity} />
-                <AbilityBox ability={Ability.Constitution} />
-                <HeroicInspiration />
+    <VisualAdjustmentsContext.Provider value={adjustments}>
+      <CharacterSheet data={data}>
+        <Page className="gap-6 pt-6">
+          {' '}
+          {/** Should not be margin here, for print reasons */}
+          <SheetHeader />
+          <div className="grid grid-cols-3 gap-4 flex-1">
+            <div className="col-span-1 flex flex-col gap-4">
+              <div className="grid grid-cols-2 gap-2">
+                <div className="flex flex-col gap-2 justify-between">
+                  <ProficiencyBlock />
+                  <AbilityBox ability={Ability.Strength} />
+                  <AbilityBox ability={Ability.Dexterity} />
+                  <AbilityBox ability={Ability.Constitution} />
+                  <HeroicInspiration />
+                </div>
+                <div className="flex flex-col gap-2 justify-between">
+                  <AbilityBox ability={Ability.Intelligence} />
+                  <AbilityBox ability={Ability.Wisdom} />
+                  <AbilityBox ability={Ability.Charisma} />
+                </div>
               </div>
-              <div className="flex flex-col gap-2 justify-between">
-                <AbilityBox ability={Ability.Intelligence} />
-                <AbilityBox ability={Ability.Wisdom} />
-                <AbilityBox ability={Ability.Charisma} />
+              <EquipmentTraining />
+            </div>
+
+            <div className="col-span-2 flex flex-col gap-4">
+              <CombatRow />
+              <AttackList />
+              <Resources />
+              <ClassFeatures />
+              <div className="grid grid-cols-2 gap-4">
+                <SpeciesTraits />
+                <Feats />
               </div>
             </div>
-            <EquipmentTraining />
           </div>
+        </Page>
 
-          <div className="col-span-2 flex flex-col gap-4">
-            <CombatRow />
-            <AttackList />
-            <Resources />
-            <ClassFeatures />
-            <div className="grid grid-cols-2 gap-4">
-              <SpeciesTraits />
-              <Feats />
+        <Page>
+          <div className="grid grid-cols-7 gap-4 mt-4 flex-1">
+            <div className="col-span-5 h-full">
+              {data.spellcasting && <SpellcastingBlock />}
+            </div>
+            <div className="col-span-2 flex flex-col gap-4">
+              <GenericPanel
+                topRightCorner="scooped"
+                heading="Appearance"
+                htmlContent={data.appearance ?? ''}
+                outerClasses="min-h-[12em]"
+              />
+              <GenericPanel
+                heading="Backstory & Personality"
+                htmlContent={data.backstory ?? ''}
+                outerClasses="min-h-[15em]"
+              />
+              <Inventory outerClasses="flex-1" />
+              <CoinBlock bottomRightCorner="scooped" />
             </div>
           </div>
-        </div>
-      </Page>
-
-      <Page>
-        <div className="grid grid-cols-7 gap-4 mt-4 flex-1">
-          <div className="col-span-5 h-full">
-            {data.spellcasting && <SpellcastingBlock />}
-          </div>
-          <div className="col-span-2 flex flex-col gap-4">
-            <GenericPanel
-              topRightCorner="scooped"
-              heading="Appearance"
-              htmlContent={data.appearance ?? ''}
-              outerClasses="min-h-[12em]"
-            />
-            <GenericPanel
-              heading="Backstory & Personality"
-              htmlContent={data.backstory ?? ''}
-              outerClasses="min-h-[15em]"
-            />
-            <Inventory outerClasses="flex-1" />
-            <CoinBlock bottomRightCorner="scooped" />
-          </div>
-        </div>
-      </Page>
-    </CharacterSheet>
+        </Page>
+      </CharacterSheet>
+    </VisualAdjustmentsContext.Provider>
   );
 }

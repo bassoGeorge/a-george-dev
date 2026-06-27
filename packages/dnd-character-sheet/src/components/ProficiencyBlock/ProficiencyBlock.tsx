@@ -14,7 +14,7 @@ export function ProficiencyBlock() {
     >
       <PanelTitle>Proficiency Bonus</PanelTitle>
       <div className="flex items-center justify-center py-3">
-        <BigNumber>+{derived.proficiencyBonus}</BigNumber>
+        <BigNumber className="text-3xl">{derived.proficiencyBonus}</BigNumber>
       </div>
     </Panel>
   );

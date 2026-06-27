@@ -85,7 +85,7 @@ function resourceDigester(character: Character, stats: DerivedStats) {
       case 'character-level': {
         return {
           ...base,
-          value: stats.characterLevel * (config.multiplier ?? 1),
+          value: stats.level.total * (config.multiplier ?? 1),
         };
       }
 

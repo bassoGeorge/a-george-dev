@@ -1,5 +1,6 @@
 import {
   Ability,
+  ArmorProficiency,
   type Character,
   CharacterClass,
   Skill,
@@ -35,7 +36,8 @@ const ZoynariData: Character = {
     Skill.Persuasion,
   ],
   skillExpertise: [],
-  armorClass: 14,
+  baseArmorClass: 12,
+  isWieldingShield: true,
   speed: 30,
   hitPoints: {
     maximum: 28,
@@ -150,11 +152,6 @@ const ZoynariData: Character = {
         },
       },
     },
-    {
-      name: 'Changing prepared spells',
-      description:
-        'Can change prepared spells after a Long Rest. Use cleric list.', // TODO should ideally be in the spellcasting sheet
-    },
   ],
   speciesTraits: [
     {
@@ -181,13 +178,17 @@ const ZoynariData: Character = {
       name: 'Healer',
       description: `
       <ol>
-        <li><strong>Battle Medic</strong>: Expend 1 use of Healer's Kit to tend to a creature within 5ft (Utilise action). Creature can expend their 1 hit dice that you roll. Creature regains roll + your Proficiency Bonus.</li>
+        <li><strong>Battle Medic</strong>: Expend 1 use of Healer's Kit to tend to a creature within 5ft (Utilise action). Creature can expend their 1 hit dice that you roll. Creature regains roll + <%= proficiencyBonus %> Hit Points.</li>
         <li><strong>Healing Rerolls</strong>: Whenever you roll a die to determine Hit Points you restore with a spell or the above Battle Medic ability, you can reroll the die if it rolls a 1 and use the new roll.</li>
       </ol>
       `,
     },
   ],
-  armorProficiencies: ['Light armor', 'Medium armor', 'Shields'],
+  armorProficiencies: [
+    ArmorProficiency.LightArmor,
+    ArmorProficiency.MediumArmor,
+    ArmorProficiency.Shield,
+  ],
   weaponProficiencies: ['Simple weapons'],
   toolProficiencies: ['Herbalism Kit'],
   languages: ['Common', 'Quori'],
@@ -195,6 +196,8 @@ const ZoynariData: Character = {
     ability: Ability.Wisdom,
     numberOfCantrips: 4,
     numberOfPreparedSpells: 6,
+    spellChangeTrait:
+      'You can change prepared spells after a Long Rest. Use the cleric list.',
     slots: {
       1: 4,
       2: 2,
@@ -310,5 +313,10 @@ export const Route = createFileRoute('/_public/dnd/characters/_sheet/zoynari')({
 });
 
 function RouteComponent() {
-  return <StandardCharacterSheet data={ZoynariData} />;
+  return (
+    <StandardCharacterSheet
+      data={ZoynariData}
+      visualAdjustments={{ inventoryRows: 18 }}
+    />
+  );
 }

@@ -13,9 +13,11 @@ export function AttackList() {
 
   if (character.attacks.length === 0) return null;
 
+  const showMasteries = character.attacks.some((atk) => atk.masteryProperty);
+
   return (
-    <Panel bottomLeftCorner="scooped" bottomRightCorner="scooped">
-      <PanelTitle className="mb-2">Weapons & Damage Cantrips</PanelTitle>
+    <Panel topLeftCorner="scooped" topRightCorner="scooped">
+      <PanelTitle>Weapons & Damage Cantrips</PanelTitle>
       <div className="mt-3">
         <table className="w-full">
           <thead>
@@ -23,7 +25,7 @@ export function AttackList() {
               <Th>Name</Th>
               <Th>Atk / DC</Th>
               <Th>Damage & Type</Th>
-              <Th>Mastery</Th>
+              {showMasteries && <Th>Mastery</Th>}
               <Th>Notes</Th>
             </tr>
           </thead>
@@ -37,11 +39,9 @@ export function AttackList() {
               return (
                 <tr
                   key={`attack ${attack.name}`}
-                  className="hover:bg-page-0/50"
+                  className="border-b border-b-neutral-disabled odd:bg-page-3"
                 >
-                  <Td className="font-semibold text-neutral-strong">
-                    {attack.name}
-                  </Td>
+                  <Td className="text-neutral-strong">{attack.name}</Td>
                   <Td>{bonusText}</Td>
                   <Td>{formatDamage(attack.damage, damageBonus)}</Td>
                   {attack.masteryProperty ? (
@@ -49,17 +49,31 @@ export function AttackList() {
                       <DiamondCheck className="align-[-.1em]" /> &nbsp;{' '}
                       {attack.masteryProperty}
                     </Td>
-                  ) : (
+                  ) : showMasteries ? (
                     <Td></Td>
-                  )}
+                  ) : null}
                   <Td className="text-xs">{attack.notes}</Td>
                 </tr>
               );
             })}
+            <EmptyRow showMastery={showMasteries} />
+            <EmptyRow showMastery={showMasteries} />
           </tbody>
         </table>
       </div>
     </Panel>
+  );
+}
+
+function EmptyRow({ showMastery }: { showMastery: boolean }) {
+  return (
+    <tr className="border-b border-b-neutral-disabled odd:bg-page-3">
+      <Td>&nbsp;</Td>
+      <Td />
+      <Td />
+      {showMastery && <Td />}
+      <Td />
+    </tr>
   );
 }
 
@@ -82,7 +96,7 @@ function Td({
   className,
   ...props
 }: React.TdHTMLAttributes<HTMLTableCellElement>) {
-  return <td {...props} className={cn('px-1 py-1.5', className)} />;
+  return <td {...props} className={cn('px-1 py-1.5 text-sm', className)} />;
 }
 
 function calcAttackBonus(

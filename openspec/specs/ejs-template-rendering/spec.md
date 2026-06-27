@@ -16,7 +16,7 @@ The package SHALL use EJS to render template strings in feature, feat, and speci
 - **THEN** the rendered output includes "upgraded text" only when total level is 5 or greater
 
 ### Requirement: EJS template context exposes level data
-The EJS render context SHALL provide a `level` object with `total` (sum of all class levels) and one key per class name equal to that class's level.
+The EJS render context SHALL provide a `level` object with `total` (sum of all class levels) and one key per class name equal to that class's level. The `level` object SHALL be sourced from `DerivedStats.level` (computed in `calculateStats`), not constructed independently in `enrichCharacterData`.
 
 #### Scenario: Total level is accessible
 - **WHEN** a description template references `level.total`

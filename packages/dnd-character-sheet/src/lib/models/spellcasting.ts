@@ -39,4 +39,5 @@ export interface Spellcasting {
   spells: Spell[];
   numberOfCantrips?: number;
   numberOfPreparedSpells?: number;
+  spellChangeTrait?: string;
 }
