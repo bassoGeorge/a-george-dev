@@ -14,10 +14,9 @@ export function AttackList() {
   if (character.attacks.length === 0) return null;
 
   const showMasteries = character.attacks.some((atk) => atk.masteryProperty);
-  const trClass = character.attacks.length >= 4 ? 'odd:bg-page-3' : '';
 
   return (
-    <Panel bottomLeftCorner="scooped" bottomRightCorner="scooped">
+    <Panel topLeftCorner="scooped" topRightCorner="scooped">
       <PanelTitle>Weapons & Damage Cantrips</PanelTitle>
       <div className="mt-3">
         <table className="w-full">
@@ -38,10 +37,11 @@ export function AttackList() {
               );
 
               return (
-                <tr key={`attack ${attack.name}`} className={trClass}>
-                  <Td className="font-semibold text-neutral-strong">
-                    {attack.name}
-                  </Td>
+                <tr
+                  key={`attack ${attack.name}`}
+                  className="border-b border-b-neutral-disabled odd:bg-page-3"
+                >
+                  <Td className="text-neutral-strong">{attack.name}</Td>
                   <Td>{bonusText}</Td>
                   <Td>{formatDamage(attack.damage, damageBonus)}</Td>
                   {attack.masteryProperty ? (
@@ -56,10 +56,24 @@ export function AttackList() {
                 </tr>
               );
             })}
+            <EmptyRow showMastery={showMasteries} />
+            <EmptyRow showMastery={showMasteries} />
           </tbody>
         </table>
       </div>
     </Panel>
+  );
+}
+
+function EmptyRow({ showMastery }: { showMastery: boolean }) {
+  return (
+    <tr className="border-b border-b-neutral-disabled odd:bg-page-3">
+      <Td>&nbsp;</Td>
+      <Td />
+      <Td />
+      {showMastery && <Td />}
+      <Td />
+    </tr>
   );
 }
 
