@@ -93,7 +93,7 @@ export function SpellRow({ spell }: { spell: Spell }) {
       })();
 
   return (
-    <tr className="border-b border-b-neutral-disabled">
+    <tr className="border-b border-b-neutral-disabled odd:bg-page-3">
       <Td className="w-[3ch] border-l-0">
         {spell.alwaysPrepared ? (
           <span className="italic text-neutral-subdued font-interface">AP</span>
@@ -133,7 +133,7 @@ export function SpellRow({ spell }: { spell: Spell }) {
 
 function EmptyRow() {
   return (
-    <tr className="border-b border-b-neutral-disabled">
+    <tr className="border-b border-b-neutral-disabled odd:bg-page-3">
       <Td className="border-l-0" />
       <Td className="text-sm">&nbsp;</Td> {/* Adds the text height required */}
       <Td />

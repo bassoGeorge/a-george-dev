@@ -14,6 +14,7 @@ export function AttackList() {
   if (character.attacks.length === 0) return null;
 
   const showMasteries = character.attacks.some((atk) => atk.masteryProperty);
+  const trClass = character.attacks.length >= 4 ? 'odd:bg-page-3' : '';
 
   return (
     <Panel bottomLeftCorner="scooped" bottomRightCorner="scooped">
@@ -37,10 +38,7 @@ export function AttackList() {
               );
 
               return (
-                <tr
-                  key={`attack ${attack.name}`}
-                  className="hover:bg-page-0/50"
-                >
+                <tr key={`attack ${attack.name}`} className={trClass}>
                   <Td className="font-semibold text-neutral-strong">
                     {attack.name}
                   </Td>
