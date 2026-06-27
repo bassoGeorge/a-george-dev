@@ -8,11 +8,8 @@ export function ClassFeatures() {
 
   return (
     <Panel outerClasses="flex-1">
-      <PanelTitle>Class Features</PanelTitle>
-      <FeatureList
-        className="columns-2 gap-3 mt-3"
-        features={character.features}
-      />
+      <PanelTitle withDivider>Class Features</PanelTitle>
+      <FeatureList className="columns-2 gap-3" features={character.features} />
     </Panel>
   );
 }

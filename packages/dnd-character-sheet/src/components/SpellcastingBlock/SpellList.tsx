@@ -7,7 +7,6 @@ import {
   DiamondCheck,
   EmptyCheckList,
 } from '../layout/checkables';
-import { HorizontalDivider } from '../layout/dividers';
 import { Panel } from '../layout/Panel';
 import { PanelTitle } from '../layout/PanelTitle';
 import { useVisualAdjustments } from '../VisualAdjustmentsContext';
@@ -22,8 +21,7 @@ export function SpellList() {
 
   return (
     <Panel outerClasses="flex-1 h-full" className="overflow-hidden">
-      <PanelTitle>Spells</PanelTitle>
-      <HorizontalDivider className="mt-1 mb-3" />
+      <PanelTitle withDivider>Spells</PanelTitle>
       <table className="w-full">
         <thead>
           <tr>

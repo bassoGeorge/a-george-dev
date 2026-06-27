@@ -1,13 +1,11 @@
 import { HandWrittenNotes } from '../HandwrittenNotes/HandwrittenNotes';
-import { HorizontalDivider } from '../layout/dividers';
 import { Panel, type PanelProps } from '../layout/Panel';
 import { PanelTitle } from '../layout/PanelTitle';
 
 export function CoinBlock(props: PanelProps) {
   return (
     <Panel {...props}>
-      <PanelTitle>Coins & Treasure</PanelTitle>
-      <HorizontalDivider className="mt-1 mb-3" />
+      <PanelTitle withDivider>Coins & Treasure</PanelTitle>
       <div className="flex justify-between gap-3 align-bottom">
         <CoinSlot name="CP" />
         <CoinSlot name="SP" />

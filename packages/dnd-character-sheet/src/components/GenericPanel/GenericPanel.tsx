@@ -1,4 +1,3 @@
-import { HorizontalDivider } from '../layout/dividers';
 import { Panel, type PanelProps } from '../layout/Panel';
 import { PanelTitle } from '../layout/PanelTitle';
 import { RichTextDisplay } from '../RichTextDisplay/RichTextDisplay';
@@ -15,8 +14,7 @@ export function GenericPanel({
 }: GenericPanelProps) {
   return (
     <Panel {...props}>
-      <PanelTitle>{heading}</PanelTitle>
-      <HorizontalDivider className="mt-1 mb-3" />
+      <PanelTitle withDivider>{heading}</PanelTitle>
       <RichTextDisplay content={htmlContent} className="text-sm" />
     </Panel>
   );

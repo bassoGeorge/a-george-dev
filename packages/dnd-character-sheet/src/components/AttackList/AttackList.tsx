@@ -17,7 +17,7 @@ export function AttackList() {
 
   return (
     <Panel bottomLeftCorner="scooped" bottomRightCorner="scooped">
-      <PanelTitle className="mb-2">Weapons & Damage Cantrips</PanelTitle>
+      <PanelTitle>Weapons & Damage Cantrips</PanelTitle>
       <div className="mt-3">
         <table className="w-full">
           <thead>

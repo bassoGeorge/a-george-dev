@@ -8,8 +8,8 @@ export function Feats() {
 
   return (
     <Panel>
-      <PanelTitle>Feats</PanelTitle>
-      <FeatureList className="mt-3" features={character.feats ?? []} />
+      <PanelTitle withDivider>Feats</PanelTitle>
+      <FeatureList features={character.feats ?? []} />
     </Panel>
   );
 }

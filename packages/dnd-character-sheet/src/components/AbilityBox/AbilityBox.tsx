@@ -35,7 +35,7 @@ export function AbilityBox({ ability }: AbilityBoxProps) {
       topLeftCorner="scooped"
       topRightCorner="scooped"
     >
-      <PanelTitle>{ABILITY_DETAILS[ability].label}</PanelTitle>
+      <PanelTitle className="mb-0">{ABILITY_DETAILS[ability].label}</PanelTitle>
       <div className="flex justify-center items-center py-2 gap-1">
         <div className="size-8 rounded-full border-2 flex items-center justify-center bg-page-4">
           <BigNumber className="text-3xl">{formatMod(abilityMod)}</BigNumber>

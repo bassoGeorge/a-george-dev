@@ -12,7 +12,7 @@ function StatCell({
 }) {
   return (
     <Panel outerClasses="flex-1" className="flex flex-col items-center py-2">
-      <PanelTitle>{label}</PanelTitle>
+      <PanelTitle className="mb-0">{label}</PanelTitle>
       <span className="text-xl">{children}</span>
     </Panel>
   );
