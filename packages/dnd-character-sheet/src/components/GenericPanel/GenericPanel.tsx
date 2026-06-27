@@ -17,7 +17,7 @@ export function GenericPanel({
     <Panel {...props}>
       <PanelTitle>{heading}</PanelTitle>
       <HorizontalDivider className="mt-1 mb-3" />
-      <RichTextDisplay content={htmlContent} />
+      <RichTextDisplay content={htmlContent} className="text-sm" />
     </Panel>
   );
 }

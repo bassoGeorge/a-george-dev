@@ -14,7 +14,9 @@ export function Inventory(props: PanelProps) {
       <PanelTitle>Equipment</PanelTitle>
       <HorizontalDivider className="mt-1 mb-3" />
       {character.equipment.map((e) => (
-        <div key={e}>{e}</div>
+        <div key={e} className="text-sm">
+          {e}
+        </div>
       ))}
       <HandWrittenNotes lineCount={inventoryRows} className="flex-1" />
       <div>

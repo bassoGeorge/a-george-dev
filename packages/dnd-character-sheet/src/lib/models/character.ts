@@ -31,7 +31,8 @@ export interface Character {
   skillExpertise: Skill[];
 
   // Combat
-  armorClass: number;
+  baseArmorClass: number;
+  isWieldingShield?: boolean;
   speed: number;
   hitPoints: {
     maximum: number;

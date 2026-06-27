@@ -36,7 +36,8 @@ const ZoynariData: Character = {
     Skill.Persuasion,
   ],
   skillExpertise: [],
-  armorClass: 14,
+  baseArmorClass: 12,
+  isWieldingShield: true,
   speed: 30,
   hitPoints: {
     maximum: 28,
@@ -318,7 +319,7 @@ function RouteComponent() {
   return (
     <StandardCharacterSheet
       data={ZoynariData}
-      visualAdjustments={{ inventoryRows: 16 }}
+      visualAdjustments={{ inventoryRows: 18 }}
     />
   );
 }

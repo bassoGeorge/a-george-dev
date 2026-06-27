@@ -41,7 +41,7 @@ export const exampleWizard: Character = {
   ],
   skillExpertise: [Skill.Arcana],
 
-  armorClass: 13,
+  baseArmorClass: 13,
   speed: 30,
   hitPoints: {
     maximum: 45,

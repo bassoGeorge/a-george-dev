@@ -13,6 +13,8 @@ export function AttackList() {
 
   if (character.attacks.length === 0) return null;
 
+  const showMasteries = character.attacks.some((atk) => atk.masteryProperty);
+
   return (
     <Panel bottomLeftCorner="scooped" bottomRightCorner="scooped">
       <PanelTitle className="mb-2">Weapons & Damage Cantrips</PanelTitle>
@@ -23,7 +25,7 @@ export function AttackList() {
               <Th>Name</Th>
               <Th>Atk / DC</Th>
               <Th>Damage & Type</Th>
-              <Th>Mastery</Th>
+              {showMasteries && <Th>Mastery</Th>}
               <Th>Notes</Th>
             </tr>
           </thead>
@@ -49,9 +51,9 @@ export function AttackList() {
                       <DiamondCheck className="align-[-.1em]" /> &nbsp;{' '}
                       {attack.masteryProperty}
                     </Td>
-                  ) : (
+                  ) : showMasteries ? (
                     <Td></Td>
-                  )}
+                  ) : null}
                   <Td className="text-xs">{attack.notes}</Td>
                 </tr>
               );
@@ -82,7 +84,7 @@ function Td({
   className,
   ...props
 }: React.TdHTMLAttributes<HTMLTableCellElement>) {
-  return <td {...props} className={cn('px-1 py-1.5', className)} />;
+  return <td {...props} className={cn('px-1 py-1.5 text-sm', className)} />;
 }
 
 function calcAttackBonus(

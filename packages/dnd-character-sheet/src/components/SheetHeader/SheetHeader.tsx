@@ -56,6 +56,8 @@ function LevelBlock() {
 
 function ArmorBlock() {
   const { character } = useCharacter();
+  const totalAc =
+    character.baseArmorClass + (character.isWieldingShield ? 2 : 0);
 
   return (
     <Panel
@@ -68,10 +70,10 @@ function ArmorBlock() {
         <br />
         Class
       </PanelTitle>
-      <BigNumber className="flex-1">{character.armorClass}</BigNumber>
+      <BigNumber className="flex-1">{totalAc}</BigNumber>
 
       <BasicLabel className="mb-1">Shield</BasicLabel>
-      <DiamondCheck />
+      <DiamondCheck checked={character.isWieldingShield} />
     </Panel>
   );
 }

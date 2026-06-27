@@ -42,7 +42,7 @@ const OmarinData: Character = {
     Skill.Perception,
   ],
   skillExpertise: [],
-  armorClass: 15,
+  baseArmorClass: 15,
   speed: 40,
   hitPoints: {
     maximum: 52,
