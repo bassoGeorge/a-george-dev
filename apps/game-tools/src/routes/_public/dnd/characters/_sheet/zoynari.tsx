@@ -152,11 +152,6 @@ const ZoynariData: Character = {
         },
       },
     },
-    {
-      name: 'Changing prepared spells',
-      description:
-        'Can change prepared spells after a Long Rest. Use cleric list.', // TODO should ideally be in the spellcasting sheet
-    },
   ],
   speciesTraits: [
     {
@@ -201,6 +196,8 @@ const ZoynariData: Character = {
     ability: Ability.Wisdom,
     numberOfCantrips: 4,
     numberOfPreparedSpells: 6,
+    spellChangeTrait:
+      'You can change prepared spells after a Long Rest. Use the cleric list.',
     slots: {
       1: 4,
       2: 2,

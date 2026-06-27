@@ -51,17 +51,23 @@ export function SpellSlotsPanel(props: PanelProps) {
       className="flex flex-col gap-3"
       topRightCorner="scooped"
     >
-      <PanelTitle>Spell Slots</PanelTitle>
       <div className="text-xs text-neutral-subdued">
         Cantrips:{' '}
-        <span className="text-neutral">
+        <span className="text-neutral font-bold">
           {spellcasting.numberOfCantrips ?? 0}
         </span>
         , Prepared Spells:{' '}
-        <span className="text-neutral">
+        <span className="text-neutral font-bold">
           {spellcasting.numberOfPreparedSpells ?? 0}
         </span>
+        {spellcasting.spellChangeTrait && (
+          <div>
+            <strong>Changing spells:</strong> {spellcasting.spellChangeTrait}
+          </div>
+        )}
       </div>
+
+      <PanelTitle className="mb-0">Spell Slots</PanelTitle>
 
       <div className={cn(columnStyle, 'gap-3 *:mt-1 *:first:mt-0')}>
         {allSlots.map(([name, count]) => (
