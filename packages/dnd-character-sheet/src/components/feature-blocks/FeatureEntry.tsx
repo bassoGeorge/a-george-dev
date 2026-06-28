@@ -3,7 +3,8 @@ import { RichTextDisplay } from '../RichTextDisplay/RichTextDisplay';
 
 export function FeatureEntry({ data: feat }: { data: Feature }) {
   const notes = [
-    feat.castingTime && feat.castingTime,
+    feat.castingTime,
+    feat.duration,
     feat.cost && `Cost: ${feat.cost}`,
   ]
     .filter(Boolean)

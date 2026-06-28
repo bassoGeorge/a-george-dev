@@ -90,8 +90,8 @@ const ZoynariData: Character = {
       name: 'Divine Order: Thaumaturge',
       description:
         '<ol><li>You gain 1 additional cantrip</li><li>Bonus +3 to Arcana & Religion checks (already considered in this sheet)</li></ol>',
-      skillMod: {
-        kind: 'static-additions',
+      statMod: {
+        kind: 'static-skill-additions',
         mods: [
           { skill: Skill.Arcana, modifier: 3 },
           { skill: Skill.Religion, modifier: 3 },
