@@ -4,6 +4,7 @@ import { DiamondCheck } from '../layout/checkables';
 import { BasicLabel } from '../layout/labels';
 import { Panel } from '../layout/Panel';
 import { PanelTitle } from '../layout/PanelTitle';
+import styles from './ArmorBlock.module.css';
 
 export function ArmorBlock() {
   const { character } = useCharacter();
@@ -12,9 +13,8 @@ export function ArmorBlock() {
 
   return (
     <Panel
-      className="items-center flex flex-col"
-      bottomLeftCorner="scooped"
-      bottomRightCorner="scooped"
+      outerClasses={styles.ShieldShape}
+      className="items-center flex flex-col pb-4"
     >
       <PanelTitle>
         Armour
