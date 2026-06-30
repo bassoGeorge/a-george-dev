@@ -12,6 +12,7 @@ const ZoynariData: Character = {
   name: 'Zoynari',
   species: 'Kalashtar',
   background: 'Hermit',
+  creatureType: 'Abberation',
   classes: [
     {
       name: CharacterClass.Cleric,

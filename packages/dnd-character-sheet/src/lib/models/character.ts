@@ -53,6 +53,7 @@ export interface Character {
 
   // Size
   size?: Size;
+  creatureType?: string;
 
   // Proficiency text lists
   armorProficiencies: ArmorProficiency[];
