@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema.json",
+  "style": "new-york",
+  "rsc": false,
+  "tsx": true,
+  "tailwind": {
+    "config": "",
+    "css": "../foundation-styles/src/tailwind.css",
+    "baseColor": "neutral",
+    "cssVariables": true,
+    "prefix": ""
+  },
+  "aliases": {
+    "components": "#components",
+    "utils": "@ageorgedev/toolbelt/cn",
+    "ui": "#components",
+    "lib": "#components",
+    "hooks": "#components"
+  },
+  "iconLibrary": "lucide"
+}
