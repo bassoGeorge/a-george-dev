@@ -1,4 +1,5 @@
 import type { Ability } from './abilities';
+import type { DerivedStats } from './derived-stats';
 import type { Skill } from './skills';
 
 export interface Feature {
@@ -7,6 +8,7 @@ export interface Feature {
   description: string;
 
   castingTime?: 'Action' | 'Bonus Action' | 'Reaction';
+  duration?: string;
 
   // Either it uses a resource
   cost?: Cost;
@@ -18,13 +20,13 @@ export interface Feature {
     refresh: Refresh;
   };
 
-  skillMod?:
+  statMod?:
     | {
-        kind: 'static-additions';
+        kind: 'static-skill-additions';
         mods: { skill: Skill; modifier: number }[];
       }
     | {
-        kind: 'function';
+        kind: 'skill-function';
         mod: ({
           skill,
           currentBonus,
@@ -36,6 +38,10 @@ export interface Feature {
           isProficient: boolean;
           hasExpertise: boolean;
         }) => number;
+      }
+    | {
+        kind: 'generic-derived';
+        mod: (stats: DerivedStats) => DerivedStats;
       };
 }
 

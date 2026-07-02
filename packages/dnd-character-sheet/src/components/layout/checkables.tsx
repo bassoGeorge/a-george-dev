@@ -10,10 +10,7 @@ export function CircleCheck({ className, ...props }: CheckableProps) {
 
 export function DiamondCheck({ className, ...props }: CheckableProps) {
   return (
-    <BaseCheck
-      {...props}
-      className={cn('rotate-45 size-2.5 mx-0.5', className)}
-    />
+    <BaseCheck {...props} className={cn('rotate-45 scale-80', className)} />
   );
 }
 

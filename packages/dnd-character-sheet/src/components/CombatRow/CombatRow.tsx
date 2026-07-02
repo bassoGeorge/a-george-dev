@@ -15,11 +15,14 @@ function StatCell({
   return (
     <Panel
       outerClasses="flex-1"
-      className={cn('flex flex-col items-center py-2', className)}
+      className={cn(
+        'flex flex-col items-center py-2 text-md text-center',
+        className
+      )}
       {...props}
     >
       <PanelTitle className="mb-0">{label}</PanelTitle>
-      <span className="text-xl">{children}</span>
+      <span>{children}</span>
     </Panel>
   );
 }
@@ -33,7 +36,9 @@ export function CombatRow() {
         {formatMod(derived.initiative)}
       </StatCell>
       <StatCell label="Speed">{character.speed} ft.</StatCell>
-      <StatCell label="Size">{character.size ?? 'Medium'}</StatCell>
+      <StatCell label="Size & Type" className="text-sm">
+        {character.size ?? 'Medium'} {character.creatureType ?? 'Humanoid'}
+      </StatCell>
       <StatCell label="Passive Perception" bottomRightCorner="scooped">
         {derived.passivePerception}
       </StatCell>

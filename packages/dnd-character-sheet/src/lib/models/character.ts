@@ -12,6 +12,7 @@ export interface Character {
   name: string;
   species: string;
   background: string;
+  customDescription?: string;
 
   classes: {
     name: CharacterClass;
@@ -53,6 +54,7 @@ export interface Character {
 
   // Size
   size?: Size;
+  creatureType?: string;
 
   // Proficiency text lists
   armorProficiencies: ArmorProficiency[];

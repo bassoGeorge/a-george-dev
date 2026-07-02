@@ -43,7 +43,7 @@ export function calculateStats(character: Character): DerivedStats {
     })
   ) as DerivedStats['savingThrows'];
 
-  const allSkillMods = gatherAllSkillMods(character);
+  const allMods = gatherAllMods(character);
 
   const skills = Object.fromEntries(
     Object.entries(AbilitySkillGrouping).flatMap(([ability, skills]) => {
@@ -60,7 +60,7 @@ export function calculateStats(character: Character): DerivedStats {
           isProficient,
           hasExpertise,
           currentBonus: bonus,
-          allSkillMods,
+          allSkillMods: allMods,
         });
         return [skill, finalBonus] as const;
       });
@@ -82,7 +82,7 @@ export function calculateStats(character: Character): DerivedStats {
 
   const hitDice = computeHitDice(character.classes);
 
-  return {
+  const stats = {
     abilityModifiers,
     proficiencyBonus: profBonus,
     savingThrows,
@@ -93,6 +93,13 @@ export function calculateStats(character: Character): DerivedStats {
     hitDice,
     ...spellcasting,
   };
+
+  return allMods.reduce((acc: DerivedStats, cur): DerivedStats => {
+    if (cur.kind === 'generic-derived') {
+      return cur.mod(acc);
+    }
+    return acc;
+  }, stats);
 }
 
 // function hitDice(charClasses: Character['classes']) {
@@ -113,14 +120,14 @@ const computeHitDice = pipe(
   map(([dice, count]) => ({ dice, count }))
 );
 
-function gatherAllSkillMods(character: Character) {
+function gatherAllMods(character: Character) {
   return [
     ...character.features,
     ...(character.speciesTraits ?? []),
     ...(character.feats ?? []),
   ]
-    .map((f) => f.skillMod)
-    .filter(Boolean) as NonNullable<Feature['skillMod']>[];
+    .map((f) => f.statMod)
+    .filter(Boolean) as NonNullable<Feature['statMod']>[];
 }
 
 function finaliseSkillBonus(options: {
@@ -128,16 +135,16 @@ function finaliseSkillBonus(options: {
   isProficient: boolean;
   hasExpertise: boolean;
   currentBonus: number;
-  allSkillMods: NonNullable<Feature['skillMod']>[];
+  allSkillMods: NonNullable<Feature['statMod']>[];
 }) {
   return reduce(
     (current, mod) => {
-      if (mod.kind === 'static-additions') {
+      if (mod.kind === 'static-skill-additions') {
         const foundItem = mod.mods.find((m) => m.skill === options.skill);
         if (foundItem) {
           return current + foundItem.modifier;
         }
-      } else if (mod.kind === 'function') {
+      } else if (mod.kind === 'skill-function') {
         return mod.mod(options);
       }
       return current;

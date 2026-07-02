@@ -1,0 +1,13 @@
+.ShieldShape {
+  --swp: 14px 14px;
+
+  --pth: shape(
+    from 0% 0%,
+    hline to 100%,
+    vline to 50%,
+    curve to 50% 100% with 100% 85%,
+    curve to 0% 50% with 0% 85%,
+    vline to 0%,
+    close
+  );
+}

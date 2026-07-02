@@ -3,6 +3,7 @@ import {
   ArmorProficiency,
   type Character,
   CharacterClass,
+  getCharacterBrief,
   Skill,
   StandardCharacterSheet,
 } from '@ageorgedev/dnd-character-sheet';
@@ -12,6 +13,7 @@ const OmarinData: Character = {
   name: 'Omarin Kenate',
   species: 'Drow Elf',
   background: 'Farmer',
+  // customDescription: 'Drow battle master with inner peace',
   size: 'Medium',
   classes: [
     {
@@ -258,11 +260,7 @@ export const Route = createFileRoute(
 )({
   component: RouteComponent,
   staticData: {
-    character: {
-      name: OmarinData.name,
-      level: OmarinData.classes.reduce((acc, { level }) => acc + level, 0),
-      description: 'Drow battle master with inner peace',
-    },
+    character: getCharacterBrief(OmarinData),
   },
 });
 
