@@ -4,6 +4,8 @@ export { ExampleSheet } from './characters/example';
 // Standard assembled sheet
 export { StandardCharacterSheet } from './components/StandardCharacterSheet/StandardCharacterSheet';
 
+export { getCharacterBrief } from './lib/character-brief';
+
 // Other models
 export { Ability } from './lib/models/abilities';
 export {

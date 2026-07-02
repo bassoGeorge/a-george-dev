@@ -12,6 +12,7 @@ export interface Character {
   name: string;
   species: string;
   background: string;
+  customDescription?: string;
 
   classes: {
     name: CharacterClass;

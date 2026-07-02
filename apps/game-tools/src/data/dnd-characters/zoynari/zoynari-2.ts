@@ -169,7 +169,7 @@ export const Zoynari2Data: Character = {
   spellcasting: {
     ability: Ability.Wisdom,
     numberOfCantrips: 4,
-    numberOfPreparedSpells: 6,
+    numberOfPreparedSpells: 5,
     spellChangeTrait:
       'You can change prepared spells after a Long Rest. Use the cleric list.',
     slots: {

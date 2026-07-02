@@ -1,15 +1,16 @@
-import { StandardCharacterSheet } from '@ageorgedev/dnd-character-sheet';
+import {
+  getCharacterBrief,
+  StandardCharacterSheet,
+} from '@ageorgedev/dnd-character-sheet';
 import { createFileRoute } from '@tanstack/react-router';
 import { Zoynari3Data } from '../../../../../data/dnd-characters/zoynari/zoynari-3';
 
-export const Route = createFileRoute('/_public/dnd/characters/_sheet/zoynari')({
+export const Route = createFileRoute(
+  '/_public/dnd/characters/_sheet/zoynari/3'
+)({
   component: RouteComponent,
   staticData: {
-    character: {
-      name: Zoynari3Data.name,
-      level: Zoynari3Data.classes.reduce((acc, { level }) => acc + level, 0),
-      description: 'Kalashtar Cleric of the Light',
-    },
+    character: getCharacterBrief(Zoynari3Data),
   },
 });
 

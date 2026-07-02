@@ -3,6 +3,7 @@ import {
   ArmorProficiency,
   type Character,
   CharacterClass,
+  getCharacterBrief,
   Skill,
   StandardCharacterSheet,
 } from '@ageorgedev/dnd-character-sheet';
@@ -237,11 +238,7 @@ const ClawCharacter: Character = {
 export const Route = createFileRoute('/_public/dnd/characters/_sheet/claw')({
   component: RouteComponent,
   staticData: {
-    character: {
-      name: ClawCharacter.name,
-      level: ClawCharacter.classes.reduce((acc, { level }) => acc + level, 0),
-      description: 'Shifter Arcane Trickster',
-    },
+    character: getCharacterBrief(ClawCharacter),
   },
 });
 

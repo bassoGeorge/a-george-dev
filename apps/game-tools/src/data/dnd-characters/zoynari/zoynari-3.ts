@@ -7,6 +7,7 @@ import { Zoynari2Data } from './zoynari-2';
 
 export const Zoynari3Data: Character = {
   ...Zoynari2Data,
+  customDescription: 'Kalashtar Cleric of the Light',
   classes: [
     {
       name: CharacterClass.Cleric,
@@ -47,6 +48,7 @@ export const Zoynari3Data: Character = {
       1: 4,
       2: 2,
     },
+    numberOfPreparedSpells: 6,
     spells: [
       ...(Zoynari2Data.spellcasting?.spells as NonNullable<
         Character['spellcasting']
