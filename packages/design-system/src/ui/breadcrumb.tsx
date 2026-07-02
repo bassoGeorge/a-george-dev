@@ -42,7 +42,7 @@ function BreadcrumbLink({
     <Comp
       data-slot="breadcrumb-link"
       className={cn(
-        'transition-colors font-interface hover:text-neutral-strong',
+        'transition-colors font-interface hover:text-primary-foreground',
         className
       )}
       {...props}

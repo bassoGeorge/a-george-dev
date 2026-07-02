@@ -7,7 +7,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from '@ageorgedev/design-system/ui/breadcrumb';
-import { PrinterIcon } from '@phosphor-icons/react';
+import { BookOpenIcon, PrinterIcon } from '@phosphor-icons/react';
 import {
   createFileRoute,
   Link,
@@ -51,6 +51,9 @@ function RouteComponent() {
   const matches = useMatches();
   const crumbs = deriveCrumbs(matches);
   const isCharacterSheet = matches.some((m) => m.routeId.includes('_sheet'));
+  const spellBookUrl = matches
+    .map((m) => m.staticData?.spellBookUrl)
+    .find(Boolean);
 
   return (
     <>
@@ -80,6 +83,18 @@ function RouteComponent() {
             </Breadcrumb>
           )}
         </div>
+        {spellBookUrl && (
+          <a
+            href={spellBookUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-primary-foreground transition-colors"
+            aria-label="Download spellbook PDF"
+            title="Download spellbook PDF"
+          >
+            <BookOpenIcon size={30} />
+          </a>
+        )}
         {isCharacterSheet && (
           <button
             type="button"

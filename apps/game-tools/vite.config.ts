@@ -20,6 +20,7 @@ const config = defineConfig({
       allow: [searchForWorkspaceRoot(process.cwd())],
     },
   },
+  assetsInclude: ['**/*.pdf'],
 });
 
 export default config;
