@@ -1,0 +1,87 @@
+import {
+  Ability,
+  type Character,
+  CharacterClass,
+} from '@ageorgedev/dnd-character-sheet';
+import { Zoynari2Data } from './zoynari-2';
+
+export const Zoynari3Data: Character = {
+  ...Zoynari2Data,
+  classes: [
+    {
+      name: CharacterClass.Cleric,
+      subclass: 'Light Domain',
+      level: 3,
+    },
+  ],
+  features: [
+    ...Zoynari2Data.features,
+    {
+      name: 'Radiance of Dawn',
+      cost: '1 Channel Divinity',
+      castingTime: 'Action',
+      description:
+        'Emit light in a 30ft sphere originating at yourself. Dispels any magical darkness. Each creature of your choice in range makes a Con. saving throw, taking 2d10+<%= level.Cleric %> Radiant damage, or half as much on success.',
+    },
+    {
+      name: 'Warding flare',
+      castingTime: 'Reaction',
+      cost: '1 Warding flare',
+      description:
+        'When a creature you can see within 30ft of yourself makes an attack roll, you can take a reaction to impose Disadvantage by causing a light to flare.',
+      resource: {
+        name: 'Warding flare',
+        count: {
+          kind: 'ability',
+          ability: Ability.Wisdom,
+        },
+        refresh: {
+          kind: 'long-rest',
+        },
+      },
+    },
+  ],
+  spellcasting: {
+    ...(Zoynari2Data.spellcasting as NonNullable<Character['spellcasting']>),
+    slots: {
+      1: 4,
+      2: 2,
+    },
+    spells: [
+      ...(Zoynari2Data.spellcasting?.spells as NonNullable<
+        Character['spellcasting']
+      >['spells']),
+      {
+        name: 'Burning Hands',
+        level: 1,
+        range: 'Self',
+        alwaysPrepared: true,
+      },
+      {
+        name: 'Faerie Fire',
+        level: 1,
+        range: '60ft',
+        alwaysPrepared: true,
+      },
+      {
+        name: 'Scorching Ray',
+        level: 2,
+        range: '120ft',
+        alwaysPrepared: true,
+      },
+      {
+        name: 'See Invisibility',
+        level: 2,
+        range: 'Self',
+        alwaysPrepared: true,
+      },
+      {
+        name: 'Locate Object',
+        level: 2,
+        range: 'Self',
+        duration: '10min',
+        concentration: true,
+      },
+    ],
+  },
+};
