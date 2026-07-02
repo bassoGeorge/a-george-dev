@@ -151,13 +151,13 @@ function CRMcell({ c, r, m }: { c?: boolean; r?: boolean; m?: boolean }) {
     <Td className="w-[16ch]">
       <div className="flex items-center justify-between">
         <span>
-          <DiamondCheck checked={c} /> C
+          <DiamondCheck className="align-[-.2em]" checked={c} /> C
         </span>
         <span>
-          <DiamondCheck checked={r} /> R
+          <DiamondCheck className="align-[-.2em]" checked={r} /> R
         </span>
         <span>
-          <DiamondCheck checked={m} /> M
+          <DiamondCheck className="align-[-.2em]" checked={m} /> M
         </span>
       </div>
     </Td>

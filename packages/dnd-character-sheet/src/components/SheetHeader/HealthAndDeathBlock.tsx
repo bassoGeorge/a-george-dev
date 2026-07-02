@@ -47,7 +47,7 @@ export function HealthAndDeathBlock() {
           </div>
         </VerticalSubPanel>
       </HorizontalSubPanel>
-      <HorizontalSubPanel className="px-3 py-2 flex gap-2 items-center">
+      <HorizontalSubPanel className="px-3 py-2 flex gap-2 items-baseline">
         <PanelTitle className="mb-0">Exhaustion</PanelTitle>
         <EmptyCheckList count={6} kind="diamond" />
       </HorizontalSubPanel>
