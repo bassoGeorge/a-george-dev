@@ -1,5 +1,6 @@
 import { cn } from '@ageorgedev/toolbelt/cn';
 import { sort } from 'ramda';
+import { Fragment } from 'react';
 import { ABILITY_DETAILS, type Spell } from '../../lib/models';
 import { formatMod } from '../../lib/utils';
 import { useCharacter } from '../CharacterSheet';
@@ -123,10 +124,10 @@ export function SpellRow({ spell }: { spell: Spell }) {
       />
       <Td className="border-r-0">
         {notesSection.map((node, idx) => (
-          <>
+          <Fragment key={node?.toString()}>
             {node}
             {idx === notesSection.length - 1 ? '' : ' | '}
-          </>
+          </Fragment>
         ))}
       </Td>
     </tr>
