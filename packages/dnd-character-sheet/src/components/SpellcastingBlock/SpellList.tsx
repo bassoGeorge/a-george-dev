@@ -1,4 +1,5 @@
 import { cn } from '@ageorgedev/toolbelt/cn';
+import { sort } from 'ramda';
 import { ABILITY_DETAILS, type Spell } from '../../lib/models';
 import { formatMod } from '../../lib/utils';
 import { useCharacter } from '../CharacterSheet';
@@ -17,7 +18,8 @@ export function SpellList() {
   } = useCharacter();
 
   const { spellRows } = useVisualAdjustments();
-  const emptyRows = spellRows - (spellcasting?.spells.length ?? 0);
+  const sortedSpells = sort(compareSpells, spellcasting?.spells ?? []);
+  const emptyRows = spellRows - sortedSpells.length;
 
   return (
     <Panel outerClasses="flex-1 h-full" className="overflow-hidden">
@@ -36,7 +38,7 @@ export function SpellList() {
           </tr>
         </thead>
         <tbody>
-          {spellcasting?.spells.map((spell) => (
+          {sortedSpells.map((spell) => (
             <SpellRow spell={spell} key={spell.name} />
           ))}
           {Array.from({ length: emptyRows }, (_, i) => (
@@ -162,6 +164,13 @@ function CRMcell({ c, r, m }: { c?: boolean; r?: boolean; m?: boolean }) {
       </div>
     </Td>
   );
+}
+
+function compareSpells(a: Spell, b: Spell) {
+  if (a.level !== b.level) return a.level - b.level;
+  if (!!a.alwaysPrepared !== !!b.alwaysPrepared)
+    return a.alwaysPrepared ? -1 : 1;
+  return a.name.localeCompare(b.name);
 }
 
 /** Utils */
