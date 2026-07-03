@@ -14,6 +14,7 @@ import { Route as PublicIndexRouteImport } from './routes/_public/index'
 import { Route as PublicDndCharactersIndexRouteImport } from './routes/_public/dnd/characters/index'
 import { Route as PublicDndCharactersSheetRouteImport } from './routes/_public/dnd/characters/_sheet'
 import { Route as PublicDndCharactersSheetOmarinKenateRouteImport } from './routes/_public/dnd/characters/_sheet/omarin-kenate'
+import { Route as PublicDndCharactersSheetGonvarFeathertideRouteImport } from './routes/_public/dnd/characters/_sheet/gonvar-feathertide'
 import { Route as PublicDndCharactersSheetClawRouteImport } from './routes/_public/dnd/characters/_sheet/claw'
 import { Route as PublicDndCharactersSheetZoynari3RouteImport } from './routes/_public/dnd/characters/_sheet/zoynari.3'
 import { Route as PublicDndCharactersSheetZoynari2RouteImport } from './routes/_public/dnd/characters/_sheet/zoynari.2'
@@ -45,6 +46,12 @@ const PublicDndCharactersSheetOmarinKenateRoute =
     path: '/omarin-kenate',
     getParentRoute: () => PublicDndCharactersSheetRoute,
   } as any)
+const PublicDndCharactersSheetGonvarFeathertideRoute =
+  PublicDndCharactersSheetGonvarFeathertideRouteImport.update({
+    id: '/gonvar-feathertide',
+    path: '/gonvar-feathertide',
+    getParentRoute: () => PublicDndCharactersSheetRoute,
+  } as any)
 const PublicDndCharactersSheetClawRoute =
   PublicDndCharactersSheetClawRouteImport.update({
     id: '/claw',
@@ -69,6 +76,7 @@ export interface FileRoutesByFullPath {
   '/dnd/characters': typeof PublicDndCharactersSheetRouteWithChildren
   '/dnd/characters/': typeof PublicDndCharactersIndexRoute
   '/dnd/characters/claw': typeof PublicDndCharactersSheetClawRoute
+  '/dnd/characters/gonvar-feathertide': typeof PublicDndCharactersSheetGonvarFeathertideRoute
   '/dnd/characters/omarin-kenate': typeof PublicDndCharactersSheetOmarinKenateRoute
   '/dnd/characters/zoynari/2': typeof PublicDndCharactersSheetZoynari2Route
   '/dnd/characters/zoynari/3': typeof PublicDndCharactersSheetZoynari3Route
@@ -77,6 +85,7 @@ export interface FileRoutesByTo {
   '/': typeof PublicIndexRoute
   '/dnd/characters': typeof PublicDndCharactersIndexRoute
   '/dnd/characters/claw': typeof PublicDndCharactersSheetClawRoute
+  '/dnd/characters/gonvar-feathertide': typeof PublicDndCharactersSheetGonvarFeathertideRoute
   '/dnd/characters/omarin-kenate': typeof PublicDndCharactersSheetOmarinKenateRoute
   '/dnd/characters/zoynari/2': typeof PublicDndCharactersSheetZoynari2Route
   '/dnd/characters/zoynari/3': typeof PublicDndCharactersSheetZoynari3Route
@@ -88,6 +97,7 @@ export interface FileRoutesById {
   '/_public/dnd/characters/_sheet': typeof PublicDndCharactersSheetRouteWithChildren
   '/_public/dnd/characters/': typeof PublicDndCharactersIndexRoute
   '/_public/dnd/characters/_sheet/claw': typeof PublicDndCharactersSheetClawRoute
+  '/_public/dnd/characters/_sheet/gonvar-feathertide': typeof PublicDndCharactersSheetGonvarFeathertideRoute
   '/_public/dnd/characters/_sheet/omarin-kenate': typeof PublicDndCharactersSheetOmarinKenateRoute
   '/_public/dnd/characters/_sheet/zoynari/2': typeof PublicDndCharactersSheetZoynari2Route
   '/_public/dnd/characters/_sheet/zoynari/3': typeof PublicDndCharactersSheetZoynari3Route
@@ -99,6 +109,7 @@ export interface FileRouteTypes {
     | '/dnd/characters'
     | '/dnd/characters/'
     | '/dnd/characters/claw'
+    | '/dnd/characters/gonvar-feathertide'
     | '/dnd/characters/omarin-kenate'
     | '/dnd/characters/zoynari/2'
     | '/dnd/characters/zoynari/3'
@@ -107,6 +118,7 @@ export interface FileRouteTypes {
     | '/'
     | '/dnd/characters'
     | '/dnd/characters/claw'
+    | '/dnd/characters/gonvar-feathertide'
     | '/dnd/characters/omarin-kenate'
     | '/dnd/characters/zoynari/2'
     | '/dnd/characters/zoynari/3'
@@ -117,6 +129,7 @@ export interface FileRouteTypes {
     | '/_public/dnd/characters/_sheet'
     | '/_public/dnd/characters/'
     | '/_public/dnd/characters/_sheet/claw'
+    | '/_public/dnd/characters/_sheet/gonvar-feathertide'
     | '/_public/dnd/characters/_sheet/omarin-kenate'
     | '/_public/dnd/characters/_sheet/zoynari/2'
     | '/_public/dnd/characters/_sheet/zoynari/3'
@@ -163,6 +176,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PublicDndCharactersSheetOmarinKenateRouteImport
       parentRoute: typeof PublicDndCharactersSheetRoute
     }
+    '/_public/dnd/characters/_sheet/gonvar-feathertide': {
+      id: '/_public/dnd/characters/_sheet/gonvar-feathertide'
+      path: '/gonvar-feathertide'
+      fullPath: '/dnd/characters/gonvar-feathertide'
+      preLoaderRoute: typeof PublicDndCharactersSheetGonvarFeathertideRouteImport
+      parentRoute: typeof PublicDndCharactersSheetRoute
+    }
     '/_public/dnd/characters/_sheet/claw': {
       id: '/_public/dnd/characters/_sheet/claw'
       path: '/claw'
@@ -189,6 +209,7 @@ declare module '@tanstack/react-router' {
 
 interface PublicDndCharactersSheetRouteChildren {
   PublicDndCharactersSheetClawRoute: typeof PublicDndCharactersSheetClawRoute
+  PublicDndCharactersSheetGonvarFeathertideRoute: typeof PublicDndCharactersSheetGonvarFeathertideRoute
   PublicDndCharactersSheetOmarinKenateRoute: typeof PublicDndCharactersSheetOmarinKenateRoute
   PublicDndCharactersSheetZoynari2Route: typeof PublicDndCharactersSheetZoynari2Route
   PublicDndCharactersSheetZoynari3Route: typeof PublicDndCharactersSheetZoynari3Route
@@ -197,6 +218,8 @@ interface PublicDndCharactersSheetRouteChildren {
 const PublicDndCharactersSheetRouteChildren: PublicDndCharactersSheetRouteChildren =
   {
     PublicDndCharactersSheetClawRoute: PublicDndCharactersSheetClawRoute,
+    PublicDndCharactersSheetGonvarFeathertideRoute:
+      PublicDndCharactersSheetGonvarFeathertideRoute,
     PublicDndCharactersSheetOmarinKenateRoute:
       PublicDndCharactersSheetOmarinKenateRoute,
     PublicDndCharactersSheetZoynari2Route:
