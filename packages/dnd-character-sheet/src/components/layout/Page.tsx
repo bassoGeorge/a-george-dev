@@ -7,7 +7,7 @@ export function Page({
   ...props
 }: React.HTMLAttributes<HTMLDivElement>) {
   return (
-    <div className={cn(styles.PageOuter, 'bg-page-0')}>
+    <div className={cn(styles.PageOuter)}>
       <div
         className={cn(
           styles.PageInner,

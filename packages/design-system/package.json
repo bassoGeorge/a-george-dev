@@ -6,7 +6,8 @@
     "clean": "rm -rf ./dist",
     "build": "tsc && cpx \"src/**/*.css\" dist",
     "dev": "concurrently 'tsc --watch' 'cpx \"src/**/*.css\" dist --watch' ",
-    "test": "vitest run"
+    "test": "vitest run",
+    "shadcn": "yarn dlx shadcn"
   },
   "exports": {
     "./*": {
@@ -14,11 +15,15 @@
       "types": "./dist/*.d.ts"
     }
   },
+  "imports": {
+    "#components/*": "./src/ui/*.tsx"
+  },
   "dependencies": {
     "@ageorgedev/toolbelt": "workspace:*",
     "@phosphor-icons/react": "2.1.10",
     "@radix-ui/react-slot": "1.2.3",
     "class-variance-authority": "0.7.1",
+    "radix-ui": "^1.6.1",
     "ramda": "0.32.0",
     "react-syntax-highlighter": "16.1.1"
   },
