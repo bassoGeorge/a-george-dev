@@ -189,6 +189,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@ageorgedev/game-tools-e2e@workspace:apps/game-tools-e2e":
+  version: 0.0.0-use.local
+  resolution: "@ageorgedev/game-tools-e2e@workspace:apps/game-tools-e2e"
+  dependencies:
+    "@playwright/test": "npm:1.60.0"
+    concurrently: "npm:10.0.3"
+  languageName: unknown
+  linkType: soft
+
 "@ageorgedev/game-tools@workspace:apps/game-tools":
   version: 0.0.0-use.local
   resolution: "@ageorgedev/game-tools@workspace:apps/game-tools"
