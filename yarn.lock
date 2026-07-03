@@ -160,12 +160,14 @@ __metadata:
     "@types/ejs": "npm:^3"
     "@types/react": "npm:19.2.17"
     "@types/react-dom": "npm:19.2.3"
+    "@vitejs/plugin-react": "npm:6.0.2"
     concurrently: "npm:10.0.3"
     cpx2: "npm:9.0.0"
     dompurify: "npm:3.4.11"
     ejs: "npm:^3.1.10"
     ramda: "npm:0.32.0"
     typescript: "npm:5.8.3"
+    vitest: "npm:4.1.8"
   peerDependencies:
     react: 19.2.7
     react-dom: 19.2.7
