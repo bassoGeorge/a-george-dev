@@ -1,0 +1,11 @@
+{
+  "name": "@ageorgedev/game-tools-e2e",
+  "version": "0.0.1",
+  "scripts": {
+    "e2e": "playwright test"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.60.0",
+    "concurrently": "10.0.3"
+  }
+}

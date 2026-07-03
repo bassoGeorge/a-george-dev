@@ -6,11 +6,11 @@ import type { DerivedStats } from './models/derived-stats';
 import type { Feature } from './models/feature';
 import { AbilitySkillGrouping, Skill } from './models/skills';
 
-function abilityModifier(score: number): number {
+export function abilityModifier(score: number): number {
   return Math.floor((score - 10) / 2);
 }
 
-function proficiencyBonus(level: number): number {
+export function proficiencyBonus(level: number): number {
   if (level <= 4) return 2;
   if (level <= 8) return 3;
   if (level <= 12) return 4;

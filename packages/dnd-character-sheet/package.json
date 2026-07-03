@@ -5,7 +5,8 @@
   "scripts": {
     "clean": "rm -rf ./dist",
     "build": "tsc && cpx \"src/**/*.css\" dist",
-    "dev": "concurrently 'tsc --watch' 'cpx \"src/**/*.css\" dist --watch'"
+    "dev": "concurrently 'tsc --watch' 'cpx \"src/**/*.css\" dist --watch'",
+    "test": "vitest run"
   },
   "exports": {
     ".": {
@@ -22,13 +23,18 @@
     "react-dom": "19.2.7"
   },
   "devDependencies": {
+    "@ageorgedev/testing-config": "workspace:*",
     "@ageorgedev/ts-config": "workspace:*",
+    "@testing-library/jest-dom": "6.9.1",
+    "@testing-library/react": "16.3.2",
     "@types/ejs": "^3",
     "@types/react": "19.2.17",
     "@types/react-dom": "19.2.3",
+    "@vitejs/plugin-react": "6.0.2",
     "concurrently": "10.0.3",
     "cpx2": "9.0.0",
-    "typescript": "5.8.3"
+    "typescript": "5.8.3",
+    "vitest": "4.1.8"
   },
   "dependencies": {
     "@ageorgedev/toolbelt": "workspace:*",

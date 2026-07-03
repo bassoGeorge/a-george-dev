@@ -45,7 +45,7 @@ jobs:
               . + [{"vercel_project_name": env.DESIGN_PROJECT}]
             else . end |
             if ($p | contains(["@ageorgedev/game-tools"])) then
-              . + [{"vercel_project_name": env.GAME_TOOLS_PROJECT}]
+              . + [{"vercel_project_name": env.GAME_TOOLS_PROJECT, "e2e_project": "@ageorgedev/game-tools-e2e"}]
             else . end
           ')
           echo "production_deploy_matrix=$matrix" >> "$GITHUB_OUTPUT"
@@ -66,8 +66,8 @@ jobs:
             if ($p | contains(["@ageorgedev/design-docs"])) then
               . + [{"vercel_project_name": env.DESIGN_PROJECT, "label": "Design System"}]
             else . end |
-            if ($p | contains(["@ageorgedev/game-tools"])) then
-              . + [{"vercel_project_name": env.GAME_TOOLS_PROJECT, "label": "Game Tools"}]
+            if (($p | contains(["@ageorgedev/game-tools"])) or ($p | contains(["@ageorgedev/game-tools-e2e"]))) then
+              . + [{"vercel_project_name": env.GAME_TOOLS_PROJECT, "e2e_project": "@ageorgedev/game-tools-e2e", "label": "Game Tools"}]
             else . end
           ')
           echo "pr_deploy_matrix=$matrix" >> "$GITHUB_OUTPUT"
