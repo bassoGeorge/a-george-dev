@@ -114,7 +114,8 @@ const OmarinData: Character = {
     },
     {
       name: 'Weapon Mastery',
-      description: 'You have mastery over 3 different weapons',
+      description:
+        'You have mastery over 3 different weapons. You can choose to switch one mastery to a different weapon on finishing a Long Rest',
     },
     {
       name: "Monk's Focus",
@@ -133,7 +134,6 @@ const OmarinData: Character = {
     {
       name: 'Second Wind',
       castingTime: 'Bonus Action',
-      // TODO: Fighter level
       description: 'Regain Hit Points equal to 1d10+<%= level.Fighter %>',
       cost: '1 Second Wind charge',
       resource: {
@@ -152,21 +152,22 @@ const OmarinData: Character = {
         'When you fail an Ability check, you can roll 1d10 and add to the roll. Second Wind charge not spent if check still unsuccessful',
     },
     {
-      name: 'Combat Superiority',
-      description:
-        'You learn manuevers that are fueled by Superiority Dice. Your Superiority Dice is a D8',
-      resource: {
-        name: 'Superiority Dice (d8)',
-        count: { kind: 'fixed', value: 4 },
-        refresh: { kind: 'any-rest' },
-      },
-    },
-    {
       name: 'Action Surge',
       description: 'Take 1 extra Action (except magic)',
       resource: {
         name: 'Action Surge',
         count: { kind: 'fixed', value: 1 },
+        refresh: { kind: 'any-rest' },
+      },
+    },
+    {
+      // TODO: the actual manuevers
+      name: 'Combat Superiority',
+      description:
+        'You know manuevers that are fueled by Superiority Dice. Your Superiority Dice is a D8',
+      resource: {
+        name: 'Superiority Dice (d8)',
+        count: { kind: 'fixed', value: 4 },
         refresh: { kind: 'any-rest' },
       },
     },

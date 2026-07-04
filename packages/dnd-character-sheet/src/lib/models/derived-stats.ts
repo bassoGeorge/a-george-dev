@@ -2,8 +2,9 @@ import type { Ability } from './abilities';
 import type { Skill } from './skills';
 
 export interface DerivedStats {
-  abilityModifiers: Record<Ability, number>;
   proficiencyBonus: number;
+  abilityModifiers: Record<Ability, number>;
+  abilitySaveDCs: Record<Ability, number>;
   savingThrows: Record<Ability, number>;
   skills: Record<Skill, number>;
   passivePerception: number;

@@ -43,6 +43,14 @@ const stubStats: DerivedStats = {
     [Ability.Wisdom]: 0,
     [Ability.Charisma]: 0,
   },
+  abilitySaveDCs: {
+    [Ability.Strength]: 10,
+    [Ability.Dexterity]: 13,
+    [Ability.Constitution]: 11,
+    [Ability.Intelligence]: 10,
+    [Ability.Wisdom]: 10,
+    [Ability.Charisma]: 10,
+  },
   proficiencyBonus: 2,
   savingThrows: {
     [Ability.Strength]: 0,

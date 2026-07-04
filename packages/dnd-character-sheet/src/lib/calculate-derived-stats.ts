@@ -36,6 +36,11 @@ export function calculateStats(character: Character): DerivedStats {
     ])
   ) as DerivedStats['abilityModifiers'];
 
+  const abilitySaveDCs = mapObjIndexed(
+    (mod) => mod + profBonus + 8,
+    abilityModifiers
+  );
+
   const savingThrows = Object.fromEntries(
     ALL_ABILITIES.map((name) => {
       const isProficient = character.savingThrowProficiencies.includes(name);
@@ -73,8 +78,7 @@ export function calculateStats(character: Character): DerivedStats {
 
   const spellcasting = character.spellcasting
     ? {
-        spellSaveDC:
-          8 + profBonus + abilityModifiers[character.spellcasting.ability],
+        spellSaveDC: abilitySaveDCs[character.spellcasting.ability],
         spellAttackBonus:
           profBonus + abilityModifiers[character.spellcasting.ability],
       }
@@ -84,6 +88,7 @@ export function calculateStats(character: Character): DerivedStats {
 
   const stats = {
     abilityModifiers,
+    abilitySaveDCs,
     proficiencyBonus: profBonus,
     savingThrows,
     skills,
