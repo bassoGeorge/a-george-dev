@@ -61,7 +61,7 @@ const stubStats: DerivedStats = {
     [Ability.Charisma]: 0,
   },
   skills: Object.fromEntries(
-    Object.values(Skill).map((s) => [s, 0])
+    Object.values(Skill).map((s) => [s, { modifier: 0, quality: 'normal' }])
   ) as DerivedStats['skills'],
   initiative: 3,
   passivePerception: 10,

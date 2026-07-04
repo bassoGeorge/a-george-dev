@@ -45,7 +45,9 @@ function ContextDisplay() {
       <span data-testid="str-mod">
         {derived.abilityModifiers[Ability.Strength]}
       </span>
-      <span data-testid="athletics">{derived.skills[Skill.Athletics]}</span>
+      <span data-testid="athletics">
+        {derived.skills[Skill.Athletics].modifier}
+      </span>
     </div>
   );
 }

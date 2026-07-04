@@ -67,14 +67,24 @@ export function calculateStats(character: Character): DerivedStats {
           currentBonus: bonus,
           allSkillMods: allMods,
         });
-        return [skill, finalBonus] as const;
+
+        const state = {
+          modifier: finalBonus,
+          quality: hasExpertise
+            ? 'expert'
+            : isProficient
+              ? 'proficient'
+              : 'normal',
+        } as const;
+
+        return [skill, state] as const;
       });
     })
   ) as DerivedStats['skills'];
 
   const initiative = abilityModifiers[Ability.Dexterity];
 
-  const passivePerception = 10 + skills[Skill.Perception];
+  const passivePerception = 10 + skills[Skill.Perception].modifier;
 
   const spellcasting = character.spellcasting
     ? {
