@@ -138,7 +138,7 @@ function EmptyRow() {
   return (
     <tr className="border-b border-b-neutral-disabled odd:bg-page-3">
       <Td className="border-l-0" />
-      <Td className="text-sm"> &nbsp;</Td> {/* Adds the text height required */}
+      <Td className="text-sm">&nbsp; {/* Adds the text height required */}</Td>
       <Td />
       <Td />
       <Td />

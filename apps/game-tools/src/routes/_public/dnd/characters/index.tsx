@@ -1,11 +1,11 @@
 import { createFileRoute, Link } from '@tanstack/react-router';
 import { Fragment } from 'react';
-import { AllMyCharacters } from '../../../../data/dnd-characters';
+import { AllMyCharactersInBrief } from '../../../../data/dnd-characters';
 
 export const Route = createFileRoute('/_public/dnd/characters/')({
   component: RouteComponent,
   beforeLoad: () => ({ title: undefined }),
-  loader: () => AllMyCharacters,
+  loader: () => AllMyCharactersInBrief,
 });
 
 function RouteComponent() {

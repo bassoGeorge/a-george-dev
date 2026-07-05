@@ -3,7 +3,7 @@ import {
   getCharacterBrief,
   type VisualAdjustments,
 } from '@ageorgedev/dnd-character-sheet';
-import { compose, groupBy, map } from 'ramda';
+import { compose, groupBy, map, mapObjIndexed } from 'ramda';
 import { ClawData } from './claw/claw';
 import { ElnorinData } from './elnorin-lunarrest/elnorin-lunarrest';
 import { GonvarData } from './gonvar-feathertide/gonvar-feathertide';
@@ -55,6 +55,10 @@ const processAndGroup = compose(
 );
 
 export const AllMyCharacters = processAndGroup(characters);
+export const AllMyCharactersInBrief = mapObjIndexed(
+  (pack) => pack.map(({ data, ...p }) => p),
+  AllMyCharacters
+);
 
 export function getCharacterBySlugAndLevel(slug: string, level?: number) {
   const chars = AllMyCharacters[slug];

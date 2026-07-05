@@ -4,6 +4,7 @@ import {
   HeadContent,
   Scripts,
 } from '@tanstack/react-router';
+import { TanStackRouterDevtools } from '@tanstack/react-router-devtools';
 import { GlobalProviders } from '../components/GlobalProviders';
 import appCss from '../styles.css?url';
 
@@ -45,6 +46,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
       </head>
       <body>
         <GlobalProviders>{children}</GlobalProviders>
+        <TanStackRouterDevtools position="bottom-right" />
         <Scripts />
       </body>
     </html>
