@@ -3,7 +3,9 @@ import {
   getCharacterBrief,
 } from '@ageorgedev/dnd-character-sheet';
 import { compose, groupBy, map } from 'ramda';
+import { ClawData } from './claw/claw';
 import { GonvarData } from './gonvar-feathertide/gonvar-feathertide';
+import { OmarinData } from './omarin-kenate/omarin-kenate';
 import { SaoraData } from './saora-embervale/saora-embervale';
 import { Zoynari2Data } from './zoynari/zoynari-2';
 import { Zoynari3Data } from './zoynari/zoynari-3';
@@ -24,6 +26,8 @@ const characters: BasePack[] = [
   { data: Zoynari3Data },
   { data: SaoraData },
   { data: GonvarData },
+  { data: ClawData },
+  { data: OmarinData },
 ];
 
 const processAndGroup = compose(

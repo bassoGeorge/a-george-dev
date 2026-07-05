@@ -3,13 +3,10 @@ import {
   ArmorProficiency,
   type Character,
   CharacterClass,
-  getCharacterBrief,
   Skill,
-  StandardCharacterSheet,
 } from '@ageorgedev/dnd-character-sheet';
-import { createFileRoute } from '@tanstack/react-router';
 
-const OmarinData: Character = {
+export const OmarinData: Character = {
   name: 'Omarin Kenate',
   species: 'Drow Elf',
   background: 'Farmer',
@@ -255,16 +252,3 @@ const OmarinData: Character = {
   <p><strong>Early years</strong> Had a lot of fun</p>
   `,
 };
-
-export const Route = createFileRoute(
-  '/_public/dnd/characters/_sheet/omarin-kenate'
-)({
-  component: RouteComponent,
-  staticData: {
-    character: getCharacterBrief(OmarinData),
-  },
-});
-
-function RouteComponent() {
-  return <StandardCharacterSheet data={OmarinData} />;
-}

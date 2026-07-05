@@ -3,13 +3,10 @@ import {
   ArmorProficiency,
   type Character,
   CharacterClass,
-  getCharacterBrief,
   Skill,
-  StandardCharacterSheet,
 } from '@ageorgedev/dnd-character-sheet';
-import { createFileRoute } from '@tanstack/react-router';
 
-const ClawCharacter: Character = {
+export const ClawData: Character = {
   name: 'Claw',
   species: 'Shifter',
   background: 'Scribe',
@@ -234,14 +231,3 @@ const ClawCharacter: Character = {
     ],
   },
 };
-
-export const Route = createFileRoute('/_public/dnd/characters/_sheet/claw')({
-  component: RouteComponent,
-  staticData: {
-    character: getCharacterBrief(ClawCharacter),
-  },
-});
-
-function RouteComponent() {
-  return <StandardCharacterSheet data={ClawCharacter} />;
-}

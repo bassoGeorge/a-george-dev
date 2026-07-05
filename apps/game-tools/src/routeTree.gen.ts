@@ -12,10 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as PublicRouteImport } from './routes/_public'
 import { Route as PublicIndexRouteImport } from './routes/_public/index'
 import { Route as PublicDndCharactersIndexRouteImport } from './routes/_public/dnd/characters/index'
-import { Route as PublicDndCharactersSheetRouteImport } from './routes/_public/dnd/characters/_sheet'
-import { Route as PublicDndCharactersSheetOmarinKenateRouteImport } from './routes/_public/dnd/characters/_sheet/omarin-kenate'
-import { Route as PublicDndCharactersSheetClawRouteImport } from './routes/_public/dnd/characters/_sheet/claw'
-import { Route as PublicDndCharactersSheetSlugChar123LevelChar125RouteImport } from './routes/_public/dnd/characters/_sheet/$slug.{-$level}'
+import { Route as PublicDndCharactersSlugChar123LevelChar125RouteImport } from './routes/_public/dnd/characters/$slug.{-$level}'
 
 const PublicRoute = PublicRouteImport.update({
   id: '/_public',
@@ -32,81 +29,41 @@ const PublicDndCharactersIndexRoute =
     path: '/dnd/characters/',
     getParentRoute: () => PublicRoute,
   } as any)
-const PublicDndCharactersSheetRoute =
-  PublicDndCharactersSheetRouteImport.update({
-    id: '/dnd/characters/_sheet',
-    path: '/dnd/characters',
+const PublicDndCharactersSlugChar123LevelChar125Route =
+  PublicDndCharactersSlugChar123LevelChar125RouteImport.update({
+    id: '/dnd/characters/$slug/{-$level}',
+    path: '/dnd/characters/$slug/{-$level}',
     getParentRoute: () => PublicRoute,
-  } as any)
-const PublicDndCharactersSheetOmarinKenateRoute =
-  PublicDndCharactersSheetOmarinKenateRouteImport.update({
-    id: '/omarin-kenate',
-    path: '/omarin-kenate',
-    getParentRoute: () => PublicDndCharactersSheetRoute,
-  } as any)
-const PublicDndCharactersSheetClawRoute =
-  PublicDndCharactersSheetClawRouteImport.update({
-    id: '/claw',
-    path: '/claw',
-    getParentRoute: () => PublicDndCharactersSheetRoute,
-  } as any)
-const PublicDndCharactersSheetSlugChar123LevelChar125Route =
-  PublicDndCharactersSheetSlugChar123LevelChar125RouteImport.update({
-    id: '/$slug/{-$level}',
-    path: '/$slug/{-$level}',
-    getParentRoute: () => PublicDndCharactersSheetRoute,
   } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof PublicIndexRoute
-  '/dnd/characters': typeof PublicDndCharactersSheetRouteWithChildren
   '/dnd/characters/': typeof PublicDndCharactersIndexRoute
-  '/dnd/characters/claw': typeof PublicDndCharactersSheetClawRoute
-  '/dnd/characters/omarin-kenate': typeof PublicDndCharactersSheetOmarinKenateRoute
-  '/dnd/characters/$slug/{-$level}': typeof PublicDndCharactersSheetSlugChar123LevelChar125Route
+  '/dnd/characters/$slug/{-$level}': typeof PublicDndCharactersSlugChar123LevelChar125Route
 }
 export interface FileRoutesByTo {
   '/': typeof PublicIndexRoute
   '/dnd/characters': typeof PublicDndCharactersIndexRoute
-  '/dnd/characters/claw': typeof PublicDndCharactersSheetClawRoute
-  '/dnd/characters/omarin-kenate': typeof PublicDndCharactersSheetOmarinKenateRoute
-  '/dnd/characters/$slug/{-$level}': typeof PublicDndCharactersSheetSlugChar123LevelChar125Route
+  '/dnd/characters/$slug/{-$level}': typeof PublicDndCharactersSlugChar123LevelChar125Route
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/_public': typeof PublicRouteWithChildren
   '/_public/': typeof PublicIndexRoute
-  '/_public/dnd/characters/_sheet': typeof PublicDndCharactersSheetRouteWithChildren
   '/_public/dnd/characters/': typeof PublicDndCharactersIndexRoute
-  '/_public/dnd/characters/_sheet/claw': typeof PublicDndCharactersSheetClawRoute
-  '/_public/dnd/characters/_sheet/omarin-kenate': typeof PublicDndCharactersSheetOmarinKenateRoute
-  '/_public/dnd/characters/_sheet/$slug/{-$level}': typeof PublicDndCharactersSheetSlugChar123LevelChar125Route
+  '/_public/dnd/characters/$slug/{-$level}': typeof PublicDndCharactersSlugChar123LevelChar125Route
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths:
-    | '/'
-    | '/dnd/characters'
-    | '/dnd/characters/'
-    | '/dnd/characters/claw'
-    | '/dnd/characters/omarin-kenate'
-    | '/dnd/characters/$slug/{-$level}'
+  fullPaths: '/' | '/dnd/characters/' | '/dnd/characters/$slug/{-$level}'
   fileRoutesByTo: FileRoutesByTo
-  to:
-    | '/'
-    | '/dnd/characters'
-    | '/dnd/characters/claw'
-    | '/dnd/characters/omarin-kenate'
-    | '/dnd/characters/$slug/{-$level}'
+  to: '/' | '/dnd/characters' | '/dnd/characters/$slug/{-$level}'
   id:
     | '__root__'
     | '/_public'
     | '/_public/'
-    | '/_public/dnd/characters/_sheet'
     | '/_public/dnd/characters/'
-    | '/_public/dnd/characters/_sheet/claw'
-    | '/_public/dnd/characters/_sheet/omarin-kenate'
-    | '/_public/dnd/characters/_sheet/$slug/{-$level}'
+    | '/_public/dnd/characters/$slug/{-$level}'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -136,67 +93,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PublicDndCharactersIndexRouteImport
       parentRoute: typeof PublicRoute
     }
-    '/_public/dnd/characters/_sheet': {
-      id: '/_public/dnd/characters/_sheet'
-      path: '/dnd/characters'
-      fullPath: '/dnd/characters'
-      preLoaderRoute: typeof PublicDndCharactersSheetRouteImport
+    '/_public/dnd/characters/$slug/{-$level}': {
+      id: '/_public/dnd/characters/$slug/{-$level}'
+      path: '/dnd/characters/$slug/{-$level}'
+      fullPath: '/dnd/characters/$slug/{-$level}'
+      preLoaderRoute: typeof PublicDndCharactersSlugChar123LevelChar125RouteImport
       parentRoute: typeof PublicRoute
     }
-    '/_public/dnd/characters/_sheet/omarin-kenate': {
-      id: '/_public/dnd/characters/_sheet/omarin-kenate'
-      path: '/omarin-kenate'
-      fullPath: '/dnd/characters/omarin-kenate'
-      preLoaderRoute: typeof PublicDndCharactersSheetOmarinKenateRouteImport
-      parentRoute: typeof PublicDndCharactersSheetRoute
-    }
-    '/_public/dnd/characters/_sheet/claw': {
-      id: '/_public/dnd/characters/_sheet/claw'
-      path: '/claw'
-      fullPath: '/dnd/characters/claw'
-      preLoaderRoute: typeof PublicDndCharactersSheetClawRouteImport
-      parentRoute: typeof PublicDndCharactersSheetRoute
-    }
-    '/_public/dnd/characters/_sheet/$slug/{-$level}': {
-      id: '/_public/dnd/characters/_sheet/$slug/{-$level}'
-      path: '/$slug/{-$level}'
-      fullPath: '/dnd/characters/$slug/{-$level}'
-      preLoaderRoute: typeof PublicDndCharactersSheetSlugChar123LevelChar125RouteImport
-      parentRoute: typeof PublicDndCharactersSheetRoute
-    }
   }
 }
-
-interface PublicDndCharactersSheetRouteChildren {
-  PublicDndCharactersSheetClawRoute: typeof PublicDndCharactersSheetClawRoute
-  PublicDndCharactersSheetOmarinKenateRoute: typeof PublicDndCharactersSheetOmarinKenateRoute
-  PublicDndCharactersSheetSlugChar123LevelChar125Route: typeof PublicDndCharactersSheetSlugChar123LevelChar125Route
-}
-
-const PublicDndCharactersSheetRouteChildren: PublicDndCharactersSheetRouteChildren =
-  {
-    PublicDndCharactersSheetClawRoute: PublicDndCharactersSheetClawRoute,
-    PublicDndCharactersSheetOmarinKenateRoute:
-      PublicDndCharactersSheetOmarinKenateRoute,
-    PublicDndCharactersSheetSlugChar123LevelChar125Route:
-      PublicDndCharactersSheetSlugChar123LevelChar125Route,
-  }
-
-const PublicDndCharactersSheetRouteWithChildren =
-  PublicDndCharactersSheetRoute._addFileChildren(
-    PublicDndCharactersSheetRouteChildren,
-  )
 
 interface PublicRouteChildren {
   PublicIndexRoute: typeof PublicIndexRoute
-  PublicDndCharactersSheetRoute: typeof PublicDndCharactersSheetRouteWithChildren
   PublicDndCharactersIndexRoute: typeof PublicDndCharactersIndexRoute
+  PublicDndCharactersSlugChar123LevelChar125Route: typeof PublicDndCharactersSlugChar123LevelChar125Route
 }
 
 const PublicRouteChildren: PublicRouteChildren = {
   PublicIndexRoute: PublicIndexRoute,
-  PublicDndCharactersSheetRoute: PublicDndCharactersSheetRouteWithChildren,
   PublicDndCharactersIndexRoute: PublicDndCharactersIndexRoute,
+  PublicDndCharactersSlugChar123LevelChar125Route:
+    PublicDndCharactersSlugChar123LevelChar125Route,
 }
 
 const PublicRouteWithChildren =
