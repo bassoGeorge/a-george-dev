@@ -1,19 +1,23 @@
 import {
   type Character,
   getCharacterBrief,
+  type VisualAdjustments,
 } from '@ageorgedev/dnd-character-sheet';
 import { compose, groupBy, map } from 'ramda';
 import { ClawData } from './claw/claw';
 import { GonvarData } from './gonvar-feathertide/gonvar-feathertide';
 import { OmarinData } from './omarin-kenate/omarin-kenate';
 import { SaoraData } from './saora-embervale/saora-embervale';
+import SaoraSpellBook from './saora-embervale/saora-spellbook.pdf?url';
 import { Zoynari2Data } from './zoynari/zoynari-2';
+import Zoynari2SpellBook from './zoynari/zoynari-2-spellbook.pdf?url';
 import { Zoynari3Data } from './zoynari/zoynari-3';
-import Zoynari2SpellBook from './zoynari/zoynari-spellbook-2.pdf?url';
+import Zoynari3SpellBook from './zoynari/zoynari-3-spellbook.pdf?url';
 
 type BasePack = {
   data: Character;
   spellBook?: string;
+  visualAdjustments?: VisualAdjustments;
 };
 
 type CharacterPack = BasePack & {
@@ -23,8 +27,12 @@ type CharacterPack = BasePack & {
 
 const characters: BasePack[] = [
   { data: Zoynari2Data, spellBook: Zoynari2SpellBook },
-  { data: Zoynari3Data },
-  { data: SaoraData },
+  { data: Zoynari3Data, spellBook: Zoynari3SpellBook },
+  {
+    data: SaoraData,
+    spellBook: SaoraSpellBook,
+    visualAdjustments: { spellRows: 35 },
+  },
   { data: GonvarData },
   { data: ClawData },
   { data: OmarinData },

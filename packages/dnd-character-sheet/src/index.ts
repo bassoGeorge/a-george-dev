@@ -2,7 +2,10 @@
 export { ExampleSheet } from './characters/example';
 
 // Standard assembled sheet
-export { StandardCharacterSheet } from './components/StandardCharacterSheet/StandardCharacterSheet';
+export {
+  StandardCharacterSheet,
+  type VisualAdjustments,
+} from './components/StandardCharacterSheet/StandardCharacterSheet';
 
 export { getCharacterBrief } from './lib/character-brief';
 

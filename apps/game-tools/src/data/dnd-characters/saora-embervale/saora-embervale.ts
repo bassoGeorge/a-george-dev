@@ -154,4 +154,68 @@ export const SaoraData: Character = {
         'You have additional proficiency in any combination of 3 skills or tools (already considered in this sheet)',
     },
   ],
+  spellcasting: {
+    ability: Ability.Charisma,
+    slots: {
+      1: 4,
+      2: 2,
+    },
+    numberOfCantrips: 2,
+    numberOfPreparedSpells: 6,
+    spells: [
+      {
+        name: 'Vicious Mockery',
+        level: 0,
+        castingTime: 'Action',
+        range: '60ft',
+      },
+      {
+        name: 'Minor Illusion',
+        level: 0,
+        castingTime: 'Action',
+        range: '30ft',
+      },
+      {
+        name: 'Charm Person',
+        level: 1,
+        castingTime: 'Action',
+        duration: '1hr',
+        range: '30ft',
+      },
+      {
+        name: 'Color Spray',
+        level: 1,
+        castingTime: 'Action',
+        range: '15ft cone',
+      },
+      {
+        name: 'Dissonant Whispers',
+        level: 1,
+        castingTime: 'Action',
+        range: '60ft',
+      },
+      {
+        name: 'Healing Word',
+        level: 1,
+        castingTime: 'Bonus Action',
+        range: '60ft',
+        notes: '2d4+3 healing',
+      },
+      {
+        name: 'Enlarge / Reduce',
+        level: 2,
+        castingTime: 'Action',
+        range: '30ft',
+        concentration: true,
+        duration: '1min',
+      },
+      {
+        name: 'Mirror Image',
+        level: 2,
+        castingTime: 'Action',
+        range: 'Self',
+        duration: '1min',
+      },
+    ],
+  },
 };

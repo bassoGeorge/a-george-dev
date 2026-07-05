@@ -22,10 +22,10 @@ import {
   VisualAdjustmentsContext,
 } from '../VisualAdjustmentsContext';
 
-interface VisualAdjustments {
+export type VisualAdjustments = {
   spellRows?: number;
   inventoryRows?: number;
-}
+};
 
 interface Props {
   data: Character;

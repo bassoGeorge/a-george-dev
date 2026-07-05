@@ -28,7 +28,9 @@ export const Route = createFileRoute('/_public/dnd/characters/$slug/{-$level}')(
 );
 
 function RouteComponent() {
-  const { data } = Route.useLoaderData();
+  const { data, visualAdjustments } = Route.useLoaderData();
 
-  return <StandardCharacterSheet data={data} />;
+  return (
+    <StandardCharacterSheet data={data} visualAdjustments={visualAdjustments} />
+  );
 }
