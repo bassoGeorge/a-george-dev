@@ -5,6 +5,7 @@ import {
 } from '@ageorgedev/dnd-character-sheet';
 import { compose, groupBy, map } from 'ramda';
 import { ClawData } from './claw/claw';
+import { ElnorinData } from './elnorin-lunarrest/elnorin-lunarrest';
 import { GonvarData } from './gonvar-feathertide/gonvar-feathertide';
 import { OmarinData } from './omarin-kenate/omarin-kenate';
 import { SaoraData } from './saora-embervale/saora-embervale';
@@ -32,6 +33,9 @@ const characters: BasePack[] = [
     data: SaoraData,
     spellBook: SaoraSpellBook,
     visualAdjustments: { spellRows: 35 },
+  },
+  {
+    data: ElnorinData,
   },
   { data: GonvarData },
   { data: ClawData },
