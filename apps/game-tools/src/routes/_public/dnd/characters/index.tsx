@@ -4,6 +4,7 @@ import { AllMyCharacters } from '../../../../data/dnd-characters';
 
 export const Route = createFileRoute('/_public/dnd/characters/')({
   component: RouteComponent,
+  beforeLoad: () => ({ title: undefined }),
   loader: () => AllMyCharacters,
 });
 

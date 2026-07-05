@@ -4,15 +4,11 @@ import { getCharacterBySlugAndLevel } from '../../../../data/dnd-characters';
 
 export const Route = createFileRoute('/_public/dnd/characters/$slug/{-$level}')(
   {
-    // beforeLoad: ({ params, context }) => {
-    //   if (params.level) {
-    //     return {
-    //       temp: 'yo!!!...'
-    //     }
-    //   } else {
-    //     return context;
-    //   }
-    // },
+    beforeLoad: () => {
+      return {
+        title: 'My character name',
+      };
+    },
     params: {
       parse: ({ slug, level }) => ({
         slug,

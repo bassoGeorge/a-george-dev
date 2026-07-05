@@ -10,35 +10,21 @@ import { Link, useMatches } from '@tanstack/react-router';
 import { Fragment } from 'react';
 
 type Crumb = { label: string; to?: string };
-type Matches = ReturnType<typeof useMatches>;
 
-function deriveCrumbs(matches: Matches): Crumb[] {
-  const crumbs: Crumb[] = [];
-
-  for (const match of matches) {
-    if (/\/dnd\/characters\/?$/.test(match.pathname)) {
-      crumbs.push({ label: 'DnD Characters', to: '/dnd/characters' });
-      continue;
-    }
-
-    if (/\/dnd\/characters\/.+$/.test(match.pathname)) {
-      const characterName = match.staticData?.character?.name ?? 'Character';
-      const level = match.staticData?.character?.level;
-      const label = `${characterName}${level ? ` (Level ${level})` : ''}`;
-      crumbs.push({ label, to: match.pathname });
-    }
-  }
+function deriveCrumbsV2(matches: ReturnType<typeof useMatches>): Crumb[] {
+  const crumbs: Crumb[] = matches
+    .filter((m) => m.context.title)
+    .map((m) => ({ label: m.context.title as string, to: m.pathname }));
 
   if (crumbs.length > 0) {
     crumbs[crumbs.length - 1] = { label: crumbs[crumbs.length - 1].label };
   }
-
   return crumbs;
 }
 
 export function HeaderBreadcrumbs() {
   const matches = useMatches();
-  const crumbs = deriveCrumbs(matches);
+  const crumbs = deriveCrumbsV2(matches);
 
   if (crumbs.length === 0) {
     return null;
