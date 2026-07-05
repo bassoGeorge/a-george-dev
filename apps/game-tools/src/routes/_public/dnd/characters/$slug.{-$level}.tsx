@@ -20,9 +20,23 @@ export const Route = createFileRoute('/_public/dnd/characters/$slug/{-$level}')(
         spellBook: pack.spellBook,
       };
     },
+    // NOTE: if there are functions in the character, this breaks ssr on local refresh. not sure why
     loader: ({ params }) => {
       return getCharacterBySlugAndLevel(params.slug, params.level);
     },
+
+    // Some ts issues stop me from organising this before the other functions, need to investigate
+    head: ({ params }) => {
+      const pack = getCharacterBySlugAndLevel(params.slug, params.level);
+      return {
+        meta: [
+          {
+            title: `${pack.brief.name} - level ${pack.brief.level}`,
+          },
+        ],
+      };
+    },
+
     component: RouteComponent,
   }
 );
