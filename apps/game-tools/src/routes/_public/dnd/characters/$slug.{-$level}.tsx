@@ -1,5 +1,6 @@
 import { StandardCharacterSheet } from '@ageorgedev/dnd-character-sheet';
 import { createFileRoute } from '@tanstack/react-router';
+import { useMemo } from 'react';
 import { getCharacterBySlugAndLevel } from '../../../../data/dnd-characters';
 
 export const Route = createFileRoute('/_public/dnd/characters/$slug/{-$level}')(
@@ -20,18 +21,16 @@ export const Route = createFileRoute('/_public/dnd/characters/$slug/{-$level}')(
         spellBook: pack.spellBook,
       };
     },
-    // NOTE: if there are functions in the character, this breaks ssr on local refresh. not sure why
-    loader: ({ params }) => {
-      return getCharacterBySlugAndLevel(params.slug, params.level);
-    },
+    // NOTE: Not using a loader for character pack. Although its more appropriate,
+    // we have functions in there that are going to not be serialisable.
+    // leads to the bigger question of serialisation if we move to APIs
 
-    // Some ts issues stop me from organising this before the other functions, need to investigate
-    head: ({ params }) => {
-      const pack = getCharacterBySlugAndLevel(params.slug, params.level);
+    // TS requires this function to follow in last only
+    head: ({ match: { context } }) => {
       return {
         meta: [
           {
-            title: `${pack.brief.name} - level ${pack.brief.level}`,
+            title: context.title,
           },
         ],
       };
@@ -42,7 +41,11 @@ export const Route = createFileRoute('/_public/dnd/characters/$slug/{-$level}')(
 );
 
 function RouteComponent() {
-  const { data, visualAdjustments } = Route.useLoaderData();
+  const { slug, level } = Route.useParams();
+  const { data, visualAdjustments } = useMemo(
+    () => getCharacterBySlugAndLevel(slug, level),
+    [slug, level]
+  );
 
   return (
     <StandardCharacterSheet data={data} visualAdjustments={visualAdjustments} />
