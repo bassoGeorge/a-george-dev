@@ -31,7 +31,7 @@ function BaseCheck({ checked = false, className, ...props }: CheckableProps) {
 export type CheckedState = boolean | 'special' | 'suggested' | undefined;
 
 const CHECK_FILL: Record<'true' | 'false' | 'special' | 'suggested', string> = {
-  true: 'bg-primary-surface border-primary-foreground',
+  true: 'bg-primary-surface-2 border-primary-foreground',
   special: 'bg-secondary-surface-2 border-secondary-foreground',
   suggested: 'bg-page-2',
   false: 'bg-page-4',

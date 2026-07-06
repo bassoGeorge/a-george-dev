@@ -34,12 +34,10 @@ const characters: BasePack[] = [
   {
     data: Zoynari3Data,
     spellBook: Zoynari3SpellBook,
-    visualAdjustments: { spellRows: 30 },
   },
   {
     data: SaoraData,
     spellBook: SaoraSpellBook,
-    visualAdjustments: { spellRows: 35 },
   },
   { data: ElnorinData, spellBook: ElnorinSpellBook },
   { data: GonvarData },

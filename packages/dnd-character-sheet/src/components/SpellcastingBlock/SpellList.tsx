@@ -103,7 +103,7 @@ export function SpellRow({ spell }: { spell: Spell }) {
         ) : spell.level === 0 ? (
           <span />
         ) : (
-          <CircleCheck className="align-[-.1em]" />
+          <CircleCheck checked="suggested" className="align-[-.1em]" />
         )}
       </Td>
       <Td className="w-[2ch] text-sm">{spell.level}</Td>

@@ -15,6 +15,7 @@ import { WeaponMasteries } from '../game-infos/WeaponMasteries';
 import { HeroicInspiration } from '../HeroicInspiration/HeroicInspiration';
 import { Inventory } from '../Inventory/Inventory';
 import { Page } from '../layout/Page';
+import { NotesPanel } from '../NotesPanel/NotesPanel';
 import { ProficiencyBlock } from '../ProficiencyBlock/ProficiencyBlock';
 import { Resources } from '../Resources/Resources';
 import { SheetHeader } from '../SheetHeader/SheetHeader';
@@ -83,8 +84,13 @@ export function StandardCharacterSheet({ data, visualAdjustments }: Props) {
           <div className="grid grid-cols-7 gap-4 mt-4 flex-1">
             <div className="col-span-5 h-full flex flex-col gap-4">
               {data.spellcasting && <SpellcastingBlock />}
-              <ActionsInCombat />
-              <WeaponMasteries />
+              <NotesPanel outerClasses="flex-1" />
+              {!data.spellcasting && (
+                <>
+                  <ActionsInCombat />
+                  <WeaponMasteries />
+                </>
+              )}
             </div>
             <div className="col-span-2 flex flex-col gap-4">
               <GenericPanel
