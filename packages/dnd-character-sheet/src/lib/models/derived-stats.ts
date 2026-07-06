@@ -2,10 +2,17 @@ import type { Ability } from './abilities';
 import type { Skill } from './skills';
 
 export interface DerivedStats {
-  abilityModifiers: Record<Ability, number>;
   proficiencyBonus: number;
+  abilityModifiers: Record<Ability, number>;
+  abilitySaveDCs: Record<Ability, number>;
   savingThrows: Record<Ability, number>;
-  skills: Record<Skill, number>;
+  skills: Record<
+    Skill,
+    {
+      modifier: number;
+      quality: 'normal' | 'proficient' | 'expert';
+    }
+  >;
   passivePerception: number;
   initiative: number;
   level: { total: number } & Record<string, number>;

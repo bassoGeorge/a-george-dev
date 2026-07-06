@@ -82,7 +82,10 @@ describe('calculateStats', () => {
     };
 
     const stats = calculateStats(character);
-    expect(stats.skills[Skill.Perception]).toBe(5);
+    expect(stats.skills[Skill.Perception]).toEqual({
+      modifier: 5,
+      quality: 'normal',
+    });
   });
 
   it('applies skill-function statMod to override a skill bonus', () => {
@@ -102,7 +105,10 @@ describe('calculateStats', () => {
     };
 
     const stats = calculateStats(character);
-    expect(stats.skills[Skill.Stealth]).toBe(42);
+    expect(stats.skills[Skill.Stealth]).toEqual({
+      modifier: 42,
+      quality: 'normal',
+    });
   });
 
   it('applies generic-derived statMod to mutate the full DerivedStats object', () => {

@@ -36,6 +36,11 @@ export function calculateStats(character: Character): DerivedStats {
     ])
   ) as DerivedStats['abilityModifiers'];
 
+  const abilitySaveDCs = mapObjIndexed(
+    (mod) => mod + profBonus + 8,
+    abilityModifiers
+  );
+
   const savingThrows = Object.fromEntries(
     ALL_ABILITIES.map((name) => {
       const isProficient = character.savingThrowProficiencies.includes(name);
@@ -62,19 +67,28 @@ export function calculateStats(character: Character): DerivedStats {
           currentBonus: bonus,
           allSkillMods: allMods,
         });
-        return [skill, finalBonus] as const;
+
+        const state = {
+          modifier: finalBonus,
+          quality: hasExpertise
+            ? 'expert'
+            : isProficient
+              ? 'proficient'
+              : 'normal',
+        } as const;
+
+        return [skill, state] as const;
       });
     })
   ) as DerivedStats['skills'];
 
   const initiative = abilityModifiers[Ability.Dexterity];
 
-  const passivePerception = 10 + skills[Skill.Perception];
+  const passivePerception = 10 + skills[Skill.Perception].modifier;
 
   const spellcasting = character.spellcasting
     ? {
-        spellSaveDC:
-          8 + profBonus + abilityModifiers[character.spellcasting.ability],
+        spellSaveDC: abilitySaveDCs[character.spellcasting.ability],
         spellAttackBonus:
           profBonus + abilityModifiers[character.spellcasting.ability],
       }
@@ -84,6 +98,7 @@ export function calculateStats(character: Character): DerivedStats {
 
   const stats = {
     abilityModifiers,
+    abilitySaveDCs,
     proficiencyBonus: profBonus,
     savingThrows,
     skills,

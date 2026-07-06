@@ -4,6 +4,14 @@
   @apply list-decimal list-inside;
 }
 
+.Container ul {
+  @apply list-disc list-inside;
+}
+
+.Container li {
+  @apply ml-1;
+}
+
 .Container p + p {
   @apply mt-2;
 }

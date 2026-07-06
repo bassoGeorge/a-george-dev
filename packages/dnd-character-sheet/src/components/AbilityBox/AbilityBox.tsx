@@ -1,5 +1,6 @@
 import { ABILITY_DETAILS, type Ability } from '../../lib/models/abilities';
-import { AbilitySkillGrouping } from '../../lib/models/skills';
+import type { DerivedStats } from '../../lib/models/derived-stats';
+import { AbilitySkillGrouping, type Skill } from '../../lib/models/skills';
 import { formatMod } from '../../lib/utils';
 import { useCharacter } from '../CharacterSheet';
 import { BigNumber } from '../layout/BigNumber';
@@ -7,15 +8,6 @@ import type { CheckedState } from '../layout/checkables';
 import { CircleCheck } from '../layout/checkables';
 import { Panel } from '../layout/Panel';
 import { PanelTitle } from '../layout/PanelTitle';
-
-function proficiencyState(
-  isProficient: boolean,
-  hasExpertise: boolean
-): CheckedState {
-  if (hasExpertise) return 'special';
-  if (isProficient) return true;
-  return false;
-}
 
 interface AbilityBoxProps {
   ability: Ability;
@@ -46,8 +38,10 @@ export function AbilityBox({ ability }: AbilityBoxProps) {
       </div>
       <SkillGrid>
         <SkillRow
-          checkedState={isSaveProficient}
-          skillModifier={savingThrow}
+          skillData={{
+            modifier: savingThrow,
+            quality: isSaveProficient ? 'proficient' : 'normal',
+          }}
           abilityModifier={abilityMod}
         >
           <b>Saving Throw</b>
@@ -56,14 +50,10 @@ export function AbilityBox({ ability }: AbilityBoxProps) {
       {!!skills.length && (
         <SkillGrid>
           {skills.map((skill) => {
-            const isProficient = character.skillProficiencies.includes(skill);
-            const hasExpertise = character.skillExpertise.includes(skill);
-            const total = derived.skills[skill];
             return (
               <SkillRow
                 key={skill}
-                checkedState={proficiencyState(isProficient, hasExpertise)}
-                skillModifier={total}
+                skillData={derived.skills[skill]}
                 abilityModifier={abilityMod}
               >
                 {skill}
@@ -84,17 +74,21 @@ function SkillGrid({ children }: React.PropsWithChildren) {
 }
 
 function SkillRow({
-  checkedState,
-  skillModifier,
+  skillData,
   abilityModifier,
   children,
 }: React.PropsWithChildren<{
-  checkedState: CheckedState;
-  skillModifier: number;
+  skillData: DerivedStats['skills'][Skill];
   abilityModifier: number;
 }>) {
   const modifierDisplayed =
-    skillModifier === abilityModifier ? '\u00a0' : formatMod(skillModifier);
+    skillData.modifier === abilityModifier
+      ? '\u00a0'
+      : formatMod(skillData.modifier);
+  const checkedState: CheckedState =
+    skillData.quality === 'expert'
+      ? 'special'
+      : skillData.quality === 'proficient';
   return (
     <>
       <CircleCheck checked={checkedState} className="self-center" />

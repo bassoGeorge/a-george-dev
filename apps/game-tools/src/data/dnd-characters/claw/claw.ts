@@ -3,13 +3,10 @@ import {
   ArmorProficiency,
   type Character,
   CharacterClass,
-  getCharacterBrief,
   Skill,
-  StandardCharacterSheet,
 } from '@ageorgedev/dnd-character-sheet';
-import { createFileRoute } from '@tanstack/react-router';
 
-const ClawCharacter: Character = {
+export const ClawData: Character = {
   name: 'Claw',
   species: 'Shifter',
   background: 'Scribe',
@@ -147,13 +144,6 @@ const ClawCharacter: Character = {
       <li>You can move up to 10ft as a Reaction when a creature ends its turn within 5ft of you. This reactive movement does not provoke Opportunity attacks</li>
       </ol>
       `,
-      statMod: {
-        kind: 'generic-derived',
-        mod: (stat) => ({
-          ...stat,
-          initiative: stat.initiative + stat.proficiencyBonus,
-        }),
-      },
     },
   ],
   feats: [
@@ -161,6 +151,13 @@ const ClawCharacter: Character = {
       name: 'Alert',
       description:
         '<ol><li>Your proficiency bonus is added to your Initiative roll</li><li>You may swap your initiative with any willing ally after rolling</li></ol>',
+      statMod: {
+        kind: 'generic-derived',
+        mod: (stat) => ({
+          ...stat,
+          initiative: stat.initiative + stat.proficiencyBonus,
+        }),
+      },
     },
   ],
   armorProficiencies: [ArmorProficiency.LightArmor],
@@ -234,14 +231,3 @@ const ClawCharacter: Character = {
     ],
   },
 };
-
-export const Route = createFileRoute('/_public/dnd/characters/_sheet/claw')({
-  component: RouteComponent,
-  staticData: {
-    character: getCharacterBrief(ClawCharacter),
-  },
-});
-
-function RouteComponent() {
-  return <StandardCharacterSheet data={ClawCharacter} />;
-}

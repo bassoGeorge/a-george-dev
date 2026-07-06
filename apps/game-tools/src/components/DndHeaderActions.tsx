@@ -1,17 +1,17 @@
 import { BookOpenTextIcon, PrinterIcon } from '@phosphor-icons/react';
-import { useMatches } from '@tanstack/react-router';
+import { useMatch } from '@tanstack/react-router';
 
 export function DndHeaderActions() {
-  const matches = useMatches();
-  const spellBookUrl = matches
-    .map((m) => m.staticData?.spellBookUrl)
-    .find(Boolean);
-  const isCharacterSheet = matches.some((m) => m.routeId.includes('_sheet'));
+  const characterSheetRouteMatch = useMatch({
+    from: '/_public/dnd/characters/$slug/{-$level}',
+    shouldThrow: false,
+  });
 
-  if (!spellBookUrl && !isCharacterSheet) {
+  if (!characterSheetRouteMatch) {
     return null;
   }
 
+  const spellBookUrl = characterSheetRouteMatch?.context.spellBook;
   return (
     <>
       {spellBookUrl && (
@@ -27,17 +27,15 @@ export function DndHeaderActions() {
           <span>Download Spellbook</span>
         </a>
       )}
-      {isCharacterSheet && (
-        <button
-          type="button"
-          onClick={() => window.print()}
-          className="text-xs text-neutral-subdued hover:text-primary-foreground transition-colors inline-flex gap-1 items-center"
-          aria-label="Print character sheet"
-        >
-          <PrinterIcon size={30} />
-          <span>Print Character Sheet</span>
-        </button>
-      )}
+      <button
+        type="button"
+        onClick={() => window.print()}
+        className="text-xs text-neutral-subdued hover:text-primary-foreground transition-colors inline-flex gap-1 items-center"
+        aria-label="Print character sheet"
+      >
+        <PrinterIcon size={30} />
+        <span>Print Character Sheet</span>
+      </button>
     </>
   );
 }
