@@ -6,10 +6,12 @@ import {
 import { compose, groupBy, map, mapObjIndexed } from 'ramda';
 import { ClawData } from './claw/claw';
 import { ElnorinData } from './elnorin-lunarrest/elnorin-lunarrest';
+import ElnorinSpellBook from './elnorin-lunarrest/elnorrin-spellbook.pdf?url';
 import { GonvarData } from './gonvar-feathertide/gonvar-feathertide';
 import { OmarinData } from './omarin-kenate/omarin-kenate';
 import { SaoraData } from './saora-embervale/saora-embervale';
 import SaoraSpellBook from './saora-embervale/saora-spellbook.pdf?url';
+import { SplitterData } from './splitter/splitter';
 import { Zoynari2Data } from './zoynari/zoynari-2';
 import Zoynari2SpellBook from './zoynari/zoynari-2-spellbook.pdf?url';
 import { Zoynari3Data } from './zoynari/zoynari-3';
@@ -34,12 +36,11 @@ const characters: BasePack[] = [
     spellBook: SaoraSpellBook,
     visualAdjustments: { spellRows: 35 },
   },
-  {
-    data: ElnorinData,
-  },
+  { data: ElnorinData, spellBook: ElnorinSpellBook },
   { data: GonvarData },
   { data: ClawData },
   { data: OmarinData },
+  { data: SplitterData },
 ];
 
 const processAndGroup = compose(
