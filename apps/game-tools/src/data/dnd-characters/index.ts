@@ -30,7 +30,11 @@ type CharacterPack = BasePack & {
 
 const characters: BasePack[] = [
   { data: Zoynari2Data, spellBook: Zoynari2SpellBook },
-  { data: Zoynari3Data, spellBook: Zoynari3SpellBook },
+  {
+    data: Zoynari3Data,
+    spellBook: Zoynari3SpellBook,
+    visualAdjustments: { spellRows: 30 },
+  },
   {
     data: SaoraData,
     spellBook: SaoraSpellBook,

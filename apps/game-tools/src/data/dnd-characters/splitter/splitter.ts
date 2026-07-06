@@ -58,8 +58,13 @@ export const SplitterData: Character = {
       notes: 'Light, Thrown (range 20/60)',
     },
   ],
-  equipment: [],
-  toolProficiencies: [],
+  equipment: [
+    'Backpack, Bedroll, Rope, Tinderbox, Dragonchess',
+    "Healer's Kit",
+    'Oil flasks = 2',
+    'Torches = 10',
+  ],
+  toolProficiencies: ['Gaming Set - DragonChess', "Smith's Tools"],
   languages: [],
   features: [
     {
@@ -94,5 +99,73 @@ export const SplitterData: Character = {
         },
       },
     },
+    {
+      name: 'Unarmored Defence',
+      description:
+        "When you aren't wearing any armour, your base AC equals 10+Dex.+Con. You can use a Shield and still get this benefit.",
+    },
+    {
+      name: 'Weapon Mastery',
+      description:
+        'You have mastery over 2 different weapons. You can choose to switch one mastery to a different weapon on finishing a Long Rest',
+    },
+    {
+      name: 'Danger sense',
+      description:
+        'You have Advantage on Dex. saving throws unless you are Incapacitated',
+    },
+    {
+      name: 'Primal knowledge',
+      description:
+        'While Rage is active, you can make the following Ability checks using Str. -- Acrobatics, Intimidation, Perception, Stealth, or Survival',
+    },
+    {
+      name: 'Reckless Attack',
+      description:
+        'On the first attack roll of a turn, you can choose to go reckless. This give you Advantage on Str. based attack rolls until the start of your next turn. But, attack rolls against you have Advantage during this time.',
+    },
+    {
+      name: 'Frenzy',
+      description:
+        'If you do <em>Reckless Attack</em> while Rage is active, you do an extra 2d6 damage to the first target you hit on your turn with a Str. based attack.',
+    },
   ],
+  speciesTraits: [
+    {
+      name: 'Construct resilience',
+      description:
+        'You have Resistance to Poison damage. You also have Advantage on saving throws you make to avoid or end the <em>Poisoned</em> condition.',
+    },
+    {
+      name: 'Integrated Protection',
+      description:
+        "You have +1 AC (already considered in this sheet). Your armour can't be removed against your will",
+    },
+    {
+      name: "Sentry's Rest",
+      description:
+        "You don't need to sleep, and magic can't put you to sleep. You can finish a Long Rest in 6hrs if you spend that time inactive and motionless. You appear inert but are still conscious.",
+    },
+    {
+      name: 'Specialised Design',
+      description:
+        'You gain one skill proficiency and one tool proficiency of your choice (already considered in this sheet)',
+    },
+    {
+      name: 'Tireless',
+      description:
+        "You don't need to consume water, food, and don't need to breathe",
+    },
+  ],
+  feats: [
+    {
+      name: 'Savage attacker',
+      description:
+        "Once per turn, you may roll a weapon's damage dice twice and use either rolls.",
+    },
+  ],
+  appearance:
+    'Warforged are mechanical beings build as weapons to fight in the Last War. You comprise a blend of organic and inorganic materials. Rootlike chords infused with alchemical fluids serve as your muscles, wrapped around a framework of steel, darkwood or stone',
+  backstory:
+    '<strong>Soldier.</strong> War is the only thing you knew since you came into being. Now that the Last War is over, you have somehow made yourself useful. The nation which made you, Cyre, is no more. Where were you when Cyre was destroyed in that magical catastrophe?',
 };
