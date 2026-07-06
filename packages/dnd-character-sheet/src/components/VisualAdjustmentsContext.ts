@@ -6,7 +6,7 @@ interface VisualAdjustments {
 }
 
 export const DEFAULT_VISUAL_ADUSTMENTS: VisualAdjustments = {
-  spellRows: 35,
+  spellRows: 20,
   inventoryRows: 10,
 };
 

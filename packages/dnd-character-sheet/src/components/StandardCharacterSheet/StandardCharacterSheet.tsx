@@ -10,6 +10,8 @@ import { ClassFeatures } from '../feature-blocks/ClassFeatures';
 import { Feats } from '../feature-blocks/Feats';
 import { SpeciesTraits } from '../feature-blocks/SpeciesTraits';
 import { GenericPanel } from '../GenericPanel/GenericPanel';
+import { ActionsInCombat } from '../game-infos/ActionsInCombat';
+import { WeaponMasteries } from '../game-infos/WeaponMasteries';
 import { HeroicInspiration } from '../HeroicInspiration/HeroicInspiration';
 import { Inventory } from '../Inventory/Inventory';
 import { Page } from '../layout/Page';
@@ -79,8 +81,10 @@ export function StandardCharacterSheet({ data, visualAdjustments }: Props) {
 
         <Page>
           <div className="grid grid-cols-7 gap-4 mt-4 flex-1">
-            <div className="col-span-5 h-full">
+            <div className="col-span-5 h-full flex flex-col gap-4">
               {data.spellcasting && <SpellcastingBlock />}
+              <ActionsInCombat />
+              <WeaponMasteries />
             </div>
             <div className="col-span-2 flex flex-col gap-4">
               <GenericPanel
