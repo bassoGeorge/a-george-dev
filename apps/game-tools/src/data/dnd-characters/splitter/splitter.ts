@@ -47,6 +47,7 @@ export const SplitterData: Character = {
       ability: Ability.Strength,
       damage: [{ dice: '1d12', type: 'Slashing' }],
       masteryProperty: 'Graze',
+      hasMasteryByDefault: true,
       notes: 'Heavy, 2-handed',
     },
     {
@@ -55,6 +56,7 @@ export const SplitterData: Character = {
       ability: Ability.Strength,
       damage: [{ dice: '1d6', type: 'Slashing' }],
       masteryProperty: 'Vex',
+      hasMasteryByDefault: true,
       notes: 'Light, Thrown (range 20/60)',
     },
   ],

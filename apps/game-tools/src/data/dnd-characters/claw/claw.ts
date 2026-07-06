@@ -54,6 +54,7 @@ export const ClawData: Character = {
         },
       ],
       masteryProperty: 'Nick',
+      hasMasteryByDefault: true,
       notes: 'Light, Finesse, Thrown (range 20/60)',
     },
     {
@@ -67,6 +68,7 @@ export const ClawData: Character = {
         },
       ],
       masteryProperty: 'Vex',
+      hasMasteryByDefault: true,
       notes: 'Light, Finesse',
     },
     {

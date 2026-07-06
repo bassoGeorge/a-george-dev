@@ -53,6 +53,7 @@ export const OmarinData: Character = {
       ability: Ability.Dexterity,
       damage: [{ dice: '1d6', type: 'Piercing' }],
       masteryProperty: 'Vex',
+      hasMasteryByDefault: true,
       notes: 'Light, Finesse',
     },
     {
@@ -61,6 +62,7 @@ export const OmarinData: Character = {
       ability: Ability.Dexterity,
       damage: [{ dice: '1d6', type: 'Slashing' }],
       masteryProperty: 'Nick',
+      hasMasteryByDefault: true,
       notes: 'Light, Finesse',
     },
     {
@@ -75,12 +77,14 @@ export const OmarinData: Character = {
       ability: Ability.Dexterity,
       damage: [{ dice: '1d4', type: 'Piercing' }],
       masteryProperty: 'Nick',
+      hasMasteryByDefault: true,
       notes: 'Light, Finesse, Thrown (range 20/60)',
     },
     {
       name: 'Light Crossbow',
       kind: 'weapon',
       ability: Ability.Dexterity,
+      masteryProperty: 'Slow',
       damage: [{ dice: '1d8', type: 'Piercing' }],
       notes: 'Ammo (80/20, Bolt), Loading, 2-handed',
     },

@@ -4,7 +4,8 @@ import type { DamageType } from './damage-type';
 export type Attack = {
   name: string;
   damage: AttackDamage[];
-  masteryProperty?: string;
+  masteryProperty?: string; // easier to just keep this here than in weapon attack
+  hasMasteryByDefault?: boolean;
   attackBonusMod?: number;
   damageMod?: number;
   notProficient?: boolean;

@@ -46,8 +46,13 @@ export function AttackList() {
                   <Td>{formatDamage(attack.damage, damageBonus)}</Td>
                   {attack.masteryProperty ? (
                     <Td>
-                      <DiamondCheck className="align-[-.1em]" /> &nbsp;{' '}
-                      {attack.masteryProperty}
+                      <DiamondCheck
+                        className="align-[-.1em]"
+                        checked={
+                          attack.hasMasteryByDefault ? 'suggested' : false
+                        }
+                      />{' '}
+                      &nbsp; {attack.masteryProperty}
                     </Td>
                   ) : showMasteries ? (
                     <Td></Td>
