@@ -55,11 +55,44 @@ export const SplitterData: Character = {
       ability: Ability.Strength,
       damage: [{ dice: '1d6', type: 'Slashing' }],
       masteryProperty: 'Vex',
-      notes: 'Light, Thrown (20/60)',
+      notes: 'Light, Thrown (range 20/60)',
     },
   ],
   equipment: [],
-  features: [],
   toolProficiencies: [],
   languages: [],
+  features: [
+    {
+      name: 'Rage',
+      castingTime: 'Bonus Action',
+      cost: '1 Rage charge',
+      description: `
+    If not wearing Heavy Armour, you can imbue yourself with primal power. While active, you have the following effects
+    <ol>
+    <li><strong>Damage Resistance</strong> against Bludgeoning, Piercing, and Slashing damage.</li>
+    <li><strong>Rage Damage.</strong> When making Str. based attacks (weapon or unarmed), you have +2 damage bonus.</li>
+    <li>
+    <strong>Duration.</strong> The Rage lasts until the end of your next turn. It ends early if you get <em>Incapacitated</em> condition. You can extend the Rage for another round by doing one of the following:
+      <ul>
+      <li>Make an attack roll against an enemy</li>
+      <li>Force an enemy to make a saving throw</li>
+      <li>Take a Bonus Action to extend the Rage</li>
+      </ul>
+    Rage can last upto 10 mins.
+    </li>
+    </ol>
+    `,
+      resource: {
+        name: 'Rage charge',
+        count: {
+          kind: 'fixed',
+          value: 3,
+        },
+        refresh: {
+          kind: 'short-and-long-rest',
+          numberOfRefreshesOnShortRest: 1,
+        },
+      },
+    },
+  ],
 };

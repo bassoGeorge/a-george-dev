@@ -12,3 +12,7 @@
     background-color: transparent;
   }
 }
+
+body {
+  /* @apply lining-nums; */
+}
