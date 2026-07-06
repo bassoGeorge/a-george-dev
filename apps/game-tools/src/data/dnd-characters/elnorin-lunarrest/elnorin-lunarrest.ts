@@ -42,6 +42,12 @@ export const ElnorinData: Character = {
   languages: ['Common', 'Elvish'],
   attacks: [
     {
+      kind: 'spell-with-attack',
+      name: 'Shocking Grasp',
+      damage: [{ dice: '1d8', type: 'Lightning' }],
+      notes: 'target loses Opportunity attacks',
+    },
+    {
       kind: 'weapon',
       name: 'Dagger (x4)',
       ability: Ability.Dexterity,

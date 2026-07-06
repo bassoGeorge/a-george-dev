@@ -5,6 +5,7 @@ import {
 } from '@ageorgedev/dnd-character-sheet';
 import { compose, groupBy, map, mapObjIndexed } from 'ramda';
 import { ClawData } from './claw/claw';
+import ClawSpellBook from './claw/claw-spellbook.pdf?url';
 import { ElnorinData } from './elnorin-lunarrest/elnorin-lunarrest';
 import ElnorinSpellBook from './elnorin-lunarrest/elnorrin-spellbook.pdf?url';
 import { GonvarData } from './gonvar-feathertide/gonvar-feathertide';
@@ -42,7 +43,7 @@ const characters: BasePack[] = [
   },
   { data: ElnorinData, spellBook: ElnorinSpellBook },
   { data: GonvarData },
-  { data: ClawData },
+  { data: ClawData, spellBook: ClawSpellBook },
   { data: OmarinData },
   { data: SplitterData },
 ];
