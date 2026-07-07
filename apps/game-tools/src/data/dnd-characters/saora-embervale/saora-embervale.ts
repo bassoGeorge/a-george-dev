@@ -44,7 +44,23 @@ export const SaoraData: Character = {
   hitPoints: {
     maximum: 24,
   },
-  attacks: [],
+  attacks: [
+    {
+      name: 'Dagger (x2)',
+      kind: 'weapon',
+      ability: Ability.Dexterity,
+      damage: [{ dice: '1d4', type: 'Piercing' }],
+      notes: 'Light, Finesse, Thrown (range 20/60)',
+    },
+    {
+      name: 'Vicious Mockery',
+      kind: 'spell-with-save',
+      saveAbility: Ability.Wisdom,
+      damage: [{ dice: '1d6', type: 'Psychic' }],
+      notes:
+        'target has disadvantage on next attack roll till end of its next turn',
+    },
+  ],
   equipment: [
     'Bedroll, Bell, Bullseye Lantern, 2 Costumes, Fine clothes, Mirror, Tinderbox, Waterskin',
     'Flute, Forgery kit, Disguise kit',

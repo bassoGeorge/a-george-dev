@@ -3,9 +3,11 @@ import { useCharacter } from '../CharacterSheet';
 import { FeatureList } from '../feature-blocks/FeatureList';
 import { Panel } from '../layout/Panel';
 import { PanelTitle } from '../layout/PanelTitle';
+import { useVisualAdjustments } from '../VisualAdjustmentsContext';
 
 export function ClassFeatures() {
   const { character } = useCharacter();
+  const { classFeaturesFontSize } = useVisualAdjustments();
 
   return (
     <Panel outerClasses="flex-1">
@@ -13,6 +15,7 @@ export function ClassFeatures() {
       <FeatureList
         className={cn('columns-2 gap-3')}
         features={character.features}
+        smallFont={classFeaturesFontSize === 'small'}
       />
     </Panel>
   );

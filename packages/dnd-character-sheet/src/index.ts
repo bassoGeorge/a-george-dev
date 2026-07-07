@@ -2,11 +2,9 @@
 export { ExampleSheet } from './characters/example';
 
 // Standard assembled sheet
-export {
-  StandardCharacterSheet,
-  type VisualAdjustments,
-} from './components/StandardCharacterSheet/StandardCharacterSheet';
+export { StandardCharacterSheet } from './components/StandardCharacterSheet/StandardCharacterSheet';
 
+export type { VisualAdjustments } from './components/VisualAdjustmentsContext';
 export { getCharacterBrief } from './lib/character-brief';
 
 // Other models

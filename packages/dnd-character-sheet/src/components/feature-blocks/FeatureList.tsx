@@ -4,11 +4,13 @@ import { FeatureEntry } from './FeatureEntry';
 
 type FeatureListProps = React.HTMLAttributes<HTMLDivElement> & {
   features: Feature[];
+  smallFont?: boolean;
 };
 
 export function FeatureList({
   className,
   features,
+  smallFont,
   ...props
 }: FeatureListProps) {
   if (!features.length) {
@@ -21,7 +23,7 @@ export function FeatureList({
   return (
     <div {...props} className={cn('*:mt-2 *:first:mt-0', className)}>
       {features.map((feature) => (
-        <FeatureEntry key={feature.name} data={feature} />
+        <FeatureEntry key={feature.name} data={feature} smallFont={smallFont} />
       ))}
     </div>
   );

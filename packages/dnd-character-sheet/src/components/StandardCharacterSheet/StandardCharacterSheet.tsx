@@ -22,13 +22,9 @@ import { SheetHeader } from '../SheetHeader/SheetHeader';
 import { SpellcastingBlock } from '../SpellcastingBlock/SpellcastingBlock';
 import {
   DEFAULT_VISUAL_ADUSTMENTS,
+  type VisualAdjustments,
   VisualAdjustmentsContext,
 } from '../VisualAdjustmentsContext';
-
-export type VisualAdjustments = {
-  spellRows?: number;
-  inventoryRows?: number;
-};
 
 interface Props {
   data: Character;

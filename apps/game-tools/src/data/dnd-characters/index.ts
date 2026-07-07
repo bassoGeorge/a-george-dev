@@ -34,6 +34,9 @@ const characters: BasePack[] = [
   {
     data: Zoynari3Data,
     spellBook: Zoynari3SpellBook,
+    visualAdjustments: {
+      speciesAndFeatsFontSize: 'small',
+    },
   },
   {
     data: SaoraData,
@@ -43,7 +46,13 @@ const characters: BasePack[] = [
   { data: GonvarData },
   { data: ClawData, spellBook: ClawSpellBook },
   { data: OmarinData },
-  { data: SplitterData },
+  {
+    data: SplitterData,
+    visualAdjustments: {
+      speciesAndFeatsFontSize: 'small',
+      classFeaturesFontSize: 'small',
+    },
+  },
 ];
 
 const processAndGroup = compose(

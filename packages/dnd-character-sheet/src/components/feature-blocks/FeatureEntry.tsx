@@ -1,7 +1,13 @@
 import type { Feature } from '../../lib/models/feature';
 import { RichTextDisplay } from '../RichTextDisplay/RichTextDisplay';
 
-export function FeatureEntry({ data: feat }: { data: Feature }) {
+export function FeatureEntry({
+  data: feat,
+  smallFont,
+}: {
+  data: Feature;
+  smallFont?: boolean;
+}) {
   const notes = [
     feat.castingTime,
     feat.duration,
@@ -11,7 +17,7 @@ export function FeatureEntry({ data: feat }: { data: Feature }) {
     .join(', ');
 
   return (
-    <div className="text-sm">
+    <div className={smallFont ? 'text-sm' : 'text-base'}>
       <span className="font-bold">{feat.name}.</span>
       {notes && <em className="text-neutral-subdued">({notes})</em>}
       &nbsp;
