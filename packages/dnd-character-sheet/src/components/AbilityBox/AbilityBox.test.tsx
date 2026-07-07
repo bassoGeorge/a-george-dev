@@ -88,13 +88,13 @@ describe('AbilityBox', () => {
     });
     renderAbilityBox(Ability.Strength, character);
     const checkbox = getCheckboxForLabel('Saving Throw');
-    expect(checkbox).toHaveClass('bg-primary-surface');
+    expect(checkbox).toHaveClass('bg-primary-surface-2');
   });
 
   it('saving throw checkbox is unchecked when ability is not in savingThrowProficiencies', () => {
     renderAbilityBox(Ability.Strength, makeCharacter());
     const checkbox = getCheckboxForLabel('Saving Throw');
-    expect(checkbox).not.toHaveClass('bg-primary-surface');
+    expect(checkbox).not.toHaveClass('bg-primary-surface-2');
   });
 
   it('skill checkbox is checked when skill is in skillProficiencies', () => {
@@ -102,7 +102,7 @@ describe('AbilityBox', () => {
     const character = makeCharacter({ skillProficiencies: [Skill.Athletics] });
     renderAbilityBox(Ability.Strength, character);
     const checkbox = getCheckboxForLabel('Athletics');
-    expect(checkbox).toHaveClass('bg-primary-surface');
+    expect(checkbox).toHaveClass('bg-primary-surface-2');
   });
 
   it('skill checkbox is in special state when skill is in skillExpertise', () => {
