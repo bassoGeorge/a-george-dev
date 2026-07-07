@@ -51,7 +51,12 @@ function renderSpellList(
   return render(
     <CharacterSheet data={character}>
       <VisualAdjustmentsContext.Provider
-        value={{ spellRows: spells.length + 2, inventoryRows: 10 }}
+        value={{
+          spellRows: spells.length + 2,
+          inventoryRows: 10,
+          speciesAndFeatsFontSize: 'normal',
+          classFeaturesFontSize: 'normal',
+        }}
       >
         <SpellList />
       </VisualAdjustmentsContext.Provider>
