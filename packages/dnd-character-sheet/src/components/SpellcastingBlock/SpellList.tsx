@@ -20,7 +20,7 @@ export function SpellList() {
 
   const { spellRows } = useVisualAdjustments();
   const sortedSpells = sort(compareSpells, spellcasting?.spells ?? []);
-  const emptyRows = spellRows - sortedSpells.length;
+  const emptyRows = Math.max(0, spellRows - sortedSpells.length);
 
   return (
     <Panel outerClasses="flex-1 h-full" className="overflow-hidden">
@@ -103,7 +103,7 @@ export function SpellRow({ spell }: { spell: Spell }) {
         ) : spell.level === 0 ? (
           <span />
         ) : (
-          <CircleCheck className="align-[-.1em]" />
+          <CircleCheck checked="suggested" className="align-[-.1em]" />
         )}
       </Td>
       <Td className="w-[2ch] text-sm">{spell.level}</Td>

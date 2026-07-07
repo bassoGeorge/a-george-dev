@@ -28,9 +28,9 @@ export function Resources() {
       <PanelTitle>Resources</PanelTitle>
       <div className="columns-2 gap-4 mt-2">
         {resources.map((r) => (
-          <div key={r.name} className="flex items-center text-sm gap-1">
+          <div key={r.name} className="flex items-center text-xs gap-1">
             <span className="font-bold">{r.name}</span>
-            <em className="text-neutral-subdued text-xs">{r.refresh}</em>
+            <em className="text-neutral-subdued">{r.refresh}</em>
             <div className="flex-1 border-b border-dotted border-neutral-subdued"></div>
             {r.display === 'dots' ? (
               // Array.from({ length: r.value }, (_, i) => <CircleCheck key={i} />)
@@ -126,6 +126,6 @@ function getRefreshText(refresh: Resource['refresh']) {
       return 'Short Rest';
 
     case 'short-and-long-rest':
-      return `${refresh.numberOfRefreshesOnShortRest} / Short Rest, all on Long Rest`;
+      return `${refresh.numberOfRefreshesOnShortRest}/Short Rest, all on Long Rest`;
   }
 }

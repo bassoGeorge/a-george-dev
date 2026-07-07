@@ -1,10 +1,12 @@
 import type { Ability } from './abilities';
 import type { DamageType } from './damage-type';
+import type { WeaponMasteryProperty } from './weapon-properties';
 
 export type Attack = {
   name: string;
   damage: AttackDamage[];
-  masteryProperty?: string;
+  masteryProperty?: WeaponMasteryProperty; // easier to just keep this here than in weapon attack
+  hasMasteryByDefault?: boolean;
   attackBonusMod?: number;
   damageMod?: number;
   notProficient?: boolean;
