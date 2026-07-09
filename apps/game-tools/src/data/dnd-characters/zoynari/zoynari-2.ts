@@ -239,6 +239,6 @@ export const Zoynari2Data: Character = {
   `,
   backstory: `
   <p><strong>Hermit</strong>: You spent years in seclusion, meditation to bring change within, as the first step in your faith -- <em>Path of Light.</em> The next step, is to bring light into the world, using courage and compassion to banish the darkness in the people around you.</p>
-  <p><strong>Quirks</strong>: You discuss things with your quori spirit (the dream spirit that's bonded with your bloodline)
+  <p><strong>Quirks</strong>: You discuss things with your quori spirit (the dream spirit that's bonded with your bloodline)</p>
   `,
 };

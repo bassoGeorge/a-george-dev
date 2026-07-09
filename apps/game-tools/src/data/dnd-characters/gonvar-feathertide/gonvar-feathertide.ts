@@ -132,7 +132,7 @@ export const GonvarData: Character = {
     {
       name: 'Combat Superiority',
       description:
-        'You know manuevers that are fueled by Superiority Dice which are d8s',
+        'You know manoeuvres that are fueled by Superiority Dice which are d8s',
       resource: {
         name: 'Superiority Dice (d8)',
         count: { kind: 'fixed', value: 4 },
@@ -155,7 +155,7 @@ export const GonvarData: Character = {
       name: 'Trip Attack',
       cost: '1 Superiority die',
       description:
-        'On hitting a creature with a weapon or unarmed strike, expend a Superiority die and add it to the damage. If the target is <em>Large</em> or smaller, it must succeed a on a Str. saving throw (DC <%= abilitySaveDCs.STR %>) or falls <em>Prone</em>',
+        'On hitting a creature with a weapon or unarmed strike, expend a Superiority die and add it to the damage. If the target is <em>Large</em> or smaller, it must succeed on a Str. saving throw (DC <%= abilitySaveDCs.STR %>) or falls <em>Prone</em>',
     },
   ],
   speciesTraits: [

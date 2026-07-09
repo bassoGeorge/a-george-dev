@@ -168,15 +168,15 @@ export const ClawData: Character = {
     'Martial weapons that have the Finesse or Light property',
   ],
   toolProficiencies: ["Thieves' tools", "Calligrapher's supplies"],
-  languages: ['Common', 'Gnomish', "Thieves's Cant"],
+  languages: ['Common', 'Gnomish', "Thieves' Cant"],
   appearance: `
   Shifters are humanoids with beast aspects. They can't change shape fully, but can enhance their animalistic features temporarily. 
-  <em>Switfstride</em> shifters are graceful and quick, typically feline in nature. 
+  <em>Swiftstride</em> shifters are graceful and quick, typically feline in nature.
   You may have some features of cats about you, maybe the eyes and some whiskers?
   `,
   backstory: `
   <p><strong>Scribe:</strong> You have dedicated time serving in a library or government office, handling a lot of written text. You may have been employed as a communication clerk or related.</p>
-  <p><strong>Shifter settlements:</strong> Shifters come from often secluded settlements. What made you move to the big city of Sharn?
+  <p><strong>Shifter settlements:</strong> Shifters come from often secluded settlements. What made you move to the big city of Sharn?</p>
   `,
   spellcasting: {
     ability: Ability.Intelligence,

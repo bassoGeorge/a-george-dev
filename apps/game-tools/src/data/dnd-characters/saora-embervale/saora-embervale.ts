@@ -73,11 +73,11 @@ export const SaoraData: Character = {
   toolProficiencies: [
     'Forgery kit',
     'Disguise kit',
-    'Musical instruments - Drum, Flue, Lute',
+    'Musical instruments - Drum, Flute, Lute',
   ],
   languages: ['Halfling', 'Elvish'],
   appearance:
-    'Halflings are small humanoid creatures with strong communities. You may also have some connections with the Boromar clan, the biggest family run criminal organisation in Sharn and beyond.',
+    'Halflings are small humanoid creatures with strong communities. You may also have some connections with the Boromar clan, the biggest family-run criminal organisation in Sharn and beyond.',
   backstory:
     "<strong>Charlatan.</strong> You have been running petty schemes for a while. Sham potions for wealthy ladies, investment opportunities to drunkards. You probably don't stick around in towns to be found out.",
   features: [
@@ -86,7 +86,7 @@ export const SaoraData: Character = {
       castingTime: 'Bonus Action',
       cost: '1 Bardic die',
       description:
-        'Inspire another creature you can see within 60ft. They get a bardic die (d6) that they can use in the next hour. On a failed d20 test, they can roll the d6 too add to result. If the check still fails, the die is not spent. A creature can have only 1 bardic die at a time.',
+        'Inspire another creature you can see within 60ft. They get a bardic die (d6) that they can use in the next hour. On a failed d20 test, they can roll the d6 to add to result. If the check still fails, the die is not spent. A creature can have only 1 bardic die at a time.',
       resource: {
         name: 'Bardic die (d6)',
         count: {
@@ -131,7 +131,7 @@ export const SaoraData: Character = {
       cost: '1 Bardic die',
       description: `
       <p>You use your wit to supernaturally distract, confuse, and otherwise sap the confidence and competence in others. </p>
-      <p>when a creature you see within 60ft oof yourself makes one of the following</p>
+      <p>When a creature you can see within 60ft of yourself makes one of the following</p>
       <ol>
       <li>Succeeds an Ability check</li>
       <li>Hits with an Attack roll</li>
@@ -145,7 +145,7 @@ export const SaoraData: Character = {
     {
       name: 'Brave',
       description:
-        'You have Advantage on saving throws you make too avoid or end the <em>Frightened</em> condition.',
+        'You have Advantage on saving throws you make to avoid or end the <em>Frightened</em> condition.',
     },
     {
       name: 'Halfling nimbleness',

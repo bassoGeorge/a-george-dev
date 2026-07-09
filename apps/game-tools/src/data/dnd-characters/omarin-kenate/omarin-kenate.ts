@@ -66,7 +66,7 @@ export const OmarinData: Character = {
       notes: 'Light, Finesse',
     },
     {
-      name: 'Unarmed Stike',
+      name: 'Unarmed Strike',
       kind: 'weapon',
       ability: Ability.Dexterity,
       damage: [{ dice: '1d6', type: 'Bludgeoning' }],
@@ -165,7 +165,7 @@ export const OmarinData: Character = {
       // TODO: the actual manuevers
       name: 'Combat Superiority',
       description:
-        'You know manuevers that are fueled by Superiority Dice. Your Superiority Dice is a D8',
+        'You know manoeuvres that are fueled by Superiority Dice. Your Superiority Dice is a d8',
       resource: {
         name: 'Superiority Dice (d8)',
         count: { kind: 'fixed', value: 4 },
@@ -200,7 +200,7 @@ export const OmarinData: Character = {
     {
       name: 'Trance',
       description:
-        "You don't need sleep and magic can't put you to sleep. You can finish a Long Rest in 4 hourse if you spend that time in a trance like state",
+        "You don't need sleep and magic can't put you to sleep. You can finish a Long Rest in 4 hours if you spend that time in a trance-like state",
     },
     {
       name: 'Elven Lineage',

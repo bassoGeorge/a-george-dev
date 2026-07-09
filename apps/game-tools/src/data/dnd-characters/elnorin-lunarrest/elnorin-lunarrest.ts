@@ -72,16 +72,16 @@ export const ElnorinData: Character = {
     'Arcane focus - Crystal',
   ],
   appearance:
-    'Elves live a long time and are driven by respect for tradition and past. Tairnadal, the wood elves, have decicated themselves to the arts of war. They have distinct religious traditions of revering their famous ancestors.',
+    'Elves live a long time and are driven by respect for tradition and the past. Tairnadal, the wood elves, have dedicated themselves to the arts of war. They have distinct religious traditions of revering their famous ancestors.',
   backstory: `
-  <p><strong>Acolyte.</strong> You have spent several years in a temple or monastry, in service of a god. Why are you still not in that place? How did you gain your sorcerous powers?</p>
-  <p><strong>Manifestation of Order.</strong> The cosmic forces of the Order have suffused you with magic. The power arives arises from <em>Mechanus</em>, a plane of existence shaped entirely by clockwork efficiency. When you cast sorcerer spells, you manifest this connection in some way, maybe spectral cogwheels hover behind you or the ticking of gears/ring, of clock can be heard by you and those affected by your spells.</p>`,
+  <p><strong>Acolyte.</strong> You have spent several years in a temple or monastery, in service of a god. Why are you still not in that place? How did you gain your sorcerous powers?</p>
+  <p><strong>Manifestation of Order.</strong> The cosmic forces of the Order have suffused you with magic. The power arises from <em>Mechanus</em>, a plane of existence shaped entirely by clockwork efficiency. When you cast sorcerer spells, you manifest this connection in some way, maybe spectral cogwheels hover behind you or the ticking of gears/ring, of clock can be heard by you and those affected by your spells.</p>`,
   features: [
     {
       name: 'Innate Sorcery',
       duration: '1min',
       description: `
-      You unlease magic for 1min. During this time, you have the following effects:
+      You unleash magic for 1min. During this time, you have the following effects:
       <ol>
       <li>+1 to Spell save DC of sorcerer spells</li>
       <li>Advantage on Attack rolls of sorcerer spells</li>
@@ -140,7 +140,7 @@ export const ElnorinData: Character = {
       name: 'Metamagic: Empowered Spell',
       cost: '1 sorcery point',
       description:
-        'Can reroll upto <%= abilityModifiers.CHA %> damage dice of a spell. Must use the new roll. Can be used even if a different metamagic option is used in the casting of this spell',
+        'Can reroll up to <%= abilityModifiers.CHA %> damage dice of a spell. Must use the new roll. Can be used even if a different metamagic option is used in the casting of this spell',
     },
     {
       name: 'Restore balance',

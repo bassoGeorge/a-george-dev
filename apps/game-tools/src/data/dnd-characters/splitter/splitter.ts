@@ -85,7 +85,7 @@ export const SplitterData: Character = {
       <li>Force an enemy to make a saving throw</li>
       <li>Take a Bonus Action to extend the Rage</li>
       </ul>
-    Rage can last upto 10 mins.
+    Rage can last up to 10 mins.
     </li>
     </ol>
     `,
@@ -124,7 +124,7 @@ export const SplitterData: Character = {
     {
       name: 'Reckless Attack',
       description:
-        'On the first attack roll of a turn, you can choose to go reckless. This give you Advantage on Str. based attack rolls until the start of your next turn. But, attack rolls against you have Advantage during this time.',
+        'On the first attack roll of a turn, you can choose to go reckless. This gives you Advantage on Str. based attack rolls until the start of your next turn. But, attack rolls against you have Advantage during this time.',
     },
     {
       name: 'Frenzy',
@@ -167,7 +167,7 @@ export const SplitterData: Character = {
     },
   ],
   appearance:
-    'Warforged are mechanical beings build as weapons to fight in the Last War. You comprise a blend of organic and inorganic materials. Rootlike chords infused with alchemical fluids serve as your muscles, wrapped around a framework of steel, darkwood or stone',
+    'Warforged are mechanical beings built as weapons to fight in the Last War. You comprise a blend of organic and inorganic materials. Rootlike chords infused with alchemical fluids serve as your muscles, wrapped around a framework of steel, darkwood or stone',
   backstory:
     '<strong>Soldier.</strong> War is the only thing you knew since you came into being. Now that the Last War is over, you have somehow made yourself useful. The nation which made you, Cyre, is no more. Where were you when Cyre was destroyed in that magical catastrophe?',
 };
