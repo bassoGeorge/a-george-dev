@@ -5,6 +5,7 @@ import {
   CharacterClass,
   Skill,
 } from '@ageorgedev/dnd-character-sheet';
+import { CHANNEL_DIVINITY } from '../common';
 
 export const UnnamedData: Character = {
   name: 'Unnamed (WIP)',
@@ -96,23 +97,7 @@ export const UnnamedData: Character = {
         ],
       },
     },
-    {
-      name: 'Channel Divinity',
-      description:
-        'You can channel divine energy directly from the Outer Planes to fuel magical effects.',
-      resource: {
-        id: 'channelDivinity',
-        name: 'Channel Divinity',
-        count: {
-          kind: 'fixed',
-          value: 2, // Todo: is based on a class table
-        },
-        refresh: {
-          kind: 'short-and-long-rest',
-          numberOfRefreshesOnShortRest: 1,
-        },
-      },
-    },
+    CHANNEL_DIVINITY,
     {
       name: 'Divine Spark',
       cost: '1 Channel Divinity',

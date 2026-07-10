@@ -5,7 +5,7 @@ import {
   CharacterClass,
   Skill,
 } from '@ageorgedev/dnd-character-sheet';
-import { channelDivinity } from '../common';
+import { CHANNEL_DIVINITY } from '../common';
 
 export const Zoynari2Data: Character = {
   name: 'Zoynari',
@@ -97,7 +97,7 @@ export const Zoynari2Data: Character = {
         ],
       },
     },
-    channelDivinity(2),
+    CHANNEL_DIVINITY,
     {
       name: 'Divine Spark',
       cost: '1 Channel Divinity',

@@ -48,32 +48,44 @@ export const ACTION_SURGE: Feature = {
 
 // Battle Master
 
-// todo change dice at different levels
 export const COMBAT_SUPERIORITY: Feature = {
   name: 'Combat Superiority',
   description:
-    'You know manoeuvres that are fueled by Superiority Dice which are d8s',
+    'You have <%= resources.superiorityDice.count %> Superiority Dice (each a <%= resources.superiorityDice.die %>). You regain all expended dice on a Short or Long Rest. You know manoeuvres from the Battle Master list.',
   resource: {
     id: 'superiorityDice',
-    name: 'Superiority Dice (d8)',
-    count: { kind: 'fixed', value: 4 },
-    refresh: { kind: 'any-rest' },
+    name: 'Superiority Dice',
+    count: {
+      kind: 'class-level-steps',
+      class: 'Fighter',
+      steps: { 3: 4, 7: 5, 15: 6 },
+    },
+    refresh: { kind: 'short-rest' },
+    die: {
+      kind: 'class-level-steps',
+      class: 'Fighter',
+      steps: { 3: 'd8', 10: 'd10', 18: 'd12' },
+    },
   },
 };
 
 // Cleric
 
-export const channelDivinity = (uses: number): Feature => ({
+export const CHANNEL_DIVINITY: Feature = {
   name: 'Channel Divinity',
   description:
     'You can channel divine energy directly from the Outer Planes to fuel magical effects.',
   resource: {
     id: 'channelDivinity',
     name: 'Channel Divinity',
-    count: { kind: 'fixed', value: uses },
+    count: {
+      kind: 'class-level-steps',
+      class: 'Cleric',
+      steps: { 2: 2, 6: 3 },
+    },
     refresh: {
       kind: 'short-and-long-rest',
       numberOfRefreshesOnShortRest: 1,
     },
   },
-});
+};
