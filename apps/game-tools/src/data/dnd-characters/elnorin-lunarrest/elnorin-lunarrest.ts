@@ -90,6 +90,7 @@ export const ElnorinData: Character = {
       `,
       cost: '1 innate sorcery charge',
       resource: {
+        id: 'innateSorcery',
         name: 'Innate Sorcery charge',
         count: {
           kind: 'fixed',
@@ -116,6 +117,7 @@ export const ElnorinData: Character = {
       </ol>
       `,
       resource: {
+        id: 'sorceryPoints',
         name: 'Sorcery Points',
         count: {
           kind: 'fixed',

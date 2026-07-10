@@ -18,6 +18,7 @@ export const SECOND_WIND: Feature = {
   description: 'Regain Hit Points equal to 1d10+<%= level.Fighter %>',
   cost: '1 Second Wind charge',
   resource: {
+    id: 'secondWind',
     name: 'Second Wind',
     count: { kind: 'fixed', value: 2 },
     refresh: {
@@ -38,6 +39,7 @@ export const ACTION_SURGE: Feature = {
   name: 'Action Surge',
   description: 'Take 1 extra Action (except magic)',
   resource: {
+    id: 'actionSurge',
     name: 'Action Surge',
     count: { kind: 'fixed', value: 1 },
     refresh: { kind: 'any-rest' },
@@ -52,6 +54,7 @@ export const COMBAT_SUPERIORITY: Feature = {
   description:
     'You know manoeuvres that are fueled by Superiority Dice which are d8s',
   resource: {
+    id: 'superiorityDice',
     name: 'Superiority Dice (d8)',
     count: { kind: 'fixed', value: 4 },
     refresh: { kind: 'any-rest' },
@@ -65,6 +68,7 @@ export const channelDivinity = (uses: number): Feature => ({
   description:
     'You can channel divine energy directly from the Outer Planes to fuel magical effects.',
   resource: {
+    id: 'channelDivinity',
     name: 'Channel Divinity',
     count: { kind: 'fixed', value: uses },
     refresh: {

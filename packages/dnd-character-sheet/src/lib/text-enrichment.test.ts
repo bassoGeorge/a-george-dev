@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest';
+import type { ComputedResource } from './calculate-resources';
 import { Ability } from './models/abilities';
 import type { Character } from './models/character';
 import { CharacterClass } from './models/character-classes';
@@ -95,5 +96,98 @@ describe('enrichCharacterData', () => {
     expect(result.name).toBe('Kira');
     expect(result.abilities[Ability.Dexterity]).toBe(16);
     expect(result.features[0].description).toBe('Static description.');
+  });
+
+  it('interpolates resource count via resources.<id>.count', () => {
+    const resources: ComputedResource[] = [
+      {
+        id: 'superiorityDice',
+        name: 'Superiority Dice',
+        count: 5,
+        display: 'dots',
+        refresh: { kind: 'short-rest' },
+      },
+    ];
+    const character: Character = {
+      ...baseCharacter,
+      features: [
+        {
+          name: 'Battle Master',
+          description:
+            'You have <%= resources.superiorityDice.count %> superiority dice.',
+        },
+      ],
+    };
+
+    const result = enrichCharacterData(character, stubStats, resources);
+    expect(result.features[0].description).toBe('You have 5 superiority dice.');
+  });
+
+  it('interpolates resource die via resources.<id>.die', () => {
+    const resources: ComputedResource[] = [
+      {
+        id: 'bardicInspiration',
+        name: 'Bardic Inspiration',
+        count: 3,
+        die: 'd10',
+        display: 'dots',
+        refresh: { kind: 'long-rest' },
+      },
+    ];
+    const character: Character = {
+      ...baseCharacter,
+      features: [
+        {
+          name: 'Bardic Inspiration',
+          description:
+            'Roll a <%= resources.bardicInspiration.die %> when you use this.',
+        },
+      ],
+    };
+
+    const result = enrichCharacterData(character, stubStats, resources);
+    expect(result.features[0].description).toBe(
+      'Roll a d10 when you use this.'
+    );
+  });
+
+  it('renders empty string for unknown resource id', () => {
+    const character: Character = {
+      ...baseCharacter,
+      features: [
+        {
+          name: 'Mystery Feature',
+          description: '<%= resources.nonexistent %>',
+        },
+      ],
+    };
+
+    const result = enrichCharacterData(character, stubStats, []);
+    expect(result.features[0].description).toBe('');
+  });
+
+  it('resolves DerivedStats locals alongside resources', () => {
+    const resources: ComputedResource[] = [
+      {
+        id: 'someResource',
+        name: 'Some Resource',
+        count: 3,
+        display: 'dots',
+        refresh: { kind: 'long-rest' },
+      },
+    ];
+    const character: Character = {
+      ...baseCharacter,
+      features: [
+        {
+          name: 'Mixed Feature',
+          description:
+            'PB: <%= proficiencyBonus %>, Count: <%= resources.someResource.count %>',
+        },
+      ],
+    };
+
+    const result = enrichCharacterData(character, stubStats, resources);
+    expect(result.features[0].description).toBe('PB: 2, Count: 3');
   });
 });

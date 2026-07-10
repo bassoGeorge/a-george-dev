@@ -91,6 +91,7 @@ export const SplitterData: Character = {
     </ol>
     `,
       resource: {
+        id: 'rageCharge',
         name: 'Rage charge',
         count: {
           kind: 'fixed',

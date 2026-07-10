@@ -31,6 +31,7 @@ export const Zoynari3Data: Character = {
       description:
         'When a creature you can see within 30ft of yourself makes an attack roll, you can take a reaction to impose Disadvantage by causing a light to flare.',
       resource: {
+        id: 'wardingFlare',
         name: 'Warding flare',
         count: {
           kind: 'ability',

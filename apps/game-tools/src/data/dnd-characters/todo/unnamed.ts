@@ -101,6 +101,7 @@ export const UnnamedData: Character = {
       description:
         'You can channel divine energy directly from the Outer Planes to fuel magical effects.',
       resource: {
+        id: 'channelDivinity',
         name: 'Channel Divinity',
         count: {
           kind: 'fixed',

@@ -13,6 +13,7 @@ import { OmarinData } from './omarin-kenate/omarin-kenate';
 import { SaoraData } from './saora-embervale/saora-embervale';
 import SaoraSpellBook from './saora-embervale/saora-spellbook.pdf?url';
 import { SplitterData } from './splitter/splitter';
+import { ThorinBattlemasterData } from './thorin-battlemaster/thorin-battlemaster';
 import { UnnamedData } from './todo/unnamed';
 import { Zoynari2Data } from './zoynari/zoynari-2';
 import Zoynari2SpellBook from './zoynari/zoynari-2-spellbook.pdf?url';
@@ -56,6 +57,9 @@ const characters: BasePack[] = [
   },
   {
     data: UnnamedData,
+  },
+  {
+    data: ThorinBattlemasterData,
   },
 ];
 

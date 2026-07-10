@@ -89,6 +89,7 @@ export const SaoraData: Character = {
       description:
         'Inspire another creature you can see within 60ft. They get a bardic die (d6) that they can use in the next hour. On a failed d20 test, they can roll the d6 to add to result. If the check still fails, the die is not spent. A creature can have only 1 bardic die at a time.',
       resource: {
+        id: 'bardicDie',
         name: 'Bardic die (d6)',
         count: {
           kind: 'ability',

@@ -15,9 +15,11 @@ export interface Feature {
 
   // or introduces a new resource
   resource?: {
+    id: string;
     name: string;
     count: ResourceCount;
     refresh: Refresh;
+    die?: ResourceDie;
   };
 
   statMod?:
@@ -58,6 +60,11 @@ type ResourceCount = {
       multiplier?: number;
     }
   | {
+      kind: 'class-level-steps';
+      class: string;
+      steps: Record<number, number>;
+    }
+  | {
       kind: 'ability';
       ability: Ability;
       min?: number;
@@ -68,6 +75,10 @@ type ResourceCount = {
       value: number;
     }
 );
+
+type ResourceDie =
+  | { kind: 'fixed'; value: string }
+  | { kind: 'class-level-steps'; class: string; steps: Record<number, string> };
 
 type Cost = string;
 

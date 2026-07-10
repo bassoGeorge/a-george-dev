@@ -129,6 +129,7 @@ export const OmarinData: Character = {
       name: "Monk's Focus",
       description: 'You have 2 Focus Points to fuel monk features',
       resource: {
+        id: 'focusPoints',
         name: 'Focus Points',
         count: {
           kind: 'fixed',
@@ -149,6 +150,7 @@ export const OmarinData: Character = {
       description:
         'On rolling Initiative, regain all expended Focus Points, and regain 1d6+<%= level.Monk %> HP',
       resource: {
+        id: 'uncannyMetabolism',
         name: 'Uncanny Metabolism',
         count: { kind: 'fixed', value: 1 },
         refresh: { kind: 'long-rest' },
