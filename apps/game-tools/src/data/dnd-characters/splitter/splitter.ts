@@ -3,6 +3,7 @@ import {
   type Character,
   Skill,
 } from '@ageorgedev/dnd-character-sheet';
+import { SAVAGE_ATTACKER, weaponMastery } from '../common';
 
 export const SplitterData: Character = {
   name: 'Splitter',
@@ -106,11 +107,7 @@ export const SplitterData: Character = {
       description:
         "When you aren't wearing any armour, your base AC equals 10+Dex.+Con. You can use a Shield and still get this benefit.",
     },
-    {
-      name: 'Weapon Mastery',
-      description:
-        'You have mastery over 2 different weapons. You can choose to switch one mastery to a different weapon on finishing a Long Rest',
-    },
+    weaponMastery(2),
     {
       name: 'Danger sense',
       description:
@@ -159,13 +156,7 @@ export const SplitterData: Character = {
         "You don't need to consume water, food, and don't need to breathe",
     },
   ],
-  feats: [
-    {
-      name: 'Savage attacker',
-      description:
-        "Once per turn, you may roll a weapon's damage dice twice and use either rolls.",
-    },
-  ],
+  feats: [SAVAGE_ATTACKER],
   appearance:
     'Warforged are mechanical beings built as weapons to fight in the Last War. You comprise a blend of organic and inorganic materials. Rootlike chords infused with alchemical fluids serve as your muscles, wrapped around a framework of steel, darkwood or stone',
   backstory:

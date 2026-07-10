@@ -4,6 +4,7 @@ import {
   Skill,
 } from '@ageorgedev/dnd-character-sheet';
 import { mapObjIndexed } from 'ramda';
+import { expertise } from '../common';
 
 export const SaoraData: Character = {
   name: 'Saora Embervale',
@@ -98,10 +99,7 @@ export const SaoraData: Character = {
         },
       },
     },
-    {
-      name: 'Expertise',
-      description: 'You gain expertise in 2 skills - Insight and Deception',
-    },
+    expertise('2 skills - Insight and Deception'),
     {
       name: 'Jack of all trades',
       description:

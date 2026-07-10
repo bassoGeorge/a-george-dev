@@ -5,6 +5,7 @@ import {
   CharacterClass,
   Skill,
 } from '@ageorgedev/dnd-character-sheet';
+import { ALERT, darkvision, expertise, weaponMastery } from '../common';
 
 export const ClawData: Character = {
   name: 'Claw',
@@ -96,19 +97,13 @@ export const ClawData: Character = {
     'Potion of healing = 1',
   ],
   features: [
-    {
-      name: 'Expertise',
-      description: 'You gain expertise in Stealth and Perception',
-    },
+    expertise('Stealth and Perception'),
     {
       name: 'Sneak Attack',
       description:
         "Once per turn, you can deal an extra 2d6 damage to one creature you hit with an Attack roll if you have Advantage on that attack roll and it was made with a Finesse or Ranged weapon. You don't need Advantage if an ally is within 5ft of the target.",
     },
-    {
-      name: 'Weapon Mastery',
-      description: 'You have mastery over 2 kinds of weapons',
-    },
+    weaponMastery(2),
     {
       name: 'Cunning Action',
       castingTime: 'Bonus Action',
@@ -128,10 +123,7 @@ export const ClawData: Character = {
     },
   ],
   speciesTraits: [
-    {
-      name: 'Darkvision',
-      description: '60ft',
-    },
+    darkvision('60ft'),
     {
       name: 'Bestial Instincts',
       description: 'You gain proficiency in Acrobatics',
@@ -148,20 +140,7 @@ export const ClawData: Character = {
       `,
     },
   ],
-  feats: [
-    {
-      name: 'Alert',
-      description:
-        '<ol><li>Your proficiency bonus is added to your Initiative roll</li><li>You may swap your initiative with any willing ally after rolling</li></ol>',
-      statMod: {
-        kind: 'generic-derived',
-        mod: (stat) => ({
-          ...stat,
-          initiative: stat.initiative + stat.proficiencyBonus,
-        }),
-      },
-    },
-  ],
+  feats: [ALERT],
   armorProficiencies: [ArmorProficiency.LightArmor],
   weaponProficiencies: [
     'Simple weapons',

@@ -16,6 +16,7 @@ export {
 export type { Character } from './lib/models/character';
 export { CharacterClass } from './lib/models/character-classes';
 export type { DamageType } from './lib/models/damage-type';
+export type { Feature } from './lib/models/feature';
 export type { Size } from './lib/models/size';
 export { Skill } from './lib/models/skills';
 export type { Spell } from './lib/models/spellcasting';

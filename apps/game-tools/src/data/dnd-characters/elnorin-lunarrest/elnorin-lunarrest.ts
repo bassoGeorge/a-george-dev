@@ -3,6 +3,7 @@ import {
   type Character,
   Skill,
 } from '@ageorgedev/dnd-character-sheet';
+import { FEY_ANCESTRY, KEEN_SENSES, TRANCE } from '../common';
 
 export const ElnorinData: Character = {
   name: 'Elnorin Lunarrest',
@@ -155,20 +156,9 @@ export const ElnorinData: Character = {
       description:
         'Your speed increases to 35ft. You know the <em>Druidcraft</em> cantrip.',
     },
-    {
-      name: 'Fey Ancestry',
-      description:
-        'You have Advantage on Saving throws you make to avoid or end the <em>Charmed</em> condition.',
-    },
-    {
-      name: 'Keen Senses',
-      description: 'You have proficiency in Perception skill.',
-    },
-    {
-      name: 'Trance',
-      description:
-        "You don't need sleep. Magic can't put you to sleep. You can finish a Long Rest in 4hrs if you spend that time in a trance like meditative state.",
-    },
+    FEY_ANCESTRY,
+    KEEN_SENSES,
+    TRANCE,
   ],
   feats: [
     {
