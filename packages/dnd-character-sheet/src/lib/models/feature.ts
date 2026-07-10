@@ -1,4 +1,5 @@
 import type { Ability } from './abilities';
+import type { CharacterClass } from './character-classes';
 import type { DerivedStats } from './derived-stats';
 import type { Skill } from './skills';
 
@@ -56,12 +57,12 @@ type ResourceCount = {
     }
   | {
       kind: 'class-level';
-      class: string;
+      class: CharacterClass;
       multiplier?: number;
     }
   | {
       kind: 'class-level-steps';
-      class: string;
+      class: CharacterClass;
       steps: Record<number, number>;
     }
   | {

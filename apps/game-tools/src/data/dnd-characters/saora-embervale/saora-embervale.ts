@@ -100,7 +100,7 @@ export const SaoraData: Character = {
         },
       },
     },
-    expertise('2 skills - Insight and Deception'),
+    expertise('Insight and Deception'),
     {
       name: 'Jack of all trades',
       description:
