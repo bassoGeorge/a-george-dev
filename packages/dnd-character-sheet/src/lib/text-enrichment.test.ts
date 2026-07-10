@@ -151,6 +151,34 @@ describe('enrichCharacterData', () => {
     );
   });
 
+  it('exposes per-turn resources in the EJS resources lookup', () => {
+    const resources: ComputedResource[] = [
+      {
+        id: 'sneakAttack',
+        name: 'Sneak Attack',
+        count: 2,
+        die: 'd6',
+        display: 'dots',
+        refresh: { kind: 'per-turn' },
+      },
+    ];
+    const character: Character = {
+      ...baseCharacter,
+      features: [
+        {
+          name: 'Sneak Attack',
+          description:
+            'You deal an extra <%= resources.sneakAttack.count %><%= resources.sneakAttack.die %> damage.',
+        },
+      ],
+    };
+
+    const result = enrichCharacterData(character, stubStats, resources);
+    expect(result.features[0].description).toBe(
+      'You deal an extra 2d6 damage.'
+    );
+  });
+
   it('renders empty string for unknown resource id', () => {
     const character: Character = {
       ...baseCharacter,

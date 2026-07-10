@@ -9,8 +9,9 @@ type Refresh = NonNullable<Feature['resource']>['refresh'];
 
 export function Resources() {
   const { resources } = useCharacter();
+  const trackable = resources.filter((r) => r.refresh.kind !== 'per-turn');
 
-  if (!resources.length) {
+  if (!trackable.length) {
     return null;
   }
 
@@ -18,7 +19,7 @@ export function Resources() {
     <Panel topLeftCorner="scooped" topRightCorner="scooped">
       <PanelTitle>Resources</PanelTitle>
       <div className="columns-2 gap-4 mt-2">
-        {resources.map((r) => (
+        {trackable.map((r) => (
           <div key={r.name} className="flex items-center text-xs gap-1">
             <span className="font-bold">
               {r.die ? `${r.name} (${r.die})` : r.name}
@@ -53,5 +54,8 @@ function getRefreshText(refresh: Refresh): string {
 
     case 'short-and-long-rest':
       return `${refresh.numberOfRefreshesOnShortRest}/Short Rest, all on Long Rest`;
+
+    case 'per-turn':
+      return 'Per Turn';
   }
 }

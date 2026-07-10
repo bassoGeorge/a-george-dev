@@ -659,6 +659,98 @@ describe('computeResources', () => {
     });
   });
 
+  describe('per-turn resources', () => {
+    it('includes per-turn resource with class-level-steps count in output', () => {
+      const character: Character = {
+        ...baseCharacter,
+        classes: [{ name: CharacterClass.Fighter, level: 3 }],
+        features: [
+          {
+            name: 'Sneak Attack',
+            description: '',
+            resource: {
+              id: 'sneakAttack',
+              name: 'Sneak Attack',
+              count: {
+                kind: 'class-level-steps',
+                class: 'Fighter',
+                steps: { 1: 1, 3: 2, 5: 3 },
+              },
+              refresh: { kind: 'per-turn' },
+              die: { kind: 'fixed', value: 'd6' },
+            },
+          },
+        ],
+      };
+      const result = computeResources(character, {
+        ...stubStats,
+        level: { total: 3 },
+      });
+      expect(result).toHaveLength(1);
+      expect(result[0].count).toBe(2);
+      expect(result[0].die).toBe('d6');
+      expect(result[0].refresh).toEqual({ kind: 'per-turn' });
+    });
+
+    it('includes per-turn resource with class-level-steps die in output', () => {
+      const character: Character = {
+        ...baseCharacter,
+        classes: [{ name: CharacterClass.Fighter, level: 5 }],
+        features: [
+          {
+            name: 'Martial Arts',
+            description: '',
+            resource: {
+              id: 'martialArts',
+              name: 'Martial Arts',
+              count: { kind: 'fixed', value: 1 },
+              refresh: { kind: 'per-turn' },
+              die: {
+                kind: 'class-level-steps',
+                class: 'Fighter',
+                steps: { 1: 'd6', 5: 'd8', 11: 'd10', 17: 'd12' },
+              },
+            },
+          },
+        ],
+      };
+      const result = computeResources(character, {
+        ...stubStats,
+        level: { total: 5 },
+      });
+      expect(result).toHaveLength(1);
+      expect(result[0].die).toBe('d8');
+      expect(result[0].refresh).toEqual({ kind: 'per-turn' });
+    });
+
+    it('warns and filters per-turn resource when class not on character', () => {
+      const warnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
+      const character: Character = {
+        ...baseCharacter,
+        features: [
+          {
+            name: 'Sneak Attack',
+            description: '',
+            resource: {
+              id: 'sneakAttack',
+              name: 'Sneak Attack',
+              count: {
+                kind: 'class-level-steps',
+                class: 'Rogue',
+                steps: { 1: 1 },
+              },
+              refresh: { kind: 'per-turn' },
+            },
+          },
+        ],
+      };
+      const result = computeResources(character, stubStats);
+      expect(result).toHaveLength(0);
+      expect(warnSpy).toHaveBeenCalledWith(expect.stringContaining('Rogue'));
+      warnSpy.mockRestore();
+    });
+  });
+
   describe('display and refresh', () => {
     it('defaults display to dots', () => {
       const character: Character = {

@@ -101,7 +101,29 @@ export const ClawData: Character = {
     {
       name: 'Sneak Attack',
       description:
-        "Once per turn, you can deal an extra 2d6 damage to one creature you hit with an Attack roll if you have Advantage on that attack roll and it was made with a Finesse or Ranged weapon. You don't need Advantage if an ally is within 5ft of the target.",
+        "Once per turn, you can deal an extra <%= resources.sneakAttack.count %><%= resources.sneakAttack.die %> damage to one creature you hit with an Attack roll if you have Advantage on that attack roll and it was made with a Finesse or Ranged weapon. You don't need Advantage if an ally is within 5ft of the target.",
+      resource: {
+        id: 'sneakAttack',
+        name: 'Sneak Attack',
+        count: {
+          kind: 'class-level-steps',
+          class: 'Rogue',
+          steps: {
+            1: 1,
+            3: 2,
+            5: 3,
+            7: 4,
+            9: 5,
+            11: 6,
+            13: 7,
+            15: 8,
+            17: 9,
+            19: 10,
+          },
+        },
+        refresh: { kind: 'per-turn' },
+        die: { kind: 'fixed', value: 'd6' },
+      },
     },
     weaponMastery(2),
     {

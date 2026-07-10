@@ -84,7 +84,8 @@ type Cost = string;
 
 type Refresh =
   | {
-      kind: 'short-rest' | 'long-rest' | 'any-rest';
+      // per-turn: computes like a tracked resource but is intentionally hidden from the Resources panel
+      kind: 'short-rest' | 'long-rest' | 'any-rest' | 'per-turn';
     }
   | {
       kind: 'short-and-long-rest';
