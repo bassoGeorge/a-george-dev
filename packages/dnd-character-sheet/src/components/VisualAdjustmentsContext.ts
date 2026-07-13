@@ -6,6 +6,7 @@ type FullVisualAdjustments = {
   classFeaturesFontSize: 'normal' | 'small';
   speciesAndFeatsFontSize: 'normal' | 'small';
   speciesAndFeatsCombinedPanel: boolean;
+  spellListMode: 'table' | 'grouped';
 };
 export type VisualAdjustments = Partial<FullVisualAdjustments>;
 
@@ -15,6 +16,7 @@ export const DEFAULT_VISUAL_ADUSTMENTS: FullVisualAdjustments = {
   classFeaturesFontSize: 'normal',
   speciesAndFeatsFontSize: 'normal',
   speciesAndFeatsCombinedPanel: false,
+  spellListMode: 'table',
 };
 
 export const VisualAdjustmentsContext = createContext<FullVisualAdjustments>(

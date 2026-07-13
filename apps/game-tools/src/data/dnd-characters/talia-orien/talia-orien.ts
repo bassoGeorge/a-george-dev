@@ -239,6 +239,23 @@ export const TaliaData: Character = {
       withSpellMods(SPELL.PassWithoutTrace, { alwaysPrepared: true }),
       withSpellMods(SPELL.HypnoticPattern, { alwaysPrepared: true }),
       withSpellMods(SPELL.Nondetection, { alwaysPrepared: true }),
+
+      // level 1 spells
+      SPELL.Bane,
+      SPELL.Bless,
+      SPELL.Command,
+      SPELL.CreateOrDestroyWater,
+      SPELL.CureWounds,
+      SPELL.DetectEvilAndGood,
+      SPELL.DetectMagic,
+      SPELL.DetectPoisonAndDisease,
+      SPELL.GuidingBolt,
+      SPELL.HealingWord,
+      SPELL.InflictWounds,
+      SPELL.ProtectionFromEvilAndGood,
+      SPELL.PurifyFoodAndDrink,
+      SPELL.Sanctuary,
+      SPELL.ShieldOfFaith,
     ],
   },
 };
