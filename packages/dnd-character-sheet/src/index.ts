@@ -7,7 +7,7 @@ export { StandardCharacterSheet } from './components/StandardCharacterSheet/Stan
 export type { VisualAdjustments } from './components/VisualAdjustmentsContext';
 export { getCharacterBrief } from './lib/character-brief';
 export { SPELL } from './lib/data/spells-2024.generated';
-export { withSpellMods } from './lib/data/with-spell-mods';
+export { withMaterial, withSpellMods } from './lib/data/with-spell-mods';
 // Other models
 export { Ability } from './lib/models/abilities';
 export {

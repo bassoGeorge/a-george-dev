@@ -52,12 +52,8 @@ export function SpellSlotsPanel(props: PanelProps) {
       topRightCorner="scooped"
     >
       <div className="text-xs text-neutral-subdued">
-        Cantrips:{' '}
-        <span className="text-neutral font-bold">
-          {spellcasting.numberOfCantrips ?? 0}
-        </span>
-        , Prepared Spells:{' '}
-        <span className="text-neutral font-bold">
+        Number of Prepared Spells:{' '}
+        <span className="text-base text-neutral font-bold">
           {spellcasting.numberOfPreparedSpells ?? 0}
         </span>
         {spellcasting.spellChangeTrait && (

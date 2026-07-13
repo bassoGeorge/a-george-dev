@@ -5,6 +5,7 @@ import {
   CharacterClass,
   Skill,
   SPELL,
+  withMaterial,
   withSpellMods,
 } from '@ageorgedev/dnd-character-sheet';
 import { CHANNEL_DIVINITY } from '../common';
@@ -35,6 +36,7 @@ export const TaliaData: Character = {
     Skill.Persuasion,
     Skill.Acrobatics,
     Skill.Athletics,
+    Skill.Survival,
   ],
   skillExpertise: [],
   baseArmorClass: 14,
@@ -86,7 +88,7 @@ export const TaliaData: Character = {
     "Cartographer's Tools",
     "Healer's Kit (use) = 10",
     'Oil flasks = 3',
-    'Chain shirt, Shield, Daggers (x4)',
+    'Chain shirt, Shield, Daggers (x5)',
     'Holy Symbol (spellcasting focus)',
   ],
   features: [
@@ -116,8 +118,8 @@ export const TaliaData: Character = {
       castingTime: 'Action',
       description: `Each Undead creature of your choice in a 30ft radius makes a Wis. saving throw. On failure: 
         <ul>
+        <li>they take <%= abilityModifiers.WIS %>d8 Radiant damage and</li>
         <li>they have Frightened & Incapacitated condition for 1min, and during this time, they try to move away from you each turn. Condition ends early if they take damage, or you get Incapacitated condition, or you die.</li>
-        <li>they take <%= abilityModifiers.WIS %>d8 Radiant damage. This does not end the above effect</li>
         </ul>
         `,
     },
@@ -149,7 +151,7 @@ export const TaliaData: Character = {
     },
     {
       name: 'Skillful',
-      description: 'You gain proficiency in one skill of your choice - TODO',
+      description: 'You gain proficiency in one skill of your choice',
     },
   ],
   feats: [
@@ -198,7 +200,7 @@ export const TaliaData: Character = {
   ],
   weaponProficiencies: ['Simple weapons'],
   toolProficiencies: ["Cartographer's Tools"],
-  languages: ['Common'],
+  languages: ['Common', 'Elvish'],
   appearance: `
   You are a Dragonmarked scion of House Orien. The Mark of Passage is visible somewhere on your body.
   `,
@@ -216,7 +218,7 @@ export const TaliaData: Character = {
     numberOfCantrips: 5,
     numberOfPreparedSpells: 9,
     spellChangeTrait:
-      'You can change prepared spells after a Long Rest. Use the cleric list.',
+      'You can change any number of prepared spells after a Long Rest. Choose from the spells given here.',
     slots: {
       1: 4,
       2: 3,
@@ -261,7 +263,7 @@ export const TaliaData: Character = {
 
       // level 2 spells
       SPELL.Aid,
-      SPELL.Augury,
+      withMaterial(SPELL.Augury),
       SPELL.BlindnessDeafness,
       SPELL.CalmEmotions,
       SPELL.ContinualFlame,
@@ -285,18 +287,18 @@ export const TaliaData: Character = {
       SPELL.AuraOfVitality,
       SPELL.BeaconOfHope,
       SPELL.BestowCurse,
-      SPELL.Clairvoyance,
+      withMaterial(SPELL.Clairvoyance),
       SPELL.CreateFoodAndWater,
       SPELL.Daylight,
       SPELL.DispelMagic,
       SPELL.FeignDeath,
       SPELL.GlyphOfWarding,
-      SPELL.MagicCircle,
+      withMaterial(SPELL.MagicCircle),
       SPELL.MassHealingWord,
       SPELL.MeldIntoStone,
       SPELL.ProtectionFromEnergy,
       SPELL.RemoveCurse,
-      SPELL.Revivify,
+      withMaterial(SPELL.Revivify),
       SPELL.Sending,
       SPELL.SpeakWithDead,
       SPELL.SpiritGuardians,
