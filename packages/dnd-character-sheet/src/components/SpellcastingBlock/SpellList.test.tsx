@@ -56,6 +56,7 @@ function renderSpellList(
           inventoryRows: 10,
           speciesAndFeatsFontSize: 'normal',
           classFeaturesFontSize: 'normal',
+          speciesAndFeatsCombinedPanel: false,
         }}
       >
         <SpellList />

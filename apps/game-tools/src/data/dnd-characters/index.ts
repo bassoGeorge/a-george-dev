@@ -59,6 +59,7 @@ const characters: BasePack[] = [
     data: UnnamedData,
     visualAdjustments: {
       speciesAndFeatsFontSize: 'small',
+      speciesAndFeatsCombinedPanel: true,
     },
   },
   {

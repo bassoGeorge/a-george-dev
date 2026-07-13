@@ -5,6 +5,7 @@ type FullVisualAdjustments = {
   inventoryRows: number;
   classFeaturesFontSize: 'normal' | 'small';
   speciesAndFeatsFontSize: 'normal' | 'small';
+  speciesAndFeatsCombinedPanel: boolean;
 };
 export type VisualAdjustments = Partial<FullVisualAdjustments>;
 
@@ -13,6 +14,7 @@ export const DEFAULT_VISUAL_ADUSTMENTS: FullVisualAdjustments = {
   inventoryRows: 10,
   classFeaturesFontSize: 'normal',
   speciesAndFeatsFontSize: 'normal',
+  speciesAndFeatsCombinedPanel: false,
 };
 
 export const VisualAdjustmentsContext = createContext<FullVisualAdjustments>(

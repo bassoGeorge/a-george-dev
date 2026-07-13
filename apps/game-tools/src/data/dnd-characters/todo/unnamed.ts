@@ -119,28 +119,12 @@ export const UnnamedData: Character = {
       name: 'Skillful',
       description: 'You gain proficiency in one skill of your choice - TODO',
     },
-    {
-      name: 'Versatile',
-      description: 'You gain an Origin feat of your choice - Lucky',
-    },
   ],
   feats: [
-    // TODO both
-    {
-      name: 'Mark of Passage',
-      description: `
-      You gain the following benefits
-      <ul>
-      <li><strong>Courier's Speed.</strong> Your Speed increases by 5ft.</li>
-      <li><strong>Intuitive Motion.</strong> When you make an Athletics or Acrobatics check, you can roll 1d4 and add the number rolled to the Ability check.</li>
-      <li><strong>Spells</strong> You always have the <em>Misty Step</em> spell prepared with 1 free use per Long Rest. Other mark spells are added to your spell casting list</li>
-      </ul>
-      `,
-    },
     {
       name: 'Lucky',
       description: `
-      You can use Luck Points to either give yourself Advantage on a d20 test, or impost disadvantage on a creature making an attack roll against you.
+      You can use Luck Points to either give yourself Advantage on a d20 test, or impose Disadvantage on a creature making an attack roll against you.
        `,
       resource: {
         name: 'Luck Points',
@@ -152,6 +136,17 @@ export const UnnamedData: Character = {
           kind: 'long-rest',
         },
       },
+    },
+    {
+      name: 'Mark of Passage',
+      description: `
+      You gain the following benefits
+      <ul>
+      <li><strong>Courier's Speed.</strong> Your Speed increases by 5ft.</li>
+      <li><strong>Intuitive Motion.</strong> When you make an Athletics or Acrobatics check, you can roll 1d4 and add the number rolled to the Ability check.</li>
+      <li><strong>Spells</strong> You always have the <em>Misty Step</em> spell prepared with 1 free use per Long Rest. Other mark spells are added to your spell casting list</li>
+      </ul>
+      `,
     },
     {
       name: 'War Caster',
