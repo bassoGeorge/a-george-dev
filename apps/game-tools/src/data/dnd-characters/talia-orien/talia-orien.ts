@@ -200,7 +200,7 @@ export const TaliaData: Character = {
   toolProficiencies: ["Cartographer's Tools"],
   languages: ['Common'],
   appearance: `
-  You are a Dragonmarked scion of House Orien. The Mark of Passage is visible somewhere on your body?
+  You are a Dragonmarked scion of House Orien. The Mark of Passage is visible somewhere on your body.
   `,
   backstory: `
   <p><strong>House Orien Heir</strong>:
@@ -223,7 +223,7 @@ export const TaliaData: Character = {
       3: 2,
     },
     spells: [
-      withSpellMods(SPELL.Guidance, { notes: '1d4 to checks' }),
+      SPELL.Guidance,
       SPELL.Light,
       SPELL.Mending,
       withSpellMods(SPELL.WordOfRadiance, {
@@ -256,6 +256,55 @@ export const TaliaData: Character = {
       SPELL.PurifyFoodAndDrink,
       SPELL.Sanctuary,
       SPELL.ShieldOfFaith,
+      SPELL.ExpeditiousRetreat,
+      SPELL.Jump,
+
+      // level 2 spells
+      SPELL.Aid,
+      SPELL.Augury,
+      SPELL.BlindnessDeafness,
+      SPELL.CalmEmotions,
+      SPELL.ContinualFlame,
+      SPELL.EnhanceAbility,
+      SPELL.FindTraps,
+      SPELL.GentleRepose,
+      SPELL.HoldPerson,
+      SPELL.LesserRestoration,
+      SPELL.LocateObject,
+      SPELL.PrayerOfHealing,
+      SPELL.ProtectionFromPoison,
+      SPELL.Silence,
+      SPELL.SpiritualWeapon,
+      SPELL.WardingBond,
+      SPELL.ZoneOfTruth,
+      SPELL.FindSteed,
+      SPELL.PassWithoutTrace,
+
+      // level 3 spells,
+      SPELL.AnimateDead,
+      SPELL.AuraOfVitality,
+      SPELL.BeaconOfHope,
+      SPELL.BestowCurse,
+      SPELL.Clairvoyance,
+      SPELL.CreateFoodAndWater,
+      SPELL.Daylight,
+      SPELL.DispelMagic,
+      SPELL.FeignDeath,
+      SPELL.GlyphOfWarding,
+      SPELL.MagicCircle,
+      SPELL.MassHealingWord,
+      SPELL.MeldIntoStone,
+      SPELL.ProtectionFromEnergy,
+      SPELL.RemoveCurse,
+      SPELL.Revivify,
+      SPELL.Sending,
+      SPELL.SpeakWithDead,
+      SPELL.SpiritGuardians,
+      SPELL.Tongues,
+      SPELL.WaterWalk,
+
+      SPELL.Blink,
+      SPELL.PhantomSteed,
     ],
   },
 };

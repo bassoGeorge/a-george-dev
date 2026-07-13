@@ -41,10 +41,10 @@ export function GroupedSpellList() {
 function LevelGroup({ level, spells }: { level: number; spells: Spell[] }) {
   return (
     <div>
-      <h3 className="text-xs font-interface text-neutral-subdued pb-1 border-b border-neutral-disabled mb-2">
+      <h3 className="text-xs font-interface pl-3 bg-page-0">
         {level === 0 ? 'Cantrips' : `Level ${level}`}
       </h3>
-      <div className="grid grid-cols-3 gap-x-3 gap-y-1">
+      <div className="grid grid-cols-3 gap-x-4 gap-y-1">
         {spells.map((spell) => (
           <SpellCell key={spell.name} spell={spell} isCantrip={level === 0} />
         ))}
@@ -75,14 +75,14 @@ function SpellCell({ spell, isCantrip }: { spell: Spell; isCantrip: boolean }) {
     : null;
 
   return (
-    <div className="flex items-start gap-1 py-0.5 break-inside-avoid">
-      <div className="flex-shrink-0 w-4 mt-0.5">
+    <div className="flex items-start gap-1 py-0.5 px-1 break-inside-avoid border-b border-neutral-disabled">
+      <div className="flex-shrink-0 w-4">
         {isCantrip ? null : spell.alwaysPrepared ? (
           <span className="italic text-neutral-subdued font-interface text-xs">
             AP
           </span>
         ) : (
-          <CircleCheck checked="suggested" className="align-[-.1em]" />
+          <CircleCheck />
         )}
       </div>
       <div className="flex-1 min-w-0">

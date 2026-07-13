@@ -58,6 +58,7 @@ function renderSpellList(
           classFeaturesFontSize: 'normal',
           speciesAndFeatsCombinedPanel: false,
           spellListMode: 'table',
+          notesRows: 10,
         }}
       >
         <SpellList />

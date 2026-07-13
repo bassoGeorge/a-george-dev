@@ -37,7 +37,7 @@ export function StandardCharacterSheet({ data, visualAdjustments }: Props) {
     ...DEFAULT_VISUAL_ADUSTMENTS,
     ...visualAdjustments,
   };
-  const { speciesAndFeatsCombinedPanel } = adjustments;
+  const { speciesAndFeatsCombinedPanel, notesRows } = adjustments;
 
   return (
     <VisualAdjustmentsContext.Provider value={adjustments}>
@@ -86,7 +86,7 @@ export function StandardCharacterSheet({ data, visualAdjustments }: Props) {
           <div className="grid grid-cols-7 gap-4 mt-4 flex-1">
             <div className="col-span-5 h-full flex flex-col gap-4">
               {data.spellcasting && <SpellcastingBlock />}
-              <NotesPanel outerClasses="flex-1" />
+              {notesRows > 0 && <NotesPanel outerClasses="flex-1" />}
               {!data.spellcasting && (
                 <>
                   <ActionsInCombat />

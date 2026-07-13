@@ -61,6 +61,7 @@ const characters: BasePack[] = [
       classFeaturesFontSize: 'small',
       speciesAndFeatsCombinedPanel: true,
       spellListMode: 'grouped',
+      notesRows: 0,
     },
   },
 ];
