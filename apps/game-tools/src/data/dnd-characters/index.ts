@@ -57,6 +57,9 @@ const characters: BasePack[] = [
   },
   {
     data: UnnamedData,
+    visualAdjustments: {
+      speciesAndFeatsFontSize: 'small',
+    },
   },
   {
     data: ThorinBattlemasterData,

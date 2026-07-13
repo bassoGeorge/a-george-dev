@@ -66,6 +66,10 @@ function resourceDigester(character: Character, stats: DerivedStats) {
         count = stats.level.total * (config.multiplier ?? 1);
         break;
 
+      case 'proficiency-bonus':
+        count = stats.proficiencyBonus * (config.multiplier ?? 1);
+        break;
+
       case 'class-level': {
         const cls = character.classes.find((c) => c.name === config.class);
         if (!cls) {

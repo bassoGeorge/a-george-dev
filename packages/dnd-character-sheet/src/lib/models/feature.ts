@@ -56,6 +56,10 @@ type ResourceCount = {
       multiplier?: number;
     }
   | {
+      kind: 'proficiency-bonus';
+      multiplier?: number;
+    }
+  | {
       kind: 'class-level';
       class: CharacterClass;
       multiplier?: number;

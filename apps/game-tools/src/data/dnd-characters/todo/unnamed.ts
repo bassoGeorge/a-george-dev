@@ -9,9 +9,9 @@ import { CHANNEL_DIVINITY } from '../common';
 
 export const UnnamedData: Character = {
   name: 'Unnamed (WIP)',
-  species: 'Kalashtar',
-  background: 'Hermit',
-  creatureType: 'Abberation',
+  species: 'Human',
+  background: 'House Orien Heir',
+  creatureType: 'Humanoid',
   classes: [
     {
       name: CharacterClass.Cleric,
@@ -27,17 +27,10 @@ export const UnnamedData: Character = {
     [Ability.Charisma]: 13,
   },
   savingThrowProficiencies: [Ability.Wisdom, Ability.Charisma],
-  skillProficiencies: [
-    Skill.Arcana,
-    Skill.Religion,
-    Skill.Insight,
-    Skill.Medicine,
-    Skill.Persuasion,
-  ],
+  skillProficiencies: [Skill.Acrobatics, Skill.Athletics],
   skillExpertise: [],
-  baseArmorClass: 12,
-  isWieldingShield: true,
-  speed: 30,
+  baseArmorClass: 10,
+  speed: 35,
   hitPoints: {
     maximum: 20,
   },
@@ -106,41 +99,68 @@ export const UnnamedData: Character = {
         '<em>Choose 1 target in 30ft range</em>. Roll 1d8+3. The target either: Regains Hit points equal to roll OR makes a CON save, taking rolled damage of either Necrotic or Radiant on failure, half as much on success.',
     },
     {
-      name: 'Turn Undead',
+      name: 'Turn & Sear Undead',
       cost: '1 Channel Divinity',
       castingTime: 'Action',
-      description:
-        'Each Undead creature of your choice in a 30ft radius makes a Wis. saving throw. On failure, they have Frightened & Incapacitated condition for 1min, and during this time, they try to move away from you each turn. Condition ends early if they take damage, or you get Incapacitated condition, or you die.',
+      description: `Each Undead creature of your choice in a 30ft radius makes a Wis. saving throw. On failure: 
+        <ul>
+        <li>they have Frightened & Incapacitated condition for 1min, and during this time, they try to move away from you each turn. Condition ends early if they take damage, or you get Incapacitated condition, or you die.</li>
+        <li>they take <%= abilityModifiers.WIS %>d8 Radiant damage. This does not end the above effect</li>
+        </ul>
+        `,
     },
   ],
   speciesTraits: [
     {
-      name: 'Dual Mind',
-      description: 'Advantage on Wis. & Cha. saving throws.',
+      name: 'Resourceful',
+      description: 'Gain heroic inspiration on completing a Long Rest',
     },
     {
-      name: 'Mental Discipline',
-      description: 'Resistance to Psychic damage.',
+      name: 'Skillful',
+      description: 'You gain proficiency in one skill of your choice - TODO',
     },
     {
-      name: 'Mind Link',
-      description:
-        'You have telepathy within range of <%= level.total * 10 %>ft. When using this trait to speak telepathically to a creature, you can take a Magic action to give that creature the ability to speak telepathically with you for 1hr, or until you take a Magic action to end the effect.',
-    },
-    {
-      name: 'Severed from dreams',
-      description:
-        "You can't be the target of the <em>Dream</em> spell. Also, <span class='underline'>when you finish a Long Rest, you gain proficiency in one skill of your choice.</span> This proficiency lasts until you finish another Long Rest.",
+      name: 'Versatile',
+      description: 'You gain an Origin feat of your choice - Lucky',
     },
   ],
   feats: [
+    // TODO both
     {
-      name: 'Healer',
+      name: 'Mark of Passage',
       description: `
-      <ol>
-        <li><strong>Battle Medic</strong>: Expend 1 use of Healer's Kit to tend to a creature within 5ft (Utilise action). Creature can expend their 1 hit dice that you roll. Creature regains roll + <%= proficiencyBonus %> Hit Points.</li>
-        <li><strong>Healing Rerolls</strong>: Whenever you roll a die to determine Hit Points you restore with a spell or the above Battle Medic ability, you can reroll the die if it rolls a 1 and use the new roll.</li>
-      </ol>
+      You gain the following benefits
+      <ul>
+      <li><strong>Courier's Speed.</strong> Your Speed increases by 5ft.</li>
+      <li><strong>Intuitive Motion.</strong> When you make an Athletics or Acrobatics check, you can roll 1d4 and add the number rolled to the Ability check.</li>
+      <li><strong>Spells</strong> You always have the <em>Misty Step</em> spell prepared with 1 free use per Long Rest. Other mark spells are added to your spell casting list</li>
+      </ul>
+      `,
+    },
+    {
+      name: 'Lucky',
+      description: `
+      You can use Luck Points to either give yourself Advantage on a d20 test, or impost disadvantage on a creature making an attack roll against you.
+       `,
+      resource: {
+        name: 'Luck Points',
+        id: 'luckPoints',
+        count: {
+          kind: 'proficiency-bonus',
+        },
+        refresh: {
+          kind: 'long-rest',
+        },
+      },
+    },
+    {
+      name: 'War Caster',
+      description: ` You gain the following benefits
+      <ul>
+      <li><strong>Concentration.</strong> You have Advantage on Constitution saving throws you make to maintain concentration</li>
+      <li><strong>Reactive Spell.</strong> When a creature provokes an Opportunity attack from you for leaving your reach, you can take a Reaction to cast a spell at them. The spell must have a casting time of Action and target only that creature.</li>
+      <li><strong>Somatic components.</strong> You can perform the somatic components of a spell even when you have weapons or shield in one or both hands.</li>
+      </ul>
       `,
     },
   ],
@@ -150,75 +170,20 @@ export const UnnamedData: Character = {
     ArmorProficiency.Shield,
   ],
   weaponProficiencies: ['Simple weapons'],
-  toolProficiencies: ['Herbalism Kit'],
-  languages: ['Common', 'Quori'],
+  toolProficiencies: ["Cartographer's Tools"],
+  languages: ['Common'],
   spellcasting: {
     ability: Ability.Wisdom,
-    numberOfCantrips: 4,
-    numberOfPreparedSpells: 5,
+    numberOfCantrips: 5,
+    numberOfPreparedSpells: 9,
     spellChangeTrait:
       'You can change prepared spells after a Long Rest. Use the cleric list.',
     slots: {
-      1: 3,
+      1: 4,
+      2: 3,
+      3: 2,
     },
-    spells: [
-      {
-        name: 'Guidance',
-        level: 0,
-        range: 'Touch',
-        duration: '1min',
-        concentration: true,
-      },
-      {
-        name: 'Sacred Flame',
-        level: 0,
-        range: '60ft',
-        notes: 'Dex. save, 1d8 Radiant',
-      },
-      {
-        name: 'Thaumaturgy',
-        level: 0,
-        range: '30ft',
-      },
-      {
-        name: 'Toll the Dead',
-        level: 0,
-        range: '60ft',
-        notes: 'Wis. save',
-      },
-      {
-        name: 'Bless',
-        level: 1,
-        range: '30ft',
-        concentration: true,
-      },
-      {
-        name: 'Cure Wounds',
-        level: 1,
-        range: 'Touch',
-        notes: '2d8+3 healing',
-      },
-      {
-        name: 'Healing Word',
-        level: 1,
-        castingTime: 'Bonus Action',
-        range: '60ft',
-        notes: '2d4+3 healing',
-      },
-      {
-        name: 'Shield of Faith',
-        level: 1,
-        range: '60ft',
-        duration: '10min',
-        concentration: true,
-      },
-      {
-        name: 'Guiding Bolt',
-        level: 1,
-        range: '120ft',
-        notes: 'ranged attack, 4d6 Radiant',
-      },
-    ],
+    spells: [],
   },
   appearance: `
   Kalashtar are a union of humanity and spirits from the plane of dreams. Often seen as wise, spiritual people. You have symmetric, slightly angular features and your eyes often glow when you are focused or express strong emotions.
