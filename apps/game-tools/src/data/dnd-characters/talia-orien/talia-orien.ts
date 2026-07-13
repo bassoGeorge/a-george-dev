@@ -7,8 +7,8 @@ import {
 } from '@ageorgedev/dnd-character-sheet';
 import { CHANNEL_DIVINITY } from '../common';
 
-export const UnnamedData: Character = {
-  name: 'Unnamed (WIP)',
+export const TaliaData: Character = {
+  name: "Talia d'Orien",
   species: 'Human',
   background: 'House Orien Heir',
   creatureType: 'Humanoid',
@@ -16,6 +16,7 @@ export const UnnamedData: Character = {
     {
       name: CharacterClass.Cleric,
       level: 5,
+      subclass: 'Trickery Domain',
     },
   ],
   abilities: {
@@ -109,6 +110,26 @@ export const UnnamedData: Character = {
         </ul>
         `,
     },
+    {
+      name: 'Blessing of the Trickster',
+      castingTime: 'Action',
+      description:
+        'You can choose yourself or a willing creature within 30ft of you to have Advantage on Stealth checks. This blessing lasts till you finish a Long Rest or you use this feature again.',
+    },
+    {
+      name: 'Invoke Duplicity',
+      castingTime: 'Bonus Action',
+      cost: '1 Channel Divinity',
+      duration: '1 minute',
+      description: `
+      You can create a perfect visual illusion of yourself in an unoccupied space you can within 30ft of yourself. The illusion is animated and mimics your expressions and gestures. While it persists, you gain the following benefits.
+      <ul>
+      <li><strong>Cast spells.</strong> You can cast spells as though you were in the illusion's space, but you must still use your own senses</li>
+      <li><strong>Distract.</strong> When both you and your illusion are within 5ft of a creature you can see, you have Advantage on attack rolls against that creature.</li>
+      <li><strong>Move.</strong> As a Bonus Action, you can move the illusion upto 30ft to an unoccupied space you can see within 120ft of yourself.</li>
+      </ul>
+      `,
+    },
   ],
   speciesTraits: [
     {
@@ -167,6 +188,13 @@ export const UnnamedData: Character = {
   weaponProficiencies: ['Simple weapons'],
   toolProficiencies: ["Cartographer's Tools"],
   languages: ['Common'],
+  appearance: `
+  TODO
+  `,
+  backstory: `
+  <p><strong>TODO</strong>: You spent years in seclusion, meditation to bring change within, as the first step in your faith -- <em>Path of Light.</em> The next step, is to bring light into the world, using courage and compassion to banish the darkness in the people around you.</p>
+  <p><strong>TODO</strong>: You discuss things with your quori spirit (the dream spirit that's bonded with your bloodline)</p>
+  `,
   spellcasting: {
     ability: Ability.Wisdom,
     numberOfCantrips: 5,
@@ -178,13 +206,92 @@ export const UnnamedData: Character = {
       2: 3,
       3: 2,
     },
-    spells: [],
+    spells: [
+      {
+        name: 'Guidance',
+        level: 0,
+        range: 'Touch',
+        duration: '1min',
+        concentration: true,
+        notes: '1d4 to checks',
+      },
+      {
+        name: 'Light',
+        level: 0,
+        range: 'Touch',
+        duration: '1hr',
+      },
+      {
+        name: 'Mending',
+        level: 0,
+        castingTime: '1min',
+        range: 'Touch',
+      },
+      {
+        name: 'Word of Radiance',
+        level: 0,
+        range: '5ft emanation',
+        notes: 'Con. save, failure: 2d6 radiant damage',
+      },
+      {
+        name: 'Toll the Dead',
+        level: 0,
+        range: '60ft',
+        notes: 'Wis. save',
+      },
+      {
+        name: 'Misty Step',
+        level: 2,
+        alwaysPrepared: true,
+        freeUses: 1,
+        castingTime: 'Bonus Action',
+        range: 'Self',
+      },
+      {
+        name: 'Charm Person',
+        level: 1,
+        alwaysPrepared: true,
+        range: '30ft',
+        duration: '1hr',
+      },
+      {
+        name: 'Disguise Self',
+        level: 1,
+        alwaysPrepared: true,
+        range: 'Self',
+        duration: '1hr',
+      },
+      {
+        name: 'Invisibility',
+        level: 2,
+        alwaysPrepared: true,
+        range: 'Touch',
+        duration: '1hr',
+        concentration: true,
+      },
+      {
+        name: 'Pass without Trace',
+        level: 2,
+        alwaysPrepared: true,
+        range: 'Self',
+        duration: '1hr',
+        concentration: true,
+      },
+      {
+        name: 'Hypnotic Pattern',
+        level: 3,
+        alwaysPrepared: true,
+        range: '120ft',
+        duration: '1min',
+        concentration: true,
+      },
+      {
+        name: 'Nondetection',
+        level: 3,
+        alwaysPrepared: true,
+        range: 'Touch',
+        duration: '8hrs',
+      },
+    ],
   },
-  appearance: `
-  Kalashtar are a union of humanity and spirits from the plane of dreams. Often seen as wise, spiritual people. You have symmetric, slightly angular features and your eyes often glow when you are focused or express strong emotions.
-  `,
-  backstory: `
-  <p><strong>Hermit</strong>: You spent years in seclusion, meditation to bring change within, as the first step in your faith -- <em>Path of Light.</em> The next step, is to bring light into the world, using courage and compassion to banish the darkness in the people around you.</p>
-  <p><strong>Quirks</strong>: You discuss things with your quori spirit (the dream spirit that's bonded with your bloodline)</p>
-  `,
 };
