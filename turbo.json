@@ -42,6 +42,14 @@
       "cache": false,
       "passThroughEnv": ["BASE_URL", "PLAYWRIGHT_*"]
     },
+    "generate:spells:check": {
+      "inputs": [
+        "src/lib/data/spells-2024.csv",
+        "src/lib/data/spells-2024.generated.ts",
+        "scripts/generate-spells.ts"
+      ],
+      "cache": false
+    },
     "//#format-and-lint": {},
     "//#format-and-lint:fix": {
       "cache": false

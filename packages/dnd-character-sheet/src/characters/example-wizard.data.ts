@@ -88,6 +88,7 @@ export const exampleWizard: Character = {
       description:
         'You can use a bonus action to convert sorcery points into spell slots, or vice versa.',
       resource: {
+        id: 'sorceryPoints',
         name: 'Sorcery Points',
         count: {
           kind: 'class-level',

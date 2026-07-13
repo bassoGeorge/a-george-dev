@@ -5,6 +5,7 @@ import {
   CharacterClass,
   Skill,
 } from '@ageorgedev/dnd-character-sheet';
+import { ALERT, darkvision, expertise, weaponMastery } from '../common';
 
 export const ClawData: Character = {
   name: 'Claw',
@@ -96,19 +97,35 @@ export const ClawData: Character = {
     'Potion of healing = 1',
   ],
   features: [
-    {
-      name: 'Expertise',
-      description: 'You gain expertise in Stealth and Perception',
-    },
+    expertise('Stealth and Perception'),
     {
       name: 'Sneak Attack',
       description:
-        "Once per turn, you can deal an extra 2d6 damage to one creature you hit with an Attack roll if you have Advantage on that attack roll and it was made with a Finesse or Ranged weapon. You don't need Advantage if an ally is within 5ft of the target.",
+        "Once per turn, you can deal an extra <%= resources.sneakAttack.count %><%= resources.sneakAttack.die %> damage to one creature you hit with an Attack roll if you have Advantage on that attack roll and it was made with a Finesse or Ranged weapon. You don't need Advantage if an ally is within 5ft of the target.",
+      resource: {
+        id: 'sneakAttack',
+        name: 'Sneak Attack',
+        count: {
+          kind: 'class-level-steps',
+          class: 'Rogue',
+          steps: {
+            1: 1,
+            3: 2,
+            5: 3,
+            7: 4,
+            9: 5,
+            11: 6,
+            13: 7,
+            15: 8,
+            17: 9,
+            19: 10,
+          },
+        },
+        refresh: { kind: 'per-turn' },
+        die: { kind: 'fixed', value: 'd6' },
+      },
     },
-    {
-      name: 'Weapon Mastery',
-      description: 'You have mastery over 2 kinds of weapons',
-    },
+    weaponMastery(2),
     {
       name: 'Cunning Action',
       castingTime: 'Bonus Action',
@@ -128,10 +145,7 @@ export const ClawData: Character = {
     },
   ],
   speciesTraits: [
-    {
-      name: 'Darkvision',
-      description: '60ft',
-    },
+    darkvision('60ft'),
     {
       name: 'Bestial Instincts',
       description: 'You gain proficiency in Acrobatics',
@@ -148,35 +162,22 @@ export const ClawData: Character = {
       `,
     },
   ],
-  feats: [
-    {
-      name: 'Alert',
-      description:
-        '<ol><li>Your proficiency bonus is added to your Initiative roll</li><li>You may swap your initiative with any willing ally after rolling</li></ol>',
-      statMod: {
-        kind: 'generic-derived',
-        mod: (stat) => ({
-          ...stat,
-          initiative: stat.initiative + stat.proficiencyBonus,
-        }),
-      },
-    },
-  ],
+  feats: [ALERT],
   armorProficiencies: [ArmorProficiency.LightArmor],
   weaponProficiencies: [
     'Simple weapons',
     'Martial weapons that have the Finesse or Light property',
   ],
   toolProficiencies: ["Thieves' tools", "Calligrapher's supplies"],
-  languages: ['Common', 'Gnomish', "Thieves's Cant"],
+  languages: ['Common', 'Gnomish', "Thieves' Cant"],
   appearance: `
   Shifters are humanoids with beast aspects. They can't change shape fully, but can enhance their animalistic features temporarily. 
-  <em>Switfstride</em> shifters are graceful and quick, typically feline in nature. 
+  <em>Swiftstride</em> shifters are graceful and quick, typically feline in nature.
   You may have some features of cats about you, maybe the eyes and some whiskers?
   `,
   backstory: `
   <p><strong>Scribe:</strong> You have dedicated time serving in a library or government office, handling a lot of written text. You may have been employed as a communication clerk or related.</p>
-  <p><strong>Shifter settlements:</strong> Shifters come from often secluded settlements. What made you move to the big city of Sharn?
+  <p><strong>Shifter settlements:</strong> Shifters come from often secluded settlements. What made you move to the big city of Sharn?</p>
   `,
   spellcasting: {
     ability: Ability.Intelligence,

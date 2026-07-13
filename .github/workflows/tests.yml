@@ -19,3 +19,5 @@ jobs:
         uses: ./.github/actions/install-dependencies
       - name: ⚡ Run Unit Tests for given projects
         run: yarn turbo test ${{ inputs.command_arg }} -- --passWithNoTests
+      - name: 🔍 Check spell CSV / generated file are in sync
+        run: yarn turbo generate:spells:check --filter=@ageorgedev/dnd-character-sheet

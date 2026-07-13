@@ -62,7 +62,7 @@ export function AttackList() {
               );
             })}
             <EmptyRow showMastery={showMasteries} />
-            <EmptyRow showMastery={showMasteries} />
+            {/* <EmptyRow showMastery={showMasteries} /> */}
           </tbody>
         </table>
       </div>

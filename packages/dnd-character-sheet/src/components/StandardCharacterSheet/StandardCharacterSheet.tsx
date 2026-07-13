@@ -8,6 +8,7 @@ import { CombatRow } from '../CombatRow/CombatRow';
 import { EquipmentTraining } from '../EquipmentTraining/EquipmentTraining';
 import { ClassFeatures } from '../feature-blocks/ClassFeatures';
 import { Feats } from '../feature-blocks/Feats';
+import { SpeciesAndFeatsCombined } from '../feature-blocks/SpeciesAndFeatsCombined';
 import { SpeciesTraits } from '../feature-blocks/SpeciesTraits';
 import { GenericPanel } from '../GenericPanel/GenericPanel';
 import { ActionsInCombat } from '../game-infos/ActionsInCombat';
@@ -36,6 +37,7 @@ export function StandardCharacterSheet({ data, visualAdjustments }: Props) {
     ...DEFAULT_VISUAL_ADUSTMENTS,
     ...visualAdjustments,
   };
+  const { speciesAndFeatsCombinedPanel, notesRows } = adjustments;
 
   return (
     <VisualAdjustmentsContext.Provider value={adjustments}>
@@ -68,10 +70,14 @@ export function StandardCharacterSheet({ data, visualAdjustments }: Props) {
               <AttackList />
               <Resources />
               <ClassFeatures />
-              <div className="grid grid-cols-2 gap-4">
-                <SpeciesTraits />
-                <Feats />
-              </div>
+              {speciesAndFeatsCombinedPanel ? (
+                <SpeciesAndFeatsCombined />
+              ) : (
+                <div className="grid grid-cols-2 gap-4">
+                  <SpeciesTraits />
+                  <Feats />
+                </div>
+              )}
             </div>
           </div>
         </Page>
@@ -80,7 +86,7 @@ export function StandardCharacterSheet({ data, visualAdjustments }: Props) {
           <div className="grid grid-cols-7 gap-4 mt-4 flex-1">
             <div className="col-span-5 h-full flex flex-col gap-4">
               {data.spellcasting && <SpellcastingBlock />}
-              <NotesPanel outerClasses="flex-1" />
+              {notesRows > 0 && <NotesPanel outerClasses="flex-1" />}
               {!data.spellcasting && (
                 <>
                   <ActionsInCombat />

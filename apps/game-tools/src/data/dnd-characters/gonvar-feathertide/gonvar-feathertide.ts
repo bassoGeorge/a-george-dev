@@ -3,6 +3,15 @@ import {
   type Character,
   Skill,
 } from '@ageorgedev/dnd-character-sheet';
+import {
+  ACTION_SURGE,
+  ALERT,
+  COMBAT_SUPERIORITY,
+  SAVAGE_ATTACKER,
+  SECOND_WIND,
+  TACTICAL_MIND,
+  weaponMastery,
+} from '../common';
 
 export const GonvarData: Character = {
   name: 'Gonvar Feathertide',
@@ -89,56 +98,17 @@ export const GonvarData: Character = {
   toolProficiencies: ['Playing Card Set', "Woodcarver's tools"],
   languages: [],
   features: [
-    {
-      name: 'Weapon Mastery',
-      description:
-        'You have mastery over 3 different weapons. You can choose to switch one mastery to a different weapon on finishing a Long Rest',
-    },
+    weaponMastery(3),
     {
       name: 'Interception fighting style',
       castingTime: 'Reaction',
       description:
         'When a creature you see hits another creature within 5ft of you with an attack roll, you can take a Reaction to reduce the damage by 1d10 + <%= proficiencyBonus %>. You must be holding a Simple / Melee weapon or Shield to do this.',
     },
-    {
-      name: 'Second Wind',
-      castingTime: 'Bonus Action',
-      description: 'Regain Hit Points equal to 1d10+<%= level.Fighter %>',
-      cost: '1 Second Wind charge',
-      resource: {
-        name: 'Second Wind',
-        count: { kind: 'fixed', value: 2 },
-        refresh: {
-          kind: 'short-and-long-rest',
-          numberOfRefreshesOnShortRest: 1,
-        },
-      },
-    },
-    {
-      name: 'Tactical Mind',
-      cost: '1 Second Wind charge',
-      description:
-        'When you fail an Ability check, you can roll 1d10 and add to the roll. Second Wind charge not spent if check still unsuccessful',
-    },
-    {
-      name: 'Action Surge',
-      description: 'Take 1 extra Action (except magic)',
-      resource: {
-        name: 'Action Surge',
-        count: { kind: 'fixed', value: 1 },
-        refresh: { kind: 'any-rest' },
-      },
-    },
-    {
-      name: 'Combat Superiority',
-      description:
-        'You know manuevers that are fueled by Superiority Dice which are d8s',
-      resource: {
-        name: 'Superiority Dice (d8)',
-        count: { kind: 'fixed', value: 4 },
-        refresh: { kind: 'any-rest' },
-      },
-    },
+    SECOND_WIND,
+    TACTICAL_MIND,
+    ACTION_SURGE,
+    COMBAT_SUPERIORITY,
     {
       name: 'Commanding Presence',
       cost: '1 Superiority die',
@@ -155,7 +125,7 @@ export const GonvarData: Character = {
       name: 'Trip Attack',
       cost: '1 Superiority die',
       description:
-        'On hitting a creature with a weapon or unarmed strike, expend a Superiority die and add it to the damage. If the target is <em>Large</em> or smaller, it must succeed a on a Str. saving throw (DC <%= abilitySaveDCs.STR %>) or falls <em>Prone</em>',
+        'On hitting a creature with a weapon or unarmed strike, expend a Superiority die and add it to the damage. If the target is <em>Large</em> or smaller, it must succeed on a Str. saving throw (DC <%= abilitySaveDCs.STR %>) or falls <em>Prone</em>',
     },
   ],
   speciesTraits: [
@@ -164,25 +134,7 @@ export const GonvarData: Character = {
       description: 'Gain heroic inspiration on completing a Long Rest',
     },
   ],
-  feats: [
-    {
-      name: 'Alert',
-      description:
-        '<ol><li>Your proficiency bonus is added to your Initiative roll</li><li>You may swap your initiative with any willing ally after rolling</li></ol>',
-      statMod: {
-        kind: 'generic-derived',
-        mod: (stat) => ({
-          ...stat,
-          initiative: stat.initiative + stat.proficiencyBonus,
-        }),
-      },
-    },
-    {
-      name: 'Savage attacker',
-      description:
-        "Once per turn, you may roll a weapon's damage dice twice and use either rolls.",
-    },
-  ],
+  feats: [ALERT, SAVAGE_ATTACKER],
   appearance:
     'Humans are numerous and resourceful. Spread throughout the Five Nations of Khorvaire',
   backstory:

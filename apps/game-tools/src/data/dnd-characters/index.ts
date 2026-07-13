@@ -13,6 +13,7 @@ import { OmarinData } from './omarin-kenate/omarin-kenate';
 import { SaoraData } from './saora-embervale/saora-embervale';
 import SaoraSpellBook from './saora-embervale/saora-spellbook.pdf?url';
 import { SplitterData } from './splitter/splitter';
+import { TaliaData } from './talia-orien/talia-orien';
 import { Zoynari2Data } from './zoynari/zoynari-2';
 import Zoynari2SpellBook from './zoynari/zoynari-2-spellbook.pdf?url';
 import { Zoynari3Data } from './zoynari/zoynari-3';
@@ -53,6 +54,16 @@ const characters: BasePack[] = [
       classFeaturesFontSize: 'small',
     },
   },
+  {
+    data: TaliaData,
+    visualAdjustments: {
+      speciesAndFeatsFontSize: 'small',
+      classFeaturesFontSize: 'small',
+      speciesAndFeatsCombinedPanel: true,
+      spellListMode: 'grouped',
+      notesRows: 0,
+    },
+  },
 ];
 
 const processAndGroup = compose(
@@ -62,7 +73,7 @@ const processAndGroup = compose(
     return {
       ...c,
       brief: brief,
-      slug: brief.name.toLowerCase().replace(/\s+/g, '-'),
+      slug: brief.name.toLowerCase().replace(/\W+/g, '-'),
     };
   })
 );

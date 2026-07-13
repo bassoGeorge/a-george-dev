@@ -3,6 +3,7 @@ import {
   type Character,
   Skill,
 } from '@ageorgedev/dnd-character-sheet';
+import { SAVAGE_ATTACKER, weaponMastery } from '../common';
 
 export const SplitterData: Character = {
   name: 'Splitter',
@@ -85,11 +86,12 @@ export const SplitterData: Character = {
       <li>Force an enemy to make a saving throw</li>
       <li>Take a Bonus Action to extend the Rage</li>
       </ul>
-    Rage can last upto 10 mins.
+    Rage can last up to 10 mins.
     </li>
     </ol>
     `,
       resource: {
+        id: 'rageCharge',
         name: 'Rage charge',
         count: {
           kind: 'fixed',
@@ -106,11 +108,7 @@ export const SplitterData: Character = {
       description:
         "When you aren't wearing any armour, your base AC equals 10+Dex.+Con. You can use a Shield and still get this benefit.",
     },
-    {
-      name: 'Weapon Mastery',
-      description:
-        'You have mastery over 2 different weapons. You can choose to switch one mastery to a different weapon on finishing a Long Rest',
-    },
+    weaponMastery(2),
     {
       name: 'Danger sense',
       description:
@@ -124,7 +122,7 @@ export const SplitterData: Character = {
     {
       name: 'Reckless Attack',
       description:
-        'On the first attack roll of a turn, you can choose to go reckless. This give you Advantage on Str. based attack rolls until the start of your next turn. But, attack rolls against you have Advantage during this time.',
+        'On the first attack roll of a turn, you can choose to go reckless. This gives you Advantage on Str. based attack rolls until the start of your next turn. But, attack rolls against you have Advantage during this time.',
     },
     {
       name: 'Frenzy',
@@ -159,15 +157,9 @@ export const SplitterData: Character = {
         "You don't need to consume water, food, and don't need to breathe",
     },
   ],
-  feats: [
-    {
-      name: 'Savage attacker',
-      description:
-        "Once per turn, you may roll a weapon's damage dice twice and use either rolls.",
-    },
-  ],
+  feats: [SAVAGE_ATTACKER],
   appearance:
-    'Warforged are mechanical beings build as weapons to fight in the Last War. You comprise a blend of organic and inorganic materials. Rootlike chords infused with alchemical fluids serve as your muscles, wrapped around a framework of steel, darkwood or stone',
+    'Warforged are mechanical beings built as weapons to fight in the Last War. You comprise a blend of organic and inorganic materials. Rootlike chords infused with alchemical fluids serve as your muscles, wrapped around a framework of steel, darkwood or stone',
   backstory:
     '<strong>Soldier.</strong> War is the only thing you knew since you came into being. Now that the Last War is over, you have somehow made yourself useful. The nation which made you, Cyre, is no more. Where were you when Cyre was destroyed in that magical catastrophe?',
 };

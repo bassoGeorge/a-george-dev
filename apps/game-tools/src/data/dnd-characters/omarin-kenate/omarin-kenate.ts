@@ -5,6 +5,17 @@ import {
   CharacterClass,
   Skill,
 } from '@ageorgedev/dnd-character-sheet';
+import {
+  ACTION_SURGE,
+  COMBAT_SUPERIORITY,
+  darkvision,
+  FEY_ANCESTRY,
+  KEEN_SENSES,
+  SECOND_WIND,
+  TACTICAL_MIND,
+  TRANCE,
+  weaponMastery,
+} from '../common';
 
 export const OmarinData: Character = {
   name: 'Omarin Kenate',
@@ -66,7 +77,7 @@ export const OmarinData: Character = {
       notes: 'Light, Finesse',
     },
     {
-      name: 'Unarmed Stike',
+      name: 'Unarmed Strike',
       kind: 'weapon',
       ability: Ability.Dexterity,
       damage: [{ dice: '1d6', type: 'Bludgeoning' }],
@@ -106,22 +117,30 @@ export const OmarinData: Character = {
     {
       name: 'Martial Arts',
       description:
-        'On using only monk weapons, wearing no armor, and holding no shield, you gain the following benefits. <ol><li>Unarmed strikes as Bonus Actions</li><li>Can use Dex. modifier for attacks and damage rolls; 1d6 instead of normal damage -- for unarmed strikes and Monk weapons</li></ol>',
+        'On using only monk weapons, wearing no armor, and holding no shield, you gain the following benefits. <ol><li>Unarmed strikes as Bonus Actions</li><li>Can use Dex. modifier for attacks and damage rolls; <%= resources.martialArts.die %> instead of normal damage -- for unarmed strikes and Monk weapons</li></ol>',
+      resource: {
+        id: 'martialArts',
+        name: 'Martial Arts',
+        count: { kind: 'fixed', value: 1 },
+        refresh: { kind: 'per-turn' },
+        die: {
+          kind: 'class-level-steps',
+          class: 'Monk',
+          steps: { 1: 'd6', 5: 'd8', 11: 'd10', 17: 'd12' },
+        },
+      },
     },
     {
       name: 'Unarmored Defence + Movement',
       description:
         'When not wearing armor and not holding Shield: AC = 10 + Dex. + Wis. modifiers, Speed + 10',
     },
-    {
-      name: 'Weapon Mastery',
-      description:
-        'You have mastery over 3 different weapons. You can choose to switch one mastery to a different weapon on finishing a Long Rest',
-    },
+    weaponMastery(3),
     {
       name: "Monk's Focus",
       description: 'You have 2 Focus Points to fuel monk features',
       resource: {
+        id: 'focusPoints',
         name: 'Focus Points',
         count: {
           kind: 'fixed',
@@ -132,51 +151,17 @@ export const OmarinData: Character = {
         },
       },
     },
-    {
-      name: 'Second Wind',
-      castingTime: 'Bonus Action',
-      description: 'Regain Hit Points equal to 1d10+<%= level.Fighter %>',
-      cost: '1 Second Wind charge',
-      resource: {
-        name: 'Second Wind',
-        count: { kind: 'fixed', value: 2 },
-        refresh: {
-          kind: 'short-and-long-rest',
-          numberOfRefreshesOnShortRest: 1,
-        },
-      },
-    },
-    {
-      name: 'Tactical Mind',
-      cost: '1 Second Wind charge',
-      description:
-        'When you fail an Ability check, you can roll 1d10 and add to the roll. Second Wind charge not spent if check still unsuccessful',
-    },
-    {
-      name: 'Action Surge',
-      description: 'Take 1 extra Action (except magic)',
-      resource: {
-        name: 'Action Surge',
-        count: { kind: 'fixed', value: 1 },
-        refresh: { kind: 'any-rest' },
-      },
-    },
-    {
-      // TODO: the actual manuevers
-      name: 'Combat Superiority',
-      description:
-        'You know manuevers that are fueled by Superiority Dice. Your Superiority Dice is a D8',
-      resource: {
-        name: 'Superiority Dice (d8)',
-        count: { kind: 'fixed', value: 4 },
-        refresh: { kind: 'any-rest' },
-      },
-    },
+    SECOND_WIND,
+    TACTICAL_MIND,
+    ACTION_SURGE,
+    // TODO: the actual manuevers
+    COMBAT_SUPERIORITY,
     {
       name: 'Uncanny Metabolism',
       description:
         'On rolling Initiative, regain all expended Focus Points, and regain 1d6+<%= level.Monk %> HP',
       resource: {
+        id: 'uncannyMetabolism',
         name: 'Uncanny Metabolism',
         count: { kind: 'fixed', value: 1 },
         refresh: { kind: 'long-rest' },
@@ -184,24 +169,10 @@ export const OmarinData: Character = {
     },
   ],
   speciesTraits: [
-    {
-      name: 'Darkvision',
-      description: '120ft',
-    },
-    {
-      name: 'Fey Ancestry',
-      description:
-        'You have Advantage on saving throws you make to avoid or end the Charmed condition',
-    },
-    {
-      name: 'Keen Sense',
-      description: 'Proficiency in Perception skill',
-    },
-    {
-      name: 'Trance',
-      description:
-        "You don't need sleep and magic can't put you to sleep. You can finish a Long Rest in 4 hourse if you spend that time in a trance like state",
-    },
+    darkvision('120ft'),
+    FEY_ANCESTRY,
+    KEEN_SENSES,
+    TRANCE,
     {
       name: 'Elven Lineage',
       description:

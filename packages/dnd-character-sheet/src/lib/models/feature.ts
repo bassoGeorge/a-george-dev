@@ -1,4 +1,5 @@
 import type { Ability } from './abilities';
+import type { CharacterClass } from './character-classes';
 import type { DerivedStats } from './derived-stats';
 import type { Skill } from './skills';
 
@@ -15,9 +16,11 @@ export interface Feature {
 
   // or introduces a new resource
   resource?: {
+    id: string;
     name: string;
     count: ResourceCount;
     refresh: Refresh;
+    die?: ResourceDie;
   };
 
   statMod?:
@@ -53,9 +56,18 @@ type ResourceCount = {
       multiplier?: number;
     }
   | {
-      kind: 'class-level';
-      class: string;
+      kind: 'proficiency-bonus';
       multiplier?: number;
+    }
+  | {
+      kind: 'class-level';
+      class: CharacterClass;
+      multiplier?: number;
+    }
+  | {
+      kind: 'class-level-steps';
+      class: CharacterClass;
+      steps: Record<number, number>;
     }
   | {
       kind: 'ability';
@@ -69,11 +81,16 @@ type ResourceCount = {
     }
 );
 
+type ResourceDie =
+  | { kind: 'fixed'; value: string }
+  | { kind: 'class-level-steps'; class: string; steps: Record<number, string> };
+
 type Cost = string;
 
 type Refresh =
   | {
-      kind: 'short-rest' | 'long-rest' | 'any-rest';
+      // per-turn: computes like a tracked resource but is intentionally hidden from the Resources panel
+      kind: 'short-rest' | 'long-rest' | 'any-rest' | 'per-turn';
     }
   | {
       kind: 'short-and-long-rest';

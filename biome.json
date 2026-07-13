@@ -18,7 +18,8 @@
       "!./coverage",
       "!./apps/cms/schema*",
       "!./.nx/cache",
-      "!./.nx/workspace-data"
+      "!./.nx/workspace-data",
+      "!**/spells-2024.generated.ts"
     ]
   },
   "linter": {
