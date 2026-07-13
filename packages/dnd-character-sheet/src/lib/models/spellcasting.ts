@@ -13,11 +13,13 @@ type SpellSchool =
 interface SpellComponents {
   verbal?: boolean;
   somatic?: boolean;
+  material?: boolean;
   materialConsumed?: boolean;
 }
 
 export interface Spell {
   name: string;
+  url?: string;
   level: number;
   range?: string;
   castingTime?: string;

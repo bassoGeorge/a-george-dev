@@ -71,7 +71,7 @@ const processAndGroup = compose(
     return {
       ...c,
       brief: brief,
-      slug: encodeURIComponent(brief.name.toLowerCase().replace(/\s+/g, '-')),
+      slug: brief.name.toLowerCase().replace(/\W+/g, '-'),
     };
   })
 );
