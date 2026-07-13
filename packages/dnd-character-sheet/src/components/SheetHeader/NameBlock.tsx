@@ -8,7 +8,7 @@ export function NameBlock() {
     <Panel
       outerClasses="flex-1"
       topLeftCorner="scooped"
-      className="grid grid-cols-[2fr_5fr] pr-3 pl-5 gap-y-3 gap-x-2"
+      className="grid grid-cols-[minmax(max-content,_3fr)_5fr] pr-3 pl-5 gap-y-3 gap-x-2"
     >
       <h1 className="col-span-2 text-3xl">{character.name}</h1>
       <NameField label="Background">{character.background}</NameField>

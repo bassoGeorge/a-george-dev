@@ -22,43 +22,39 @@ export const TaliaData: Character = {
     },
   ],
   abilities: {
-    [Ability.Strength]: 14,
-    [Ability.Dexterity]: 8,
+    [Ability.Strength]: 8,
+    [Ability.Dexterity]: 14,
     [Ability.Constitution]: 14,
     [Ability.Intelligence]: 10,
-    [Ability.Wisdom]: 16,
-    [Ability.Charisma]: 13,
+    [Ability.Wisdom]: 18,
+    [Ability.Charisma]: 12,
   },
   savingThrowProficiencies: [Ability.Wisdom, Ability.Charisma],
-  skillProficiencies: [Skill.Acrobatics, Skill.Athletics],
+  skillProficiencies: [
+    Skill.Insight,
+    Skill.Persuasion,
+    Skill.Acrobatics,
+    Skill.Athletics,
+  ],
   skillExpertise: [],
-  baseArmorClass: 10,
+  baseArmorClass: 14,
+  isWieldingShield: true,
   speed: 35,
   hitPoints: {
-    maximum: 20,
+    maximum: 38,
   },
   attacks: [
     {
-      name: 'Mace',
+      name: 'Dagger (x5)',
       kind: 'weapon',
-      ability: Ability.Strength,
+      ability: Ability.Dexterity,
       damage: [
         {
-          dice: '1d6',
-          type: 'Bludgeoning',
+          dice: '1d4',
+          type: 'Piercing',
         },
       ],
-    },
-    {
-      name: 'Sacred Flame',
-      kind: 'spell-with-save',
-      saveAbility: Ability.Dexterity,
-      damage: [
-        {
-          dice: '1d6',
-          type: 'Radiant',
-        },
-      ],
+      notes: 'Light, Thrown (Range 20/60)',
     },
     {
       name: 'Toll the Dead',
@@ -66,30 +62,43 @@ export const TaliaData: Character = {
       saveAbility: Ability.Wisdom,
       damage: [
         {
-          dice: '1d8',
+          dice: '2d8',
           type: 'Necrotic',
         },
       ],
-      notes: 'If target is missing any HP, use 1d12 instead',
+      notes: 'If target is missing any HP, use 2d12 instead',
+    },
+    {
+      name: 'Word of Radiance',
+      kind: 'spell-with-save',
+      saveAbility: Ability.Constitution,
+      damage: [
+        {
+          dice: '2d6',
+          type: 'Radiant',
+        },
+      ],
+      notes: '5-foot emanation',
     },
   ],
   equipment: [
     "Bedroll, Backpack, Blanket, Book (philosophy), Lamp, Traveller's clothes, Holy water, Rope, Tinderbox, Herbalism Kit",
+    "Cartographer's Tools",
     "Healer's Kit (use) = 10",
     'Oil flasks = 3',
-    'Chain shirt, Shield, Mace',
+    'Chain shirt, Shield, Daggers (x4)',
     'Holy Symbol (spellcasting focus)',
   ],
   features: [
     {
       name: 'Divine Order: Thaumaturge',
       description:
-        '<ol><li>You gain 1 additional cantrip</li><li>Bonus +3 to Arcana & Religion checks (already considered in this sheet)</li></ol>',
+        '<ol><li>You gain 1 additional cantrip</li><li>Bonus +4 to Arcana & Religion checks (already considered in this sheet)</li></ol>',
       statMod: {
-        kind: 'static-skill-additions',
+        kind: 'static-skill-additions', // TODO: really, this is the current modifier
         mods: [
-          { skill: Skill.Arcana, modifier: 3 },
-          { skill: Skill.Religion, modifier: 3 },
+          { skill: Skill.Arcana, modifier: 4 },
+          { skill: Skill.Religion, modifier: 4 },
         ],
       },
     },
@@ -191,11 +200,16 @@ export const TaliaData: Character = {
   toolProficiencies: ["Cartographer's Tools"],
   languages: ['Common'],
   appearance: `
-  TODO
+  You are a Dragonmarked scion of House Orien. The Mark of Passage is visible somewhere on your body?
   `,
   backstory: `
-  <p><strong>TODO</strong>: You spent years in seclusion, meditation to bring change within, as the first step in your faith -- <em>Path of Light.</em> The next step, is to bring light into the world, using courage and compassion to banish the darkness in the people around you.</p>
-  <p><strong>TODO</strong>: You discuss things with your quori spirit (the dream spirit that's bonded with your bloodline)</p>
+  <p><strong>House Orien Heir</strong>:
+  Before the Last War, Orien's influence covered Khorvaire, and its trade roads and lightning rails were the lifeblood of a vibrant kingdom. But the war cut those arteries, leaving Galifar dead and House Orien bloodied. 
+  While the house's couriers and shippers still keep goods moving on both sides of the continent, finding a way to reestablish routes across the Mournland remains the house's top priority.
+  In the meantime, Orien adventurers can serve their house by investigating missing couriers, recovering goods stolen from caravans , and trouble-shooting disruptions to the lightning rail.
+  </p>
+  <p><strong>Cleric of Kol Korran</strong>: You are devoted to the Kol Korran, the Sovereign of World and Wealth, who guards travelers and guides traders.
+  </p>
   `,
   spellcasting: {
     ability: Ability.Wisdom,
@@ -215,7 +229,9 @@ export const TaliaData: Character = {
       withSpellMods(SPELL.WordOfRadiance, {
         notes: 'Con. save, failure: 2d6 radiant damage',
       }),
-      withSpellMods(SPELL.TollTheDead, { notes: 'Wis. save' }),
+      withSpellMods(SPELL.TollTheDead, {
+        notes: '(2d8 or 2d12) Necrotic, Wis. save',
+      }),
       withSpellMods(SPELL.MistyStep, { alwaysPrepared: true, freeUses: 1 }),
       withSpellMods(SPELL.CharmPerson, { alwaysPrepared: true }),
       withSpellMods(SPELL.DisguiseSelf, { alwaysPrepared: true }),
