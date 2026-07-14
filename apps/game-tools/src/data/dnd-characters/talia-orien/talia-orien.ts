@@ -1,7 +1,6 @@
 import {
   Ability,
   ArmorProficiency,
-  addSkillBonus,
   addSpeed,
   type Character,
   CharacterClass,
@@ -11,6 +10,7 @@ import {
   withSpellMods,
 } from '@ageorgedev/dnd-character-sheet';
 import { CHANNEL_DIVINITY } from '../common';
+import { DIVINE_ORDER_THAUMATURGE } from '../common/common-class-features';
 
 export const TaliaData: Character = {
   name: "Talia d'Orien",
@@ -94,16 +94,7 @@ export const TaliaData: Character = {
     'Holy Symbol (spellcasting focus)',
   ],
   features: [
-    {
-      name: 'Divine Order: Thaumaturge',
-      // TODO: check if need to add the note back
-      description:
-        '<ol><li>You gain 1 additional cantrip</li><li>Bonus +4 to Arcana & Religion checks</li></ol>',
-      effects: [
-        addSkillBonus(Skill.Arcana, 4),
-        addSkillBonus(Skill.Religion, 4),
-      ],
-    },
+    DIVINE_ORDER_THAUMATURGE,
     CHANNEL_DIVINITY,
     {
       name: 'Divine Spark',
@@ -216,7 +207,7 @@ export const TaliaData: Character = {
   `,
   spellcasting: {
     ability: Ability.Wisdom,
-    numberOfCantrips: 5,
+    numberOfCantrips: 4,
     numberOfPreparedSpells: 9,
     spellChangeTrait:
       'You can change any number of prepared spells after a Long Rest. Choose from the spells given here.',

@@ -120,8 +120,8 @@ export const SaoraData: Character = {
     },
     {
       name: 'Bonus Proficiencies',
-      // TODO: should I add back (already considered)
-      description: 'You gain proficiency with three skills of your choice.',
+      description:
+        'You gain proficiency with three skills of your choice. (already considered)',
       effects: [
         grantSkillProficiency(Skill.Arcana),
         grantSkillProficiency(Skill.History),

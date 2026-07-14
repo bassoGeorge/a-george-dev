@@ -59,6 +59,7 @@ export function grantSkillExpertise(skill: Skill): Effect {
   });
 }
 
+// not used as of now
 export function addSkillBonus(skill: Skill, amount: number): Effect {
   return derivedEffect(({ stats }) => ({
     ...stats,

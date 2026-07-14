@@ -1,14 +1,13 @@
 import {
   Ability,
   ArmorProficiency,
-  addSkillBonus,
   type Character,
   CharacterClass,
   Skill,
   SPELL,
   withSpellMods,
 } from '@ageorgedev/dnd-character-sheet';
-import { CHANNEL_DIVINITY } from '../common';
+import { CHANNEL_DIVINITY, DIVINE_ORDER_THAUMATURGE } from '../common';
 
 export const Zoynari2Data: Character = {
   name: 'Zoynari',
@@ -88,17 +87,7 @@ export const Zoynari2Data: Character = {
     'Holy Symbol (spellcasting focus)',
   ],
   features: [
-    {
-      // TODO: still depends on modifier
-      // TODO: may need to add the note back
-      name: 'Divine Order: Thaumaturge',
-      description:
-        '<ol><li>You gain 1 additional cantrip</li><li>Bonus +3 to Arcana & Religion checks</li></ol>',
-      effects: [
-        addSkillBonus(Skill.Arcana, 3),
-        addSkillBonus(Skill.Religion, 3),
-      ],
-    },
+    DIVINE_ORDER_THAUMATURGE,
     CHANNEL_DIVINITY,
     {
       name: 'Divine Spark',
@@ -156,7 +145,7 @@ export const Zoynari2Data: Character = {
   languages: ['Common', 'Quori'],
   spellcasting: {
     ability: Ability.Wisdom,
-    numberOfCantrips: 4,
+    numberOfCantrips: 3,
     numberOfPreparedSpells: 5,
     spellChangeTrait:
       'You can change prepared spells after a Long Rest. Use the cleric list.',

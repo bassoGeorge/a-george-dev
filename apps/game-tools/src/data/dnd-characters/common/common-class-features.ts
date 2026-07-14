@@ -1,7 +1,10 @@
 import {
+  Ability,
+  characterEffect,
+  derivedEffect,
   type Feature,
   grantSkillExpertise,
-  type Skill,
+  Skill,
 } from '@ageorgedev/dnd-character-sheet';
 
 export const weaponMastery = (count: number): Feature => ({
@@ -9,10 +12,14 @@ export const weaponMastery = (count: number): Feature => ({
   description: `You have mastery over ${count} different weapons. You can choose to switch one mastery to a different weapon on finishing a Long Rest`,
 });
 
+const listFormatter = new Intl.ListFormat('en', {
+  style: 'long',
+  type: 'conjunction',
+});
+
 export const expertise = (skills: Skill[]): Feature => ({
   name: 'Expertise',
-  // todo: grammar
-  description: `You gain expertise in ${skills.join(' and ')}`,
+  description: `You gain expertise in ${listFormatter.format(skills)}`,
   effects: skills.map((s) => grantSkillExpertise(s)),
 });
 
@@ -76,6 +83,40 @@ export const COMBAT_SUPERIORITY: Feature = {
 };
 
 // Cleric
+
+export const DIVINE_ORDER_THAUMATURGE: Feature = {
+  name: 'Divine Order: Thaumaturge',
+  description:
+    '<ol><li>You gain 1 additional cantrip</li><li>Bonus +<%= abilityModifiers.WIS %> to Arcana & Religion checks (considered in this sheet)</li></ol>',
+  effects: [
+    characterEffect((c) => ({
+      ...c,
+      spellcasting: !c.spellcasting
+        ? undefined
+        : {
+            ...c.spellcasting,
+            numberOfCantrips: (c.spellcasting?.numberOfCantrips ?? 0) + 1,
+          },
+    })),
+    derivedEffect(({ stats }) => {
+      const mod = stats.abilityModifiers[Ability.Wisdom];
+      return {
+        ...stats,
+        skills: {
+          ...stats.skills,
+          [Skill.Arcana]: {
+            ...stats.skills[Skill.Arcana],
+            modifier: stats.skills[Skill.Arcana].modifier + mod,
+          },
+          [Skill.Religion]: {
+            ...stats.skills[Skill.Religion],
+            modifier: stats.skills[Skill.Religion].modifier + mod,
+          },
+        },
+      };
+    }),
+  ],
+};
 
 export const CHANNEL_DIVINITY: Feature = {
   name: 'Channel Divinity',
