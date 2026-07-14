@@ -4,6 +4,8 @@ import {
   type Character,
   CharacterClass,
   Skill,
+  SPELL,
+  withSpellMods,
 } from '@ageorgedev/dnd-character-sheet';
 import {
   ACTION_SURGE,
@@ -195,27 +197,12 @@ export const OmarinData: Character = {
   spellcasting: {
     ability: Ability.Wisdom,
     spells: [
-      {
-        name: 'Faerie Fire',
-        level: 1,
-        castingTime: 'Action',
-        range: '60ft',
-        duration: '1min',
-        concentration: true,
-        alwaysPrepared: true,
-        freeUses: 1,
-      },
-      {
-        name: 'Darkness',
-        level: 2,
-        castingTime: 'Action',
-        range: '60ft',
-        duration: '10min',
-        concentration: true,
+      withSpellMods(SPELL.FaerieFire, { alwaysPrepared: true, freeUses: 1 }),
+      withSpellMods(SPELL.Darkness, {
         alwaysPrepared: true,
         freeUses: 1,
         notes: '15ft Sphere',
-      },
+      }),
     ],
     slots: {},
     numberOfCantrips: 0,

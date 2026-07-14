@@ -2,6 +2,8 @@ import {
   Ability,
   type Character,
   CharacterClass,
+  SPELL,
+  withSpellMods,
 } from '@ageorgedev/dnd-character-sheet';
 import { Zoynari2Data } from './zoynari-2';
 
@@ -54,37 +56,11 @@ export const Zoynari3Data: Character = {
       ...(Zoynari2Data.spellcasting?.spells as NonNullable<
         Character['spellcasting']
       >['spells']),
-      {
-        name: 'Burning Hands',
-        level: 1,
-        range: 'Self',
-        alwaysPrepared: true,
-      },
-      {
-        name: 'Faerie Fire',
-        level: 1,
-        range: '60ft',
-        alwaysPrepared: true,
-      },
-      {
-        name: 'Scorching Ray',
-        level: 2,
-        range: '120ft',
-        alwaysPrepared: true,
-      },
-      {
-        name: 'See Invisibility',
-        level: 2,
-        range: 'Self',
-        alwaysPrepared: true,
-      },
-      {
-        name: 'Locate Object',
-        level: 2,
-        range: 'Self',
-        duration: '10min',
-        concentration: true,
-      },
+      withSpellMods(SPELL.BurningHands, { alwaysPrepared: true }),
+      withSpellMods(SPELL.FaerieFire, { alwaysPrepared: true }),
+      withSpellMods(SPELL.ScorchingRay, { alwaysPrepared: true }),
+      withSpellMods(SPELL.SeeInvisibility, { alwaysPrepared: true }),
+      SPELL.LocateObject,
     ],
   },
 };

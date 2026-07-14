@@ -2,6 +2,7 @@ import {
   Ability,
   type Character,
   Skill,
+  SPELL,
 } from '@ageorgedev/dnd-character-sheet';
 import { mapObjIndexed } from 'ramda';
 import { expertise } from '../common';
@@ -178,59 +179,14 @@ export const SaoraData: Character = {
     numberOfCantrips: 2,
     numberOfPreparedSpells: 6,
     spells: [
-      {
-        name: 'Vicious Mockery',
-        level: 0,
-        castingTime: 'Action',
-        range: '60ft',
-      },
-      {
-        name: 'Minor Illusion',
-        level: 0,
-        castingTime: 'Action',
-        range: '30ft',
-      },
-      {
-        name: 'Charm Person',
-        level: 1,
-        castingTime: 'Action',
-        duration: '1hr',
-        range: '30ft',
-      },
-      {
-        name: 'Color Spray',
-        level: 1,
-        castingTime: 'Action',
-        range: '15ft cone',
-      },
-      {
-        name: 'Dissonant Whispers',
-        level: 1,
-        castingTime: 'Action',
-        range: '60ft',
-      },
-      {
-        name: 'Healing Word',
-        level: 1,
-        castingTime: 'Bonus Action',
-        range: '60ft',
-        notes: '2d4+3 healing',
-      },
-      {
-        name: 'Enlarge / Reduce',
-        level: 2,
-        castingTime: 'Action',
-        range: '30ft',
-        concentration: true,
-        duration: '1min',
-      },
-      {
-        name: 'Mirror Image',
-        level: 2,
-        castingTime: 'Action',
-        range: 'Self',
-        duration: '1min',
-      },
+      SPELL.ViciousMockery,
+      SPELL.MinorIllusion,
+      SPELL.CharmPerson,
+      SPELL.ColorSpray,
+      SPELL.DissonantWhispers,
+      SPELL.HealingWord,
+      SPELL.EnlargeReduce,
+      SPELL.MirrorImage,
     ],
   },
 };
