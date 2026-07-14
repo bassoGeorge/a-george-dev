@@ -1,6 +1,8 @@
 import {
   Ability,
   type Character,
+  derivedEffect,
+  grantSkillProficiency,
   Skill,
   SPELL,
 } from '@ageorgedev/dnd-character-sheet';
@@ -31,16 +33,13 @@ export const SaoraData: Character = {
   skillProficiencies: [
     Skill.Acrobatics,
     Skill.SleightOfHand,
-    Skill.Arcana,
-    Skill.History,
-    Skill.Religion,
     Skill.Insight,
     Skill.Survival,
     Skill.Deception,
     Skill.Performance,
     Skill.Persuasion,
   ],
-  skillExpertise: [Skill.Insight, Skill.Deception],
+  skillExpertise: [],
   baseArmorClass: 13,
   speed: 30,
   hitPoints: {
@@ -101,14 +100,13 @@ export const SaoraData: Character = {
         },
       },
     },
-    expertise('Insight and Deception'),
+    expertise([Skill.Insight, Skill.Deception]),
     {
       name: 'Jack of all trades',
       description:
-        'You can add half your Proficiency Bonus, rounded down, to any ability check for a skill you are not proficient in (already considered in this sheet).',
-      statMod: {
-        kind: 'generic-derived',
-        mod: (stats) => {
+        'You can add half your Proficiency Bonus, rounded down, to any ability check for a skill you are not proficient in.',
+      effects: [
+        derivedEffect(({ stats }) => {
           const updatedSkills = mapObjIndexed(
             (sk) => ({
               ...sk,
@@ -117,13 +115,18 @@ export const SaoraData: Character = {
             stats.skills
           );
           return { ...stats, skills: updatedSkills };
-        },
-      },
+        }),
+      ],
     },
     {
       name: 'Bonus Proficiencies',
-      description:
-        'You gain proficiency with three skills of your choice (already considered in this sheet).',
+      // TODO: should I add back (already considered)
+      description: 'You gain proficiency with three skills of your choice.',
+      effects: [
+        grantSkillProficiency(Skill.Arcana),
+        grantSkillProficiency(Skill.History),
+        grantSkillProficiency(Skill.Religion),
+      ],
     },
     {
       name: 'Cutting Words',

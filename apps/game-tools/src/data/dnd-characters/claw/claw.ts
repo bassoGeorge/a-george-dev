@@ -39,7 +39,7 @@ export const ClawData: Character = {
     Skill.Deception,
     Skill.Intimidation,
   ],
-  skillExpertise: [Skill.Perception, Skill.Stealth],
+  skillExpertise: [],
   baseArmorClass: 14,
   speed: 30,
   hitPoints: {
@@ -99,7 +99,7 @@ export const ClawData: Character = {
     'Potion of healing = 1',
   ],
   features: [
-    expertise('Stealth and Perception'),
+    expertise([Skill.Stealth, Skill.Perception]),
     {
       name: 'Sneak Attack',
       description:

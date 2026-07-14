@@ -1,7 +1,17 @@
 import type { Ability } from './abilities';
+import type { Character } from './character';
 import type { CharacterClass } from './character-classes';
 import type { DerivedStats } from './derived-stats';
-import type { Skill } from './skills';
+
+export type Effect =
+  | { kind: 'character'; mod: (c: Character) => Character }
+  | {
+      kind: 'derived';
+      mod: (args: {
+        character: Character;
+        stats: DerivedStats;
+      }) => DerivedStats;
+    };
 
 export interface Feature {
   name: string;
@@ -23,29 +33,7 @@ export interface Feature {
     die?: ResourceDie;
   };
 
-  statMod?:
-    | {
-        kind: 'static-skill-additions';
-        mods: { skill: Skill; modifier: number }[];
-      }
-    | {
-        kind: 'skill-function';
-        mod: ({
-          skill,
-          currentBonus,
-          isProficient,
-          hasExpertise,
-        }: {
-          skill: Skill;
-          currentBonus: number;
-          isProficient: boolean;
-          hasExpertise: boolean;
-        }) => number;
-      }
-    | {
-        kind: 'generic-derived';
-        mod: (stats: DerivedStats) => DerivedStats;
-      };
+  effects?: Effect[];
 }
 
 type ResourceCount = {

@@ -1,6 +1,7 @@
 import {
   Ability,
   ArmorProficiency,
+  addSkillBonus,
   type Character,
   CharacterClass,
   Skill,
@@ -88,16 +89,15 @@ export const Zoynari2Data: Character = {
   ],
   features: [
     {
+      // TODO: still depends on modifier
+      // TODO: may need to add the note back
       name: 'Divine Order: Thaumaturge',
       description:
-        '<ol><li>You gain 1 additional cantrip</li><li>Bonus +3 to Arcana & Religion checks (already considered in this sheet)</li></ol>',
-      statMod: {
-        kind: 'static-skill-additions',
-        mods: [
-          { skill: Skill.Arcana, modifier: 3 },
-          { skill: Skill.Religion, modifier: 3 },
-        ],
-      },
+        '<ol><li>You gain 1 additional cantrip</li><li>Bonus +3 to Arcana & Religion checks</li></ol>',
+      effects: [
+        addSkillBonus(Skill.Arcana, 3),
+        addSkillBonus(Skill.Religion, 3),
+      ],
     },
     CHANNEL_DIVINITY,
     {

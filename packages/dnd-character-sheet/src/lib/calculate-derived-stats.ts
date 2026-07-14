@@ -1,9 +1,10 @@
 import { groupBy, map, mapObjIndexed, pipe, reduce, toPairs } from 'ramda';
+import { applyCharacterEffects } from './apply-effects';
 import { HIT_DICE_TABLE } from './character-class-constants';
 import { Ability, ALL_ABILITIES } from './models/abilities';
 import type { Character } from './models/character';
 import type { DerivedStats } from './models/derived-stats';
-import type { Feature } from './models/feature';
+import type { Effect } from './models/feature';
 import { AbilitySkillGrouping, Skill } from './models/skills';
 
 export function abilityModifier(score: number): number {
@@ -16,6 +17,15 @@ export function proficiencyBonus(level: number): number {
   if (level <= 12) return 4;
   if (level <= 16) return 5;
   return 6;
+}
+
+export function computeCharacterAndStats(rawCharacter: Character): {
+  character: Character;
+  stats: DerivedStats;
+} {
+  const character = applyCharacterEffects(rawCharacter);
+  const stats = calculateStats(character);
+  return { character, stats };
 }
 
 export function calculateStats(character: Character): DerivedStats {
@@ -48,8 +58,6 @@ export function calculateStats(character: Character): DerivedStats {
     })
   ) as DerivedStats['savingThrows'];
 
-  const allMods = gatherAllMods(character);
-
   const skills = Object.fromEntries(
     Object.entries(AbilitySkillGrouping).flatMap(([ability, skills]) => {
       return skills.map((skill) => {
@@ -60,16 +68,8 @@ export function calculateStats(character: Character): DerivedStats {
           (isProficient ? profBonus : 0) +
           (hasExpertise ? profBonus : 0);
 
-        const finalBonus = finaliseSkillBonus({
-          skill,
-          isProficient,
-          hasExpertise,
-          currentBonus: bonus,
-          allSkillMods: allMods,
-        });
-
         const state = {
-          modifier: finalBonus,
+          modifier: bonus,
           quality: hasExpertise
             ? 'expert'
             : isProficient
@@ -96,7 +96,7 @@ export function calculateStats(character: Character): DerivedStats {
 
   const hitDice = computeHitDice(character.classes);
 
-  const stats = {
+  const baseStats: DerivedStats = {
     abilityModifiers,
     abilitySaveDCs,
     proficiencyBonus: profBonus,
@@ -109,20 +109,18 @@ export function calculateStats(character: Character): DerivedStats {
     ...spellcasting,
   };
 
-  return allMods.reduce((acc: DerivedStats, cur): DerivedStats => {
-    if (cur.kind === 'generic-derived') {
-      return cur.mod(acc);
-    }
-    return acc;
-  }, stats);
-}
+  const derivedEffects = gatherDerivedEffects(character);
 
-// function hitDice(charClasses: Character['classes']) {
-//   return charClasses.map(({ name, level }) => ({
-//     count: level,
-//     dice: HIT_DICE_TABLE[name]
-//   }))
-// }
+  return derivedEffects.reduce(
+    (acc: DerivedStats, effect: Effect): DerivedStats => {
+      if (effect.kind === 'derived') {
+        return effect.mod({ character, stats: acc });
+      }
+      return acc;
+    },
+    baseStats
+  );
+}
 
 const computeHitDice = pipe(
   map((config: Character['classes'][number]) => ({
@@ -135,36 +133,14 @@ const computeHitDice = pipe(
   map(([dice, count]) => ({ dice, count }))
 );
 
-function gatherAllMods(character: Character) {
+function gatherDerivedEffects(character: Character): Effect[] {
   return [
-    ...character.features,
+    ...(character.features ?? []),
     ...(character.speciesTraits ?? []),
     ...(character.feats ?? []),
   ]
-    .map((f) => f.statMod)
-    .filter(Boolean) as NonNullable<Feature['statMod']>[];
-}
-
-function finaliseSkillBonus(options: {
-  skill: Skill;
-  isProficient: boolean;
-  hasExpertise: boolean;
-  currentBonus: number;
-  allSkillMods: NonNullable<Feature['statMod']>[];
-}) {
-  return reduce(
-    (current, mod) => {
-      if (mod.kind === 'static-skill-additions') {
-        const foundItem = mod.mods.find((m) => m.skill === options.skill);
-        if (foundItem) {
-          return current + foundItem.modifier;
-        }
-      } else if (mod.kind === 'skill-function') {
-        return mod.mod(options);
-      }
-      return current;
-    },
-    options.currentBonus,
-    options.allSkillMods
-  );
+    .flatMap((f) => f.effects ?? [])
+    .filter(
+      (e): e is Extract<Effect, { kind: 'derived' }> => e.kind === 'derived'
+    );
 }

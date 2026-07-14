@@ -1,6 +1,8 @@
 import {
   Ability,
   ArmorProficiency,
+  addSkillBonus,
+  addSpeed,
   type Character,
   CharacterClass,
   Skill,
@@ -41,7 +43,7 @@ export const TaliaData: Character = {
   skillExpertise: [],
   baseArmorClass: 14,
   isWieldingShield: true,
-  speed: 35,
+  speed: 30,
   hitPoints: {
     maximum: 38,
   },
@@ -94,15 +96,13 @@ export const TaliaData: Character = {
   features: [
     {
       name: 'Divine Order: Thaumaturge',
+      // TODO: check if need to add the note back
       description:
-        '<ol><li>You gain 1 additional cantrip</li><li>Bonus +4 to Arcana & Religion checks (already considered in this sheet)</li></ol>',
-      statMod: {
-        kind: 'static-skill-additions', // TODO: really, this is the current modifier
-        mods: [
-          { skill: Skill.Arcana, modifier: 4 },
-          { skill: Skill.Religion, modifier: 4 },
-        ],
-      },
+        '<ol><li>You gain 1 additional cantrip</li><li>Bonus +4 to Arcana & Religion checks</li></ol>',
+      effects: [
+        addSkillBonus(Skill.Arcana, 4),
+        addSkillBonus(Skill.Religion, 4),
+      ],
     },
     CHANNEL_DIVINITY,
     {
@@ -181,6 +181,7 @@ export const TaliaData: Character = {
       <li><strong>Spells</strong> You always have the <em>Misty Step</em> spell prepared with 1 free use per Long Rest. Other mark spells are added to your spell casting list</li>
       </ul>
       `,
+      effects: [addSpeed(5)],
     },
     {
       name: 'War Caster',

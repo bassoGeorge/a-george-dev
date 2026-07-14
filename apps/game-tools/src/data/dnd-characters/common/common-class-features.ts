@@ -1,13 +1,19 @@
-import type { Feature } from '@ageorgedev/dnd-character-sheet';
+import {
+  type Feature,
+  grantSkillExpertise,
+  type Skill,
+} from '@ageorgedev/dnd-character-sheet';
 
 export const weaponMastery = (count: number): Feature => ({
   name: 'Weapon Mastery',
   description: `You have mastery over ${count} different weapons. You can choose to switch one mastery to a different weapon on finishing a Long Rest`,
 });
 
-export const expertise = (skills: string): Feature => ({
+export const expertise = (skills: Skill[]): Feature => ({
   name: 'Expertise',
-  description: `You gain expertise in ${skills}`,
+  // todo: grammar
+  description: `You gain expertise in ${skills.join(' and ')}`,
+  effects: skills.map((s) => grantSkillExpertise(s)),
 });
 
 // Fighter
