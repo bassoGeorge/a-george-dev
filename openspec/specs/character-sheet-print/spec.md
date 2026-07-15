@@ -1,4 +1,8 @@
-## ADDED Requirements
+## Purpose
+
+A Print button on individual character-sheet pages that triggers the browser print dialog and is hidden from the printed output itself.
+
+## Requirements
 
 ### Requirement: Print button appears on character sheet pages only
 The header SHALL display a Print button when the user is viewing an individual character sheet page. The button SHALL NOT appear on the character list page or any other page.

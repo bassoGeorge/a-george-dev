@@ -48,4 +48,43 @@ describe('getCharacterBrief', () => {
     expect(multiClass.name).toBe('Aria');
     expect(multiClass.level).toBe(7);
   });
+
+  it('returns species and class names', () => {
+    const brief = getCharacterBrief({
+      ...baseCharacter,
+      classes: [
+        { name: CharacterClass.Fighter, subclass: 'Battlemaster', level: 4 },
+        { name: CharacterClass.Rogue, level: 3 },
+      ],
+    });
+    expect(brief.species).toBe('Elf');
+    expect(brief.classes).toEqual([
+      CharacterClass.Fighter,
+      CharacterClass.Rogue,
+    ]);
+  });
+
+  it('defaults description to species plus subclasses, omitting classes without one', () => {
+    const brief = getCharacterBrief({
+      ...baseCharacter,
+      classes: [
+        { name: CharacterClass.Fighter, subclass: 'Battlemaster', level: 4 },
+        { name: CharacterClass.Rogue, level: 3 },
+      ],
+    });
+    expect(brief.description).toBe('Elf · Battlemaster');
+  });
+
+  it('defaults description to species alone when no class has a subclass', () => {
+    const brief = getCharacterBrief(baseCharacter);
+    expect(brief.description).toBe('Elf');
+  });
+
+  it('preserves customDescription verbatim when set', () => {
+    const brief = getCharacterBrief({
+      ...baseCharacter,
+      customDescription: 'A wizard of some renown',
+    });
+    expect(brief.description).toBe('A wizard of some renown');
+  });
 });

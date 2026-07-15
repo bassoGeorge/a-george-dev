@@ -1,6 +1,6 @@
 # Spec: Smoke Tests
 
-## Overview
+## Purpose
 End-to-end smoke tests that verify the key pages of the site render correctly. Tests run against a configurable base URL, defaulting to localhost for local development.
 
 ---

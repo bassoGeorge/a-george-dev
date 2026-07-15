@@ -2,15 +2,19 @@ import type { Character } from './models';
 
 export function getCharacterBrief(character: Character) {
   const level = character.classes.reduce((acc, { level }) => acc + level, 0);
+  const classes = character.classes.map(({ name }) => name);
   let description = character.customDescription;
   if (!description) {
-    description = `${character.species} ${character.classes
-      .map(({ name, subclass }) => subclass || name)
-      .join(' / ')}`;
+    const subclasses = character.classes
+      .map(({ subclass }) => subclass)
+      .filter((subclass): subclass is string => Boolean(subclass));
+    description = [character.species, ...subclasses].join(' · ');
   }
   return {
     name: character.name,
     level,
+    species: character.species,
+    classes,
     description,
   };
 }

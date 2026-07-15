@@ -1,5 +1,9 @@
-import { createFileRoute, Link } from '@tanstack/react-router';
-import { Fragment } from 'react';
+import {
+  Heading4,
+  InterfaceLg,
+} from '@ageorgedev/design-system/typography/typography-components';
+import { createFileRoute } from '@tanstack/react-router';
+import { CharacterRosterCard } from '../../../../components/dnd/CharacterRosterCard';
 import { AllMyCharactersInBrief } from '../../../../data/dnd-characters';
 
 export const Route = createFileRoute('/_public/dnd/characters/')({
@@ -11,34 +15,48 @@ export const Route = createFileRoute('/_public/dnd/characters/')({
 function RouteComponent() {
   const characterMap = Route.useLoaderData();
 
+  const snapshots = Object.values(characterMap).flatMap((characters) =>
+    characters.map((c) => ({
+      ...c,
+      hasMultipleLevels: characters.length > 1,
+    }))
+  );
+
+  const levels = [...new Set(snapshots.map((s) => s.brief.level))].sort(
+    (a, b) => a - b
+  );
+
   return (
     <div className="p-8">
-      <h1 className="text-2xl font-bold mb-8 text-center">Characters</h1>
+      <Heading4 as="h1" className="text-center mb-8">
+        D&D 5.5e Characters
+      </Heading4>
 
-      <div className="flex flex-col items-center gap-3 text-center">
-        {Object.values(characterMap).map((characters) => {
-          const addLevel = characters.length > 1;
+      <div className="flex flex-col gap-8">
+        {levels.map((level) => {
+          const atLevel = snapshots
+            .filter((s) => s.brief.level === level)
+            .sort((a, b) => a.brief.name.localeCompare(b.brief.name));
+
           return (
-            <Fragment key={characters[0].slug}>
-              {characters.map((c) => (
-                <Link
-                  key={`${c.slug}-${c.brief.level}`}
-                  to={'/dnd/characters/$slug/{-$level}'}
-                  params={{
-                    slug: c.slug,
-                    level: addLevel ? c.brief.level : undefined,
-                  }}
-                  className="block border border-border rounded-lg p-4 hover:bg-accent transition-colors w-fit bg-page-1 hover:bg-page-2"
-                >
-                  <p className="font-bold text-neutral-strong text-md">
-                    {c.brief.name}
-                  </p>
-                  <p className="text text-neutral-subdued mt-1">
-                    Level {c.brief.level} - {c.brief.description}
-                  </p>
-                </Link>
-              ))}
-            </Fragment>
+            <section key={level}>
+              <InterfaceLg as="h2" className="text-neutral-strong mb-3">
+                Level {level}
+              </InterfaceLg>
+              <div className="grid grid-cols-[repeat(auto-fill,minmax(220px,1fr))] gap-4">
+                {atLevel.map((c) => (
+                  <CharacterRosterCard
+                    key={`${c.slug}-${c.brief.level}`}
+                    slug={c.slug}
+                    level={c.hasMultipleLevels ? c.brief.level : undefined}
+                    name={c.brief.name}
+                    species={c.brief.species}
+                    classes={c.brief.classes}
+                    description={c.brief.description}
+                  />
+                ))}
+              </div>
+            </section>
           );
         })}
       </div>

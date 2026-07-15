@@ -1,3 +1,7 @@
+## Purpose
+
+Establishes `apps/game-tools` as its own TanStack Start workspace app on port 3001, with the same theming and prerendering setup as the main site.
+
 ## Requirements
 
 ### Requirement: App exists as a Turborepo workspace package

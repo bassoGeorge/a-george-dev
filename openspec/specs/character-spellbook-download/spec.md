@@ -1,4 +1,8 @@
-## ADDED Requirements
+## Purpose
+
+A header control that lets users download a character's spellbook PDF when the active route exposes a spellbook URL.
+
+## Requirements
 
 ### Requirement: Spellbook download button appears when a character sheet exposes a spellbook URL
 The game-tools `_public.tsx` header SHALL render a Spellbook Download button when the active route hierarchy contains a match whose `staticData.spellBookUrl` is a non-empty string. The button SHALL be positioned in the header controls area beside the existing Print button. The button SHALL NOT appear when no matched route provides a `spellBookUrl`, including on the character list route and on character-sheet routes without a spellbook.

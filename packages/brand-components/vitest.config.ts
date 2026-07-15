@@ -6,6 +6,6 @@ export default defineConfig({
   test: {
     environment: 'jsdom',
     setupFiles: ['@ageorgedev/testing-config/react-jsdom-test-setup.ts'],
-    include: ['src/**/*.spec.{ts,tsx}'],
+    include: ['src/**/*.test.{ts,tsx}'],
   },
 });

@@ -1,4 +1,8 @@
-## ADDED Requirements
+## Purpose
+
+Vitest coverage for the `cn` class-name utility in packages/toolbelt — merging, conditionals, Tailwind conflict resolution, and clsx-style inputs.
+
+## Requirements
 
 ### Requirement: cn merges multiple class strings
 `cn()` SHALL accept multiple string arguments and return them joined as a single class string.

@@ -1,4 +1,8 @@
-## ADDED Requirements
+## Purpose
+
+Vitest coverage for the character-sheet package's presentational components (AttackList, SpellList, AbilityBox, CharacterSheet context).
+
+## Requirements
 
 ### Requirement: AttackList renders nothing when no attacks
 AttackList SHALL return null and render no DOM when the character has an empty attacks array.

@@ -1,4 +1,8 @@
-## ADDED Requirements
+## Purpose
+
+A typed `Size` union replacing raw strings for character creature size.
+
+## Requirements
 
 ### Requirement: Size union type exists
 The package SHALL export a `Size` type as a string union covering all six D&D 5e creature sizes: `'Tiny' | 'Small' | 'Medium' | 'Large' | 'Huge' | 'Gargantuan'`.

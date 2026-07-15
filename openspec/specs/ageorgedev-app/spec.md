@@ -1,3 +1,7 @@
+## Purpose
+
+Keeps the ageorgedev app free of any dependency on the D&D character-sheet package, now that game-tools owns that domain.
+
 ## Requirements
 
 ### Requirement: ageorgedev has no dependency on dnd-character-sheet

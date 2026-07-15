@@ -1,4 +1,8 @@
-## ADDED Requirements
+## Purpose
+
+Vitest test infrastructure and coverage for the brand-components package, starting with the TwLogo component.
+
+## Requirements
 
 ### Requirement: brand-components package has vitest test infrastructure
 The `packages/brand-components` package SHALL have a `vitest.config.ts` configured with `jsdom` environment and `@ageorgedev/testing-config/react-jsdom-test-setup.ts` as its setup file. The `package.json` SHALL include a `"test": "vitest run"` script and declare `vitest`, `@testing-library/react`, `@testing-library/jest-dom`, and `@ageorgedev/testing-config` as dev dependencies.

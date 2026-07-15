@@ -1,6 +1,6 @@
 # CI Matrix Deploy
 
-## Overview
+## Purpose
 
 This spec defines the requirements for simplifying GitHub Actions CI workflows to use matrix-based deployments, removing hotfix-related logic, and centralising deploy behaviour into a reusable workflow.
 

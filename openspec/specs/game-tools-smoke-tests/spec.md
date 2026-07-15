@@ -1,6 +1,6 @@
 # Game Tools Smoke Tests
 
-## Overview
+## Purpose
 
 This spec defines smoke tests for the `game-tools` application, verifying that core pages render correctly and that the app is functional end-to-end. These tests are separate from the main site smoke tests and target the game-tools app specifically.
 

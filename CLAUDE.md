@@ -98,6 +98,11 @@ CSS design tokens live in `packages/foundation-styles/src/theme.css`. Tailwind v
 - **Production**: Deploys on push to `main`
 - **Linting**: Biome — run `yarn format-and-lint` locally, `yarn lint:ci` in CI
 
+### Testing Conventions
+
+- **Vitest unit tests** use `*.test.ts` / `*.test.tsx`, co-located next to the source file they cover.
+- **Playwright e2e tests** (`apps/ageorgedev-e2e`, `apps/game-tools-e2e`) use `*.spec.ts` under `tests/` — a distinct convention from unit tests, matching Playwright's own default.
+
 ### Key Path Aliases
 
 ```

@@ -1,4 +1,8 @@
-## ADDED Requirements
+## Purpose
+
+Replaces Mustache-style templating with EJS so feature, feat, and species-trait descriptions can use full JavaScript expressions, not just property lookups.
+
+## Requirements
 
 ### Requirement: EJS renders expression templates in descriptions
 The package SHALL use EJS to render template strings in feature, feat, and species trait descriptions. Templates SHALL support full JavaScript expressions, not just property lookups.

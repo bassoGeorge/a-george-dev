@@ -1,4 +1,8 @@
-## ADDED Requirements
+## Purpose
+
+Migrates character files to reference the generated `SPELL` map instead of hand-written spell literals, adding any missing spells to the CSV first.
+
+## Requirements
 
 ### Requirement: Character files reference SPELL map instead of hand-writing spells
 Character data files SHALL reference the generated `SPELL` map (from `@ageorgedev/dnd-character-sheet`) for all spells that exist in `spells-2024.csv`, rather than duplicating spell definition fields inline.

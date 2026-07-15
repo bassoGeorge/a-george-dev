@@ -1,3 +1,9 @@
+## Purpose
+
+A shared registry of feats, class features, and species traits so identical or parameterised character content is defined once and imported, not duplicated across character files.
+
+## Requirements
+
 ### Requirement: Shared feat registry
 The system SHALL provide a single module (`apps/game-tools/src/data/dnd-characters/common/common-feats.ts`) that exports every feat used by two or more character data files as a named `Feature` constant. Character data files SHALL import these constants rather than inline feat definitions.
 

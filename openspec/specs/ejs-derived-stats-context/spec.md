@@ -1,4 +1,8 @@
-## ADDED Requirements
+## Purpose
+
+Exposes computed resource counts and dice, keyed by id, to EJS description templates alongside the existing derived-stats locals.
+
+## Requirements
 
 ### Requirement: EJS context exposes computed resources keyed by id
 In addition to the spread of `DerivedStats`, the EJS render context SHALL include a `resources` object keyed by each `ComputedResource`'s `id`, so feature/feat/species-trait description templates can reference computed count and die values.

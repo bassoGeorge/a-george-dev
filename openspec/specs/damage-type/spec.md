@@ -1,4 +1,8 @@
-## ADDED Requirements
+## Purpose
+
+A typed `DamageType` union replacing raw strings for attack damage types, with existing character data corrected to match.
+
+## Requirements
 
 ### Requirement: DamageType union type exists
 The package SHALL export a `DamageType` type as a string union covering all 13 D&D 5e damage types: `'Acid' | 'Bludgeoning' | 'Cold' | 'Fire' | 'Force' | 'Lightning' | 'Necrotic' | 'Piercing' | 'Poison' | 'Psychic' | 'Radiant' | 'Slashing' | 'Thunder'`.
