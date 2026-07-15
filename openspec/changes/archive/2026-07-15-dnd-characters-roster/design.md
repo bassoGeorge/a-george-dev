@@ -43,11 +43,13 @@ Since class names now appear as badges, repeating them in the description line w
 
 With badges/species added, cards carry more content than the current single-line link. A responsive wrap/grid (e.g. 2-3 per row on desktop, 1 on mobile) lets players scan more snapshots per screen within a level section than a strict single column.
 
-### 5. Roster card is built on top of the shared `Card` component, not a bare `<a>`/`<div>`
+### 5. Roster card is built on top of the shared `TiltCard` component, not a bare `<a>`/`<div>`
 
-`packages/design-system/src/cards/Card.tsx` already provides the bordered/shadowed rectangular treatment (`border-line`, `border-2`, `shadow-normal`) used elsewhere in the design system. The new roster card component SHALL render `<Card>` as its root element (passed through `className` for the internal flex layout: name, species, badge row, description) rather than reimplementing border/shadow styling from scratch. `Card` takes arbitrary `HTMLProps<HTMLDivElement>`, so the clickable behavior wraps a `Link` around (or the `Card` renders inside a `Link`, whichever keeps a single focusable/interactive element) — no new border/shadow primitive is introduced.
+`packages/design-system/src/cards/TiltCard.tsx` already provides a bordered, shadowed, interactive card treatment (`elv-raised-md`, `bg-line` border, `interactive` hover-lift via `elv-raised-lg` + `-translate-y-2`) used elsewhere in the app (e.g. the talks list on the main site). The new roster card component SHALL render `<TiltCard>` as its root element — `interactive` enabled for the hover/press affordance, no `shape` (so it renders as a plain rectangle, since `TiltCard`'s skew classes only apply when a `shape` is set) — passing `className` for the internal flex layout (name, species, badge row, description) rather than reimplementing border/shadow/hover styling from scratch. The clickable behavior wraps a `Link` around the card so there's a single focusable/interactive element.
 
-**Alternative considered**: a bespoke card `div` with its own border/shadow classes (as sketched in the exploratory mockup) — rejected once implementation-time review flagged that `Card` already exists and should be reused for visual consistency and to avoid drift between roster cards and cards elsewhere in the app.
+**Alternatives considered**:
+- A bespoke card `div` with its own border/shadow classes (as sketched in the exploratory mockup) — rejected, duplicates styling that already exists in the design system.
+- `packages/design-system/src/cards/Card.tsx` (a simpler bordered/shadowed `div` with no interactive hover state) — this was the original choice, corrected after the fact in favor of `TiltCard` since it already provides the interactive hover-lift affordance a clickable roster card wants, and matches the pattern already used for other link-cards in the app (e.g. `apps/ageorgedev`'s talks list).
 
 ## Risks / Trade-offs
 

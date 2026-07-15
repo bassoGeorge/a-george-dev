@@ -39,9 +39,13 @@ Cards within a level section SHALL render in a responsive grid/wrap layout, rath
 - **WHEN** a level section contains more cards than fit in one row at the current viewport width
 - **THEN** cards wrap onto additional rows within that section
 
-### Requirement: Roster cards reuse the shared Card component
-Each roster card SHALL render `packages/design-system/src/cards/Card.tsx` as its root element rather than a bespoke bordered/shadowed element, so roster cards stay visually consistent with `Card` usage elsewhere in the app.
+### Requirement: Roster cards reuse the shared TiltCard component
+Each roster card SHALL render `packages/design-system/src/cards/TiltCard.tsx` as its root element, with `interactive` enabled and no `shape` set (rendering as a plain rectangle), rather than a bespoke bordered/shadowed element — so roster cards stay visually consistent with `TiltCard` usage elsewhere in the app.
 
 #### Scenario: Card styling comes from the shared component
 - **WHEN** a roster card is rendered
-- **THEN** its border and shadow styling are inherited from `Card`, not redefined locally
+- **THEN** its border, shadow, and hover-lift styling are inherited from `TiltCard`, not redefined locally
+
+#### Scenario: Roster card has no skewed shape
+- **WHEN** a roster card is rendered
+- **THEN** no `shape` prop is passed to `TiltCard`, so the card renders as a plain rectangle

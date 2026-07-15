@@ -28,5 +28,5 @@ The `/dnd/characters` list today is a flat, single-column list of link cards sho
 
 - `packages/dnd-character-sheet/src/lib/character-brief.ts` — extend return shape and change default description format
 - `apps/game-tools/src/routes/_public/dnd/characters/index.tsx` — rewrite to group by level, render grid of cards with badges
-- New UI: a roster card component (name, species, class badges, description), built on top of `packages/design-system/src/cards/Card.tsx` (not a bespoke bordered `div`), colocated under `apps/game-tools/src/components/` per existing convention
+- New UI: a roster card component (name, species, class badges, description), built on top of `packages/design-system/src/cards/TiltCard.tsx` (`interactive`, no `shape` — not a bespoke bordered `div`), colocated under `apps/game-tools/src/components/` per existing convention
 - No changes to `apps/game-tools/src/data/dnd-characters/index.ts` (already has one entry per saved snapshot, keyed appropriately) or to the underlying `Character` model
