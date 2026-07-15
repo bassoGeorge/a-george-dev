@@ -1,3 +1,4 @@
+import { TiltCard } from '@ageorgedev/design-system/cards/TiltCard';
 import { ThemeSwitcher } from '@ageorgedev/design-system/theming/ThemeSwitcher';
 import { createFileRoute, Link, Outlet } from '@tanstack/react-router';
 import { DndHeaderActions } from '../components/DndHeaderActions';
@@ -10,16 +11,25 @@ export const Route = createFileRoute('/_public')({
 function RouteComponent() {
   return (
     <>
-      <header className="print:hidden flex items-center justify-between gap-4 px-4 py-3 border-b border-border">
-        <div className="flex items-baseline gap-4 flex-1">
-          <Link to="/" className="font-bold text-lg">
-            Game Tools
-          </Link>
-          <HeaderBreadcrumbs />
-        </div>
-        <DndHeaderActions />
-        <ThemeSwitcher />
-      </header>
+      <TiltCard
+        border="bottom"
+        outerClassName="print:hidden z-50 relative"
+        className="px-3 py-4"
+      >
+        <header className="flex items-center justify-between gap-4 ">
+          <div className="flex items-baseline gap-4 flex-1">
+            <Link
+              to="/"
+              className="font-heading font-bold text-xl text-primary-foreground"
+            >
+              Game Tools
+            </Link>
+            <HeaderBreadcrumbs />
+          </div>
+          <DndHeaderActions />
+          <ThemeSwitcher />
+        </header>
+      </TiltCard>
       <main>
         <Outlet />
       </main>
