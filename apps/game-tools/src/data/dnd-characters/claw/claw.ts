@@ -4,6 +4,8 @@ import {
   type Character,
   CharacterClass,
   Skill,
+  SPELL,
+  withSpellMods,
 } from '@ageorgedev/dnd-character-sheet';
 import { ALERT, darkvision, expertise, weaponMastery } from '../common';
 
@@ -37,7 +39,7 @@ export const ClawData: Character = {
     Skill.Deception,
     Skill.Intimidation,
   ],
-  skillExpertise: [Skill.Perception, Skill.Stealth],
+  skillExpertise: [],
   baseArmorClass: 14,
   speed: 30,
   hitPoints: {
@@ -97,7 +99,7 @@ export const ClawData: Character = {
     'Potion of healing = 1',
   ],
   features: [
-    expertise('Stealth and Perception'),
+    expertise([Skill.Stealth, Skill.Perception]),
     {
       name: 'Sneak Attack',
       description:
@@ -185,52 +187,17 @@ export const ClawData: Character = {
     numberOfCantrips: 3,
     numberOfPreparedSpells: 3,
     spells: [
-      {
-        name: 'Mage Hand',
-        level: 0,
-        castingTime: 'Bonus Action',
-        range: '30ft',
-        duration: '1min',
-      },
-      {
-        name: 'Mind Sliver',
-        level: 0,
-        castingTime: 'Action',
-        range: '60ft',
-        duration: 'round',
-      },
-      {
-        name: 'Minor Illusion',
-        level: 0,
-        castingTime: 'Action',
-        range: '30ft',
-        duration: '1min',
-      },
-      {
-        name: 'Charm Person',
-        level: 1,
+      withSpellMods(SPELL.MageHand, {
+        notes: 'Cast as Bonus Action via Mage Hand Legerdemain',
+      }),
+      SPELL.MindSliver,
+      SPELL.MinorIllusion,
+      withSpellMods(SPELL.CharmPerson, { alwaysPrepared: true }),
+      withSpellMods(SPELL.MagicMissile, {
         alwaysPrepared: true,
-        castingTime: 'Action',
-        range: '30ft',
-        duration: '1hr',
-      },
-      {
-        name: 'Magic Missile',
-        level: 1,
-        alwaysPrepared: true,
-        castingTime: 'Action',
-        range: '120ft',
         notes: '3 darts, 1d4+1 force damage',
-      },
-      {
-        name: 'Fog Cloud',
-        level: 1,
-        alwaysPrepared: true,
-        concentration: true,
-        castingTime: 'Action',
-        range: '120ft',
-        duration: '1hr',
-      },
+      }),
+      withSpellMods(SPELL.FogCloud, { alwaysPrepared: true }),
     ],
   },
 };

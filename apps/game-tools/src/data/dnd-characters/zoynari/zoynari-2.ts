@@ -4,8 +4,10 @@ import {
   type Character,
   CharacterClass,
   Skill,
+  SPELL,
+  withSpellMods,
 } from '@ageorgedev/dnd-character-sheet';
-import { CHANNEL_DIVINITY } from '../common';
+import { CHANNEL_DIVINITY, DIVINE_ORDER_THAUMATURGE } from '../common';
 
 export const Zoynari2Data: Character = {
   name: 'Zoynari',
@@ -85,18 +87,7 @@ export const Zoynari2Data: Character = {
     'Holy Symbol (spellcasting focus)',
   ],
   features: [
-    {
-      name: 'Divine Order: Thaumaturge',
-      description:
-        '<ol><li>You gain 1 additional cantrip</li><li>Bonus +3 to Arcana & Religion checks (already considered in this sheet)</li></ol>',
-      statMod: {
-        kind: 'static-skill-additions',
-        mods: [
-          { skill: Skill.Arcana, modifier: 3 },
-          { skill: Skill.Religion, modifier: 3 },
-        ],
-      },
-    },
+    DIVINE_ORDER_THAUMATURGE,
     CHANNEL_DIVINITY,
     {
       name: 'Divine Spark',
@@ -154,7 +145,7 @@ export const Zoynari2Data: Character = {
   languages: ['Common', 'Quori'],
   spellcasting: {
     ability: Ability.Wisdom,
-    numberOfCantrips: 4,
+    numberOfCantrips: 3,
     numberOfPreparedSpells: 5,
     spellChangeTrait:
       'You can change prepared spells after a Long Rest. Use the cleric list.',
@@ -162,62 +153,15 @@ export const Zoynari2Data: Character = {
       1: 3,
     },
     spells: [
-      {
-        name: 'Guidance',
-        level: 0,
-        range: 'Touch',
-        duration: '1min',
-        concentration: true,
-      },
-      {
-        name: 'Sacred Flame',
-        level: 0,
-        range: '60ft',
-        notes: 'Dex. save, 1d8 Radiant',
-      },
-      {
-        name: 'Thaumaturgy',
-        level: 0,
-        range: '30ft',
-      },
-      {
-        name: 'Toll the Dead',
-        level: 0,
-        range: '60ft',
-        notes: 'Wis. save',
-      },
-      {
-        name: 'Bless',
-        level: 1,
-        range: '30ft',
-        concentration: true,
-      },
-      {
-        name: 'Cure Wounds',
-        level: 1,
-        range: 'Touch',
-        notes: '2d8+3 healing',
-      },
-      {
-        name: 'Healing Word',
-        level: 1,
-        castingTime: 'Bonus Action',
-        range: '60ft',
-        notes: '2d4+3 healing',
-      },
-      {
-        name: 'Shield of Faith',
-        level: 1,
-        range: '60ft',
-        duration: '10min',
-        concentration: true,
-      },
-      {
-        name: 'Guiding Bolt',
-        level: 1,
-        range: '120ft',
-        notes: 'ranged attack, 4d6 Radiant',
-      },
+      SPELL.Guidance,
+      withSpellMods(SPELL.SacredFlame, { notes: 'Dex. save, 1d8 Radiant' }),
+      SPELL.Thaumaturgy,
+      withSpellMods(SPELL.TollTheDead, { notes: 'Wis. save' }),
+      SPELL.Bless,
+      withSpellMods(SPELL.CureWounds, { notes: '2d8+3 healing' }),
+      withSpellMods(SPELL.HealingWord, { notes: '2d4+3 healing' }),
+      SPELL.ShieldOfFaith,
+      withSpellMods(SPELL.GuidingBolt, { notes: 'ranged attack, 4d6 Radiant' }),
     ],
   },
   appearance: `

@@ -1,6 +1,7 @@
 import {
   Ability,
   ArmorProficiency,
+  addSpeed,
   type Character,
   CharacterClass,
   Skill,
@@ -9,6 +10,7 @@ import {
   withSpellMods,
 } from '@ageorgedev/dnd-character-sheet';
 import { CHANNEL_DIVINITY } from '../common';
+import { DIVINE_ORDER_THAUMATURGE } from '../common/common-class-features';
 
 export const TaliaData: Character = {
   name: "Talia d'Orien",
@@ -41,7 +43,7 @@ export const TaliaData: Character = {
   skillExpertise: [],
   baseArmorClass: 14,
   isWieldingShield: true,
-  speed: 35,
+  speed: 30,
   hitPoints: {
     maximum: 38,
   },
@@ -92,18 +94,7 @@ export const TaliaData: Character = {
     'Holy Symbol (spellcasting focus)',
   ],
   features: [
-    {
-      name: 'Divine Order: Thaumaturge',
-      description:
-        '<ol><li>You gain 1 additional cantrip</li><li>Bonus +4 to Arcana & Religion checks (already considered in this sheet)</li></ol>',
-      statMod: {
-        kind: 'static-skill-additions', // TODO: really, this is the current modifier
-        mods: [
-          { skill: Skill.Arcana, modifier: 4 },
-          { skill: Skill.Religion, modifier: 4 },
-        ],
-      },
-    },
+    DIVINE_ORDER_THAUMATURGE,
     CHANNEL_DIVINITY,
     {
       name: 'Divine Spark',
@@ -181,6 +172,7 @@ export const TaliaData: Character = {
       <li><strong>Spells</strong> You always have the <em>Misty Step</em> spell prepared with 1 free use per Long Rest. Other mark spells are added to your spell casting list</li>
       </ul>
       `,
+      effects: [addSpeed(5)],
     },
     {
       name: 'War Caster',
@@ -215,7 +207,7 @@ export const TaliaData: Character = {
   `,
   spellcasting: {
     ability: Ability.Wisdom,
-    numberOfCantrips: 5,
+    numberOfCantrips: 4,
     numberOfPreparedSpells: 9,
     spellChangeTrait:
       'You can change any number of prepared spells after a Long Rest. Choose from the spells given here.',

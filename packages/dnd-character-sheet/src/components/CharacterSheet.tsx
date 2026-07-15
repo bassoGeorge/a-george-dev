@@ -1,5 +1,5 @@
 import { createContext, useContext, useMemo } from 'react';
-import { calculateStats } from '../lib/calculate-derived-stats';
+import { computeCharacterAndStats } from '../lib/calculate-derived-stats';
 import {
   type ComputedResource,
   computeResources,
@@ -32,13 +32,19 @@ interface CharacterSheetProps {
 }
 
 export function CharacterSheet({ data, children }: CharacterSheetProps) {
-  const stats = useMemo(() => calculateStats(data), [data]);
+  const { character: effectiveCharacter, stats } = useMemo(
+    () => computeCharacterAndStats(data),
+    [data]
+  );
 
-  const resources = useMemo(() => computeResources(data, stats), [data, stats]);
+  const resources = useMemo(
+    () => computeResources(effectiveCharacter, stats),
+    [effectiveCharacter, stats]
+  );
 
   const character = useMemo(
-    () => enrichCharacterData(data, stats, resources),
-    [data, stats, resources]
+    () => enrichCharacterData(effectiveCharacter, stats, resources),
+    [effectiveCharacter, stats, resources]
   );
 
   const value = useMemo(
