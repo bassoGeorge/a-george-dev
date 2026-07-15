@@ -1,4 +1,8 @@
-## ADDED Requirements
+## Purpose
+
+Vitest test infrastructure and coverage for the reveal-framework package's presentation components and the useRevealFramework hook.
+
+## Requirements
 
 ### Requirement: reveal-framework package has vitest test infrastructure
 The `packages/reveal-framework` package SHALL have a `vitest.config.ts` configured with `jsdom` environment and `@ageorgedev/testing-config/react-jsdom-test-setup.ts` as its setup file. The `package.json` SHALL include a `"test": "vitest run"` script and the required vitest dev dependencies.

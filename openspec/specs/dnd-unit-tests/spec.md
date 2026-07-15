@@ -1,4 +1,8 @@
-## ADDED Requirements
+## Purpose
+
+Vitest coverage for the character-sheet package's derived-stat calculations, formatting helpers, and character-brief/EJS enrichment logic.
+
+## Requirements
 
 ### Requirement: abilityModifier returns correct modifier for any ability score
 The system SHALL convert D&D ability scores to modifiers using `Math.floor((score - 10) / 2)`, covering the full valid range.

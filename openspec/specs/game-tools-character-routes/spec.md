@@ -1,3 +1,7 @@
+## Purpose
+
+Routes the D&D character list and individual character sheets under the game-tools app's shared navigation layout, sourced from a centralized character data map.
+
 ## Requirements
 
 ### Requirement: Character routes render inside the shared nav layout

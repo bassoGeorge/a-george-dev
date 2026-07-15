@@ -1,3 +1,7 @@
+## Purpose
+
+Consolidates all per-project preview deploy URLs for a PR into a single, continuously-updated comment instead of one comment per project.
+
 ## Requirements
 
 ### Requirement: Matrix deploy jobs relay their URL via artifact

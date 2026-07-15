@@ -1,3 +1,9 @@
+## Purpose
+
+A `VisualAdjustmentsContext` that lets per-character layout tuning (spell/inventory/notes row counts, spell list mode, combined species/feats panel) flow to descendant components without prop drilling.
+
+## Requirements
+
 ### Requirement: StandardCharacterSheet accepts visualAdjustments prop
 `StandardCharacterSheet` SHALL accept an optional `visualAdjustments` prop of shape `{ spellRows?: number; inventoryRows?: number; notesRows?: number; spellListMode?: 'table' | 'grouped' }`. When not provided, it SHALL default to `{ spellRows: 30, inventoryRows: 10, notesRows: 10, spellListMode: 'table' }`.
 

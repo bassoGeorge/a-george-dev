@@ -1,6 +1,6 @@
 ## Purpose
 
-TBD
+The character roster page at `/dnd/characters` groups saved character snapshots by level and renders them as cards in a responsive grid, reusing the shared TiltCard component.
 
 ## Requirements
 

@@ -1,3 +1,7 @@
+## Purpose
+
+A print-friendly example character-sheet route that renders the shared character-sheet component without app chrome.
+
 ## Requirements
 
 ### Requirement: Character sheet route exists at /dnd/characters/example

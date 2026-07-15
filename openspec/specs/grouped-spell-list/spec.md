@@ -1,3 +1,9 @@
+## Purpose
+
+A grouped, 3-column spell list layout (by level, with prepared/CRM/notes formatting) as an alternative to the standard tabular SpellList.
+
+## Requirements
+
 ### Requirement: GroupedSpellList renders spells grouped by level
 `GroupedSpellList` SHALL render spells from `spellcasting.spells` grouped into level sections. Each section SHALL have a heading: `"Cantrips"` for level 0, `"Level N"` for levels 1–9. Sections SHALL be ordered from lowest level to highest.
 

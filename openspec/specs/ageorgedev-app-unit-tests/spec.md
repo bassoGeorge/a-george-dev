@@ -1,4 +1,8 @@
-## ADDED Requirements
+## Purpose
+
+Vitest test infrastructure and coverage for the ageorgedev app's page-level and shared UI components (Skill, SocialLink, HomeAboveFold).
+
+## Requirements
 
 ### Requirement: ageorgedev app has vitest test infrastructure
 The `apps/ageorgedev` app SHALL have a `vitest.config.ts` configured with `jsdom` environment and `@ageorgedev/testing-config/react-jsdom-test-setup.ts` as its setup file. The `package.json` SHALL include a `"test": "vitest run"` script and the required vitest dev dependencies.

@@ -1,4 +1,8 @@
-## ADDED Requirements
+## Purpose
+
+A typed `ArmorProficiency` union, with an iterable value list, replacing raw strings for character armor proficiencies.
+
+## Requirements
 
 ### Requirement: ArmorProficiency constant and type exist
 The package SHALL export an `ArmorProficiency` `as const` object and a derived `ArmorProficiency` type, following the same pattern as `Skill` in `models/skills.ts`. The object SHALL have four entries: `LightArmor`, `MediumArmor`, `HeavyArmor`, and `Shield`, with title-case display labels as values.

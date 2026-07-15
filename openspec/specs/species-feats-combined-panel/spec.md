@@ -1,3 +1,9 @@
+## Purpose
+
+An alternate single-panel, two-column layout that combines species traits and feats into one section, toggled by a visual adjustment flag.
+
+## Requirements
+
 ### Requirement: SpeciesAndFeatsCombined renders a single panel with columns-2 layout
 The `SpeciesAndFeatsCombined` component SHALL render a single `Panel` with title "Species Traits & Feats" and a `columns-2` CSS columns layout. It SHALL read `character.speciesTraits` and `character.feats` from context, merge them in that order, and pass the combined array to `FeatureList`.
 

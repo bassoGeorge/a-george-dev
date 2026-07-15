@@ -1,4 +1,8 @@
-## ADDED Requirements
+## Purpose
+
+Migrates D&D character-sheet components off raw Tailwind palette classes and local sheet tokens onto foundation-styles semantic color tokens.
+
+## Requirements
 
 ### Requirement: Component colors use foundation-styles tokens
 All color classes in `packages/dnd-character-sheet` components SHALL reference foundation-styles semantic Tailwind classes or swatch arbitrary-value syntax. Raw Tailwind palette classes (e.g. `text-gray-400`, `bg-green-500`, `border-red-800`) SHALL NOT appear in any component file.

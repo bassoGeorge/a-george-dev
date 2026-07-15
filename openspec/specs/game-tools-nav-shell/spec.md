@@ -1,3 +1,7 @@
+## Purpose
+
+The shared navigation layout for game-tools — header, breadcrumbs, and DnD-specific header actions (print/spellbook) — used by all public routes, with the header hidden on print.
+
 ## Requirements
 
 ### Requirement: App has a shared layout route with a navigation header

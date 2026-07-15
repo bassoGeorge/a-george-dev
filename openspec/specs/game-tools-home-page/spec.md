@@ -1,3 +1,7 @@
+## Purpose
+
+A game-tools home page that links into the DnD Characters section and renders inside the shared nav layout.
+
 ## Requirements
 
 ### Requirement: Home page has a DnD Characters section

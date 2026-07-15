@@ -1,4 +1,8 @@
-## ADDED Requirements
+## Purpose
+
+Establishes `@ageorgedev/dnd-character-sheet` as its own workspace package (build, tokens, fonts, exports) and defines the character-effects pipeline, resource rendering, and EJS-based feature-text templating it provides.
+
+## Requirements
 
 ### Requirement: Package exists as a workspace member
 The monorepo SHALL include a package at `packages/dnd-character-sheet/` registered as `@ageorgedev/dnd-character-sheet` with a `package.json` that follows the workspace conventions used by other packages (`@ageorgedev/design-system`, `@ageorgedev/toolbelt`, etc.).
@@ -160,25 +164,3 @@ The package SHALL enrich feature, feat, and species trait descriptions at render
 #### Scenario: Feature description with arithmetic expression
 - **WHEN** a feature's `description` contains `<%= level.total * 10 %>`
 - **THEN** the rendered description shows the computed numeric result
-
-## REMOVED Requirements
-
-### Requirement: Feature text supports Mustache template substitution
-**Reason**: Replaced by EJS template rendering, which supports full JavaScript expressions that Mustache cannot evaluate.
-**Migration**: Replace `{{variable}}` syntax with `<%= variable %>` in all description strings.
-
-### Requirement: Feature.statMod supports three variants for stat modification
-
-**Reason**: Collapsed into the new two-kind `Effect` union. The `static-skill-additions` variant is replaced by `addSkillBonus(skill, amount)` (a derived-effect helper). The `skill-function` variant is removed entirely — it had zero call sites and the case it was designed for (Bard's Jack of all trades) already used `generic-derived`. The `generic-derived` variant becomes `derivedEffect(fn)`, with the closure now receiving `{ character, stats }` instead of just `stats`.
-
-**Migration**:
-- `statMod: { kind: 'static-skill-additions', mods: [{ skill, modifier }, ...] }` → `effects: [addSkillBonus(skill, modifier), ...]`
-- `statMod: { kind: 'skill-function', mod }` → rewrite as `effects: [derivedEffect(({ stats }) => ...)]`, iterating `stats.skills` directly and using `stats.skills[skill].quality` in place of the `isProficient`/`hasExpertise` args.
-- `statMod: { kind: 'generic-derived', mod }` → `effects: [derivedEffect(({ stats }) => mod(stats))]`. Update to also destructure `character` if needed.
-
-### Requirement: Derived stats include hit dice per class
-The `calculateDerivedStats` function SHALL compute hit dice for each character class, mapping each class to its canonical die size (d6–d12) and including the class level as the dice count.
-
-#### Scenario: Hit dice are calculated
-- **WHEN** `calculateDerivedStats` is called for a character with one or more classes
-- **THEN** `derivedStats.hitDice` contains one entry per class with `count` equal to the class level and `dice` equal to the class's hit die size

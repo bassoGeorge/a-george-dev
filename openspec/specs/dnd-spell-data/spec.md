@@ -1,5 +1,11 @@
 # dnd-spell-data
 
+## Purpose
+
+A single CSV source of truth for 5e spell data, codegen'd into a typed `SPELL` map with CI drift checks and a `withSpellMods` overlay for character-side overrides.
+
+## Requirements
+
 ### Requirement: Canonical spells CSV lives in the character-sheet package
 The 2024 spells CSV SHALL reside at `packages/dnd-character-sheet/src/lib/data/spells-2024.csv` as the single source of truth for spell definitions.
 

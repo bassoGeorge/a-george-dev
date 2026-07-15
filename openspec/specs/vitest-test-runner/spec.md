@@ -1,4 +1,8 @@
-## ADDED Requirements
+## Purpose
+
+Migrates the monorepo's test runner from Jest to Vitest across packages, with jsdom/node environments configured per package.
+
+## Requirements
 
 ### Requirement: Vitest is configured in packages/toolbelt
 `packages/toolbelt` SHALL have a `vitest.config.ts` that runs spec files with the `node` environment and its `package.json` `test` script SHALL invoke `vitest run`.
