@@ -42,12 +42,12 @@ export function CharacterRosterCard({
       >
         <PrimaryClassIcon
           className={cn(
-            '-right-10 -translate-y-1/2 pointer-events-none absolute top-1/2 -z-10 h-56 w-56 opacity-10',
+            'right-0 pointer-events-none absolute top-0 -z-10 h-9 opacity-20',
             CLASS_COLORS[primaryClass]
           )}
         />
         <BodyMd className="font-bold text-neutral-strong">{name}</BodyMd>
-        <p className="text-xs text-sm italic text-neutral-disabled">
+        <p className="text-xs text-sm italic text-neutral-subdued">
           {description ?? species}
         </p>
         <div className="flex flex-wrap gap-1">
