@@ -9,6 +9,7 @@ export {
   ArtificerIcon,
   BarbarianIcon,
   BardIcon,
+  CLASS_COLORS,
   CLASS_ICONS,
   type ClassIconComponent,
   type ClassIconProps,

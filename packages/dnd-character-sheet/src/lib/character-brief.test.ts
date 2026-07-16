@@ -87,4 +87,31 @@ describe('getCharacterBrief', () => {
     });
     expect(brief.description).toBe('A wizard of some renown');
   });
+
+  it('resolves primaryClass to the only class for single-class characters', () => {
+    const brief = getCharacterBrief(baseCharacter);
+    expect(brief.primaryClass).toBe(CharacterClass.Wizard);
+  });
+
+  it('resolves primaryClass to the highest-level class when levels differ', () => {
+    const brief = getCharacterBrief({
+      ...baseCharacter,
+      classes: [
+        { name: CharacterClass.Monk, level: 2 },
+        { name: CharacterClass.Fighter, level: 3 },
+      ],
+    });
+    expect(brief.primaryClass).toBe(CharacterClass.Fighter);
+  });
+
+  it('resolves primaryClass to the first-declared class when levels tie', () => {
+    const brief = getCharacterBrief({
+      ...baseCharacter,
+      classes: [
+        { name: CharacterClass.Fighter, level: 3 },
+        { name: CharacterClass.Rogue, level: 3 },
+      ],
+    });
+    expect(brief.primaryClass).toBe(CharacterClass.Fighter);
+  });
 });

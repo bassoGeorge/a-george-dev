@@ -52,6 +52,7 @@ function RouteComponent() {
                     name={c.brief.name}
                     species={c.brief.species}
                     classes={c.brief.classes}
+                    primaryClass={c.brief.primaryClass}
                     description={c.brief.description}
                   />
                 ))}

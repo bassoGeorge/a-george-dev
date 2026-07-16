@@ -1,5 +1,11 @@
 import { TiltCard } from '@ageorgedev/design-system/cards/TiltCard';
 import { BodyMd } from '@ageorgedev/design-system/typography/typography-components';
+import {
+  type CharacterClass,
+  CLASS_COLORS,
+  CLASS_ICONS,
+} from '@ageorgedev/dnd-character-sheet';
+import { cn } from '@ageorgedev/toolbelt/cn';
 import { Link } from '@tanstack/react-router';
 
 type CharacterRosterCardProps = {
@@ -8,6 +14,7 @@ type CharacterRosterCardProps = {
   name: string;
   species: string;
   classes: string[];
+  primaryClass: CharacterClass;
   description?: string;
 };
 
@@ -17,8 +24,11 @@ export function CharacterRosterCard({
   name,
   species,
   classes,
+  primaryClass,
   description,
 }: CharacterRosterCardProps) {
+  const PrimaryClassIcon = CLASS_ICONS[primaryClass];
+
   return (
     <Link
       to="/dnd/characters/$slug/{-$level}"
@@ -28,8 +38,14 @@ export function CharacterRosterCard({
       <TiltCard
         interactive
         outerClassName="h-full"
-        className="flex h-full flex-col gap-2 p-4"
+        className="relative isolate flex h-full flex-col gap-2 p-4"
       >
+        <PrimaryClassIcon
+          className={cn(
+            '-right-10 -translate-y-1/2 pointer-events-none absolute top-1/2 -z-10 h-56 w-56 opacity-10',
+            CLASS_COLORS[primaryClass]
+          )}
+        />
         <BodyMd className="font-bold text-neutral-strong">{name}</BodyMd>
         <p className="text-xs text-sm italic text-neutral-disabled">
           {description ?? species}
