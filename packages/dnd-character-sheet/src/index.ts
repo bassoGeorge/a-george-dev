@@ -5,6 +5,24 @@ export { ExampleSheet } from './characters/example';
 export { StandardCharacterSheet } from './components/StandardCharacterSheet/StandardCharacterSheet';
 
 export type { VisualAdjustments } from './components/VisualAdjustmentsContext';
+export {
+  ArtificerIcon,
+  BarbarianIcon,
+  BardIcon,
+  CLASS_ICONS,
+  type ClassIconComponent,
+  type ClassIconProps,
+  ClericIcon,
+  DruidIcon,
+  FighterIcon,
+  MonkIcon,
+  PaladinIcon,
+  RangerIcon,
+  RogueIcon,
+  SorcererIcon,
+  WarlockIcon,
+  WizardIcon,
+} from './icons';
 export { getCharacterBrief } from './lib/character-brief';
 export { SPELL } from './lib/data/spells-2024.generated';
 export { withMaterial, withSpellMods } from './lib/data/with-spell-mods';
