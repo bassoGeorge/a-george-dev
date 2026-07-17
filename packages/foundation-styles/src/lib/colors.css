@@ -168,18 +168,22 @@
   --c-info-foreground-2: var(--s-light-blue-800);
   --c-info-foreground-3: var(--s-light-blue-900);
 
-  /** Auxiliary chart colors */
-  --c-chart-1-surface: var(--s-lime-green-400);
-  --c-chart-1-onsurface: var(--c-neutral-strong);
+  /** Data visualization colors */
+  --c-data-lime-surface: var(--s-lime-green-400);
+  --c-data-lime-onsurface: var(--c-neutral-strong);
+  --c-data-lime-foreground: var(--s-lime-green-700);
 
-  --c-chart-2-surface: var(--s-plum-light);
-  --c-chart-2-onsurface: var(--c-neutral-strong);
+  --c-data-plum-surface: var(--s-plum-light);
+  --c-data-plum-onsurface: var(--c-neutral-strong);
+  --c-data-plum-foreground: var(--s-plum-dark);
 
-  --c-chart-3-surface: var(--s-sea-light);
-  --c-chart-3-onsurface: var(--c-neutral-strong);
+  --c-data-sea-surface: var(--s-sea-light);
+  --c-data-sea-onsurface: var(--c-neutral-strong);
+  --c-data-sea-foreground: var(--s-sea-dark);
 
-  --c-chart-4-surface: var(--s-royal-light);
-  --c-chart-4-onsurface: var(--c-neutral-strong);
+  --c-data-royal-surface: var(--s-royal-light);
+  --c-data-royal-onsurface: var(--c-neutral-strong);
+  --c-data-royal-foreground: var(--s-royal-dark);
 }
 
 :root.dark {
@@ -265,18 +269,22 @@
   --c-info-foreground-2: var(--s-light-blue-200);
   --c-info-foreground-3: var(--s-light-blue-100);
 
-  /** Auxiliary chart colors */
-  --c-chart-1-surface: var(--s-lime-green-800);
-  --c-chart-1-onsurface: var(--c-neutral-strong);
+  /** Data visualization colors */
+  --c-data-lime-surface: var(--s-lime-green-800);
+  --c-data-lime-onsurface: var(--c-neutral-strong);
+  --c-data-lime-foreground: var(--s-lime-green-400);
 
-  --c-chart-2-surface: var(--s-plum-dark);
-  --c-chart-2-onsurface: var(--c-neutral-strong);
+  --c-data-plum-surface: var(--s-plum-dark);
+  --c-data-plum-onsurface: var(--c-neutral-strong);
+  --c-data-plum-foreground: var(--s-plum-light);
 
-  --c-chart-3-surface: var(--s-sea-dark);
-  --c-chart-3-onsurface: var(--c-neutral-strong);
+  --c-data-sea-surface: var(--s-sea-dark);
+  --c-data-sea-onsurface: var(--c-neutral-strong);
+  --c-data-sea-foreground: var(--s-sea-light);
 
-  --c-chart-4-surface: var(--s-royal-dark);
-  --c-chart-4-onsurface: var(--c-neutral-strong);
+  --c-data-royal-surface: var(--s-royal-dark);
+  --c-data-royal-onsurface: var(--c-neutral-strong);
+  --c-data-royal-foreground: var(--s-royal-light);
 }
 
 @theme inline {
@@ -364,15 +372,19 @@
   --color-info-foreground-2: var(--c-info-foreground-2);
   --color-info-foreground-3: var(--c-info-foreground-3);
 
-  /** Chart colors */
-  --color-chart-1-surface: var(--c-chart-1-surface);
-  --color-chart-1-onsurface: var(--c-chart-1-onsurface);
-  --color-chart-2-surface: var(--c-chart-2-surface);
-  --color-chart-2-onsurface: var(--c-chart-2-onsurface);
-  --color-chart-3-surface: var(--c-chart-3-surface);
-  --color-chart-3-onsurface: var(--c-chart-3-onsurface);
-  --color-chart-4-surface: var(--c-chart-4-surface);
-  --color-chart-4-onsurface: var(--c-chart-4-onsurface);
+  /** Data visualization colors */
+  --color-data-lime-surface: var(--c-data-lime-surface);
+  --color-data-lime-onsurface: var(--c-data-lime-onsurface);
+  --color-data-lime-foreground: var(--c-data-lime-foreground);
+  --color-data-plum-surface: var(--c-data-plum-surface);
+  --color-data-plum-onsurface: var(--c-data-plum-onsurface);
+  --color-data-plum-foreground: var(--c-data-plum-foreground);
+  --color-data-sea-surface: var(--c-data-sea-surface);
+  --color-data-sea-onsurface: var(--c-data-sea-onsurface);
+  --color-data-sea-foreground: var(--c-data-sea-foreground);
+  --color-data-royal-surface: var(--c-data-royal-surface);
+  --color-data-royal-onsurface: var(--c-data-royal-onsurface);
+  --color-data-royal-foreground: var(--c-data-royal-foreground);
 
   /** Depercated **/
   --color-rc-shadow-1: rgb(0 0 0 / 0.1);

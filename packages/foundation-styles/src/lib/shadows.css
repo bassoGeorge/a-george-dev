@@ -93,6 +93,6 @@
 
 @utility elv-alt-color {
   @variant dark {
-    --elv-color: var(--c-chart-3-surface);
+    --elv-color: var(--c-data-sea-surface);
   }
 }

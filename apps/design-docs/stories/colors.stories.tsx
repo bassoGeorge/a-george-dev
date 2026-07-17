@@ -166,6 +166,12 @@ function ColorSamples({ a11yFailures = [] }: { a11yFailures?: string[] }) {
           <TextRow className="text-destructive-foreground-2" />
           <TextRow className="text-destructive-foreground-3" />
         </Section>
+        <Section>
+          <TextRow className="text-data-lime-foreground" />
+          <TextRow className="text-data-plum-foreground" />
+          <TextRow className="text-data-sea-foreground" />
+          <TextRow className="text-data-royal-foreground" />
+        </Section>
         <InterfaceMd className="block border-b-1 border-b-neutral-subdued">
           Colored elements with foreground
         </InterfaceMd>
@@ -196,13 +202,13 @@ function ColorSamples({ a11yFailures = [] }: { a11yFailures?: string[] }) {
         </SwatchSection>
 
         <InterfaceMd className="block border-b-1 border-b-neutral-subdued">
-          Chart colors
+          Data visualization colors
         </InterfaceMd>
         <section className="mx-5 grid grid-cols-2 gap-2">
-          <Swatch className="bg-chart-1-surface text-chart-1-onsurface" />
-          <Swatch className="bg-chart-2-surface text-chart-2-onsurface" />
-          <Swatch className="bg-chart-3-surface text-chart-3-onsurface" />
-          <Swatch className="bg-chart-4-surface text-chart-4-onsurface" />
+          <Swatch className="bg-data-lime-surface text-data-lime-onsurface" />
+          <Swatch className="bg-data-plum-surface text-data-plum-onsurface" />
+          <Swatch className="bg-data-sea-surface text-data-sea-onsurface" />
+          <Swatch className="bg-data-royal-surface text-data-royal-onsurface" />
         </section>
       </div>
     </A11yFailureContext.Provider>
