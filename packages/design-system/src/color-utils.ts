@@ -29,4 +29,31 @@ export const ColorCombinations = {
     onSurfaceText: 'text-destructive-onsurface',
     bgAsText: 'bg-destructive-foreground',
   },
+  dataLime: {
+    text: 'text-data-lime-foreground',
+    surface: 'bg-data-lime-surface',
+    onSurfaceText: 'text-data-lime-onsurface',
+    bgAsText: 'bg-data-lime-foreground',
+  },
+  dataPlum: {
+    text: 'text-data-plum-foreground',
+    surface: 'bg-data-plum-surface',
+    onSurfaceText: 'text-data-plum-onsurface',
+    bgAsText: 'bg-data-plum-foreground',
+  },
+  dataSea: {
+    text: 'text-data-sea-foreground',
+    surface: 'bg-data-sea-surface',
+    onSurfaceText: 'text-data-sea-onsurface',
+    bgAsText: 'bg-data-sea-foreground',
+  },
+  dataRoyal: {
+    text: 'text-data-royal-foreground',
+    surface: 'bg-data-royal-surface',
+    onSurfaceText: 'text-data-royal-onsurface',
+    bgAsText: 'bg-data-royal-foreground',
+  },
 };
+
+export type ColorWay = keyof typeof ColorCombinations;
+export type ColorWaySections = (typeof ColorCombinations)[ColorWay];

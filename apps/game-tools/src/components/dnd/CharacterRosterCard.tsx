@@ -2,8 +2,8 @@ import { TiltCard } from '@ageorgedev/design-system/cards/TiltCard';
 import { BodyMd } from '@ageorgedev/design-system/typography/typography-components';
 import {
   type CharacterClass,
-  CLASS_COLORS,
   CLASS_ICONS,
+  DndClassColors,
 } from '@ageorgedev/dnd-character-sheet';
 import { cn } from '@ageorgedev/toolbelt/cn';
 import { Link } from '@tanstack/react-router';
@@ -13,7 +13,7 @@ type CharacterRosterCardProps = {
   level: number | undefined;
   name: string;
   species: string;
-  classes: string[];
+  classes: CharacterClass[];
   primaryClass: CharacterClass;
   description?: string;
 };
@@ -43,7 +43,7 @@ export function CharacterRosterCard({
         <PrimaryClassIcon
           className={cn(
             'right-0 pointer-events-none absolute top-0 -z-10 h-9 opacity-20',
-            CLASS_COLORS[primaryClass]
+            DndClassColors[primaryClass].text
           )}
         />
         <BodyMd className="font-bold text-neutral-strong">{name}</BodyMd>
@@ -51,14 +51,21 @@ export function CharacterRosterCard({
           {description ?? species}
         </p>
         <div className="flex flex-wrap gap-1">
-          {classes.map((className) => (
-            <span
-              key={className}
-              className="rounded-full bg-primary-surface-2 px-2 py-0.5 text-xs font-interface font-bold text-primary-onsurface-2 leading-none"
-            >
-              {className}
-            </span>
-          ))}
+          {classes.map((className) => {
+            const colors = DndClassColors[className];
+            return (
+              <span
+                key={className}
+                className={cn(
+                  'rounded-full px-2 py-0.5 text-xs font-interface font-bold leading-none',
+                  colors.surface,
+                  colors.onSurfaceText
+                )}
+              >
+                {className}
+              </span>
+            );
+          })}
         </div>
       </TiltCard>
     </Link>

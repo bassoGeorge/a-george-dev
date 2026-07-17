@@ -2,7 +2,7 @@ export { ArtificerIcon } from './ArtificerIcon';
 export { BarbarianIcon } from './BarbarianIcon';
 export { BardIcon } from './BardIcon';
 export { ClericIcon } from './ClericIcon';
-export { CLASS_COLORS } from './class-colors';
+export { DndClassColors } from './class-colors';
 export type { ClassIconProps } from './class-icon-props';
 export type { ClassIconComponent } from './class-icons';
 export { CLASS_ICONS } from './class-icons';

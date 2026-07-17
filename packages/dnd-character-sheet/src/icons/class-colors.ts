@@ -1,17 +1,21 @@
+import {
+  ColorCombinations,
+  type ColorWaySections,
+} from '@ageorgedev/design-system/color-utils';
 import { CharacterClass } from '../lib/models/character-classes';
 
-export const CLASS_COLORS: Record<CharacterClass, string> = {
-  [CharacterClass.Artificer]: 'text-info-foreground',
-  [CharacterClass.Barbarian]: 'text-destructive-foreground',
-  [CharacterClass.Bard]: 'text-data-plum-foreground',
-  [CharacterClass.Cleric]: 'text-warning-foreground',
-  [CharacterClass.Druid]: 'text-primary-foreground',
-  [CharacterClass.Fighter]: 'text-secondary-foreground',
-  [CharacterClass.Monk]: 'text-data-sea-foreground',
-  [CharacterClass.Paladin]: 'text-warning-foreground-2',
-  [CharacterClass.Ranger]: 'text-data-royal-foreground',
-  [CharacterClass.Rogue]: 'text-secondary-foreground-2',
-  [CharacterClass.Sorcerer]: 'text-info-foreground-2',
-  [CharacterClass.Warlock]: 'text-destructive-foreground-2',
-  [CharacterClass.Wizard]: 'text-primary-foreground-2',
+export const DndClassColors: Record<CharacterClass, ColorWaySections> = {
+  [CharacterClass.Artificer]: ColorCombinations.info,
+  [CharacterClass.Barbarian]: ColorCombinations.destructive,
+  [CharacterClass.Bard]: ColorCombinations.dataPlum,
+  [CharacterClass.Cleric]: ColorCombinations.warning,
+  [CharacterClass.Druid]: ColorCombinations.primary,
+  [CharacterClass.Fighter]: ColorCombinations.secondary,
+  [CharacterClass.Monk]: ColorCombinations.dataSea,
+  [CharacterClass.Paladin]: ColorCombinations.warning,
+  [CharacterClass.Ranger]: ColorCombinations.dataRoyal,
+  [CharacterClass.Rogue]: ColorCombinations.secondary,
+  [CharacterClass.Sorcerer]: ColorCombinations.info,
+  [CharacterClass.Warlock]: ColorCombinations.destructive,
+  [CharacterClass.Wizard]: ColorCombinations.primary,
 };
