@@ -15,7 +15,7 @@ const config = defineConfig({
     react(),
   ],
   server: {
-    port: process.env.PORT ? Number(process.env.PORT) : undefined,
+    port: process.env.PORT ? Number(process.env.PORT) : 3001,
     fs: {
       allow: [searchForWorkspaceRoot(process.cwd())],
     },
