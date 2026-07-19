@@ -119,4 +119,16 @@
   --gsw-pink-700: #9b1b5a;
   --gsw-pink-800: #781244;
   --gsw-pink-900: #5c0b33;
+
+  /* using for errors */
+  --gsw-red-vivid-050: #ffe3e3;
+  --gsw-red-vivid-100: #ffbdbd;
+  --gsw-red-vivid-200: #ff9b9b;
+  --gsw-red-vivid-300: #f86a6a;
+  --gsw-red-vivid-400: #ef4e4e;
+  --gsw-red-vivid-500: #e12d39;
+  --gsw-red-vivid-600: #cf1124;
+  --gsw-red-vivid-700: #ab091e;
+  --gsw-red-vivid-800: #8a041a;
+  --gsw-red-vivid-900: #610316;
 }

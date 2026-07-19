@@ -63,8 +63,8 @@ export function S08DarkMode() {
               <Swatch className="bg-(--s-aztec-500)" />
 
               <PBodyXs>Accent</PBodyXs>
-              <Swatch className="bg-(--s-lime-green-300)" />
-              <Swatch className="bg-(--s-lime-green-500)" />
+              <Swatch className="bg-(--s-teal-300)" />
+              <Swatch className="bg-(--s-teal-500)" />
 
               <PBodyXs>Neutral</PBodyXs>
               <Swatch className="bg-(--s-warm-grey-800)" />
@@ -94,7 +94,7 @@ export function S08DarkMode() {
                 <PBodyXs className="mt-2">Page near</PBodyXs>
               </div>
               <div>
-                <Swatch className="bg-(--s-lime-green-500)" />
+                <Swatch className="bg-(--s-teal-500)" />
                 <PBodyXs className="mt-2">Accent</PBodyXs>
               </div>
               <div>
@@ -125,7 +125,7 @@ export function S08DarkMode() {
                 <PBodyXs className="mt-2">Page near</PBodyXs>
               </div>
               <div>
-                <Swatch className="bg-(--s-lime-green-300)" />
+                <Swatch className="bg-(--s-teal-300)" />
                 <PBodyXs className="mt-2">Accent</PBodyXs>
               </div>
               <div>

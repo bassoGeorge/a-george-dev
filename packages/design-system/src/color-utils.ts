@@ -29,29 +29,59 @@ export const ColorCombinations = {
     onSurfaceText: 'text-destructive-onsurface',
     bgAsText: 'bg-destructive-foreground',
   },
-  dataLime: {
-    text: 'text-data-lime-foreground',
-    surface: 'bg-data-lime-surface',
-    onSurfaceText: 'text-data-lime-onsurface',
-    bgAsText: 'bg-data-lime-foreground',
+  dataRed: {
+    text: 'text-data-red-foreground',
+    surface: 'bg-data-red-surface',
+    onSurfaceText: 'text-data-red-onsurface',
+    bgAsText: 'bg-data-red-foreground',
   },
-  dataPlum: {
-    text: 'text-data-plum-foreground',
-    surface: 'bg-data-plum-surface',
-    onSurfaceText: 'text-data-plum-onsurface',
-    bgAsText: 'bg-data-plum-foreground',
+  dataOrange: {
+    text: 'text-data-orange-foreground',
+    surface: 'bg-data-orange-surface',
+    onSurfaceText: 'text-data-orange-onsurface',
+    bgAsText: 'bg-data-orange-foreground',
   },
-  dataSea: {
-    text: 'text-data-sea-foreground',
-    surface: 'bg-data-sea-surface',
-    onSurfaceText: 'text-data-sea-onsurface',
-    bgAsText: 'bg-data-sea-foreground',
+  dataYellow: {
+    text: 'text-data-yellow-foreground',
+    surface: 'bg-data-yellow-surface',
+    onSurfaceText: 'text-data-yellow-onsurface',
+    bgAsText: 'bg-data-yellow-foreground',
   },
-  dataRoyal: {
-    text: 'text-data-royal-foreground',
-    surface: 'bg-data-royal-surface',
-    onSurfaceText: 'text-data-royal-onsurface',
-    bgAsText: 'bg-data-royal-foreground',
+  dataGreen: {
+    text: 'text-data-green-foreground',
+    surface: 'bg-data-green-surface',
+    onSurfaceText: 'text-data-green-onsurface',
+    bgAsText: 'bg-data-green-foreground',
+  },
+  dataCyan: {
+    text: 'text-data-cyan-foreground',
+    surface: 'bg-data-cyan-surface',
+    onSurfaceText: 'text-data-cyan-onsurface',
+    bgAsText: 'bg-data-cyan-foreground',
+  },
+  dataBlue: {
+    text: 'text-data-blue-foreground',
+    surface: 'bg-data-blue-surface',
+    onSurfaceText: 'text-data-blue-onsurface',
+    bgAsText: 'bg-data-blue-foreground',
+  },
+  dataPurple: {
+    text: 'text-data-purple-foreground',
+    surface: 'bg-data-purple-surface',
+    onSurfaceText: 'text-data-purple-onsurface',
+    bgAsText: 'bg-data-purple-foreground',
+  },
+  dataMagenta: {
+    text: 'text-data-magenta-foreground',
+    surface: 'bg-data-magenta-surface',
+    onSurfaceText: 'text-data-magenta-onsurface',
+    bgAsText: 'bg-data-magenta-foreground',
+  },
+  dataPink: {
+    text: 'text-data-pink-foreground',
+    surface: 'bg-data-pink-surface',
+    onSurfaceText: 'text-data-pink-onsurface',
+    bgAsText: 'bg-data-pink-foreground',
   },
 };
 
