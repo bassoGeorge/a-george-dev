@@ -1,3 +1,5 @@
+@import "./swatches.css";
+
 /* Swatches */
 /* in progress swatch https://coolors.co/74b3ce-508991-172a3a-003a3d-08af80 */
 :root {
@@ -22,18 +24,6 @@
   --s-lime-green-700: #507712;
   --s-lime-green-800: oklch(44.898% 0.11164 128.452);
   --s-lime-green-900: oklch(34.123% 0.08486 128.222);
-
-  --s-mint-green-050: #dae7db;
-  --s-mint-green-100: #c2d6c3;
-  --s-mint-green-200: #a9c6ab;
-  --s-mint-green-300: #91b693;
-  --s-mint-green-300: #78a57b;
-  --s-mint-green-400: #629365;
-  --s-mint-green-500: #527a54;
-  --s-mint-green-600: #416243;
-  --s-mint-green-700: #314933;
-  --s-mint-green-800: #213122;
-  --s-mint-green-900: #182519;
 
   --s-aztec-200: oklch(50.143% 0.04506 193.871);
   --s-aztec-300: oklch(45.664% 0.0498 193.743);
@@ -103,6 +93,30 @@
   --s-plum-base: #b0267b;
   --s-plum-light: #ce6fa1;
   --s-plum-dark: #6c134a;
+
+  --s-mint-green-050: #dae7db;
+  --s-mint-green-100: #c2d6c3;
+  --s-mint-green-200: #a9c6ab;
+  --s-mint-green-300: #91b693;
+  --s-mint-green-300: #78a57b;
+  --s-mint-green-400: #629365;
+  --s-mint-green-500: #527a54;
+  --s-mint-green-600: #416243;
+  --s-mint-green-700: #314933;
+  --s-mint-green-800: #213122;
+  --s-mint-green-900: #182519;
+
+  /* ======== New stuff ========== */
+  --s-teal-050: #effcf6;
+  --s-teal-100: #c6f7e2;
+  --s-teal-200: #8eedc7;
+  --s-teal-300: #65d6ad;
+  --s-teal-400: #3ebd93;
+  --s-teal-500: #27ab83;
+  --s-teal-600: #199473;
+  --s-teal-700: #147d64;
+  --s-teal-800: #0c6b58;
+  --s-teal-900: #014d40;
 }
 
 :root {
@@ -117,20 +131,22 @@
   --c-neutral: var(--s-warm-grey-800);
   --c-neutral-subdued: var(--s-warm-grey-600);
   --c-neutral-disabled: var(--s-warm-grey-400);
+  --c-neutral-inverse: var(--s-warm-grey-100);
+  --c-neutral-inverse-strong: var(--s-warm-grey-050);
 
   /** Primary color */
-  --c-primary-surface-0: var(--s-lime-green-050);
-  --c-primary-onsurface-0: var(--s-lime-green-700);
+  --c-primary-surface-0: var(--s-teal-050);
+  --c-primary-onsurface-0: var(--s-teal-700);
 
-  --c-primary-surface: var(--s-lime-green-200);
-  --c-primary-onsurface: var(--s-lime-green-900);
+  --c-primary-surface: var(--s-teal-100);
+  --c-primary-onsurface: var(--s-teal-800);
 
-  --c-primary-surface-2: var(--s-lime-green-300);
-  --c-primary-onsurface-2: var(--s-lime-green-900);
+  --c-primary-surface-2: var(--s-teal-300);
+  --c-primary-onsurface-2: var(--s-teal-900);
 
-  --c-primary-foreground: var(--s-lime-green-700);
-  --c-primary-foreground-2: var(--s-lime-green-800);
-  --c-primary-foreground-3: var(--s-lime-green-900);
+  --c-primary-foreground: var(--s-teal-600);
+  --c-primary-foreground-2: var(--s-teal-700);
+  --c-primary-foreground-3: var(--s-teal-800);
 
   /** Secondary color */
   --c-secondary-surface-0: var(--s-aztec-200);
@@ -204,6 +220,14 @@
   --c-data-royal-surface: var(--s-royal-light);
   --c-data-royal-onsurface: var(--c-neutral-strong);
   --c-data-royal-foreground: var(--s-royal-dark);
+
+  --c-data-red-surface: var(--gsw-red-400);
+  --c-data-red-onsurface: var(--c-neutral-inverse-strong);
+  --c-data-red-foreground: var(--gsw-red-500);
+
+  --c-data-orange-surface: var(--gsw-orange-400);
+  --c-data-orange-onsurface: var(--c-neutral-inverse-strong);
+  --c-data-orange-foreground: var(--gsw-orange-500);
 }
 
 :root.dark {
@@ -218,6 +242,8 @@
   --c-neutral: var(--s-warm-grey-100);
   --c-neutral-subdued: var(--s-warm-grey-200);
   --c-neutral-disabled: var(--s-warm-grey-500);
+  --c-neutral-inverse: var(--s-warm-grey-800);
+  --c-neutral-inverse-strong: var(--s-warm-grey-900);
 
   /** Primary color */
   --c-primary-surface-0: var(--s-mint-green-900);
@@ -232,6 +258,20 @@
   --c-primary-foreground: var(--s-mint-green-400);
   --c-primary-foreground-2: var(--s-mint-green-200);
   --c-primary-foreground-3: var(--s-mint-green-100);
+
+  /** ======== trial */
+  --c-primary-surface-0: var(--s-teal-900);
+  --c-primary-onsurface-0: var(--s-teal-200);
+
+  --c-primary-surface: var(--s-teal-800);
+  --c-primary-onsurface: var(--s-teal-050);
+
+  --c-primary-surface-2: var(--s-teal-600);
+  --c-primary-onsurface-2: var(--s-teal-050);
+
+  --c-primary-foreground: var(--s-teal-400);
+  --c-primary-foreground-2: var(--s-teal-200);
+  --c-primary-foreground-3: var(--s-teal-100);
 
   /** Secondary color */
   --c-secondary-surface-0: var(--s-parchment-600);
@@ -305,6 +345,14 @@
   --c-data-royal-surface: var(--s-royal-dark);
   --c-data-royal-onsurface: var(--c-neutral-strong);
   --c-data-royal-foreground: var(--s-royal-light);
+
+  --c-data-red-surface: var(--gsw-red-600);
+  --c-data-red-onsurface: var(--c-neutral-strong);
+  --c-data-red-foreground: var(--gsw-red-300);
+
+  --c-data-orange-surface: var(--gsw-orange-600);
+  --c-data-orange-onsurface: var(--c-neutral-strong);
+  --c-data-orange-foreground: var(--gsw-orange-300);
 }
 
 @theme inline {
@@ -406,7 +454,15 @@
   --color-data-royal-onsurface: var(--c-data-royal-onsurface);
   --color-data-royal-foreground: var(--c-data-royal-foreground);
 
-  /** Depercated **/
+  --color-data-red-surface: var(--c-data-red-surface);
+  --color-data-red-onsurface: var(--c-data-red-onsurface);
+  --color-data-red-foreground: var(--c-data-red-foreground);
+
+  --color-data-orange-surface: var(--c-data-orange-surface);
+  --color-data-orange-onsurface: var(--c-data-orange-onsurface);
+  --color-data-orange-foreground: var(--c-data-orange-foreground);
+
+  /** Deperecated **/
   --color-rc-shadow-1: rgb(0 0 0 / 0.1);
   --color-rc-shadow-2: rgb(0 0 0 / 0.25);
   --color-rc-shadow-3: rgb(0 0 0 / 0.6);

@@ -206,9 +206,17 @@ function ColorSamples({ a11yFailures = [] }: { a11yFailures?: string[] }) {
         </InterfaceMd>
         <section className="mx-5 grid grid-cols-2 gap-2">
           <Swatch className="bg-data-lime-surface text-data-lime-onsurface" />
+          <TextRow className="text-data-lime-foreground" />
           <Swatch className="bg-data-plum-surface text-data-plum-onsurface" />
+          <TextRow className="text-data-plum-foreground" />
           <Swatch className="bg-data-sea-surface text-data-sea-onsurface" />
+          <TextRow className="text-data-sea-foreground" />
           <Swatch className="bg-data-royal-surface text-data-royal-onsurface" />
+          <TextRow className="text-data-royal-foreground" />
+          <Swatch className="bg-data-red-surface text-data-red-onsurface" />
+          <TextRow className="text-data-red-foreground" />
+          <Swatch className="bg-data-orange-surface text-data-orange-onsurface" />
+          <TextRow className="text-data-orange-foreground" />
         </section>
       </div>
     </A11yFailureContext.Provider>
