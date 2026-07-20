@@ -1,45 +1,9 @@
+/* Contains generic colors */
 @import "./swatches.css";
 
-/* Swatches */
-/* in progress swatch https://coolors.co/74b3ce-508991-172a3a-003a3d-08af80 */
+/* Theme swatches */
 :root {
-  --s-warm-grey-050: #faf9f7;
-  --s-warm-grey-100: #e8e6e1;
-  --s-warm-grey-200: #d3cec4;
-  --s-warm-grey-300: #b8b2a7;
-  --s-warm-grey-400: #a39e93;
-  --s-warm-grey-500: #857f72;
-  --s-warm-grey-600: #625d52;
-  --s-warm-grey-700: #504a40;
-  --s-warm-grey-800: #423d33;
-  --s-warm-grey-900: #27241d;
-
-  /* TODO: figure out if aztec is still needed */
-  --s-aztec-200: oklch(50.143% 0.04506 193.871);
-  --s-aztec-300: oklch(45.664% 0.0498 193.743);
-  --s-aztec-400: oklch(40.097% 0.05389 195.267);
-  --s-aztec-500: oklch(34.666% 0.05919 194.807);
-  --s-aztec-600: oklch(31.9% 0.05446 194.807);
-  --s-aztec-700: oklch(28.714% 0.04902 194.807);
-  --s-aztec-800: oklch(26.174% 0.04469 194.807);
-  --s-aztec-900: #002323;
-
-  --x-exp-4: #234058;
-  --x-exp-3: #1d3549;
-  --x-exp-2: #172a3a;
-  --x-exp-1: #11202c;
-  --x-exp-0: #0c151d;
-  --x-exp-a0: #060b0f;
-
-  --s-parchment-100: oklch(99.668% 0.00526 95.189);
-  --s-parchment-200: oklch(98.951% 0.0089 78.129);
-  --s-parchment-300: oklch(97.562% 0.02425 83.389);
-  --s-parchment-400: oklch(96.026% 0.03765 81.494);
-  --s-parchment-500: oklch(94.707% 0.0516 82.27);
-  --s-parchment-600: oklch(86.724% 0.047 81.994);
-  --s-parchment-700: oklch(78.866% 0.04225 81.642);
-
-  /* ======== New stuff ========== */
+  /* Primary accent color */
   --s-teal-050: #effcf6;
   --s-teal-100: #c6f7e2;
   --s-teal-200: #8eedc7;
@@ -50,6 +14,40 @@
   --s-teal-700: #147d64;
   --s-teal-800: #0c6b58;
   --s-teal-900: #014d40;
+
+  /* Secondary accent color and dark mode page bg */
+  --s-deep-sea-050: #4680af;
+  --s-deep-sea-100: #3a6a92;
+  --s-deep-sea-200: #2f5575;
+  --s-deep-sea-300: #294a66;
+  --s-deep-sea-400: #234058;
+  --s-deep-sea-500: #1d3549;
+  --s-deep-sea-600: #172a3a;
+  --s-deep-sea-700: #11202c;
+  --s-deep-sea-800: #0c151d;
+  --s-deep-sea-900: #060b0f;
+
+  /* Light mode page bg and dark mode neutral */
+  --s-parchment-100: #fffefa;
+  --s-parchment-200: #fffbf5;
+  --s-parchment-300: #fff6e5;
+  --s-parchment-400: #fff0d6;
+  --s-parchment-500: #ffebc7;
+  --s-parchment-600: #e3d1b1;
+  --s-parchment-700: #c8b89c;
+
+  /* TODO: I suspect I can use deep-sea to be my dark neutrals as well */
+  /* Light mode neutrals */
+  --s-warm-grey-050: #faf9f7;
+  --s-warm-grey-100: #e8e6e1;
+  --s-warm-grey-200: #d3cec4;
+  --s-warm-grey-300: #b8b2a7;
+  --s-warm-grey-400: #a39e93;
+  --s-warm-grey-500: #857f72;
+  --s-warm-grey-600: #625d52;
+  --s-warm-grey-700: #504a40;
+  --s-warm-grey-800: #423d33;
+  --s-warm-grey-900: #27241d;
 }
 
 :root {
@@ -82,18 +80,18 @@
   --c-primary-foreground-3: var(--s-teal-800);
 
   /** Secondary color */
-  --c-secondary-surface-0: var(--s-aztec-200);
+  --c-secondary-surface-0: var(--s-deep-sea-050);
   --c-secondary-onsurface-0: var(--s-warm-grey-050);
 
-  --c-secondary-surface: var(--s-aztec-300);
+  --c-secondary-surface: var(--s-deep-sea-100);
   --c-secondary-onsurface: var(--s-warm-grey-050);
 
-  --c-secondary-surface-2: var(--s-aztec-400);
+  --c-secondary-surface-2: var(--s-deep-sea-200);
   --c-secondary-onsurface-2: var(--s-warm-grey-050);
 
-  --c-secondary-foreground: var(--s-aztec-500);
-  --c-secondary-foreground-2: var(--s-aztec-600);
-  --c-secondary-foreground-3: var(--s-aztec-700);
+  --c-secondary-foreground: var(--s-deep-sea-300);
+  --c-secondary-foreground-2: var(--s-deep-sea-400);
+  --c-secondary-foreground-3: var(--s-deep-sea-500);
 
   /** Destructive */
   --c-destructive-surface-0: var(--gsw-red-vivid-050);
@@ -177,11 +175,11 @@
 
 :root.dark {
   /** Page and Neutral */
-  --c-page-0: var(--x-exp-a0);
-  --c-page-1: var(--x-exp-0);
-  --c-page-2: var(--x-exp-1);
-  --c-page-3: var(--x-exp-2);
-  --c-page-4: var(--x-exp-3);
+  --c-page-0: var(--s-deep-sea-900);
+  --c-page-1: var(--s-deep-sea-800);
+  --c-page-2: var(--s-deep-sea-700);
+  --c-page-3: var(--s-deep-sea-600);
+  --c-page-4: var(--s-deep-sea-500);
 
   --c-neutral-strong: var(--s-warm-grey-050);
   --c-neutral: var(--s-warm-grey-100);
@@ -383,7 +381,9 @@
   --color-info-foreground-2: var(--c-info-foreground-2);
   --color-info-foreground-3: var(--c-info-foreground-3);
 
-  /** Data visualization colors */
+  /** Data visualization colors
+   * Should be used sparingly
+   */
   --color-data-red-surface: var(--c-data-red-surface);
   --color-data-red-onsurface: var(--c-data-red-onsurface);
   --color-data-red-foreground: var(--c-data-red-foreground);
@@ -420,7 +420,7 @@
   --color-data-pink-onsurface: var(--c-data-pink-onsurface);
   --color-data-pink-foreground: var(--c-data-pink-foreground);
 
-  /** Deperecated **/
+  /** TODO: Figure out if this truly needs to be used this way **/
   --color-rc-shadow-1: rgb(0 0 0 / 0.1);
   --color-rc-shadow-2: rgb(0 0 0 / 0.25);
   --color-rc-shadow-3: rgb(0 0 0 / 0.6);

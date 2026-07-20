@@ -16,7 +16,7 @@ export const Elevations: Story = {
         <Box className="elv-raised-sm" />
         <Box className="elv-raised-md" />
         <Box className="elv-raised-lg" />
-        <Box className="elv-raised-md elv-alt-color" />
+        <Box className="elv-raised-md" />
       </section>
       <section className={cn('mt-5 flex flex-wrap gap-5')}>
         <Box className="elv-raised-sm transition-all hover:elv-raised-md" />
