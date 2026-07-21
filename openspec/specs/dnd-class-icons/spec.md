@@ -20,11 +20,11 @@
 - **THEN** the root `<svg>` has `aria-hidden="true"`
 
 ### Requirement: Every character class has a color mapping
-`packages/dnd-character-sheet/src/icons/` SHALL export `CLASS_COLORS: Record<CharacterClass, string>`, mapping each class to an existing design-system text-color utility class (no bespoke hex values). Classes MAY share a color where the token palette does not provide a unique hue per class.
+`packages/dnd-character-sheet/src/icons/` SHALL export `DndClassColors: Record<CharacterClass, ColorWaySections>`, mapping each class to one of the design-system's `ColorCombinations` color-way sections (`text`, `surface`, `onSurfaceText`, `bgAsText` — no bespoke hex values). Classes MAY share a color way where the palette does not provide a unique hue per class.
 
-#### Scenario: Every class resolves to a token class
-- **WHEN** `CLASS_COLORS[CharacterClass.Barbarian]` is accessed
-- **THEN** it resolves to a string naming an existing design-system `text-*` utility class
+#### Scenario: Every class resolves to a color way
+- **WHEN** `DndClassColors[CharacterClass.Barbarian]` is accessed
+- **THEN** it resolves to an object with non-empty `text`, `surface`, `onSurfaceText`, and `bgAsText` string properties naming existing design-system utility classes
 
 ### Requirement: Primary class resolves to the highest-level class
 Given a character's `classes` array (each entry with a `name` and `level`), the primary class SHALL be the entry with the highest `level`. If multiple entries share the highest level, the first-declared entry (by array order) SHALL be chosen.

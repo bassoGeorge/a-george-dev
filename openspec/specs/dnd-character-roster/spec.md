@@ -30,11 +30,11 @@ Within a single level section, cards SHALL be ordered alphabetically by characte
 - **THEN** "Claw" renders before "Zoynari"
 
 ### Requirement: Roster card content
-Each roster card SHALL display the character's name, species, one badge per class (class name only, no subclass, no color coding), and a description line.
+Each roster card SHALL display the character's name, species, one badge per class (class name only, no subclass), colored per that class's `DndClassColors` entry, and a description line.
 
 #### Scenario: Multiclass character
 - **WHEN** a character has classes Fighter and Rogue
-- **THEN** the card shows two badges: "Fighter" and "Rogue"
+- **THEN** the card shows two badges: "Fighter" and "Rogue", each colored with its own class's `DndClassColors` surface/text
 
 ### Requirement: Level sections render in a responsive grid layout
 Cards within a level section SHALL render in a responsive grid/wrap layout, rather than a single-column list.
@@ -55,11 +55,11 @@ Each roster card SHALL render `packages/design-system/src/cards/TiltCard.tsx` as
 - **THEN** no `shape` prop is passed to `TiltCard`, so the card renders as a plain rectangle
 
 ### Requirement: Roster card renders a primary-class background watermark
-Each roster card SHALL render the primary class's icon (from `CLASS_ICONS`, resolved per the `dnd-class-icons` primary-class rule) as a large, low-opacity background graphic, colored using that class's `CLASS_COLORS` entry. The icon SHALL be positioned so it bleeds off the card's right-hand edge and SHALL render behind the card's existing text content (name, description, class badges) without obscuring readability of that text.
+Each roster card SHALL render the primary class's icon (from `CLASS_ICONS`, resolved per the `dnd-class-icons` primary-class rule) as a large, low-opacity background graphic, colored using that class's `DndClassColors` entry. The icon SHALL be positioned so it bleeds off the card's right-hand edge and SHALL render behind the card's existing text content (name, description, class badges) without obscuring readability of that text.
 
 #### Scenario: Single-class character shows that class's icon
 - **WHEN** a roster card is rendered for a character whose only class is Bard
-- **THEN** the card renders the Bard icon as a background watermark, colored with the Bard `CLASS_COLORS` value
+- **THEN** the card renders the Bard icon as a background watermark, colored with the Bard `DndClassColors` value
 
 #### Scenario: Multiclass character shows the primary class's icon only
 - **WHEN** a roster card is rendered for a character with Monk (level 2) and Fighter (level 3)
@@ -73,9 +73,13 @@ Each roster card SHALL render the primary class's icon (from `CLASS_ICONS`, reso
 - **WHEN** a roster card renders its oversized background watermark
 - **THEN** the watermark is clipped to the card's rectangular bounds and does not visibly overlap neighboring cards in the grid
 
-### Requirement: Class badge pills remain unchanged
-The existing per-class text badges SHALL continue to render class name only, with no icon and no per-class color coding, unaffected by the addition of the background watermark.
+### Requirement: Class badges are colored per class, without icons
+Each per-class text badge SHALL render its class name only (no subclass, no icon), with its background/text colors set from that class's `DndClassColors` entry (`surface` background, `onSurfaceText` foreground). This is independent of the primary-class background watermark.
 
-#### Scenario: Badges stay text-only
+#### Scenario: Badges are text-only but color-coded
 - **WHEN** a roster card with a background watermark is rendered
-- **THEN** its class badge pills still render as plain text pills with the existing shared badge styling, not per-class colors or icons
+- **THEN** its class badge pills render as plain text (no icon), each colored per its own class's `DndClassColors` entry, not a single shared neutral color
+
+#### Scenario: Different classes render with different badge colors
+- **WHEN** a roster card shows badges for two classes in different `DndClassColors` groups (e.g. Fighter and Monk)
+- **THEN** the two badges render with visibly different background/text color classes
