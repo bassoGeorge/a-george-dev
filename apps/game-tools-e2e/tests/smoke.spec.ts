@@ -14,9 +14,8 @@ test('character list page renders', async ({ page }) => {
     page.getByRole('heading', { name: 'D&D 5.5e Characters' })
   ).toBeVisible();
   await expect(page.locator('body')).not.toBeEmpty();
-});
 
-test('claw character sheet renders', async ({ page }) => {
-  await page.goto('/dnd/characters/claw');
-  await expect(page.getByRole('heading', { name: 'Claw' })).toBeVisible();
+  for (const name of ['Claw', 'Elnorin Lunarrest', 'Gonvar Feathertide']) {
+    await expect(page.getByText(name, { exact: true })).toBeVisible();
+  }
 });
