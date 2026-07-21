@@ -1,4 +1,7 @@
-import { CharacterClass } from '@ageorgedev/dnd-character-sheet';
+import {
+  CharacterClass,
+  DndClassColors,
+} from '@ageorgedev/dnd-character-sheet';
 import { render, screen } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
 import { CharacterRosterCard } from './CharacterRosterCard';
@@ -32,7 +35,7 @@ describe('CharacterRosterCard', () => {
     expect(screen.getByText('Rogue')).toBeInTheDocument();
   });
 
-  it('renders the primary class icon colored by CLASS_COLORS, not the other class', () => {
+  it('renders the primary class icon colored by DndClassColors, not the other class', () => {
     const { container } = render(
       <CharacterRosterCard
         slug="omarin-kenate"
@@ -46,10 +49,11 @@ describe('CharacterRosterCard', () => {
 
     const svgs = container.querySelectorAll('svg[aria-hidden="true"]');
     expect(svgs).toHaveLength(1);
-    expect(svgs[0]).toHaveClass('text-secondary-foreground');
+    expect(svgs[0]).toHaveClass(DndClassColors[CharacterClass.Fighter].text);
+    expect(svgs[0]).not.toHaveClass(DndClassColors[CharacterClass.Monk].text);
   });
 
-  it('renders class badges as plain text, with no icon or per-class color', () => {
+  it('renders each class badge colored by its own DndClassColors entry', () => {
     render(
       <CharacterRosterCard
         slug="omarin-kenate"
@@ -63,7 +67,15 @@ describe('CharacterRosterCard', () => {
 
     const monkBadge = screen.getByText('Monk');
     const fighterBadge = screen.getByText('Fighter');
-    expect(monkBadge).toHaveClass('bg-primary-surface-2');
-    expect(fighterBadge).toHaveClass('bg-primary-surface-2');
+    expect(monkBadge).toHaveClass(DndClassColors[CharacterClass.Monk].surface);
+    expect(monkBadge).toHaveClass(
+      DndClassColors[CharacterClass.Monk].onSurfaceText
+    );
+    expect(fighterBadge).toHaveClass(
+      DndClassColors[CharacterClass.Fighter].surface
+    );
+    expect(fighterBadge).toHaveClass(
+      DndClassColors[CharacterClass.Fighter].onSurfaceText
+    );
   });
 });
