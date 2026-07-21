@@ -31,7 +31,8 @@
     "dev": {
       "cache": false,
       "interactive": false,
-      "persistent": true
+      "persistent": true,
+      "passThroughEnv": ["PORT"]
     },
     "dev:storybook": {
       "dependsOn": ["^build"],

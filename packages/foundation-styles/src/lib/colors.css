@@ -1,5 +1,43 @@
-/* Swatches */
+/* Contains generic colors */
+@import "./swatches.css";
+
+/* Theme swatches */
 :root {
+  /* Primary accent color */
+  --s-teal-050: #effcf6;
+  --s-teal-100: #c6f7e2;
+  --s-teal-200: #8eedc7;
+  --s-teal-300: #65d6ad;
+  --s-teal-400: #3ebd93;
+  --s-teal-500: #27ab83;
+  --s-teal-600: #199473;
+  --s-teal-700: #147d64;
+  --s-teal-800: #0c6b58;
+  --s-teal-900: #014d40;
+
+  /* Secondary accent color and dark mode page bg */
+  --s-deep-sea-050: #4680af;
+  --s-deep-sea-100: #3a6a92;
+  --s-deep-sea-200: #2f5575;
+  --s-deep-sea-300: #294a66;
+  --s-deep-sea-400: #234058;
+  --s-deep-sea-500: #1d3549;
+  --s-deep-sea-600: #172a3a;
+  --s-deep-sea-700: #11202c;
+  --s-deep-sea-800: #0c151d;
+  --s-deep-sea-900: #060b0f;
+
+  /* Light mode page bg and dark mode neutral */
+  --s-parchment-100: #fffefa;
+  --s-parchment-200: #fffbf5;
+  --s-parchment-300: #fff6e5;
+  --s-parchment-400: #fff0d6;
+  --s-parchment-500: #ffebc7;
+  --s-parchment-600: #e3d1b1;
+  --s-parchment-700: #c8b89c;
+
+  /* TODO: I suspect I can use deep-sea to be my dark neutrals as well */
+  /* Light mode neutrals */
   --s-warm-grey-050: #faf9f7;
   --s-warm-grey-100: #e8e6e1;
   --s-warm-grey-200: #d3cec4;
@@ -10,79 +48,6 @@
   --s-warm-grey-700: #504a40;
   --s-warm-grey-800: #423d33;
   --s-warm-grey-900: #27241d;
-
-  --s-lime-green-050: oklch(97.824% 0.03959 124.172);
-  --s-lime-green-100: oklch(94.744% 0.07261 125.382);
-  --s-lime-green-200: oklch(89.111% 0.12258 125.956);
-  --s-lime-green-300: oklch(83.209% 0.16229 127.231);
-  --s-lime-green-400: oklch(77.045% 0.16988 128.271);
-  --s-lime-green-500: oklch(69.478% 0.17021 129.094);
-  --s-lime-green-600: oklch(60.385% 0.15147 129.66);
-  --s-lime-green-700: oklch(52.085% 0.1312 129.557);
-  --s-lime-green-800: oklch(44.898% 0.11164 128.452);
-  --s-lime-green-900: oklch(34.123% 0.08486 128.222);
-
-  --s-aztec-200: oklch(50.143% 0.04506 193.871);
-  --s-aztec-300: oklch(45.664% 0.0498 193.743);
-  --s-aztec-400: oklch(40.097% 0.05389 195.267);
-  --s-aztec-500: oklch(34.666% 0.05919 194.807);
-  --s-aztec-600: oklch(31.9% 0.05446 194.807);
-  --s-aztec-700: oklch(28.714% 0.04902 194.807);
-  --s-aztec-800: oklch(26.174% 0.04469 194.807);
-  --s-aztec-900: oklch(23.192% 0.0396 194.807);
-
-  --s-parchment-100: oklch(99.668% 0.00526 95.189);
-  --s-parchment-200: oklch(98.951% 0.0089 78.129);
-  --s-parchment-300: oklch(97.562% 0.02425 83.389);
-  --s-parchment-400: oklch(96.026% 0.03765 81.494);
-  --s-parchment-500: oklch(94.707% 0.0516 82.27);
-  --s-parchment-600: oklch(86.724% 0.047 81.994);
-  --s-parchment-700: oklch(78.866% 0.04225 81.642);
-
-  --s-red-vivid-050: #ffe3e3;
-  --s-red-vivid-100: #ffbdbd;
-  --s-red-vivid-200: #ff9b9b;
-  --s-red-vivid-300: #f86a6a;
-  --s-red-vivid-400: #ef4e4e;
-  --s-red-vivid-500: #e12d39;
-  --s-red-vivid-600: #cf1124;
-  --s-red-vivid-700: #ab091e;
-  --s-red-vivid-800: #8a041a;
-  --s-red-vivid-900: #610316;
-
-  --s-yellow-050: #fffaeb;
-  --s-yellow-100: #fcefc7;
-  --s-yellow-200: #f8e3a3;
-  --s-yellow-300: #f9da8b;
-  --s-yellow-400: #f7d070;
-  --s-yellow-500: #e9b949;
-  --s-yellow-600: #c99a2e;
-  --s-yellow-700: #a27c1a;
-  --s-yellow-800: #7c5e10;
-  --s-yellow-900: #513c06;
-
-  --s-light-blue-050: #ebf8ff;
-  --s-light-blue-100: #d1eefc;
-  --s-light-blue-200: #a7d8f0;
-  --s-light-blue-300: #7cc1e4;
-  --s-light-blue-400: #55aad4;
-  --s-light-blue-500: #3994c1;
-  --s-light-blue-600: #2d83ae;
-  --s-light-blue-700: #1d6f98;
-  --s-light-blue-800: #166086;
-  --s-light-blue-900: #0b4f71;
-
-  --s-sea-base: #26b0a0;
-  --s-sea-light: #7ac8bc;
-  --s-sea-dark: #136c61;
-
-  --s-royal-base: #5b26b0;
-  --s-royal-light: #a697dc;
-  --s-royal-dark: #411982;
-
-  --s-plum-base: #b0267b;
-  --s-plum-light: #ce6fa1;
-  --s-plum-dark: #6c134a;
 }
 
 :root {
@@ -97,117 +62,145 @@
   --c-neutral: var(--s-warm-grey-800);
   --c-neutral-subdued: var(--s-warm-grey-600);
   --c-neutral-disabled: var(--s-warm-grey-400);
+  --c-neutral-inverse: var(--s-warm-grey-100);
+  --c-neutral-inverse-strong: var(--s-warm-grey-050);
 
   /** Primary color */
-  --c-primary-surface-0: var(--s-lime-green-050);
-  --c-primary-onsurface-0: var(--s-lime-green-700);
+  --c-primary-surface-0: var(--s-teal-050);
+  --c-primary-onsurface-0: var(--s-teal-700);
 
-  --c-primary-surface: var(--s-lime-green-200);
-  --c-primary-onsurface: var(--s-lime-green-900);
+  --c-primary-surface: var(--s-teal-100);
+  --c-primary-onsurface: var(--s-teal-800);
 
-  --c-primary-surface-2: var(--s-lime-green-300);
-  --c-primary-onsurface-2: var(--s-lime-green-900);
+  --c-primary-surface-2: var(--s-teal-300);
+  --c-primary-onsurface-2: var(--s-teal-900);
 
-  --c-primary-foreground: var(--s-lime-green-700);
-  --c-primary-foreground-2: var(--s-lime-green-800);
-  --c-primary-foreground-3: var(--s-lime-green-900);
+  --c-primary-foreground: var(--s-teal-600);
+  --c-primary-foreground-2: var(--s-teal-700);
+  --c-primary-foreground-3: var(--s-teal-800);
 
   /** Secondary color */
-  --c-secondary-surface-0: var(--s-aztec-200);
+  --c-secondary-surface-0: var(--s-deep-sea-050);
   --c-secondary-onsurface-0: var(--s-warm-grey-050);
 
-  --c-secondary-surface: var(--s-aztec-300);
+  --c-secondary-surface: var(--s-deep-sea-100);
   --c-secondary-onsurface: var(--s-warm-grey-050);
 
-  --c-secondary-surface-2: var(--s-aztec-400);
+  --c-secondary-surface-2: var(--s-deep-sea-200);
   --c-secondary-onsurface-2: var(--s-warm-grey-050);
 
-  --c-secondary-foreground: var(--s-aztec-500);
-  --c-secondary-foreground-2: var(--s-aztec-600);
-  --c-secondary-foreground-3: var(--s-aztec-700);
+  --c-secondary-foreground: var(--s-deep-sea-300);
+  --c-secondary-foreground-2: var(--s-deep-sea-400);
+  --c-secondary-foreground-3: var(--s-deep-sea-500);
 
   /** Destructive */
-  --c-destructive-surface-0: var(--s-red-vivid-050);
-  --c-destructive-onsurface-0: var(--s-red-vivid-700);
+  --c-destructive-surface-0: var(--gsw-red-vivid-050);
+  --c-destructive-onsurface-0: var(--gsw-red-vivid-700);
 
-  --c-destructive-surface: var(--s-red-vivid-100);
-  --c-destructive-onsurface: var(--s-red-vivid-800);
+  --c-destructive-surface: var(--gsw-red-vivid-100);
+  --c-destructive-onsurface: var(--gsw-red-vivid-800);
 
-  --c-destructive-surface-2: var(--s-red-vivid-200);
-  --c-destructive-onsurface-2: var(--s-red-vivid-900);
+  --c-destructive-surface-2: var(--gsw-red-vivid-200);
+  --c-destructive-onsurface-2: var(--gsw-red-vivid-900);
 
-  --c-destructive-foreground: var(--s-red-vivid-700);
-  --c-destructive-foreground-2: var(--s-red-vivid-800);
-  --c-destructive-foreground-3: var(--s-red-vivid-900);
+  --c-destructive-foreground: var(--gsw-red-vivid-700);
+  --c-destructive-foreground-2: var(--gsw-red-vivid-800);
+  --c-destructive-foreground-3: var(--gsw-red-vivid-900);
 
   /** Warning color */
-  --c-warning-surface-0: var(--s-yellow-200);
-  --c-warning-onsurface-0: var(--s-yellow-800);
+  --c-warning-surface-0: var(--gsw-yellow-200);
+  --c-warning-onsurface-0: var(--gsw-yellow-800);
 
-  --c-warning-surface: var(--s-yellow-300);
-  --c-warning-onsurface: var(--s-yellow-900);
+  --c-warning-surface: var(--gsw-yellow-300);
+  --c-warning-onsurface: var(--gsw-yellow-900);
 
-  --c-warning-surface-2: var(--s-yellow-400);
-  --c-warning-onsurface-2: var(--s-yellow-900);
+  --c-warning-surface-2: var(--gsw-yellow-400);
+  --c-warning-onsurface-2: var(--gsw-yellow-900);
 
-  --c-warning-foreground: var(--s-yellow-700);
-  --c-warning-foreground-2: var(--s-yellow-800);
-  --c-warning-foreground-3: var(--s-yellow-900);
+  --c-warning-foreground: var(--gsw-yellow-700);
+  --c-warning-foreground-2: var(--gsw-yellow-800);
+  --c-warning-foreground-3: var(--gsw-yellow-900);
 
   /** Info color */
-  --c-info-surface-0: var(--s-light-blue-050);
-  --c-info-onsurface-0: var(--s-light-blue-700);
+  --c-info-surface-0: var(--gsw-light-blue-050);
+  --c-info-onsurface-0: var(--gsw-light-blue-700);
 
-  --c-info-surface: var(--s-light-blue-100);
-  --c-info-onsurface: var(--s-light-blue-800);
+  --c-info-surface: var(--gsw-light-blue-100);
+  --c-info-onsurface: var(--gsw-light-blue-800);
 
-  --c-info-surface-2: var(--s-light-blue-200);
-  --c-info-onsurface-2: var(--s-light-blue-900);
+  --c-info-surface-2: var(--gsw-light-blue-200);
+  --c-info-onsurface-2: var(--gsw-light-blue-900);
 
-  --c-info-foreground: var(--s-light-blue-700);
-  --c-info-foreground-2: var(--s-light-blue-800);
-  --c-info-foreground-3: var(--s-light-blue-900);
+  --c-info-foreground: var(--gsw-light-blue-700);
+  --c-info-foreground-2: var(--gsw-light-blue-800);
+  --c-info-foreground-3: var(--gsw-light-blue-900);
 
-  /** Auxiliary chart colors */
-  --c-chart-1-surface: var(--s-lime-green-400);
-  --c-chart-1-onsurface: var(--c-neutral-strong);
+  /** Data visualization colors */
+  --c-data-red-surface: var(--gsw-red-400);
+  --c-data-red-onsurface: var(--c-neutral-inverse-strong);
+  --c-data-red-foreground: var(--gsw-red-500);
 
-  --c-chart-2-surface: var(--s-plum-light);
-  --c-chart-2-onsurface: var(--c-neutral-strong);
+  --c-data-orange-surface: var(--gsw-orange-400);
+  --c-data-orange-onsurface: var(--c-neutral-inverse-strong);
+  --c-data-orange-foreground: var(--gsw-orange-500);
 
-  --c-chart-3-surface: var(--s-sea-light);
-  --c-chart-3-onsurface: var(--c-neutral-strong);
+  --c-data-yellow-surface: var(--gsw-yellow-400);
+  --c-data-yellow-onsurface: var(--c-neutral-strong);
+  --c-data-yellow-foreground: var(--gsw-yellow-700);
 
-  --c-chart-4-surface: var(--s-royal-light);
-  --c-chart-4-onsurface: var(--c-neutral-strong);
+  --c-data-green-surface: var(--gsw-green-400);
+  --c-data-green-onsurface: var(--c-neutral-inverse-strong);
+  --c-data-green-foreground: var(--gsw-green-500);
+
+  --c-data-cyan-surface: var(--gsw-cyan-300);
+  --c-data-cyan-onsurface: var(--c-neutral-strong);
+  --c-data-cyan-foreground: var(--gsw-cyan-500);
+
+  --c-data-blue-surface: var(--gsw-blue-400);
+  --c-data-blue-onsurface: var(--c-neutral-inverse-strong);
+  --c-data-blue-foreground: var(--gsw-blue-500);
+
+  --c-data-purple-surface: var(--gsw-purple-400);
+  --c-data-purple-onsurface: var(--c-neutral-inverse-strong);
+  --c-data-purple-foreground: var(--gsw-purple-500);
+
+  --c-data-magenta-surface: var(--gsw-magenta-400);
+  --c-data-magenta-onsurface: var(--c-neutral-inverse-strong);
+  --c-data-magenta-foreground: var(--gsw-magenta-500);
+
+  --c-data-pink-surface: var(--gsw-pink-400);
+  --c-data-pink-onsurface: var(--c-neutral-inverse-strong);
+  --c-data-pink-foreground: var(--gsw-pink-500);
 }
 
 :root.dark {
   /** Page and Neutral */
-  --c-page-0: var(--s-aztec-900);
-  --c-page-1: var(--s-aztec-800);
-  --c-page-2: var(--s-aztec-700);
-  --c-page-3: var(--s-aztec-600);
-  --c-page-4: var(--s-aztec-500);
+  --c-page-0: var(--s-deep-sea-900);
+  --c-page-1: var(--s-deep-sea-800);
+  --c-page-2: var(--s-deep-sea-700);
+  --c-page-3: var(--s-deep-sea-600);
+  --c-page-4: var(--s-deep-sea-500);
 
   --c-neutral-strong: var(--s-warm-grey-050);
   --c-neutral: var(--s-warm-grey-100);
   --c-neutral-subdued: var(--s-warm-grey-200);
   --c-neutral-disabled: var(--s-warm-grey-500);
+  --c-neutral-inverse: var(--s-warm-grey-800);
+  --c-neutral-inverse-strong: var(--s-warm-grey-900);
 
   /** Primary color */
-  --c-primary-surface-0: var(--s-lime-green-900);
-  --c-primary-onsurface-0: var(--s-lime-green-300);
+  --c-primary-surface-0: var(--s-teal-900);
+  --c-primary-onsurface-0: var(--s-teal-200);
 
-  --c-primary-surface: var(--s-lime-green-800);
-  --c-primary-onsurface: var(--s-lime-green-200);
+  --c-primary-surface: var(--s-teal-800);
+  --c-primary-onsurface: var(--s-teal-050);
 
-  --c-primary-surface-2: var(--s-lime-green-700);
-  --c-primary-onsurface-2: var(--s-lime-green-100);
+  --c-primary-surface-2: var(--s-teal-600);
+  --c-primary-onsurface-2: var(--s-teal-050);
 
-  --c-primary-foreground: var(--s-lime-green-400);
-  --c-primary-foreground-2: var(--s-lime-green-300);
-  --c-primary-foreground-3: var(--s-lime-green-200);
+  --c-primary-foreground: var(--s-teal-400);
+  --c-primary-foreground-2: var(--s-teal-200);
+  --c-primary-foreground-3: var(--s-teal-100);
 
   /** Secondary color */
   --c-secondary-surface-0: var(--s-parchment-600);
@@ -224,59 +217,83 @@
   --c-secondary-foreground-3: var(--s-parchment-300);
 
   /** Destructive color */
-  --c-destructive-surface-0: var(--s-red-vivid-900);
-  --c-destructive-onsurface-0: var(--s-red-vivid-100);
+  --c-destructive-surface-0: var(--gsw-red-vivid-900);
+  --c-destructive-onsurface-0: var(--gsw-red-vivid-100);
 
-  --c-destructive-surface: var(--s-red-vivid-800);
-  --c-destructive-onsurface: var(--s-red-vivid-100);
+  --c-destructive-surface: var(--gsw-red-vivid-800);
+  --c-destructive-onsurface: var(--gsw-red-vivid-100);
 
-  --c-destructive-surface-2: var(--s-red-vivid-700);
-  --c-destructive-onsurface-2: var(--s-red-vivid-050);
+  --c-destructive-surface-2: var(--gsw-red-vivid-700);
+  --c-destructive-onsurface-2: var(--gsw-red-vivid-050);
 
-  --c-destructive-foreground: var(--s-red-vivid-300);
-  --c-destructive-foreground-2: var(--s-red-vivid-200);
-  --c-destructive-foreground-3: var(--s-red-vivid-100);
+  --c-destructive-foreground: var(--gsw-red-vivid-300);
+  --c-destructive-foreground-2: var(--gsw-red-vivid-200);
+  --c-destructive-foreground-3: var(--gsw-red-vivid-100);
 
   /** Warning color */
-  --c-warning-surface-0: var(--s-yellow-900);
-  --c-warning-onsurface-0: var(--s-yellow-300);
+  --c-warning-surface-0: var(--gsw-yellow-900);
+  --c-warning-onsurface-0: var(--gsw-yellow-300);
 
-  --c-warning-surface: var(--s-yellow-800);
-  --c-warning-onsurface: var(--s-yellow-100);
+  --c-warning-surface: var(--gsw-yellow-800);
+  --c-warning-onsurface: var(--gsw-yellow-100);
 
-  --c-warning-surface-2: var(--s-yellow-800);
-  --c-warning-onsurface-2: var(--s-yellow-050);
+  --c-warning-surface-2: var(--gsw-yellow-800);
+  --c-warning-onsurface-2: var(--gsw-yellow-050);
 
-  --c-warning-foreground: var(--s-yellow-300);
-  --c-warning-foreground-2: var(--s-yellow-200);
-  --c-warning-foreground-3: var(--s-yellow-100);
+  --c-warning-foreground: var(--gsw-yellow-300);
+  --c-warning-foreground-2: var(--gsw-yellow-200);
+  --c-warning-foreground-3: var(--gsw-yellow-100);
 
   /** Info color */
-  --c-info-surface-0: var(--s-light-blue-900);
-  --c-info-onsurface-0: var(--s-light-blue-200);
+  --c-info-surface-0: var(--gsw-light-blue-900);
+  --c-info-onsurface-0: var(--gsw-light-blue-200);
 
-  --c-info-surface: var(--s-light-blue-800);
-  --c-info-onsurface: var(--s-light-blue-100);
+  --c-info-surface: var(--gsw-light-blue-800);
+  --c-info-onsurface: var(--gsw-light-blue-100);
 
-  --c-info-surface-2: var(--s-light-blue-700);
-  --c-info-onsurface-2: var(--s-light-blue-050);
+  --c-info-surface-2: var(--gsw-light-blue-700);
+  --c-info-onsurface-2: var(--gsw-light-blue-050);
 
-  --c-info-foreground: var(--s-light-blue-300);
-  --c-info-foreground-2: var(--s-light-blue-200);
-  --c-info-foreground-3: var(--s-light-blue-100);
+  --c-info-foreground: var(--gsw-light-blue-300);
+  --c-info-foreground-2: var(--gsw-light-blue-200);
+  --c-info-foreground-3: var(--gsw-light-blue-100);
 
-  /** Auxiliary chart colors */
-  --c-chart-1-surface: var(--s-lime-green-800);
-  --c-chart-1-onsurface: var(--c-neutral-strong);
+  /** Data visualization colors */
+  --c-data-red-surface: var(--gsw-red-600);
+  --c-data-red-onsurface: var(--c-neutral-strong);
+  --c-data-red-foreground: var(--gsw-red-300);
 
-  --c-chart-2-surface: var(--s-plum-dark);
-  --c-chart-2-onsurface: var(--c-neutral-strong);
+  --c-data-orange-surface: var(--gsw-orange-600);
+  --c-data-orange-onsurface: var(--c-neutral-strong);
+  --c-data-orange-foreground: var(--gsw-orange-300);
 
-  --c-chart-3-surface: var(--s-sea-dark);
-  --c-chart-3-onsurface: var(--c-neutral-strong);
+  --c-data-yellow-surface: var(--gsw-yellow-700);
+  --c-data-yellow-onsurface: var(--c-neutral-strong);
+  --c-data-yellow-foreground: var(--gsw-yellow-300);
 
-  --c-chart-4-surface: var(--s-royal-dark);
-  --c-chart-4-onsurface: var(--c-neutral-strong);
+  --c-data-green-surface: var(--gsw-green-600);
+  --c-data-green-onsurface: var(--c-neutral-strong);
+  --c-data-green-foreground: var(--gsw-green-300);
+
+  --c-data-cyan-surface: var(--gsw-cyan-600);
+  --c-data-cyan-onsurface: var(--c-neutral-strong);
+  --c-data-cyan-foreground: var(--gsw-cyan-300);
+
+  --c-data-blue-surface: var(--gsw-blue-600);
+  --c-data-blue-onsurface: var(--c-neutral-strong);
+  --c-data-blue-foreground: var(--gsw-blue-300);
+
+  --c-data-purple-surface: var(--gsw-purple-600);
+  --c-data-purple-onsurface: var(--c-neutral-strong);
+  --c-data-purple-foreground: var(--gsw-purple-300);
+
+  --c-data-magenta-surface: var(--gsw-magenta-600);
+  --c-data-magenta-onsurface: var(--c-neutral-strong);
+  --c-data-magenta-foreground: var(--gsw-magenta-300);
+
+  --c-data-pink-surface: var(--gsw-pink-600);
+  --c-data-pink-onsurface: var(--c-neutral-strong);
+  --c-data-pink-foreground: var(--gsw-pink-300);
 }
 
 @theme inline {
@@ -364,17 +381,46 @@
   --color-info-foreground-2: var(--c-info-foreground-2);
   --color-info-foreground-3: var(--c-info-foreground-3);
 
-  /** Chart colors */
-  --color-chart-1-surface: var(--c-chart-1-surface);
-  --color-chart-1-onsurface: var(--c-chart-1-onsurface);
-  --color-chart-2-surface: var(--c-chart-2-surface);
-  --color-chart-2-onsurface: var(--c-chart-2-onsurface);
-  --color-chart-3-surface: var(--c-chart-3-surface);
-  --color-chart-3-onsurface: var(--c-chart-3-onsurface);
-  --color-chart-4-surface: var(--c-chart-4-surface);
-  --color-chart-4-onsurface: var(--c-chart-4-onsurface);
+  /** Data visualization colors
+   * Should be used sparingly
+   */
+  --color-data-red-surface: var(--c-data-red-surface);
+  --color-data-red-onsurface: var(--c-data-red-onsurface);
+  --color-data-red-foreground: var(--c-data-red-foreground);
 
-  /** Depercated **/
+  --color-data-orange-surface: var(--c-data-orange-surface);
+  --color-data-orange-onsurface: var(--c-data-orange-onsurface);
+  --color-data-orange-foreground: var(--c-data-orange-foreground);
+
+  --color-data-yellow-surface: var(--c-data-yellow-surface);
+  --color-data-yellow-onsurface: var(--c-data-yellow-onsurface);
+  --color-data-yellow-foreground: var(--c-data-yellow-foreground);
+
+  --color-data-green-surface: var(--c-data-green-surface);
+  --color-data-green-onsurface: var(--c-data-green-onsurface);
+  --color-data-green-foreground: var(--c-data-green-foreground);
+
+  --color-data-cyan-surface: var(--c-data-cyan-surface);
+  --color-data-cyan-onsurface: var(--c-data-cyan-onsurface);
+  --color-data-cyan-foreground: var(--c-data-cyan-foreground);
+
+  --color-data-blue-surface: var(--c-data-blue-surface);
+  --color-data-blue-onsurface: var(--c-data-blue-onsurface);
+  --color-data-blue-foreground: var(--c-data-blue-foreground);
+
+  --color-data-purple-surface: var(--c-data-purple-surface);
+  --color-data-purple-onsurface: var(--c-data-purple-onsurface);
+  --color-data-purple-foreground: var(--c-data-purple-foreground);
+
+  --color-data-magenta-surface: var(--c-data-magenta-surface);
+  --color-data-magenta-onsurface: var(--c-data-magenta-onsurface);
+  --color-data-magenta-foreground: var(--c-data-magenta-foreground);
+
+  --color-data-pink-surface: var(--c-data-pink-surface);
+  --color-data-pink-onsurface: var(--c-data-pink-onsurface);
+  --color-data-pink-foreground: var(--c-data-pink-foreground);
+
+  /** TODO: Figure out if this truly needs to be used this way **/
   --color-rc-shadow-1: rgb(0 0 0 / 0.1);
   --color-rc-shadow-2: rgb(0 0 0 / 0.25);
   --color-rc-shadow-3: rgb(0 0 0 / 0.6);

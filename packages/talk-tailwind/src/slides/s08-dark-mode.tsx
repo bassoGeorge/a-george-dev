@@ -58,13 +58,13 @@ export function S08DarkMode() {
               <Swatch className="bg-(--s-parchment-200)" />
               <Swatch className="bg-(--s-parchment-500)" />
 
-              <PBodyXs>Timber</PBodyXs>
-              <Swatch className="bg-(--s-aztec-200)" />
-              <Swatch className="bg-(--s-aztec-500)" />
+              <PBodyXs>Deep Sea</PBodyXs>
+              <Swatch className="bg-(--s-deep-sea-200)" />
+              <Swatch className="bg-(--s-deep-sea-500)" />
 
               <PBodyXs>Accent</PBodyXs>
-              <Swatch className="bg-(--s-lime-green-300)" />
-              <Swatch className="bg-(--s-lime-green-500)" />
+              <Swatch className="bg-(--s-teal-300)" />
+              <Swatch className="bg-(--s-teal-500)" />
 
               <PBodyXs>Neutral</PBodyXs>
               <Swatch className="bg-(--s-warm-grey-800)" />
@@ -94,7 +94,7 @@ export function S08DarkMode() {
                 <PBodyXs className="mt-2">Page near</PBodyXs>
               </div>
               <div>
-                <Swatch className="bg-(--s-lime-green-500)" />
+                <Swatch className="bg-(--s-teal-500)" />
                 <PBodyXs className="mt-2">Accent</PBodyXs>
               </div>
               <div>
@@ -117,15 +117,15 @@ export function S08DarkMode() {
 
             <div className="fragment flex gap-6" data-fragment-index="1">
               <div>
-                <Swatch className="bg-(--s-aztec-500)" />
+                <Swatch className="bg-(--s-deep-sea-500)" />
                 <PBodyXs className="mt-2">Page far</PBodyXs>
               </div>
               <div>
-                <Swatch className="bg-(--s-aztec-200)" />
+                <Swatch className="bg-(--s-deep-sea-200)" />
                 <PBodyXs className="mt-2">Page near</PBodyXs>
               </div>
               <div>
-                <Swatch className="bg-(--s-lime-green-300)" />
+                <Swatch className="bg-(--s-teal-300)" />
                 <PBodyXs className="mt-2">Accent</PBodyXs>
               </div>
               <div>

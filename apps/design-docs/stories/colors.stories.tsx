@@ -166,6 +166,12 @@ function ColorSamples({ a11yFailures = [] }: { a11yFailures?: string[] }) {
           <TextRow className="text-destructive-foreground-2" />
           <TextRow className="text-destructive-foreground-3" />
         </Section>
+        <Section>
+          <TextRow className="text-data-lime-foreground" />
+          <TextRow className="text-data-plum-foreground" />
+          <TextRow className="text-data-sea-foreground" />
+          <TextRow className="text-data-royal-foreground" />
+        </Section>
         <InterfaceMd className="block border-b-1 border-b-neutral-subdued">
           Colored elements with foreground
         </InterfaceMd>
@@ -196,13 +202,39 @@ function ColorSamples({ a11yFailures = [] }: { a11yFailures?: string[] }) {
         </SwatchSection>
 
         <InterfaceMd className="block border-b-1 border-b-neutral-subdued">
-          Chart colors
+          Data visualization colors
         </InterfaceMd>
         <section className="mx-5 grid grid-cols-2 gap-2">
-          <Swatch className="bg-chart-1-surface text-chart-1-onsurface" />
-          <Swatch className="bg-chart-2-surface text-chart-2-onsurface" />
-          <Swatch className="bg-chart-3-surface text-chart-3-onsurface" />
-          <Swatch className="bg-chart-4-surface text-chart-4-onsurface" />
+          <Swatch className="bg-data-plum-surface text-data-plum-onsurface" />
+          <TextRow className="text-data-plum-foreground" />
+          <Swatch className="bg-data-sea-surface text-data-sea-onsurface" />
+          <TextRow className="text-data-sea-foreground" />
+          <Swatch className="bg-data-royal-surface text-data-royal-onsurface" />
+          <TextRow className="text-data-royal-foreground" />
+          <Swatch className="bg-data-red-surface text-data-red-onsurface" />
+          <TextRow className="text-data-red-foreground" />
+          <Swatch className="bg-data-orange-surface text-data-orange-onsurface" />
+          <TextRow className="text-data-orange-foreground" />
+          <Swatch className="bg-data-yellow-surface text-data-yellow-onsurface" />
+          <TextRow className="text-data-yellow-foreground" />
+          <Swatch className="bg-data-lime-surface text-data-lime-onsurface" />
+          <TextRow className="text-data-lime-foreground" />
+          <Swatch className="bg-data-green-surface text-data-green-onsurface" />
+          <TextRow className="text-data-green-foreground" />
+          <Swatch className="bg-data-cyan-surface text-data-cyan-onsurface" />
+          <TextRow className="text-data-cyan-foreground" />
+          <Swatch className="bg-data-light-blue-surface text-data-light-blue-onsurface" />
+          <TextRow className="text-data-light-blue-foreground" />
+          <Swatch className="bg-data-blue-surface text-data-blue-onsurface" />
+          <TextRow className="text-data-blue-foreground" />
+          <Swatch className="bg-data-indigo-surface text-data-indigo-onsurface" />
+          <TextRow className="text-data-indigo-foreground" />
+          <Swatch className="bg-data-purple-surface text-data-purple-onsurface" />
+          <TextRow className="text-data-purple-foreground" />
+          <Swatch className="bg-data-magenta-surface text-data-magenta-onsurface" />
+          <TextRow className="text-data-magenta-foreground" />
+          <Swatch className="bg-data-pink-surface text-data-pink-onsurface" />
+          <TextRow className="text-data-pink-foreground" />
         </section>
       </div>
     </A11yFailureContext.Provider>

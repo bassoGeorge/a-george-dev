@@ -16,13 +16,16 @@
     "statusBar.background": "#643312",
     "statusBar.foreground": "#e7e7e7",
     "statusBarItem.hoverBackground": "#8f491a",
-    "statusBarItem.remoteBackground": "#643312",
+    "statusBarItem.remoteBackground": "#000000",
     "statusBarItem.remoteForeground": "#e7e7e7",
     "tab.activeBorder": "#8f491a",
     "titleBar.activeBackground": "#643312",
     "titleBar.activeForeground": "#e7e7e7",
     "titleBar.inactiveBackground": "#64331299",
-    "titleBar.inactiveForeground": "#e7e7e799"
+    "titleBar.inactiveForeground": "#e7e7e799",
+    "commandCenter.foreground": "#e7e7e7",
+    "statusBar.debuggingBackground": "#643312",
+    "statusBar.debuggingForeground": "#e7e7e7"
   },
   "peacock.color": "#643312",
   "cSpell.words": ["ageorgedev", "Halfling", "Halflings", "Khorvaire"]

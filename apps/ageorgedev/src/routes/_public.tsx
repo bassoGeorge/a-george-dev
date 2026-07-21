@@ -39,7 +39,7 @@ function RouteComponent() {
                 to={link.to}
                 className={cn(
                   InterfaceXl.classes,
-                  'focus:text-primary-foreground-0 hover:text-primary-foreground transition-colors'
+                  'focus:text-primary-foreground-2 hover:text-primary-foreground transition-colors'
                 )}
               >
                 {link.label}

@@ -40,7 +40,7 @@ const NoteConfigs: Record<
   { mainClasses: string; iconClasses: string; Icon: Icon }
 > = {
   tip: {
-    mainClasses: 'bg-primary-surface text-primary-on-surface',
+    mainClasses: 'bg-primary-surface text-primary-onsurface',
     iconClasses: '',
     Icon: LightningIcon,
   },
