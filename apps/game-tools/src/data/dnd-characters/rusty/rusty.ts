@@ -111,13 +111,23 @@ export const RustyData: Character = {
         'When you craft a magic Wand, the amount of time required to craft is halved',
     },
     {
-      // TODO: how to describe a resource used once per long rest, and then more with using spell slots
       name: 'Eldritch Canon',
       castingTime: 'Action',
       description: `
       <em>Once per Long Rest or spend spell slots for additional invocations.</em>
       Using Smith's Tools, or Woodcarver's Tools, you create a Small or Tiny Eldritch Canon in an unoccupied space on a horizontal surface within 5 ft. 
       `,
+      resource: {
+        name: 'Invoke cannon',
+        id: 'InvokeCannon',
+        count: {
+          kind: 'free-then-spell-slots',
+          numberOfFreeUses: 1,
+        },
+        refresh: {
+          kind: 'long-rest',
+        },
+      },
     },
   ],
   equipment: [],
