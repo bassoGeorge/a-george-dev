@@ -28,14 +28,14 @@ export function SpellAbilityPanel(props: PanelProps) {
 
         <HorizontalDivider className="col-span-2" />
 
-        <span className="font-interface">Spellcasting Save DC</span>
+        <span className="font-interface">Spell Save DC</span>
         <BigNumber className="text-2xl text-right">
           {derived.spellSaveDC}
         </BigNumber>
 
         <HorizontalDivider className="col-span-2" />
 
-        <span className="font-interface">Spellcasting Attack Bonus</span>
+        <span className="font-interface">Spell Attack Bonus</span>
         <BigNumber className="text-2xl text-right">
           {formatMod(derived.spellAttackBonus ?? 0)}
         </BigNumber>

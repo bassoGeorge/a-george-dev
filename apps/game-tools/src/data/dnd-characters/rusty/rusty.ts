@@ -2,7 +2,10 @@ import {
   Ability,
   type Character,
   Skill,
+  SPELL,
+  withSpellMods,
 } from '@ageorgedev/dnd-character-sheet';
+import { SKILLED, WarforgedTraits } from '../common';
 
 export const RustyData: Character = {
   name: 'Rusty',
@@ -116,6 +119,8 @@ export const RustyData: Character = {
       description: `
       <em>Once per Long Rest or spend spell slots for additional invocations.</em>
       Using Smith's Tools, or Woodcarver's Tools, you create a Small or Tiny Eldritch Canon in an unoccupied space on a horizontal surface within 5 ft. 
+      (Cannon's stats in additional sheet). You determine its appearance and whether you carry it or not (and your choice of legs or wheels for it in that case).
+      It disappears if reduced to 0 Hit Points or after 1 hour, or if you decide early with an Action. You can have only one canon alive at a time.
       `,
       resource: {
         name: 'Invoke cannon',
@@ -131,4 +136,32 @@ export const RustyData: Character = {
     },
   ],
   equipment: [],
+  speciesTraits: WarforgedTraits,
+  feats: [SKILLED],
+  spellcasting: {
+    ability: Ability.Intelligence,
+    // TODO: pull up spell change traits
+    slots: { 1: 3 },
+    numberOfCantrips: 3,
+    numberOfPreparedSpells: 4,
+    spells: [
+      SPELL.Mending,
+      SPELL.ShockingGrasp,
+      SPELL.FireBolt,
+      withSpellMods(SPELL.Shield, { alwaysPrepared: true }),
+      withSpellMods(SPELL.Thunderwave, { alwaysPrepared: true }),
+      SPELL.Alarm,
+      SPELL.Grease,
+      SPELL.FalseLife,
+      SPELL.FeatherFall,
+    ],
+  },
+  appearance: `
+  Warforged are mechanical beings built as weapons to fight in the Last War. 
+  You comprise a blend of organic and inorganic materials.
+  Rootlike chords infused with alchemical fluids serve as your muscles, wrapped around a framework of steel, darkwood, or stone
+  `,
+  backstory: `
+  <p><strong>Archaeologist.</strong> You've made a lifelong study of the lost and fallen cultures of the past. Perhaps you have studied at Morgrave University or similar institutions. Or perhaps you have made it your mission to dig through the remains of the Last War</p>
+  `,
 };

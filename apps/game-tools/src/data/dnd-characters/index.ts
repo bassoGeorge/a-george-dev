@@ -10,6 +10,7 @@ import { ElnorinData } from './elnorin-lunarrest/elnorin-lunarrest';
 import ElnorinSpellBook from './elnorin-lunarrest/elnorrin-spellbook.pdf?url';
 import { GonvarData } from './gonvar-feathertide/gonvar-feathertide';
 import { OmarinData } from './omarin-kenate/omarin-kenate';
+import { RustyData } from './rusty/rusty';
 import { SaoraData } from './saora-embervale/saora-embervale';
 import SaoraSpellBook from './saora-embervale/saora-spellbook.pdf?url';
 import { SplitterData } from './splitter/splitter';
@@ -63,6 +64,9 @@ const characters: BasePack[] = [
       spellListMode: 'grouped',
       notesRows: 0,
     },
+  },
+  {
+    data: RustyData,
   },
 ];
 

@@ -7,7 +7,7 @@ import {
   SPELL,
 } from '@ageorgedev/dnd-character-sheet';
 import { mapObjIndexed } from 'ramda';
-import { expertise } from '../common';
+import { expertise, SKILLED } from '../common';
 
 export const SaoraData: Character = {
   name: 'Saora Embervale',
@@ -166,13 +166,7 @@ export const SaoraData: Character = {
         'You can take the <em>Hide</em> action when you are obscured by a creature larger than you.',
     },
   ],
-  feats: [
-    {
-      name: 'Skilled',
-      description:
-        'You have additional proficiency in any combination of 3 skills or tools (already considered in this sheet)',
-    },
-  ],
+  feats: [SKILLED],
   spellcasting: {
     ability: Ability.Charisma,
     slots: {
