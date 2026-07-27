@@ -13,11 +13,12 @@ export function NameBlock() {
       <h1 className="col-span-2 text-3xl">{character.name}</h1>
       <NameField label="Background">{character.background}</NameField>
       <NameField label="Class">
+        {/* TODO: Maybe I want class levels here tbh */}
         {joinItems(character.classes, 'name')}
       </NameField>
       <NameField label="Species">{character.species}</NameField>
       <NameField label="Subclass">
-        {joinItems(character.classes, 'subclass')}
+        {joinItems(character.classes, 'subclass')}&nbsp;
       </NameField>
     </Panel>
   );

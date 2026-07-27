@@ -102,7 +102,14 @@ export const OmarinData: Character = {
       notes: 'Ammo (80/20, Bolt), Loading, 2-handed',
     },
   ],
-  equipment: ['Bedroll, Backpack, Lantern', 'Flasks of oil (x4)'],
+  equipment: [
+    "Backpack, Bedroll, Iron Pot, Shovel, Traveller's clothes, Rope, Tinderbox, Waterskin",
+    "Carpenter's Tools, Tinker's Tools",
+    'Oil flasks = 4',
+    'Torches = 10',
+    'Ration (days) = 10',
+    "Healer's Kit charges = 10",
+  ],
   armorProficiencies: [
     ArmorProficiency.LightArmor,
     ArmorProficiency.MediumArmor,
@@ -156,7 +163,6 @@ export const OmarinData: Character = {
     SECOND_WIND,
     TACTICAL_MIND,
     ACTION_SURGE,
-    // TODO: the actual manuevers
     COMBAT_SUPERIORITY,
     {
       name: 'Uncanny Metabolism',
@@ -168,6 +174,27 @@ export const OmarinData: Character = {
         count: { kind: 'fixed', value: 1 },
         refresh: { kind: 'long-rest' },
       },
+    },
+    {
+      name: 'Pushing Attack',
+      cost: '1 Combat Superiority dice',
+      description: `
+      <em>on Hit</em>, add Superiority Dice to damage. If target size is Large or smaller, they make a Str. save (DC <%= abilitySaveDCs.DEX %>); on failure be pushed 15 ft directly away from you.
+      `,
+    },
+    {
+      name: 'Goading Attack',
+      cost: '1 Combat Superiority dice',
+      description: `
+      <em>on Hit</em>, add Superiority Dice to damage. Target must succeed on Wis. save (DC <%= abilitySaveDCs.DEX %>); on failure, have Disadvantage on attack rolls against any target other than you, until the end of your next turn
+      `,
+    },
+    {
+      name: 'Maneuvering Attack',
+      cost: '1 Combat Superiority dice',
+      description: `
+      <em>on Hit</em>, add Superiority Dice to damage. Choose a willing creature who can see or hear you; they can use their Reaction immediately to move half their speed without provoking Opportunity attacks.
+      `,
     },
   ],
   speciesTraits: [
@@ -208,9 +235,5 @@ export const OmarinData: Character = {
     numberOfCantrips: 0,
     numberOfPreparedSpells: 0,
   },
-
-  backstory: `
-  <p>This is the story of Omarin</p>
-  <p><strong>Early years</strong> Had a lot of fun</p>
-  `,
+  // TODO: work on the backstory and appearance
 };
