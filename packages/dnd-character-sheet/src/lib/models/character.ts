@@ -13,6 +13,9 @@ export interface Character {
   species: string;
   background: string;
   customDescription?: string;
+  // Size
+  size?: Size;
+  creatureType?: string;
 
   classes: {
     name: CharacterClass;
@@ -31,6 +34,12 @@ export interface Character {
   skillProficiencies: Skill[];
   skillExpertise: Skill[];
 
+  // Equipment training & Proficiencies
+  armorProficiencies: ArmorProficiency[];
+  weaponProficiencies: string[];
+  toolProficiencies: string[];
+  languages: string[];
+
   // Combat
   baseArmorClass: number;
   isWieldingShield?: boolean;
@@ -44,28 +53,18 @@ export interface Character {
   // Attacks
   attacks: Attack[];
 
-  // Equipment
-  equipment: string[];
-
   // Features
   features: Feature[];
   speciesTraits?: Feature[];
   feats?: Feature[];
 
-  // Size
-  size?: Size;
-  creatureType?: string;
-
-  // Proficiency text lists
-  armorProficiencies: ArmorProficiency[];
-  weaponProficiencies: string[];
-  toolProficiencies: string[];
-  languages: string[];
+  // Spellcasting
+  spellcasting?: Spellcasting;
 
   // Freeform
   backstory?: string;
   appearance?: string;
 
-  // Spellcasting
-  spellcasting?: Spellcasting;
+  // Equipment
+  equipment: string[];
 }

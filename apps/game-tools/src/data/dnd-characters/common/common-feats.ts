@@ -17,3 +17,9 @@ export const SAVAGE_ATTACKER: Feature = {
   description:
     "Once per turn, you may roll a weapon's damage dice twice and use either rolls.",
 };
+
+export const SKILLED: Feature = {
+  name: 'Skilled',
+  description:
+    'You have additional proficiency in any combination of 3 skills or tools (already considered in this sheet)',
+};

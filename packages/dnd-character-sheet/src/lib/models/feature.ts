@@ -67,6 +67,10 @@ type ResourceCount = {
       kind: 'fixed';
       value: number;
     }
+  | {
+      kind: 'free-then-spell-slots';
+      numberOfFreeUses: number;
+    }
 );
 
 type ResourceDie =

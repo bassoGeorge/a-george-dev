@@ -106,6 +106,11 @@ function resourceDigester(character: Character, stats: DerivedStats) {
         count = Math.max(mod * (config.multiplier ?? 1), config.min ?? 0);
         break;
       }
+
+      case 'free-then-spell-slots': {
+        count = config.numberOfFreeUses;
+        break;
+      }
     }
 
     // Resolve die if present

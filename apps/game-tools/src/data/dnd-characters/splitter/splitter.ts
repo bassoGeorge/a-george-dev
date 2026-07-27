@@ -3,7 +3,7 @@ import {
   type Character,
   Skill,
 } from '@ageorgedev/dnd-character-sheet';
-import { SAVAGE_ATTACKER, weaponMastery } from '../common';
+import { SAVAGE_ATTACKER, WarforgedTraits, weaponMastery } from '../common';
 
 export const SplitterData: Character = {
   name: 'Splitter',
@@ -130,33 +130,7 @@ export const SplitterData: Character = {
         'If you do <em>Reckless Attack</em> while Rage is active, you do an extra 2d6 damage to the first target you hit on your turn with a Str. based attack.',
     },
   ],
-  speciesTraits: [
-    {
-      name: 'Construct resilience',
-      description:
-        'You have Resistance to Poison damage. You also have Advantage on saving throws you make to avoid or end the <em>Poisoned</em> condition.',
-    },
-    {
-      name: 'Integrated Protection',
-      description:
-        "You have +1 AC (already considered in this sheet). Your armour can't be removed against your will",
-    },
-    {
-      name: "Sentry's Rest",
-      description:
-        "You don't need to sleep, and magic can't put you to sleep. You can finish a Long Rest in 6hrs if you spend that time inactive and motionless. You appear inert but are still conscious.",
-    },
-    {
-      name: 'Specialised Design',
-      description:
-        'You gain one skill proficiency and one tool proficiency of your choice (already considered in this sheet)',
-    },
-    {
-      name: 'Tireless',
-      description:
-        "You don't need to consume water, food, and don't need to breathe",
-    },
-  ],
+  speciesTraits: WarforgedTraits,
   feats: [SAVAGE_ATTACKER],
   appearance:
     'Warforged are mechanical beings built as weapons to fight in the Last War. You comprise a blend of organic and inorganic materials. Rootlike chords infused with alchemical fluids serve as your muscles, wrapped around a framework of steel, darkwood or stone',

@@ -7,6 +7,7 @@ import { PanelTitle } from '../layout/PanelTitle';
 
 type Refresh = NonNullable<Feature['resource']>['refresh'];
 
+// TODO: figure out a way to show resources that can still be used by expending spell slots
 export function Resources() {
   const { resources } = useCharacter();
   const trackable = resources.filter((r) => r.refresh.kind !== 'per-turn');
