@@ -53,7 +53,7 @@ export const RustyData: Character = {
     "Navigator's Tools",
     "Woodcarver's Tools",
   ],
-  languages: ['Common'],
+  languages: ['Common', 'Elvish'],
   attacks: [
     {
       kind: 'weapon',
@@ -135,7 +135,6 @@ export const RustyData: Character = {
       },
     },
   ],
-  equipment: [],
   speciesTraits: WarforgedTraits,
   feats: [SKILLED],
   spellcasting: {
@@ -164,4 +163,13 @@ export const RustyData: Character = {
   backstory: `
   <p><strong>Archaeologist.</strong> You've made a lifelong study of the lost and fallen cultures of the past. Perhaps you have studied at Morgrave University or similar institutions. Or perhaps you have made it your mission to dig through the remains of the Last War</p>
   `,
+  equipment: [
+    'Backpack, Caltrops, Crowbar, Rope, Tinderbox',
+    "Navigator's Tools, Tinker's Tools, Woodcarver's Tools",
+    'Studded Leather Armour',
+    'Light Crossbow, Dagger',
+    'Crossbow bolts = 20',
+    'Oil flasks = 2',
+    'Torches = 10',
+  ],
 };
