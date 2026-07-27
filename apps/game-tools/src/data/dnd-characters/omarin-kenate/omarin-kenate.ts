@@ -177,21 +177,21 @@ export const OmarinData: Character = {
     },
     {
       name: 'Pushing Attack',
-      cost: '1 Combat Superiority dice',
+      cost: '1 Superiority dice',
       description: `
       <em>on Hit</em>, add Superiority Dice to damage. If target size is Large or smaller, they make a Str. save (DC <%= abilitySaveDCs.DEX %>); on failure be pushed 15 ft directly away from you.
       `,
     },
     {
       name: 'Goading Attack',
-      cost: '1 Combat Superiority dice',
+      cost: '1 Superiority dice',
       description: `
       <em>on Hit</em>, add Superiority Dice to damage. Target must succeed on Wis. save (DC <%= abilitySaveDCs.DEX %>); on failure, have Disadvantage on attack rolls against any target other than you, until the end of your next turn
       `,
     },
     {
       name: 'Maneuvering Attack',
-      cost: '1 Combat Superiority dice',
+      cost: '1 Superiority dice',
       description: `
       <em>on Hit</em>, add Superiority Dice to damage. Choose a willing creature who can see or hear you; they can use their Reaction immediately to move half their speed without provoking Opportunity attacks.
       `,

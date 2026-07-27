@@ -47,7 +47,14 @@ const characters: BasePack[] = [
   { data: ElnorinData, spellBook: ElnorinSpellBook },
   { data: GonvarData },
   { data: ClawData, spellBook: ClawSpellBook },
-  { data: OmarinData },
+  {
+    data: OmarinData,
+    visualAdjustments: {
+      classFeaturesFontSize: 'small',
+      speciesAndFeatsFontSize: 'small',
+      speciesAndFeatsCombinedPanel: true,
+    },
+  },
   {
     data: SplitterData,
     visualAdjustments: {
