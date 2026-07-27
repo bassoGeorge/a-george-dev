@@ -172,4 +172,14 @@ export const RustyData: Character = {
     'Oil flasks = 2',
     'Torches = 10',
   ],
+  genericSections: [
+    {
+      title: "Item list for Tinker's Magic",
+      content: `
+        Ball bearings, Basket, Bedroll, Bell, Blanket, Block & Tackle, Glass bottle, Bucket, Caltrops, Candle, Crowbar, Flask,
+        Grappling Hook, Hunting trap, Jug, Lamp, Manacles, Net, Oil, Paper, Parchment, Pole, Pouch, Rope, Sack, Shovel, Iron
+        spikes, String, Tinderbox, Torch, Vial
+      `,
+    },
+  ],
 };

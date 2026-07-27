@@ -67,4 +67,10 @@ export interface Character {
 
   // Equipment
   equipment: string[];
+
+  // Generic sections
+  genericSections?: {
+    title: string;
+    content: string;
+  }[];
 }

@@ -87,6 +87,17 @@ export function StandardCharacterSheet({ data, visualAdjustments }: Props) {
             <div className="col-span-5 h-full flex flex-col gap-4">
               {data.spellcasting && <SpellcastingBlock />}
               {notesRows > 0 && <NotesPanel outerClasses="flex-1" />}
+              {!!data.genericSections?.length && (
+                <div className="grid grid-cols-[repeat(auto-fit,minmax(30%,1fr))] gap-4">
+                  {data.genericSections.map((section) => (
+                    <GenericPanel
+                      key={section.title}
+                      heading={section.title}
+                      htmlContent={section.content}
+                    />
+                  ))}
+                </div>
+              )}
               {!data.spellcasting && (
                 <>
                   <ActionsInCombat />
