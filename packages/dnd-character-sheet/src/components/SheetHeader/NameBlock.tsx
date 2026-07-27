@@ -1,3 +1,4 @@
+import type { Character } from '../../lib/models';
 import { useCharacter } from '../CharacterSheet';
 import { LabelUnder } from '../layout/labels';
 import { Panel } from '../layout/Panel';
@@ -12,20 +13,14 @@ export function NameBlock() {
     >
       <h1 className="col-span-2 text-3xl">{character.name}</h1>
       <NameField label="Background">{character.background}</NameField>
-      <NameField label="Class">
-        {/* TODO: Maybe I want class levels here tbh */}
-        {joinItems(character.classes, 'name')}
-      </NameField>
+      <NameField label="Class">{getClasses(character)}</NameField>
       <NameField label="Species">{character.species}</NameField>
-      <NameField label="Subclass">
-        {joinItems(character.classes, 'subclass')}&nbsp;
-      </NameField>
+      <NameField label="Subclass">{getSubclasses(character)}&nbsp;</NameField>
     </Panel>
   );
 }
 
 /** Smaller utils */
-
 export function NameField({
   label,
   children,
@@ -41,12 +36,18 @@ export function NameField({
   );
 }
 
-export function joinItems<
-  T extends Record<string, string | number | undefined>,
-  K extends keyof T,
->(items: T[], key: K) {
-  return items
-    .map((item) => item[key])
-    .filter((value) => value != null)
+// If multi-classing, give the levels of individual classes, else just show the current class
+function getClasses(character: Character) {
+  if (character.classes.length < 2) {
+    return character.classes[0].name;
+  } else {
+    return character.classes.map((c) => `${c.name} ${c.level}`).join(' / ');
+  }
+}
+
+function getSubclasses(character: Character) {
+  return character.classes
+    .map((c) => c.subclass)
+    .filter(Boolean)
     .join(' / ');
 }
