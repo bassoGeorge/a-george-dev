@@ -1,6 +1,8 @@
 import { cn } from '@ageorgedev/toolbelt/cn';
 import styles from './Page.module.css';
 
+// TODO: outer container can be used for more than this page only
+
 export function Page({
   children,
   className,

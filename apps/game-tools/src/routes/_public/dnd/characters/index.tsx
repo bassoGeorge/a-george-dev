@@ -3,6 +3,7 @@ import {
   InterfaceLg,
 } from '@ageorgedev/design-system/typography/typography-components';
 import { createFileRoute } from '@tanstack/react-router';
+import { Fragment } from 'react';
 import { CharacterRosterCard } from '../../../../components/dnd/CharacterRosterCard';
 import { AllMyCharactersInBrief } from '../../../../data/dnd-characters';
 import { groupCharactersByLevel } from '../../../../lib/group-characters-by-level';
@@ -23,27 +24,28 @@ function RouteComponent() {
         D&D 5.5e Characters
       </Heading4>
 
-      <div className="flex flex-col gap-8">
+      <div className="grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-4 max-w-[2048px] mx-auto">
         {levelGroups.map(({ level, characters }) => (
-          <section key={level}>
-            <InterfaceLg as="h2" className="text-neutral-strong mb-3">
+          <Fragment key={level}>
+            <InterfaceLg
+              as="h2"
+              className="text-neutral-strong mt-6 col-span-full first:mt-0"
+            >
               Level {level}
             </InterfaceLg>
-            <div className="grid grid-cols-[repeat(auto-fill,minmax(220px,1fr))] gap-4">
-              {characters.map((c) => (
-                <CharacterRosterCard
-                  key={`${c.slug}-${c.brief.level}`}
-                  slug={c.slug}
-                  level={c.hasMultipleLevels ? c.brief.level : undefined}
-                  name={c.brief.name}
-                  species={c.brief.species}
-                  classes={c.brief.classes}
-                  primaryClass={c.brief.primaryClass}
-                  description={c.brief.description}
-                />
-              ))}
-            </div>
-          </section>
+            {characters.map((c) => (
+              <CharacterRosterCard
+                key={`${c.slug}-${c.brief.level}`}
+                slug={c.slug}
+                level={c.hasMultipleLevels ? c.brief.level : undefined}
+                name={c.brief.name}
+                species={c.brief.species}
+                classes={c.brief.classes}
+                primaryClass={c.brief.primaryClass}
+                description={c.brief.description}
+              />
+            ))}
+          </Fragment>
         ))}
       </div>
     </div>
