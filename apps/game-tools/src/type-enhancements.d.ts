@@ -7,7 +7,6 @@ declare module '@tanstack/react-router' {
       description: string;
       level: number;
     };
-    spellBookUrl?: string;
   }
 }
 

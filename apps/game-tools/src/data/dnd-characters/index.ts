@@ -11,6 +11,7 @@ import ElnorinSpellBook from './elnorin-lunarrest/elnorrin-spellbook.pdf?url';
 import { GonvarData } from './gonvar-feathertide/gonvar-feathertide';
 import { OmarinData } from './omarin-kenate/omarin-kenate';
 import { RustyData } from './rusty/rusty';
+import RustyMagicPlans from './rusty/rusty-magic-items.pdf';
 import RustySpellBook from './rusty/rusty-spellbook.pdf';
 import { SaoraData } from './saora-embervale/saora-embervale';
 import SaoraSpellBook from './saora-embervale/saora-spellbook.pdf?url';
@@ -21,9 +22,15 @@ import Zoynari2SpellBook from './zoynari/zoynari-2-spellbook.pdf?url';
 import { Zoynari3Data } from './zoynari/zoynari-3';
 import Zoynari3SpellBook from './zoynari/zoynari-3-spellbook.pdf?url';
 
+export type CharacterAsset = {
+  id: 'spellbook' | 'magicItems' | (string & {});
+  label?: string;
+  url: string;
+};
+
 type BasePack = {
   data: Character;
-  spellBook?: string;
+  assets?: CharacterAsset[];
   visualAdjustments?: VisualAdjustments;
 };
 
@@ -33,21 +40,30 @@ type CharacterPack = BasePack & {
 };
 
 const characters: BasePack[] = [
-  { data: Zoynari2Data, spellBook: Zoynari2SpellBook },
+  {
+    data: Zoynari2Data,
+    assets: [{ id: 'spellbook', url: Zoynari2SpellBook }],
+  },
   {
     data: Zoynari3Data,
-    spellBook: Zoynari3SpellBook,
+    assets: [{ id: 'spellbook', url: Zoynari3SpellBook }],
     visualAdjustments: {
       speciesAndFeatsFontSize: 'small',
     },
   },
   {
     data: SaoraData,
-    spellBook: SaoraSpellBook,
+    assets: [{ id: 'spellbook', url: SaoraSpellBook }],
   },
-  { data: ElnorinData, spellBook: ElnorinSpellBook },
+  {
+    data: ElnorinData,
+    assets: [{ id: 'spellbook', url: ElnorinSpellBook }],
+  },
   { data: GonvarData },
-  { data: ClawData, spellBook: ClawSpellBook },
+  {
+    data: ClawData,
+    assets: [{ id: 'spellbook', url: ClawSpellBook }],
+  },
   {
     data: OmarinData,
     visualAdjustments: {
@@ -75,8 +91,10 @@ const characters: BasePack[] = [
   },
   {
     data: RustyData,
-    spellBook: RustySpellBook,
-    // TODO: alternate title for spellbook
+    assets: [
+      { id: 'spellbook', url: RustySpellBook },
+      { id: 'magicItems', url: RustyMagicPlans, label: 'Magic Item Plans' },
+    ],
   },
 ];
 
