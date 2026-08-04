@@ -18,7 +18,7 @@ export const Route = createFileRoute('/_public/dnd/characters/$slug/{-$level}')(
       const pack = getCharacterBySlugAndLevel(params.slug, params.level);
       return {
         title: `${pack.brief.name} (level ${pack.brief.level})`,
-        spellBook: pack.spellBook,
+        assets: pack.assets,
       };
     },
     // NOTE: Not using a loader for character pack. Although its more appropriate,
