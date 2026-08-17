@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import { useState } from 'react';
 import { Button } from './button';
 import {
   DropdownMenu,
@@ -26,7 +27,7 @@ type Story = StoryObj<typeof DropdownMenu>;
 
 export const Default: Story = {
   render: () => (
-    <DropdownMenu open>
+    <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button variant="outline">Open Menu</Button>
       </DropdownMenuTrigger>
@@ -52,7 +53,7 @@ export const WithLabel: Story = {
         <DropdownMenuGroup>
           <DropdownMenuItem>Profile</DropdownMenuItem>
           <DropdownMenuItem>Billing</DropdownMenuItem>
-          <DropdownMenuItem>Settings</DropdownMenuItem>
+          <DropdownMenuItem disabled>Settings</DropdownMenuItem>
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
         <DropdownMenuItem>Log out</DropdownMenuItem>
@@ -89,46 +90,77 @@ export const WithShortcuts: Story = {
   ),
 };
 
+const disableCloseOnSelect = (event: Event) => {
+  event.preventDefault();
+};
 export const WithCheckboxItems: Story = {
-  render: () => (
-    <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <Button variant="outline">View</Button>
-      </DropdownMenuTrigger>
-      <DropdownMenuContent>
-        <DropdownMenuLabel>Appearance</DropdownMenuLabel>
-        <DropdownMenuSeparator />
-        <DropdownMenuCheckboxItem checked>
-          Show Toolbar
-        </DropdownMenuCheckboxItem>
-        <DropdownMenuCheckboxItem>Show Sidebar</DropdownMenuCheckboxItem>
-        <DropdownMenuCheckboxItem checked>
-          Show Status Bar
-        </DropdownMenuCheckboxItem>
-      </DropdownMenuContent>
-    </DropdownMenu>
-  ),
+  render: function Render() {
+    const [showToolbar, setShowToolbar] = useState(true);
+    const [showSidebar, setShowSidebar] = useState(false);
+    const [showStatusBar, setShowStatusBar] = useState(true);
+
+    return (
+      <DropdownMenu>
+        <DropdownMenuTrigger asChild>
+          <Button variant="outline">View</Button>
+        </DropdownMenuTrigger>
+        <DropdownMenuContent>
+          <DropdownMenuLabel>Appearance</DropdownMenuLabel>
+          <DropdownMenuSeparator />
+          <DropdownMenuCheckboxItem
+            checked={showToolbar}
+            onCheckedChange={setShowToolbar}
+            onSelect={disableCloseOnSelect}
+          >
+            Show Toolbar
+          </DropdownMenuCheckboxItem>
+          <DropdownMenuCheckboxItem
+            checked={showSidebar}
+            onCheckedChange={setShowSidebar}
+            onSelect={disableCloseOnSelect}
+          >
+            Show Sidebar
+          </DropdownMenuCheckboxItem>
+          <DropdownMenuCheckboxItem
+            checked={showStatusBar}
+            onCheckedChange={setShowStatusBar}
+            onSelect={disableCloseOnSelect}
+          >
+            Show Status Bar
+          </DropdownMenuCheckboxItem>
+        </DropdownMenuContent>
+      </DropdownMenu>
+    );
+  },
 };
 
 export const WithRadioItems: Story = {
-  render: () => (
-    <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <Button variant="outline">Sort By</Button>
-      </DropdownMenuTrigger>
-      <DropdownMenuContent>
-        <DropdownMenuLabel>Sort By</DropdownMenuLabel>
-        <DropdownMenuSeparator />
-        <DropdownMenuRadioGroup value="name">
-          <DropdownMenuRadioItem value="name">Name</DropdownMenuRadioItem>
-          <DropdownMenuRadioItem value="date">
-            Date Modified
-          </DropdownMenuRadioItem>
-          <DropdownMenuRadioItem value="size">Size</DropdownMenuRadioItem>
-        </DropdownMenuRadioGroup>
-      </DropdownMenuContent>
-    </DropdownMenu>
-  ),
+  render: function Render() {
+    const [sortBy, setSortBy] = useState('name');
+
+    return (
+      <DropdownMenu>
+        <DropdownMenuTrigger asChild>
+          <Button variant="outline">Sort By</Button>
+        </DropdownMenuTrigger>
+        <DropdownMenuContent>
+          <DropdownMenuLabel>Sort By</DropdownMenuLabel>
+          <DropdownMenuSeparator />
+          <DropdownMenuRadioGroup value={sortBy} onValueChange={setSortBy}>
+            <DropdownMenuRadioItem value="name" onSelect={disableCloseOnSelect}>
+              Name
+            </DropdownMenuRadioItem>
+            <DropdownMenuRadioItem value="date" onSelect={disableCloseOnSelect}>
+              Date Modified
+            </DropdownMenuRadioItem>
+            <DropdownMenuRadioItem value="size" onSelect={disableCloseOnSelect}>
+              Size
+            </DropdownMenuRadioItem>
+          </DropdownMenuRadioGroup>
+        </DropdownMenuContent>
+      </DropdownMenu>
+    );
+  },
 };
 
 export const WithSubMenu: Story = {

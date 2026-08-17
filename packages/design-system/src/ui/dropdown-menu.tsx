@@ -76,7 +76,7 @@ function DropdownMenuItem({
       data-inset={inset}
       data-variant={variant}
       className={cn(
-        "relative flex cursor-default items-center gap-2 px-2 py-1 text-sm outline-hidden select-none focus:bg-primary-surface focus:text-primary-onsurface data-[disabled]:pointer-events-none data-[disabled]:opacity-50 data-[inset]:pl-3 data-[variant=destructive]:text-destructive-foreground data-[variant=destructive]:focus:bg-destructive-surface data-[variant=destructive]:focus:text-destructive-onsurface [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 [&_svg:not([class*='text-'])]:text-neutral-subdued data-[variant=destructive]:*:[svg]:text-destructive-foreground!",
+        "relative flex cursor-default items-center gap-2 px-2 py-1 text-sm outline-hidden select-none focus:bg-primary-surface focus:text-primary-onsurface data-[disabled]:pointer-events-none data-[disabled]:opacity-50 data-[inset]:pl-6 data-[variant=destructive]:text-destructive-foreground data-[variant=destructive]:focus:bg-destructive-surface data-[variant=destructive]:focus:text-destructive-onsurface [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 [&_svg:not([class*='text-'])]:text-neutral-subdued data-[variant=destructive]:*:[svg]:text-destructive-foreground!",
         className
       )}
       {...props}
@@ -102,7 +102,7 @@ function DropdownMenuCheckboxItem({
     >
       <span className="pointer-events-none absolute left-2 flex size-3 items-center justify-center">
         <DropdownMenuPrimitive.ItemIndicator>
-          <CheckIcon className="size-4" />
+          <CheckIcon className="text-primary-foreground" />
         </DropdownMenuPrimitive.ItemIndicator>
       </span>
       {children}
@@ -135,9 +135,12 @@ function DropdownMenuRadioItem({
       )}
       {...props}
     >
-      <span className="pointer-events-none absolute left-2 flex size-3 items-center justify-center">
+      <span className="pointer-events-none absolute left-2 flex items-center justify-center">
         <DropdownMenuPrimitive.ItemIndicator>
-          <CircleIcon weight="duotone" className="text-primary-foreground" />
+          <CircleIcon
+            weight="duotone"
+            className="text-primary-foreground size-3"
+          />
         </DropdownMenuPrimitive.ItemIndicator>
       </span>
       {children}
@@ -214,7 +217,7 @@ function DropdownMenuSubTrigger({
       data-slot="dropdown-menu-sub-trigger"
       data-inset={inset}
       className={cn(
-        "flex cursor-default items-center gap-2 px-2 py-1 text-sm outline-hidden select-none focus:bg-primary-surface focus:text-primary-onsurface data-[inset]:pl-3 data-[state=open]:bg-primary-surface data-[state=open]:text-primary-onsurface [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 [&_svg:not([class*='text-'])]:text-neutral-subdued",
+        "flex cursor-default items-center gap-2 px-2 py-1 text-sm outline-hidden select-none focus:bg-primary-surface focus:text-primary-onsurface data-[inset]:pl-6 data-[state=open]:bg-primary-surface data-[state=open]:text-primary-onsurface [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 [&_svg:not([class*='text-'])]:text-neutral-subdued",
         className
       )}
       {...props}
