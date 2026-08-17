@@ -20,6 +20,7 @@ import { NotesPanel } from '../NotesPanel/NotesPanel';
 import { ProficiencyBlock } from '../ProficiencyBlock/ProficiencyBlock';
 import { Resources } from '../Resources/Resources';
 import { SheetHeader } from '../SheetHeader/SheetHeader';
+import type { SheetUserPreferences } from '../SheetUserPreferences';
 import { SpellcastingBlock } from '../SpellcastingBlock/SpellcastingBlock';
 import {
   DEFAULT_VISUAL_ADUSTMENTS,
@@ -30,9 +31,14 @@ import {
 interface Props {
   data: Character;
   visualAdjustments?: VisualAdjustments;
+  userPreferences?: SheetUserPreferences;
 }
 
-export function StandardCharacterSheet({ data, visualAdjustments }: Props) {
+export function StandardCharacterSheet({
+  data,
+  visualAdjustments,
+  userPreferences,
+}: Props) {
   const adjustments = {
     ...DEFAULT_VISUAL_ADUSTMENTS,
     ...visualAdjustments,
@@ -98,12 +104,8 @@ export function StandardCharacterSheet({ data, visualAdjustments }: Props) {
                   ))}
                 </div>
               )}
-              {!data.spellcasting && (
-                <>
-                  <ActionsInCombat />
-                  <WeaponMasteries />
-                </>
-              )}
+              {userPreferences?.showActionsInCombat && <ActionsInCombat />}
+              {userPreferences?.showWeaponMasteries && <WeaponMasteries />}
             </div>
             <div className="col-span-2 flex flex-col gap-4">
               <GenericPanel
