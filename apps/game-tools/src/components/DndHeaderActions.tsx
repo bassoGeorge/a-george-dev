@@ -1,11 +1,22 @@
 import {
+  DropdownMenu,
+  DropdownMenuCheckboxItem,
+  DropdownMenuContent,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from '@ageorgedev/design-system/ui/dropdown-menu';
+import {
   BookOpenTextIcon,
   DownloadSimpleIcon,
   type Icon,
   MagicWandIcon,
   PrinterIcon,
+  SlidersIcon,
 } from '@phosphor-icons/react';
 import { useMatch } from '@tanstack/react-router';
+import { useCallback } from 'react';
+import { useUserPrefs } from '../context/UserPrefsContext';
 import type { CharacterAsset } from '../data/dnd-characters';
 
 const ASSET_DEFAULTS: Record<string, { label: string; icon: Icon }> = {
@@ -18,6 +29,9 @@ export function DndHeaderActions() {
     from: '/_public/dnd/characters/$slug/{-$level}',
     shouldThrow: false,
   });
+
+  const { prefs, setPrefs } = useUserPrefs();
+  const doNotCloseDropdown = useCallback((e: Event) => e.preventDefault(), []);
 
   if (!characterSheetRouteMatch) {
     return null;
@@ -45,6 +59,44 @@ export function DndHeaderActions() {
           </a>
         );
       })}
+      <DropdownMenu>
+        <DropdownMenuTrigger className="text-xs text-neutral-subdued hover:text-primary-foreground transition-colors inline-flex gap-1 items-center cursor-pointer">
+          <SlidersIcon size={30} />
+          <span>Customise</span>
+        </DropdownMenuTrigger>
+        <DropdownMenuContent align="end">
+          <DropdownMenuLabel>Beginner help</DropdownMenuLabel>
+          <DropdownMenuCheckboxItem
+            checked={prefs.showActionsInCombat}
+            onCheckedChange={(checked) =>
+              setPrefs({ showActionsInCombat: checked })
+            }
+            onSelect={doNotCloseDropdown}
+          >
+            Actions in Combat
+          </DropdownMenuCheckboxItem>
+          <DropdownMenuCheckboxItem
+            checked={prefs.showWeaponMasteries}
+            onCheckedChange={(checked) =>
+              setPrefs({ showWeaponMasteries: checked })
+            }
+            onSelect={doNotCloseDropdown}
+          >
+            Weapon Masteries
+          </DropdownMenuCheckboxItem>
+
+          <DropdownMenuSeparator />
+          <DropdownMenuLabel>Other panels</DropdownMenuLabel>
+
+          <DropdownMenuCheckboxItem
+            checked={prefs.showNotes}
+            onCheckedChange={(checked) => setPrefs({ showNotes: checked })}
+            onSelect={doNotCloseDropdown}
+          >
+            Notes
+          </DropdownMenuCheckboxItem>
+        </DropdownMenuContent>
+      </DropdownMenu>
       <button
         type="button"
         onClick={() => window.print()}

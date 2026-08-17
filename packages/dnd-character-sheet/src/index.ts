@@ -1,9 +1,8 @@
 // Assembled character sheets
 export { ExampleSheet } from './characters/example';
-
+export type { SheetUserPreferences } from './components/SheetUserPreferences';
 // Standard assembled sheet
 export { StandardCharacterSheet } from './components/StandardCharacterSheet/StandardCharacterSheet';
-
 export type { VisualAdjustments } from './components/VisualAdjustmentsContext';
 export {
   ArtificerIcon,

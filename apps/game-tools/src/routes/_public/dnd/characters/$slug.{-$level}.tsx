@@ -1,6 +1,7 @@
 import { StandardCharacterSheet } from '@ageorgedev/dnd-character-sheet';
 import { createFileRoute } from '@tanstack/react-router';
 import { useMemo } from 'react';
+import { useUserPrefs } from '../../../../context/UserPrefsContext';
 import { getCharacterBySlugAndLevel } from '../../../../data/dnd-characters';
 
 export const Route = createFileRoute('/_public/dnd/characters/$slug/{-$level}')(
@@ -46,8 +47,13 @@ function RouteComponent() {
     () => getCharacterBySlugAndLevel(slug, level),
     [slug, level]
   );
+  const { prefs } = useUserPrefs();
 
   return (
-    <StandardCharacterSheet data={data} visualAdjustments={visualAdjustments} />
+    <StandardCharacterSheet
+      data={data}
+      visualAdjustments={visualAdjustments}
+      userPreferences={prefs}
+    />
   );
 }
