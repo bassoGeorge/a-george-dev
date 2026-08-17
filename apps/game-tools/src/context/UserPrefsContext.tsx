@@ -8,6 +8,7 @@ type UserPrefs = SheetUserPreferences;
 const DEFAULT_USER_PREFS: Required<UserPrefs> = {
   showActionsInCombat: false,
   showWeaponMasteries: false,
+  showNotes: true,
 };
 
 function readFromStorage(): UserPrefs {

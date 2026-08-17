@@ -15,6 +15,7 @@ import {
   SlidersIcon,
 } from '@phosphor-icons/react';
 import { useMatch } from '@tanstack/react-router';
+import { useCallback } from 'react';
 import { useUserPrefs } from '../context/UserPrefsContext';
 import type { CharacterAsset } from '../data/dnd-characters';
 
@@ -30,6 +31,7 @@ export function DndHeaderActions() {
   });
 
   const { prefs, setPrefs } = useUserPrefs();
+  const doNotCloseDropdown = useCallback((e: Event) => e.preventDefault(), []);
 
   if (!characterSheetRouteMatch) {
     return null;
@@ -63,13 +65,13 @@ export function DndHeaderActions() {
           <span>Customise</span>
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end">
-          <DropdownMenuLabel>Beginner Help</DropdownMenuLabel>
-          <DropdownMenuSeparator />
+          <DropdownMenuLabel>Beginner help</DropdownMenuLabel>
           <DropdownMenuCheckboxItem
             checked={prefs.showActionsInCombat}
             onCheckedChange={(checked) =>
               setPrefs({ showActionsInCombat: checked })
             }
+            onSelect={doNotCloseDropdown}
           >
             Actions in Combat
           </DropdownMenuCheckboxItem>
@@ -78,8 +80,20 @@ export function DndHeaderActions() {
             onCheckedChange={(checked) =>
               setPrefs({ showWeaponMasteries: checked })
             }
+            onSelect={doNotCloseDropdown}
           >
             Weapon Masteries
+          </DropdownMenuCheckboxItem>
+
+          <DropdownMenuSeparator />
+          <DropdownMenuLabel>Other panels</DropdownMenuLabel>
+
+          <DropdownMenuCheckboxItem
+            checked={prefs.showNotes}
+            onCheckedChange={(checked) => setPrefs({ showNotes: checked })}
+            onSelect={doNotCloseDropdown}
+          >
+            Notes
           </DropdownMenuCheckboxItem>
         </DropdownMenuContent>
       </DropdownMenu>

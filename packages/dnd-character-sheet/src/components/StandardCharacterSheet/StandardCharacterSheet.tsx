@@ -43,7 +43,7 @@ export function StandardCharacterSheet({
     ...DEFAULT_VISUAL_ADUSTMENTS,
     ...visualAdjustments,
   };
-  const { speciesAndFeatsCombinedPanel, notesRows } = adjustments;
+  const { speciesAndFeatsCombinedPanel } = adjustments;
 
   return (
     <VisualAdjustmentsContext.Provider value={adjustments}>
@@ -92,7 +92,9 @@ export function StandardCharacterSheet({
           <div className="grid grid-cols-7 gap-4 mt-4 flex-1">
             <div className="col-span-5 h-full flex flex-col gap-4">
               {data.spellcasting && <SpellcastingBlock />}
-              {notesRows > 0 && <NotesPanel outerClasses="flex-1" />}
+              {userPreferences?.showNotes && (
+                <NotesPanel outerClasses="flex-1" />
+              )}
               {!!data.genericSections?.length && (
                 <div className="grid grid-cols-[repeat(auto-fit,minmax(30%,1fr))] gap-4">
                   {data.genericSections.map((section) => (
