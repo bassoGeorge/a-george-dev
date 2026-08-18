@@ -1,7 +1,4 @@
-# CLAUDE.md
-
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
-
+# AGeorgeDev
 ## Overview
 
 Personal website mono-repo for [ageorge.dev](https://ageorge.dev), built with Turborepo, React 19, TanStack Start (SSG), and Tailwind CSS v4. The design system is separately deployed at [design.ageorge.dev](https://design.ageorge.dev) via Storybook (`apps/design-docs`). A separate `apps/game-tools` app hosts D&D character sheets and related tooling.
@@ -30,10 +27,8 @@ yarn format-and-lint                             # Check all files
 yarn format-and-lint:fix                         # Auto-fix issues
 
 # E2E (Playwright)
-yarn turbo e2e --filter=@ageorgedev/ageorgedev-e2e
+yarn turbo e2e --filter=@ageorgedev/ageorgedev-e2e # Run e23 for specific repo. Make sure main app is running beforehand
 
-# Add shadcn components (outputs to design-system lib)
-yarn shadcn add <component>
 ```
 
 ## Architecture
@@ -47,6 +42,7 @@ Turborepo monorepo with Yarn v4 workspaces:
 - **`apps/ageorgedev-e2e`** — Playwright e2e tests for the main site
 - **`apps/design-docs`** — Storybook app for the design system; deployed at design.ageorge.dev
 - **`apps/game-tools`** — D&D character sheet viewer and game tooling; TanStack Start, port 3001
+- **`apps/game-tools-e2e`** — Playwright e2e tests for the game tools
 
 **Packages**
 - **`packages/design-system`** — React UI component library
@@ -77,15 +73,13 @@ Both `apps/ageorgedev` and `apps/game-tools` use **TanStack Router** with file-b
 - `_public/dnd/characters/index.tsx` — Dynamic character list (reads `staticData.character` from sibling routes)
 - `_public/dnd/characters/<name>.tsx` — Individual character sheets (must declare `staticData: { character: { name, level, description } }`)
 
-### Theming
-
-Dark/light theme is managed in `packages/design-system`:
-
-- `THEME_INIT_SCRIPT` — Inline script injected in `<head>` to avoid flash (reads `localStorage.theme`)
-- `ThemeProvider` / `ThemeContext` — React context for runtime theme switching
-- `ThemeSwitcher` — UI toggle component
+### Theming & tailwind conventions
 
 CSS design tokens live in `packages/foundation-styles/src/theme.css`. Tailwind v4 CSS-first config is used (no `tailwind.config.js`). `apps/game-tools` also sources `packages/dnd-character-sheet/src` for Tailwind class scanning.
+The projects use a modified tailwind configuration. The following lists critical differences from standard tailwind patterns
+
+1. Spacing uses an exponential scale. Refer `packages/foundation-styles/src/lib/spacing.css`
+2. Colors are theme-aware by default. AVOID setting `dark:<>` variants, instead rely on contextual theme aware colors. Refer to `packages/foundation-styles/src/lib/colors.css` and `apps/design-docs/stories/colors.stories.tsx`.
 
 ### Shadcn Components
 
@@ -94,7 +88,7 @@ CSS design tokens live in `packages/foundation-styles/src/theme.css`. Tailwind v
 ### Build & Deploy
 
 - **CI**: GitHub Actions + Turborepo; PR workflow runs lint+test on affected projects, deploys preview URLs consolidated into a single PR comment
-- **Hosting**: Vercel (main site + design-docs/Storybook as separate projects)
+- **Hosting**: Vercel (main site, design storybook and game-tools)
 - **Production**: Deploys on push to `main`
 - **Linting**: Biome — run `yarn format-and-lint` locally, `yarn lint:ci` in CI
 
@@ -102,18 +96,3 @@ CSS design tokens live in `packages/foundation-styles/src/theme.css`. Tailwind v
 
 - **Vitest unit tests** use `*.test.ts` / `*.test.tsx`, co-located next to the source file they cover.
 - **Playwright e2e tests** (`apps/ageorgedev-e2e`, `apps/game-tools-e2e`) use `*.spec.ts` under `tests/` — a distinct convention from unit tests, matching Playwright's own default.
-
-### Key Path Aliases
-
-```
-@ageorgedev/design-system        → packages/design-system/src/index.ts
-@ageorgedev/dnd-character-sheet  → packages/dnd-character-sheet/src/index.ts
-@ageorgedev/toolbelt             → packages/toolbelt/src/index.ts
-@ageorgedev/brand-components     → packages/brand-components/src/index.ts
-@ageorgedev/reveal-framework     → packages/reveal-framework/src/index.ts
-@ageorgedev/talk-tailwind        → packages/talk-tailwind/src/index.ts
-```
-
-### Content
-
-Blog posts and content live as `.mdx` files in `apps/ageorgedev/src/content/`. MDX frontmatter is processed via `remark-mdx-frontmatter`.
