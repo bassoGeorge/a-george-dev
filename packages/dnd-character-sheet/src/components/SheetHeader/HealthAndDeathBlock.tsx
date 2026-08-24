@@ -9,9 +9,13 @@ import { HorizontalSubPanel, VerticalSubPanel } from '../layout/SubPanel';
 export function HealthAndDeathBlock() {
   const { character, derived } = useCharacter();
   return (
-    <Panel className="p-0" topRightCorner="scooped">
-      <HorizontalSubPanel className="flex items-stretch">
-        <VerticalSubPanel className="py-2 px-3 grid grid-rows-[max-content_1fr] grid-cols-[1fr_max-content_1fr] gap-2 items-end h-auto">
+    <Panel
+      outerClasses="min-w-0 max-tablet:col-span-2"
+      className="p-0"
+      topRightCorner="scooped"
+    >
+      <HorizontalSubPanel className="flex items-stretch max-tablet:flex-wrap">
+        <VerticalSubPanel className="py-2 px-3 grid grid-rows-[max-content_1fr] grid-cols-[1fr_max-content_1fr] gap-2 items-end h-auto max-tablet:flex-1">
           <PanelTitle className="col-span-3">Hit Points</PanelTitle>
           <LabelUnder>Current</LabelUnder>
           <VerticalDivider />
@@ -21,7 +25,7 @@ export function HealthAndDeathBlock() {
             <LabelUnder>Max</LabelUnder>
           </div>
         </VerticalSubPanel>
-        <VerticalSubPanel className="py-2 px-3 grid grid-rows-[max-content_1fr] grid-cols-1 gap-2 items-end h-auto">
+        <VerticalSubPanel className="py-2 px-3 grid grid-rows-[max-content_1fr] grid-cols-1 gap-2 items-end h-auto max-tablet:flex-1">
           <PanelTitle>Hit Dice</PanelTitle>
           <div>
             <LabelUnder className="mb-1">Spent</LabelUnder>

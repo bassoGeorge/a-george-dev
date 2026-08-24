@@ -52,9 +52,9 @@ export function StandardCharacterSheet({
           {' '}
           {/** Should not be margin here, for print reasons */}
           <SheetHeader />
-          <div className="grid grid-cols-3 gap-4 flex-1">
-            <div className="col-span-1 flex flex-col gap-4">
-              <div className="grid grid-cols-2 gap-2">
+          <div className="grid grid-cols-3 gap-4 flex-1 max-tablet:grid-cols-1">
+            <div className="col-span-1 flex flex-col gap-4 min-w-0">
+              <div className="grid grid-cols-2 gap-2 max-tablet:grid-cols-1">
                 <div className="flex flex-col gap-2 justify-between">
                   <ProficiencyBlock />
                   <AbilityBox ability={Ability.Strength} />
@@ -71,7 +71,7 @@ export function StandardCharacterSheet({
               <EquipmentTraining />
             </div>
 
-            <div className="col-span-2 flex flex-col gap-4">
+            <div className="col-span-2 flex flex-col gap-4 min-w-0 max-tablet:col-span-1">
               <CombatRow />
               <AttackList />
               <Resources />
@@ -79,7 +79,7 @@ export function StandardCharacterSheet({
               {speciesAndFeatsCombinedPanel ? (
                 <SpeciesAndFeatsCombined />
               ) : (
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-2 gap-4 max-tablet:grid-cols-1">
                   <SpeciesTraits />
                   <Feats />
                 </div>
@@ -89,14 +89,14 @@ export function StandardCharacterSheet({
         </Page>
 
         <Page>
-          <div className="grid grid-cols-7 gap-4 mt-4 flex-1">
-            <div className="col-span-5 h-full flex flex-col gap-4">
+          <div className="grid grid-cols-7 gap-4 mt-4 flex-1 max-tablet:grid-cols-1">
+            <div className="col-span-5 h-full flex flex-col gap-4 min-w-0 max-tablet:col-span-1 max-tablet:h-auto">
               {data.spellcasting && <SpellcastingBlock />}
               {userPreferences?.showNotes && (
                 <NotesPanel outerClasses="flex-1" />
               )}
               {!!data.genericSections?.length && (
-                <div className="grid grid-cols-[repeat(auto-fit,minmax(30%,1fr))] gap-4">
+                <div className="grid grid-cols-[repeat(auto-fit,minmax(30%,1fr))] gap-4 max-tablet:grid-cols-1">
                   {data.genericSections.map((section) => (
                     <GenericPanel
                       key={section.title}
@@ -109,17 +109,17 @@ export function StandardCharacterSheet({
               {userPreferences?.showActionsInCombat && <ActionsInCombat />}
               {userPreferences?.showWeaponMasteries && <WeaponMasteries />}
             </div>
-            <div className="col-span-2 flex flex-col gap-4">
+            <div className="col-span-2 flex flex-col gap-4 min-w-0 max-tablet:col-span-1">
               <GenericPanel
                 topRightCorner="scooped"
                 heading="Appearance"
                 htmlContent={data.appearance ?? ''}
-                outerClasses="min-h-[12em]"
+                outerClasses="min-h-[12em] max-tablet:min-h-0"
               />
               <GenericPanel
                 heading="Backstory & Personality"
                 htmlContent={data.backstory ?? ''}
-                outerClasses="min-h-[15em]"
+                outerClasses="min-h-[15em] max-tablet:min-h-0"
               />
               <Inventory outerClasses="flex-1" />
               <CoinBlock bottomRightCorner="scooped" />

@@ -7,11 +7,13 @@ export function NameBlock() {
   const { character } = useCharacter();
   return (
     <Panel
-      outerClasses="flex-1"
+      outerClasses="flex-1 min-w-0 max-tablet:col-span-2"
       topLeftCorner="scooped"
-      className="grid grid-cols-[minmax(max-content,_3fr)_5fr] pr-3 pl-5 gap-y-3 gap-x-2"
+      className="grid grid-cols-[minmax(max-content,_3fr)_5fr] pr-3 pl-5 gap-y-3 gap-x-2 max-tablet:grid-cols-1"
     >
-      <h1 className="col-span-2 text-3xl">{character.name}</h1>
+      <h1 className="col-span-2 text-3xl max-tablet:col-span-1 max-tablet:break-words">
+        {character.name}
+      </h1>
       <NameField label="Background">{character.background}</NameField>
       <NameField label="Class">{getClasses(character)}</NameField>
       <NameField label="Species">{character.species}</NameField>

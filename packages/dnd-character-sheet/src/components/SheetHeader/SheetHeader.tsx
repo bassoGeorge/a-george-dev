@@ -5,7 +5,7 @@ import { NameBlock } from './NameBlock';
 
 export function SheetHeader() {
   return (
-    <div className="flex gap-2">
+    <div className="flex gap-2 max-tablet:grid max-tablet:grid-cols-2">
       <NameBlock />
       <LevelBlock />
       <ArmorBlock />
