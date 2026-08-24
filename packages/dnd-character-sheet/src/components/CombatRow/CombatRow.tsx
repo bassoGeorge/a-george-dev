@@ -31,7 +31,7 @@ export function CombatRow() {
   const { character, derived } = useCharacter();
 
   return (
-    <div className={`flex gap-2`}>
+    <div className="flex gap-2 max-tablet:grid max-tablet:grid-cols-2">
       <StatCell label="Initiative" bottomLeftCorner="scooped">
         {formatMod(derived.initiative)}
       </StatCell>

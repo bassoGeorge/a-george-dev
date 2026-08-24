@@ -19,7 +19,7 @@ export function Resources() {
   return (
     <Panel topLeftCorner="scooped" topRightCorner="scooped">
       <PanelTitle>Resources</PanelTitle>
-      <div className="columns-2 gap-4 mt-2">
+      <div className="columns-2 gap-4 mt-2 max-tablet:columns-1">
         {trackable.map((r) => (
           <div key={r.name} className="flex items-center text-xs gap-1">
             <span className="font-bold">

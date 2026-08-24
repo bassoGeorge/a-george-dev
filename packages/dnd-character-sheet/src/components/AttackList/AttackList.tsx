@@ -18,8 +18,11 @@ export function AttackList() {
   return (
     <Panel topLeftCorner="scooped" topRightCorner="scooped">
       <PanelTitle>Weapons & Damage Cantrips</PanelTitle>
-      <div className="mt-3">
-        <table className="w-full">
+      <section
+        className="mt-3 max-tablet:overflow-x-auto"
+        aria-label="Weapons and damage cantrips table"
+      >
+        <table className="w-full max-tablet:min-w-max">
           <thead>
             <tr className="border-b-2">
               <Th>Name</Th>
@@ -65,7 +68,7 @@ export function AttackList() {
             {/* <EmptyRow showMastery={showMasteries} /> */}
           </tbody>
         </table>
-      </div>
+      </section>
     </Panel>
   );
 }
