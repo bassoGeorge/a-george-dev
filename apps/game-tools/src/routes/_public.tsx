@@ -16,18 +16,22 @@ function RouteComponent() {
         outerClassName="print:hidden z-50 relative"
         className="px-3 py-4"
       >
-        <header className="flex items-center justify-between gap-4 ">
-          <div className="flex items-baseline gap-4 flex-1">
+        <header className="flex items-center justify-between gap-4 max-tablet:grid max-tablet:grid-cols-[minmax(0,1fr)_auto] max-tablet:items-center">
+          <div className="flex items-baseline gap-4 flex-1 max-tablet:contents">
             <Link
               to="/"
-              className="font-heading font-bold text-xl text-primary-foreground"
+              className="font-heading font-bold text-xl text-primary-foreground max-tablet:col-start-1 max-tablet:row-start-1"
             >
               Game Tools
             </Link>
-            <HeaderBreadcrumbs />
+            <div className="contents max-tablet:block max-tablet:col-span-2 max-tablet:row-start-2 max-tablet:min-w-0">
+              <HeaderBreadcrumbs />
+            </div>
           </div>
           <DndHeaderActions />
-          <ThemeSwitcher />
+          <div className="contents max-tablet:block max-tablet:col-start-2 max-tablet:row-start-1">
+            <ThemeSwitcher />
+          </div>
         </header>
       </TiltCard>
       <main>
