@@ -65,7 +65,12 @@ export function SpellSlotsPanel(props: PanelProps) {
 
       <PanelTitle className="mb-0">Spell Slots</PanelTitle>
 
-      <div className={cn(columnStyle, 'gap-3 *:mt-1 *:first:mt-0')}>
+      <div
+        className={cn(
+          columnStyle,
+          'gap-3 *:mt-1 *:first:mt-0 max-tablet:columns-1'
+        )}
+      >
         {allSlots.map(([name, count]) => (
           <div key={name} className="flex gap-1 items-center">
             <span className="text-xs text-neutral-subdued">{name}</span>

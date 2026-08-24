@@ -8,7 +8,7 @@ export function SpellcastingBlock() {
   const { spellListMode } = useVisualAdjustments();
   return (
     <div className="flex flex-col gap-3">
-      <div className="flex gap-3 items-end">
+      <div className="flex gap-3 items-end max-tablet:flex-col max-tablet:items-stretch">
         <SpellAbilityPanel />
         <SpellSlotsPanel />
       </div>
