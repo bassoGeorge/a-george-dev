@@ -5,7 +5,7 @@ export function ActionsInCombat() {
     <GameInfoPanel>
       <GameInfoPanelTitle>Actions in Combat</GameInfoPanelTitle>
 
-      <div className="columns-3 gap-2 text-xs">
+      <div className="columns-3 gap-2 text-xs max-tablet:columns-1">
         <div>
           <strong>Weapon Attack. </strong>
           <span>Equip or un-equip a weapon, then make an Attack roll.</span>
