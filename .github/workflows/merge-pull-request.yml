@@ -31,16 +31,21 @@ jobs:
             )];
 
             console.log("Preview URLs found:", previewUrls);
-            return previewUrls
+            core.setOutput('preview-urls', JSON.stringify(previewUrls));
+            core.setOutput('has-previews', previewUrls.length > 0);
       - name: ⬇️ Check out repository code
+        if: steps.list-urls.outputs.has-previews == 'true'
         uses: actions/checkout@v6
       - name: Setup vercel
+        if: steps.list-urls.outputs.has-previews == 'true'
         uses: ./.github/actions/setup-vercel-cli
         with:
           VERCEL_ACCESS_TOKEN: ${{ secrets.VERCEL_ACCESS_TOKEN }}
           VERCEL_PROJECT_NAME: ${{ vars.VERCEL_PROJECT_AGEORGEDEV }}
       - name: Remove previews
+        if: steps.list-urls.outputs.has-previews == 'true'
         shell: bash
         env:
+          PREVIEW_URLS: ${{ steps.list-urls.outputs.preview-urls }}
           VERCEL_ACCESS_TOKEN: ${{ secrets.VERCEL_ACCESS_TOKEN }}
-        run: echo '${{ steps.list-urls.outputs.result }}' | jq -r ".[]" | xargs vercel remove --scope anish-georges-projects --token $VERCEL_ACCESS_TOKEN --yes
+        run: jq -r '.[]' <<< "$PREVIEW_URLS" | xargs --no-run-if-empty vercel remove --scope anish-georges-projects --token "$VERCEL_ACCESS_TOKEN" --yes
