@@ -97,6 +97,7 @@ export function DndHeaderActions() {
           </DropdownMenuCheckboxItem>
         </DropdownMenuContent>
       </DropdownMenu>
+      {/* Temporarily hidden in mobile till we have a better approach for printing */}
       <button
         type="button"
         onClick={() => window.print()}
