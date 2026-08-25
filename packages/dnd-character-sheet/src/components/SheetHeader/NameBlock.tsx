@@ -7,7 +7,7 @@ export function NameBlock() {
   const { character } = useCharacter();
   return (
     <Panel
-      outerClasses="flex-1 min-w-0 max-tablet:col-span-2"
+      outerClasses="flex-1 min-w-0 max-tablet-landscape:min-w-full max-tablet:col-span-2"
       topLeftCorner="scooped"
       className="grid grid-cols-[minmax(max-content,_3fr)_5fr] pr-3 pl-5 gap-y-3 gap-x-2 max-tablet:grid-cols-1"
     >
