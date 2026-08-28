@@ -12,7 +12,7 @@ export function Inventory(props: PanelProps) {
     <Panel {...props} className="flex flex-col">
       <PanelTitle withDivider>Equipment</PanelTitle>
       {character.equipment.map((e) => (
-        <div key={e} className="text-sm">
+        <div key={e} className="text-sm break-words">
           {e}
         </div>
       ))}

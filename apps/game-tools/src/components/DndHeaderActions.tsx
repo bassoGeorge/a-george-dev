@@ -39,7 +39,7 @@ export function DndHeaderActions() {
 
   const assets = characterSheetRouteMatch.context.assets;
   return (
-    <>
+    <div className="flex items-center gap-4 max-tablet:col-span-2 max-tablet:row-start-3 max-tablet:flex-wrap">
       {assets?.map((asset: CharacterAsset) => {
         const defaults = ASSET_DEFAULTS[asset.id];
         const label = asset.label ?? defaults?.label;
@@ -97,15 +97,16 @@ export function DndHeaderActions() {
           </DropdownMenuCheckboxItem>
         </DropdownMenuContent>
       </DropdownMenu>
+      {/* Temporarily hidden in mobile till we have a better approach for printing */}
       <button
         type="button"
         onClick={() => window.print()}
-        className="text-xs text-neutral-subdued hover:text-primary-foreground transition-colors inline-flex gap-1 items-center"
+        className="text-xs text-neutral-subdued hover:text-primary-foreground transition-colors inline-flex gap-1 items-center max-tablet:hidden"
         aria-label="Print character sheet"
       >
         <PrinterIcon size={30} />
         <span>Print Character Sheet</span>
       </button>
-    </>
+    </div>
   );
 }

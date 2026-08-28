@@ -20,7 +20,7 @@ export function EquipmentTraining() {
       <PanelTitle className="pb-2">
         Equipment Training & Proficiencies
       </PanelTitle>
-      <div className="py-3 flex flex-row gap-2">
+      <div className="py-3 flex flex-row gap-2 max-tablet:flex-wrap">
         <SectionTitle className="w-min mr-1">Armor Training</SectionTitle>
         {ARMOR_TYPES.map(({ key, label }) => {
           const trained = character.armorProficiencies.includes(key);

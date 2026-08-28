@@ -24,7 +24,7 @@ export function WeaponMasteries() {
   return (
     <GameInfoPanel>
       <GameInfoPanelTitle>Weapon Mastery Properties</GameInfoPanelTitle>
-      <div className="columns-3 gap-2 text-xs">
+      <div className="columns-3 gap-2 text-xs max-tablet:columns-1">
         {allMasteries.map((m) => (
           <div key={m}>
             <span className="font-bold">{m}. </span>

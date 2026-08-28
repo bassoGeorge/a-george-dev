@@ -11,7 +11,7 @@ export function LevelBlock() {
   return (
     <Panel
       outerClasses={cn(
-        'align-self-stretch my-3 z-10 -ml-7',
+        'align-self-stretch my-3 z-10 -ml-7 max-tablet-landscape:justify-self-center max-tablet-landscape:ml-0 max-tablet:my-0',
         styles.ShieldShape
       )}
       className="flex flex-col gap-1 items-center py-3 px-6 bg-page-4"

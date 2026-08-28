@@ -23,31 +23,36 @@ export function SpellList() {
   const emptyRows = Math.max(0, spellRows - sortedSpells.length);
 
   return (
-    <Panel outerClasses="flex-1 h-full" className="overflow-hidden">
+    <Panel outerClasses="flex-1 h-full min-w-0" className="overflow-hidden">
       <PanelTitle withDivider>Spells</PanelTitle>
-      <table className="w-full">
-        <thead>
-          <tr>
-            <Th>Prep</Th>
-            <Th>Level</Th>
-            <Th>&nbsp; Name</Th>
-            <Th>Casting Time</Th>
-            <Th>Range</Th>
-            <Th>Duration</Th>
-            <Th>Concentration, Ritual & Material consumed</Th>
-            <Th>Notes</Th>
-          </tr>
-        </thead>
-        <tbody>
-          {sortedSpells.map((spell) => (
-            <SpellRow spell={spell} key={spell.name} />
-          ))}
-          {Array.from({ length: emptyRows }, (_, i) => (
-            // biome-ignore lint/suspicious/noArrayIndexKey: not required for this
-            <EmptyRow key={i} />
-          ))}
-        </tbody>
-      </table>
+      <section
+        className="max-tablet-landscape:overflow-x-auto"
+        aria-label="Spell table"
+      >
+        <table className="w-full max-tablet:min-w-max">
+          <thead>
+            <tr>
+              <Th>Prep</Th>
+              <Th>Level</Th>
+              <Th>&nbsp; Name</Th>
+              <Th>Casting Time</Th>
+              <Th>Range</Th>
+              <Th>Duration</Th>
+              <Th>Concentration, Ritual & Material consumed</Th>
+              <Th>Notes</Th>
+            </tr>
+          </thead>
+          <tbody>
+            {sortedSpells.map((spell) => (
+              <SpellRow spell={spell} key={spell.name} />
+            ))}
+            {Array.from({ length: emptyRows }, (_, i) => (
+              // biome-ignore lint/suspicious/noArrayIndexKey: not required for this
+              <EmptyRow key={i} />
+            ))}
+          </tbody>
+        </table>
+      </section>
     </Panel>
   );
 }

@@ -94,6 +94,20 @@ describe('DndHeaderActions', () => {
     render(<DndHeaderActions />);
     expect(screen.getByText('Customise')).toBeInTheDocument();
     expect(screen.getByText('Print Character Sheet')).toBeInTheDocument();
+    expect(
+      screen.getByRole('button', { name: 'Print character sheet' })
+    ).toHaveClass('max-tablet:hidden');
+  });
+
+  it('wraps labelled actions below the tablet breakpoint', () => {
+    setupOnRoute({
+      assets: [{ id: 'spellbook', url: '/spellbook.pdf' }],
+    });
+    const { container } = render(<DndHeaderActions />);
+
+    const actions = container.firstElementChild;
+    expect(actions).toHaveClass('max-tablet:flex-wrap');
+    expect(screen.getByText('Download Spellbook')).toBeVisible();
   });
 
   it('renders checkbox items reflecting current prefs', () => {

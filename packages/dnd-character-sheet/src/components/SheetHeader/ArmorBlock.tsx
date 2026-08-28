@@ -1,3 +1,4 @@
+import { cn } from '@ageorgedev/toolbelt/cn';
 import { useCharacter } from '../CharacterSheet';
 import { BigNumber } from '../layout/BigNumber';
 import { DiamondCheck } from '../layout/checkables';
@@ -13,7 +14,10 @@ export function ArmorBlock() {
 
   return (
     <Panel
-      outerClasses={styles.ShieldShape}
+      outerClasses={cn(
+        styles.ShieldShape,
+        'max-tablet-landscape:justify-self-center'
+      )}
       className="items-center flex flex-col pb-4"
     >
       <PanelTitle>

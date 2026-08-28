@@ -44,7 +44,7 @@ function LevelGroup({ level, spells }: { level: number; spells: Spell[] }) {
       <h3 className="text-xs font-interface pl-3 bg-page-0">
         {level === 0 ? 'Cantrips' : `Level ${level}`}
       </h3>
-      <div className="grid grid-cols-3 gap-x-4 gap-y-1">
+      <div className="grid grid-cols-3 gap-x-4 gap-y-1 max-tablet:grid-cols-1">
         {spells.map((spell) => (
           <SpellCell key={spell.name} spell={spell} isCantrip={level === 0} />
         ))}
