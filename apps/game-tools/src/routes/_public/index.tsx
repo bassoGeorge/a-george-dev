@@ -16,7 +16,7 @@ function RouteComponent() {
       <section className="text-center flex flex-col items-center gap-3">
         <Heading4 className="mb-4">Dungeons & Dragons</Heading4>
         <Link to="/dnd/characters">
-          <TiltCard interactive className="w-lg">
+          <TiltCard interactive className="max-w-lg w-full">
             <Heading6>Pre-made character sheets</Heading6>
             <BodySm className="text-neutral-subdued mt-1">
               A roster of ready to play, hand-crafted characters for D&D 5.5e
