@@ -25,7 +25,10 @@ export function SpellList() {
   return (
     <Panel outerClasses="flex-1 h-full min-w-0" className="overflow-hidden">
       <PanelTitle withDivider>Spells</PanelTitle>
-      <section className="max-tablet:overflow-x-auto" aria-label="Spell table">
+      <section
+        className="max-tablet-landscape:overflow-x-auto"
+        aria-label="Spell table"
+      >
         <table className="w-full max-tablet:min-w-max">
           <thead>
             <tr>

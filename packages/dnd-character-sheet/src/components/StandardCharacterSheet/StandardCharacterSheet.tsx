@@ -54,7 +54,7 @@ export function StandardCharacterSheet({
           <SheetHeader />
           <div className="grid grid-cols-3 gap-4 flex-1 max-tablet:grid-cols-1">
             <div className="col-span-1 flex flex-col gap-4 min-w-0">
-              <div className="grid grid-cols-2 gap-2 max-tablet:grid-cols-1">
+              <div className="grid grid-cols-2 gap-2 max-tablet-landscape:grid-cols-1">
                 <div className="flex flex-col gap-2 justify-between">
                   <ProficiencyBlock />
                   <AbilityBox ability={Ability.Strength} />
