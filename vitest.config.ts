@@ -2,15 +2,7 @@ import { defineConfig } from 'vitest/config';
 
 export default defineConfig({
   test: {
-    projects: [
-      './packages/toolbelt/vitest.config.ts',
-      './packages/reveal-framework/vitest.config.ts',
-      './packages/design-system/vitest.config.ts',
-      './packages/brand-components/vitest.config.ts',
-      './packages/dnd-character-sheet/vitest.config.ts',
-      './apps/ageorgedev/vitest.config.ts',
-      './apps/game-tools/vitest.config.ts',
-    ],
+    projects: ['packages/*/vitest.config.ts', 'apps/*/vitest.config.ts'],
     coverage: {
       provider: 'v8',
       reporter: ['text', 'html', 'lcov'],
