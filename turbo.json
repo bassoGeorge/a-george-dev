@@ -5,12 +5,14 @@
       "dependsOn": ["clean", "^build"],
       "outputs": ["dist/**"],
       "inputs": [
-        "src/**/*.ts",
-        "src/**/*.tsx",
-        "!src/**/*.spec.tsx",
+        "$TURBO_DEFAULT$",
         "!src/**/*.spec.ts",
+        "!src/**/*.spec.tsx",
+        "!src/**/*.test.ts",
+        "!src/**/*.test.tsx",
         "!src/**/*.stories.ts",
-        "!src/**/*.stories.tsx"
+        "!src/**/*.stories.tsx",
+        "!src/**/__snapshots__/**"
       ]
     },
     "clean": {},
