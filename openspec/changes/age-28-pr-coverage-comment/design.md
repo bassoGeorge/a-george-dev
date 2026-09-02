@@ -89,7 +89,7 @@ The artifact rename is expressed as REMOVED + ADDED rather than MODIFIED, becaus
 
 **A second runner adds wall-clock time to every PR** → It runs in parallel with the deploy matrix and skips dependency installation, so it is not on the critical path.
 
-**`file-coverage-mode: changes` needs git context to diff against the base** → The job checks out the repo. If the default fetch depth turns out to be insufficient for the diff, the fix is `fetch-depth: 0`, as `tests.yml` and `info.yml` already use. This is the one detail to verify against a real PR rather than assume.
+**`file-coverage-mode: changes` was assumed to need git history** → It does not. The action's `getPullChanges` calls `octokit.rest.pulls.listFiles` with the PR number, so the changed-file list comes from the GitHub API and never from a local diff. The checkout exists only so `vite-config-path` can read `vitest.config.ts`, which the default depth satisfies. `fetch-depth: 0` is deliberately not set. (Verified against `main`; we pin `@v2`. The separate base-branch comparison path, `getCompareString`, is unused here.)
 
 ## Migration Plan
 
@@ -103,4 +103,4 @@ Rollback is deleting the job and reverting the reporter array; nothing else depe
 
 ## Open Questions
 
-None blocking. The single item to confirm empirically during implementation is whether the default checkout depth gives `file-coverage-mode: changes` enough history to diff against the base branch, or whether `fetch-depth: 0` is required.
+None. The one open question — whether `file-coverage-mode: changes` needs `fetch-depth: 0` — was resolved by reading the action's source rather than by trial: it uses the GitHub API, not git, so the default checkout depth is sufficient. See the corresponding entry under Risks / Trade-offs.

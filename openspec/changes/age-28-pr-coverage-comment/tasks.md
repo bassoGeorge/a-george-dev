@@ -40,11 +40,11 @@
 - [ ] 4.4 Push a second commit and confirm the existing comment is **updated in place** rather than a second one appearing
 - [ ] 4.5 Confirm the coverage comment and the preview-deployment comment coexist as two separate comments
 - [ ] 4.6 **Verify the `always()` path is real:** temporarily raise `lines` in `vitest.config.ts` above the achieved figure, push, and confirm `Run_Tests` goes **red** *and* the coverage comment still posts showing the failing metric. Then restore the real value and confirm green. An unverified `always()` is not a guarantee
-- [ ] 4.7 Resolve the one open question from design.md: whether the default checkout depth gives `file-coverage-mode: changes` enough history to diff the base branch. If the changed-file table is empty or wrong, add `fetch-depth: 0` to the checkout and re-verify 4.3
+- [x] 4.7 Resolve the one open question from design.md: whether the default checkout depth gives `file-coverage-mode: changes` enough history. **Resolved by source inspection, not trial:** `getPullChanges` calls `octokit.rest.pulls.listFiles` with the PR number, so changed files come from the GitHub API and no git history is required. `fetch-depth: 0` deliberately not set. If 4.3 still shows an empty table, this conclusion is wrong and `fetch-depth: 0` is the first thing to try
 - [ ] 4.8 Confirm the Production workflow on `main` is unaffected — `tests.yml` runs as before and no comment job fires
 
 ## 5. Wrap-up
 
 - [ ] 5.1 Open a PR titled per the repo's `write-commits` convention, referencing AGE-28 with a Linear magic word
 - [ ] 5.2 In the PR description, note that the `coverage-lcov` artifact is replaced by `coverage-report` and that `lcov.info` is no longer produced
-- [ ] 5.3 Record in this file the outcome of 4.6 and 4.7 — specifically whether `fetch-depth: 0` was needed — so the decision is not re-litigated later
+- [ ] 5.3 Record in this file the outcome of 4.6 — the `always()` verification — so the decision is not re-litigated later. 4.7 is already recorded above
