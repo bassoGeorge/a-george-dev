@@ -19,6 +19,6 @@
 
 ## 4. Verify
 
-- [ ] 4.1 Open a test PR that affects both `ageorgedev` and `design-docs` and confirm a single consolidated comment appears with both URLs
-- [ ] 4.2 Push another commit to the same PR and confirm the existing comment is updated rather than a new one created
+- [x] 4.1 Open a test PR that affects both `ageorgedev` and `design-docs` and confirm a single consolidated comment appears with both URLs
+- [x] 4.2 Push another commit to the same PR and confirm the existing comment is updated rather than a new one created
 - [x] 4.3 Confirm `production.yml` still runs cleanly (no `pull_request_number` reference)

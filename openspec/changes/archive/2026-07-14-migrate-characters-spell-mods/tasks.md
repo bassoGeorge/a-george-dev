@@ -64,4 +64,4 @@ Extends zoynari-2 via spread. After step 6, zoynari-2's spell array already uses
 
 - [x] 8.1 Run `yarn turbo generate:spells:check --filter=@ageorgedev/dnd-character-sheet` — confirm CSV and generated file are in sync
 - [x] 8.2 Run `yarn test` to confirm all tests pass
-- [ ] 8.3 Start game-tools dev server and visually verify spell lists render correctly for each character
+- [x] 8.3 Start game-tools dev server and visually verify spell lists render correctly for each character

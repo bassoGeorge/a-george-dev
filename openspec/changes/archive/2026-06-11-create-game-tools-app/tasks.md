@@ -26,8 +26,8 @@
 
 ## 5. Verify
 
-- [ ] 5.1 Start `apps/game-tools` dev server (`yarn dev` inside `apps/game-tools`) and confirm it serves on port 3001
-- [ ] 5.2 Navigate to `http://localhost:3001/dnd/characters/example` and confirm `ExampleSheet` renders correctly
+- [x] 5.1 Start `apps/game-tools` dev server (`yarn dev` inside `apps/game-tools`) and confirm it serves on port 3001
+- [x] 5.2 Navigate to `http://localhost:3001/dnd/characters/example` and confirm `ExampleSheet` renders correctly
 - [x] 5.3 Run `yarn build` inside `apps/game-tools` and confirm it completes without errors
-- [ ] 5.4 Start `apps/ageorgedev` dev server and confirm no broken routes or missing styles
+- [x] 5.4 Start `apps/ageorgedev` dev server and confirm no broken routes or missing styles
 - [x] 5.5 Run `yarn format-and-lint` from repo root and fix any issues
