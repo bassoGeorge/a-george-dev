@@ -8,7 +8,8 @@
     "dev": "concurrently 'tsc --watch' 'cpx \"src/**/*.css\" dist --watch'",
     "test": "vitest run",
     "generate:spells": "tsx scripts/generate-spells.ts",
-    "generate:spells:check": "tsx scripts/generate-spells.ts --check"
+    "generate:spells:check": "tsx scripts/generate-spells.ts --check",
+    "typecheck": "tsc --noEmit"
   },
   "exports": {
     ".": {

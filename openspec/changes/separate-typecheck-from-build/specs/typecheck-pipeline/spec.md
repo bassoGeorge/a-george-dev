@@ -29,23 +29,23 @@ This exclusion set SHALL match the set already excluded by the `build` task's `i
 - **THEN** the contents of `dist/` are byte-identical to the previous build
 
 ### Requirement: Every TypeScript project has a typecheck script
-Every package and app containing a `tsconfig.json` SHALL define a `typecheck` script running `tsc --noEmit` against that full `tsconfig.json` — the config that still includes test, story, and mock files.
+Every package and app that owns a `tsconfig.json` SHALL define a `typecheck` script running `tsc --noEmit` against that full `tsconfig.json` — the config that still includes test, story, and mock files.
 
-This SHALL include projects that produce no build output, specifically `packages/testing-config` and `packages/ts-config`. `testing-config` supplies the setup file loaded by every Vitest project in the repo, so a type error in it affects every suite while being compiled by nothing.
+This covers the six building packages and the two apps. It SHALL NOT cover `packages/testing-config` or `packages/ts-config`: neither owns a `tsconfig.json`, and with no root config to inherit, `tsc --noEmit` there would resolve no project rather than check anything. `ts-config` contains no TypeScript source at all. `testing-config` does own one checked-by-nothing source file — the setup file every Vitest project loads — but making it checkable requires authoring a config for it, which is deliberately left to a separate change.
 
-The script SHALL be named `typecheck` in every project. `packages/toolbelt`'s existing `check-types` script SHALL be renamed to `typecheck` rather than left alongside it.
+The script SHALL be named `typecheck` in every project that has one. `packages/toolbelt`'s existing `check-types` script SHALL be renamed to `typecheck` rather than left alongside it.
 
 #### Scenario: A type error in a test file is reported
 - **WHEN** a test file assigns a value that does not satisfy the type of the prop or parameter it targets, and `typecheck` runs for that package
 - **THEN** `tsc` reports the error and exits non-zero
 
-#### Scenario: A type error in a non-building package is reported
-- **WHEN** `packages/testing-config` contains a type error and its `typecheck` script runs
-- **THEN** the error is reported, despite the package having no `build` script
-
 #### Scenario: Only one script name exists
 - **WHEN** the repository's `package.json` files are inspected
-- **THEN** no `check-types` script remains, and every project with a `tsconfig.json` defines `typecheck`
+- **THEN** no `check-types` script remains, and every project owning a `tsconfig.json` defines `typecheck`
+
+#### Scenario: Projects without a tsconfig are not given an inert script
+- **WHEN** the `package.json` files of `packages/testing-config` and `packages/ts-config` are inspected
+- **THEN** neither defines a `typecheck` script, because neither owns a `tsconfig.json` for one to run against
 
 ### Requirement: Typecheck is a cached turbo task keyed on test files
 `turbo.json` SHALL define a `typecheck` task that:

@@ -8,7 +8,7 @@ The same configuration means 132 compiled test artifacts and 24 compiled Storybo
 
 - Add a `tsconfig.build.json` per building package, used by that package's `build` script (`tsc -p tsconfig.build.json`). It excludes `**/*.test.*`, `**/*.spec.*`, `**/*.stories.*`, `**/__mocks__/**`, and `**/__snapshots__/**` — the same set turbo's `build.inputs` already excludes, so the two lists mirror each other deliberately.
 - Leave each `tsconfig.json` covering everything including tests. It remains the editor's view and becomes the typecheck task's view.
-- Add a `typecheck` script (`tsc --noEmit`) to every package with a `tsconfig.json`, including `testing-config` and `ts-config`, which build nothing today and are consequently checked by nothing — despite `testing-config` shipping the setup file all six Vitest suites load.
+- Add a `typecheck` script (`tsc --noEmit`) to every package and app that owns a `tsconfig.json` — the six building packages plus both apps. `testing-config` and `ts-config` are out of scope: neither owns a `tsconfig.json`, and there is no root config to inherit, so a `typecheck` script there would check nothing. `testing-config` does ship the setup file all six Vitest suites load and is genuinely unchecked, but making it checkable means authoring a config for it — raised as a separate change.
 - Rename `toolbelt`'s orphaned `check-types` script to `typecheck` so one name covers the repo. It is currently in no turbo task and no workflow.
 - Add a `typecheck` task to `turbo.json`, depending on `^build` (packages consume each other through `dist/*.d.ts`) with test files in its `inputs`, so a test edit does invalidate *this* task's cache.
 - Add a typecheck step to the existing `Test` job in `tests.yml`, ahead of `yarn test:coverage`, so a type error fails fast without a second runner.
@@ -27,7 +27,7 @@ None. `vitest-test-runner` owns the test runner and `unit-test-coverage` owns co
 ## Impact
 
 - `packages/{brand-components,design-system,dnd-character-sheet,reveal-framework,talk-tailwind,toolbelt}` — a new `tsconfig.build.json`, a changed `build` script, and a new `typecheck` script each.
-- `packages/{testing-config,ts-config}` — a `typecheck` script only; neither builds.
+- `packages/{testing-config,ts-config}` — unchanged. Neither owns a `tsconfig.json`, so neither can be typechecked without one being authored first.
 - `apps/{ageorgedev,game-tools}` — a `typecheck` script; `vite build` is unchanged.
 - `turbo.json` — one new task, plus a clarifying comment on `build.inputs`.
 - `.github/workflows/tests.yml` — one new step.

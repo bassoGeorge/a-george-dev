@@ -4,6 +4,12 @@
     "build": {
       "dependsOn": ["clean", "^build"],
       "outputs": ["dist/**"],
+      // These exclusions claim a test/story/snapshot edit cannot change build
+      // output. That is only true while each package's tsconfig.build.json
+      // excludes the same files — keep the two lists in sync. When they drifted,
+      // tsc compiled tests that turbo believed it ignored, so a type error in a
+      // test survived every cached local build and only failed on cold CI.
+      // The `typecheck` task below deliberately includes what this one drops.
       "inputs": [
         "$TURBO_DEFAULT$",
         "!src/**/*.spec.ts",
@@ -14,6 +20,12 @@
         "!src/**/*.stories.tsx",
         "!src/**/__snapshots__/**"
       ]
+    },
+    "typecheck": {
+      // ^build because packages resolve each other's types through generated
+      // dist/*.d.ts. No outputs: tsc --noEmit produces none.
+      "dependsOn": ["^build"],
+      "inputs": ["$TURBO_DEFAULT$"]
     },
     "clean": {
       "cache": false,

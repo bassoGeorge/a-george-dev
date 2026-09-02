@@ -65,9 +65,13 @@ That invariant is invisible in the code, so `build.inputs` carries a comment nam
 
 A single root-level `tsc --noEmit` was the alternative. Rejected: no root tsconfig spans all projects today, and it forfeits per-package caching and parallelism that turbo already provides.
 
-### Non-building packages are in scope
+### Non-building packages are out of scope, and why that was a correction
 
-`testing-config` and `ts-config` produce no build output and are checked by nothing. `testing-config` is not incidental — it ships the setup file every Vitest project in the repo loads, so a type error there affects every suite while being compiled by no build. Including them costs two scripts.
+The original intent was to include `testing-config` and `ts-config`, on the reasoning that they are checked by nothing. The reasoning was right; the mechanism was not. Neither package owns a `tsconfig.json`, and there is no root config to inherit, so `tsc --noEmit` in either directory resolves no project and checks nothing. Adding the script would have produced two inert commands that look like coverage.
+
+`ts-config` has no TypeScript source at all — two `.d.ts` files and three JSON configs — so there is nothing there to check regardless.
+
+`testing-config` is a genuine gap: one source file, `react-jsdom-test-setup.ts`, loaded through `setupFiles` by all six Vitest projects, compiled by no build and checked by no tool. Closing it means authoring a `tsconfig.json` for the package, which is new work rather than a rewiring of existing work. It is raised as a separate change rather than absorbed here.
 
 ### CI gets a step, not a job
 
@@ -93,7 +97,7 @@ Both apps are currently unchecked, and turning on `tsc --noEmit` over previously
 
 1. Per package: add `tsconfig.build.json`, point `build` at it, rebuild clean, confirm `dist/` is free of test/story/mock/snapshot output and that dependants still compile.
 2. Verify `build:storybook` still succeeds.
-3. Add `typecheck` scripts, rename `toolbelt`'s `check-types`, add the turbo task, confirm the cache split behaves (test edit invalidates `typecheck`, not `build`).
+3. Add `typecheck` scripts to the six building packages, rename `toolbelt`'s `check-types`, add the turbo task, confirm the cache split behaves (test edit invalidates `typecheck`, not `build`).
 4. Wire the CI step; verify it catches a deliberately introduced type error in a test file.
 5. Measure app errors, report the count, then fix or split.
 
