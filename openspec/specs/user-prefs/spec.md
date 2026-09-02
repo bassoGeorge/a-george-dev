@@ -1,3 +1,9 @@
+## Purpose
+
+Provides persisted per-user display preferences for `game-tools`, exposed through `UserPrefsContext` and edited via a customisation dropdown in the header, controlling which optional character sheet panels are shown.
+
+## Requirements
+
 ### Requirement: User preferences context
 The app SHALL provide a `UserPrefsContext` with a `UserPrefsProvider` that makes user preferences available to all components in `game-tools`. The context SHALL expose the current prefs and a setter function.
 
