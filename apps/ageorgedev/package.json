@@ -5,7 +5,8 @@
   "scripts": {
     "build": "vite build",
     "dev": "vite dev --port 3000",
-    "test": "vitest run"
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@ageorgedev/design-system": "workspace:*",

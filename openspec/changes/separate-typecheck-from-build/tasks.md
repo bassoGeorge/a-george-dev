@@ -34,11 +34,11 @@
 
 ## 4. Apps — measure first, then decide
 
-- [ ] 4.1 Add a `typecheck` script to `apps/ageorgedev` and `apps/game-tools`; leave both `build` scripts as `vite build`
-- [ ] 4.2 Run `tsc --noEmit` in each app and **record the error count and a summary of the kinds of error** in this file
-- [ ] 4.3 **Decision point — report to the user before proceeding.** If the count is small, fix the errors here. If it is large or the fixes are substantive, split the app work into its own change and revert 4.1. Do not absorb an open-ended fix pile into this change unannounced
-- [ ] 4.4 If fixing here: fix the errors, confirm both apps typecheck clean, and confirm `vite build` still succeeds for both
-- [ ] 4.5 If splitting: raise the follow-up change, and record here why
+- [x] 4.1 Add a `typecheck` script to `apps/ageorgedev` and `apps/game-tools`; leave both `build` scripts as `vite build`
+- [x] 4.2 Run `tsc --noEmit` in each app and record the error count. **Result: `ageorgedev` 0 errors; `game-tools` 1 error** — TS2345 in `src/context/UserPrefsContext.tsx:35`, `readFromStorage()` declared as returning `UserPrefs` (all-optional) but assigned into `useState<Required<UserPrefs>>`
+- [x] 4.3 **Decision: fixed here.** One error total, and a genuine latent bug rather than a cosmetic annotation — every return path in `readFromStorage` spreads `DEFAULT_USER_PREFS` and so always produces a complete object; the declared return type was simply wider than reality and nothing checked it. Narrowed to `Required<UserPrefs>`. No split needed
+- [x] 4.4 If fixing here: fix the errors, confirm both apps typecheck clean, and confirm `vite build` still succeeds for both — `turbo typecheck` 20/20 (up from 18, the two apps added); `yarn build` and `yarn build:game-tools` both succeed
+- [x] 4.5 ~~If splitting: raise the follow-up change~~ — N/A, not split; see 4.3
 
 ## 5. Wrap-up
 
