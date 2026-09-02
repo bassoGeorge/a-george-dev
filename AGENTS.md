@@ -19,8 +19,11 @@ yarn build                                       # Build ageorgedev app
 yarn turbo build --filter=@ageorgedev/toolbelt   # Build a specific package
 
 # Testing
-yarn test                                        # Run all tests (via Turborepo)
+yarn test                                        # Run all unit tests (one root Vitest run)
+yarn test:coverage                               # Same, plus a merged report in coverage/
+yarn test:watch                                  # Watch mode across every package
 yarn turbo test --filter=@ageorgedev/toolbelt    # Run tests for a specific package
+yarn vitest run --project @ageorgedev/toolbelt   # Same, without the Turborepo fan-out
 
 # Linting / Formatting (Biome)
 yarn format-and-lint                             # Check all files
@@ -87,7 +90,7 @@ The projects use a modified tailwind configuration. The following lists critical
 
 ### Build & Deploy
 
-- **CI**: GitHub Actions + Turborepo; PR workflow runs lint+test on affected projects, deploys preview URLs consolidated into a single PR comment
+- **CI**: GitHub Actions + Turborepo; PR workflow lints affected projects, runs the full unit-test suite with coverage, deploys preview URLs consolidated into a single PR comment
 - **Hosting**: Vercel (main site, design storybook and game-tools)
 - **Production**: Deploys on push to `main`
 - **Linting**: Biome — run `yarn format-and-lint` locally, `yarn lint:ci` in CI

@@ -99,6 +99,7 @@ The generated `__snapshots__/<TestFile>.snap` is keyed to the exact test filenam
 
 ## Running tests
 
-- `yarn test` from the repo root runs every package via Turborepo.
-- `yarn turbo test --filter=@ageorgedev/<package-name>` runs just one package (e.g. `--filter=@ageorgedev/design-system`).
+- `yarn test` from the repo root runs every package in a single Vitest process, driven by the root `vitest.config.ts`. It builds the workspace packages first, because cross-package imports resolve to built `dist/` output.
+- `yarn test:coverage` does the same and writes a merged report to `coverage/`; `yarn test:watch` is watch mode across every package.
+- To run one package: `yarn vitest run --project @ageorgedev/<package-name>`, or `yarn turbo test --filter=@ageorgedev/<package-name>` to go through Turborepo.
 - After adding or renaming test files, run `yarn format-and-lint:fix` from the repo root (not `npx biome` directly) to catch formatting issues before considering the work done.
