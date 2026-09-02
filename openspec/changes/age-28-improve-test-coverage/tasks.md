@@ -51,12 +51,12 @@
 
 ## 6. Commit 3 — the CI gate
 
-- [ ] 6.1 Add `coverage.thresholds` to root `vitest.config.ts` gating `lines` and `statements` only, each set to the figure recorded in 5.7 minus ~2 points
-- [ ] 6.2 Confirm `branches` and `functions` are **not** gated, `perFile` is not enabled, and `autoUpdate` is not enabled
-- [ ] 6.3 Run `yarn test:coverage` and confirm it exits 0
-- [ ] 6.4 Temporarily raise the threshold above the achieved figure, re-run, and confirm the run **fails** — then restore the real value. An unverified gate is not a gate
-- [ ] 6.5 Confirm `.github/workflows/tests.yml` needs no edit (it already invokes `yarn test:coverage`)
-- [ ] 6.6 Commit the threshold
+- [x] 6.1 Add `coverage.thresholds` to root `vitest.config.ts` gating `lines` and `statements` only, each set to the figure recorded in 5.7 minus ~2 points — both set to **93** (achieved 95.93 / 95.87)
+- [x] 6.2 Confirm `branches` and `functions` are **not** gated, `perFile` is not enabled, and `autoUpdate` is not enabled
+- [x] 6.3 Run `yarn test:coverage` and confirm it exits 0
+- [x] 6.4 Temporarily raise the threshold above the achieved figure, re-run, and confirm the run **fails** — then restore the real value. An unverified gate is not a gate — at `lines: 99` it failed with `ERROR: Coverage for lines (95.93%) does not meet global threshold (99%)`, then restored to 93 and re-confirmed exit 0
+- [x] 6.5 Confirm `.github/workflows/tests.yml` needs no edit (it already invokes `yarn test:coverage`) — confirmed, `tests.yml:17`
+- [x] 6.6 Commit the threshold
 
 ## 7. Wrap-up
 

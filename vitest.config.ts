@@ -7,6 +7,16 @@ export default defineConfig({
       provider: 'v8',
       reporter: ['text', 'html', 'lcov'],
       reportsDirectory: './coverage',
+      // Floor set ~2 points under what the suite actually achieves (95.9% at the
+      // time of writing), so a normal-sized new file does not trip the gate.
+      // Only lines and statements are enforced: v8 synthesises branch counts for
+      // optional chaining and default parameters, so gating `branches` fails on
+      // constructs nobody wrote a branch for. Both are still reported.
+      // Global only — perFile would need every included file above the floor.
+      thresholds: {
+        lines: 93,
+        statements: 93,
+      },
       // Only projects with a vitest.config.ts registered in `projects` above can
       // register a covered line, so only those are measured. Enumerated rather than
       // globbed on purpose: adding a package must be a deliberate edit here, so an
