@@ -14,23 +14,23 @@
 
 ## 2. Commit 2 — typecheck scripts and the turbo task
 
-- [ ] 2.1 Rename `packages/toolbelt`'s `check-types` script to `typecheck`; confirm no `check-types` reference remains anywhere
-- [ ] 2.2 Add `typecheck: tsc --noEmit` to `brand-components`, `design-system`, `dnd-character-sheet`, `reveal-framework`, `talk-tailwind`
+- [x] 2.1 Rename `packages/toolbelt`'s `check-types` script to `typecheck`; confirm no `check-types` reference remains anywhere
+- [x] 2.2 Add `typecheck: tsc --noEmit` to `brand-components`, `design-system`, `dnd-character-sheet`, `reveal-framework`, `talk-tailwind`
 - [x] 2.3 ~~Add `typecheck` to `packages/testing-config` and `packages/ts-config`~~ — **dropped.** Neither owns a `tsconfig.json` and there is no root config to inherit, so the script would resolve no project and check nothing. `ts-config` has no TypeScript source at all. `testing-config` is a real gap (its setup file is loaded by all six Vitest projects and compiled by nothing) but closing it means authoring a config — raised as a separate change. Spec, proposal and design amended to match
-- [ ] 2.4 Add a `typecheck` task to `turbo.json`: `dependsOn: ["^build"]`, no `outputs`, `inputs` that **include** test/story/mock files
-- [ ] 2.5 Add a comment on `build.inputs` recording that its exclusions are sound only while `tsconfig.build.json` excludes the same files
-- [ ] 2.6 Run `yarn turbo typecheck --filter='./packages/*'` and confirm it passes clean
-- [ ] 2.7 **Verify the cache split:** edit a test file, re-run both tasks, confirm `typecheck` re-executes while `build` reports a cache hit. This is the core mechanism — an unverified cache split is the bug we are fixing
-- [ ] 2.8 Re-run `typecheck` with no edit and confirm a full cache hit
-- [ ] 2.9 Commit
+- [x] 2.4 Add a `typecheck` task to `turbo.json`: `dependsOn: ["^build"]`, no `outputs`, `inputs` that **include** test/story/mock files
+- [x] 2.5 Add a comment on `build.inputs` recording that its exclusions are sound only while `tsconfig.build.json` excludes the same files
+- [x] 2.6 Run `yarn turbo typecheck --filter='./packages/*'` and confirm it passes clean
+- [x] 2.7 **Verify the cache split:** edit a test file, re-run both tasks, confirm `typecheck` re-executes while `build` reports a cache hit. This is the core mechanism — an unverified cache split is the bug we are fixing
+- [x] 2.8 Re-run `typecheck` with no edit and confirm a full cache hit
+- [x] 2.9 Commit
 
 ## 3. Commit 3 — the CI gate
 
-- [ ] 3.1 Add a typecheck step to the `Test` job in `.github/workflows/tests.yml`, positioned before `yarn test:coverage`
-- [ ] 3.2 Confirm it is a step in the existing job, not a new job, so the install is reused
-- [ ] 3.3 **Verify the gate catches the original bug class:** temporarily reintroduce an invalid union member in a test file (e.g. `shape="scooped"`), run typecheck locally, and confirm it fails. Restore afterwards. An unverified gate is not a gate
-- [ ] 3.4 Confirm a clean tree passes the step and proceeds to the coverage run
-- [ ] 3.5 Commit
+- [x] 3.1 Add a typecheck step to the `Test` job in `.github/workflows/tests.yml`, positioned before `yarn test:coverage`
+- [x] 3.2 Confirm it is a step in the existing job, not a new job, so the install is reused
+- [x] 3.3 **Verify the gate catches the original bug class:** temporarily reintroduce an invalid union member in a test file (e.g. `shape="scooped"`), run typecheck locally, and confirm it fails. Restore afterwards. An unverified gate is not a gate
+- [x] 3.4 Confirm a clean tree passes the step and proceeds to the coverage run
+- [x] 3.5 Commit
 
 ## 4. Apps — measure first, then decide
 

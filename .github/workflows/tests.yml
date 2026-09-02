@@ -13,6 +13,10 @@ jobs:
         uses: ./.github/actions/setup-turbo
       - name: 📦 Install dependencies
         uses: ./.github/actions/install-dependencies
+      # Before the suite: a type error should fail in seconds, not after the
+      # full coverage run. Shares this job's install rather than taking a runner.
+      - name: 🔎 Typecheck
+        run: yarn turbo typecheck
       - name: ⚡ Run Unit Tests with coverage
         run: yarn test:coverage
       # always() so a run that fails the coverage threshold still publishes the
