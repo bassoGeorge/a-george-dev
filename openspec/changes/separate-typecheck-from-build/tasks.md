@@ -42,6 +42,11 @@
 
 ## 5. Wrap-up
 
-- [ ] 5.1 Run the full `yarn build:packages --force`, `yarn turbo typecheck`, and `yarn test:coverage` one final time; confirm all green
-- [ ] 5.2 Record in this file the outcome of 1.8 (Storybook), 2.7 (cache split), and 4.2 (app error count), so none of them is re-litigated later
+- [x] 5.1 Run the full `yarn build:packages --force`, `yarn turbo typecheck`, and `yarn test:coverage` one final time — 12/12, 20/20, and coverage exit 0 at 95.93% lines / 95.87% statements
+- [x] 5.2 Outcomes recorded:
+  - **1.8 Storybook** — not broken. `build:storybook` succeeds with stories excluded from the build config; the emitted chunk `CodeBlock.stories-*.js` confirms Storybook resolves stories from source through Vite, never from built `dist`
+  - **2.7 cache split** — verified. Editing a test file gives `typecheck: cache miss, executing` while `build: cache hit` replays the identical hash `7c0cf47f3c4ac459`. This is the mechanism the whole change rests on
+  - **3.3 gate** — verified by reintroducing `shape="scooped"`: typecheck reported the original TS2322 and failed, then was restored
+  - **4.2 app errors** — `ageorgedev` 0, `game-tools` 1 (fixed here, see 4.3). Far smaller than the open question anticipated
+  - **dist contents** — 132 test artifacts and 24 story artifacts before; 0 test, 0 story, 0 mock, 0 snapshot after
 - [ ] 5.3 Open a PR titled per the repo's `write-commits` convention
