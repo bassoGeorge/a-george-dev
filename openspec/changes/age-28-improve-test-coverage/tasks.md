@@ -13,40 +13,41 @@
 - [x] 2.7 Run `yarn test:coverage` and record the new line/statement figures (expected ~73.8% lines, denominator ~713) — achieved **73.77% lines (526/713)**, **74.3% statements (558/751)**
 - [x] 2.8 Verify in the report that no `*.stories.tsx`, `*.gen.ts`, `packages/talk-tailwind/**`, `apps/*/src/routes/**`, or per-character data file appears
 - [x] 2.9 Verify `apps/game-tools/src/data/dnd-characters/index.ts` **does** still appear in the report
-- [ ] 2.10 Commit, with a message stating plainly that this is a measurement-scope change with zero test-quality impact
+- [x] 2.10 Commit, with a message stating plainly that this is a measurement-scope change with zero test-quality impact — `9dbb0dc`
 
 ## 3. Commit 2 — design-system tests
 
-- [ ] 3.1 `theming/ThemeProvider.test.tsx` — test the real provider (not the `__mocks__` copy): default theme, `setTheme` transition, and the `<html>` class-list effect adding/removing `dark`
-- [ ] 3.2 `color-utils.test.ts`
-- [ ] 3.3 `theming/theme-init-script.test.ts`
-- [ ] 3.4 `ui/button.test.tsx` — snapshot of a composed render covering the variant/size class surface
-- [ ] 3.5 `ui/breadcrumb.test.tsx` — snapshot of a composed breadcrumb (list, item, link, separator, page)
-- [ ] 3.6 `ui/dropdown-menu.test.tsx` — snapshot of an **open** menu (portal content is closed by default and renders an empty tree otherwise), including a representative item, checkbox-item, separator, and shortcut
-- [ ] 3.7 Run `yarn vitest run --project @ageorgedev/design-system` and confirm green
+- [x] 3.1 `theming/ThemeProvider.test.tsx` — test the real provider (not the `__mocks__` copy): default theme, `setTheme` transition, and the `<html>` class-list effect adding/removing `dark`. Real provider is richer than the mock (auto mode, localStorage, matchMedia subscription, `data-theme`, `colorScheme`) so all of that is covered; needed a local `localStorage` stub, see note at 5.9
+- [x] 3.2 `color-utils.test.ts`
+- [x] 3.3 `theming/theme-init-script.test.ts` — executes the inlined script for real, guarding it against drift from `ThemeProvider`
+- [x] 3.4 `ui/button.test.tsx` — snapshot of a composed render covering the variant/size class surface
+- [x] 3.5 `ui/breadcrumb.test.tsx` — snapshot of a composed breadcrumb (list, item, link, separator, page)
+- [x] 3.6 `ui/dropdown-menu.test.tsx` — snapshot of an **open** menu (portal content is closed by default and renders an empty tree otherwise), including a representative item, checkbox-item, separator, and shortcut
+- [x] 3.7 Run `yarn vitest run --project @ageorgedev/design-system` and confirm green — 16 files, 145 passed
 
 ## 4. Commit 2 — dnd-character-sheet tests
 
-- [ ] 4.1 `components/SpellcastingBlock/GroupedSpellList.test.tsx` (20 lines, largest single target)
-- [ ] 4.2 `components/SpellcastingBlock/SpellSlotsPanel.test.tsx`
-- [ ] 4.3 `components/SpellcastingBlock/SpellAbilityPanel.test.tsx`
-- [ ] 4.4 `components/SpellcastingBlock/SpellcastingBlock.test.tsx`
-- [ ] 4.5 `components/feature-blocks/FeatureEntry.test.tsx`
-- [ ] 4.6 `components/feature-blocks/SpeciesAndFeatsCombined.test.tsx`
-- [ ] 4.7 Extend coverage of `components/feature-blocks/FeatureList.tsx` (currently 50%) to its uncovered branch
-- [ ] 4.8 `lib/data/with-spell-mods.test.ts`
-- [ ] 4.9 Run `yarn vitest run --project @ageorgedev/dnd-character-sheet` and confirm green
+- [x] 4.1 `components/SpellcastingBlock/GroupedSpellList.test.tsx` (20 lines, largest single target) — 19 tests
+- [x] 4.2 `components/SpellcastingBlock/SpellSlotsPanel.test.tsx` — 16 tests
+- [x] 4.3 `components/SpellcastingBlock/SpellAbilityPanel.test.tsx`
+- [x] 4.4 `components/SpellcastingBlock/SpellcastingBlock.test.tsx`
+- [x] 4.5 `components/feature-blocks/FeatureEntry.test.tsx`
+- [x] 4.6 `components/feature-blocks/SpeciesAndFeatsCombined.test.tsx`
+- [x] 4.7 Extend coverage of `components/feature-blocks/FeatureList.tsx` (currently 50%) to its uncovered branch — new `FeatureList.test.tsx` covering the empty-state branch
+- [x] 4.8 `lib/data/with-spell-mods.test.ts`
+- [x] 4.9 Run `yarn vitest run --project @ageorgedev/dnd-character-sheet` and confirm green — 21 files, 207 passed
 
 ## 5. Commit 2 — reveal-framework and game-tools tests
 
-- [ ] 5.1 `packages/reveal-framework/src/components/slide-components.test.tsx`
-- [ ] 5.2 `packages/reveal-framework/src/components/slide-types.test.tsx`
-- [ ] 5.3 `apps/game-tools/src/components/HeaderBreadcrumbs.test.tsx`
-- [ ] 5.4 `apps/game-tools/src/data/dnd-characters/index.test.ts` — slug derivation, resolve-by-slug, unknown-slug throw, known-slug/unknown-level throw, and the no-level default-to-first-entry path
-- [ ] 5.5 Run `yarn vitest run --project @ageorgedev/reveal-framework` and `--project @ageorgedev/game-tools`, confirm green
-- [ ] 5.6 Run `yarn format-and-lint:fix` at the repo root
-- [ ] 5.7 Run full `yarn test:coverage`, record the achieved line and statement figures
-- [ ] 5.8 Commit the test additions
+- [x] 5.1 `packages/reveal-framework/src/components/slide-components.test.tsx`
+- [x] 5.2 `packages/reveal-framework/src/components/slide-types.test.tsx`
+- [x] 5.3 `apps/game-tools/src/components/HeaderBreadcrumbs.test.tsx`
+- [x] 5.4 `apps/game-tools/src/data/dnd-characters/index.test.ts` — slug derivation, resolve-by-slug, unknown-slug throw, known-slug/unknown-level throw, and the no-level default-to-first-entry path
+- [x] 5.5 Run `yarn vitest run --project @ageorgedev/reveal-framework` and `--project @ageorgedev/game-tools`, confirm green — 31 and 47 passed
+- [x] 5.6 Run `yarn format-and-lint:fix` at the repo root — 8 files reformatted
+- [x] 5.7 Run full `yarn test:coverage`, record the achieved line and statement figures — **95.93% lines (684/713)**, **95.87% statements (720/751)**; 53 files, 456 passed
+- [x] 5.8 Commit the test additions
+- [x] 5.9 **Environment finding:** jsdom 29 under Node 24 leaves `window.localStorage` undefined repo-wide (it defers to Node's built-in, which needs `--localstorage-file`). `ThemeProvider.test.tsx` and `theme-init-script.test.ts` each stub it locally. A shared polyfill in `packages/testing-config/react-jsdom-test-setup.ts` would be the durable fix — deliberately left out of this change as shared-infra scope; see 7.5
 
 ## 6. Commit 3 — the CI gate
 
