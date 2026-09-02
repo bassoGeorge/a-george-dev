@@ -16,9 +16,9 @@ export default defineConfig({
       reporter: ['text', 'html', 'lcov'],
       reportsDirectory: './coverage',
       include: [
-        'packages/*/src/**',
-        'apps/ageorgedev/src/**',
-        'apps/game-tools/src/**',
+        'packages/*/src/**/*.{ts,tsx}',
+        'apps/ageorgedev/src/**/*.{ts,tsx}',
+        'apps/game-tools/src/**/*.{ts,tsx}',
       ],
       exclude: [
         '**/*.{test,spec}.{ts,tsx}',
