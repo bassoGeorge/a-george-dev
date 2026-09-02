@@ -1,10 +1,6 @@
 name: 🧪 Tests
 on:
   workflow_call:
-    inputs:
-      command_arg:
-        required: false
-        type: string
 jobs:
   Test:
     runs-on: ubuntu-latest
@@ -17,7 +13,12 @@ jobs:
         uses: ./.github/actions/setup-turbo
       - name: 📦 Install dependencies
         uses: ./.github/actions/install-dependencies
-      - name: ⚡ Run Unit Tests for given projects
-        run: yarn turbo test ${{ inputs.command_arg }} -- --passWithNoTests
+      - name: ⚡ Run Unit Tests with coverage
+        run: yarn test:coverage
+      - name: 📤 Upload coverage lcov
+        uses: actions/upload-artifact@v7
+        with:
+          name: coverage-lcov
+          path: coverage/lcov.info
       - name: 🔍 Check spell CSV / generated file are in sync
         run: yarn turbo generate:spells:check --filter=@ageorgedev/dnd-character-sheet

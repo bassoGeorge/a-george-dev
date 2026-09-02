@@ -9,8 +9,6 @@ jobs:
   Run_Tests:
     needs: [Info]
     uses: ./.github/workflows/tests.yml
-    with:
-      command_arg: --affected
   Deploy:
     needs: [Run_Tests, Info]
     if: needs.Info.outputs.pr_deploy_matrix != '[]'
