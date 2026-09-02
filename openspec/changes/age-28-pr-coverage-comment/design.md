@@ -47,7 +47,7 @@ The action requires `coverage-summary.json` for headline metrics, and `coverage-
 
 Rather than adding two files alongside a third nobody uses, the artifact is replaced: `coverage-report`, containing exactly the two JSON files, and `lcov` is dropped from the reporter array. A dead reporter in the config invites the "what reads this?" question at every future review, and re-adding it is a one-line change if a consumer appears.
 
-The upload preserves the `coverage/` prefix (`upload-artifact` keeps the least-common-ancestor directory), so downloading into the workspace root puts the files exactly where the action's default path inputs look for them. No path inputs need setting.
+`upload-artifact` strips the least common ancestor of the matched paths, so the artifact holds the two JSON files at its root rather than under `coverage/`. The consumer therefore downloads with `path: coverage`, which puts them exactly where the action's default path inputs look. No path inputs on the action itself need setting.
 
 ### Reporters are added to `vitest.config.ts`, not passed as CLI flags in CI
 

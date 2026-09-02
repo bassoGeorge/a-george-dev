@@ -46,7 +46,7 @@ The `coverage/` directory SHALL remain gitignored, so that adding reporters does
 
 The upload step SHALL be conditioned on `always()`, so that a run failing the configured coverage threshold still produces the artifact. A coverage-threshold failure is exactly the case where the report is most needed, and Vitest writes its reporters before exiting non-zero on a threshold breach.
 
-The artifact SHALL preserve the `coverage/` directory prefix, so that a consumer downloading it into the workspace root finds the files at the paths the coverage tooling expects by default.
+`upload-artifact` strips the least common ancestor of the uploaded paths, so the artifact SHALL contain the two JSON files at its root rather than under a `coverage/` prefix. A consumer SHALL therefore download the artifact into a `coverage/` directory, which places the files at the paths the coverage tooling expects by default.
 
 `tests.yml` SHALL remain event-agnostic: it SHALL NOT branch on `github.event_name`, and SHALL behave identically when called from `pull-request.yml` and from `production.yml`.
 

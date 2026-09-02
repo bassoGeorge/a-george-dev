@@ -1,36 +1,36 @@
 ## 1. Commit 1 — coverage reporters
 
-- [ ] 1.1 In root `vitest.config.ts`, change `coverage.reporter` to `['text', 'html', 'json-summary', 'json']` — adding `json-summary` and `json`, removing `lcov`
-- [ ] 1.2 Update the surrounding comment to record why `lcov` is gone (no consumer in this repo) and what each JSON reporter feeds
-- [ ] 1.3 Run `yarn test:coverage` and confirm it still exits 0 against the existing 93% floor
-- [ ] 1.4 Confirm `coverage/coverage-summary.json` exists and its `total` object carries `lines`, `statements`, `branches`, and `functions`
-- [ ] 1.5 Confirm `coverage/coverage-final.json` exists and contains an entry for a file matched by `coverage.include`
-- [ ] 1.6 Confirm `coverage/lcov.info` is no longer written (delete the stale local one first, then re-run — an existing file from a previous run would mask this)
-- [ ] 1.7 Confirm `coverage/index.html` still renders and `git status` is clean, i.e. no new coverage file escaped the gitignore
-- [ ] 1.8 Run `yarn format-and-lint:fix` at the repo root
-- [ ] 1.9 Commit the reporter change
+- [x] 1.1 In root `vitest.config.ts`, change `coverage.reporter` to `['text', 'html', 'json-summary', 'json']` — adding `json-summary` and `json`, removing `lcov`
+- [x] 1.2 Update the surrounding comment to record why `lcov` is gone (no consumer in this repo) and what each JSON reporter feeds
+- [x] 1.3 Run `yarn test:coverage` and confirm it still exits 0 against the existing 93% floor
+- [x] 1.4 Confirm `coverage/coverage-summary.json` exists and its `total` object carries `lines`, `statements`, `branches`, and `functions`
+- [x] 1.5 Confirm `coverage/coverage-final.json` exists and contains an entry for a file matched by `coverage.include`
+- [x] 1.6 Confirm `coverage/lcov.info` is no longer written (delete the stale local one first, then re-run — an existing file from a previous run would mask this)
+- [x] 1.7 Confirm `coverage/index.html` still renders and `git status` is clean, i.e. no new coverage file escaped the gitignore
+- [x] 1.8 Run `yarn format-and-lint:fix` at the repo root
+- [x] 1.9 Commit the reporter change
 
 ## 2. Commit 2 — the CI artifact
 
-- [ ] 2.1 In `.github/workflows/tests.yml`, rename the upload step's artifact from `coverage-lcov` to `coverage-report`
-- [ ] 2.2 Change its `path` to the two JSON files — `coverage/coverage-summary.json` and `coverage/coverage-final.json` — as a multi-line path so the `coverage/` prefix is preserved in the artifact
-- [ ] 2.3 Add `if: always()` to the upload step so a threshold failure still publishes the report
-- [ ] 2.4 Confirm `tests.yml` contains no `github.event_name` branch and no new inputs — it must stay callable unchanged by `production.yml`
-- [ ] 2.5 Grep the repo for any remaining reference to `coverage-lcov` or `lcov.info` and remove or update it
-- [ ] 2.6 Commit the workflow change
+- [x] 2.1 In `.github/workflows/tests.yml`, rename the upload step's artifact from `coverage-lcov` to `coverage-report`
+- [x] 2.2 Change its `path` to the two JSON files — `coverage/coverage-summary.json` and `coverage/coverage-final.json` — as a multi-line path so the `coverage/` prefix is preserved in the artifact
+- [x] 2.3 Add `if: always()` to the upload step so a threshold failure still publishes the report
+- [x] 2.4 Confirm `tests.yml` contains no `github.event_name` branch and no new inputs — it must stay callable unchanged by `production.yml`
+- [x] 2.5 Grep the repo for any remaining reference to `coverage-lcov` or `lcov.info` and remove or update it
+- [x] 2.6 Commit the workflow change
 
 ## 3. Commit 3 — the comment job
 
-- [ ] 3.1 Add a `Coverage_Comment` job to `.github/workflows/pull-request.yml`, `needs: [Run_Tests]`
-- [ ] 3.2 Give it `permissions: pull-requests: write`, and confirm that permission is **not** added to `Run_Tests`
-- [ ] 3.3 Condition it on `always()` combined with a fork guard (`github.event.pull_request.head.repo.full_name == github.repository`)
-- [ ] 3.4 Confirm `pull-request.yml` is still triggered by `pull_request`, not `pull_request_target`
-- [ ] 3.5 Add `actions/checkout@v6` — needed for `vitest.config.ts` and for the changed-files diff. Do **not** add the `install-dependencies` action
-- [ ] 3.6 Add `actions/download-artifact@v7` for `coverage-report`, downloading into the workspace root so the files land at `coverage/*.json`
-- [ ] 3.7 Add the `davelosert/vitest-coverage-report-action` step, pinned to a major version tag matching how `actions/*` are pinned here, with `file-coverage-mode: changes` and `vite-config-path: vitest.config.ts`. Leave the coverage-file path inputs at their defaults
-- [ ] 3.8 Confirm no threshold value is hardcoded in the workflow — the floor must come only from `vitest.config.ts`
-- [ ] 3.9 Confirm the existing `Finish` preview-comment job is untouched
-- [ ] 3.10 Commit the comment job
+- [x] 3.1 Add a `Coverage_Comment` job to `.github/workflows/pull-request.yml`, `needs: [Run_Tests]`
+- [x] 3.2 Give it `permissions: pull-requests: write`, and confirm that permission is **not** added to `Run_Tests`
+- [x] 3.3 Condition it on `always()` combined with a fork guard (`github.event.pull_request.head.repo.full_name == github.repository`)
+- [x] 3.4 Confirm `pull-request.yml` is still triggered by `pull_request`, not `pull_request_target`
+- [x] 3.5 Add `actions/checkout@v6` — needed for `vitest.config.ts` and for the changed-files diff. Do **not** add the `install-dependencies` action
+- [x] 3.6 Add `actions/download-artifact@v7` for `coverage-report`, downloading into the workspace root so the files land at `coverage/*.json`
+- [x] 3.7 Add the `davelosert/vitest-coverage-report-action` step, pinned to a major version tag matching how `actions/*` are pinned here, with `file-coverage-mode: changes` and `vite-config-path: vitest.config.ts`. Leave the coverage-file path inputs at their defaults
+- [x] 3.8 Confirm no threshold value is hardcoded in the workflow — the floor must come only from `vitest.config.ts`
+- [x] 3.9 Confirm the existing `Finish` preview-comment job is untouched
+- [x] 3.10 Commit the comment job
 
 ## 4. Verification on a real pull request
 
