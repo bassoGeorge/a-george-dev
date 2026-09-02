@@ -15,10 +15,16 @@ jobs:
         uses: ./.github/actions/install-dependencies
       - name: ⚡ Run Unit Tests with coverage
         run: yarn test:coverage
-      - name: 📤 Upload coverage lcov
+      # always() so a run that fails the coverage threshold still publishes the
+      # report explaining which files fell short. Vitest writes its reporters
+      # before exiting non-zero on a threshold breach, so the data is there.
+      - name: 📤 Upload coverage report
+        if: always()
         uses: actions/upload-artifact@v7
         with:
-          name: coverage-lcov
-          path: coverage/lcov.info
+          name: coverage-report
+          path: |
+            coverage/coverage-summary.json
+            coverage/coverage-final.json
       - name: 🔍 Check spell CSV / generated file are in sync
         run: yarn turbo generate:spells:check --filter=@ageorgedev/dnd-character-sheet
