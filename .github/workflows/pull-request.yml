@@ -9,6 +9,36 @@ jobs:
   Run_Tests:
     needs: [Info]
     uses: ./.github/workflows/tests.yml
+  # Lives here rather than in tests.yml so that workflow stays event-agnostic
+  # and production.yml can keep calling it unchanged. always() so a run that
+  # fails the coverage floor still gets the comment explaining why; the red
+  # Run_Tests is still the enforcing signal. Fork PRs get a read-only token and
+  # cannot comment, so they are skipped rather than failing forever —
+  # pull_request_target would fix that by handing fork code a write token, which
+  # is not a trade worth making.
+  Coverage_Comment:
+    needs: [Run_Tests]
+    if: always() && github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+    steps:
+      - name: ⬇️ Check out repository code
+        uses: actions/checkout@v6
+      - name: 📥 Download coverage report
+        uses: actions/download-artifact@v7
+        with:
+          name: coverage-report
+          path: coverage
+      # No dependency install: the action is self-contained and only needs the
+      # JSON reports plus vitest.config.ts, which it reads coverage.thresholds
+      # from so the floor is never restated here.
+      - name: 📊 Comment coverage summary
+        uses: davelosert/vitest-coverage-report-action@v2
+        with:
+          file-coverage-mode: changes
+          vite-config-path: vitest.config.ts
   Deploy:
     needs: [Run_Tests, Info]
     if: needs.Info.outputs.pr_deploy_matrix != '[]'
