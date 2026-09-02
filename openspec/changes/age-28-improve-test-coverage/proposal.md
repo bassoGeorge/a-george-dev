@@ -80,8 +80,8 @@ None.
 - `.github/workflows/tests.yml` — already invokes `yarn test:coverage`.
 - No production source changes. This is a test-and-config change only.
 
-**Risk carried forward, not resolved**
-- `packages/design-system/src/theming/__mocks__/ThemeProvider.tsx` is a hand-written parallel implementation that every consumer test uses instead of the real provider. This change tests the real `ThemeProvider` but leaves the mock in place, so the two can still drift — a correctness risk the coverage percentage will not surface. Deleting the mock is a behavioural change to every consumer test and belongs in its own ticket.
+**Risk knowingly accepted**
+- `packages/design-system/src/theming/__mocks__/ThemeProvider.tsx` is a hand-written parallel implementation that every consumer test uses instead of the real provider. This change tests the real `ThemeProvider` but leaves the mock in place, so the two can still drift — a correctness risk the coverage percentage will not surface. Reviewed and accepted: the mock is small enough that drift is unlikely to bite, and deleting it would mean a behavioural change to every consumer test. No follow-up is planned.
 
 **Assumption on record**
 - `data/dnd-characters/common/` is excluded along with the per-character directories. It is ~95% declarative `Feature` objects; the handful of factories (`weaponMastery`, `expertise`, `darkvision`) and `derivedEffect` closures inside it delegate to `apply-effects.ts` and `derived-stats.ts`, already at 100% and 98%.

@@ -29,10 +29,10 @@ Constraints: `.github/workflows/tests.yml` already runs `yarn test:coverage`, so
 
 **Non-Goals**
 
-- Deleting `theming/__mocks__/ThemeProvider.tsx` and migrating consumer tests to the real provider. Behavioural change to every consumer test; separate ticket.
+- Deleting `theming/__mocks__/ThemeProvider.tsx` and migrating consumer tests to the real provider. Behavioural change to every consumer test; reviewed and accepted as-is, no follow-up planned.
 - Extracting route-level logic into tested `lib/` helpers. Investigated (see Decision 4) and found unnecessary — the logic is already extracted.
 - Adding a Storybook test-runner or `@storybook/addon-vitest` so stories execute in CI. A plausible alternative to excluding stories, but a substantially larger change.
-- A CI check that every package with `src/*.tsx?` has a Vitest project. Noted as follow-up; scope creep here.
+- A CI check that every package with `src/*.tsx?` has a Vitest project. Considered and declined: the explicit `coverage.include` list is judged visible enough in review on its own.
 - `perFile` thresholds. Not viable while any included file sits at 0%.
 - Any production source change. This change touches tests and config only.
 
@@ -86,13 +86,13 @@ Ordering is forced: the threshold cannot be set truthfully before the tests land
 
 **The 21-point jump reads as a quality win → ** commit 1 is isolated and its message says otherwise; the proposal states the before/after denominators explicitly.
 
-**`ThemeProvider` mock drift → ** this change tests the real provider but leaves `__mocks__/ThemeProvider.tsx` in place, so the two implementations can still diverge and coverage will show green either way. Accepted for now, flagged in the proposal, follow-up ticket.
+**`ThemeProvider` mock drift → ** this change tests the real provider but leaves `__mocks__/ThemeProvider.tsx` in place, so the two implementations can still diverge and coverage will show green either way. Reviewed and accepted; the mock is small enough that the exposure is judged low. No follow-up planned.
 
 **Threshold blocks unrelated PRs → ** the 2-point buffer absorbs a normal-sized new file. If it proves too tight in practice the fix is to widen the buffer, not to remove the gate.
 
 **Snapshot tests lock in Radix internals → ** a Radix upgrade will churn the `.snap` files. Acceptable: that churn is exactly the signal wanted when a vendored primitive's rendered output changes. Note the `write-unit-tests` convention — if a test file with a snapshot is renamed, `git mv` the `.snap` alongside it.
 
-**Explicit include list goes stale → ** a new package added without a `vitest.config.ts` *and* without an include entry is invisible to coverage. Mitigated by the list being explicit enough to notice in review; the durable fix is the follow-up CI check.
+**Explicit include list goes stale → ** a new package added without a `vitest.config.ts` *and* without an include entry is invisible to coverage. Mitigated by the list being explicit enough to notice in review. A CI check would close this properly but was considered and declined.
 
 ## Migration Plan
 
@@ -105,4 +105,6 @@ Ordering is forced: the threshold cannot be set truthfully before the tests land
 
 ## Open Questions
 
-None outstanding — resolved during the grilling session that preceded the proposal. Two items are deliberately deferred rather than open: deleting the `ThemeProvider` mock, and a CI check enforcing that every package with TypeScript source has a Vitest project.
+None outstanding — resolved during the grilling session that preceded the proposal.
+
+Three items surfaced during implementation and were each reviewed and declined rather than left open: deleting the `ThemeProvider` mock, a CI check enforcing that every package with TypeScript source has a Vitest project, and a shared `localStorage` polyfill in `testing-config` (jsdom 29 under Node 24 leaves `window.localStorage` undefined; the two tests that need storage stub it locally).

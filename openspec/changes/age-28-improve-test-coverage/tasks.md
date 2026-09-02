@@ -62,6 +62,6 @@
 
 - [ ] 7.1 Open a PR titled per the repo's `write-commits` convention, referencing AGE-28 with a Linear magic word
 - [ ] 7.2 In the PR description, state the before/after figures and note that the denominator changed, so the percentages are not directly comparable
-- [ ] 7.3 Raise a follow-up ticket: delete `theming/__mocks__/ThemeProvider.tsx` and migrate consumer tests to the real provider
-- [ ] 7.4 Raise a follow-up ticket: CI check that every `packages/*` with `.tsx?` source under `src/` has a `vitest.config.ts` and an entry in `coverage.include`
-- [ ] 7.5 Raise a follow-up ticket: add a `localStorage` polyfill to `packages/testing-config/react-jsdom-test-setup.ts` — jsdom 29 under Node 24 leaves `window.localStorage` undefined, so every test touching storage must stub it locally (two do so today)
+- [x] 7.3 ~~Raise a follow-up ticket: delete `theming/__mocks__/ThemeProvider.tsx`~~ — **declined.** Small enough that drift is unlikely to matter; the mock stays as-is and no ticket is raised
+- [x] 7.4 ~~Raise a follow-up ticket: CI check for packages missing a Vitest project~~ — **declined.** The explicit `coverage.include` list is considered visible enough in review on its own
+- [x] 7.5 ~~Raise a follow-up ticket: `localStorage` polyfill in `testing-config`~~ — **declined.** Two local stubs is an acceptable cost for now; revisit if more tests start needing storage
