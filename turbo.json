@@ -20,13 +20,7 @@
       "outputs": ["storybook-static/**"]
     },
     "test": {
-      "dependsOn": ["^build"],
-      "inputs": [
-        "src/**/*.spec.tsx",
-        "src/**/*.spec.ts",
-        "src/**/*.test.ts",
-        "vitest.config.ts"
-      ]
+      "dependsOn": ["^build"]
     },
     "dev": {
       "cache": false,
