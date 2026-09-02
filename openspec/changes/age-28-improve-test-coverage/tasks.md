@@ -1,18 +1,18 @@
 ## 1. Branch setup
 
-- [ ] 1.1 Create branch `feat/AGE-28-test-coverage` off `main`
+- [x] 1.1 Create branch `feat/AGE-28-test-coverage` off `main`
 
 ## 2. Commit 1 — measurement (coverage config only, no tests)
 
-- [ ] 2.1 In root `vitest.config.ts`, replace `coverage.include` with the explicit seven-project list: `brand-components`, `design-system`, `dnd-character-sheet`, `reveal-framework`, `toolbelt`, `apps/ageorgedev`, `apps/game-tools` — each as `<path>/src/**/*.{ts,tsx}`
-- [ ] 2.2 Add `**/*.gen.ts` to `coverage.exclude` (alongside the existing `**/*.generated.ts`)
-- [ ] 2.3 Add `**/*.stories.tsx` to `coverage.exclude`
-- [ ] 2.4 Add router wiring to `coverage.exclude`: `**/src/routes/**`, `**/src/router.tsx`, `**/src/components/GlobalProviders.tsx`, `**/src/mdx-components.tsx`
-- [ ] 2.5 Add `apps/game-tools/src/data/dnd-characters/*/**` to `coverage.exclude` — single-segment wildcard, so `dnd-characters/index.ts` stays measured
-- [ ] 2.6 Add `packages/dnd-character-sheet/src/characters/**` to `coverage.exclude`
-- [ ] 2.7 Run `yarn test:coverage` and record the new line/statement figures (expected ~73.8% lines, denominator ~713)
-- [ ] 2.8 Verify in the report that no `*.stories.tsx`, `*.gen.ts`, `packages/talk-tailwind/**`, `apps/*/src/routes/**`, or per-character data file appears
-- [ ] 2.9 Verify `apps/game-tools/src/data/dnd-characters/index.ts` **does** still appear in the report
+- [x] 2.1 In root `vitest.config.ts`, replace `coverage.include` with the explicit seven-project list: `brand-components`, `design-system`, `dnd-character-sheet`, `reveal-framework`, `toolbelt`, `apps/ageorgedev`, `apps/game-tools` — each as `<path>/src/**/*.{ts,tsx}`
+- [x] 2.2 Add `**/*.gen.ts` to `coverage.exclude` (alongside the existing `**/*.generated.ts`)
+- [x] 2.3 Add `**/*.stories.tsx` to `coverage.exclude`
+- [x] 2.4 Add router wiring to `coverage.exclude`: `**/src/routes/**`, `**/src/router.tsx`, `**/src/components/GlobalProviders.tsx`, `**/src/mdx-components.tsx`
+- [x] 2.5 Add `apps/game-tools/src/data/dnd-characters/*/**` to `coverage.exclude` — single-segment wildcard, so `dnd-characters/index.ts` stays measured
+- [x] 2.6 Add `packages/dnd-character-sheet/src/characters/**` to `coverage.exclude`
+- [x] 2.7 Run `yarn test:coverage` and record the new line/statement figures (expected ~73.8% lines, denominator ~713) — achieved **73.77% lines (526/713)**, **74.3% statements (558/751)**
+- [x] 2.8 Verify in the report that no `*.stories.tsx`, `*.gen.ts`, `packages/talk-tailwind/**`, `apps/*/src/routes/**`, or per-character data file appears
+- [x] 2.9 Verify `apps/game-tools/src/data/dnd-characters/index.ts` **does** still appear in the report
 - [ ] 2.10 Commit, with a message stating plainly that this is a measurement-scope change with zero test-quality impact
 
 ## 3. Commit 2 — design-system tests
