@@ -58,4 +58,4 @@
 
 - [x] 9.1 Run `yarn format-and-lint` — no lint errors (pre-existing errors only, none from this change)
 - [x] 9.2 Run `yarn build` — builds cleanly
-- [ ] 9.3 Visually verify `/char-test` route — sheet renders correctly with correct colors
+- [x] 9.3 Visually verify `/char-test` route — sheet renders correctly with correct colors

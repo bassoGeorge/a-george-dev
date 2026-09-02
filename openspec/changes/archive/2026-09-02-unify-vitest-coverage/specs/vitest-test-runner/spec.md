@@ -1,37 +1,4 @@
-## Purpose
-
-Migrates the monorepo's test runner from Jest to Vitest across packages, with jsdom/node environments configured per package.
-
-## Requirements
-
-### Requirement: Vitest is configured in packages/toolbelt
-`packages/toolbelt` SHALL have a `vitest.config.ts` that runs test files with the `node` environment and its `package.json` `test` script SHALL invoke `vitest run`.
-
-#### Scenario: Toolbelt tests execute
-- **WHEN** `yarn turbo test --filter=@ageorgedev/toolbelt` is run
-- **THEN** all `.test.ts` files in `packages/toolbelt/src/` are discovered and executed by Vitest
-
-#### Scenario: ramda-additions test passes
-- **WHEN** Vitest runs `ramda-additions.test.ts`
-- **THEN** all `mapKeys` test cases pass without errors
-
-### Requirement: Vitest is configured in packages/design-system
-`packages/design-system` SHALL have a `vitest.config.ts` that runs test files with the `jsdom` environment, includes `@testing-library/jest-dom` setup, and its `package.json` `test` script SHALL invoke `vitest run`.
-
-#### Scenario: Design-system tests execute
-- **WHEN** `yarn turbo test --filter=@ageorgedev/design-system` is run
-- **THEN** all `.test.tsx` files in `packages/design-system/src/` are discovered and executed by Vitest
-
-#### Scenario: Component tests pass
-- **WHEN** Vitest runs any `.test.tsx` component test
-- **THEN** React components render in JSDOM and `@testing-library/jest-dom` matchers such as `toBeInTheDocument` and `toHaveClass` resolve without import errors
-
-### Requirement: Jest-specific APIs are replaced with Vitest equivalents
-All spec files that reference `jest.*` globals SHALL be updated to use `vi.*` equivalents from Vitest's API.
-
-#### Scenario: vi.mock replaces jest.mock
-- **WHEN** a spec file previously called `jest.mock('../path/to/module')`
-- **THEN** the same file SHALL call `vi.mock('../path/to/module')` and the module is correctly mocked at test runtime
+## ADDED Requirements
 
 ### Requirement: Root-level Vitest projects configuration
 The monorepo SHALL have a `vitest.config.ts` at the repo root that uses Vitest's `projects` field to reference every package's existing `vitest.config.ts`. Each referenced project retains its own `environment`, `setupFiles`, and `include` configuration.
@@ -60,6 +27,8 @@ Because cross-package imports resolve through each package's `exports` map to bu
 #### Scenario: Root watch script watches all projects
 - **WHEN** `yarn test:watch` is executed at the monorepo root
 - **THEN** Vitest starts in watch mode and re-runs tests in any project when a source or test file in that project (or a transitive dependency) changes
+
+## MODIFIED Requirements
 
 ### Requirement: Full test suite passes via Turborepo
 Running `yarn test` from the monorepo root SHALL execute the full unit-test suite via a single root-level `vitest run` process (not via Turborepo fan-out) and report results, after building the workspace library packages the suite depends on. Turborepo's `test` task SHALL remain functional for direct invocation as `yarn turbo test`, but SHALL NOT be the primary entry point used by CI or documented root scripts.

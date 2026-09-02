@@ -5,28 +5,27 @@
       "dependsOn": ["clean", "^build"],
       "outputs": ["dist/**"],
       "inputs": [
-        "src/**/*.ts",
-        "src/**/*.tsx",
-        "!src/**/*.spec.tsx",
+        "$TURBO_DEFAULT$",
         "!src/**/*.spec.ts",
+        "!src/**/*.spec.tsx",
+        "!src/**/*.test.ts",
+        "!src/**/*.test.tsx",
         "!src/**/*.stories.ts",
-        "!src/**/*.stories.tsx"
+        "!src/**/*.stories.tsx",
+        "!src/**/__snapshots__/**"
       ]
     },
-    "clean": {},
+    "clean": {
+      "cache": false,
+      "inputs": ["package.json"]
+    },
     "build:storybook": {
       "dependsOn": ["^build"],
       "inputs": ["src/**/*.ts", "stories/**/*.ts"],
       "outputs": ["storybook-static/**"]
     },
     "test": {
-      "dependsOn": ["^build"],
-      "inputs": [
-        "src/**/*.spec.tsx",
-        "src/**/*.spec.ts",
-        "src/**/*.test.ts",
-        "vitest.config.ts"
-      ]
+      "dependsOn": ["^build"]
     },
     "dev": {
       "cache": false,

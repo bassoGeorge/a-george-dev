@@ -7,7 +7,7 @@
 
 ## 2. Verify
 
-- [ ] 2.1 Run `yarn turbo dev --filter=@ageorgedev/game-tools`, load `/`, `/dnd/characters`, and a character sheet route, and confirm breadcrumbs render as specified in `specs/game-tools-nav-shell/spec.md`
-- [ ] 2.2 Trigger print preview on a character sheet route and confirm no breadcrumbs appear (header, and therefore breadcrumbs, are `print:hidden`)
+- [x] 2.1 Run `yarn turbo dev --filter=@ageorgedev/game-tools`, load `/`, `/dnd/characters`, and a character sheet route, and confirm breadcrumbs render as specified in `specs/game-tools-nav-shell/spec.md`
+- [x] 2.2 Trigger print preview on a character sheet route and confirm no breadcrumbs appear (header, and therefore breadcrumbs, are `print:hidden`)
 - [x] 2.3 Run `yarn format-and-lint:fix` at the repo root
 - [x] 2.4 Run `yarn turbo build --filter=@ageorgedev/game-tools` to confirm the app still type-checks and builds

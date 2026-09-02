@@ -1,3 +1,7 @@
+## Purpose
+
+Replaces the single `spellBook` field on a character pack with an ordered list of named downloadable assets, rendered as links in the character sheet header with per-id icons and label fallbacks.
+
 ## Requirements
 
 ### Requirement: Character pack supports multiple named assets

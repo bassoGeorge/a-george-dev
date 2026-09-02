@@ -26,6 +26,6 @@
 
 ## 5. Validate on PR
 
-- [ ] 5.1 Open the PR and confirm the game-tools preview deploys
-- [ ] 5.2 Confirm the e2e job runs against the deployed preview URL and passes
-- [ ] 5.3 Confirm no regressions in the ageorgedev preview + e2e flow
+- [x] 5.1 Open the PR and confirm the game-tools preview deploys
+- [x] 5.2 Confirm the e2e job runs against the deployed preview URL and passes
+- [x] 5.3 Confirm no regressions in the ageorgedev preview + e2e flow

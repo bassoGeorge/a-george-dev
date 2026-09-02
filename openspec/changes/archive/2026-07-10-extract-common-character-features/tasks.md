@@ -32,5 +32,5 @@
 
 ## 5. Wrap up
 
-- [ ] 5.1 Commit with a descriptive message referencing this change.
+- [x] 5.1 Commit with a descriptive message referencing this change.
 - [x] 5.2 Run `openspec validate extract-common-character-features` before archiving. → "Change is valid".

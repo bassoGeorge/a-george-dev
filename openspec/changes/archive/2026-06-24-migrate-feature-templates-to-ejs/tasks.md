@@ -20,6 +20,6 @@
 
 ## 4. Verify
 
-- [ ] 4.1 Run `yarn turbo dev --filter=@ageorgedev/game-tools` and visually confirm Zoynari's Mind Link shows the correct telepathy range (e.g. "30ft" at level 3)
-- [ ] 4.2 Confirm Radiance of Dawn, Second Wind, and Uncanny Metabolism descriptions render their level values correctly
+- [x] 4.1 Run `yarn turbo dev --filter=@ageorgedev/game-tools` and visually confirm Zoynari's Mind Link shows the correct telepathy range (e.g. "30ft" at level 3)
+- [x] 4.2 Confirm Radiance of Dawn, Second Wind, and Uncanny Metabolism descriptions render their level values correctly
 - [x] 4.3 Run `yarn format-and-lint:fix` from the repo root and confirm no errors

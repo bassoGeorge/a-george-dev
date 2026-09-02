@@ -11,7 +11,7 @@
 
 ## 3. Verification
 
-- [ ] 3.1 Start the game-tools dev server (`yarn turbo dev --filter=@ageorgedev/game-tools`) and confirm on `/dnd/characters/zoynari/2` that the button appears beside Print and downloads `zoynari-spellbook-2.pdf` when clicked.
-- [ ] 3.2 Confirm the button is absent on `/`, `/dnd/characters`, and character-sheet routes without `spellBookUrl` (e.g., `omarin-kenate`, `claw`, `zoynari/3` — verify each one's staticData).
-- [ ] 3.3 Confirm via browser print preview that the button does not appear in the printed output.
+- [x] 3.1 Start the game-tools dev server (`yarn turbo dev --filter=@ageorgedev/game-tools`) and confirm on `/dnd/characters/zoynari/2` that the button appears beside Print and downloads `zoynari-spellbook-2.pdf` when clicked.
+- [x] 3.2 Confirm the button is absent on `/`, `/dnd/characters`, and character-sheet routes without `spellBookUrl` (e.g., `omarin-kenate`, `claw`, `zoynari/3` — verify each one's staticData).
+- [x] 3.3 Confirm via browser print preview that the button does not appear in the printed output.
 - [x] 3.4 Run `yarn format-and-lint:fix` from the repo root.

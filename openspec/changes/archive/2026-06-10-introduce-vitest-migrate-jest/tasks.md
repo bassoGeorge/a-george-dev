@@ -22,7 +22,7 @@
 
 ## 5. Verify and Fix
 
-- [ ] 5.1 Run `yarn turbo test --filter=@ageorgedev/toolbelt` and confirm all tests pass
-- [ ] 5.2 Run `yarn turbo test --filter=@ageorgedev/design-system` and confirm all tests pass
-- [ ] 5.3 Delete or regenerate `packages/design-system/src/typography/__snapshots__/typography-components.spec.tsx.snap` if Vitest reports snapshot mismatch
-- [ ] 5.4 Run `yarn test` from repo root and confirm full Turborepo test pipeline exits 0
+- [x] 5.1 Run `yarn turbo test --filter=@ageorgedev/toolbelt` and confirm all tests pass
+- [x] 5.2 Run `yarn turbo test --filter=@ageorgedev/design-system` and confirm all tests pass
+- [x] 5.3 Delete or regenerate `packages/design-system/src/typography/__snapshots__/typography-components.spec.tsx.snap` if Vitest reports snapshot mismatch
+- [x] 5.4 Run `yarn test` from repo root and confirm full Turborepo test pipeline exits 0
