@@ -65,7 +65,7 @@ describe('ImportantNote', () => {
 
   it('passes the shape through to the card', () => {
     const { container } = render(
-      <ImportantNote shape="scooped">Note</ImportantNote>
+      <ImportantNote shape="trapRight">Note</ImportantNote>
     );
 
     expect(screen.getByText('Note')).toBeInTheDocument();
