@@ -15,7 +15,10 @@
         "!src/**/__snapshots__/**"
       ]
     },
-    "clean": {},
+    "clean": {
+      "cache": false,
+      "inputs": ["package.json"]
+    },
     "build:storybook": {
       "dependsOn": ["^build"],
       "inputs": ["src/**/*.ts", "stories/**/*.ts"],
