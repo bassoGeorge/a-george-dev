@@ -12,7 +12,13 @@ The monorepo SHALL have a `vitest.config.ts` at the repo root that uses Vitest's
 - **THEN** each package's tests run under its declared environment and setup files without cross-contamination
 
 ### Requirement: Root-level test scripts
-The root `package.json` SHALL provide `test`, `test:coverage`, and `test:watch` scripts that invoke Vitest directly rather than delegating to Turborepo.
+The root `package.json` SHALL provide `test`, `test:coverage`, and `test:watch` scripts that execute tests in a single root Vitest process rather than delegating test execution to Turborepo's fan-out.
+
+Because cross-package imports resolve through each package's `exports` map to built `dist/` output, these scripts SHALL first build the workspace library packages (via a `build:packages` script delegating to `turbo build --filter='./packages/*'`). Turborepo is therefore still used to satisfy the build prerequisite; it is not used to run the tests.
+
+#### Scenario: Root test scripts work on a clean checkout
+- **WHEN** `yarn test` is executed at the monorepo root with no `dist/` directories present
+- **THEN** the workspace library packages are built first, and every test file resolves its cross-package imports rather than failing with `Failed to resolve import`
 
 #### Scenario: Root test script runs the full suite
 - **WHEN** `yarn test` is executed at the monorepo root
@@ -25,7 +31,7 @@ The root `package.json` SHALL provide `test`, `test:coverage`, and `test:watch` 
 ## MODIFIED Requirements
 
 ### Requirement: Full test suite passes via Turborepo
-Running `yarn test` from the monorepo root SHALL execute the full unit-test suite via a single root-level `vitest run` process (not via Turborepo fan-out) and report results. Turborepo's `test` task SHALL remain functional for direct invocation as `yarn turbo test`, but SHALL NOT be the primary entry point used by CI or documented root scripts.
+Running `yarn test` from the monorepo root SHALL execute the full unit-test suite via a single root-level `vitest run` process (not via Turborepo fan-out) and report results, after building the workspace library packages the suite depends on. Turborepo's `test` task SHALL remain functional for direct invocation as `yarn turbo test`, but SHALL NOT be the primary entry point used by CI or documented root scripts.
 
 #### Scenario: Root test command succeeds
 - **WHEN** `yarn test` is executed at the monorepo root

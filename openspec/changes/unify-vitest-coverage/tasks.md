@@ -17,6 +17,7 @@
 - [x] 3.2 Add `test:coverage` script: `vitest run --coverage`
 - [x] 3.3 Add `test:watch` script: `vitest`
 - [x] 3.4 Add `coverage/` to `.gitignore` (verify not already ignored)
+- [x] 3.5 Add `build:packages` script and run it ahead of `test`, `test:coverage` and `test:watch`, restoring the `^build` dependency the root Vitest run loses (discovered during CI verification)
 
 ## 4. Local Verification
 
@@ -41,6 +42,6 @@
 
 ## 7. Merge & Validate
 
-- [ ] 7.1 Open a PR against `develop`, watch CI produce a green build and a `coverage-lcov` artifact
-- [ ] 7.2 Download the artifact and spot-check the lcov file covers files from every package
-- [ ] 7.3 Merge to `develop`; monitor the next PR CI run for regressions
+- [x] 7.1 Open a PR against `develop`, watch CI produce a green build and a `coverage-lcov` artifact
+- [x] 7.2 Download the artifact and spot-check the lcov file covers files from every package
+- [x] 7.3 Merge to `develop`; monitor the next PR CI run for regressions

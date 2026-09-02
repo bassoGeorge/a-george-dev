@@ -8,11 +8,15 @@ The monorepo SHALL use `@vitest/coverage-v8` as the coverage provider, configure
 - **THEN** Vitest loads the `v8` coverage provider without a "coverage provider not found" error
 
 ### Requirement: Coverage output includes application and package source
-The root Vitest coverage configuration SHALL include source files from `packages/*/src/**`, `apps/ageorgedev/src/**`, and `apps/game-tools/src/**`. It SHALL exclude test files, `dist/**`, `node_modules/**`, `storybook-static/**`, generated data files, `apps/*-e2e/**`, and `apps/design-docs/**`.
+The root Vitest coverage configuration SHALL include source files from `packages/*/src/**/*.{ts,tsx}`, `apps/ageorgedev/src/**/*.{ts,tsx}`, and `apps/game-tools/src/**/*.{ts,tsx}`. The globs SHALL be restricted to source extensions rather than matching all files under `src`, so that the v8 provider does not attempt to parse non-JavaScript content (`.mdx`, `.csv`) and emit parse errors. It SHALL exclude test files, `dist/**`, `node_modules/**`, `storybook-static/**`, generated data files, `apps/*-e2e/**`, and `apps/design-docs/**`.
 
 #### Scenario: Untested but included source counts against coverage
 - **WHEN** `yarn test:coverage` runs and a source file under `packages/*/src/` is not imported by any test
 - **THEN** that file appears in the coverage report with 0% coverage rather than being omitted
+
+#### Scenario: Non-source files do not produce parse errors
+- **WHEN** `yarn test:coverage` runs and the repo contains `.mdx` and `.csv` files under an included `src` directory
+- **THEN** the run completes without `Failed to parse` / `RolldownError` messages for those files
 
 #### Scenario: Excluded directories do not appear in the report
 - **WHEN** `yarn test:coverage` runs

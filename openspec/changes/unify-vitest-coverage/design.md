@@ -47,7 +47,9 @@ Root coverage config:
 - `provider: 'v8'`
 - `reporter: ['text', 'html', 'lcov']`
 - `reportsDirectory: './coverage'`
-- `include`: `packages/*/src/**`, `apps/ageorgedev/src/**`, `apps/game-tools/src/**`
+- `include`: `packages/*/src/**/*.{ts,tsx}`, `apps/ageorgedev/src/**/*.{ts,tsx}`, `apps/game-tools/src/**/*.{ts,tsx}`
+
+The include globs are restricted to `.ts`/`.tsx` rather than a bare `src/**`. A bare glob matches every file under `src`, and the v8 provider then tries to parse `.mdx` content and the spells `.csv` as JavaScript, logging `RolldownError` parse failures for each. Those failures are non-fatal — the files are simply excluded from coverage — but they are noise in CI logs. Restricting to source extensions changes no coverage totals; the only package that drops out is the CSS-only `foundation-styles`, which has no JS/TS source to cover.
 - `exclude`: test files, `dist/**`, `node_modules/**`, `storybook-static/**`, generated files (spells CSV output), `apps/*-e2e/**`, `apps/design-docs/**`
 
 ### CI invokes the root script, not turbo
@@ -61,11 +63,29 @@ The `lcov.info` file is uploaded as a workflow artifact named `coverage-lcov` fo
 ### Local scripts
 
 Root `package.json` gains:
-- `"test": "vitest run"` — one-shot, no coverage.
-- `"test:coverage": "vitest run --coverage"` — one-shot with merged report.
-- `"test:watch": "vitest"` — cross-project watch mode.
+- `"build:packages": "turbo build --filter='./packages/*'"` — build prerequisite, see below.
+- `"test": "yarn build:packages && vitest run"` — one-shot, no coverage.
+- `"test:coverage": "yarn build:packages && vitest run --coverage"` — one-shot with merged report.
+- `"test:watch": "yarn build:packages && vitest"` — cross-project watch mode.
 
 The existing root `"test"` script (`turbo test -- --passWithNoTests`) is replaced. Anyone who still wants the turbo path can call `yarn turbo test` directly; it will keep working because per-package `test` scripts stay in place.
+
+### Root scripts must build workspace packages first
+
+**Discovered during implementation, not anticipated in the original design.**
+
+Cross-package imports (`@ageorgedev/toolbelt/cn`, `@ageorgedev/design-system/logo/NameLogo`, …) resolve through each package's `exports` map, which points at `./dist/*.js` — not at source. Turborepo's `test` task declares `dependsOn: ["^build"]`, so `yarn turbo test` always built dependencies before running tests. A bare root `vitest run` has no such dependency, so on a clean checkout every test file importing across a package boundary fails with `Failed to resolve import ... Does the file exist?` from `vite:import-analysis`.
+
+This does not reproduce on a developer machine that has stale `dist/` directories lying around from earlier builds, which is exactly how it reached CI unnoticed. `yarn clean-dist && yarn test` reproduces it.
+
+The root scripts therefore run `build:packages` first, restoring the `^build` dependency the root run would otherwise lose. Notes on the shape:
+- Filtered to `./packages/*`. The two app builds are irrelevant to unit tests and are the expensive ones.
+- Turborepo caches the build, so warm runs cost roughly 80ms and CI reuses its existing turbo cache setup.
+- The filter glob is quoted so the shell does not expand it against the `packages/` directory before turbo sees it.
+
+**Alternative considered:** alias `@ageorgedev/*` to package source in the root Vitest config, removing the build dependency entirely. Rejected — it would test source while `turbo test` and the per-package configs continue to test built output, so the two paths could disagree. Keeping one resolution story is worth the build step.
+
+**Consequence for the spec:** the root scripts no longer invoke Vitest as a bare command. Test *execution* still does not go through Turborepo — there is one Vitest process, no fan-out — but the build prerequisite does.
 
 ### Per-package `test` scripts stay
 
@@ -83,8 +103,8 @@ Each package retains `"test": "vitest run"`. This gives targeted local runs (`ya
 
 1. Add `@vitest/coverage-v8` to `@ageorgedev/testing-config` (or root devDependencies).
 2. Create root `vitest.config.ts` referencing every package's config via `projects`.
-3. Add root `test`, `test:coverage`, `test:watch` scripts.
-4. Verify locally: `yarn test`, `yarn test:coverage`, `yarn test:watch`.
+3. Add root `build:packages`, `test`, `test:coverage`, `test:watch` scripts.
+4. Verify locally from a clean state (`yarn clean-dist` first, so stale `dist/` output cannot mask a missing build step): `yarn test`, `yarn test:coverage`, `yarn test:watch`.
 5. Update `.github/workflows/tests.yml` to call `yarn test:coverage` and upload the lcov artifact.
 6. Update `.github/workflows/pull-request.yml` to drop the `command_arg: --affected` input from the tests job.
 7. Land on `develop`, watch one full PR CI run, then merge to `main`.
@@ -93,5 +113,5 @@ Rollback: revert the PR. Per-package configs and turbo `test` task remain intact
 
 ## Open Questions
 
-- Do we want CI to also run `yarn test` (without coverage) as a fast-fail step before the coverage run, or is one combined `test:coverage` run acceptable? Current lean: one combined run — coverage overhead on this suite is small and the extra step buys little.
-- Should coverage `include` list live in the root config or in a `coverage.config.ts` shared helper? Current lean: inline in root config until it grows large enough to warrant extraction.
+- ~~Do we want CI to also run `yarn test` (without coverage) as a fast-fail step before the coverage run, or is one combined `test:coverage` run acceptable?~~ **Resolved:** one combined run. Coverage overhead on this suite proved negligible.
+- ~~Should coverage `include` list live in the root config or in a `coverage.config.ts` shared helper?~~ **Resolved:** inline in the root config. It is six globs; extraction is not yet warranted.

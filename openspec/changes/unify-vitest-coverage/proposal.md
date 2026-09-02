@@ -7,7 +7,7 @@ The monorepo has seven independent Vitest configurations orchestrated by `turbo 
 - Introduce a root-level `vitest.config.ts` using Vitest's `projects` field, referencing each package's existing `vitest.config.ts` as a project entry. Each project keeps its own environment (node/jsdom), setup files, and include globs.
 - Move the canonical unit-test invocation from `turbo test` (fan-out over packages) to a single root `vitest run` process. Package-level `test` scripts remain functional for targeted local runs but are no longer the primary CI entry point.
 - Add `@vitest/coverage-v8` and configure coverage at the root config, producing a single merged report (`text`, `html`, `lcov`) written to `coverage/` at the repo root.
-- Add root `package.json` scripts: `test` (single root vitest run), `test:coverage` (same, with `--coverage`), and `test:watch` (root watch mode across all projects).
+- Add root `package.json` scripts: `test` (single root vitest run), `test:coverage` (same, with `--coverage`), and `test:watch` (root watch mode across all projects). Each first runs `build:packages` (`turbo build --filter='./packages/*'`), because cross-package imports resolve through `exports` to built `dist/` output — a dependency Turborepo's `test` task previously satisfied via `dependsOn: ["^build"]`.
 - Update `.github/workflows/tests.yml` to invoke `yarn test:coverage` (or `yarn test` when coverage is not requested) instead of `yarn turbo test`. **BREAKING** for CI: the `command_arg: --affected` input on the reusable workflow is no longer meaningful for unit tests and is removed from the tests job. `turbo test --affected` remains available and continues to work for anyone invoking it directly.
 - Upload the `lcov.info` artifact from CI so it can be consumed by future reporting (Codecov, PR comment, etc.) — the reporting integration itself is out of scope for this change.
 
@@ -23,7 +23,7 @@ The monorepo has seven independent Vitest configurations orchestrated by `turbo 
 
 - **Configs**: New `vitest.config.ts` at repo root. Each package's `vitest.config.ts` stays put and is imported by the root config; no per-package config changes required beyond ensuring they are default-exported and standalone.
 - **Dependencies**: Add `@vitest/coverage-v8` at the root (or as a devDependency in `@ageorgedev/testing-config`).
-- **Scripts**: Root `package.json` `test`, `test:coverage`, `test:watch` scripts added.
+- **Scripts**: Root `package.json` `build:packages`, `test`, `test:coverage`, `test:watch` scripts added.
 - **CI**: `.github/workflows/tests.yml` switches from `yarn turbo test` to `yarn test:coverage` (or `yarn test`), and uploads an `lcov.info` artifact. `pull-request.yml` no longer passes `--affected` to the tests workflow.
 - **Turborepo**: `turbo test` still works for anyone who wants it, but is no longer wired to CI. The `test` task inputs in `turbo.json` are unchanged.
 - **Local DX**: Developers run `yarn test:watch` at the root and get cross-project watch mode. `yarn test:coverage` gives a merged HTML report at `coverage/index.html`.
