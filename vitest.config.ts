@@ -5,7 +5,11 @@ export default defineConfig({
     projects: ['packages/*/vitest.config.ts', 'apps/*/vitest.config.ts'],
     coverage: {
       provider: 'v8',
-      reporter: ['text', 'html', 'lcov'],
+      // json-summary feeds the headline metrics of the PR coverage comment, json
+      // its per-file table. No lcov: nothing in this repo reads lcov.info, and a
+      // reporter with no consumer only invites the question at every review.
+      // Re-add it the day something (Codecov, an IDE gutter plugin) wants it.
+      reporter: ['text', 'html', 'json-summary', 'json'],
       reportsDirectory: './coverage',
       // Floor set ~2 points under what the suite actually achieves (95.9% at the
       // time of writing), so a normal-sized new file does not trip the gate.
