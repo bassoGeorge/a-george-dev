@@ -2,8 +2,8 @@
 
 ### Requirement: Customisation dropdown in header
 `DndHeaderActions` SHALL render a "Customise" trigger button that opens a dropdown menu. The dropdown SHALL contain:
-- A "Notes" checkbox item for `showNotes`, placed **before** the "Beginner Help" section with a separator between them
-- The "Beginner Help" label grouping `showActionsInCombat` and `showWeaponMasteries`
+- A "Beginner help" label grouping `showActionsInCombat` and `showWeaponMasteries`
+- An "Other panels" label grouping the "Notes" checkbox item for `showNotes`, placed **after** the "Beginner help" group with a separator between them
 
 The "Weapon Masteries" checkbox item SHALL be rendered only when the current character is eligible for weapon mastery. Eligibility SHALL be read from the character sheet route's `beforeLoad` context, which SHALL publish `hasWeaponMastery` from `getCharacterBrief`. `DndHeaderActions` renders outside the `CharacterSheet` provider and therefore SHALL NOT attempt to read the character directly. When the character is ineligible, the item SHALL be omitted entirely rather than disabled.
 
@@ -11,9 +11,9 @@ The "Weapon Masteries" checkbox item SHALL be rendered only when the current cha
 - **WHEN** the user is on a character sheet route
 - **THEN** a "Customise" button is visible in the header actions
 
-#### Scenario: Notes checkbox appears before Beginner Help group
+#### Scenario: Notes checkbox appears after the Beginner help group
 - **WHEN** the dropdown is opened
-- **THEN** the "Notes" checkbox item appears above the "Beginner Help" separator and label
+- **THEN** the "Notes" checkbox item appears below the separator and the "Other panels" label, beneath the "Beginner help" group
 
 #### Scenario: Checkbox reflects current state
 - **WHEN** the dropdown is opened
@@ -33,7 +33,7 @@ The "Weapon Masteries" checkbox item SHALL be rendered only when the current cha
 
 #### Scenario: Other items unaffected by ineligibility
 - **WHEN** the dropdown is opened on an ineligible character
-- **THEN** the "Notes" and "Actions in Combat" checkbox items are still present, along with the "Beginner Help" label
+- **THEN** the "Notes" and "Actions in Combat" checkbox items are still present, along with the "Beginner help" label
 
 ### Requirement: Conditional rendering of reference panels
 `StandardCharacterSheet` SHALL render `ActionsInCombat` when `userPreferences.showActionsInCombat` is `true`. It SHALL render `WeaponMasteries` only when `hasWeaponMastery(character)` is `true` **and** `userPreferences.showWeaponMasteries` is `true`. The `!data.spellcasting` guard SHALL remain removed.

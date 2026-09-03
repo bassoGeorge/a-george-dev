@@ -123,7 +123,7 @@ describe('AttackList', () => {
     expect(screen.getByText('Con. save, DC 13')).toBeInTheDocument();
   });
 
-  it('mastery column appears when any attack has masteryProperty', () => {
+  it('mastery column appears for an eligible class, showing the annotated mastery', () => {
     const attack: Attack = {
       name: 'Rapier',
       kind: 'weapon',
@@ -133,9 +133,57 @@ describe('AttackList', () => {
     };
     renderAttackList(makeCharacter({ attacks: [attack] }));
     expect(screen.getByText('Mastery')).toBeInTheDocument();
+    expect(screen.getByText('Vex')).toBeInTheDocument();
   });
 
-  it('mastery column absent when no attack has masteryProperty', () => {
+  it('marks a default mastery with a suggested DiamondCheck', () => {
+    const attack: Attack = {
+      name: 'Rapier',
+      kind: 'weapon',
+      ability: Ability.Dexterity,
+      masteryProperty: 'Vex',
+      hasMasteryByDefault: true,
+      damage: [{ dice: '1d8', type: 'Piercing' }],
+    };
+    renderAttackList(makeCharacter({ attacks: [attack] }));
+    // 'suggested' fills the marker with bg-page-2, distinct from the
+    // bg-page-4 of an unchecked marker
+    expect(screen.getByText('Vex').querySelector('span')).toHaveClass(
+      'bg-page-2'
+    );
+  });
+
+  it('leaves a non-default mastery marker unchecked', () => {
+    const attack: Attack = {
+      name: 'Rapier',
+      kind: 'weapon',
+      ability: Ability.Dexterity,
+      masteryProperty: 'Vex',
+      damage: [{ dice: '1d8', type: 'Piercing' }],
+    };
+    renderAttackList(makeCharacter({ attacks: [attack] }));
+    expect(screen.getByText('Vex').querySelector('span')).toHaveClass(
+      'bg-page-4'
+    );
+  });
+
+  it('mastery column absent for an ineligible class', () => {
+    const attack: Attack = {
+      name: 'Dagger',
+      kind: 'weapon',
+      ability: Ability.Dexterity,
+      damage: [{ dice: '1d4', type: 'Piercing' }],
+    };
+    renderAttackList(
+      makeCharacter({
+        classes: [{ name: CharacterClass.Wizard, level: 1 }],
+        attacks: [attack],
+      })
+    );
+    expect(screen.queryByText('Mastery')).not.toBeInTheDocument();
+  });
+
+  it('mastery column appears for an eligible class with no annotated attacks, with cells aligned', () => {
     const attack: Attack = {
       name: 'Dagger',
       kind: 'weapon',
@@ -143,7 +191,49 @@ describe('AttackList', () => {
       damage: [{ dice: '1d4', type: 'Piercing' }],
     };
     renderAttackList(makeCharacter({ attacks: [attack] }));
+    expect(screen.getByText('Mastery')).toBeInTheDocument();
+
+    // 4 headers + Mastery, and every body row (the attack plus the trailing
+    // empty row) carries the same cell count as the header row
+    const rows = screen.getAllByRole('row');
+    expect(rows).toHaveLength(3);
+    for (const row of rows) {
+      expect(row.children).toHaveLength(5);
+    }
+  });
+
+  it('mastery column absent for an ineligible class despite an annotated attack', () => {
+    const attack: Attack = {
+      name: 'Quarterstaff',
+      kind: 'weapon',
+      ability: Ability.Strength,
+      masteryProperty: 'Slow',
+      damage: [{ dice: '1d6', type: 'Bludgeoning' }],
+    };
+    renderAttackList(
+      makeCharacter({
+        classes: [{ name: CharacterClass.Wizard, level: 1 }],
+        attacks: [attack],
+      })
+    );
     expect(screen.queryByText('Mastery')).not.toBeInTheDocument();
+  });
+
+  it('mastery column appears via the Weapon Master feat on an ineligible class', () => {
+    const attack: Attack = {
+      name: 'Dagger',
+      kind: 'weapon',
+      ability: Ability.Dexterity,
+      damage: [{ dice: '1d4', type: 'Piercing' }],
+    };
+    renderAttackList(
+      makeCharacter({
+        classes: [{ name: CharacterClass.Wizard, level: 1 }],
+        feats: [{ name: 'Weapon Master', description: 'Mastery' }],
+        attacks: [attack],
+      })
+    );
+    expect(screen.getByText('Mastery')).toBeInTheDocument();
   });
 
   it('damage with disableModifier omits the bonus', () => {

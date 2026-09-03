@@ -1,4 +1,5 @@
 import { cn } from '@ageorgedev/toolbelt/cn';
+import { hasWeaponMastery } from '../../lib/character-class-constants';
 import { ABILITY_DETAILS } from '../../lib/models/abilities';
 import type { Attack, AttackDamage } from '../../lib/models/attacks';
 import type { DerivedStats } from '../../lib/models/derived-stats';
@@ -13,7 +14,7 @@ export function AttackList() {
 
   if (character.attacks.length === 0) return null;
 
-  const showMasteries = character.attacks.some((atk) => atk.masteryProperty);
+  const showMasteries = hasWeaponMastery(character);
 
   return (
     <Panel topLeftCorner="scooped" topRightCorner="scooped">

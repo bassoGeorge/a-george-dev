@@ -24,6 +24,11 @@ export {
   WizardIcon,
 } from './icons';
 export { getCharacterBrief } from './lib/character-brief';
+export {
+  hasWeaponMastery,
+  WEAPON_MASTER_FEAT_NAME,
+  WEAPON_MASTERY_CLASSES,
+} from './lib/character-class-constants';
 export { SPELL } from './lib/data/spells-2024.generated';
 export { withMaterial, withSpellMods } from './lib/data/with-spell-mods';
 export {

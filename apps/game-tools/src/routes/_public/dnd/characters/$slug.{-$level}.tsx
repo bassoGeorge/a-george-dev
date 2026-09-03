@@ -20,6 +20,7 @@ export const Route = createFileRoute('/_public/dnd/characters/$slug/{-$level}')(
       return {
         title: `${pack.brief.name} (level ${pack.brief.level})`,
         assets: pack.assets,
+        hasWeaponMastery: pack.brief.hasWeaponMastery,
       };
     },
     // NOTE: Not using a loader for character pack. Although its more appropriate,

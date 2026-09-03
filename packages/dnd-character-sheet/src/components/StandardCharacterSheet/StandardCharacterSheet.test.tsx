@@ -85,37 +85,53 @@ describe('StandardCharacterSheet user preferences', () => {
   });
 
   describe('showWeaponMasteries', () => {
-    // WeaponMasteries renders nothing if the character has no mastery attacks,
-    // so a character with a Vex mastery is used to exercise the pref properly.
-    const withMasteryAttack: Partial<Character> = {
-      attacks: [
-        {
-          name: 'Rapier',
-          kind: 'weapon',
-          ability: Ability.Dexterity,
-          masteryProperty: 'Vex',
-          damage: [{ dice: '1d8', type: 'Piercing' }],
-        },
-      ],
+    // Eligibility is class-based, so the default Fighter fixture qualifies and
+    // a Wizard is used to exercise the ineligible path.
+    const ineligible: Partial<Character> = {
+      classes: [{ name: CharacterClass.Wizard, level: 1 }],
     };
 
-    it('shows the Weapon Mastery Properties panel when true and character has mastery attacks', () => {
-      renderSheet({ showWeaponMasteries: true }, withMasteryAttack);
+    it('shows the Weapon Mastery Properties panel for an eligible character when true', () => {
+      renderSheet({ showWeaponMasteries: true });
       expect(screen.getByText('Weapon Mastery Properties')).toBeInTheDocument();
     });
 
     it('hides the Weapon Mastery Properties panel when false', () => {
-      renderSheet({ showWeaponMasteries: false }, withMasteryAttack);
+      renderSheet({ showWeaponMasteries: false });
       expect(
         screen.queryByText('Weapon Mastery Properties')
       ).not.toBeInTheDocument();
     });
 
     it('hides the Weapon Mastery Properties panel when omitted', () => {
-      renderSheet({}, withMasteryAttack);
+      renderSheet({});
       expect(
         screen.queryByText('Weapon Mastery Properties')
       ).not.toBeInTheDocument();
+    });
+
+    it('hides the Weapon Mastery Properties panel for an ineligible character even when true', () => {
+      renderSheet({ showWeaponMasteries: true }, ineligible);
+      expect(
+        screen.queryByText('Weapon Mastery Properties')
+      ).not.toBeInTheDocument();
+    });
+
+    it('shows the panel for an eligible character with no annotated attacks', () => {
+      renderSheet(
+        { showWeaponMasteries: true },
+        {
+          attacks: [
+            {
+              name: 'Longsword',
+              kind: 'weapon',
+              ability: Ability.Strength,
+              damage: [{ dice: '1d8', type: 'Slashing' }],
+            },
+          ],
+        }
+      );
+      expect(screen.getByText('Weapon Mastery Properties')).toBeInTheDocument();
     });
   });
 });

@@ -65,16 +65,16 @@ The `UserPrefs` type SHALL contain a boolean per optional reference panel. Initi
 
 ### Requirement: Customisation dropdown in header
 `DndHeaderActions` SHALL render a "Customise" trigger button that opens a dropdown menu. The dropdown SHALL contain:
-- A "Notes" checkbox item for `showNotes`, placed **before** the "Beginner Help" section with a separator between them
-- The "Beginner Help" label grouping `showActionsInCombat` and `showWeaponMasteries`
+- A "Beginner help" label grouping `showActionsInCombat` and `showWeaponMasteries`
+- An "Other panels" label grouping the "Notes" checkbox item for `showNotes`, placed **after** the "Beginner help" group with a separator between them
 
 #### Scenario: Dropdown renders on character sheet route
 - **WHEN** the user is on a character sheet route
 - **THEN** a "Customise" button is visible in the header actions
 
-#### Scenario: Notes checkbox appears before Beginner Help group
+#### Scenario: Notes checkbox appears after the Beginner help group
 - **WHEN** the dropdown is opened
-- **THEN** the "Notes" checkbox item appears above the "Beginner Help" separator and label
+- **THEN** the "Notes" checkbox item appears below the separator and the "Other panels" label, beneath the "Beginner help" group
 
 #### Scenario: Checkbox reflects current state
 - **WHEN** the dropdown is opened
