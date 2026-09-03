@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "extends": "./tsconfig.json",
+  // tsconfig `exclude` does not merge across `extends` — this list replaces the
+  // parent's outright, so node_modules and dist are repeated deliberately.
+  // Keep the test/story/mock/snapshot entries in sync with the `build` task's
+  // input exclusions in turbo.json: turbo may only claim these files cannot
+  // affect build output while they genuinely are not compiled into it.
+  "exclude": [
+    "node_modules",
+    "dist",
+    "**/*.test.*",
+    "**/*.spec.*",
+    "**/*.stories.*",
+    "**/__mocks__/**",
+    "**/__snapshots__/**"
+  ]
+}

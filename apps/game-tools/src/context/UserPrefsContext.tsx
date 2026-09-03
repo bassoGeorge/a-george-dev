@@ -11,7 +11,7 @@ const DEFAULT_USER_PREFS: Required<UserPrefs> = {
   showNotes: true,
 };
 
-function readFromStorage(): UserPrefs {
+function readFromStorage(): Required<UserPrefs> {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
     if (!raw) return DEFAULT_USER_PREFS;

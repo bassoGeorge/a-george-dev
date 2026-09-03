@@ -1,0 +1,139 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Breadcrumb > renders a full trail 1`] = `
+<body>
+  <div>
+    <nav
+      aria-label="breadcrumb"
+      data-slot="breadcrumb"
+    >
+      <ol
+        class="flex flex-wrap items-center gap-1 text-sm break-words text-neutral-subdued sm:gap-2"
+        data-slot="breadcrumb-list"
+      >
+        <li
+          class="inline-flex items-center gap-1"
+          data-slot="breadcrumb-item"
+        >
+          <a
+            class="transition-colors font-interface hover:text-primary-foreground"
+            data-slot="breadcrumb-link"
+            href="/"
+          >
+            Home
+          </a>
+        </li>
+        <li
+          aria-hidden="true"
+          class="[&>svg]:size-3.5"
+          data-slot="breadcrumb-separator"
+          role="presentation"
+        >
+          <svg
+            fill="currentColor"
+            height="1em"
+            viewBox="0 0 256 256"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"
+            />
+          </svg>
+        </li>
+        <li
+          class="inline-flex items-center gap-1"
+          data-slot="breadcrumb-item"
+        >
+          <span
+            aria-hidden="true"
+            class="flex items-center justify-center"
+            data-slot="breadcrumb-ellipsis"
+            role="presentation"
+          >
+            <svg
+              class="size-4"
+              fill="currentColor"
+              height="1em"
+              viewBox="0 0 256 256"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M140,128a12,12,0,1,1-12-12A12,12,0,0,1,140,128Zm56-12a12,12,0,1,0,12,12A12,12,0,0,0,196,116ZM60,116a12,12,0,1,0,12,12A12,12,0,0,0,60,116Z"
+              />
+            </svg>
+            <span
+              class="sr-only"
+            >
+              More
+            </span>
+          </span>
+        </li>
+        <li
+          aria-hidden="true"
+          class="[&>svg]:size-3.5"
+          data-slot="breadcrumb-separator"
+          role="presentation"
+        >
+          <svg
+            fill="currentColor"
+            height="1em"
+            viewBox="0 0 256 256"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"
+            />
+          </svg>
+        </li>
+        <li
+          class="inline-flex items-center gap-1"
+          data-slot="breadcrumb-item"
+        >
+          <a
+            class="transition-colors font-interface hover:text-primary-foreground"
+            data-slot="breadcrumb-link"
+            href="/dnd"
+          >
+            D&D
+          </a>
+        </li>
+        <li
+          aria-hidden="true"
+          class="[&>svg]:size-3.5"
+          data-slot="breadcrumb-separator"
+          role="presentation"
+        >
+          <svg
+            fill="currentColor"
+            height="1em"
+            viewBox="0 0 256 256"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"
+            />
+          </svg>
+        </li>
+        <li
+          class="inline-flex items-center gap-1"
+          data-slot="breadcrumb-item"
+        >
+          <span
+            aria-current="page"
+            aria-disabled="true"
+            class="font-interface text-neutral-subdued"
+            data-slot="breadcrumb-page"
+            role="link"
+          >
+            Rusty
+          </span>
+        </li>
+      </ol>
+    </nav>
+  </div>
+</body>
+`;

@@ -4,10 +4,11 @@
   "type": "module",
   "scripts": {
     "clean": "rm -rf ./dist",
-    "build": "tsc && cpx \"src/**/*.css\" dist",
+    "build": "tsc -p tsconfig.build.json && cpx \"src/**/*.css\" dist",
     "dev": "concurrently 'tsc --watch' 'cpx \"src/**/*.css\" dist --watch' ",
     "test": "vitest run",
-    "shadcn": "yarn dlx shadcn"
+    "shadcn": "yarn dlx shadcn",
+    "typecheck": "tsc --noEmit"
   },
   "exports": {
     "./*": {

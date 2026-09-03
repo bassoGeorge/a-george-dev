@@ -5,10 +5,10 @@
   "sideEffects": false,
   "scripts": {
     "clean": "rm -rf ./dist",
-    "build": "tsc",
+    "build": "tsc -p tsconfig.build.json",
     "dev": "tsc --watch",
-    "check-types": "tsc --noEmit",
-    "test": "vitest run"
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit"
   },
   "exports": {
     "./*": {
