@@ -48,6 +48,11 @@ export {
 } from './lib/models/armor-proficiency';
 export type { Character } from './lib/models/character';
 export { CharacterClass } from './lib/models/character-classes';
+export type {
+  Creature,
+  CreatureDetail,
+  CreatureEntry,
+} from './lib/models/creature';
 export type { DamageType } from './lib/models/damage-type';
 export type { Effect, Feature } from './lib/models/feature';
 export type { Size } from './lib/models/size';

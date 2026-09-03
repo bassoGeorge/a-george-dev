@@ -1,0 +1,11 @@
+@reference "@ageorgedev/foundation-styles/theme.css";
+
+.statBlock {
+  break-inside: avoid;
+}
+
+@media print {
+  .statBlock {
+    break-inside: avoid-page;
+  }
+}

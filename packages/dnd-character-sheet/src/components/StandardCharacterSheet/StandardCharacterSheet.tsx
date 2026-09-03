@@ -6,6 +6,7 @@ import { AttackList } from '../AttackList/AttackList';
 import { CharacterSheet } from '../CharacterSheet';
 import { CoinBlock } from '../CoinBlock/CoinBlock';
 import { CombatRow } from '../CombatRow/CombatRow';
+import { CreatureSheet } from '../CreatureSheet/CreatureSheet';
 import { EquipmentTraining } from '../EquipmentTraining/EquipmentTraining';
 import { ClassFeatures } from '../feature-blocks/ClassFeatures';
 import { Feats } from '../feature-blocks/Feats';
@@ -128,6 +129,9 @@ export function StandardCharacterSheet({
             </div>
           </div>
         </Page>
+        {!!data.creatures?.length && (
+          <CreatureSheet creatures={data.creatures} />
+        )}
       </CharacterSheet>
     </VisualAdjustmentsContext.Provider>
   );
