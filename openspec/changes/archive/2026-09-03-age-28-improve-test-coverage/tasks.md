@@ -60,8 +60,8 @@
 
 ## 7. Wrap-up
 
-- [ ] 7.1 Open a PR titled per the repo's `write-commits` convention, referencing AGE-28 with a Linear magic word
-- [ ] 7.2 In the PR description, state the before/after figures and note that the denominator changed, so the percentages are not directly comparable
+- [x] 7.1 Open a PR titled per the repo's `write-commits` convention, referencing AGE-28 with a Linear magic word — opened by the repo owner; CI green
+- [x] 7.2 In the PR description, state the before/after figures and note that the denominator changed — recorded in the PR description; achieved **95.93% lines / 95.87% statements** against a 93% floor
 - [x] 7.3 ~~Raise a follow-up ticket: delete `theming/__mocks__/ThemeProvider.tsx`~~ — **declined.** Small enough that drift is unlikely to matter; the mock stays as-is and no ticket is raised
 - [x] 7.4 ~~Raise a follow-up ticket: CI check for packages missing a Vitest project~~ — **declined.** The explicit `coverage.include` list is considered visible enough in review on its own
 - [x] 7.5 ~~Raise a follow-up ticket: `localStorage` polyfill in `testing-config`~~ — **declined.** Two local stubs is an acceptable cost for now; revisit if more tests start needing storage
