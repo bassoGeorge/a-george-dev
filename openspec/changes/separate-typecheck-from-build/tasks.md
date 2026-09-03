@@ -49,4 +49,4 @@
   - **3.3 gate** — verified by reintroducing `shape="scooped"`: typecheck reported the original TS2322 and failed, then was restored
   - **4.2 app errors** — `ageorgedev` 0, `game-tools` 1 (fixed here, see 4.3). Far smaller than the open question anticipated
   - **dist contents** — 132 test artifacts and 24 story artifacts before; 0 test, 0 story, 0 mock, 0 snapshot after
-- [ ] 5.3 Open a PR titled per the repo's `write-commits` convention
+- [x] 5.3 Open a PR titled per the repo's `write-commits` convention — pushed and opened by the repo owner; CI green
