@@ -57,7 +57,6 @@ export const exampleWizard: Character = {
         { dice: '1d6', type: 'Bludgeoning' },
         { dice: '1d4', type: 'Necrotic', disableModifier: true },
       ],
-      masteryProperty: 'Slow',
     },
     {
       name: 'Fire Bolt',

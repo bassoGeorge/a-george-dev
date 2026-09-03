@@ -1,25 +1,10 @@
-import { filter, map, uniq } from 'ramda';
-import { useMemo } from 'react';
 import type { WeaponMasteryProperty } from '../../lib/models/weapon-properties';
-import { useCharacter } from '../CharacterSheet';
 import { GameInfoPanel, GameInfoPanelTitle } from '../layout/GameInfoPanel';
 
 export function WeaponMasteries() {
-  const { character } = useCharacter();
-  const allMasteries = useMemo(
-    () =>
-      uniq(
-        filter(
-          Boolean,
-          map((atk) => atk.masteryProperty, character.attacks)
-        )
-      ) as WeaponMasteryProperty[],
-    [character]
-  );
-
-  if (allMasteries.length < 1) {
-    return null;
-  }
+  const allMasteries = (
+    Object.keys(Descriptions) as WeaponMasteryProperty[]
+  ).sort();
 
   return (
     <GameInfoPanel>

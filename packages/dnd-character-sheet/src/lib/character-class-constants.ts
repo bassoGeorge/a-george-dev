@@ -1,3 +1,4 @@
+import type { Character } from './models/character';
 import { CharacterClass } from './models/character-classes';
 
 export const HIT_DICE_TABLE: Record<CharacterClass, string> = {
@@ -15,3 +16,23 @@ export const HIT_DICE_TABLE: Record<CharacterClass, string> = {
   [CharacterClass.Warlock]: 'd8',
   [CharacterClass.Wizard]: 'd6',
 };
+
+export const WEAPON_MASTERY_CLASSES: CharacterClass[] = [
+  CharacterClass.Barbarian,
+  CharacterClass.Fighter,
+  CharacterClass.Paladin,
+  CharacterClass.Ranger,
+  CharacterClass.Rogue,
+];
+
+export const WEAPON_MASTER_FEAT_NAME = 'Weapon Master';
+
+export function hasWeaponMastery(character: Character): boolean {
+  return (
+    character.classes.some(({ name }) =>
+      WEAPON_MASTERY_CLASSES.includes(name)
+    ) ||
+    (character.feats?.some(({ name }) => name === WEAPON_MASTER_FEAT_NAME) ??
+      false)
+  );
+}

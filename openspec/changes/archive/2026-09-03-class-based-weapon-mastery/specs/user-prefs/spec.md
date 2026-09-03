@@ -1,67 +1,4 @@
-## Purpose
-
-Provides persisted per-user display preferences for `game-tools`, exposed through `UserPrefsContext` and edited via a customisation dropdown in the header, controlling which optional character sheet panels are shown.
-
-## Requirements
-
-### Requirement: User preferences context
-The app SHALL provide a `UserPrefsContext` with a `UserPrefsProvider` that makes user preferences available to all components in `game-tools`. The context SHALL expose the current prefs and a setter function.
-
-#### Scenario: Provider wraps app
-- **WHEN** the app renders
-- **THEN** `UserPrefsProvider` is present in `GlobalProviders` wrapping all children
-
-#### Scenario: Default preferences
-- **WHEN** no preferences have been saved to `localStorage`
-- **THEN** `showActionsInCombat` is `false`, `showWeaponMasteries` is `false`, and `showNotes` is `true`
-
-#### Scenario: Preferences read from localStorage on mount
-- **WHEN** the app mounts and `localStorage` contains a previously saved `game-tools:userPrefs` entry
-- **THEN** the context initialises with those saved values
-
-#### Scenario: localStorage unavailable
-- **WHEN** `localStorage` is unavailable (e.g. SSR, private browsing)
-- **THEN** the context initialises with default preferences without throwing
-
-### Requirement: User preferences persistence
-The app SHALL persist user preferences to `localStorage` under the key `game-tools:userPrefs` whenever they change.
-
-#### Scenario: Preference change is persisted
-- **WHEN** the user toggles a preference
-- **THEN** the updated preferences object is written to `localStorage` as JSON
-
-#### Scenario: Preference survives page reload
-- **WHEN** the user sets a preference and reloads the page
-- **THEN** the preference is restored to its saved value
-
-### Requirement: Per-panel visibility toggles
-The `UserPrefs` type SHALL contain a boolean per optional reference panel. Initial panels:
-- `showActionsInCombat: boolean`
-- `showWeaponMasteries: boolean`
-- `showNotes: boolean`
-
-#### Scenario: Independent panel toggles
-- **WHEN** the user enables `showActionsInCombat`
-- **THEN** only `ActionsInCombat` is shown; `showWeaponMasteries` is unaffected
-
-### Requirement: showNotes preference controls Notes panel visibility
-`UserPrefs` SHALL include a `showNotes: boolean` field. The default value SHALL be `true`. `SheetUserPreferences` in the `dnd-character-sheet` package SHALL expose `showNotes?: boolean`. `StandardCharacterSheet` SHALL render `NotesPanel` when `userPreferences.showNotes` is `true` (or absent, falling back to `false` at the sheet level — but `true` must be passed from the route when the user preference is on).
-
-#### Scenario: Default preference shows notes
-- **WHEN** no preferences have been saved to localStorage
-- **THEN** `showNotes` is `true` and the Notes panel is visible
-
-#### Scenario: Notes hidden when toggled off
-- **WHEN** the user sets `showNotes` to `false`
-- **THEN** `NotesPanel` is not rendered in `StandardCharacterSheet`
-
-#### Scenario: Notes shown when toggled on
-- **WHEN** the user sets `showNotes` to `true`
-- **THEN** `NotesPanel` is rendered in `StandardCharacterSheet`
-
-#### Scenario: Preference survives page reload
-- **WHEN** the user toggles `showNotes` off and reloads the page
-- **THEN** `showNotes` is restored to `false` from localStorage
+## MODIFIED Requirements
 
 ### Requirement: Customisation dropdown in header
 `DndHeaderActions` SHALL render a "Customise" trigger button that opens a dropdown menu. The dropdown SHALL contain:
@@ -97,16 +34,6 @@ The "Weapon Masteries" checkbox item SHALL be rendered only when the current cha
 #### Scenario: Other items unaffected by ineligibility
 - **WHEN** the dropdown is opened on an ineligible character
 - **THEN** the "Notes" and "Actions in Combat" checkbox items are still present, along with the "Beginner help" label
-### Requirement: Sheet user preferences type
-The `dnd-character-sheet` package SHALL define a `SheetUserPreferences` type with optional booleans per panel. `StandardCharacterSheet` SHALL accept an optional `userPreferences?: SheetUserPreferences` prop. When absent or when a field is undefined, all panels default to hidden (`false`).
-
-#### Scenario: No prop passed
-- **WHEN** `StandardCharacterSheet` renders without a `userPreferences` prop
-- **THEN** neither `ActionsInCombat` nor `WeaponMasteries` is rendered
-
-#### Scenario: Prop passed from route
-- **WHEN** the character sheet route reads user prefs from context and passes them as `userPreferences`
-- **THEN** `StandardCharacterSheet` renders the correct panels
 
 ### Requirement: Conditional rendering of reference panels
 `StandardCharacterSheet` SHALL render `ActionsInCombat` when `userPreferences.showActionsInCombat` is `true`. It SHALL render `WeaponMasteries` only when `hasWeaponMastery(character)` is `true` **and** `userPreferences.showWeaponMasteries` is `true`. The `!data.spellcasting` guard SHALL remain removed.
@@ -140,6 +67,8 @@ The eligibility check in the sheet is authoritative. Because `showWeaponMasterie
 #### Scenario: Eligible character no longer needs annotated attacks
 - **WHEN** a Fighter with no `masteryProperty` on any attack renders with `showWeaponMasteries: true`
 - **THEN** `WeaponMasteries` is rendered
+
+## ADDED Requirements
 
 ### Requirement: Weapon mastery eligibility never mutates stored preferences
 Weapon mastery eligibility SHALL act purely as a render-time gate. Viewing a character who is ineligible SHALL NOT write `showWeaponMasteries: false` back to `localStorage`, and SHALL NOT otherwise modify the persisted preferences object. `UserPrefsContext` keeps its existing shape, defaults and storage key.

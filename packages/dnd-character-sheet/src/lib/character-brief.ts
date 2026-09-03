@@ -1,3 +1,4 @@
+import { hasWeaponMastery } from './character-class-constants';
 import type { Character } from './models';
 
 export function getCharacterBrief(character: Character) {
@@ -24,5 +25,6 @@ export function getCharacterBrief(character: Character) {
     classes,
     primaryClass,
     description,
+    hasWeaponMastery: hasWeaponMastery(character),
   };
 }

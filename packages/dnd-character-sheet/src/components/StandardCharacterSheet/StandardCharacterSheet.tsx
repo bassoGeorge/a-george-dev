@@ -1,3 +1,4 @@
+import { hasWeaponMastery } from '../../lib/character-class-constants';
 import { Ability } from '../../lib/models/abilities';
 import type { Character } from '../../lib/models/character';
 import { AbilityBox } from '../AbilityBox/AbilityBox';
@@ -107,7 +108,8 @@ export function StandardCharacterSheet({
                 </div>
               )}
               {userPreferences?.showActionsInCombat && <ActionsInCombat />}
-              {userPreferences?.showWeaponMasteries && <WeaponMasteries />}
+              {hasWeaponMastery(data) &&
+                userPreferences?.showWeaponMasteries && <WeaponMasteries />}
             </div>
             <div className="col-span-2 flex flex-col gap-4 min-w-0 max-tablet:col-span-1">
               <GenericPanel

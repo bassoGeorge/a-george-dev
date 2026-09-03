@@ -37,7 +37,7 @@ export function DndHeaderActions() {
     return null;
   }
 
-  const assets = characterSheetRouteMatch.context.assets;
+  const { assets, hasWeaponMastery } = characterSheetRouteMatch.context;
   return (
     <div className="flex items-center gap-4 max-tablet:col-span-2 max-tablet:row-start-3 max-tablet:flex-wrap">
       {assets?.map((asset: CharacterAsset) => {
@@ -75,15 +75,17 @@ export function DndHeaderActions() {
           >
             Actions in Combat
           </DropdownMenuCheckboxItem>
-          <DropdownMenuCheckboxItem
-            checked={prefs.showWeaponMasteries}
-            onCheckedChange={(checked) =>
-              setPrefs({ showWeaponMasteries: checked })
-            }
-            onSelect={doNotCloseDropdown}
-          >
-            Weapon Masteries
-          </DropdownMenuCheckboxItem>
+          {hasWeaponMastery && (
+            <DropdownMenuCheckboxItem
+              checked={prefs.showWeaponMasteries}
+              onCheckedChange={(checked) =>
+                setPrefs({ showWeaponMasteries: checked })
+              }
+              onSelect={doNotCloseDropdown}
+            >
+              Weapon Masteries
+            </DropdownMenuCheckboxItem>
+          )}
 
           <DropdownMenuSeparator />
           <DropdownMenuLabel>Other panels</DropdownMenuLabel>

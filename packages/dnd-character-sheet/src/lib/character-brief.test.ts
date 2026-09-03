@@ -104,6 +104,35 @@ describe('getCharacterBrief', () => {
     expect(brief.primaryClass).toBe(CharacterClass.Fighter);
   });
 
+  it('reports hasWeaponMastery for a character in an eligible class', () => {
+    const brief = getCharacterBrief({
+      ...baseCharacter,
+      classes: [{ name: CharacterClass.Rogue, level: 5 }],
+    });
+    expect(brief.hasWeaponMastery).toBe(true);
+  });
+
+  it('reports hasWeaponMastery for a character with the Weapon Master feat', () => {
+    const brief = getCharacterBrief({
+      ...baseCharacter,
+      feats: [{ name: 'Weapon Master', description: 'Mastery' }],
+    });
+    expect(brief.hasWeaponMastery).toBe(true);
+  });
+
+  it('reports no weapon mastery for an ineligible character with no feats', () => {
+    const brief = getCharacterBrief(baseCharacter);
+    expect(brief.hasWeaponMastery).toBe(false);
+  });
+
+  it('keeps hasWeaponMastery serialisable', () => {
+    const brief = getCharacterBrief({
+      ...baseCharacter,
+      classes: [{ name: CharacterClass.Fighter, level: 3 }],
+    });
+    expect(JSON.parse(JSON.stringify(brief)).hasWeaponMastery).toBe(true);
+  });
+
   it('resolves primaryClass to the first-declared class when levels tie', () => {
     const brief = getCharacterBrief({
       ...baseCharacter,

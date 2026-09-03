@@ -1,5 +1,7 @@
-import { act, renderHook } from '@testing-library/react';
+import { StandardCharacterSheet } from '@ageorgedev/dnd-character-sheet';
+import { act, render, renderHook, screen } from '@testing-library/react';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
+import { getCharacterBySlugAndLevel } from '../data/dnd-characters';
 import { UserPrefsProvider, useUserPrefs } from './UserPrefsContext';
 
 const STORAGE_KEY = 'game-tools:userPrefs';
@@ -103,6 +105,71 @@ describe('UserPrefsContext', () => {
         showWeaponMasteries: false,
         showNotes: false,
       });
+    });
+  });
+
+  // Eligibility is a render-time gate only (see the user-prefs spec:
+  // "Weapon mastery eligibility never mutates stored preferences"). Viewing an
+  // ineligible character must not write showWeaponMasteries back to storage,
+  // since the pref is global across every character.
+  describe('weapon mastery eligibility', () => {
+    const ELIGIBLE = 'gonvar-feathertide'; // Fighter
+    const INELIGIBLE = 'elnorin-lunarrest'; // Sorcerer
+
+    function Sheet({ slug }: { slug: string }) {
+      const { prefs } = useUserPrefs();
+      const { data } = getCharacterBySlugAndLevel(slug);
+      return <StandardCharacterSheet data={data} userPreferences={prefs} />;
+    }
+
+    function storedPrefs() {
+      return JSON.parse(localStorage.getItem(STORAGE_KEY) ?? '{}');
+    }
+
+    beforeEach(() => {
+      localStorage.setItem(
+        STORAGE_KEY,
+        JSON.stringify({ showWeaponMasteries: true })
+      );
+    });
+
+    it('leaves the stored preference intact while an ineligible character is displayed', () => {
+      render(
+        <UserPrefsProvider>
+          <Sheet slug={INELIGIBLE} />
+        </UserPrefsProvider>
+      );
+
+      expect(
+        screen.queryByText('Weapon Mastery Properties')
+      ).not.toBeInTheDocument();
+      expect(storedPrefs().showWeaponMasteries).toBe(true);
+    });
+
+    it('restores the panel after navigating to an ineligible character and back', () => {
+      const { rerender } = render(
+        <UserPrefsProvider>
+          <Sheet slug={ELIGIBLE} />
+        </UserPrefsProvider>
+      );
+      expect(screen.getByText('Weapon Mastery Properties')).toBeInTheDocument();
+
+      rerender(
+        <UserPrefsProvider>
+          <Sheet slug={INELIGIBLE} />
+        </UserPrefsProvider>
+      );
+      expect(
+        screen.queryByText('Weapon Mastery Properties')
+      ).not.toBeInTheDocument();
+
+      rerender(
+        <UserPrefsProvider>
+          <Sheet slug={ELIGIBLE} />
+        </UserPrefsProvider>
+      );
+      expect(screen.getByText('Weapon Mastery Properties')).toBeInTheDocument();
+      expect(storedPrefs().showWeaponMasteries).toBe(true);
     });
   });
 });

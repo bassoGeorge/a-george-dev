@@ -62,6 +62,7 @@ function setupOnRoute(
   overrides: {
     prefs?: Partial<typeof DEFAULT_PREFS>;
     assets?: { id: string; url: string; label?: string }[];
+    hasWeaponMastery?: boolean;
   } = {}
 ) {
   const setPrefs = vi.fn();
@@ -70,7 +71,10 @@ function setupOnRoute(
     setPrefs,
   });
   mockUseMatch.mockReturnValue({
-    context: { assets: overrides.assets ?? [] },
+    context: {
+      assets: overrides.assets ?? [],
+      hasWeaponMastery: overrides.hasWeaponMastery ?? true,
+    },
   } as ReturnType<typeof useMatch>);
   return { setPrefs };
 }
@@ -159,6 +163,30 @@ describe('DndHeaderActions', () => {
     fireEvent.click(checkbox);
 
     expect(setPrefs).toHaveBeenCalledWith({ showNotes: false });
+  });
+
+  it('renders the Weapon Masteries item for an eligible character', () => {
+    setupOnRoute({ hasWeaponMastery: true });
+    render(<DndHeaderActions />);
+
+    expect(screen.getByLabelText('Weapon Masteries')).toBeInTheDocument();
+  });
+
+  it('omits the Weapon Masteries item for an ineligible character', () => {
+    setupOnRoute({ hasWeaponMastery: false });
+    render(<DndHeaderActions />);
+
+    expect(screen.queryByLabelText('Weapon Masteries')).not.toBeInTheDocument();
+    expect(screen.queryByText('Weapon Masteries')).not.toBeInTheDocument();
+  });
+
+  it('keeps the other customisation items for an ineligible character', () => {
+    setupOnRoute({ hasWeaponMastery: false });
+    render(<DndHeaderActions />);
+
+    expect(screen.getByLabelText('Actions in Combat')).toBeInTheDocument();
+    expect(screen.getByLabelText('Notes')).toBeInTheDocument();
+    expect(screen.getByText('Beginner help')).toBeInTheDocument();
   });
 
   it('renders a download link for each asset', () => {
