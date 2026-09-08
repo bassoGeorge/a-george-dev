@@ -1,6 +1,7 @@
 import { ABILITY_DETAILS, ALL_ABILITIES } from '../../lib/models/abilities';
 import type { Creature, CreatureEntry } from '../../lib/models/creature';
 import { formatMod } from '../../lib/utils';
+import { Panel } from '../layout/Panel';
 import { RichTextDisplay } from '../RichTextDisplay/RichTextDisplay';
 import styles from './CreatureStatBlock.module.css';
 
@@ -14,12 +15,13 @@ export function CreatureStatBlock({ creature }: { creature: Creature }) {
     .join(' ');
 
   return (
-    <article
-      className={`${styles.statBlock} rounded-md border-2 border-neutral-subdued bg-page-1 p-4 font-body text-neutral-strong`}
+    <Panel
+      topRightCorner="scooped"
+      className={`${styles.statBlock} px-4 py-3 text-neutral-strong`}
       data-testid="creature-stat-block"
     >
       <header className="border-b-medium-line border-primary-foreground pb-2">
-        <h2 className="font-heading text-3xl leading-none text-primary-foreground uppercase tracking-wide">
+        <h2 className="text-2xl font-interface leading-none text-primary-foreground tracking-wide">
           {creature.name}
         </h2>
         {taxonomy && (
@@ -40,6 +42,16 @@ export function CreatureStatBlock({ creature }: { creature: Creature }) {
           className="mt-3 grid grid-cols-3 gap-2"
           aria-label="Abilities"
         >
+          {[0, 1, 2].map((i) => (
+            <div
+              className="grid grid-cols-[1fr_2.5rem_2.5rem] text-center gap-1 px-2 text-xs uppercase font-interface tracking-wide text-neutral-subdued"
+              key={i}
+            >
+              <span />
+              <span>Mod</span>
+              <span>Save</span>
+            </div>
+          ))}
           {abilities.map((ability) => {
             const score = creature.abilities?.[ability];
             if (score === undefined) return null;
@@ -47,17 +59,18 @@ export function CreatureStatBlock({ creature }: { creature: Creature }) {
             const savingThrow = creature.savingThrows?.[ability] ?? modifier;
             return (
               <div
-                className="grid grid-cols-[1fr_auto_auto] items-baseline gap-1 bg-page-3 px-2 py-1"
+                className="grid grid-cols-[1fr_2.5rem_2.5rem] items-baseline gap-1 bg-page-2 px-2 py-1"
                 key={ability}
               >
-                <b className="font-heading text-primary-foreground">
-                  {ability}
-                </b>
-                <span title={`${ABILITY_DETAILS[ability].label} modifier`}>
+                <b className="text-primary-foreground">{ability}</b>
+                <span
+                  className="text-center"
+                  title={`${ABILITY_DETAILS[ability].label} modifier`}
+                >
                   {formatMod(modifier)}
                 </span>
                 <span
-                  className="text-neutral-subdued"
+                  className="text-center text-neutral-subdued"
                   title={`${ABILITY_DETAILS[ability].label} save`}
                 >
                   {formatMod(savingThrow)}
@@ -95,7 +108,7 @@ export function CreatureStatBlock({ creature }: { creature: Creature }) {
       <RulesSection title="Actions" entries={creature.actions} />
       <RulesSection title="Bonus Actions" entries={creature.bonusActions} />
       <RulesSection title="Reactions" entries={creature.reactions} />
-    </article>
+    </Panel>
   );
 }
 
@@ -121,7 +134,7 @@ function CombatSummary({ creature }: { creature: Creature }) {
     <dl className="mt-3 grid grid-cols-2 gap-x-4 gap-y-1 text-base max-tablet:grid-cols-1">
       {items.map(([label, value]) => (
         <div className="flex gap-1" key={label}>
-          <dt className="font-bold text-primary-foreground">{label}</dt>
+          <dt className="font-bold">{label}</dt>
           <dd>{value}</dd>
         </div>
       ))}
@@ -132,7 +145,7 @@ function CombatSummary({ creature }: { creature: Creature }) {
 function DetailRow({ label, value }: { label: string; value: string }) {
   return (
     <p>
-      <b className="text-primary-foreground">{label}</b> {value}
+      <b>{label}</b> {value}
     </p>
   );
 }
@@ -148,7 +161,7 @@ function RulesSection({
 
   return (
     <section className="mt-4">
-      <h3 className="border-b border-primary-foreground pb-1 font-heading text-2xl uppercase tracking-wide text-primary-foreground">
+      <h3 className="border-b border-primary-foreground pb-1 text-xl tracking-wide text-primary-foreground font-interface">
         {title}
       </h3>
       <div className="mt-2 space-y-2 text-base">

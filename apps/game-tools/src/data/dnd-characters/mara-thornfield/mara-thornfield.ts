@@ -11,7 +11,7 @@ import {
 import { ALERT, SKILLED } from '../common';
 
 const moonFormDetails = [
-  { label: 'Circle Forms AC', value: '17 (13 + Wisdom modifier)' },
+  { label: 'Circle Forms AC', value: '17 (13 + Wis. mod)' },
   { label: 'Temporary Hit Points', value: '15 when Wild Shape begins' },
 ];
 
