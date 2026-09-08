@@ -22,5 +22,7 @@
     height: auto;
     min-height: 100vh;
     overflow: visible;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
   }
 }
