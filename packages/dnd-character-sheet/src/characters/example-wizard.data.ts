@@ -130,6 +130,45 @@ export const exampleWizard: Character = {
   toolProficiencies: ["Calligrapher's Supplies"],
   languages: ['Common', 'Elvish', 'Draconic', 'Sylvan'],
 
+  // Black Bear, adapted from the 2024 SRD 5.2.1 (CC-BY-4.0).
+  creatures: [
+    {
+      name: 'Black Bear',
+      size: 'Medium',
+      creatureType: 'Beast',
+      alignment: 'Unaligned',
+      armorClass: 11,
+      initiative: 1,
+      hitPoints: { maximum: 19, dice: '3d8 + 6' },
+      speed: '30 ft., Climb 30 ft., Swim 30 ft.',
+      abilities: {
+        [Ability.Strength]: 15,
+        [Ability.Dexterity]: 12,
+        [Ability.Constitution]: 14,
+        [Ability.Intelligence]: 2,
+        [Ability.Wisdom]: 12,
+        [Ability.Charisma]: 7,
+      },
+      skills: { [Skill.Perception]: 5 },
+      senses: ['Darkvision 60 ft.', 'Passive Perception 15'],
+      languages: ['None'],
+      challengeRating: '1/2',
+      experiencePoints: 100,
+      proficiencyBonus: 2,
+      actions: [
+        {
+          name: 'Multiattack',
+          description: 'The bear makes two Rend attacks.',
+        },
+        {
+          name: 'Rend',
+          description:
+            '<em>Melee Attack Roll:</em> +4, reach 5 ft. <em>Hit:</em> 5 (1d6 + 2) Slashing damage.',
+        },
+      ],
+    },
+  ],
+
   backstory:
     "Seraphina studied at the Arcane Academy for fifteen years before striking out on her own to research the ancient Ashveil bloodline's connection to the Weave.",
 

@@ -135,3 +135,26 @@ describe('StandardCharacterSheet user preferences', () => {
     });
   });
 });
+
+describe('StandardCharacterSheet creatures', () => {
+  it('does not add creature content when creatures are omitted', () => {
+    renderSheet({});
+
+    expect(screen.queryByTestId('creature-stat-block')).not.toBeInTheDocument();
+  });
+
+  it('appends associated creatures in authored order', () => {
+    renderSheet(
+      {},
+      {
+        creatures: [{ name: 'Owl Familiar' }, { name: 'Brown Bear' }],
+      }
+    );
+
+    expect(
+      screen
+        .getAllByTestId('creature-stat-block')
+        .map((block) => block.textContent)
+    ).toEqual(['Owl Familiar', 'Brown Bear']);
+  });
+});

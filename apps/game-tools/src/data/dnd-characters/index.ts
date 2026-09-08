@@ -9,6 +9,7 @@ import ClawSpellBook from './claw/claw-spellbook.pdf?url';
 import { ElnorinData } from './elnorin-lunarrest/elnorin-lunarrest';
 import ElnorinSpellBook from './elnorin-lunarrest/elnorrin-spellbook.pdf?url';
 import { GonvarData } from './gonvar-feathertide/gonvar-feathertide';
+import { MaraThornfieldData } from './mara-thornfield/mara-thornfield';
 import { OmarinData } from './omarin-kenate/omarin-kenate';
 import { RustyData } from './rusty/rusty';
 import RustyMagicPlans from './rusty/rusty-magic-items.pdf';
@@ -60,6 +61,7 @@ const characters: BasePack[] = [
     assets: [{ id: 'spellbook', url: ElnorinSpellBook }],
   },
   { data: GonvarData },
+  { data: MaraThornfieldData },
   {
     data: ClawData,
     assets: [{ id: 'spellbook', url: ClawSpellBook }],

@@ -14,10 +14,7 @@ export function ArmorBlock() {
 
   return (
     <Panel
-      outerClasses={cn(
-        styles.ShieldShape,
-        'max-tablet-landscape:justify-self-center'
-      )}
+      outerClasses={cn(styles.ShieldShape, 'max-tablet:justify-self-center')}
       className="items-center flex flex-col pb-4"
     >
       <PanelTitle>

@@ -2,6 +2,7 @@ import type { Ability } from './abilities';
 import type { ArmorProficiency } from './armor-proficiency';
 import type { Attack } from './attacks';
 import type { CharacterClass } from './character-classes';
+import type { Creature } from './creature';
 import type { Feature } from './feature';
 import type { Size } from './size';
 import type { Skill } from './skills';
@@ -73,4 +74,7 @@ export interface Character {
     title: string;
     content: string;
   }[];
+
+  // Associated familiars, wild shapes, constructs, and other creatures
+  creatures?: Creature[];
 }

@@ -6,6 +6,7 @@ import { AttackList } from '../AttackList/AttackList';
 import { CharacterSheet } from '../CharacterSheet';
 import { CoinBlock } from '../CoinBlock/CoinBlock';
 import { CombatRow } from '../CombatRow/CombatRow';
+import { CreatureSheet } from '../CreatureSheet/CreatureSheet';
 import { EquipmentTraining } from '../EquipmentTraining/EquipmentTraining';
 import { ClassFeatures } from '../feature-blocks/ClassFeatures';
 import { Feats } from '../feature-blocks/Feats';
@@ -55,7 +56,7 @@ export function StandardCharacterSheet({
           <SheetHeader />
           <div className="grid grid-cols-3 gap-4 flex-1 max-tablet:grid-cols-1">
             <div className="col-span-1 flex flex-col gap-4 min-w-0">
-              <div className="grid grid-cols-2 gap-2 max-tablet-landscape:grid-cols-1">
+              <div className="grid grid-cols-2 gap-2 max-tablet:grid-cols-1">
                 <div className="flex flex-col gap-2 justify-between">
                   <ProficiencyBlock />
                   <AbilityBox ability={Ability.Strength} />
@@ -128,6 +129,9 @@ export function StandardCharacterSheet({
             </div>
           </div>
         </Page>
+        {!!data.creatures?.length && (
+          <CreatureSheet creatures={data.creatures} />
+        )}
       </CharacterSheet>
     </VisualAdjustmentsContext.Provider>
   );
