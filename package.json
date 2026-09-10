@@ -17,7 +17,6 @@
     "preinstall": "git config core.hooksPath .git-hooks",
     "clean-dist": "rm -rf dist && find ./packages -type d -name dist -exec rm -rf {} + && find ./apps -type d -name dist -exec rm -rf {} +",
     "storybook": "turbo @ageorgedev/design-docs#dev:storybook",
-    "decap-server": "npx decap-server",
     "shadcn": "yarn dlx shadcn",
     "format-and-lint": "biome check .",
     "format-and-lint:fix": "biome check . --write",

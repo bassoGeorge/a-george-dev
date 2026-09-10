@@ -9,7 +9,6 @@ Personal website mono-repo for [ageorge.dev](https://ageorge.dev), built with Tu
 # Development
 yarn dev                                         # Start ageorgedev app (port 3000)
 yarn storybook                                   # Start design-docs Storybook
-yarn decap-server                                # Start local CMS server
 
 # game-tools runs separately
 yarn turbo dev --filter=@ageorgedev/game-tools   # Start game-tools app (port 3001)

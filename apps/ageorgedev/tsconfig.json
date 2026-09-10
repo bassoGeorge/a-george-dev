@@ -1,10 +1,9 @@
 {
   "extends": "@ageorgedev/ts-config/react.json",
-  "include": ["src"],
+  "include": ["src", "keystatic.config.ts"],
   "exclude": ["node_modules", "dist"],
   "compilerOptions": {
     "outDir": "dist",
-    "rootDir": "./src",
     "types": ["@testing-library/jest-dom"]
   }
 }

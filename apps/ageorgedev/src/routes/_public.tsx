@@ -15,6 +15,10 @@ const links = [
     to: '/talks',
     label: 'Talks',
   },
+  {
+    to: '/blog',
+    label: 'Blog',
+  },
 ];
 
 function RouteComponent() {

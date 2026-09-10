@@ -11,9 +11,13 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as PublicRouteImport } from './routes/_public'
 import { Route as PublicIndexRouteImport } from './routes/_public/index'
+import { Route as KeystaticSplatRouteImport } from './routes/keystatic.$'
 import { Route as NoLayoutResumeRouteImport } from './routes/_noLayout/resume'
 import { Route as PublicTalksIndexRouteImport } from './routes/_public/talks.index'
+import { Route as PublicBlogIndexRouteImport } from './routes/_public/blog.index'
+import { Route as ApiKeystaticSplatRouteImport } from './routes/api/keystatic.$'
 import { Route as PublicTalksTailwindRouteImport } from './routes/_public/talks.tailwind'
+import { Route as PublicBlogSlugRouteImport } from './routes/_public/blog.$slug'
 
 const PublicRoute = PublicRouteImport.update({
   id: '/_public',
@@ -23,6 +27,11 @@ const PublicIndexRoute = PublicIndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => PublicRoute,
+} as any)
+const KeystaticSplatRoute = KeystaticSplatRouteImport.update({
+  id: '/keystatic/$',
+  path: '/keystatic/$',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const NoLayoutResumeRoute = NoLayoutResumeRouteImport.update({
   id: '/_noLayout/resume',
@@ -34,49 +43,98 @@ const PublicTalksIndexRoute = PublicTalksIndexRouteImport.update({
   path: '/talks/',
   getParentRoute: () => PublicRoute,
 } as any)
+const PublicBlogIndexRoute = PublicBlogIndexRouteImport.update({
+  id: '/blog/',
+  path: '/blog/',
+  getParentRoute: () => PublicRoute,
+} as any)
+const ApiKeystaticSplatRoute = ApiKeystaticSplatRouteImport.update({
+  id: '/api/keystatic/$',
+  path: '/api/keystatic/$',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PublicTalksTailwindRoute = PublicTalksTailwindRouteImport.update({
   id: '/talks/tailwind',
   path: '/talks/tailwind',
+  getParentRoute: () => PublicRoute,
+} as any)
+const PublicBlogSlugRoute = PublicBlogSlugRouteImport.update({
+  id: '/blog/$slug',
+  path: '/blog/$slug',
   getParentRoute: () => PublicRoute,
 } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof PublicIndexRoute
   '/resume': typeof NoLayoutResumeRoute
+  '/keystatic/$': typeof KeystaticSplatRoute
+  '/blog/$slug': typeof PublicBlogSlugRoute
   '/talks/tailwind': typeof PublicTalksTailwindRoute
+  '/api/keystatic/$': typeof ApiKeystaticSplatRoute
+  '/blog/': typeof PublicBlogIndexRoute
   '/talks/': typeof PublicTalksIndexRoute
 }
 export interface FileRoutesByTo {
   '/resume': typeof NoLayoutResumeRoute
+  '/keystatic/$': typeof KeystaticSplatRoute
   '/': typeof PublicIndexRoute
+  '/blog/$slug': typeof PublicBlogSlugRoute
   '/talks/tailwind': typeof PublicTalksTailwindRoute
+  '/api/keystatic/$': typeof ApiKeystaticSplatRoute
+  '/blog': typeof PublicBlogIndexRoute
   '/talks': typeof PublicTalksIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/_public': typeof PublicRouteWithChildren
   '/_noLayout/resume': typeof NoLayoutResumeRoute
+  '/keystatic/$': typeof KeystaticSplatRoute
   '/_public/': typeof PublicIndexRoute
+  '/_public/blog/$slug': typeof PublicBlogSlugRoute
   '/_public/talks/tailwind': typeof PublicTalksTailwindRoute
+  '/api/keystatic/$': typeof ApiKeystaticSplatRoute
+  '/_public/blog/': typeof PublicBlogIndexRoute
   '/_public/talks/': typeof PublicTalksIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/resume' | '/talks/tailwind' | '/talks/'
+  fullPaths:
+    | '/'
+    | '/resume'
+    | '/keystatic/$'
+    | '/blog/$slug'
+    | '/talks/tailwind'
+    | '/api/keystatic/$'
+    | '/blog/'
+    | '/talks/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/resume' | '/' | '/talks/tailwind' | '/talks'
+  to:
+    | '/resume'
+    | '/keystatic/$'
+    | '/'
+    | '/blog/$slug'
+    | '/talks/tailwind'
+    | '/api/keystatic/$'
+    | '/blog'
+    | '/talks'
   id:
     | '__root__'
     | '/_public'
     | '/_noLayout/resume'
+    | '/keystatic/$'
     | '/_public/'
+    | '/_public/blog/$slug'
     | '/_public/talks/tailwind'
+    | '/api/keystatic/$'
+    | '/_public/blog/'
     | '/_public/talks/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   PublicRoute: typeof PublicRouteWithChildren
   NoLayoutResumeRoute: typeof NoLayoutResumeRoute
+  KeystaticSplatRoute: typeof KeystaticSplatRoute
+  ApiKeystaticSplatRoute: typeof ApiKeystaticSplatRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -95,6 +153,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PublicIndexRouteImport
       parentRoute: typeof PublicRoute
     }
+    '/keystatic/$': {
+      id: '/keystatic/$'
+      path: '/keystatic/$'
+      fullPath: '/keystatic/$'
+      preLoaderRoute: typeof KeystaticSplatRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/_noLayout/resume': {
       id: '/_noLayout/resume'
       path: '/resume'
@@ -109,6 +174,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PublicTalksIndexRouteImport
       parentRoute: typeof PublicRoute
     }
+    '/_public/blog/': {
+      id: '/_public/blog/'
+      path: '/blog'
+      fullPath: '/blog/'
+      preLoaderRoute: typeof PublicBlogIndexRouteImport
+      parentRoute: typeof PublicRoute
+    }
+    '/api/keystatic/$': {
+      id: '/api/keystatic/$'
+      path: '/api/keystatic/$'
+      fullPath: '/api/keystatic/$'
+      preLoaderRoute: typeof ApiKeystaticSplatRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/_public/talks/tailwind': {
       id: '/_public/talks/tailwind'
       path: '/talks/tailwind'
@@ -116,18 +195,29 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PublicTalksTailwindRouteImport
       parentRoute: typeof PublicRoute
     }
+    '/_public/blog/$slug': {
+      id: '/_public/blog/$slug'
+      path: '/blog/$slug'
+      fullPath: '/blog/$slug'
+      preLoaderRoute: typeof PublicBlogSlugRouteImport
+      parentRoute: typeof PublicRoute
+    }
   }
 }
 
 interface PublicRouteChildren {
   PublicIndexRoute: typeof PublicIndexRoute
+  PublicBlogSlugRoute: typeof PublicBlogSlugRoute
   PublicTalksTailwindRoute: typeof PublicTalksTailwindRoute
+  PublicBlogIndexRoute: typeof PublicBlogIndexRoute
   PublicTalksIndexRoute: typeof PublicTalksIndexRoute
 }
 
 const PublicRouteChildren: PublicRouteChildren = {
   PublicIndexRoute: PublicIndexRoute,
+  PublicBlogSlugRoute: PublicBlogSlugRoute,
   PublicTalksTailwindRoute: PublicTalksTailwindRoute,
+  PublicBlogIndexRoute: PublicBlogIndexRoute,
   PublicTalksIndexRoute: PublicTalksIndexRoute,
 }
 
@@ -137,6 +227,8 @@ const PublicRouteWithChildren =
 const rootRouteChildren: RootRouteChildren = {
   PublicRoute: PublicRouteWithChildren,
   NoLayoutResumeRoute: NoLayoutResumeRoute,
+  KeystaticSplatRoute: KeystaticSplatRoute,
+  ApiKeystaticSplatRoute: ApiKeystaticSplatRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

@@ -1,7 +1,10 @@
 import process from 'node:process';
+import mdx from '@mdx-js/rollup';
 import tailwindcss from '@tailwindcss/vite';
 import { tanstackStart } from '@tanstack/react-start/plugin/vite';
 import react from '@vitejs/plugin-react';
+import remarkFrontmatter from 'remark-frontmatter';
+import remarkMdxFrontmatter from 'remark-mdx-frontmatter';
 import { defineConfig, searchForWorkspaceRoot } from 'vite';
 import dts from 'vite-plugin-dts';
 
@@ -10,6 +13,10 @@ const config = defineConfig({
   plugins: [
     dts(),
     tailwindcss(),
+    mdx({
+      remarkPlugins: [remarkFrontmatter, remarkMdxFrontmatter],
+      providerImportSource: '@mdx-js/react',
+    }),
     tanstackStart({
       prerender: {
         enabled: true,
@@ -21,8 +28,10 @@ const config = defineConfig({
         // // Fail if an error occurs during prerendering
         // failOnError: true,
 
-        // // Whether to extract links from the HTML and prerender them also
-        // crawlLinks: true,
+        // Extract links from the HTML and prerender them too, so every
+        // /blog/$slug reachable from the /blog index gets prerendered
+        // without a hardcoded pages list.
+        crawlLinks: true,
 
         // // If disabled, only the root path or the paths defined in the pages config will be prerendered
         // autoStaticPathsDiscovery: true,
